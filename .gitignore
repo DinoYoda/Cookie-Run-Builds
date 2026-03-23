@@ -1,0 +1,9 @@
+.history/
+.vscode/
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Local/generated helper files
+output.txt
