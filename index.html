@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Tier Lists</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-game-selector">
+    <button class="sidebar-game-btn" id="sidebarGameBtn">
+      <span id="sidebarGameName">Loading…</span>
+      <span class="sidebar-game-chevron">▾</span>
+    </button>
+    <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
+  </div>
+  <div class="sidebar-header">Menu</div>
+  <a href="characters.html" class="sidebar-link">Characters</a>
+  <a href="index.html" class="sidebar-link sidebar-link-active">Tier Lists</a>
+  <a href="info.html" class="sidebar-link">Info</a>
+</div>
+
+<div class="topbar">
+<select id="gameSelect"></select>
+<div id="tierTabs"></div>
+</div>
+
+<div class="controls">
+  <input id="search" placeholder="Search...">
+  <button id="reset">Reset</button>
+  <span id="cardCounter">0 cards</span>
+</div>
+
+<div id="filters"></div>
+<div id="tierlist"></div>
+
+<script src="release-order.js"></script>
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script>
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="sidebar-game.js"></script>
+
+</body>
+</html>

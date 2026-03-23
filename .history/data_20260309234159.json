@@ -1,0 +1,39 @@
+{
+  "games": [
+
+
+
+    {
+      "id": "crk",
+      "name": "Cookie Run Kingdom",
+
+      "features": {
+        "eidolon": false,
+        "tags": true,
+        "elementIcon": false
+      },
+
+      "roles":[
+        {"id":"damage","name":"Damage"},
+        {"id":"support","name":"Support"},
+        {"id":"tank","name":"Tank"}
+      ],
+
+      "filters":{
+        "rarity":["Epic","Legendary"],
+        "position":["Front","Middle","Rear"]
+      },
+
+      "tierlists":[
+        {
+          "id":"arena",
+          "name":"Arena",
+          "tiers":["S","A","B","C"],
+          "characters":[]
+        }
+      ]
+
+    }
+
+  ]
+}

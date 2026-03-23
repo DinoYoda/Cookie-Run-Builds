@@ -1,0 +1,7 @@
+Status ATK Down ATK: -15.0% for 12.0 sec; stacks up to x1
+Hatred to Trigger Duskgloom Hatred: x50
+Status Water CageElement Water Water Cage Duration: 2 sec; ignores 20.0% of target's Debuff Resist
+Water Cage DMG: Water Element85.0% every 0.5 sec for 2 sec
+Tornado Extra DMG: Water Element9.0%
+Hatred: +1 every 1 sec
+Status LividnessStatus Undispellable Buff Lividness: +1 extra Hatred gained when an ally Cookie is defeated; stacks up to x5

@@ -1,0 +1,1732 @@
+{
+    "games": [
+
+        {
+            "id": "crk",
+            "name": "Cookie Run Kingdom",
+
+            "features": {
+                "eidolon": false,
+                "tags": false,
+                "elementIcon": false,
+                "role": false
+            },
+
+            "roles": [{
+                    "id": "damage",
+                    "name": "Damage"
+                },
+                {
+                    "id": "support",
+                    "name": "Support"
+                },
+                {
+                    "id": "tank",
+                    "name": "Tank"
+                }
+            ],
+
+            "filters": {
+                "rarity": ["Witch", "Beast", "Ancient", "Legendary", "Dragon", "Super Epic", "Epic", "Special",
+                    "Rare", "Common"
+                ],
+                "type": ["Ambush", "Bomber", "Charge", "Defense", "Healing", "Magic", "Ranged", "Support", "BTS"],
+                "element": ["Light", "Earth", "Darkness", "Water", "Poison", "Fire", "Electricity", "Ice", "Wind",
+                    "Steel", "Grass", "Chaos", null
+                ],
+                "position": ["Front", "Middle", "Rear"]
+            },
+
+            "characters": [{
+                    "name": "GingerBrave",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Muscle Cookie",
+                    "element": "Steel",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Strawberry Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Wizard Cookie",
+                    "element": "Electricity",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Beet Cookie",
+                    "element": null,
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Ninja Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Angel Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Adventurer Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Alchemist Cookie",
+                    "element": "Poison",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Avocado Cookie",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Blackberry Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Carrot Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Cherry Cookie",
+                    "element": null,
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Clover Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Custard Cookie III",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Devil Cookie",
+                    "element": "Darkness",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Gumball Cookie",
+                    "element": null,
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Knight Cookie",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Onion Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Pancake Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Princess Cookie",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Marshmallow Bunny Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Cream Ferret Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Icicle Yeti Cookie",
+                    "element": "Ice",
+                    "type": "Healing",
+                    "position": "Front",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Snapdragon Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Sonic Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Tails Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Elphaba Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Glinda Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "BTS",
+                    "element": null,
+                    "type": "BTS",
+                    "position": "Rear",
+                    "rarity": "Special"
+                },
+                {
+                    "name": "Doughael",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Middle",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Camellia Cookie",
+                    "element": "Grass",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Elder Faerie Cookie",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Crimson Coral Cookie",
+                    "element": "Water",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Shining Glitter Cookie",
+                    "element": "Electricity",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Capsaicin Cookie",
+                    "element": "Fire",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Stardust Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Sherbet Cookie",
+                    "element": "Ice",
+                    "type": "Ranged",
+                    "position": "Middle",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Oyster Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Clotted Cream Cookie",
+                    "element": "Light",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Venom Dough Cookie",
+                    "element": ["Poison", "Chaos"],
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Super Epic"
+                },
+                {
+                    "name": "Pitaya Dragon Cookie",
+                    "element": "Fire",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Dragon"
+                },
+                {
+                  "name": "Sugar Swan Cookie",
+                  "element": null,
+                  typ 
+                },
+                {
+                    "name": "Fire Spirit Cookie",
+                    "element": "Fire",
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Wind Archer Cookie",
+                    "element": "Wind",
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Stormbringer Cookie",
+                    "element": "Electricity",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Moonlight Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Black Pearl Cookie",
+                    "element": "Water",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Frost Queen Cookie",
+                    "element": "Ice",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Sea Fairy Cookie",
+                    "element": "Water",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Millennial Tree Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Front",
+                    "rarity": "Legendary"
+                },
+                {
+                    "name": "Pure Vanilla Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Hollyberry Cookie",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Dark Cacao Cookie",
+                    "element": ["Darkness", "Electricity"],
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Golden Cheese Cookie",
+                    "element": "Earth",
+                    "type": "Ranged",
+                    "position": "Middle",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "White Lily Cookie",
+                    "element": "Grass",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Dark Cacao Cookie (Dragon Lord)",
+                    "element": "Darkness",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Golden Cheese Cookie (Immortal)",
+                    "element": "Earth",
+                    "type": "Ranged",
+                    "position": "Middle",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Pure Vanilla Cookie (Compassionate)",
+                    "element": "Light",
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Hollyberry Cookie (Aegis)",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "White Lily Cookie (Dawnbringer)",
+                    "element": "Grass",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Ancient"
+                },
+                {
+                    "name": "Mystic Flour Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Beast"
+                },
+                {
+                    "name": "Burning Spice Cookie",
+                    "element": "Fire",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Beast"
+                },
+                {
+                    "name": "Shadow Milk Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Beast"
+                },
+                {
+                    "name": "Eternal Sugar Cookie",
+                    "element": "Poison",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Beast"
+                },
+                {
+                    "name": "Silent Salt Cookie",
+                    "element": ["Darkness", "Steel"],
+                    "type": "Ambush",
+                    "position": "Front",
+                    "rarity": "Beast"
+                },
+                {
+                    "name": "Dark Enchantress Cookie",
+                    "element": "Chaos",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Witch"
+                },
+                {
+                    "name": "Salt Cellar Cookie",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Charcoal Cookie",
+                    "element": "Darkness",
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Menthol Cookie",
+                    "element": "Water",
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Seltzer Cookie",
+                    "element": "Water",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Grapefruit Cookie",
+                    "element": "Electricity",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Lime Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Manju Cookie",
+                    "element": "Water",
+                    "type": "Ambush",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Jagae Cookie",
+                    "element": "Water",
+                    "type": "Support",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Orange Cookie",
+                    "element": "Electricity",
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Lemon Cookie",
+                    "element": "Electricity",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cream Soda Cookie",
+                    "element": "Water",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Sugarfly Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pavlova Cookie",
+                    "element": null,
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Agar Agar Cookie",
+                    "element": ["Fire", "Electricity", "Water", "Wind", "Ice"],
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Wedding Cake Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Black Forest Cookie",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Black Sapphire Cookie",
+                    "element": "Poison",
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Candy Apple Cookie",
+                    "element": null,
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Okchun Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Green Tea Mousse Cookie",
+                    "element": ["Wind", "Grass"],
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pudding à la Mode Cookie",
+                    "element": "Electricity",
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Choco Drizzle Cookie",
+                    "element": "Darkness",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Red Osmanthus Cookie",
+                    "element": "Grass",
+                    "type": "Ranged",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Golden Osmanthus Cookie",
+                    "element": "Grass",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Smoked Cheese Cookie",
+                    "element": "Earth",
+                    "type": "Magic",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Nutmeg Tiger Cookie",
+                    "element": "Fire",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Star Coral Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Peach Blossom Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cloud Haetae Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Street Urchin Cookie",
+                    "element": "Fire",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Caramel Choux Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Butter Roll Cookie",
+                    "element": ["Steel", "Chaos"],
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Matcha Cookie",
+                    "element": ["Poison", "Grass"],
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Mercurial Knight Cookie",
+                    "element": "Steel",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Silverbell Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Rebel Cookie",
+                    "element": "Wind",
+                    "type": "Ambush",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Crème Brûlée Cookie",
+                    "element": "Light",
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Linzer Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Olive Cookie",
+                    "element": ["Earth", "Fire", "Electricity"],
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Mozzarella Cookie",
+                    "element": "Earth",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Fettuccine Cookie",
+                    "element": "Earth",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Burnt Cheese Cookie",
+                    "element": "Earth",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Frilled Jellyfish Cookie",
+                    "element": ["Water", "Electricity"],
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Peppermint Cookie",
+                    "element": "Water",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Black Lemonade Cookie",
+                    "element": "Electricity",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Rockstar Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Tarte Tatin Cookie",
+                    "element": "Fire",
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Royal Margarine Cookie",
+                    "element": "Poison",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Kouign-Amann Cookie",
+                    "element": "Light",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Prune Juice Cookie",
+                    "element": "Poison",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Space Doughnut",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Blueberry Pie Cookie",
+                    "element": "Electricity",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Milky Way Cookie",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Prophet Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pinecone Cookie",
+                    "element": "Ice",
+                    "type": "Bomber",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Carol Cookie",
+                    "element": "Grass",
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Macaron Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Schwarzwälder",
+                    "element": ["Steel", "Chaos"],
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Candy Diver Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Captain Caviar Cookie",
+                    "element": "Water",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cream Unicorn Cookie",
+                    "element": "Fire",
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Financier Cookie",
+                    "element": "Light",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Crunchy Chip Cookie",
+                    "element": "Darkness",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Wildberry Cookie",
+                    "element": "Steel",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cherry Blossom Cookie",
+                    "element": "Grass",
+                    "type": "Ambush",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Caramel Arrow Cookie",
+                    "element": "Darkness",
+                    "type": "Ranged",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Affogato Cookie",
+                    "element": "Poison",
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Tea Knight Cookie",
+                    "element": "Steel",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Eclair Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cocoa Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cotton Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pumpkin Pie Cookie",
+                    "element": "Darkness",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Twizzly Gummy Cookie",
+                    "element": "Electricity",
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Mala Sauce Cookie",
+                    "element": "Fire",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Moon Rabbit Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Raspberry Cookie",
+                    "element": "Steel",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Parfait Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Sorbet Shark Cookie",
+                    "element": "Water",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Squid Ink Cookie",
+                    "element": "Water",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Lilac Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Mango Cookie",
+                    "element": "Water",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Red Velvet Cookie",
+                    "element": "Darkness",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pastry Cookie",
+                    "element": "Wind",
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Fig Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Strawberry Crepe Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Black Raisin Cookie",
+                    "element": "Darkness",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Almond Cookie",
+                    "element": "Earth",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Cream Puff Cookie",
+                    "element": "Light",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Latte Cookie",
+                    "element": "Earth",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Kumiho Cookie",
+                    "element": "Wind",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Snow Sugar Cookie",
+                    "element": "Ice",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Rye Cookie",
+                    "element": "Fire",
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Espresso Cookie",
+                    "element": "Earth",
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Madeleine Cookie",
+                    "element": "Light",
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Licorice Cookie",
+                    "element": ["Darkness", "Poison", "Chaos"],
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Poison Mushroom Cookie",
+                    "element": ["Poison", "Chaos"],
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Milk Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Purple Yam Cookie",
+                    "element": "Grass",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pomegranate Cookie",
+                    "element": "Chaos",
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Chili Pepper Cookie",
+                    "element": "Fire",
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Sparkling Cookie",
+                    "element": "Light",
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Dark Choco Cookie",
+                    "element": "Darkness",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Herb Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Werewolf Cookie",
+                    "element": "Steel",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Mint Choco Cookie",
+                    "element": "Wind",
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Tiger Lily Cookie",
+                    "element": null,
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Pom-pom Dough Cookie",
+                    "element": ["Poison", "Chaos"],
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Mold Dough Cookie",
+                    "element": "Chaos",
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Chess Choco Cookie",
+                    "element": "Chaos",
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                },
+                {
+                    "name": "Vampire Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Rear",
+                    "rarity": "Epic"
+                }
+            ],
+            "tierlists": [{
+                "name": "Kingdom Arena",
+                "tiers": ["S+", "S", "A", "B", "C", "D", "E"],
+                "entries": [
+                    [
+                        "Dark Enchantress Cookie", "Silent Salt Cookie", "Millennial Tree Cookie",
+                        "Venom Dough Cookie",
+                        "Pure Vanilla Cookie (Compassionate)", "White Lily Cookie (Dawnbringer)",
+                        "Marshmallow Bunny Cookie",
+                        "Eternal Sugar Cookie", "Shadow Milk Cookie"
+                    ],
+                    [
+                        "Cream Ferret Cookie", "Icicle Yeti Cookie", "Hollyberry Cookie (Aegis)",
+                        "Wind Archer Cookie",
+                        "Fire Spirit Cookie", "Mystic Flour Cookie"
+                    ],
+                    [
+                        "Stormbringer Cookie", "Doughael", "Golden Cheese Cookie (Immortal)",
+                        "Burning Spice Cookie", "Elder Faerie Cookie",
+                        "Green Tea Mousse Cookie", "Rockstar Cookie", "Wildberry Cookie",
+                        "Dark Cacao Cookie (Dragon Lord)", "Moonlight Cookie",
+                        "Financier Cookie", "Snapdragon Cookie", "Camellia Cookie",
+                        "Crimson Coral Cookie", "Fettuccine Cookie"
+                    ],
+                    [
+                        "Pure Vanilla Cookie", "White Lily Cookie", "Golden Cheese Cookie",
+                        "Frost Queen Cookie", "Sea Fairy Cookie",
+                        "Rebel Cookie", "Burnt Cheese Cookie", "Salt Cellar Cookie", "Pavlova Cookie",
+                        "Stardust Cookie", "Black Forest Cookie",
+                        "Chess Choco Cookie", "Wedding Cake Cookie", "Raspberry Cookie",
+                        "Star Coral Cookie", "Silverbell Cookie",
+                        "Blueberry Pie Cookie", "Captain Caviar Cookie", "Manju Cookie", "Jagae Cookie",
+                        "Pastry Cookie", "Kouign-Amann Cookie",
+                        "Mold Dough Cookie", "Charcoal Cookie", "Dark Choco Cookie",
+                        "Cloud Haetae Cookie", "Mint Choco Cookie", "Parfait Cookie",
+                        "Peach Blossom Cookie", "Candy Apple Cookie", "Twizzly Gummy Cookie",
+                        "Pudding à la Mode Cookie", "Nutmeg Tiger Cookie",
+                        "Grapefruit Cookie", "Crème Brûlée Cookie", "Tea Knight Cookie",
+                        "Strawberry Crepe Cookie", "Black Lemonade Cookie",
+                        "Seltzer Cookie", "Menthol Cookie", "Capsaicin Cookie",
+                        "Shining Glitter Cookie", "Sherbet Cookie", "Smoked Cheese Cookie",
+                        "Mercurial Knight Cookie", "Milky Way Cookie", "Choco Drizzle Cookie",
+                        "Space Doughnut", "Snow Sugar Cookie",
+                        "Hollyberry Cookie", "Frilled Jellyfish Cookie", "Pom-pom Dough Cookie"
+                    ],
+                    [
+                        "Dark Cacao Cookie", "Pitaya Dragon Cookie", "Black Pearl Cookie",
+                        "Clotted Cream Cookie", "Cream Unicorn Cookie",
+                        "Sugarfly Cookie", "Vampire Cookie", "Cream Puff Cookie", "Mozzarella Cookie",
+                        "Linzer Cookie", "Golden Osmanthus Cookie",
+                        "Red Osmanthus Cookie", "Cream Soda Cookie", "Sorbet Shark Cookie",
+                        "Madeleine Cookie", "Mango Cookie",
+                        "Peppermint Cookie", "Schwarzwälder", "Street Urchin Cookie", "Pinecone Cookie",
+                        "Almond Cookie", "Squid Ink Cookie",
+                        "Black Raisin Cookie", "Herb Cookie", "Werewolf Cookie", "Prune Juice Cookie",
+                        "Black Sapphire Cookie", "Butter Roll Cookie",
+                        "Mala Sauce Cookie", "Macaron Cookie", "Purple Yam Cookie", "Lemon Cookie",
+                        "Orange Cookie", "Latte Cookie",
+                        "Crunchy Chip Cookie", "Espresso Cookie", "Eclair Cookie", "Prophet Cookie",
+                        "Royal Margarine Cookie",
+                        "Pumpkin Pie Cookie", "Caramel Arrow Cookie", "Caramel Choux Cookie",
+                        "Tarte Tatin Cookie", "Rye Cookie",
+                        "Licorice Cookie", "Agar Agar Cookie", "Carol Cookie", "Cotton Cookie",
+                        "Pomegranate Cookie", "Lime Cookie",
+                        "Matcha Cookie", "Oyster Cookie", "Okchun Cookie", "Glinda Cookie",
+                        "Elphaba Cookie", "BTS", "Blackberry Cookie"
+                    ],
+                    [
+                        "Red Velvet Cookie", "Olive Cookie", "Affogato Cookie", "Cocoa Cookie",
+                        "Milk Cookie", "Poison Mushroom Cookie",
+                        "Candy Diver Cookie", "Cherry Blossom Cookie", "Kumiho Cookie",
+                        "Sparkling Cookie", "Tiger Lily Cookie",
+                        "Lilac Cookie", "Moon Rabbit Cookie", "Carrot Cookie"
+                    ],
+                    [
+                        "Chili Pepper Cookie", "Fig Cookie", "Sonic Cookie", "Tails Cookie",
+                        "GingerBrave", "Onion Cookie", "Strawberry Cookie",
+                        "Muscle Cookie", "Beet Cookie", "Adventurer Cookie",
+                        "Ninja Cookie", "Angel Cookie", "Knight Cookie",
+                        "Avocado Cookie", "Devil Cookie",
+                        "Princess Cookie", "Custard Cookie III",
+                        "Wizard Cookie", "Pancake Cookie", "Gumball Cookie", "Alchemist Cookie",
+                        "Clover Cookie", "Cherry Cookie"
+                    ]
+                ]
+            }, {
+                "name": "World Exploration",
+                "tiers": ["S+", "S", "A+", "A", "B", "C", "D", "E"],
+                "entries": [
+                    [
+                        "Burning Spice Cookie", "Fire Spirit Cookie", "Eternal Sugar Cookie",
+                        "White Lily Cookie (Dawnbringer)",
+                        "Pure Vanilla Cookie (Compassionate)", "Hollyberry Cookie (Aegis)",
+                        "Cream Ferret Cookie", "Wind Archer Cookie",
+                        "Mystic Flour Cookie", "Silent Salt Cookie", "Dark Enchantress Cookie",
+                        "Millennial Tree Cookie", "Rebel Cookie", "Venom Dough Cookie"
+                    ],
+                    [
+                        "Stormbringer Cookie", "Crème Brûlée Cookie", "Star Coral Cookie",
+                        "Marshmallow Bunny Cookie", "Twizzly Gummy Cookie",
+                        "Black Lemonade Cookie", "Pudding à la Mode Cookie",
+                        "Dark Cacao Cookie (Dragon Lord)", "Shadow Milk Cookie",
+                        "Nutmeg Tiger Cookie", "Grapefruit Cookie", "Silverbell Cookie",
+                        "Fettuccine Cookie", "Icicle Yeti Cookie",
+                        "Doughael", "Green Tea Mousse Cookie", "Financier Cookie", "Mint Choco Cookie",
+                        "Sea Fairy Cookie", "Tarte Tatin Cookie",
+                        "Charcoal Cookie", "Pure Vanilla Cookie", "Snapdragon Cookie"
+                    ],
+                    [
+                        "Golden Cheese Cookie (Immortal)", "Golden Cheese Cookie", "White Lily Cookie",
+                        "Frost Queen Cookie", "Sherbet Cookie",
+                        "Pavlova Cookie", "Linzer Cookie", "Salt Cellar Cookie", "Space Doughnut",
+                        "Jagae Cookie", "Manju Cookie", "Captain Caviar Cookie",
+                        "Candy Apple Cookie", "Menthol Cookie", "Seltzer Cookie",
+                        "Peach Blossom Cookie", "Moonlight Cookie", "Cream Puff Cookie",
+                        "Rockstar Cookie", "Mold Dough Cookie", "Shining Glitter Cookie",
+                        "Mozzarella Cookie", "Sparkling Cookie", "Wedding Cake Cookie",
+                        "Parfait Cookie", "Snow Sugar Cookie", "Pom-pom Dough Cookie"
+                    ],
+                    [
+                        "Hollyberry Cookie", "Crimson Coral Cookie", "Stardust Cookie",
+                        "Elder Faerie Cookie", "Camellia Cookie", "Burnt Cheese Cookie",
+                        "Kouign-Amann Cookie", "Cloud Haetae Cookie", "Dark Choco Cookie",
+                        "Smoked Cheese Cookie", "Black Pearl Cookie", "Capsaicin Cookie",
+                        "Pitaya Dragon Cookie", "Wildberry Cookie", "Peppermint Cookie",
+                        "Glinda Cookie", "Sugarfly Cookie", "Pinecone Cookie",
+                        "Milky Way Cookie", "Pastry Cookie", "Chess Choco Cookie",
+                        "Black Forest Cookie", "Lemon Cookie", "Cream Soda Cookie",
+                        "Mango Cookie", "Caramel Arrow Cookie", "Black Raisin Cookie", "Schwarzwälder",
+                        "Frilled Jellyfish Cookie", "Street Urchin Cookie",
+                        "Clotted Cream Cookie", "Cream Unicorn Cookie", "Herb Cookie",
+                        "Pomegranate Cookie"
+                    ],
+                    [
+                        "Dark Cacao Cookie", "Oyster Cookie", "Butter Roll Cookie", "Mala Sauce Cookie",
+                        "Werewolf Cookie", "Espresso Cookie",
+                        "Strawberry Crepe Cookie", "Squid Ink Cookie", "Macaron Cookie",
+                        "Mercurial Knight Cookie", "Golden Osmanthus Cookie",
+                        "Red Osmanthus Cookie", "Eclair Cookie", "Cotton Cookie", "Rye Cookie",
+                        "Madeleine Cookie", "Choco Drizzle Cookie", "Elphaba Cookie",
+                        "Orange Cookie", "Licorice Cookie", "Crunchy Chip Cookie",
+                        "Sorbet Shark Cookie", "Pumpkin Pie Cookie", "Carol Cookie",
+                        "Tea Knight Cookie", "Prune Juice Cookie", "Black Sapphire Cookie",
+                        "Caramel Choux Cookie", "Okchun Cookie", "Matcha Cookie",
+                        "Affogato Cookie", "Royal Margarine Cookie", "Blackberry Cookie",
+                        "Cherry Blossom Cookie", "BTS"
+                    ],
+                    [
+                        "Purple Yam Cookie", "Raspberry Cookie", "Blueberry Pie Cookie", "Lime Cookie",
+                        "Vampire Cookie", "Red Velvet Cookie",
+                        "Latte Cookie", "Prophet Cookie", "Moon Rabbit Cookie", "Agar Agar Cookie",
+                        "Olive Cookie", "Poison Mushroom Cookie",
+                        "Candy Diver Cookie", "Almond Cookie", "Carrot Cookie", "Kumiho Cookie"
+                    ],
+                    [
+                        "Chili Pepper Cookie", "Milk Cookie", "Lilac Cookie", "Cherry Cookie",
+                        "Sonic Cookie", "Tails Cookie", "Knight Cookie",
+                        "Avocado Cookie", "Tiger Lily Cookie", "Cocoa Cookie", "Devil Cookie",
+                        "Princess Cookie", "Custard Cookie III",
+                        "Wizard Cookie", "Pancake Cookie", "Gumball Cookie", "Alchemist Cookie",
+                        "Clover Cookie"
+                    ],
+                    [
+                        "GingerBrave", "Fig Cookie", "Onion Cookie", "Strawberry Cookie",
+                        "Muscle Cookie", "Beet Cookie", "Adventurer Cookie",
+                        "Ninja Cookie", "Angel Cookie"
+                    ]
+                ]
+            }, {
+                "name": "Guild Battle",
+                "tierlists": [{
+                    "name": "Red Velvet Dragon",
+                    "tiers": ["S", "A", "B", "C", "D", "E"],
+                    "entries": [
+                        [
+                            "Black Sapphire Cookie", "Prune Juice Cookie",
+                            "Shadow Milk Cookie", "Candy Apple Cookie",
+                            "Dark Choco Cookie", "Pom-pom Dough Cookie",
+                            "Venom Dough Cookie"
+                        ],
+                        [
+                            "Matcha Cookie", "Rebel Cookie", "Mystic Flour Cookie",
+                            "Twizzly Gummy Cookie",
+                            "Black Lemonade Cookie", "Eternal Sugar Cookie",
+                            "Fire Spirit Cookie", "Burning Spice Cookie",
+                            "Dark Cacao Cookie (Dragon Lord)",
+                            "Pure Vanilla Cookie (Compassionate)", "Black Raisin Cookie",
+                            "Rockstar Cookie", "Royal Margarine Cookie",
+                            "Snapdragon Cookie", "Cream Ferret Cookie",
+                            "Stormbringer Cookie", "Shining Glitter Cookie",
+                            "Pudding à la Mode Cookie", "Orange Cookie",
+                            "Lemon Cookie", "Linzer Cookie", "Mango Cookie",
+                            "Stardust Cookie", "Milky Way Cookie",
+                            "Eclair Cookie", "Space Doughnut", "Snow Sugar Cookie",
+                            "Cotton Cookie", "Sherbet Cookie",
+                            "Affogato Cookie", "Vampire Cookie", "Oyster Cookie",
+                            "Sorbet Shark Cookie", "Pomegranate Cookie",
+                            "Crunchy Chip Cookie", "Licorice Cookie",
+                            "Poison Mushroom Cookie", "Cream Unicorn Cookie",
+                            "Cream Puff Cookie", "Golden Cheese Cookie",
+                            "Peach Blossom Cookie", "Choco Drizzle Cookie",
+                            "Cream Soda Cookie", "BTS", "Pure Vanilla Cookie",
+                            "Seltzer Cookie", "Doughael"
+                        ],
+                        [
+                            "Hollyberry Cookie (Aegis)", "Pinecone Cookie",
+                            "Captain Caviar Cookie", "Fettuccine Cookie",
+                            "Cocoa Cookie", "Peppermint Cookie", "Macaron Cookie",
+                            "Carol Cookie", "Almond Cookie",
+                            "Raspberry Cookie", "Rye Cookie", "Mala Sauce Cookie",
+                            "Hollyberry Cookie", "Schwarzwälder",
+                            "Pumpkin Pie Cookie", "Parfait Cookie", "Wildberry Cookie",
+                            "Capsaicin Cookie", "Prophet Cookie",
+                            "Crimson Coral Cookie", "Menthol Cookie"
+                        ],
+                        [
+                            "Dark Cacao Cookie", "Herb Cookie", "Silverbell Cookie",
+                            "Espresso Cookie", "Moonlight Cookie",
+                            "Pitaya Dragon Cookie", "Sea Fairy Cookie", "Squid Ink Cookie",
+                            "Tea Knight Cookie",
+                            "Black Pearl Cookie", "Tarte Tatin Cookie",
+                            "Blueberry Pie Cookie", "Candy Diver Cookie",
+                            "Strawberry Crepe Cookie", "Moon Rabbit Cookie",
+                            "Kumiho Cookie", "Frilled Jellyfish Cookie",
+                            "Olive Cookie"
+                        ],
+                        [
+                            "Wind Archer Cookie", "Crème Brûlée Cookie",
+                            "Kouign-Amann Cookie", "Financier Cookie",
+                            "Werewolf Cookie", "Caramel Arrow Cookie", "Latte Cookie",
+                            "Sparkling Cookie", "Madeleine Cookie",
+                            "Pastry Cookie", "Lilac Cookie", "Mint Choco Cookie"
+                        ],
+                        [
+                            "Milk Cookie", "Purple Yam Cookie", "Chili Pepper Cookie",
+                            "Red Velvet Cookie", "Tiger Lily Cookie",
+                            "White Lily Cookie", "Frost Queen Cookie",
+                            "Clotted Cream Cookie", "Cherry Blossom Cookie",
+                            "Fig Cookie"
+                        ]
+                    ]
+                }, {
+                    "name": "Avatar of Destiny",
+                    "tiers": ["S", "A"],
+                    "entries": [
+                        [
+                            "Crème Brûlée Cookie",
+                            "Pudding à la Mode Cookie",
+                            "Star Coral Cookie",
+                            "Cream Ferret Cookie",
+                            "Mint Choco Cookie"
+                        ],
+                        [
+                            "Twizzly Gummy Cookie",
+                            "Marshmallow Bunny Cookie",
+                            "Icicle Yeti Cookie",
+                            "Blackberry Cookie",
+                            "Cream Puff Cookie",
+                            "Madeleine Cookie",
+                            "Sonic Cookie",
+                            "Macaron Cookie",
+                            "Squid Ink Cookie",
+                            "Cherry Blossom Cookie",
+                            "Caramel Choux Cookie",
+                            "Shining Glitter Cookie",
+                            "Rye Cookie",
+                            "Rockstar Cookie",
+                            "Lime Cookie",
+                            "Pomegranate Cookie",
+                            "Oyster Cookie",
+                            "Snapdragon Cookie",
+                            "BTS",
+                            "Sugarfly Cookie",
+                            "Parfait Cookie",
+                            "Clotted Cream Cookie",
+                            "Pastry Cookie",
+                            "Peppermint Cookie",
+                            "Carol Cookie",
+                            "Tails Cookie",
+                            "Carrot Cookie",
+                            "Vampire Cookie",
+                            "Lemon Cookie"
+                        ]
+                    ]
+                }, {
+                    "name": "Living Abyss",
+                    "tiers": ["S", "A", "B", "C", "D", "E"],
+                    "entries": [
+                        [
+                            "Blueberry Pie Cookie",
+                            "Wind Archer Cookie",
+                            "Cream Puff Cookie",
+                            "Marshmallow Bunny Cookie",
+                            "Cream Ferret Cookie",
+                            "Linzer Cookie",
+                            "Black Forest Cookie",
+                            "Twizzly Gummy Cookie",
+                            "Eternal Sugar Cookie",
+                            "Wedding Cake Cookie"
+                        ],
+                        [
+                            "Frost Queen Cookie",
+                            "Pinecone Cookie",
+                            "Star Coral Cookie",
+                            "Rockstar Cookie",
+                            "Rebel Cookie",
+                            "Fire Spirit Cookie",
+                            "Stormbringer Cookie",
+                            "Pitaya Dragon Cookie",
+                            "Burning Spice Cookie",
+                            "Shadow Milk Cookie",
+                            "Pure Vanilla Cookie (Compassionate)",
+                            "Dark Cacao Cookie (Dragon Lord)",
+                            "Macaron Cookie",
+                            "Space Doughnut",
+                            "Snow Sugar Cookie",
+                            "Snapdragon Cookie",
+                            "Captain Caviar Cookie",
+                            "Caramel Arrow Cookie",
+                            "Black Raisin Cookie",
+                            "Squid Ink Cookie",
+                            "Candy Apple Cookie",
+                            "Milky Way Cookie",
+                            "Cotton Cookie",
+                            "Mango Cookie",
+                            "Werewolf Cookie",
+                            "Schwarzwälder",
+                            "Dark Cacao Cookie",
+                            "Sherbet Cookie",
+                            "Crème Brûlée Cookie",
+                            "Black Pearl Cookie",
+                            "Sea Fairy Cookie",
+                            "Moonlight Cookie",
+                            "Espresso Cookie",
+                            "Shining Glitter Cookie",
+                            "Tarte Tatin Cookie",
+                            "Pomegranate Cookie",
+                            "Mystic Flour Cookie",
+                            "Pure Vanilla Cookie",
+                            "Peach Blossom Cookie",
+                            "Silverbell Cookie",
+                            "Sorbet Shark Cookie",
+                            "Clotted Cream Cookie",
+                            "Crunchy Chip Cookie",
+                            "Dark Choco Cookie",
+                            "Wildberry Cookie",
+                            "Cherry Blossom Cookie",
+                            "White Lily Cookie",
+                            "Latte Cookie",
+                            "Oyster Cookie",
+                            "Carol Cookie",
+                            "BTS",
+                            "Parfait Cookie",
+                            "Golden Cheese Cookie",
+                            "Purple Yam Cookie",
+                            "Street Urchin Cookie",
+                            "Stardust Cookie",
+                            "Peppermint Cookie"
+                        ],
+                        [
+                            "Fettuccine Cookie",
+                            "Hollyberry Cookie",
+                            "Pumpkin Pie Cookie",
+                            "Licorice Cookie",
+                            "Herb Cookie",
+                            "Cream Unicorn Cookie",
+                            "Frilled Jellyfish Cookie",
+                            "Mercurial Knight Cookie",
+                            "Kouign-Amann Cookie",
+                            "Tea Knight Cookie",
+                            "Burnt Cheese Cookie",
+                            "Butter Roll Cookie",
+                            "Financier Cookie",
+                            "Madeleine Cookie",
+                            "Capsaicin Cookie",
+                            "Mala Sauce Cookie"
+                        ],
+                        [
+                            "Crimson Coral Cookie",
+                            "Cocoa Cookie",
+                            "Black Lemonade Cookie",
+                            "Vampire Cookie",
+                            "Rye Cookie",
+                            "Eclair Cookie",
+                            "Strawberry Crepe Cookie",
+                            "Milk Cookie",
+                            "Poison Mushroom Cookie",
+                            "Matcha Cookie",
+                            "Candy Diver Cookie",
+                            "Cloud Haetae Cookie",
+                            "Sparkling Cookie",
+                            "Mint Choco Cookie",
+                            "Pastry Cookie",
+                            "Kumiho Cookie",
+                            "Prophet Cookie",
+                            "Olive Cookie",
+                            "Lilac Cookie"
+                        ],
+                        [
+                            "Affogato Cookie",
+                            "Almond Cookie",
+                            "Moon Rabbit Cookie",
+                            "Caramel Choux Cookie"
+                        ],
+                        [
+                            "Chili Pepper Cookie",
+                            "Fig Cookie",
+                            "Red Velvet Cookie",
+                            "Tiger Lily Cookie",
+                            "Raspberry Cookie",
+                            "Royal Margarine Cookie",
+                            "Prune Juice Cookie",
+                            "Black Sapphire Cookie"
+                        ]
+                    ]
+                }, {
+                    "name": "Machine-God of the Eternal Void",
+                    "tiers": ["S", "A", "B", "C"],
+                    "entries": [
+                        [
+                            "Menthol Cookie",
+                            "Seltzer Cookie",
+                            "Sea Fairy Cookie",
+                            "Frilled Jellyfish Cookie",
+                            "Cream Ferret Cookie",
+                            "Cream Soda Cookie"
+                        ],
+                        [
+                            "Crimson Coral Cookie",
+                            "Black Pearl Cookie",
+                            "Peppermint Cookie",
+                            "Captain Caviar Cookie",
+                            "Star Coral Cookie",
+                            "Manju Cookie",
+                            "Jagae Cookie"
+                        ],
+                        [
+                            "Mango Cookie",
+                            "Sorbet Shark Cookie",
+                            "Snapdragon Cookie",
+                            "Marshmallow Bunny Cookie",
+                            "Icicle Yeti Cookie"
+                        ],
+                        [
+                            "Squid Ink Cookie",
+                            "Agar Agar Cookie"
+                        ]
+                    ]
+                }]
+            }]
+
+        }
+
+    ]
+}

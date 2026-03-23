@@ -1,0 +1,214 @@
+{
+    "games": [
+
+        {
+            "id": "crk",
+            "name": "Cookie Run Kingdom",
+
+            "features": {
+                "eidolon": false,
+                "tags": false,
+                "elementIcon": false,
+                "role": false
+            },
+
+            "roles": [{
+                    "id": "damage",
+                    "name": "Damage"
+                },
+                {
+                    "id": "support",
+                    "name": "Support"
+                },
+                {
+                    "id": "tank",
+                    "name": "Tank"
+                }
+            ],
+
+            "filters": {
+                "rarity": ["Common", "Rare", "Special", "Epic", "Super Epic", "Dragon", "Legendary", "Ancient",
+                    "Beast", "Witch"
+                ],
+                "type": ["Ambush", "Bomber", "Charge", "Defense", "Healing", "Magic", "Ranged", "Support"],
+                "element": ["Light", "Earth", "Darkness", "Water", "Poison", "Fire", "Electricity", "Ice", "Wind",
+                    "Steel", "Grass", "Chaos"
+                ],
+                "position": ["Front", "Middle", "Rear"]
+            },
+
+            "characters": [{
+                    "name": "Ginger Brave",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Muscle Cookie",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Strawberry Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Wizard Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Beet Cookie",
+                    "element": null,
+                    "type": "Ranged",
+                    "position": "Rear",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Ninja Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Rear",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Angel Cookie",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Common"
+                },
+                {
+                    "name": "Adventurer Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Alchemist Cookie",
+                    "element": null,
+                    "type": "Bomber",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Avocado Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Blackberry Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Carrot Cookie",
+                    "element": "Grass",
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Cherry Cookie",
+                    "element": null,
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Clover Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Custard Cookie III",
+                    "element": null,
+                    "type": "Healing",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Devil Cookie",
+                    "element": null,
+                    "type": "Magic",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Gumball Cookie",
+                    "element": null,
+                    "type": "Bomber",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Knight Cookie",
+                    "element": null,
+                    "type": "Defense",
+                    "position": "Front",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Onion Cookie",
+                    "element": null,
+                    "type": "Support",
+                    "position": "Middle",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Pancake Cookie",
+                    "element": null,
+                    "type": "Ambush",
+                    "position": "Rear",
+                    "rarity": "Rare"
+                },
+                {
+                    "name": "Princess Cookie",
+                    "element": null,
+                    "type": "Charge",
+                    "position": "Front",
+                    "rarity": "Rare"
+                },
+                {
+                  "name": "Silent Salt Cookie",
+                  "element": ["Darkness", "Steel"],
+                  "type": "Ambush",
+                  "position": "Front",
+                  "rarity": "Beast"
+                }
+            ],
+            "tierlists": [{
+                "id": "arena",
+                "name": "Arena",
+                "tiers": ["S+", "S", "A+", "A", "B", "C", "D", "E"],
+                "entries": [
+                    ["Silent Salt Cookie"],
+                    ["Strawberry Cookie", "Ginger Brave"],
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                    ["Carrot Cookie", "Princess Cookie"]
+                ]
+            }]
+
+        }
+
+    ]
+}

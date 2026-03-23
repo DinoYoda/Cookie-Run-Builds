@@ -1,0 +1,96 @@
+{
+  "games": [
+
+    {
+      "id": "hsr",
+      "name": "Honkai Star Rail",
+
+      "features": {
+        "eidolon": true,
+        "tags": true,
+        "elementIcon": true
+      },
+
+      "roles": [
+        {"id":"dps","name":"DPS"},
+        {"id":"support","name":"Support"},
+        {"id":"amplifier","name":"Amplifier"},
+        {"id":"sustain","name":"Sustain"}
+      ],
+
+      "filters": {
+        "rarity":[4,5],
+        "element":["fire","ice","wind","quantum"]
+      },
+
+      "tierlists": [
+
+        {
+          "id":"general",
+          "name":"General",
+
+          "tiers":["T0","T1","T2"],
+
+          "characters":[
+            {
+              "name":"Bronya",
+              "tier":"T0",
+              "role":"amplifier",
+              "rarity":5,
+              "element":"wind",
+              "tags":["advance","buff"],
+              "eidolon":0,
+              "image":"images/bronya.png",
+              "icon":"icons/wind.png"
+            }
+          ]
+
+        },
+
+        {
+          "id":"memory",
+          "name":"Memory of Chaos",
+
+          "tiers":["T0","T1","T2"],
+
+          "characters":[]
+        }
+
+      ]
+    },
+
+
+    {
+      "id": "crk",
+      "name": "Cookie Run Kingdom",
+
+      "features": {
+        "eidolon": false,
+        "tags": true,
+        "elementIcon": false
+      },
+
+      "roles":[
+        {"id":"damage","name":"Damage"},
+        {"id":"support","name":"Support"},
+        {"id":"tank","name":"Tank"}
+      ],
+
+      "filters":{
+        "rarity":["Epic","Legendary"],
+        "position":["Front","Middle","Rear"]
+      },
+
+      "tierlists":[
+        {
+          "id":"arena",
+          "name":"Arena",
+          "tiers":["S","A","B","C"],
+          "characters":[]
+        }
+      ]
+
+    }
+
+  ]
+}

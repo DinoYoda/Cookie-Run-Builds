@@ -1,0 +1,55 @@
+{
+  "tiers": ["T0","T1","T2"],
+
+  "roles": [
+    { "id":"dps", "name":"DPS" },
+    { "id":"support-dps", "name":"Support DPS" },
+    { "id":"amplifier", "name":"Amplifier" },
+    { "id":"sustain", "name":"Sustain" }
+  ],
+
+  "filters": {
+    "rarity": [4,5],
+    "element": ["fire","ice","wind","lightning"]
+  },
+
+  "characters": [
+
+    {
+      "name":"Bronya",
+      "tier":"T0",
+      "role":"amplifier",
+      "rarity":5,
+      "element":"wind",
+      "tags":["advance","buff"],
+      "eidolon":0,
+      "image":"images/bronya.png",
+      "icon":"icons/wind.png"
+    },
+
+    {
+      "name":"Seele",
+      "tier":"T0",
+      "role":"dps",
+      "rarity":5,
+      "element":"lightning",
+      "tags":["sp-friendly","burst"],
+      "eidolon":0,
+      "image":"images/seele.png",
+      "icon":"icons/lightning.png"
+    },
+
+    {
+      "name":"Luocha",
+      "tier":"T1",
+      "role":"sustain",
+      "rarity":5,
+      "element":"wind",
+      "tags":["heal","cleanse"],
+      "eidolon":0,
+      "image":"images/luocha.png",
+      "icon":"icons/wind.png"
+    }
+
+  ]
+}

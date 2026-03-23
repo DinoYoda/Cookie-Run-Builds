@@ -1,0 +1,32 @@
+{
+  "tiers": ["SS","S","A","B","C"],
+
+  "filters": {
+    "element": ["fire","ice","water"],
+    "role": ["dps","support","tank"]
+  },
+
+  "characters": [
+    {
+      "name": "Ignis",
+      "tier": "SS",
+      "image": "images/ignis.png",
+      "element": "fire",
+      "role": "dps"
+    },
+    {
+      "name": "Glacia",
+      "tier": "S",
+      "image": "images/glacia.png",
+      "element": "ice",
+      "role": "support"
+    },
+    {
+      "name": "Aqua",
+      "tier": "A",
+      "image": "images/aqua.png",
+      "element": "water",
+      "role": "tank"
+    }
+  ]
+}

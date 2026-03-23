@@ -1,0 +1,418 @@
+let DATA
+
+let currentGame = null
+let currentTierlist = null
+
+let searchText = ""
+let activeFilters = {}
+
+const gameSelect = document.getElementById("gameSelect")
+const tierTabs = document.getElementById("tierTabs")
+const filtersContainer = document.getElementById("filters")
+const tierlistContainer = document.getElementById("tierlist")
+const searchInput = document.getElementById("search")
+const resetBtn = document.getElementById("reset")
+
+
+
+/* -----------------------------
+LOAD DATA
+----------------------------- */
+
+fetch("data.js")
+.then(r => r.json())
+.then(data => {
+
+    DATA = data
+
+    buildGameSelector()
+
+})
+
+
+
+/* -----------------------------
+GAME SELECTOR
+----------------------------- */
+
+function buildGameSelector(){
+
+    gameSelect.innerHTML = ""
+
+    DATA.games.forEach(game => {
+
+        const option = document.createElement("option")
+
+        option.value = game.id
+        option.textContent = game.name
+
+        gameSelect.appendChild(option)
+
+    })
+
+    gameSelect.onchange = () => {
+
+        loadGame(gameSelect.value)
+
+    }
+
+    loadGame(DATA.games[0].id)
+
+}
+
+
+
+function loadGame(gameId){
+
+    currentGame = DATA.games.find(g => g.id === gameId)
+
+    activeFilters = {}
+    searchText = ""
+
+    searchInput.value = ""
+
+    buildTabs()
+    buildFilters()
+
+    renderTierlist()
+
+}
+
+
+
+/* -----------------------------
+TIERLIST TABS
+----------------------------- */
+
+function buildTabs(){
+
+    tierTabs.innerHTML = ""
+
+    currentGame.tierlists.forEach((tierlist, index) => {
+
+        const tab = document.createElement("button")
+
+        tab.textContent = tierlist.name
+        tab.className = "tier-tab"
+
+        tab.onclick = () => {
+
+            currentTierlist = tierlist
+
+            updateActiveTab(tab)
+
+            renderTierlist()
+
+        }
+
+        if(index === 0){
+
+            currentTierlist = tierlist
+            tab.classList.add("active")
+
+        }
+
+        tierTabs.appendChild(tab)
+
+    })
+
+}
+
+
+
+function updateActiveTab(active){
+
+    document.querySelectorAll(".tier-tab").forEach(t => {
+
+        t.classList.remove("active")
+
+    })
+
+    active.classList.add("active")
+
+}
+
+
+
+/* -----------------------------
+FILTER UI
+----------------------------- */
+
+function buildFilters(){
+
+    filtersContainer.innerHTML = ""
+
+    const filters = currentGame.filters
+
+    Object.entries(filters).forEach(([category, values]) => {
+
+        const group = document.createElement("div")
+        group.className = "filter-group"
+
+        const title = document.createElement("div")
+        title.className = "filter-title"
+        title.textContent = category
+
+        group.appendChild(title)
+
+        values.forEach(value => {
+
+            const btn = document.createElement("button")
+
+            btn.className = "filter-btn"
+            btn.textContent = value
+
+            btn.onclick = () => {
+
+                if(activeFilters[category] === value){
+
+                    delete activeFilters[category]
+                    btn.classList.remove("active")
+
+                } else {
+
+                    activeFilters[category] = value
+
+                    group.querySelectorAll("button")
+                        .forEach(b => b.classList.remove("active"))
+
+                    btn.classList.add("active")
+
+                }
+
+                renderTierlist()
+
+            }
+
+            group.appendChild(btn)
+
+        })
+
+        filtersContainer.appendChild(group)
+
+    })
+
+}
+
+
+
+/* -----------------------------
+SEARCH
+----------------------------- */
+
+searchInput.addEventListener("input", () => {
+
+    searchText = searchInput.value.toLowerCase()
+
+    renderTierlist()
+
+})
+
+
+
+/* -----------------------------
+RESET BUTTON
+----------------------------- */
+
+resetBtn.onclick = () => {
+
+    activeFilters = {}
+    searchText = ""
+
+    searchInput.value = ""
+
+    document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"))
+
+    renderTierlist()
+
+}
+
+
+
+/* -----------------------------
+FILTER LOGIC
+----------------------------- */
+
+function applyFilters(character){
+
+    if(searchText){
+
+        if(!character.name.toLowerCase().includes(searchText))
+            return false
+
+    }
+
+    for(const [category,value] of Object.entries(activeFilters)){
+
+        if(character[category] != value)
+            return false
+
+    }
+
+    return true
+
+}
+
+
+
+/* -----------------------------
+ROLE HEADER
+----------------------------- */
+
+function buildRoleHeader(container){
+
+    const header = document.createElement("div")
+
+    header.className = "role-header"
+
+    const empty = document.createElement("div")
+    empty.className = "tier-label"
+
+    header.appendChild(empty)
+
+    currentGame.roles.forEach(role => {
+
+        const roleDiv = document.createElement("div")
+
+        roleDiv.className = "role-name"
+        roleDiv.textContent = role.name
+
+        header.appendChild(roleDiv)
+
+    })
+
+    container.appendChild(header)
+
+}
+
+
+
+/* -----------------------------
+RENDER TIERLIST
+----------------------------- */
+
+function renderTierlist(){
+
+    tierlistContainer.innerHTML = ""
+
+    if(!currentTierlist) return
+
+    buildRoleHeader(tierlistContainer)
+
+    currentTierlist.tiers.forEach(tier => {
+
+        const row = document.createElement("div")
+        row.className = "tier-row"
+
+        const tierLabel = document.createElement("div")
+        tierLabel.className = "tier-label=" + 
+        tierLabel.textContent = tier
+
+        row.appendChild(tierLabel)
+
+
+        currentGame.roles.forEach(role => {
+
+            const column = document.createElement("div")
+            column.className = "role-column"
+
+
+            const characters = currentTierlist.characters
+                .filter(c => c.tier === tier)
+                .filter(c => c.role === role.id)
+                .filter(applyFilters)
+                .sort((a,b) => a.name.localeCompare(b.name))
+
+
+            characters.forEach(char => {
+
+                column.appendChild(createCard(char))
+
+            })
+
+
+            row.appendChild(column)
+
+        })
+
+
+        tierlistContainer.appendChild(row)
+
+    })
+
+}
+
+
+
+/* -----------------------------
+CHARACTER CARD
+----------------------------- */
+
+function createCard(char){
+
+    const card = document.createElement("div")
+
+    card.className = "card"
+
+
+    let tagsHTML = ""
+    let eidolonHTML = ""
+    let iconHTML = ""
+
+
+    if(currentGame.features.tags && char.tags){
+
+        tagsHTML = `
+            <div class="tags">
+                ${char.tags.join(", ")}
+            </div>
+        `
+
+    }
+
+
+    if(currentGame.features.eidolon){
+
+        eidolonHTML = `
+            <div class="eidolon">
+                E${char.eidolon ?? 0}
+            </div>
+        `
+
+    }
+
+
+    if(currentGame.features.elementIcon && char.icon){
+
+        iconHTML = `
+            <img class="element-icon" src="${char.icon}">
+        `
+
+    }
+
+
+    card.innerHTML = `
+
+        <div class="portrait">
+
+            <img src="${char.image}" class="character-img">
+
+            ${iconHTML}
+
+            ${eidolonHTML}
+
+        </div>
+
+        <div class="name">
+            ${char.name}
+        </div>
+
+        ${tagsHTML}
+
+    `
+
+
+    return card
+
+}

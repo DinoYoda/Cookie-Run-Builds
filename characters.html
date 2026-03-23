@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Characters</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-game-selector">
+    <button class="sidebar-game-btn" id="sidebarGameBtn">
+      <span id="sidebarGameName">Loading…</span>
+      <span class="sidebar-game-chevron">▾</span>
+    </button>
+    <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
+  </div>
+  <div class="sidebar-header">Menu</div>
+  <a href="characters.html" class="sidebar-link sidebar-link-active">Characters</a>
+  <a href="index.html" class="sidebar-link">Tier Lists</a>
+  <a href="info.html" class="sidebar-link">Info</a>
+</div>
+
+<div class="charlist-header">
+  <h2 class="charlist-title">Characters</h2>
+  <input class="charlist-search" id="charlistSearch" placeholder="Search...">
+  <button id="charlistReset">Reset</button>
+  <select class="charlist-sort" id="charlistSort">
+    <option value="rarity">Rarity</option>
+    <option value="release">Release</option>
+    <option value="alpha">A–Z</option>
+  </select>
+  <button class="charlist-sort-dir" id="charlistSortDir" title="Reverse order">↓</button>
+  <label class="charlist-mccj-label"><input type="checkbox" id="charlistMcCj" title="When on, cookies with Magic Candy or Crystal Jam appear first within each rarity"> MC/CJ first</label>
+  <span id="charlistCounter"></span>
+</div>
+
+<div class="charlist-filters" id="charlistFilters"></div>
+
+<div class="charlist-grid" id="charlistGrid"></div>
+
+<script src="release-order.js"></script>
+<script src="data.js"></script>
+<script src="chars-list.js"></script>
+<script>
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="sidebar-game.js"></script>
+</body>
+</html>

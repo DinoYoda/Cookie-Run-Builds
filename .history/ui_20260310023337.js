@@ -1,0 +1,656 @@
+let DATA
+
+let currentGame = null
+let currentTierlist = null
+
+let searchText = ""
+let activeFilters = {}
+
+const gameSelect = document.getElementById("gameSelect")
+const tierTabs = document.getElementById("tierTabs")
+const filtersContainer = document.getElementById("filters")
+const tierlistContainer = document.getElementById("tierlist")
+const searchInput = document.getElementById("search")
+const resetBtn = document.getElementById("reset")
+
+const releaseOrderMap = {}
+const cookieByDate = [
+    "Adventurer Cookie",
+    "Alchemist Cookie",
+    "Angel Cookie",
+    "Avocado Cookie",
+    "Beet Cookie",
+    "Blackberry Cookie",
+    "Carrot Cookie",
+    "Cherry Cookie",
+    "Chili Pepper Cookie",
+    "Clover Cookie",
+    "Custard Cookie III",
+    "Dark Choco Cookie",
+    "Espresso Cookie",
+    "GingerBrave",
+    "Gumball Cookie",
+    "Herb Cookie",
+    "Knight Cookie",
+    "Licorice Cookie",
+    "Madeleine Cookie",
+    "Milk Cookie",
+    "Mint Choco Cookie",
+    "Muscle Cookie",
+    "Ninja Cookie",
+    "Onion Cookie",
+    "Pancake Cookie",
+    "Poison Mushroom Cookie",
+    "Pomegranate Cookie",
+    "Princess Cookie",
+    "Purple Yam Cookie",
+    "Rye Cookie",
+    "Snow Sugar Cookie",
+    "Sparkling Cookie",
+    "Strawberry Cookie",
+    "Tiger Lily Cookie",
+    "Vampire Cookie",
+    "Werewolf Cookie",
+    "Wizard Cookie",
+    "Kumiho Cookie",
+    "Cream Puff Cookie",
+    "Latte Cookie",
+    "Almond Cookie",
+    "Black Raisin Cookie",
+    "Pure Vanilla Cookie",
+    "Strawberry Crepe Cookie",
+    "Fig Cookie",
+    "Pastry Cookie",
+    "Devil Cookie",
+    "Red Velvet Cookie",
+    "Mango Cookie",
+    "Sea Fairy Cookie",
+    "Lilac Cookie",
+    "Sorbet Shark Cookie",
+    "Squid Ink Cookie",
+    "Parfait Cookie",
+    "Hollyberry Cookie",
+    "Raspberry Cookie",
+    "Moon Rabbit Cookie",
+    "Sonic Cookie",
+    "Tails Cookie",
+    "Mala Sauce Cookie",
+    "Twizzly Gummy Cookie",
+    "Pumpkin Pie Cookie",
+    "Cotton Cookie",
+    "Frost Queen Cookie",
+    "Cocoa Cookie",
+    "Eclair Cookie",
+    "Tea Knight Cookie",
+    "Affogato Cookie",
+    "Dark Cacao Cookie",
+    "Caramel Arrow Cookie",
+    "Cherry Blossom Cookie",
+    "Clotted Cream Cookie",
+    "Wildberry Cookie",
+    "Crunchy Chip Cookie",
+    "Oyster Cookie",
+    "Financier Cookie",
+    "Aladdin Cookie",
+    "Alice Cookie",
+    "Ariel Cookie",
+    "Beast Cookie",
+    "Belle Cookie",
+    "Cinderella Cookie",
+    "Daisy Duck Cookie",
+    "Donald Duck Cookie",
+    "Goofy Cookie",
+    "Jasmine Cookie",
+    "Lilo Cookie",
+    "Mickey Mouse Cookie",
+    "Minnie Mouse Cookie",
+    "Mulan Cookie",
+    "Peter Pan Cookie",
+    "Pocahontas Cookie",
+    "Princess Aurora Cookie",
+    "Snow White Cookie",
+    "Stitch Cookie",
+    "Tinker Bell Cookie",
+    "Cream Unicorn Cookie",
+    "Black Pearl Cookie",
+    "Captain Caviar Cookie",
+    "Candy Diver Cookie",
+    "J-hope Cookie",
+    "Jimin Cookie",
+    "Jin Cookie",
+    "Jung Kook Cookie",
+    "RM Cookie",
+    "Schwarzwälder",
+    "SUGA Cookie",
+    "V Cookie",
+    "BTS",
+    "Macaron Cookie",
+    "Carol Cookie",
+    "Sherbet Cookie",
+    "Pinecone Cookie",
+    "Prophet Cookie",
+    "Milky Way Cookie",
+    "Moonlight Cookie",
+    "Blueberry Pie Cookie",
+    "Space Doughnut",
+    "Stardust Cookie",
+    "Capsaicin Cookie",
+    "Prune Juice Cookie",
+    "Kouign-Amann Cookie",
+    "Pitaya Dragon Cookie",
+    "Royal Margarine Cookie",
+    "Snapdragon Cookie",
+    "Tarte Tatin Cookie",
+    "Rockstar Cookie",
+    "Shining Glitter Cookie",
+    "Black Lemonade Cookie",
+    "Peppermint Cookie",
+    "Aquamarine Cookie",
+    "Crimson Coral Cookie",
+    "Gold Citrine Cookie",
+    "Mystic Opal Cookie",
+    "Frilled Jellyfish Cookie",
+    "Burnt Cheese Cookie",
+    "Golden Cheese Cookie",
+    "Fettuccine Cookie",
+    "Mozzarella Cookie",
+    "Olive Cookie",
+    "Icicle Yeti Cookie",
+    "Crème Brûlée Cookie",
+    "Linzer Cookie",
+    "Rebel Cookie",
+    "Silverbell Cookie",
+    "White Lily Cookie",
+    "Mercurial Knight Cookie",
+    "Elder Faerie Cookie",
+    "Matcha Cookie",
+    "Butter Roll Cookie",
+    "Witchberry Cookie",
+    "Caramel Choux Cookie",
+    "Street Urchin Cookie",
+    "Stormbringer Cookie",
+    "Cloud Haetae Cookie",
+    "Mystic Flour Cookie",
+    "Twisted Donut Cookie",
+    "Dark Cacao Cookie (Dragon Lord)",
+    "Peach Blossom Cookie",
+    "Cream Ferret Cookie",
+    "MyCookie",
+    "Star Coral Cookie",
+    "Wind Archer Cookie",
+    "Burning Spice Cookie",
+    "Nutmeg Tiger Cookie",
+    "Smoked Cheese Cookie",
+    "Golden Cheese Cookie (Immortal)",
+    "Young Kulfi",
+    "Camellia Cookie",
+    "Golden Osmanthus Cookie",
+    "Red Osmanthus Cookie",
+    "Choco Drizzle Cookie",
+    "Pudding à la Mode Cookie",
+    "Green Tea Mousse Cookie",
+    "Okchun Cookie",
+    "Rainbow Sherbet Cookie",
+    "Candy Apple Cookie",
+    "Shadow Milk Cookie",
+    "Black Sapphire Cookie",
+    "Pure Vanilla Cookie (Compassionate)",
+    "Black Forest Cookie",
+    "Wedding Cake Cookie",
+    "Agar Agar Cookie",
+    "Fire Spirit Cookie",
+    "Eternal Sugar Cookie",
+    "Pavlova Cookie",
+    "Hollyberry Cookie (Aegis)",
+    "Sugarfly Cookie",
+    "Cream Soda Cookie",
+    "Lemon Cookie",
+    "Marshmallow Bunny Cookie",
+    "Orange Cookie",
+    "Lime Cookie",
+    "Jagae Cookie",
+    "Manju Cookie",
+    "Grapefruit Cookie",
+    "Seltzer Cookie",
+    "Doughael",
+    "Menthol Cookie",
+    "Charcoal Cookie",
+    "Silent Salt Cookie",
+    "Salt Cellar Cookie",
+    "White Lily Cookie (Dawnbringer)",
+    "Chess Choco Cookie",
+    "Elphaba Cookie",
+    "Glinda Cookie",
+    "Millennial Tree Cookie",
+    "Dark Enchantress Cookie",
+    "Mold Dough Cookie",
+    "Venom Dough Cookie",
+    "Pom-pom Dough Cookie"
+];
+cookieByDate.forEach((name, index) => {
+    releaseOrderMap[name] = index
+})
+
+/* -----------------------------
+LOAD DATA
+----------------------------- */
+
+fetch("data.js")
+    .then(r => r.json())
+    .then(data => {
+
+        DATA = data
+
+        buildGameSelector()
+
+    })
+
+
+
+/* -----------------------------
+GAME SELECTOR
+----------------------------- */
+
+function buildGameSelector() {
+
+    gameSelect.innerHTML = ""
+
+    DATA.games.forEach(game => {
+
+        const option = document.createElement("option")
+
+        option.value = game.id
+        option.textContent = game.name
+
+        gameSelect.appendChild(option)
+
+    })
+
+    gameSelect.onchange = () => {
+
+        loadGame(gameSelect.value)
+
+    }
+
+    loadGame(DATA.games[0].id)
+
+}
+
+
+
+function loadGame(gameId) {
+
+    currentGame = DATA.games.find(g => g.id === gameId)
+
+    activeFilters = {}
+    searchText = ""
+
+    searchInput.value = ""
+
+    buildTabs()
+    buildFilters()
+
+    renderTierlist()
+
+}
+
+
+
+/* -----------------------------
+TIERLIST TABS
+----------------------------- */
+
+function buildTabs() {
+
+    tierTabs.innerHTML = ""
+
+    currentGame.tierlists.forEach((tierlist, index) => {
+
+        const tab = document.createElement("button")
+
+        tab.textContent = tierlist.name
+        tab.className = "tier-tab"
+
+        tab.onclick = () => {
+
+            currentTierlist = tierlist
+
+            updateActiveTab(tab)
+
+            renderTierlist()
+
+        }
+
+        if (index === 0) {
+
+            currentTierlist = tierlist
+            tab.classList.add("active")
+
+        }
+
+        tierTabs.appendChild(tab)
+
+    })
+
+}
+
+
+
+function updateActiveTab(active) {
+
+    document.querySelectorAll(".tier-tab").forEach(t => {
+
+        t.classList.remove("active")
+
+    })
+
+    active.classList.add("active")
+
+}
+
+
+
+/* -----------------------------
+FILTER UI
+----------------------------- */
+
+function buildFilters() {
+
+    filtersContainer.innerHTML = ""
+
+    const filters = currentGame.filters
+
+    Object.entries(filters).forEach(([category, values]) => {
+
+        const group = document.createElement("div")
+        group.className = "filter-group"
+
+        values.forEach(value => {
+
+            const btn = document.createElement("button")
+
+            btn.className = "filter-icon-btn"
+
+            btn.dataset.category = category
+            btn.dataset.value = value
+
+            const iconPath = `icons/${value}.png`
+
+            btn.title = value
+
+            btn.innerHTML = `
+                <img src="${iconPath}" alt="${value}">
+            `
+
+            btn.onclick = () => {
+
+                if (activeFilters[category] === value) {
+
+                    delete activeFilters[category]
+                    btn.classList.remove("active")
+
+                } else {
+
+                    activeFilters[category] = value
+
+                    group.querySelectorAll("button")
+                        .forEach(b => b.classList.remove("active"))
+
+                    btn.classList.add("active")
+
+                }
+
+                renderTierlist()
+
+            }
+
+            group.appendChild(btn)
+
+        })
+
+        filtersContainer.appendChild(group)
+
+    })
+
+}
+
+
+
+/* -----------------------------
+SEARCH
+----------------------------- */
+
+searchInput.addEventListener("input", () => {
+
+    searchText = searchInput.value.toLowerCase()
+
+    renderTierlist()
+
+})
+
+
+
+/* -----------------------------
+RESET BUTTON
+----------------------------- */
+
+resetBtn.onclick = () => {
+
+    activeFilters = {}
+    searchText = ""
+
+    searchInput.value = ""
+
+    document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"))
+
+    renderTierlist()
+
+}
+
+
+
+/* -----------------------------
+FILTER LOGIC
+----------------------------- */
+
+function applyFilters(character) {
+    // Search filter
+    if (searchText) {
+        if (!character.name.toLowerCase().includes(searchText)) return false
+    }
+
+    // Category filters
+    for (const [category, value] of Object.entries(activeFilters)) {
+        const charValue = character[category]
+
+        if (Array.isArray(charValue)) {
+            // Pass if any value matches
+            if (!charValue.includes(value)) return false
+        } else {
+            // Single value
+            if (charValue != value) return false
+        }
+    }
+
+    return true
+}
+
+
+
+/* -----------------------------
+ROLE HEADER
+----------------------------- */
+
+function buildRoleHeader(container) {
+
+    const header = document.createElement("div")
+
+    header.className = "role-header"
+
+    const empty = document.createElement("div")
+    empty.className = "tier-label"
+
+    header.appendChild(empty)
+
+    currentGame.roles.forEach(role => {
+
+        const roleDiv = document.createElement("div")
+
+        roleDiv.className = "role-name"
+        roleDiv.textContent = role.name
+
+        header.appendChild(roleDiv)
+
+    })
+
+    container.appendChild(header)
+
+}
+
+
+
+/* -----------------------------
+RENDER TIERLIST
+----------------------------- */
+
+function renderTierlist() {
+    tierlistContainer.innerHTML = ""
+    if (!currentTierlist) return
+
+    // Only build role header if roles are enabled
+    if (currentGame.features.role) {
+        buildRoleHeader(tierlistContainer)
+    }
+
+    const tiers = currentTierlist.tiers
+    const entries = currentTierlist.entries
+
+    // Build dynamic rarity order based on filter UI
+    const rarityOrder = {}
+    currentGame.filters.rarity?.forEach((r, index) => {
+        rarityOrder[r] = index
+    })
+
+    let totalCards = 0
+
+    tiers.forEach((tierName, i) => {
+        const row = document.createElement("div")
+        row.className = "tier-row"
+
+        const tierLabel = document.createElement("div")
+        tierLabel.className = "tier-label " + tierName
+        tierLabel.textContent = tierName
+        row.appendChild(tierLabel)
+
+        if (currentGame.features.role) {
+            currentGame.roles.forEach(role => {
+                const column = document.createElement("div")
+                column.className = "role-column"
+
+                if (entries[i]) {
+                    entries[i]
+                        .map(name => currentGame.characters.find(c => c.name === name))
+                        .filter(Boolean)
+                        .filter(c => c.role === role.name)
+                        .filter(applyFilters)
+                        .sort((a, b) => {
+                            const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b
+                                .rarity] ?? 999)
+                            if (rarityDiff !== 0) return rarityDiff
+                            return a.name.localeCompare(b.name)
+                        })
+                        .forEach(c => {
+                            column.appendChild(createCard(c))
+                            totalCards++
+                        })
+                }
+
+                row.appendChild(column)
+            })
+        } else {
+            const column = document.createElement("div")
+            column.className = "tier-column"
+
+            if (entries[i]) {
+                entries[i]
+                    .map(name => currentGame.characters.find(c => c.name === name))
+                    .filter(Boolean)
+                    .filter(applyFilters)
+                    .sort((a, b) => {
+                        // 1. Sort by rarity
+                        const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b.rarity] ?? 999)
+                        if (rarityDiff !== 0) return rarityDiff
+
+                        // 2. Sort by release order (newer cookies first)
+                        return (releaseOrderMap[b.name] ?? 9999) - (releaseOrderMap[a.name] ?? 9999)
+                    })
+                    .forEach(c => {
+                        column.appendChild(createCard(c))
+                        totalCards++
+                    })
+            }
+
+            row.appendChild(column)
+        }
+
+        tierlistContainer.appendChild(row)
+    })
+
+    // Update the counter element
+    const counter = document.getElementById("cardCounter")
+    if (counter) {
+        counter.textContent = `${totalCards} card${totalCards === 1 ? "" : "s"}`
+    }
+}
+
+
+
+/* -----------------------------
+CHARACTER CARD
+----------------------------- */
+function getCardImagePath(name) {
+    // 1. Convert to lowercase
+    let newName = name.toLowerCase()
+
+    // 2. Remove 'cookie' at the end if it exists
+    newName = newName.replace(/ cookie$/i, "")
+
+    // 3. Replace spaces with underscores
+    newName = newName.replace(/\s+/g, "_")
+
+    // 4. Build image path
+    return `icons/cookie_${newName}_card.png`
+}
+
+function getWikiLink(name)
+
+function createCard(char) {
+    const card = document.createElement("div")
+    card.className = "card"
+
+    const imgSrc = getCardImagePath(char.name)
+
+    let html = `<div class="portrait"><img src="${imgSrc}" class="character-img">`
+
+    if (currentGame.features.elementIcon && char.icon) {
+        html += `<img class="element-icon" src="${char.icon}">`
+    }
+
+    if (currentGame.features.eidolon) {
+        html += `<div class="eidolon">E${char.eidolon ?? 0}</div>`
+    }
+
+    html += `</div><div class="name">${char.name}</div>`
+
+    if (currentGame.features.tags && char.tags) {
+        html += `<div class="tags">${char.tags.join(", ")}</div>`
+    }
+
+    if (currentGame.features.badges && char.badges) {
+        html += `<div class="badges">${char.badges.join(", ")}</div>`
+    }
+
+    card.innerHTML = html
+    return card
+}
