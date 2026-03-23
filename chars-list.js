@@ -131,9 +131,15 @@ function render() {
 
 function cardHtml(c) {
   const n = c.name, dn = c.displayName || n
+  const cardCandidates = [
+    `pictures/cards/cookie_${n}_card.png`,
+    `pictures/cards/Cookie_${n}_card.png`,
+    `pictures/cards/cookie_${String(n).toLowerCase()}_card.png`,
+    `pictures/cards/Cookie_${String(n).toLowerCase()}_card.png`
+  ]
   return `<div class="charlist-card" data-name="${n}">
     <div class="charlist-card-img-wrap">
-      <img class="charlist-card-img" src="pictures/cards/cookie_${n}_card.png" alt="${dn}" onerror="this.src='pictures/icons/null.png'">
+      <img class="charlist-card-img" src="${cardCandidates[0]}" data-fallback-1="${cardCandidates[1]}" data-fallback-2="${cardCandidates[2]}" data-fallback-3="${cardCandidates[3]}" alt="${dn}" onerror="const step=Number(this.dataset.fallbackStep||'0'); const next=[this.dataset.fallback1,this.dataset.fallback2,this.dataset.fallback3,'pictures/icons/null.png'][step]; if(next){this.dataset.fallbackStep=String(step+1); this.src=next;} else {this.onerror=null;}">
       <div class="charlist-card-icons">
         <img src="pictures/candy/${n}_mc_lv3.png" alt="candy" onerror="this.style.display='none'">
         <img src="pictures/icons/${c.type}.png" alt="${c.type}" title="${c.type}" onerror="this.style.display='none'">
