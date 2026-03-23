@@ -601,18 +601,7 @@ function getCardImagePath(name) {
     if (getCurrentFeatures().cardStyle === "candy") {
         return `pictures/candy/${name}_mc_lv3.png`
     }
-    return `pictures/cards/cookie_${name}_card.png`
-}
-
-function getCardImageFallbacks(name) {
-    const n = String(name || "")
-    const lower = n.toLowerCase()
-    return [
-        `pictures/cards/Cookie_${n}_card.png`,
-        `pictures/cards/cookie_${lower}_card.png`,
-        `pictures/cards/Cookie_${lower}_card.png`,
-        "pictures/icons/null.png"
-    ]
+    return `pictures/cards/Cookie_${String(name || "").toLowerCase()}_card.png`
 }
 
 function getWikiLink(displayName) {
@@ -647,9 +636,8 @@ function createCard(char) {
 
     }
 
-    const [fb1, fb2, fb3, fb4] = getCardImageFallbacks(char.name)
     let html = `<a class="portrait" href="${link}" ${newTab}>
-        <img src="${imgSrc}" class="character-img" data-fallback-1="${fb1}" data-fallback-2="${fb2}" data-fallback-3="${fb3}" data-fallback-4="${fb4}" onerror="const step=Number(this.dataset.fallbackStep||'0'); const next=[this.dataset.fallback1,this.dataset.fallback2,this.dataset.fallback3,this.dataset.fallback4][step]; if(next){this.dataset.fallbackStep=String(step+1); this.src=next;} else {this.onerror=null;}">`
+        <img src="${imgSrc}" class="character-img" onerror="this.src='pictures/icons/null.png'">`
 
     if (f.elementIcon && char.icon) {
         html += `<img class="element-icon" src="${char.icon}">`
