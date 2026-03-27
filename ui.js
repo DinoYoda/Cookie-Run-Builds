@@ -11,7 +11,26 @@ let searchText = ""
 let activeFilters = {}
 let characterMap = {}
 
-const gameSelect = document.getElementById("gameSelect")
+function getGamePictureRoot() {
+    const g = currentGame
+    if (!g) return "crk/pictures"
+    const folder = g.assetsBase != null ? g.assetsBase : g.id
+    return `${folder}/pictures`
+}
+
+/** Card art filename under {pictureRoot}/cards/ */
+function cardImageFilename(gameId, name) {
+    const n = name || ""
+    if (gameId === "toa") {
+        return `${n}_Cookie_Profile_Icon.png`
+    }
+    return `Cookie_${String(n).toLowerCase()}_card.png`
+}
+
+const tierSectionSelect = document.getElementById("tierSectionSelect")
+const tierSectionSelectTrigger = document.getElementById("tierSectionSelectTrigger")
+const tierSectionSelectLabel = document.getElementById("tierSectionSelectLabel")
+const tierSectionSelectPanel = document.getElementById("tierSectionSelectPanel")
 const tierTabs = document.getElementById("tierTabs")
 const filtersContainer = document.getElementById("filters")
 const tierlistContainer = document.getElementById("tierlist")
@@ -50,19 +69,36 @@ function loadUIState() {
     }
 }
 function getCurrentFeatures() {
-    return currentSection?.features ?? currentGame?.features ?? {}
+    return currentTierlist?.features ?? currentSection?.features ?? currentGame?.features ?? {}
 }
 function getCurrentFilters() {
-    return currentSection?.filters ?? currentGame?.filters ?? {}
+    return currentTierlist?.filters ?? currentSection?.filters ?? currentGame?.filters ?? {}
 }
 function getCurrentRoles() {
-    return currentSection?.roles ?? currentGame?.roles ?? []
+    return currentTierlist?.roles ?? currentSection?.roles ?? currentGame?.roles ?? []
 }
 
 DATA = window.CRK_DATA || {}
-if (DATA.games && DATA.games.length) {
-    buildGameSelector()
-}
+
+document.addEventListener("click", () => {
+    document.querySelectorAll(".select-expand.is-open").forEach(root => {
+        root.classList.remove("is-open")
+        const trig = root.querySelector(".select-expand-trigger")
+        const pan = root.querySelector(".select-expand-panel")
+        if (trig) trig.setAttribute("aria-expanded", "false")
+        if (pan) pan.hidden = true
+    })
+})
+document.addEventListener("keydown", e => {
+    if (e.key !== "Escape") return
+    document.querySelectorAll(".select-expand.is-open").forEach(root => {
+        root.classList.remove("is-open")
+        const trig = root.querySelector(".select-expand-trigger")
+        const pan = root.querySelector(".select-expand-panel")
+        if (trig) trig.setAttribute("aria-expanded", "false")
+        if (pan) pan.hidden = true
+    })
+})
 
 
 
@@ -97,18 +133,40 @@ function loadGame(gameId) {
         })
     }
 
-    // Populate section dropdown with this game's top-level groups
-    gameSelect.innerHTML = ""
+    tierSectionSelectPanel.innerHTML = ""
     currentGame.tierlists.forEach(section => {
-        const option = document.createElement("option")
-        option.value = section.name
-        option.textContent = section.name
-        gameSelect.appendChild(option)
+        const btn = document.createElement("button")
+        btn.type = "button"
+        btn.className = "select-expand-option"
+        btn.dataset.value = section.name
+        btn.textContent = section.name
+        btn.setAttribute("role", "option")
+        btn.addEventListener("click", e => {
+            e.stopPropagation()
+            tierSectionSelect.classList.remove("is-open")
+            tierSectionSelectPanel.hidden = true
+            tierSectionSelectTrigger.setAttribute("aria-expanded", "false")
+            loadSection(section.name)
+            saveUIState()
+        })
+        tierSectionSelectPanel.appendChild(btn)
     })
 
-    gameSelect.onchange = () => {
-        loadSection(gameSelect.value)
-        saveUIState()
+    tierSectionSelectTrigger.onclick = e => {
+        e.stopPropagation()
+        const opening = !tierSectionSelect.classList.contains("is-open")
+        document.querySelectorAll(".select-expand.is-open").forEach(root => {
+            root.classList.remove("is-open")
+            const t = root.querySelector(".select-expand-trigger")
+            const p = root.querySelector(".select-expand-panel")
+            if (t) t.setAttribute("aria-expanded", "false")
+            if (p) p.hidden = true
+        })
+        if (opening) {
+            tierSectionSelect.classList.add("is-open")
+            tierSectionSelectPanel.hidden = false
+            tierSectionSelectTrigger.setAttribute("aria-expanded", "true")
+        }
     }
 
     const saved = loadUIState()
@@ -117,7 +175,10 @@ function loadGame(gameId) {
 
 function loadSection(sectionName) {
     currentSection = currentGame.tierlists.find(g => g.name === sectionName) || currentGame.tierlists[0]
-    gameSelect.value = currentSection.name
+    tierSectionSelectLabel.textContent = currentSection.name
+    tierSectionSelectPanel.querySelectorAll(".select-expand-option").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.value === currentSection.name)
+    })
 
     activeFilters = {}
     searchText = ""
@@ -322,7 +383,7 @@ function buildFilters() {
             btn.dataset.category = category
             btn.dataset.value = value
 
-            const iconPath = `pictures/icons/${value}.png`
+            const iconPath = `${getGamePictureRoot()}/icons/${value}.png`
 
             btn.title = value
 
@@ -397,8 +458,7 @@ resetBtn.onclick = () => {
 
     searchInput.value = ""
 
-    .forEach(btn => btn.classList.remove("active"))
-    document.querySelectorAll(".filter-icon-btn")
+    document.querySelectorAll(".filter-icon-btn").forEach(btn => btn.classList.remove("active"))
 
     renderTierlist()
 
@@ -485,6 +545,162 @@ function buildRoleHeader(container) {
 
 }
 
+/** Global rank index from S+ downward (matches tier band labels across lists). */
+const OVERALL_TIER_RANK_ORDER = ["S+", "S", "A+", "A", "B", "C", "D", "E", "F"]
+
+function tierLabelToRankValue(label) {
+    const i = OVERALL_TIER_RANK_ORDER.indexOf(label)
+    return i >= 0 ? i : null
+}
+
+function flattenTierlistLeaves(nodes) {
+    if (!Array.isArray(nodes)) return []
+    const out = []
+    for (const n of nodes) {
+        if (!n || n.computedAverage) continue
+        if (n.tiers && Array.isArray(n.entries)) out.push(n)
+        if (n.tierlists) out.push(...flattenTierlistLeaves(n.tierlists))
+    }
+    return out
+}
+
+function nameMatchesCell(char, cell) {
+    if (!cell || !char) return false
+    const t = (s) => String(s).trim()
+    const cellT = t(cell)
+    if (cellT === t(char.displayName || "")) return true
+    if (cellT === t(char.name || "")) return true
+    const base = t(char.displayName || "").replace(/\s+Cookie$/i, "").trim()
+    if (cellT === base) return true
+    return false
+}
+
+function tierValueForCharacter(char, leaf) {
+    if (!leaf?.tiers || !leaf?.entries) return null
+    for (let i = 0; i < leaf.entries.length; i++) {
+        const row = leaf.entries[i]
+        if (!row) continue
+        for (const cell of row) {
+            if (nameMatchesCell(char, cell)) {
+                return tierLabelToRankValue(leaf.tiers[i])
+            }
+        }
+    }
+    return null
+}
+
+function entryKeyForCharacter(char, worldLeaf) {
+    if (!worldLeaf?.entries) return char.displayName || char.name
+    for (const row of worldLeaf.entries) {
+        if (!row) continue
+        for (const cell of row) {
+            if (nameMatchesCell(char, cell)) return cell
+        }
+    }
+    return char.displayName || char.name
+}
+
+function isIntegerAverageValue(x) {
+    return Math.abs(x - Math.round(x)) < 1e-9
+}
+
+function roundNearestHalfDown(x) {
+    const f = Math.floor(x)
+    if (Math.abs(x - (f + 0.5)) < 1e-9) return f
+    return Math.round(x)
+}
+
+function normalizeTierLabel(label) {
+    const clean = String(label ?? "").toUpperCase().replace(/[^A-Z+]/g, "")
+    return OVERALL_TIER_RANK_ORDER.includes(clean) ? clean : null
+}
+
+function shouldHighlightRatingMismatch(char, placedTierLabel) {
+    const isOverallComputed = currentTierlist?.computedAverage &&
+        currentGame?.id === "crk" &&
+        currentSection?.name === "Cookies"
+    if (!isOverallComputed) return false
+
+    const dataRating = normalizeTierLabel(char?.rating)
+    const placed = normalizeTierLabel(placedTierLabel)
+    if (!dataRating || !placed) return false
+    return dataRating !== placed
+}
+
+function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
+    const uniq = [...new Set(keys)]
+    return uniq.sort((ka, kb) => {
+        const a = characterMap[ka]
+        const b = characterMap[kb]
+        if (!a || !b) return String(ka).localeCompare(String(kb))
+        if (isCandy) {
+            return (releaseOrderMapCandy[b.displayName ?? b.name] ?? 9999) -
+                (releaseOrderMapCandy[a.displayName ?? a.name] ?? 9999)
+        }
+        const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b.rarity] ?? 999)
+        if (rarityDiff !== 0) return rarityDiff
+        return (releaseOrderMap[(b.displayName ?? b.name)] ?? 9999) - (releaseOrderMap[(a.displayName ?? a.name)] ?? 9999)
+    })
+}
+
+/**
+ * CRK Cookies only: average World Exploration + Kingdom Arena rank indices; branch rules for ties / lower tiers.
+ */
+function computeCookiesOverallEntries(game, section) {
+    const tierOrder = [...OVERALL_TIER_RANK_ORDER]
+    const leaves = flattenTierlistLeaves(section.tierlists)
+    const world = leaves.find(t => t.name === "World Exploration")
+    const arena = leaves.find(t => t.name === "Kingdom Arena")
+    if (!world || !arena) {
+        return { tiers: tierOrder, entries: tierOrder.map(() => []) }
+    }
+    const allLeaves = leaves.filter(t => t.tiers && t.entries)
+    const chars = game.characters || []
+    const entries = tierOrder.map(() => [])
+
+    for (const char of chars) {
+        const vW = tierValueForCharacter(char, world)
+        const vA = tierValueForCharacter(char, arena)
+        if (vW == null || vA == null) continue
+
+        const avg2 = (vW + vA) / 2
+        let finalV
+
+        if (isIntegerAverageValue(avg2)) {
+            finalV = Math.round(avg2)
+        } else if (avg2 < 3) {
+            finalV = Math.floor(avg2)
+        } else {
+            const vals = allLeaves.map(leaf => tierValueForCharacter(char, leaf)).filter(v => v != null)
+            if (vals.length === 0) continue
+            const avgN = vals.reduce((a, b) => a + b, 0) / vals.length
+            finalV = roundNearestHalfDown(avgN)
+        }
+
+        finalV = Math.max(0, Math.min(finalV, tierOrder.length - 1))
+        const label = tierOrder[finalV]
+        const row = tierOrder.indexOf(label)
+        if (row < 0) continue
+        entries[row].push(entryKeyForCharacter(char, world))
+    }
+
+    const isCandy = (getCurrentFeatures().cardStyle === "candy")
+    let orderRarities = [...(getCurrentFilters().rarity || [])]
+    if (!isCandy) {
+        const beastIdx = orderRarities.indexOf("Beast")
+        if (beastIdx >= 0) orderRarities.splice(beastIdx, 0, "AncientA")
+    }
+    const rarityOrder = {}
+    orderRarities.forEach((r, index) => {
+        rarityOrder[r] = index
+    })
+
+    for (let i = 0; i < entries.length; i++) {
+        entries[i] = sortEntryKeysForDisplay(entries[i], isCandy, rarityOrder)
+    }
+
+    return { tiers: tierOrder, entries }
+}
 
 
 /* -----------------------------
@@ -493,6 +709,8 @@ RENDER TIERLIST
 
 function renderTierlist() {
     tierlistContainer.innerHTML = ""
+    tierlistContainer.classList.remove("tierlist--roles")
+    tierlistContainer.style.removeProperty("--role-columns")
     if (!currentTierlist) return
 
     const features = getCurrentFeatures()
@@ -500,11 +718,20 @@ function renderTierlist() {
 
     // Only build role header if roles are enabled
     if (features.role) {
+        const roles = getCurrentRoles()
+        const n = Math.max(1, roles.length)
+        tierlistContainer.classList.add("tierlist--roles")
+        tierlistContainer.style.setProperty("--role-columns", String(n))
         buildRoleHeader(tierlistContainer)
     }
 
-    const tiers = currentTierlist.tiers
-    const entries = currentTierlist.entries
+    let tiers = currentTierlist.tiers
+    let entries = currentTierlist.entries
+    if (currentTierlist.computedAverage && currentGame?.id === "crk" && currentSection?.name === "Cookies") {
+        const computed = computeCookiesOverallEntries(currentGame, currentSection)
+        tiers = computed.tiers
+        entries = computed.entries
+    }
 
     // Build dynamic rarity order based on filter UI (AncientA injected for sort: above Beast, no filter button)
     let orderRarities = [...(getCurrentFilters().rarity || [])]
@@ -547,7 +774,7 @@ function renderTierlist() {
                             return (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
                         })
                         .forEach(c => {
-                            column.appendChild(createCard(c))
+                            column.appendChild(createCard(c, { placedTierLabel: tierName }))
                             totalCards++
                         })
                 }
@@ -574,7 +801,7 @@ function renderTierlist() {
                         return (releaseOrderMap[(b.displayName ?? b.name)] ?? 9999) - (releaseOrderMap[(a.displayName ?? a.name)] ?? 9999)
                     })
                     .forEach(c => {
-                        column.appendChild(createCard(c))
+                        column.appendChild(createCard(c, { placedTierLabel: tierName }))
                         totalCards++
                     })
             }
@@ -588,7 +815,7 @@ function renderTierlist() {
     // Update the counter element
     const counter = document.getElementById("cardCounter")
     if (counter) {
-        counter.textContent = `${totalCards} card${totalCards === 1 ? "" : "s"}`
+        counter.textContent = `Showing ${totalCards} cookie${totalCards === 1 ? "" : "s"}`
     }
 }
 
@@ -598,10 +825,11 @@ function renderTierlist() {
 CHARACTER CARD
 ----------------------------- */
 function getCardImagePath(name) {
+    const pic = getGamePictureRoot()
     if (getCurrentFeatures().cardStyle === "candy") {
-        return `pictures/candy/${name}_mc_lv3.png`
+        return `${pic}/candy/${name}_mc_lv3.png`
     }
-    return `pictures/cards/Cookie_${String(name || "").toLowerCase()}_card.png`
+    return `${pic}/cards/${cardImageFilename(currentGame?.id, name)}`
 }
 
 function getWikiLink(displayName) {
@@ -614,13 +842,27 @@ function getWikiLink(displayName) {
     return "https://cookierunkingdom.fandom.com/wiki/" + wikiName
 }
 
-function createCard(char) {
+function toaRarityImgClass(rarity) {
+    if (currentGame?.id !== "toa" || rarity == null || rarity === "") return ""
+    const key = String(rarity).replace(/[^a-zA-Z0-9]+/g, "_").replace(/^_|_$/g, "").toLowerCase()
+    return key ? ` toa-rarity-${key}` : ""
+}
+
+function createCard(char, opts = {}) {
 
     const card = document.createElement("div")
     card.className = "card"
+    if (shouldHighlightRatingMismatch(char, opts.placedTierLabel)) {
+        card.classList.add("card-rating-mismatch")
+        const placed = normalizeTierLabel(opts.placedTierLabel)
+        const rated = normalizeTierLabel(char.rating)
+        card.title = `Tier mismatch: placed ${placed}, data rating ${rated}`
+    }
 
     const f = getCurrentFeatures()
     const imgSrc = getCardImagePath(char.name)
+    const pic = getGamePictureRoot()
+    const rarityImgClass = toaRarityImgClass(char.rarity)
 
     let link
     let newTab = ""
@@ -632,12 +874,12 @@ function createCard(char) {
 
     } else {
 
-        link = `character.html?char=${encodeURIComponent(char.name)}`
+        link = `crk/character.html?char=${encodeURIComponent(char.name)}`
 
     }
 
     let html = `<a class="portrait" href="${link}" ${newTab}>
-        <img src="${imgSrc}" class="character-img" onerror="this.src='pictures/icons/null.png'">`
+        <img src="${imgSrc}" class="character-img${rarityImgClass}" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">`
 
     if (f.elementIcon && char.icon) {
         html += `<img class="element-icon" src="${char.icon}">`
@@ -665,4 +907,8 @@ function createCard(char) {
     card.innerHTML = html
 
     return card
+}
+
+if (DATA.games && DATA.games.length) {
+    buildGameSelector()
 }

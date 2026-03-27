@@ -60,17 +60,89 @@ button.active {
     background: #1f7ed0;
 }
 
-#gameSelect {
+/* Expand-under-trigger “select” (tier section + char sort) */
+.select-expand {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 9rem;
+}
+.tier-section-select {
+    min-width: 11rem;
+    align-self: flex-start;
+}
+.select-expand-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
     padding: 7px 10px;
     background: #2a2d34;
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     color: white;
     font-family: CookieRunR, sans-serif;
     font-size: 0.9rem;
     cursor: pointer;
+    text-align: left;
 }
-#gameSelect option { background: #2a2d34; }
+.select-expand-trigger:hover {
+    background: #3a3d47;
+}
+.select-expand.is-open .select-expand-trigger {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+}
+.select-expand-chevron {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    opacity: 0.75;
+    transition: transform 0.15s ease;
+}
+.select-expand.is-open .select-expand-chevron {
+    transform: rotate(-180deg);
+}
+.select-expand-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 60;
+    margin-top: -1px;
+    padding: 2px 0;
+    background: #2a2d34;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+.select-expand-panel[hidden] {
+    display: none !important;
+}
+.select-expand-option {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+}
+.select-expand-option:hover {
+    background: #3a3d47;
+    color: #fff;
+}
+.select-expand-option.active {
+    background: rgba(31, 126, 208, 0.22);
+    color: #5bb4ff;
+}
 
 #search {
     padding: 7px 12px;
@@ -156,6 +228,149 @@ button.active {
 ----------------------------- */
 #tierlist {
     margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* -----------------------------
+  Tier legend (collapsible explanation)
+----------------------------- */
+.tier-legend {
+    margin: 0 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    background: #2a2d34;
+    overflow: hidden;
+    max-width: 960px;
+}
+.tier-legend-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+    font-family: "CookieRun Bold", sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+.tier-legend-summary:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+.tier-legend-summary::-webkit-details-marker {
+    display: none;
+}
+.tier-legend-summary::marker {
+    display: none;
+}
+.tier-legend-title {
+    font-weight: 700;
+}
+.tier-legend-toggle {
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.55);
+}
+.tier-legend:not([open]) .tier-legend-toggle::after {
+    content: "Show";
+}
+.tier-legend[open] .tier-legend-toggle::after {
+    content: "Hide";
+}
+.tier-legend-body {
+    padding: 4px 0 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.tier-legend-row {
+    display: grid;
+    grid-template-columns: minmax(76px, 92px) 1fr;
+    gap: 12px 14px;
+    align-items: start;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.tier-legend-row:last-child {
+    border-bottom: none;
+}
+.tier-legend-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-family: "CookieRun Bold", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-shadow:
+        -1px -1px 0 rgba(255, 255, 255, 0.2),
+        1px -1px 0 rgba(255, 255, 255, 0.2),
+        -1px 1px 0 rgba(255, 255, 255, 0.2),
+        1px 1px 0 rgba(255, 255, 255, 0.2);
+    text-align: center;
+    line-height: 1.15;
+}
+.tier-legend-label.tier-legend-sp { background: var(--tier-rank-1); }
+.tier-legend-label.tier-legend-s { background: var(--tier-rank-2); }
+/* Split label: A+ (left) / A (right) */
+.tier-legend-label.tier-legend-a {
+    background: linear-gradient(
+        to right,
+        var(--tier-rank-3) 0%,
+        var(--tier-rank-3) 50%,
+        var(--tier-rank-4) 50%,
+        var(--tier-rank-4) 100%
+    );
+}
+.tier-legend-label.tier-legend-b { background: var(--tier-rank-5); }
+/* Split label: C (left) / D (right) */
+.tier-legend-label.tier-legend-cd {
+    background: linear-gradient(
+        to right,
+        var(--tier-rank-6) 0%,
+        var(--tier-rank-6) 50%,
+        var(--tier-rank-7) 50%,
+        var(--tier-rank-7) 100%
+    );
+    color: #f5f0e6;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+.tier-legend-label.tier-legend-e {
+    background: var(--tier-rank-8);
+    color: #f0ebe3;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+.tier-legend-desc {
+    margin: 0;
+    padding: 2px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.82);
+    text-align: left;
+}
+@media (max-width: 560px) {
+    .tier-legend-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .tier-legend-label {
+        justify-content: flex-start;
+        width: fit-content;
+        max-width: 100%;
+    }
 }
 
 /* -----------------------------
@@ -163,9 +378,36 @@ button.active {
 ----------------------------- */
 .role-header {
     display: grid;
-    grid-template-columns: 80px repeat(auto-fill, minmax(100px, 1fr));
     text-align: center;
     margin-bottom: 10px;
+}
+
+/* Equal-width role columns; label column MUST match .tier-row or headers misalign */
+#tierlist.tierlist--roles {
+    --role-column-bg: #2a2d34;
+    --role-column-bg-alt: #363a48;
+    --tier-label-col: 60px;
+}
+
+#tierlist.tierlist--roles .role-header,
+#tierlist.tierlist--roles .tier-row {
+    grid-template-columns: var(--tier-label-col) repeat(var(--role-columns, 1), minmax(0, 1fr));
+}
+
+/* Header cells: align striping with columns below (child 1 is tier label) */
+#tierlist.tierlist--roles .role-header .role-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.88);
+    background: var(--role-column-bg);
+}
+
+#tierlist.tierlist--roles .role-header .role-name:nth-child(even) {
+    background: var(--role-column-bg-alt);
 }
 
 /* -----------------------------
@@ -173,12 +415,15 @@ button.active {
 ----------------------------- */
 .tier-row {
     display: grid;
-    grid-template-columns: 60px repeat(auto-fill, minmax(100px, 1fr));
     text-align: center;
     font-size: 30px;
     margin-bottom: 15px;
     background: #16171d;
     border-radius: 10px;
+}
+
+#tierlist:not(.tierlist--roles) .tier-row {
+    grid-template-columns: 60px repeat(auto-fill, minmax(100px, 1fr));
 }
 
 .tier-label {
@@ -214,11 +459,29 @@ button.active {
 ----------------------------- */
 /* Role columns when enabled */
 .role-column {
-    background: #2a2d34;
+    background: var(--role-column-bg, #2a2d34);
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    align-content: flex-start;
+    min-width: 0;
+}
+
+/* Fill grid track + center wrapped rows (default flex shrink was packing cards to the start) */
+#tierlist.tierlist--roles .role-column {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    justify-self: stretch;
+}
+
+#tierlist.tierlist--roles .role-column .card {
+    flex: 0 0 auto;
+}
+
+#tierlist.tierlist--roles .tier-row > .role-column:nth-child(even) {
+    background: var(--role-column-bg-alt);
 }
 
 /* Single column when roles are disabled */
@@ -242,6 +505,12 @@ button.active {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
+.card.card-rating-mismatch {
+    outline: 2px solid #ff7b7b;
+    outline-offset: 1px;
+    box-shadow: 0 0 0 2px rgba(255, 123, 123, 0.22), 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
 .portrait {
     position: relative;
     width: 90px;
@@ -254,18 +523,48 @@ button.active {
     border-radius: 6px;
 }
 
+/* TOA tier list: rarity ring on top of portrait (hollow rounded frame, no layout shift) */
+.portrait:has(img.character-img[class*="toa-rarity-"])::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    border: 2px solid #6c7584;
+    pointer-events: none;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.portrait:has(.character-img.toa-rarity-common)::after {
+    border-color: #8b93a3;
+}
+
+.portrait:has(.character-img.toa-rarity-rare)::after {
+    border-color: #4a9eff;
+}
+
+.portrait:has(.character-img.toa-rarity-epic)::after {
+    border-color: #b565ff;
+}
+
+.portrait:has(.character-img.toa-rarity-legendary)::after {
+    border-color: #e8b31a;
+}
+
 .element-icon {
     position: absolute;
     top: 2px;
     left: 2px;
     width: 18px;
     height: 18px;
+    z-index: 2;
 }
 
 .eidolon {
     position: absolute;
     bottom: 2px;
     right: 2px;
+    z-index: 2;
     background: #000a;
     font-size: 10px;
     padding: 2px 4px;
@@ -340,12 +639,14 @@ button.active {
 ----------------------------- */
 @media (max-width:800px) {
 
-    .role-header,
-    .tier-row {
-  display: grid;
-  grid-template-columns: 80px repeat(auto-fill, minmax(100px, 1fr));
-  text-align: center;
-}
+    #tierlist:not(.tierlist--roles) .role-header,
+    #tierlist:not(.tierlist--roles) .tier-row {
+        grid-template-columns: 80px repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    #tierlist.tierlist--roles {
+        --tier-label-col: 80px;
+    }
   
     .card {
         width: 70px;
@@ -897,6 +1198,10 @@ button.active {
     margin-top: 1em;
 }
 
+.char-skill-details-line.char-skill-details-line-tight {
+    margin-top: 0;
+}
+
 
 .char-skill-details-list {
     list-style-type: "✦ ";
@@ -1129,12 +1434,38 @@ button.active {
     color: #FFD073
 }
 
+.text-color-moonlight {
+    color: #264AFF
+}
+
+.text-color-millennial_tree {
+    color: #6E8D23
+}
+
+.text-color-millennial_tree_2 {
+    color: #784926
+}
+
+.text-color-sugar_swan {
+    color: #ffa1e9
+}
+
+.text-rally {
+    color: #FFFF66;
+}
+
 .skill-status-icon {
     display: inline-block;
     vertical-align: middle;
     width: 20px;
     height: 20px;
     margin: 0 2px;
+}
+
+.skill-cookie-link {
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
 }
 
 .skill-status-icon-wrap {
@@ -1207,6 +1538,33 @@ button.active {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.8);
 }
+.info-stat-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 18px 0 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+.info-stat-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.info-stat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.info-stat-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    margin-top: 2px;
+}
 
 /* Build section */
 #char-build-section {
@@ -1220,19 +1578,29 @@ button.active {
 /* Same idea as .char-build-sets-wrapper: minmax(0, 1fr) so tracks shrink/wrap cleanly (no min-width px fights / no max-width cage on 4K) */
 .char-build-section-wrapper {
     display: block;
-    column-count: 1;
-    column-gap: clamp(12px, 1vw, 16px);
     min-width: 0;
 }
 
 @media (min-width: 1800px) {
-    .char-build-section-wrapper {
-        column-count: 2;
-    }
-
     .char-build-section-wrapper-single {
-        column-count: 1;
+        display: block;
     }
+}
+
+/* Masonry-like layout for builds (avoids row-height gaps when neighbors differ) */
+.char-build-masonry {
+    display: flex;
+    gap: clamp(12px, 1vw, 16px);
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+}
+
+.char-build-masonry-col {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .char-build-section-header {
@@ -1347,6 +1715,7 @@ button.active {
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
     margin-bottom: clamp(12px, 1vw, 16px);
+    align-self: start;
 }
 
 .char-build-rank-icon {
@@ -1386,11 +1755,11 @@ button.active {
 }
 
 .char-build-rank-best::after {
-    background-image: url("pictures/icons/recommendation_best.png");
+    background-image: url("crk/pictures/icons/recommendation_best.png");
 }
 
 .char-build-rank-recommended::after {
-    background-image: url("pictures/icons/recommendation_recommended.png");
+    background-image: url("crk/pictures/icons/recommendation_recommended.png");
 }
 
 .char-build-name-bar {
@@ -1934,18 +2303,26 @@ button.active {
     font-family: "CookieRun Bold", sans-serif;
     font-size: 1.4rem;
 }
-.charlist-sort {
-    padding: 7px 10px;
-    background: #2a2d34;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    color: white;
-    font-family: CookieRunR, sans-serif;
-    font-size: 0.9rem;
-    cursor: pointer;
+.charlist-sort-expand {
+    min-width: 7.5rem;
 }
-.charlist-sort option { background: #2a2d34; }
+/* Match one text line so the ▾ sits on the same vertical axis as the label (CookieRunR sits low in the em box). */
+.charlist-sort-expand .select-expand-trigger {
+    line-height: 1.35;
+}
+.charlist-sort-expand .select-expand-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Same as trigger font-size so ▾ centers against the label’s line box. */
+    height: 0.9rem;
+    line-height: 1;
+    font-size: 0.65rem;
+}
 .charlist-sort-dir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 7px 10px;
     background: #2a2d34;
     border: 1px solid rgba(255,255,255,0.15);
@@ -1954,6 +2331,7 @@ button.active {
     font-size: 1rem;
     cursor: pointer;
     line-height: 1;
+    min-width: 2.25rem;
 }
 .charlist-sort-dir:hover { background: #3a3d47; }
 .charlist-mccj-label {

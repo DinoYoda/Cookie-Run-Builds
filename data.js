@@ -328,7 +328,54 @@ window.CRK_DATA = {
                 element: ["Poison", "Chaos"],
                 type: "Bomber",
                 position: "Rear",
-                rarity: "Super Epic"
+                rarity: "Super Epic",
+                skill: "Mind Venom",
+                cd: 14,
+                sets: {
+                    toppings: [{
+                        resonance: "looming",
+                        1: "chocolate",
+                        2: "chocolate",
+                        3: "chocolate",
+                        4: "chocolate",
+                        5: "chocolate",
+                        6: "chocolate",
+                        substats: ["Cooldown", "DMG Resist", "ATK"]
+                    }],
+                    beascuit: [{
+                        1: "Bypass",
+                        2: "Bypass",
+                        3: "Bypass",
+                        4: "Bypass"
+                    }, {
+                        element: "Chaos",
+                        1: "Chaos DMG",
+                        2: "Chaos DMG",
+                        3: "Chaos DMG",
+                        4: "Chaos DMG"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "Arena Build",
+                        toppings: 1,
+                        beascuit: 1,
+                        stats: [{
+                            name: "Cooldown",
+                            value: "≥35%"
+                        }],
+                    },
+                    2: {
+                        name: "PvE Build",
+                        toppings: 1,
+                        beascuit: 2,
+                        notes: ["I actually don't know what to use here for the beascuit but I assume Chaos DMG is fine or maybe full atk? IDK, mostly used in arena anyway."]
+                    }
+                },
+                buildNotes: ["Cooldown is more important than attack since a lot of their damage comes from the hp damage they deal."],
+                review: "Incredible amounts of HP damage able to oneshot any cookie 2 times over when not accounting for buffs/sustain. Not too powerful in PvE but good for chaos and poison temas nontheless.",
+                rating: "S+"
             },
             {
                 name: "Pitaya_dragon",
@@ -336,7 +383,63 @@ window.CRK_DATA = {
                 element: "Fire",
                 type: "Charge",
                 position: "Front",
-                rarity: "Dragon"
+                rarity: "Dragon",
+                skill: "Draconic Bladestorm",
+                cd: 13,
+                skillAttr: {
+                    attr1: [119.9, 255.1],
+                    attr2: [58.7, 124.8],
+                    attr3: [103.8, 220.9]
+                },
+                sets: {
+                    toppings: [{
+                        resonance: "draconic",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["DMG Resist", "ATK", "Cooldown"]
+                    }, {
+                        resonance: "draconic",
+                        1: "chocolate",
+                        2: "chocolate",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["DMG Resist", "ATK", "Cooldown"]
+                    }],
+                    beascuit: [{
+                        1: "DMG Resist",
+                        2: "DMG Resist",
+                        3: "DMG Resist",
+                        4: "DMG Resist"
+                    }, {
+                        1: "Cooldown",
+                        2: "Cooldown",
+                        3: "Cooldown",
+                        4: "DMG Resist"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 1,
+                        beascuit: 1,
+                    },
+                    2: {
+                        name: "Alt Build",
+                        toppings: 2,
+                        beascuit: 2,
+                        notes: ["Alt build with 2s start."]
+                    }
+                },
+                buildNotes: ["Pitaya is from a time before beascuits so I couldn't find much on them but DMG Resist and Cooldown should both be good. If you really want to use him in arena maybe add in somebypass but I imagine he'd explode without full DMR."],
+                review: "Pitaya. I love him so much but he's not that good. Not in the grand scheme of things anyway. He's still serviceable as a fire attacker and tank but compared to his contemperaries in cookies like cookie{Burning_spice} Burning Spice, or cookie{Stormbringer} Stormbringer he's less tanky and in terms of damage cookie{Fire_spirit} Fire Spirit way outclasses him (ironic since cannonically Pitaya gave Fire Spirit his powers). He does have a place in the fire team though where he can put up good numbers with the support. Overall I hope he get's a crystal jam when the other dragons release otherwise there's no way he can keep up with them.",
+                rating: "B"
             },
             {
                 name: "Sugar_swan",
@@ -344,7 +447,74 @@ window.CRK_DATA = {
                 element: "Light",
                 type: "Healing",
                 position: "Rear",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                skill: "Wings of Sugar",
+                cd: 13,
+                skillAttr: {
+                    attr1: [21.1, 60.1],
+                    attr2: [21.5, 61.3]
+                },
+                sets: {
+                    toppings: [{
+                        resonance: "life_energy",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "applejelly",
+                        5: "applejelly",
+                        6: "chocolate",
+                        substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                    }, {
+                        resonance: "life_energy",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                    }, {
+                        resonance: "life_energy",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "applejelly",
+                        5: "applejelly",
+                        6: "applejelly",
+                        substats: ["CRIT%", "ATK", "Cooldown"]
+                    }],
+                    beascuit: [{
+                        1: "Cooldown",
+                        2: "Cooldown",
+                        3: "Cooldown",
+                        4: "Cooldown"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 1,
+                        beascuit: 1,
+                        notes: ["Used in arena."]
+                    },
+                    2: {
+                        rank: "recommended",
+                        name: "Alt Build",
+                        toppings: 2,
+                        beascuit: 1,
+                        notes: ["Weaker overall than 3-2-1 but useful situationally against anti crit teams. Recommended because I suspect she'll be meta for a while so the situations this will be useful will accumulate."]
+                    },
+                    3: {
+                        name: "Raid build",
+                        toppings: 3,
+                        beascuit: 1,
+                        notes: ["Used for bossing. Can be run in arena as well with high promo Sugar Swan but not recommended."]
+                    }
+                },
+                buildNotes: ["Because of her passive you need at least 35% ATK for max heals. This is easily achieved with just 3 raspberries without substats. For that reason I recommend CRIT% over ATK but you can use either."],
+                review: "Well here she is. Not as flashy as many would have hoped but more than powerful, rip Pure Vanilla. It should go without saying that 2 revives is insanely powerful. That alone would make her viable but the insane healing and buffs on top of that make her the best.",
+                rating: "S+"
             },
             {
                 name: "Fire_spirit",
@@ -352,7 +522,78 @@ window.CRK_DATA = {
                 element: "Fire",
                 type: "Magic",
                 position: "Rear",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                skill: "Ever-Burning Flames",
+                cd: 14,
+                skillAttr: {
+                    attr1: [504.9, 1049.1],
+                    attr2: [126.2, 262.3],
+                },
+                sets: {
+                    toppings: [{
+                        resonance: "flaming",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "chocolate",
+                        substats: ["DMG Resist", "Cooldown", "ATK"]
+                    }, {
+                        resonance: "flaming",
+                        1: "chocolate",
+                        2: "chocolate",
+                        3: "chocolate",
+                        4: "chocolate",
+                        5: "chocolate",
+                        6: "chocolate",
+                        substats: ["DMG Resist", "Cooldown", "ATK"]
+                    }, {
+                        resonance: "flaming",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["Cooldown", "ATK", "CRIT%"]
+                    }],
+                    beascuit: [{
+                        1: "Cooldown",
+                        2: "Cooldown",
+                        3: "Cooldown",
+                        4: "Cooldown"
+                    }, {
+                        1: "Bypass",
+                        2: "Bypass",
+                        3: "Bypass",
+                        4: "Bypass"
+                    }, {
+                        element: "Fire",
+                        1: "Fire DMG",
+                        2: "Fire DMG",
+                        3: "Fire DMG",
+                        4: "Fire DMG"
+                    }],
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 1,
+                        beascuit: 1,
+                    },
+                    2: {
+                        rank: "recommended",
+                        name: "Arena One-Shot Build",
+                        toppings: 3,
+                        beascuit: 2,
+                        notes: ["One-shot build. Not often seen but he has high enough scalings I'd recomend having it around in case he re-enters the meta sometime."]
+                    }
+                },
+                buildNotes: ["Standard dps stat rules but tends to prefer atk over cooldown. Cooldown is still good but no need to double cast if the enemy is dead."],
+                review: "Fire spirit has some of the higherest ATK scalings in the game and they only get higher in a fire team. Massive damage potential especially against multiple enemies. Not quite arena meta anymore but still a very strong all around pick.",
+                rating: "S"
             },
             {
                 name: "Wind_archer",
@@ -360,7 +601,83 @@ window.CRK_DATA = {
                 element: "Wind",
                 type: "Ranged",
                 position: "Rear",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                skill: "Last Wind",
+                cd: 6,
+                skillAttr: {
+                    attr1: [46.2, 98.4],
+                    attr2: [472.6, 1005.9],
+                },
+                cjSkill: "Last Gale",
+                cjSkillAttr: {
+                    attr1: [12.0, 23.5],
+                    attr2: [320.0, 755.0]
+                },
+                sets: {
+                    toppings: [{
+                        resonance: "wind",
+                        1: "caramel",
+                        2: "caramel",
+                        3: "caramel",
+                        4: "caramel",
+                        5: "caramel",
+                        6: "caramel",
+                        substats: ["ATK SPD", "DMG Resist", "ATK"]
+                    }, {
+                        resonance: "wind",
+                        1: "caramel",
+                        2: "caramel",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["ATK SPD", "DMG Resist", "ATK"]
+                    }, {
+                        resonance: "wind",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["ATK SPD", "DMG Resist", "Cooldown"]
+                    }],
+                    beascuit: [{
+                        element: "Wind",
+                        1: "Wind DMG",
+                        2: "Wind DMG",
+                        3: "Wind DMG",
+                        4: "Wind DMG"
+                    }, {
+                        1: "Bypass",
+                        2: "Bypass",
+                        3: "Bypass",
+                        4: "Bypass"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 1,
+                        beascuit: 1,
+                    },
+                    2: {
+                        rank: "recommended",
+                        name: "Arena Build",
+                        toppings: 1,
+                        beascuit: 2
+                    },
+                    3: {
+                        name: "Living Abyss Build",
+                        toppings: 3,
+                        beascuit: 1,
+                        notes: ["Build for living abyss. Seems quite powerful so included."]
+                    }
+                },
+                buildNotes: ["Wind archer greatly values ATK SPD with his cj but if you don't have it or are too lazy to swap full raspberry works too.", "Can slot in some Cooldown if desired. Only needs 17% to hit 1s start. Was used in some older arena comps."],
+                review: "Wind Archer has a blazing fast 6s cooldown on his skill and a powerful skill it is especially with his crystal jam. Stuns, cyclones, and his Pursuer debuff which deals true dmg all applied nearly in an instant thanks to his fast ATK SPD. Also like his kin as an elemental guardian he's a must have for any content that favors wind type dmg. Must build.",
+                rating: "S"
             },
             {
                 name: "Stormbringer",
@@ -368,7 +685,89 @@ window.CRK_DATA = {
                 element: "Electricity",
                 type: "Charge",
                 position: "Front",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                skill: "Lightning Blitzstorm",
+                cd: 13,
+                skillAttr: {
+                    attr1: [38.8, 82.6],
+                    attr2: [666.0, 1417.6],
+                },
+                cjSkill: "Stormbringer's Wrath",
+                cjSkillAttr: {
+                    attr1: [5.0, 15.0],
+                    attr2: [16.5, 27.5],
+                    attr3: [19.1, 31.9]
+                },
+                sets: {
+                    toppings: [{
+                        resonance: "fuzzy",
+                        1: "applejelly",
+                        2: "applejelly",
+                        3: "applejelly",
+                        4: "applejelly",
+                        5: "applejelly",
+                        6: "applejelly",
+                        substats: ["CRIT%", "DMG Resist", "ATK"]
+                    }, {
+                        resonance: "fuzzy",
+                        1: "applejelly",
+                        2: "applejelly",
+                        3: "applejelly",
+                        4: "applejelly",
+                        5: "applejelly",
+                        6: "applejelly",
+                        substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                    }],
+                    beascuit: [{
+                        element: "Electricity",
+                        1: "Electric DMG",
+                        2: "Electric DMG",
+                        3: "Electric DMG",
+                        4: "Electric DMG"
+                    }, {
+                        element: "Electricity",
+                        1: "Electric DMG",
+                        2: "Electric DMG",
+                        3: "Electric DMG",
+                        4: "Bypass"
+                    }, {
+                        1: "Bypass",
+                        2: "Bypass",
+                        3: "Bypass",
+                        4: "Bypass"
+                    }, {
+                        1: "Cooldown",
+                        2: "Cooldown",
+                        3: "Cooldown",
+                        4: "Cooldown"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 1,
+                        beascuit: 1,
+                        stats: [{
+                            name: "CRIT%",
+                            value: "≥80%"
+                        }],
+                        notes: ["General build. Used in cookie alliance."]
+                    },
+                    2: {
+                        name: "Arena Build",
+                        toppings: 1,
+                        beascuit: 2,
+                        stats: [{
+                            name: "CRIT%",
+                            value: "≥80%"
+                        }],
+                        notes: ["Can switch up ATK focus for Cooldown if desired."]
+                    }
+                },
+                buildNotes: ["Maximise crit. To get the most from her base skill you need 80% (200% for max damage) and for cj you'll need 120%"],
+                review: "Stormbringer is an odd cookie to rank. On the one hand there are better options but on the other hand she's core for electricity teams which are used more often than most, essential for many events or clearing the tower easily. She has good buffs for electricity type cookies and no lack of personal damge especially with her crystal jam. When I joined CRK she would have been an overall S tier but in that time bs like Dark Enchantress has released knocking her down a peg, especially in arena so overall A+.",
+                rating: "A+"
             },
             {
                 name: "Moonlight",
@@ -376,7 +775,87 @@ window.CRK_DATA = {
                 element: null,
                 type: "Magic",
                 position: "Middle",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                skill: "Dream of the Night Sky",
+                cd: 15,
+                skillAttr: {
+                    attr1: [59.1, 125.6],
+                },
+                cjSkill: "Twinkling Starry Sky",
+                cjReplace: true,
+                cjSkillAttr: {
+                    attr1: [7.0, 22.5],
+                    attr2: [1.5, 2.5],
+                    attr3: [41.8, 70.7]
+                },
+                sets: {
+                    toppings: [{
+                        resonance: "moon",
+                        1: "chocolate",
+                        2: "chocolate",
+                        3: "chocolate",
+                        4: "chocolate",
+                        5: "chocolate",
+                        6: "chocolate",
+                        substats: ["ATK", "Cooldown", "DMG Resist"]
+                    }, {
+                        resonance: "moon",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "chocolate",
+                        4: "chocolate",
+                        5: "chocolate",
+                        6: "chocolate",
+                        substats: ["Cooldown", "ATK", "DMG Resist"]
+                    }, {
+                        resonance: "moon",
+                        1: "raspberry",
+                        2: "raspberry",
+                        3: "raspberry",
+                        4: "raspberry",
+                        5: "raspberry",
+                        6: "raspberry",
+                        substats: ["Cooldown", "ATK", "DMG Resist"]
+                    }],
+                    beascuit: [{
+                        1: "Cooldown",
+                        2: "Cooldown",
+                        3: "Cooldown",
+                        4: "Cooldown"
+                    }, {
+                        1: "Bypass",
+                        2: "Bypass",
+                        3: "Bypass",
+                        4: "Bypass"
+                    }, {
+                        1: "Cooldown",
+                        2: "Cooldown",
+                        3: "Cooldown",
+                        4: "Bypass"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 3,
+                        beascuit: 1,
+                        notes: ["You'll find a lot saying that Moonlight should use full chocolate but because she runs a full cooldown beascuit you don't need chocolate to hit 35%, only substats. Will still need chocolate to hit 2s start though so use for that or if you'd just prefer more cooldown."]
+                    },
+                    2: {
+                        name: "Arena Build",
+                        toppings: 2,
+                        beascuit: 3,
+                        stats: [{
+                            name: "Cooldown",
+                            value: "≥44.5%"
+                        }],
+                        notes: ["Moonlight's 20+ passive for her crystal jam makes it so she gains bypass from beascuit cooldown but less than if you ran full bypass. With tarts however you can hit 2s start without needing full chocolate still so this build is probably close to optimal.", "An arena comp for the biggest Moonlight fans."],
+                    }
+                },
+                buildNotes: ["Fairly standard dps stat rules but tends to prefer cooldown over attack.", "Keep in mind the 20+ passive if building her for arena."],
+                review: "Despite being fairly old at this point Moonlight can still put up good performance even in the arena (though no longer meta) with powerful debuffs (sleep) and good damage. Also being invincible during her skill and capable of self healing she's surprsingly tanky. With no element she isn't as useful as some of her peers but being one of 2 cookies that can apply sleep, and a lot of it, she will serve you well if you decide to build her and her crystal jam. Just be aware her cj actually does less damage until level 10 and 20 so wait a bit before you unlock it.",
+                rating: "A+"
             },
             {
                 name: "Black_pearl",
@@ -636,7 +1115,109 @@ window.CRK_DATA = {
                 element: "Grass",
                 type: "Support",
                 position: "Front",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                skill: "Millennial Tree",
+                cd: 8,
+                initialCd: 0.65,
+                skillAttr: {
+                    attr1: [17.0, 44.7],
+                    attr2: [47.3, 124.1],
+                },
+                rallyEffect: true,
+                sets: {
+                    toppings: [{
+                        resonance: "root",
+                        1: "peanut",
+                        2: "peanut",
+                        3: "peanut",
+                        4: "peanut",
+                        5: "peanut",
+                        6: "peanut",
+                        substats: ["HP", "DMG Resist", "Cooldown"]
+                    }, {
+                        resonance: "root",
+                        1: "peanut",
+                        2: "peanut",
+                        3: "peanut",
+                        4: "peanut",
+                        5: "candy",
+                        6: "candy",
+                        substats: ["HP", "DMG Resist", "Cooldown"]
+                    }, {
+                        resonance: "root",
+                        1: "applejelly",
+                        2: "applejelly",
+                        3: "applejelly",
+                        4: "peanut",
+                        5: "peanut",
+                        6: "peanut",
+                        substats: ["HP", "DMG Resist", "Cooldown"]
+                    }, {
+                        resonance: "root",
+                        1: "peanut",
+                        2: "peanut",
+                        3: "peanut",
+                        4: "peanut",
+                        5: "kiwi",
+                        6: "kiwi",
+                        substats: ["HP", "DMG Resist", "Cooldown"]
+                    }],
+                    beascuit: [{
+                        1: "HP",
+                        2: "HP",
+                        3: "HP",
+                        4: "HP"
+                    }]
+                },
+                builds: {
+                    1: {
+                        rank: "best",
+                        name: "General Build",
+                        toppings: 1,
+                        beascuit: 1,
+                        stats: [{
+                            name: "Cooldown",
+                            value: "≥3.9%"
+                        }],
+                    },
+                    2: {
+                        rank: "best",
+                        name: "Arena Build",
+                        toppings: 4,
+                        beascuit: 1,
+                        stats: [{
+                            name: "Cooldown",
+                            value: "≥3.9%"
+                        }, {
+                            name: "Debuff Resist",
+                            value: "≥20%"
+                        }],
+                        notes: ["1s start is essential for arena."]
+                    },
+                    3: {
+                        name: "Alt Arena Build",
+                        toppings: 3,
+                        beascuit: 1,
+                        stats: [{
+                            name: "Cooldown",
+                            value: "≥3.9%"
+                        }],
+                        notes: ["Requires 5★+ to work."]
+                    },
+                    4: {
+                        name: "Alt Arena Build 2",
+                        toppings: 2,
+                        beascuit: 1,
+                        stats: [{
+                            name: "Cooldown",
+                            value: "≥3.9%"
+                        }],
+                    },
+                    notes: ["Aim for 3.9% cooldown (so 2 substats) for the 1s start and then CRIT% or cooldown are both good.", "Can replace HP substats with CRIT% if using resonant toppings. (Why do resonant toppings have CRIT Resist instead of HP Devsis?"]
+                },
+                buildNotes: ["HP is king. It is the most important stat for millenial tree. His other stat requirements are pretty easy so once you hit those prioritize HP.", "Remember, heals can crit so once you hit your cooldown requirements I'd say go for CRIT% over cooldown."],
+                review: "The tree man is insane. Incredible buffs and sustain with decent damage on top there's truly nothing he doesn't do. Fitting for the leader of the elemental guardians and protector of Earthbread.",
+                rating: "S+"
             },
             {
                 name: "Pure_vanilla",
@@ -1269,7 +1850,7 @@ window.CRK_DATA = {
                     notes: ["Can swap out the ATK substat for HP if desired."]
                 },
                 review: "Great healing output with passive heals even after death and in recent times one of the few counters to the pairing of cookie{Sugar_swan} Sugar Swan and cookie{Cream_ferret} Cream Ferret with her cooldown increasing ability. While often outclassed by the healers who came after her I actually prefer her in a lot of situations due to the HP shield she grants team mates. Won't be seen much in the arena but just as good a pick everywhere else.",
-                rating: "S+"
+                rating: "S"
             },
             {
                 name: "Burning_spice",
@@ -1320,7 +1901,7 @@ window.CRK_DATA = {
                         name: "Arena Build",
                         toppings: 1,
                         beascuit: 2,
-                        notes: ["Can use CD instead of ATK SPD if desired.", "Arena build for those who are very dedicated to Burning Spice."]
+                        notes: ["Can use HP or CD instead of ATK if desired.", "Arena build for those who are very dedicated to Burning Spice."]
                     },
                 },
                 buildNotes: ["ATK and DMG Resist are the most important. After that the remaining substat can be ATK SPD, CRIT%, or Cooldown though Cooldown is a little weaker since he only has a 3s natural downtime anyway."],
@@ -1413,8 +1994,8 @@ window.CRK_DATA = {
                     }
                 },
                 buildNotes: ["Overall either full raspberry or full chocolate is best depending on your situation or even personal preference. I personally use full raspberry because of his high scaling and big numbers but chocolate is a close second. Just be careful about overcapping on cooldown especially with a cooldown beascuit."],
-                review: "Insane single target and AoE damage while being extremely tanky with his revive and puppet. There's a reason he's still meta a year after release.Must have.",
-                rating: "S+"
+                review: "Holy Shit! He's not arena meta anymore! After a full year! That being said he's still insanely powerful, there is a reason he was meta for a year after all. Incredible single target and AoE damage while being extremely tanky with his revive and puppet. He's also still meta for RVD.",
+                rating: "S"
             },
             {
                 name: "Eternal_sugar",
@@ -1671,7 +2252,7 @@ window.CRK_DATA = {
                         toppings: 5,
                         beascuit: 2,
                         useOwn: true,
-                        notes: ["Can use pretty much any topping build here. I use full chocolate here as an example but I personally use the arena 1s start topping set up. I do recommend getting a Darkness DMG beascuit regardless of topping set up though.", "For general PvE content he's not all that useful, at least compared to his peers but is very useful in events so I still recommned."]
+                        notes: ["Can use pretty much any topping build here. I use full chocolate here as an example but I personally use the arena 1s start topping set up. I do recommend getting a Darkness DMG beascuit regardless of topping set up though.", "For general PvE content he's not all that useful, at least compared to his peers but is very useful in events so I still recommend."]
                     },
                     notes: ["If you don't have a tainted beascuit you can use a full Bypass beascuit instead.", "Should have the highest attack on the team to absorb status{fury_of_the_catacombs|und_debuff} Fury of the Catacombs"]
                 },
@@ -1745,7 +2326,7 @@ window.CRK_DATA = {
                             name: "Cooldown from toppings",
                             value: "≥12%"
                         }],
-                        notes: ["Because of just how powerful dark enchantress is she'll be in pretty much any team you make so I'd recommned making a chaos dmg beascuit for her when not in arena."]
+                        notes: ["Because of just how powerful dark enchantress is she'll be in pretty much any team you make so I'd recommend making a chaos dmg beascuit for her when not in arena."]
                     },
                     notes: ["You can use 3/3 raspberry/chocolate if you don't have good toppings but 4/2 is better"]
                 },
@@ -2666,7 +3247,7 @@ window.CRK_DATA = {
                         "Pure Vanilla Cookie (Compassionate)", "Hollyberry Cookie (Aegis)",
                         "Cream Ferret Cookie", "Wind Archer Cookie",
                         "Mystic Flour Cookie", "Silent Salt Cookie", "Dark Enchantress Cookie",
-                        "Millennial Tree Cookie", "Rebel Cookie", "Venom Dough Cookie", "Sugar Swan Cookie"
+                        "Millennial Tree Cookie", "Rebel Cookie", "Sugar Swan Cookie"
                     ],
                     [
                         "Stormbringer Cookie", "Crème Brûlée Cookie", "Star Coral Cookie",
@@ -2676,7 +3257,7 @@ window.CRK_DATA = {
                         "Nutmeg Tiger Cookie", "Grapefruit Cookie", "Silverbell Cookie",
                         "Fettuccine Cookie", "Icicle Yeti Cookie",
                         "Doughael", "Green Tea Mousse Cookie", "Financier Cookie", "Mint Choco Cookie",
-                        "Sea Fairy Cookie", "Tarte Tatin Cookie",
+                        "Sea Fairy Cookie", "Tarte Tatin Cookie", "Venom Dough Cookie",
                         "Charcoal Cookie", "Pure Vanilla Cookie", "Snapdragon Cookie"
                     ],
                     [
@@ -2746,14 +3327,13 @@ window.CRK_DATA = {
                     [
                         "Dark Enchantress Cookie", "Silent Salt Cookie", "Millennial Tree Cookie",
                         "Venom Dough Cookie",
-                        "Pure Vanilla Cookie (Compassionate)", "White Lily Cookie (Dawnbringer)",
-                        "Marshmallow Bunny Cookie",
-                        "Eternal Sugar Cookie", "Shadow Milk Cookie", "Sugar Swan Cookie"
+                        "White Lily Cookie (Dawnbringer)",
+                        "Eternal Sugar Cookie", "Sugar Swan Cookie"
                     ],
                     [
                         "Cream Ferret Cookie", "Icicle Yeti Cookie", "Hollyberry Cookie (Aegis)",
-                        "Wind Archer Cookie",
-                        "Fire Spirit Cookie", "Mystic Flour Cookie"
+                         "Pure Vanilla Cookie (Compassionate)",
+                         "Shadow Milk Cookie", "Marshmallow Bunny Cookie",
                     ],
                     [
                         "Stormbringer Cookie", "Doughael", "Golden Cheese Cookie (Immortal)",
@@ -2761,7 +3341,8 @@ window.CRK_DATA = {
                         "Green Tea Mousse Cookie", "Rockstar Cookie", "Wildberry Cookie",
                         "Dark Cacao Cookie (Dragon Lord)", "Moonlight Cookie",
                         "Financier Cookie", "Snapdragon Cookie", "Camellia Cookie",
-                        "Crimson Coral Cookie", "Fettuccine Cookie"
+                         "Fire Spirit Cookie", "Mystic Flour Cookie",
+                        "Wind Archer Cookie",
                     ],
                     [
                         "Pure Vanilla Cookie", "White Lily Cookie", "Golden Cheese Cookie",
@@ -2781,7 +3362,7 @@ window.CRK_DATA = {
                         "Seltzer Cookie", "Menthol Cookie", "Capsaicin Cookie",
                         "Shining Glitter Cookie", "Sherbet Cookie", "Smoked Cheese Cookie",
                         "Mercurial Knight Cookie", "Milky Way Cookie", "Choco Drizzle Cookie",
-                        "Space Doughnut", "Snow Sugar Cookie",
+                        "Space Doughnut", "Snow Sugar Cookie", "Crimson Coral Cookie", "Fettuccine Cookie",
                         "Hollyberry Cookie", "Frilled Jellyfish Cookie", "Pom-pom Dough Cookie"
                     ],
                     [
@@ -2824,6 +3405,11 @@ window.CRK_DATA = {
                         "Clover Cookie", "Cherry Cookie"
                     ]
                 ]
+            }, {
+                name: "Overall (avg)",
+                computedAverage: true,
+                tiers: ["S+", "S", "A+", "A", "B", "C", "D", "E", "F"],
+                entries: []
             }, {
                 name: "Guild Battle",
                 tierlists: [{
@@ -3368,17 +3954,24 @@ window.CRK_DATA = {
             }, {
                 name: "Melanchream",
                 displayName: "Melanchream Cookie",
-                rarity: "Legendary"
+                rarity: "Legendary",
+                role: "Fighter",
+                type: "Slash",
+                element: "Dark"
+            }, {
+
             }],
         tierlists: [{
             name: "Cookies",
-            tiers: ["S+", "S", "A", "B", "C", "D"],
             features: {
                 eidolon: false,
                 tags: false,
                 elementIcon: true,
                 role: true
             },
+            tierlists: [{
+            name: "Cookies",
+            tiers: ["S+", "S", "A", "B", "C", "D"],
             roles: [{
                 name: "Fighter"
             }, {
@@ -3392,6 +3985,12 @@ window.CRK_DATA = {
                 element: ["Fire", "Water", "Wind", "Earth", "Light", "Dark"
                 ],
             },
+            entries: [
+                ["Melanchream"],
+                ["Gingerbrave", "Muscle", "Ninja", "Alchemist", "Gumball", "Mala Sauce", "Pistachio", "Twisted Donut", "Werewolf"],
+                ["Banana Roti", "Basil Pesto", "Black Barley", "Blackberry", "Buttermilk", "Candy Drop", "Chamomile", "Chili Pepper", "Cream Soda", "Crushed Pepper", "Dark Choco", "Dew", "Frostrock", "Greenbell", "Honeybear", "Ice Mint", "Iris", "Jalapeno", "Kohlrabi", "Lemon", "Lemon Zest", "Marbleberry", "Neon Danish", "Peach", "Plantain", "Roasted Bacon", "Rockstar", "Rye", "Shallot", "Shiningberry", "Sonic Water", "Stained Nougat", "Sting Durian", "Strawberry Mochi", "Sugar Globe", "Sundae", "Wizard", "Wind Asparagus"]
+            ]
         }]
+    }]
     }]
 };

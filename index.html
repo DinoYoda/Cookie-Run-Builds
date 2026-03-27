@@ -32,13 +32,52 @@
     <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
   </div>
   <div class="sidebar-header">Menu</div>
-  <a href="characters.html" class="sidebar-link">Characters</a>
+  <a href="characters.html" class="sidebar-link">Cookies</a>
   <a href="index.html" class="sidebar-link sidebar-link-active">Tier Lists</a>
-  <a href="info.html" class="sidebar-link">Info</a>
+  <a href="crk/info.html" class="sidebar-link">Info</a>
 </div>
 
+<details class="tier-legend" id="tierLegend">
+  <summary class="tier-legend-summary">
+    <span class="tier-legend-title">What the tiers mean</span>
+    <span class="tier-legend-toggle" aria-hidden="true"></span>
+  </summary>
+  <div class="tier-legend-body">
+    <div class="tier-legend-row">
+      <div class="tier-legend-label tier-legend-sp">S+</div>
+      <p class="tier-legend-desc">A team with these Cookies could probably clear every level in the game—they're the best all-around choices in the roster.</p>
+    </div>
+    <div class="tier-legend-row">
+      <div class="tier-legend-label tier-legend-s">S</div>
+      <p class="tier-legend-desc">Cookies in this tier are effective, powerful, and valuable in many places in the game, often being either highly versatile in their use cases or excellent counters to specific enemies.</p>
+    </div>
+    <div class="tier-legend-row">
+      <div class="tier-legend-label tier-legend-a">A+ &amp; A</div>
+      <p class="tier-legend-desc">These are overall strong Cookies that can be used as substitutes for others, or are essential for specific team compositions.</p>
+    </div>
+    <div class="tier-legend-row">
+      <div class="tier-legend-label tier-legend-b">B</div>
+      <p class="tier-legend-desc">B-tier Cookies are useful for early-game and/or niche activities. They're passable at what they do.</p>
+    </div>
+    <div class="tier-legend-row">
+      <div class="tier-legend-label tier-legend-cd">C &amp; D</div>
+      <p class="tier-legend-desc">Cookies in these tiers are either outdated or simply can't pull their weight. Any unique features they have are unlikely to be worth investing in.</p>
+    </div>
+    <div class="tier-legend-row">
+      <div class="tier-legend-label tier-legend-e">E</div>
+      <p class="tier-legend-desc">E-tier Cookies are largely ineffective and offer no real benefit when used. Please consider higher-ranking Cookies instead.</p>
+    </div>
+  </div>
+</details>
+
 <div class="topbar">
-<select id="gameSelect"></select>
+<div class="select-expand tier-section-select" id="tierSectionSelect">
+  <button type="button" class="select-expand-trigger" id="tierSectionSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-controls="tierSectionSelectPanel">
+    <span id="tierSectionSelectLabel"></span>
+    <span class="select-expand-chevron" aria-hidden="true">▾</span>
+  </button>
+  <div class="select-expand-panel" id="tierSectionSelectPanel" role="listbox" hidden></div>
+</div>
 <div id="tierTabs"></div>
 </div>
 
@@ -51,7 +90,7 @@
 <div id="filters"></div>
 <div id="tierlist"></div>
 
-<script src="release-order.js"></script>
+<script src="crk/release-order.js"></script>
 <script src="data.js"></script>
 <script src="ui.js"></script>
 <script>

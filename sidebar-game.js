@@ -1,4 +1,10 @@
 ;(function () {
+    function siteRelativePath(file) {
+        const p = (location.pathname || "").replace(/\\/g, "/")
+        if (/\/crk\/[^/]+\.html$/i.test(p)) return "../" + file
+        return file
+    }
+
     const UI_STATE_KEY = "tierlistUIState"
     const FALLBACK_GAMES = [
         { id: "crk", name: "Cookie Run: Kingdom" },
@@ -28,15 +34,14 @@
         opt.textContent = g.name
         opt.addEventListener("click", e => {
             e.stopPropagation()
+            menu.classList.remove("open")
+            btn.classList.remove("open")
+            const path = window.location.pathname || ""
+            const onCharsHome = /characters\.html$/i.test(path)
+            if (g.id === activeId && onCharsHome) return
             const newState = Object.assign({}, state, { game: g.id, section: null, group: null, sub: null })
             localStorage.setItem(UI_STATE_KEY, JSON.stringify(newState))
-            if (typeof loadGame === "function") {
-                loadGame(g.id)
-                menu.classList.remove("open")
-                btn.classList.remove("open")
-            } else {
-                window.location.href = "index.html"
-            }
+            window.location.href = siteRelativePath("characters.html")
         })
         menu.appendChild(opt)
     })

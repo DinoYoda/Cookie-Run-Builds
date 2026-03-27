@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+(function () {
+  if (location.hostname.endsWith("github.io")) {
+    var repo = location.pathname.split("/").filter(Boolean)[0];
+    if (repo) {
+      var b = document.createElement("base");
+      b.href = "/" + repo + "/";
+      document.head.prepend(b);
+    }
+  } else {
+    var b = document.createElement("base");
+    b.href = new URL("../", document.baseURI || location.href).href;
+    document.head.prepend(b);
+  }
+})();
+</script>
+<title>Info</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-game-selector">
+    <button class="sidebar-game-btn" id="sidebarGameBtn">
+      <span id="sidebarGameName">Loading…</span>
+      <span class="sidebar-game-chevron">▾</span>
+    </button>
+    <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
+  </div>
+  <div class="sidebar-header">Menu</div>
+  <a href="characters.html" class="sidebar-link">Cookies</a>
+  <a href="index.html" class="sidebar-link">Tier Lists</a>
+  <a href="crk/info.html" class="sidebar-link sidebar-link-active">Info</a>
+</div>
+
+<div class="info-page">
+  <h1 class="info-title">Info &amp; Build Guide</h1>
+  <div class="info-divider"></div>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Reading Builds</h2>
+    <div class="info-section-body">
+      <p>Each cookie page lists one or more recommended builds. A build shows the topping set, beascuit, and any target stat thresholds you should aim for.</p>
+      <p>Builds marked <strong>Best</strong> are the primary recommendation. <strong>Recommended</strong> builds are solid alternatives. Unlabelled builds are situational or experimental.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Toppings</h2>
+    <div class="info-section-body">
+      <p>Toppings grant flat stat bonuses and, when five of the same type are equipped, a set bonus. Resonance toppings swap the set bonus for a unique resonance effect tied to a specific cookie.</p>
+      <p>Substat priority is listed in order on each build. Focus on the first listed substat first.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Beascuits</h2>
+    <div class="info-section-body">
+      <p>Beascuits provide four additional stat slots. Tainted beascuits have a special element-damage slot in position 1 replaced with a second passive slot.</p>
+      <p>Some cookies have different stats in each slot but for the most part you can't go wrong with a beascuit full of the cookies preferred stat or elemental DMG.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Stats</h2>
+    <div class="info-section-body">
+      <p>Below is a quick reference for what each stat does. <strong>CRIT Resist, Debuff Resist, and DEF are usually not worth building</strong> — prioritize other stats first.</p>
+      <div class="info-stat-list">
+        <div class="info-stat-item">
+          <img src="crk/pictures/icons/stat/Stat_HP.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <strong>HP</strong> — Health or Health Points is the amount of damage a Cookie can take. If their HP reaches 0, they will be defeated.
+        </div>
+        <div class="info-stat-item">
+          <img src="crk/pictures/icons/stat/Stat_ATK.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <strong>ATK</strong> — Attack is used to calculate how much damage a Cookie (or enemy) does. It is currently unknown how this damage is calculated.
+        </div>
+        <div class="info-stat-item">
+          <img src="crk/pictures/icons/stat/Stat_DEF.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <strong>DEF</strong> — Defense is used to calculate how much received damage to a Cookie or enemy is reduced by a flat amount. The higher their DEF, the less damage they receive.
+        </div>
+        <div class="info-stat-item">
+          <img src="crk/pictures/icons/stat/Stat_CRIT.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <strong>CRIT Chance</strong> — Critical Hit Chance (CRIT% or CRIT Rate) determines the probability of an attack to critically hit and deal critical damage. This stat has a cap of 100%.
+        </div>
+        <div class="info-stat-item">
+          <img src="crk/pictures/icons/stat/Stat_Cooldown.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <strong>Cooldown</strong> — CD is the amount of time before a Cookie can use their skill. Cooldown Reduction cannot exceed 60%.
+        </div>
+      </div>
+      <h3 class="info-stat-subtitle">Advanced Stats</h3>
+      <div class="info-stat-list">
+        <div class="info-stat-item">
+          <strong>ATK SPD</strong> — Attack Speed determines how much faster a Cookie or enemy can attack compared to normal. It affects Regular Attacks and Skills unless noted otherwise. ATK SPD-increasing buffs are capped at 500%, and ATK SPD cannot be reduced by more than 70%.
+        </div>
+        <div class="info-stat-item">
+          <strong>DMG Resist</strong> — Damage Resist or Damage Reduction reduces damage received by a percentage. Cap: 90%.
+        </div>
+        <div class="info-stat-item">
+          <strong>CRIT Resist</strong> — Critical Damage Resist reduces only critical damage received by a percentage. Cap: 85%.
+        </div>
+        <div class="info-stat-item">
+          <strong>Debuff Resist</strong> — Determines how less affected a Cookie or enemy is to debuffs, reducing effect and/or duration. Cap: 75%.
+        </div>
+        <div class="info-stat-item">
+          <strong>Amplify Buff</strong> — Amplified Buffs determines how much a buff's effect and/or duration is increased. Cap: 75%.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Stat Targets</h2>
+    <div class="info-section-body">
+      <p>Where a build lists a stat target (e.g. <em>Cooldown ≥ 15%</em>) it is the minimum threshold needed for the build to function as intended. Going above the cap for a stat is generally wasted.</p>
+      <p>Common caps to be aware of:</p>
+      <ul>
+        <li><strong>Cooldown</strong> — 50% total reduction (70% with Watch Treasure at max level)</li>
+        <li><strong>DMG Resist</strong> — no hard cap, but diminishing returns apply in most content</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Rating</h2>
+    <div class="info-section-body">
+      <p>Each cookie has a rating assigned to it. This is an overall rating of the cookies performance across all game modes and a sort recommendation on who to prioritize building. Because of this a cookie that is essential for certain game modes but not very good in others may recieve a poor rank. For this reason I'd suggest using the tier lists to determine which cookies to build for specific game modes instead of taking the rating as gospel.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Build Ranking</h2>
+    <div class="info-section-body">
+      <p>Builds are given a yellow or pink thumbs up to determine rank. Yellow = Best and Pink = Recommended. I assume that if you're checking out builds for a certain cookie you want to build them so all have a best (in my opion and from my research) build that you'll want. Recommended however means I'd recommend building this in addition to the best build for that cookie. Unranked builds can be worth building depending on you situation but are mostly there to showcase different wasy the cookie ahs been built.
+        
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="sidebar-game.js"></script>
+
+</body>
+</html>
+

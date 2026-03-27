@@ -26,7 +26,9 @@ def convert_statuses(text):
         "Immortal's Punishment", "Immortal's Return", "Curse", "Gloom", "Darkness Absorption", "Delightful Temptation", 
         "Guilt", "Enchantment", "Laxness", "DMG Dealt Up", "Berserker", "Enrage", "Revelry of Flames", 
         "The Destroyer's Gaze", "Taunted", "Pale Plague", "Touch of Meaninglessness", "Light Cage", "Chilled", "Drowsy",
-        "Terror of the Abyss", "Water Cage", "Lividness"
+        "Terror of the Abyss", "Water Cage", "Lividness", "Supercharge", "Ultracharge", "CRIT Chance Down Resist", "Cyclone",
+        "Trace of the Wind", "Pursuer", "Mighty Gale", "Mysterious Melody", "Howling Gust", "Sheltering Branches",
+        "Blessing of the World Tree", "Elemental Force", "Equilibrium", "Pitaya Dragon Cookie's Scale"
     ]
 
     elements = [
@@ -34,8 +36,15 @@ def convert_statuses(text):
     ]
 
     def normalize_status(name):
-        name = name.lower()
-        name = re.sub(r"[^a-z0-9]+", "_", name)
+    # Replace apostrophes FIRST (important)
+        name = name.replace("'", "")
+
+    # Replace spaces with underscores
+        name = name.replace(" ", "_")
+
+    # Remove anything that isn't alphanumeric or underscore
+        name = re.sub(r"[^A-Za-z0-9_]", "", name)
+
         return name.strip("_")
 
     statuses.sort(key=len, reverse=True)
@@ -92,7 +101,7 @@ def convert_elements(text):
     for k,v in elements.items():
 
         text = re.sub(
-            rf"{k}\s*([0-9.]+%)",
+            rf"{k}\s*([0-9.,]+%)",
             rf"{v}{{\1}}",
             text
         )

@@ -14,7 +14,7 @@
   }
 })();
 </script>
-<title>Characters</title>
+<title>Cookies</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -30,20 +30,22 @@
     <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
   </div>
   <div class="sidebar-header">Menu</div>
-  <a href="characters.html" class="sidebar-link sidebar-link-active">Characters</a>
+  <a href="characters.html" class="sidebar-link sidebar-link-active">Cookies</a>
   <a href="index.html" class="sidebar-link">Tier Lists</a>
-  <a href="info.html" class="sidebar-link">Info</a>
+  <a href="crk/info.html" class="sidebar-link">Info</a>
 </div>
 
 <div class="charlist-header">
-  <h2 class="charlist-title">Characters</h2>
+  <h2 class="charlist-title">Cookies</h2>
   <input class="charlist-search" id="charlistSearch" placeholder="Search...">
   <button id="charlistReset">Reset</button>
-  <select class="charlist-sort" id="charlistSort">
-    <option value="rarity">Rarity</option>
-    <option value="release">Release</option>
-    <option value="alpha">A–Z</option>
-  </select>
+  <div class="select-expand charlist-sort-expand" id="charlistSortExpand">
+    <button type="button" class="select-expand-trigger charlist-sort-trigger" id="charlistSortTrigger" aria-expanded="false" aria-haspopup="listbox" aria-controls="charlistSortPanel">
+      <span id="charlistSortLabel">Rarity</span>
+      <span class="select-expand-chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="select-expand-panel" id="charlistSortPanel" role="listbox" hidden></div>
+  </div>
   <button class="charlist-sort-dir" id="charlistSortDir" title="Reverse order">↓</button>
   <label class="charlist-mccj-label"><input type="checkbox" id="charlistMcCj" title="When on, cookies with Magic Candy or Crystal Jam appear first within each rarity"> MC/CJ first</label>
   <span id="charlistCounter"></span>
@@ -53,7 +55,7 @@
 
 <div class="charlist-grid" id="charlistGrid"></div>
 
-<script src="release-order.js"></script>
+<script src="crk/release-order.js"></script>
 <script src="data.js"></script>
 <script src="chars-list.js"></script>
 <script>
