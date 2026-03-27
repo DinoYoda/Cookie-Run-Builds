@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Toppings</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-game-selector">
+    <button class="sidebar-game-btn" id="sidebarGameBtn">
+      <span id="sidebarGameName"></span>
+      <span class="sidebar-game-chevron">▾</span>
+    </button>
+    <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
+  </div>
+  <div class="sidebar-header">Menu</div>
+  <a href="../characters.html" class="sidebar-link">Cookies</a>
+  <a href="../index.html" class="sidebar-link">Tier Lists</a>
+  <a href="stats.html" class="sidebar-link">Stats</a>
+  <a href="toppings.html" class="sidebar-link sidebar-link-active">Toppings</a>
+  <a href="beascuits.html" class="sidebar-link">Beascuits</a>
+  <a href="about.html" class="sidebar-link">About</a>
+</div>
+
+<div class="info-page">
+  <h1 class="info-title">Toppings</h1>
+  <div class="info-divider"></div>
+
+  <section class="info-section">
+    <div class="info-section-body">
+      <p>Toppings are gear pieces that increase a Cookie's stats. Cookies unlock topping slots as they level, up to a total of <strong>5 slots</strong>.</p>
+      <p>Each topping gives a main stat based on its type, and can gain bonus substats as it is upgraded. Toppings are upgraded with topping pieces and coins.</p>
+      <p>At higher upgrade levels, toppings roll extra bonus lines. Substat quality matters just as much as the topping type for final performance.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Set Effects</h2>
+    <div class="info-section-body">
+      <p>Equipping multiple toppings of the same type activates set bonuses. In practice, most builds use either a full 5-piece set or a split that hits a specific breakpoint.</p>
+      <p>Because set effects are strong, topping type choice usually comes first, then substat optimization within that set.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Topping Types</h2>
+    <div class="info-section-body">
+      <ul>
+        <li><strong>Searing Raspberry</strong> - increases ATK.</li>
+        <li><strong>Hard Walnut</strong> - increases DEF.</li>
+        <li><strong>Healthy Peanut</strong> - increases HP.</li>
+        <li><strong>Bouncy Caramel</strong> - increases ATK SPD.</li>
+        <li><strong>Juicy Apple Jelly</strong> - increases CRIT%.</li>
+        <li><strong>Swift Chocolate</strong> - reduces Cooldown.</li>
+        <li><strong>Solid Almond</strong> - increases DMG Resist.</li>
+        <li><strong>Hearty Hazelnut</strong> - increases CRIT Resist.</li>
+        <li><strong>Sweet Candy</strong> - increases Amplify Buff.</li>
+        <li><strong>Fresh Kiwi</strong> - increases Debuff Resist.</li>
+      </ul>
+    </div>
+    <div class="info-section-body">
+      <h3 class="info-stat-subtitle">Bonus Effects</h3>
+      <table class="info-data-table bonus-effects-table">
+        <thead>
+          <tr>
+            <th colspan="4">Bonus Effects</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ATK</td><td>1% ~ 3%</td><td>DEF</td><td>1% ~ 3%</td></tr>
+          <tr><td>HP</td><td>1% ~ 3%</td><td>ATK SPD</td><td>1% ~ 3%</td></tr>
+          <tr><td>CRIT%</td><td>1% ~ 3%</td><td>Cooldown</td><td>1% ~ 2%</td></tr>
+          <tr><td>DMG Resist</td><td>1% ~ 6%</td><td>CRIT Resist</td><td>3% ~ 4%</td></tr>
+          <tr><td>Amplify Buff</td><td>1% ~ 2%</td><td>Debuff Resist</td><td>1% ~ 2%</td></tr>
+        </tbody>
+      </table>
+    </section>
+  <section class="info-section">
+    <h2 class="info-section-title">Resonant Toppings</h2>
+    <div class="info-section-body">
+      <p>Resonant toppings can only be equipped by certain cookies, usually thematic with the topping, but have higher minimum substat values. They also only offer the 6 meta substats: ATK, ATK SPD, CRIT%, Cooldown, DMG Resist, and CRIT Resist.</p>
+      <p>That last one is why resonant toppings are not strictly better than normal ones - some cookies (like many supports) would prefer HP as a substat.</p>
+    </div>
+    <div class="info-section-body">
+      <h3 class="info-stat-subtitle">Bonus Effects (Resonant Toppings)</h3>
+  <table class="info-data-table bonus-effects-table">
+    <thead>
+      <tr>
+        <th colspan="4">Bonus Effects</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ATK</td><td>2% ~ 3%</td><td>ATK SPD</td><td>2% ~ 3%</td></tr>
+      <tr><td>CRIT%</td><td>2% ~ 3%</td><td>Cooldown</td><td>1.5% ~ 2%</td></tr>
+      <tr><td>DMG Resist</td><td>4.5% ~ 6%</td><td>CRIT Resist</td><td>3.5% ~ 4%</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Topping Tarts</h2>
+    <div class="info-section-body">
+      <p>Topping Tarts are separate gear pieces that boost the same stat family as toppings. A cookie can equip <strong>1 tart</strong> at a time.</p>
+      <p>Unlike toppings, tarts only provide a primary stat value and do not roll random bonus substats.</p>
+      <table class="info-data-table">
+        <thead>
+          <tr>
+            <th>Tart Type</th>
+            <th>Stat</th>
+            <th>XS</th>
+            <th>S</th>
+            <th>M</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Searing Raspberry</td><td>ATK</td><td>+3.6%</td><td>+4.8% - +6.0%</td><td>+7.2% - +12.0%</td></tr>
+          <tr><td>Hard Walnut</td><td>DEF</td><td>+6.0%</td><td>+8.0% - +10.0%</td><td>+12.0% - +20.0%</td></tr>
+          <tr><td>Healthy Peanut</td><td>HP</td><td>+3.9%</td><td>+5.2% - +6.5%</td><td>+7.8% - +13.0%</td></tr>
+          <tr><td>Bouncy Caramel</td><td>ATK SPD</td><td>+2.7%</td><td>+3.6% - +4.5%</td><td>+5.4% - +9.0%</td></tr>
+          <tr><td>Juicy Apple Jelly</td><td>CRIT%</td><td>+3.3%</td><td>+4.4% - +5.5%</td><td>+6.6% - +11.0%</td></tr>
+          <tr><td>Swift Chocolate</td><td>Cooldown</td><td>-1.5%</td><td>-2.0% - -2.5%</td><td>-3.0% - -5.0%</td></tr>
+          <tr><td>Solid Almond</td><td>DMG Resist</td><td>+3.0%</td><td>+4.0% - +5.0%</td><td>+6.0% - +10.0%</td></tr>
+          <tr><td>Hearty Hazelnut</td><td>CRIT Resist</td><td>+4.5%</td><td>+6.0% - +7.5%</td><td>+9.0% - +15.0%</td></tr>
+          <tr><td>Sweet Candy</td><td>Amplify Buff</td><td>+3.0%</td><td>+4.0% - +5.0%</td><td>+6.0% - +10.0%</td></tr>
+          <tr><td>Fresh Kiwi</td><td>Debuff Resist</td><td>+3.0%</td><td>+4.0% - +5.0%</td><td>+6.0% - +10.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer class="site-copyright">
+  <p>This site was developed by DinoYoda. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
+</footer>
+
+<script>
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="../sidebar-game.js"></script>
+
+</body>
+</html>

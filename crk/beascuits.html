@@ -2,11 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Character</title>
+<title>Beascuits</title>
 <link rel="stylesheet" href="../styles.css">
 </head>
-
 <body>
 
 <button class="sidebar-toggle" id="sidebarToggle">☰</button>
@@ -24,45 +22,46 @@
   <a href="../index.html" class="sidebar-link">Tier Lists</a>
   <a href="stats.html" class="sidebar-link">Stats</a>
   <a href="toppings.html" class="sidebar-link">Toppings</a>
-  <a href="beascuits.html" class="sidebar-link">Beascuits</a>
+  <a href="beascuits.html" class="sidebar-link sidebar-link-active">Beascuits</a>
   <a href="about.html" class="sidebar-link">About</a>
 </div>
 
-<div class="character-page">
-  <div class="character-container">
-      <div class="character-description" id="char-description">
-          <!-- description inserted by JS -->
-      </div>
+<div class="info-page">
+  <h1 class="info-title">Beascuits</h1>
+  <div class="info-divider"></div>
 
-      <div class="character-art">
-          <img id="char-image">
-      </div>
+  <section class="info-section">
+    <h2 class="info-section-title">How Beascuits Work</h2>
+    <div class="info-section-body">
+      <p>Beascuits provide four additional stat lines and are a major part of endgame optimization.</p>
+      <p>Like toppings, quality is determined by both line type and roll strength, not just rarity.</p>
+    </div>
+  </section>
 
-      <div class="char-info-box" id="char-info-box">
-          <!-- rarity, type, position from data.js -->
-      </div>
-  </div>
+  <section class="info-section">
+    <h2 class="info-section-title">General Priorities</h2>
+    <div class="info-section-body">
+      <ul>
+        <li>Meet survivability and cooldown needs first.</li>
+        <li>Then stack damage stats that match the cookie's role and team.</li>
+        <li>Element-focused teams should prioritize the matching elemental line once core breakpoints are met.</li>
+      </ul>
+    </div>
+  </section>
 
-  <div class="char-review-section" id="char-review-section" style="display:none">
-      <!-- review text -->
-  </div>
-
-  <div class="char-skill-section" id="char-skill-section">
-      <!-- skill: icon, cooldown, name, description -->
-  </div>
-
-  <div class="char-build-section" id="char-build-section">
-      <!-- builds: toppings, beascuit -->
-  </div>
+  <section class="info-section">
+    <h2 class="info-section-title">Practical Notes</h2>
+    <div class="info-section-body">
+      <p>If a build card lists specific beascuit targets, those values take priority over generic recommendations.</p>
+      <p>For most accounts, one strong all-purpose beascuit per cookie is better than several half-finished niche variants.</p>
+    </div>
+  </section>
 </div>
 
 <footer class="site-copyright">
   <p>This site was developed by DinoYoda. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
 </footer>
 
-<script src="../data.js"></script>
-<script src="crk_descriptions.js"></script>
-<script src="char-ui.js"></script>
 <script>
 const st = document.getElementById("sidebarToggle")
 const sb = document.getElementById("sidebar")

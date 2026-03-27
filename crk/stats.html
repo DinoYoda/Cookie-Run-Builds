@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stats</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-game-selector">
+    <button class="sidebar-game-btn" id="sidebarGameBtn">
+      <span id="sidebarGameName"></span>
+      <span class="sidebar-game-chevron">▾</span>
+    </button>
+    <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
+  </div>
+  <div class="sidebar-header">Menu</div>
+  <a href="../characters.html" class="sidebar-link">Cookies</a>
+  <a href="../index.html" class="sidebar-link">Tier Lists</a>
+  <a href="stats.html" class="sidebar-link sidebar-link-active">Stats</a>
+  <a href="toppings.html" class="sidebar-link">Toppings</a>
+  <a href="beascuits.html" class="sidebar-link">Beascuits</a>
+  <a href="about.html" class="sidebar-link">About</a>
+</div>
+
+<div class="info-page">
+  <h1 class="info-title">Stats</h1>
+  <div class="info-divider"></div>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Base Stats</h2>
+    <div class="info-section-body">
+      <div class="wiki-stat-list">
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><img src="pictures/icons/stat/Stat_HP.png" alt="" class="info-stat-icon" onerror="this.style.display='none'"><span>HP</span></div>
+          <p>Health or Health Points (known as HP) is the amount of damage a Cookie can take. If their HP reaches 0, they will be defeated.</p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><img src="pictures/icons/stat/Stat_ATK.png" alt="" class="info-stat-icon" onerror="this.style.display='none'"><span>ATK</span></div>
+          <p>Attack (known as ATK) is used to calculate how much damage a Cookie (or enemy) does. <b>It is currently unknown how this damage is calculated.</b></p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><img src="pictures/icons/stat/Stat_DEF.png" alt="" class="info-stat-icon" onerror="this.style.display='none'"><span>DEF</span></div>
+          <p>Defense (known as DEF) is used to calculate how much received damage to a Cookie or enemy is reduced by a flat amount. The higher their DEF, the less damage they receive.</p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><img src="pictures/icons/stat/Stat_CRIT.png" alt="" class="info-stat-icon" onerror="this.style.display='none'"><span>CRIT Chance</span></div>
+          <p>Critical Hit Chance (known as CRIT% or CRIT Chance/Rate) determines the probability of an attack to critically hit and deal critical damage. This stat has a cap of <b>100%.</b></p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><img src="pictures/icons/stat/Stat_Cooldown.png" alt="" class="info-stat-icon" onerror="this.style.display='none'"><span>Cooldown</span></div>
+          <p>Cooldown (or CD) is the amount of time it takes before a Cookie is able to use their skill. In terms of Cooldown Reduction, it cannot be reduced by more than <b>60%.</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Advanced Stats</h2>
+    <div class="info-section-body">
+      <div class="wiki-stat-list">
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><span>ATK SPD</span></div>
+          <p>Attack Speed (ATK SPD) determines how much faster a Cookie or enemy attacks compared to their normal speed. It affects regular attacks and skills unless a skill says otherwise. ATK SPD buff effects are capped at <strong>500%</strong>, and ATK SPD reduction is capped at <strong>70%</strong>.</p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><span>DMG Resist</span></div>
+          <p>Damage Resist (or Damage Reduction) lowers incoming damage by a percentage. This stat is capped at <strong>90%</strong>.</p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><span>CRIT Resist</span></div>
+          <p>Critical Damage Resist (or Critical Damage Reduction) lowers only critical hit damage taken by a percentage. This stat is capped at <strong>85%</strong>.</p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><span>Debuff Resist</span></div>
+          <p>Debuff Resist reduces how strongly debuffs affect a Cookie or enemy, including effect strength and/or duration depending on the debuff. This stat is capped at <strong>75%</strong>.</p>
+        </div>
+        <div class="wiki-stat-entry">
+          <div class="wiki-stat-heading"><span>Amplify Buff</span></div>
+          <p>Amplify Buff (or Amplified Buffs) increases the strength and/or duration of buffs applied to a Cookie or enemy. This stat is capped at <strong>75%</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-copyright">
+  <p>This site was developed by DinoYoda. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
+</footer>
+
+<script>
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="../sidebar-game.js"></script>
+
+</body>
+</html>

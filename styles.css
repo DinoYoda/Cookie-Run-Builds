@@ -1566,6 +1566,83 @@ button.active {
     margin-top: 2px;
 }
 
+/* Stats page: wiki-like base stat layout */
+.wiki-stat-list {
+    display: grid;
+    gap: 18px;
+}
+.wiki-stat-entry {
+    display: block;
+}
+.wiki-stat-heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 6px;
+}
+.wiki-stat-entry p {
+    margin: 0;
+    line-height: 1.65;
+    font-size: 0.97rem;
+    color: rgba(255, 255, 255, 0.84);
+}
+
+/* Info/docs pages: explicit bold-face toggle for inline words */
+.info-page strong,
+.info-page b,
+.info-page .font-bold {
+    font-family: "CookieRun Black", sans-serif;
+    font-weight: 1000;
+    text-shadow: -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, 1px 1px 0 #000;
+}
+
+/* Generic data table for info pages (easy to restyle later) */
+.info-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 0.92rem;
+}
+.info-data-table th,
+.info-data-table td {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+.info-data-table th {
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Wiki-like paired bonus-effects layout */
+.bonus-effects-table thead th[colspan] {
+    text-align: center;
+}
+.bonus-effects-table td {
+    text-align: center;
+}
+
+.site-copyright {
+    margin: 28px 0 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.site-copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.site-copyright a {
+    color: #8fc8ff;
+}
+
 /* Build section */
 #char-build-section {
     display: none;

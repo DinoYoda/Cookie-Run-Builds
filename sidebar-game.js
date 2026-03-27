@@ -6,24 +6,32 @@
     }
 
     const UI_STATE_KEY = "tierlistUIState"
-    const FALLBACK_GAMES = [
-        { id: "crk", name: "Cookie Run: Kingdom" },
-        { id: "toa", name: "Tales of Aria" }
-    ]
 
     const btn  = document.getElementById("sidebarGameBtn")
     const menu = document.getElementById("sidebarGameMenu")
     const nameEl = document.getElementById("sidebarGameName")
     if (!btn || !menu || !nameEl) return
+    const selectorRoot = btn.closest(".sidebar-game-selector")
+
+    const games = (window.CRK_DATA?.games || [])
+        .filter(g => g && g.id)
+        .map(g => ({
+            id: g.id,
+            name: g.name || g.id
+        }))
+    if (!games.length) {
+        if (selectorRoot) selectorRoot.remove()
+        return
+    }
 
     let state = {}
     try { state = JSON.parse(localStorage.getItem(UI_STATE_KEY)) || {} } catch {}
-    const activeId = state.game || "crk"
+    const activeId = state.game || games[0].id
 
-    const games = (window.CRK_DATA?.games || FALLBACK_GAMES).map(g => ({
-        id: g.id,
-        name: g.name || FALLBACK_GAMES.find(f => f.id === g.id)?.name || g.id
-    }))
+    if (games.length === 1) {
+        if (selectorRoot) selectorRoot.remove()
+        return
+    }
 
     nameEl.textContent = games.find(g => g.id === activeId)?.name || activeId
 

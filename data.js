@@ -3740,7 +3740,7 @@ window.CRK_DATA = {
                 ]
             }] 
         }]
-    }, {
+    }, /*{
         id: "toa",
         name: "Cookie Run: Tower of Adventures",
         characters: [{
@@ -3992,5 +3992,5 @@ window.CRK_DATA = {
             ]
         }]
     }]
-    }]
+    }*/]
 };
