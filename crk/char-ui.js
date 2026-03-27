@@ -253,7 +253,10 @@ function getGamePictureRoot() {
     const id = getSelectedGameId()
     const game = data?.games?.find(g => g.id === id)
     const folder = (game && game.assetsBase != null) ? game.assetsBase : (game?.id || "crk")
-    return `${folder}/pictures`
+    const inCrkSubdir = /\/crk\/[^/]*$/i.test((window.location.pathname || "").replace(/\\/g, "/"))
+    if (!inCrkSubdir) return `${folder}/pictures`
+    // character/info pages live in /crk; resolve assets relative to this subdir without relying on <base>.
+    return folder === "crk" ? "pictures" : `../${folder}/pictures`
 }
 
 function getPageImagePath(name) {
@@ -414,6 +417,7 @@ async function renderCharacterPage(){
     document.title = charData?.displayName ?? name
 
     const slug = name.toLowerCase()
+    const skillImageName = charData?.name || name
     const descData = window.CRK_DESCRIPTIONS || {}
 
     const descriptionText = descData.description?.[slug] || "No description available."
@@ -577,7 +581,7 @@ async function renderCharacterPage(){
             charData?.cd ?? null,
             charData?.initialCd ?? null,
             descData.skill_description?.[slug],
-            `${pic}/skills/${slug}_skill.png`,
+            `${pic}/skills/${skillImageName}_skill.png`,
             true,
             hasNormalRally ? null : normalSkillDetailsRaw,
             charData?.skillAttr,
@@ -631,7 +635,7 @@ async function renderCharacterPage(){
                 charData.cjCd ?? charData.cd ?? null,
                 charData.initialCjCd ?? charData.initialCd ?? null,
                 descData.skill_description?.[`${slug}_cj`],
-                `${pic}/skills/${slug}_cj_skill.png`,
+                `${pic}/skills/${skillImageName}_cj_skill.png`,
                 true,
                 null,
                 null,
@@ -657,7 +661,7 @@ async function renderCharacterPage(){
                 charData.mcCd ?? charData.cd ?? null,
                 charData.initialMcCd ?? charData.initialCd ?? null,
                 descData.skill_description?.[`${slug}_mc`],
-                `${pic}/skills/${slug}_mc_skill.png`,
+                `${pic}/skills/${skillImageName}_mc_skill.png`,
                 true,
                 descData.skill_details?.[`${slug}_mc`],
                 charData?.skillAttrMc ?? charData?.skillAttr,

@@ -2,25 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script>
-(function () {
-  if (location.hostname.endsWith("github.io")) {
-    var repo = location.pathname.split("/").filter(Boolean)[0];
-    if (repo) {
-      var b = document.createElement("base");
-      b.href = "/" + repo + "/";
-      document.head.prepend(b);
-    }
-  } else {
-    var b = document.createElement("base");
-    b.href = new URL("../", document.baseURI || location.href).href;
-    document.head.prepend(b);
-  }
-})();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Character</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
@@ -36,9 +20,9 @@
     <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
   </div>
   <div class="sidebar-header">Menu</div>
-  <a href="characters.html" class="sidebar-link">Cookies</a>
-  <a href="index.html" class="sidebar-link">Tier Lists</a>
-  <a href="crk/info.html" class="sidebar-link">Info</a>
+  <a href="../characters.html" class="sidebar-link">Cookies</a>
+  <a href="../index.html" class="sidebar-link">Tier Lists</a>
+  <a href="info.html" class="sidebar-link">Info</a>
 </div>
 
 <div class="character-page">
@@ -69,9 +53,9 @@
   </div>
 </div>
 
-<script src="data.js"></script>
-<script src="crk/crk_descriptions.js"></script>
-<script src="crk/char-ui.js"></script>
+<script src="../data.js"></script>
+<script src="crk_descriptions.js"></script>
+<script src="char-ui.js"></script>
 <script>
 const st = document.getElementById("sidebarToggle")
 const sb = document.getElementById("sidebar")
@@ -79,7 +63,7 @@ const ov = document.getElementById("sidebarOverlay")
 st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
 ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
 </script>
-<script src="sidebar-game.js"></script>
+<script src="../sidebar-game.js"></script>
 
 </body>
 </html>

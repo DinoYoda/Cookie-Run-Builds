@@ -2,24 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script>
-(function () {
-  if (location.hostname.endsWith("github.io")) {
-    var repo = location.pathname.split("/").filter(Boolean)[0];
-    if (repo) {
-      var b = document.createElement("base");
-      b.href = "/" + repo + "/";
-      document.head.prepend(b);
-    }
-  } else {
-    var b = document.createElement("base");
-    b.href = new URL("../", document.baseURI || location.href).href;
-    document.head.prepend(b);
-  }
-})();
-</script>
 <title>Info</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
@@ -34,9 +18,9 @@
     <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
   </div>
   <div class="sidebar-header">Menu</div>
-  <a href="characters.html" class="sidebar-link">Cookies</a>
-  <a href="index.html" class="sidebar-link">Tier Lists</a>
-  <a href="crk/info.html" class="sidebar-link sidebar-link-active">Info</a>
+  <a href="../characters.html" class="sidebar-link">Cookies</a>
+  <a href="../index.html" class="sidebar-link">Tier Lists</a>
+  <a href="info.html" class="sidebar-link sidebar-link-active">Info</a>
 </div>
 
 <div class="info-page">
@@ -73,23 +57,23 @@
       <p>Below is a quick reference for what each stat does. <strong>CRIT Resist, Debuff Resist, and DEF are usually not worth building</strong> — prioritize other stats first.</p>
       <div class="info-stat-list">
         <div class="info-stat-item">
-          <img src="crk/pictures/icons/stat/Stat_HP.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <img src="pictures/icons/stat/Stat_HP.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
           <strong>HP</strong> — Health or Health Points is the amount of damage a Cookie can take. If their HP reaches 0, they will be defeated.
         </div>
         <div class="info-stat-item">
-          <img src="crk/pictures/icons/stat/Stat_ATK.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <img src="pictures/icons/stat/Stat_ATK.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
           <strong>ATK</strong> — Attack is used to calculate how much damage a Cookie (or enemy) does. It is currently unknown how this damage is calculated.
         </div>
         <div class="info-stat-item">
-          <img src="crk/pictures/icons/stat/Stat_DEF.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <img src="pictures/icons/stat/Stat_DEF.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
           <strong>DEF</strong> — Defense is used to calculate how much received damage to a Cookie or enemy is reduced by a flat amount. The higher their DEF, the less damage they receive.
         </div>
         <div class="info-stat-item">
-          <img src="crk/pictures/icons/stat/Stat_CRIT.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <img src="pictures/icons/stat/Stat_CRIT.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
           <strong>CRIT Chance</strong> — Critical Hit Chance (CRIT% or CRIT Rate) determines the probability of an attack to critically hit and deal critical damage. This stat has a cap of 100%.
         </div>
         <div class="info-stat-item">
-          <img src="crk/pictures/icons/stat/Stat_Cooldown.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
+          <img src="pictures/icons/stat/Stat_Cooldown.png" alt="" class="info-stat-icon" onerror="this.style.display='none'">
           <strong>Cooldown</strong> — CD is the amount of time before a Cookie can use their skill. Cooldown Reduction cannot exceed 60%.
         </div>
       </div>
@@ -151,7 +135,7 @@ const ov = document.getElementById("sidebarOverlay")
 st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
 ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
 </script>
-<script src="sidebar-game.js"></script>
+<script src="../sidebar-game.js"></script>
 
 </body>
 </html>
