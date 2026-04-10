@@ -1,3996 +1,4756 @@
 window.CRK_DATA = {
     games: [{
-        id: "crk",
-        name: "Cookie Run: Kingdom",
-        characters: [{
-                name: "Gingerbrave",
-                displayName: "GingerBrave",
-                element: null,
-                type: "Charge",
-                position: "Front",
-                rarity: "Common"
-            },
-            {
-                name: "Muscle",
-                displayName: "Muscle Cookie",
-                element: "Steel",
-                type: "Charge",
-                position: "Front",
-                rarity: "Common"
-            },
-            {
-                name: "Strawberry",
-                displayName: "Strawberry Cookie",
-                element: null,
-                type: "Defense",
-                position: "Front",
-                rarity: "Common"
-            },
-            {
-                name: "Wizard",
-                displayName: "Wizard Cookie",
-                element: "Electricity",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Common"
-            },
-            {
-                name: "Beet",
-                displayName: "Beet Cookie",
-                element: null,
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Common"
-            },
-            {
-                name: "Ninja",
-                displayName: "Ninja Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Common"
-            },
-            {
-                name: "Angel",
-                displayName: "Angel Cookie",
-                element: null,
-                type: "Healing",
-                position: "Rear",
-                rarity: "Common"
-            },
-            {
-                name: "Adventurer",
-                displayName: "Adventurer Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Rare"
-            },
-            {
-                name: "Alchemist",
-                displayName: "Alchemist Cookie",
-                element: "Poison",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Rare"
-            },
-            {
-                name: "Avocado",
-                displayName: "Avocado Cookie",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "Rare"
-            },
-            {
-                name: "Blackberry",
-                displayName: "Blackberry Cookie",
-                element: null,
-                type: "Magic",
-                position: "Rear",
-                rarity: "Rare"
-            },
-            {
-                name: "Carrot",
-                displayName: "Carrot Cookie",
-                element: "Grass",
-                type: "Support",
-                position: "Middle",
-                rarity: "Rare"
-            },
-            {
-                name: "Cherry",
-                displayName: "Cherry Cookie",
-                element: null,
-                type: "Bomber",
-                position: "Rear",
-                rarity: "Rare"
-            },
-            {
-                name: "Clover",
-                displayName: "Clover Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Rare"
-            },
-            {
-                name: "Custard_iii",
-                displayName: "Custard Cookie III",
-                element: null,
-                type: "Healing",
-                position: "Rear",
-                rarity: "Rare"
-            },
-            {
-                name: "Devil",
-                displayName: "Devil Cookie",
-                element: "Darkness",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Rare"
-            },
-            {
-                name: "Gumball",
-                displayName: "Gumball Cookie",
-                element: null,
-                type: "Bomber",
-                position: "Rear",
-                rarity: "Rare"
-            },
-            {
-                name: "Knight",
-                displayName: "Knight Cookie",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "Rare"
-            },
-            {
-                name: "Onion",
-                displayName: "Onion Cookie",
-                element: null,
-                type: "Support",
-                position: "Middle",
-                rarity: "Rare"
-            },
-            {
-                name: "Pancake",
-                displayName: "Pancake Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Rear",
-                rarity: "Rare"
-            },
-            {
-                name: "Princess",
-                displayName: "Princess Cookie",
-                element: null,
-                type: "Charge",
-                position: "Front",
-                rarity: "Rare"
-            },
-            {
-                name: "Marshmallow_bunny",
-                displayName: "Marshmallow Bunny Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Special"
-            },
-            {
-                name: "Cream_ferret",
-                displayName: "Cream Ferret Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Special"
-            },
-            {
-                name: "Icicle_yeti",
-                displayName: "Icicle Yeti Cookie",
-                element: "Ice",
-                type: "Healing",
-                position: "Front",
-                rarity: "Special"
-            },
-            {
-                name: "Snapdragon",
-                displayName: "Snapdragon Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Special"
-            },
-            {
-                name: "Sonic",
-                displayName: "Sonic Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Special"
-            },
-            {
-                name: "Tails",
-                displayName: "Tails Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Special"
-            },
-            {
-                name: "Elphaba",
-                displayName: "Elphaba Cookie",
-                element: null,
-                type: "Magic",
-                position: "Rear",
-                rarity: "Special"
-            },
-            {
-                name: "Glinda",
-                displayName: "Glinda Cookie",
-                element: null,
-                type: "Magic",
-                position: "Rear",
-                rarity: "Special"
-            },
-            {
-                name: "BTS",
-                displayName: "BTS",
-                element: null,
-                type: "BTS",
-                position: "Rear",
-                rarity: "Special"
-            },
-            {
-                name: "Doughael",
-                displayName: "Doughael",
-                element: null,
-                type: "Healing",
-                position: "Middle",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Camellia",
-                displayName: "Camellia Cookie",
-                element: "Grass",
-                type: "Charge",
-                position: "Front",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Elder_faerie",
-                displayName: "Elder Faerie Cookie",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Crimson_coral",
-                displayName: "Crimson Coral Cookie",
-                element: "Water",
-                type: "Defense",
-                position: "Front",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Shining_glitter",
-                displayName: "Shining Glitter Cookie",
-                element: "Electricity",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Capsaicin",
-                displayName: "Capsaicin Cookie",
-                element: "Fire",
-                type: "Charge",
-                position: "Front",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Stardust",
-                displayName: "Stardust Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Sherbet",
-                displayName: "Sherbet Cookie",
-                element: "Ice",
-                type: "Ranged",
-                position: "Middle",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Oyster",
-                displayName: "Oyster Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Clotted_cream",
-                displayName: "Clotted Cream Cookie",
-                element: "Light",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Super Epic"
-            },
-            {
-                name: "Venom_dough",
-                displayName: "Venom Dough Cookie",
-                element: ["Poison", "Chaos"],
-                type: "Bomber",
-                position: "Rear",
-                rarity: "Super Epic",
-                skill: "Mind Venom",
-                cd: 14,
-                sets: {
-                    toppings: [{
-                        resonance: "looming",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "DMG Resist", "ATK"]
-                    }],
-                    beascuit: [{
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        element: "Chaos",
-                        1: "Chaos DMG",
-                        2: "Chaos DMG",
-                        3: "Chaos DMG",
-                        4: "Chaos DMG"
-                    }]
+            id: "crk",
+            name: "Cookie Run: Kingdom",
+            characters: [{
+                    name: "Gingerbrave",
+                    displayName: "GingerBrave",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Common"
                 },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥35%"
+                {
+                    name: "Muscle",
+                    displayName: "Muscle Cookie",
+                    element: "Steel",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Common"
+                },
+                {
+                    name: "Strawberry",
+                    displayName: "Strawberry Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Common"
+                },
+                {
+                    name: "Wizard",
+                    displayName: "Wizard Cookie",
+                    element: "Electricity",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Common"
+                },
+                {
+                    name: "Beet",
+                    displayName: "Beet Cookie",
+                    element: null,
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Common"
+                },
+                {
+                    name: "Ninja",
+                    displayName: "Ninja Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Common"
+                },
+                {
+                    name: "Angel",
+                    displayName: "Angel Cookie",
+                    element: null,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Common"
+                },
+                {
+                    name: "Adventurer",
+                    displayName: "Adventurer Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Alchemist",
+                    displayName: "Alchemist Cookie",
+                    element: "Poison",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Avocado",
+                    displayName: "Avocado Cookie",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Blackberry",
+                    displayName: "Blackberry Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Carrot",
+                    displayName: "Carrot Cookie",
+                    element: "Grass",
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Cherry",
+                    displayName: "Cherry Cookie",
+                    element: null,
+                    type: "Bomber",
+                    position: "Rear",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Clover",
+                    displayName: "Clover Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Custard_iii",
+                    displayName: "Custard Cookie III",
+                    element: null,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Devil",
+                    displayName: "Devil Cookie",
+                    element: "Darkness",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Gumball",
+                    displayName: "Gumball Cookie",
+                    element: null,
+                    type: "Bomber",
+                    position: "Rear",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Knight",
+                    displayName: "Knight Cookie",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Onion",
+                    displayName: "Onion Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Pancake",
+                    displayName: "Pancake Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Rear",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Princess",
+                    displayName: "Princess Cookie",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Rare"
+                },
+                {
+                    name: "Marshmallow_bunny",
+                    displayName: "Marshmallow Bunny Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Special"
+                },
+                {
+                    name: "Cream_ferret",
+                    displayName: "Cream Ferret Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Special"
+                },
+                {
+                    name: "Icicle_yeti",
+                    displayName: "Icicle Yeti Cookie",
+                    element: "Ice",
+                    type: "Healing",
+                    position: "Front",
+                    rarity: "Special"
+                },
+                {
+                    name: "Snapdragon",
+                    displayName: "Snapdragon Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Special"
+                },
+                {
+                    name: "Sonic",
+                    displayName: "Sonic Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Special"
+                },
+                {
+                    name: "Tails",
+                    displayName: "Tails Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Special"
+                },
+                {
+                    name: "Elphaba",
+                    displayName: "Elphaba Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Special"
+                },
+                {
+                    name: "Glinda",
+                    displayName: "Glinda Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Special"
+                },
+                {
+                    name: "BTS",
+                    displayName: "BTS",
+                    element: null,
+                    type: "BTS",
+                    position: "Rear",
+                    rarity: "Special"
+                },
+                {
+                    name: "Doughael",
+                    displayName: "Doughael",
+                    element: null,
+                    type: "Healing",
+                    position: "Middle",
+                    rarity: "Super Epic",
+                    skill: "Consecrated Vow",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [0.48, 1.26],
+                        attr2: [0.88, 2.31]
+                    },
+                    sets: {
+                        toppings: [{
+                            //resonance: "destined",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["Cooldown", "DMG Resist", "HP"]
                         }],
-                    },
-                    2: {
-                        name: "PvE Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        notes: ["I actually don't know what to use here for the beascuit but I assume Chaos DMG is fine or maybe full atk? IDK, mostly used in arena anyway."]
-                    }
-                },
-                buildNotes: ["Cooldown is more important than attack since a lot of their damage comes from the hp damage they deal."],
-                review: "Incredible amounts of HP damage able to oneshot any cookie 2 times over when not accounting for buffs/sustain. Not too powerful in PvE but good for chaos and poison temas nontheless.",
-                rating: "S+"
-            },
-            {
-                name: "Pitaya_dragon",
-                displayName: "Pitaya Dragon Cookie",
-                element: "Fire",
-                type: "Charge",
-                position: "Front",
-                rarity: "Dragon",
-                skill: "Draconic Bladestorm",
-                cd: 13,
-                skillAttr: {
-                    attr1: [119.9, 255.1],
-                    attr2: [58.7, 124.8],
-                    attr3: [103.8, 220.9]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "draconic",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["DMG Resist", "ATK", "Cooldown"]
-                    }, {
-                        resonance: "draconic",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["DMG Resist", "ATK", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        1: "DMG Resist",
-                        2: "DMG Resist",
-                        3: "DMG Resist",
-                        4: "DMG Resist"
-                    }, {
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "DMG Resist"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                    },
-                    2: {
-                        name: "Alt Build",
-                        toppings: 2,
-                        beascuit: 2,
-                        notes: ["Alt build with 2s start."]
-                    }
-                },
-                buildNotes: ["Pitaya is from a time before beascuits so I couldn't find much on them but DMG Resist and Cooldown should both be good. If you really want to use him in arena maybe add in somebypass but I imagine he'd explode without full DMR."],
-                review: "Pitaya. I love him so much but he's not that good. Not in the grand scheme of things anyway. He's still serviceable as a fire attacker and tank but compared to his contemperaries in cookies like cookie{Burning_spice} Burning Spice, or cookie{Stormbringer} Stormbringer he's less tanky and in terms of damage cookie{Fire_spirit} Fire Spirit way outclasses him (ironic since cannonically Pitaya gave Fire Spirit his powers). He does have a place in the fire team though where he can put up good numbers with the support. Overall I hope he get's a crystal jam when the other dragons release otherwise there's no way he can keep up with them.",
-                rating: "B"
-            },
-            {
-                name: "Sugar_swan",
-                displayName: "Sugar Swan Cookie",
-                element: "Light",
-                type: "Healing",
-                position: "Rear",
-                rarity: "Legendary",
-                skill: "Wings of Sugar",
-                cd: 13,
-                skillAttr: {
-                    attr1: [21.1, 60.1],
-                    attr2: [21.5, 61.3]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "life_energy",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "applejelly",
-                        5: "applejelly",
-                        6: "chocolate",
-                        substats: ["CRIT%", "DMG Resist", "Cooldown"]
-                    }, {
-                        resonance: "life_energy",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["CRIT%", "DMG Resist", "Cooldown"]
-                    }, {
-                        resonance: "life_energy",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "applejelly",
-                        5: "applejelly",
-                        6: "applejelly",
-                        substats: ["CRIT%", "ATK", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        notes: ["Used in arena."]
-                    },
-                    2: {
-                        rank: "recommended",
-                        name: "Alt Build",
-                        toppings: 2,
-                        beascuit: 1,
-                        notes: ["Weaker overall than 3-2-1 but useful situationally against anti crit teams. Recommended because I suspect she'll be meta for a while so the situations this will be useful will accumulate."]
-                    },
-                    3: {
-                        name: "Raid build",
-                        toppings: 3,
-                        beascuit: 1,
-                        notes: ["Used for bossing. Can be run in arena as well with high promo Sugar Swan but not recommended."]
-                    }
-                },
-                buildNotes: ["Because of her passive you need at least 35% ATK for max heals. This is easily achieved with just 3 raspberries without substats. For that reason I recommend CRIT% over ATK but you can use either."],
-                review: "Well here she is. Not as flashy as many would have hoped but more than powerful, rip Pure Vanilla. It should go without saying that 2 revives is insanely powerful. That alone would make her viable but the insane healing and buffs on top of that make her the best.",
-                rating: "S+"
-            },
-            {
-                name: "Fire_spirit",
-                displayName: "Fire Spirit Cookie",
-                element: "Fire",
-                type: "Magic",
-                position: "Rear",
-                rarity: "Legendary",
-                skill: "Ever-Burning Flames",
-                cd: 14,
-                skillAttr: {
-                    attr1: [504.9, 1049.1],
-                    attr2: [126.2, 262.3],
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "flaming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "chocolate",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "flaming",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "flaming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "ATK", "CRIT%"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        element: "Fire",
-                        1: "Fire DMG",
-                        2: "Fire DMG",
-                        3: "Fire DMG",
-                        4: "Fire DMG"
-                    }],
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                    },
-                    2: {
-                        rank: "recommended",
-                        name: "Arena One-Shot Build",
-                        toppings: 3,
-                        beascuit: 2,
-                        notes: ["One-shot build. Not often seen but he has high enough scalings I'd recomend having it around in case he re-enters the meta sometime."]
-                    }
-                },
-                buildNotes: ["Standard dps stat rules but tends to prefer atk over cooldown. Cooldown is still good but no need to double cast if the enemy is dead."],
-                review: "Fire spirit has some of the higherest ATK scalings in the game and they only get higher in a fire team. Massive damage potential especially against multiple enemies. Not quite arena meta anymore but still a very strong all around pick.",
-                rating: "S"
-            },
-            {
-                name: "Wind_archer",
-                displayName: "Wind Archer Cookie",
-                element: "Wind",
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Legendary",
-                skill: "Last Wind",
-                cd: 6,
-                skillAttr: {
-                    attr1: [46.2, 98.4],
-                    attr2: [472.6, 1005.9],
-                },
-                cjSkill: "Last Gale",
-                cjSkillAttr: {
-                    attr1: [12.0, 23.5],
-                    attr2: [320.0, 755.0]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "wind",
-                        1: "caramel",
-                        2: "caramel",
-                        3: "caramel",
-                        4: "caramel",
-                        5: "caramel",
-                        6: "caramel",
-                        substats: ["ATK SPD", "DMG Resist", "ATK"]
-                    }, {
-                        resonance: "wind",
-                        1: "caramel",
-                        2: "caramel",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK SPD", "DMG Resist", "ATK"]
-                    }, {
-                        resonance: "wind",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK SPD", "DMG Resist", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        element: "Wind",
-                        1: "Wind DMG",
-                        2: "Wind DMG",
-                        3: "Wind DMG",
-                        4: "Wind DMG"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                    },
-                    2: {
-                        rank: "recommended",
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 2
-                    },
-                    3: {
-                        name: "Living Abyss Build",
-                        toppings: 3,
-                        beascuit: 1,
-                        notes: ["Build for living abyss. Seems quite powerful so included."]
-                    }
-                },
-                buildNotes: ["Wind archer greatly values ATK SPD with his cj but if you don't have it or are too lazy to swap full raspberry works too.", "Can slot in some Cooldown if desired. Only needs 17% to hit 1s start. Was used in some older arena comps."],
-                review: "Wind Archer has a blazing fast 6s cooldown on his skill and a powerful skill it is especially with his crystal jam. Stuns, cyclones, and his Pursuer debuff which deals true dmg all applied nearly in an instant thanks to his fast ATK SPD. Also like his kin as an elemental guardian he's a must have for any content that favors wind type dmg. Must build.",
-                rating: "S"
-            },
-            {
-                name: "Stormbringer",
-                displayName: "Stormbringer Cookie",
-                element: "Electricity",
-                type: "Charge",
-                position: "Front",
-                rarity: "Legendary",
-                skill: "Lightning Blitzstorm",
-                cd: 13,
-                skillAttr: {
-                    attr1: [38.8, 82.6],
-                    attr2: [666.0, 1417.6],
-                },
-                cjSkill: "Stormbringer's Wrath",
-                cjSkillAttr: {
-                    attr1: [5.0, 15.0],
-                    attr2: [16.5, 27.5],
-                    attr3: [19.1, 31.9]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "fuzzy",
-                        1: "applejelly",
-                        2: "applejelly",
-                        3: "applejelly",
-                        4: "applejelly",
-                        5: "applejelly",
-                        6: "applejelly",
-                        substats: ["CRIT%", "DMG Resist", "ATK"]
-                    }, {
-                        resonance: "fuzzy",
-                        1: "applejelly",
-                        2: "applejelly",
-                        3: "applejelly",
-                        4: "applejelly",
-                        5: "applejelly",
-                        6: "applejelly",
-                        substats: ["CRIT%", "DMG Resist", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        element: "Electricity",
-                        1: "Electric DMG",
-                        2: "Electric DMG",
-                        3: "Electric DMG",
-                        4: "Electric DMG"
-                    }, {
-                        element: "Electricity",
-                        1: "Electric DMG",
-                        2: "Electric DMG",
-                        3: "Electric DMG",
-                        4: "Bypass"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "CRIT%",
-                            value: "≥80%"
-                        }],
-                        notes: ["General build. Used in cookie alliance."]
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        stats: [{
-                            name: "CRIT%",
-                            value: "≥80%"
-                        }],
-                        notes: ["Can switch up ATK focus for Cooldown if desired."]
-                    }
-                },
-                buildNotes: ["Maximise crit. To get the most from her base skill you need 80% (200% for max damage) and for cj you'll need 120%"],
-                review: "Stormbringer is an odd cookie to rank. On the one hand there are better options but on the other hand she's core for electricity teams which are used more often than most, essential for many events or clearing the tower easily. She has good buffs for electricity type cookies and no lack of personal damge especially with her crystal jam. When I joined CRK she would have been an overall S tier but in that time bs like Dark Enchantress has released knocking her down a peg, especially in arena so overall A+.",
-                rating: "A+"
-            },
-            {
-                name: "Moonlight",
-                displayName: "Moonlight Cookie",
-                element: null,
-                type: "Magic",
-                position: "Middle",
-                rarity: "Legendary",
-                skill: "Dream of the Night Sky",
-                cd: 15,
-                skillAttr: {
-                    attr1: [59.1, 125.6],
-                },
-                cjSkill: "Twinkling Starry Sky",
-                cjReplace: true,
-                cjSkillAttr: {
-                    attr1: [7.0, 22.5],
-                    attr2: [1.5, 2.5],
-                    attr3: [41.8, 70.7]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "moon",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "moon",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "ATK", "DMG Resist"]
-                    }, {
-                        resonance: "moon",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "ATK", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 3,
-                        beascuit: 1,
-                        notes: ["You'll find a lot saying that Moonlight should use full chocolate but because she runs a full cooldown beascuit you don't need chocolate to hit 35%, only substats. Will still need chocolate to hit 2s start though so use for that or if you'd just prefer more cooldown."]
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 2,
-                        beascuit: 3,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥44.5%"
-                        }],
-                        notes: ["Moonlight's 20+ passive for her crystal jam makes it so she gains bypass from beascuit cooldown but less than if you ran full bypass. With tarts however you can hit 2s start without needing full chocolate still so this build is probably close to optimal.", "An arena comp for the biggest Moonlight fans."],
-                    }
-                },
-                buildNotes: ["Fairly standard dps stat rules but tends to prefer cooldown over attack.", "Keep in mind the 20+ passive if building her for arena."],
-                review: "Despite being fairly old at this point Moonlight can still put up good performance even in the arena (though no longer meta) with powerful debuffs (sleep) and good damage. Also being invincible during her skill and capable of self healing she's surprsingly tanky. With no element she isn't as useful as some of her peers but being one of 2 cookies that can apply sleep, and a lot of it, she will serve you well if you decide to build her and her crystal jam. Just be aware her cj actually does less damage until level 10 and 20 so wait a bit before you unlock it.",
-                rating: "A+"
-            },
-            {
-                name: "Black_pearl",
-                displayName: "Black Pearl Cookie",
-                element: "Water",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Legendary",
-                skill: "Duskgloom's Sovereign",
-                cd: 15,
-                skillAttr: {
-                    attr1: [253.6, 539.4],
-                },
-                cjSkill: "Duskgloom Hatred",
-                cjSkillAttr: {
-                    attr1: [15.0, 25.0],
-                    attr2: [9, 15],
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "sea",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["DMG Resist", "Cooldown", "CRIT%"],
-                    }, {
-                        resonance: "sea",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "ATK", "DMG Resist"]
-                    }, {
-                        resonance: "sea",
-                        1: "almond",
-                        2: "almond",
-                        3: "almond",
-                        4: "almond",
-                        5: "almond",
-                        6: "almond",
-                        substats: ["Cooldown", "ATK", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        element: "Water",
-                        1: "Water DMG",
-                        2: "Water DMG",
-                        3: "Water DMG",
-                        4: "Water DMG"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 2,
-                        beascuit: 1,
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥17.3%"
-                        }],
-                        notes: ["An arena comp for the biggest Black Pearl fans."],
-                    },
-                },
-                buildNotes: ["Standard DPS builds. Chocolate or raspberry work depending on preference."],
-                review: "Black pearl is unfortunately the weakest legendary. Worst of the best but still the worst. With a lackluster rally effect that barely functions outside of arena (which given how much innate bypass most cookies get nowadays would barely function in the arena too) and poor damage compared to the beasts of today she's fallen off hard over the years.",
-                rating: "B"
-            },
-            {
-                name: "Frost_queen",
-                displayName: "Frost Queen Cookie",
-                element: "Ice",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Legendary",
-                skill: "Freezing Squall",
-                cd: 15,
-                cjSkill: "Eternal Frost",
-                cjReplace: true,
-                skillAttr: {
-                    attr1: [67.8, 144.2],
-                    attr2: [271.2, 576.9]
-                },
-                cjSkillAttr: {
-                    attr1: [30.0, 40.0],
-                    attr2: [29.3, 48.8],
-                    attr3: [306.5, 510.8]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "frost",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "frost",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "frost",
-                        1: "almond",
-                        2: "almond",
-                        3: "almond",
-                        4: "almond",
-                        5: "almond",
-                        6: "almond",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        element: "Ice",
-                        1: "Ice DMG",
-                        2: "Ice DMG",
-                        3: "Ice DMG",
-                        4: "Ice DMG"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        notes: ["An arena comp for the biggest Frost Queen fans."]
-                    },
-                    3: {
-                        name: "Alt Arena Build",
-                        toppings: 3,
-                        beascuit: 2,
-                        notes: ["An interesting build I discovered which uses full almond on Frost Queen."]
-                    },
-                },
-                buildNotes: ["Standard DPS builds. Chocolate or raspberry work depending on preference."],
-                review: "Frost queen is the core of the ice teams and has some incredibly good debuffs with her crystal jam though like most early legendaries struggles to keep up in todays meta. Ice on the whole is just not a very good element due to lack of units and content where it's used so compared to the other guardians she has fewer use cases. Still worth building eventually though.",
-                rating: "A"
-            },
-            {
-                name: "Sea_fairy",
-                displayName: "Sea Fairy Cookie",
-                element: "Water",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Legendary",
-                skill: "Soaring Compassion",
-                cd: 16,
-                skillAttr: {
-                    attr1: [216.3, 630.7],
-                },
-                cjSkill: "Rising Tide",
-                cjSkillAttr: {
-                    attr1: [30.0, 45.0],
-                    attr2: [198.7, 230.8],
-                    attr3: [135.6, 167.2],
-                    attr4: [26.9, 44.8],
-                    attr5: [140.4, 196.6],
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "sea",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "ATK", "CRIT%"]
-                    }, {
-                        resonance: "sea",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "ATK", "DMG Resist"]
-                    }, {
-                        resonance: "sea",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "ATK", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        element: "Water",
-                        1: "Water DMG",
-                        2: "Water DMG",
-                        3: "Water DMG",
-                        4: "Water DMG"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "Machine God Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "34.8%"
-                        }],
-                        notes: ["Can replace CRIT% subs with DMR if needed.", "Can also work as a general build."]
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 3,
-                        beascuit: 2,
-                        notes: ["An arena comp for the biggest Sea Fairy fans.", "Also just alternate build with more attack."]
-                    },
-                },
-                buildNotes: ["Sea Fairy has taken to valuing cooldown more than attack to apply debuffs more often but she can still hit quite hard if you want to go tha raspberry route."],
-                review: "Sea Fairy, or should I say farty, is widely considered quite washed but after her cj rework she's a must for any water team. Good personal damage, plenty of buffs and debuffs, and a very good rally effect, I'd say she's very good for PvE. However she is still quite weak in arena but at least she's meta for machine god and events.",
-                rating: "A+"
-            },
-            {
-                name: "Millennial_tree",
-                displayName: "Millennial Tree Cookie",
-                element: "Grass",
-                type: "Support",
-                position: "Front",
-                rarity: "Legendary",
-                skill: "Millennial Tree",
-                cd: 8,
-                initialCd: 0.65,
-                skillAttr: {
-                    attr1: [17.0, 44.7],
-                    attr2: [47.3, 124.1],
-                },
-                rallyEffect: true,
-                sets: {
-                    toppings: [{
-                        resonance: "root",
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }, {
-                        resonance: "root",
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "candy",
-                        6: "candy",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }, {
-                        resonance: "root",
-                        1: "applejelly",
-                        2: "applejelly",
-                        3: "applejelly",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }, {
-                        resonance: "root",
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "kiwi",
-                        6: "kiwi",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        1: "HP",
-                        2: "HP",
-                        3: "HP",
-                        4: "HP"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥3.9%"
-                        }],
-                    },
-                    2: {
-                        rank: "best",
-                        name: "Arena Build",
-                        toppings: 4,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥3.9%"
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                         }, {
-                            name: "Debuff Resist",
-                            value: "≥20%"
-                        }],
-                        notes: ["1s start is essential for arena."]
-                    },
-                    3: {
-                        name: "Alt Arena Build",
-                        toppings: 3,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥3.9%"
-                        }],
-                        notes: ["Requires 5★+ to work."]
-                    },
-                    4: {
-                        name: "Alt Arena Build 2",
-                        toppings: 2,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥3.9%"
-                        }],
-                    },
-                    notes: ["Aim for 3.9% cooldown (so 2 substats) for the 1s start and then CRIT% or cooldown are both good.", "Can replace HP substats with CRIT% if using resonant toppings. (Why do resonant toppings have CRIT Resist instead of HP Devsis?"]
-                },
-                buildNotes: ["HP is king. It is the most important stat for millenial tree. His other stat requirements are pretty easy so once you hit those prioritize HP.", "Remember, heals can crit so once you hit your cooldown requirements I'd say go for CRIT% over cooldown."],
-                review: "The tree man is insane. Incredible buffs and sustain with decent damage on top there's truly nothing he doesn't do. Fitting for the leader of the elemental guardians and protector of Earthbread.",
-                rating: "S+"
-            },
-            {
-                name: "Pure_vanilla",
-                displayName: "Pure Vanilla Cookie",
-                element: null,
-                type: "Healing",
-                position: "Rear",
-                rarity: "Ancient",
-                skill: "Love & Peace",
-            },
-            {
-                name: "Hollyberry",
-                displayName: "Hollyberry Cookie",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "Ancient",
-                skill: "Oath on the Shield"
-            },
-            {
-                name: "Dark_cacao",
-                displayName: "Dark Cacao Cookie",
-                element: ["Darkness", "Electricity"],
-                type: "Charge",
-                position: "Front",
-                rarity: "Ancient",
-                skill: 'Solemn Judgment'
-            },
-            {
-                name: "Golden_cheese",
-                displayName: "Golden Cheese Cookie",
-                element: "Earth",
-                type: "Ranged",
-                position: "Middle",
-                rarity: "Ancient",
-                skill: "Brilliance of the Absolute"
-            },
-            {
-                name: "White_lily",
-                displayName: "White Lily Cookie",
-                element: "Grass",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Ancient",
-                skill: "Lily Bud"
-            },
-            {
-                name: "Awakened_dark_cacao",
-                displayName: "Dark Cacao Cookie (Dragon Lord)",
-                element: "Darkness",
-                type: "Charge",
-                position: "Front",
-                rarity: "AncientA",
-                skill: "Awakened King",
-                cd: 13,
-                skillAttr: {
-                    attr1: [49.2, 104.7],
-                    attr2: [691.5, 1471.8],
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Gambit",
-                        1: "chocolate",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "DMG Resist", "ATK"]
-                    }, {
-                        //I believe this one is good for just bigger numbers for events
-                        resonance: "Gambit",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "chocolate",
-                        substats: ["Cooldown", "ATK", "CRIT%"]
-                    }, {
-                        1: "chocolate",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["Cooldown", "DMG Resist", "HP"]
-                    }, {
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "DMG Resist", "HP"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }, {
-                        element: "Darkness",
-                        tainted: true,
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "35%"
-                        }],
-                        notes: ["General build. Used in cookie alliance."]
-                    },
-                    2: {
-                        name: "HP Build",
-                        toppings: 3,
-                        beascuit: 1,
-                    },
-                    3: {
-                        name: "Arena Build",
-                        toppings: 4,
-                        beascuit: 2,
-                        useOwn: true,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "35.9%"
-                        }],
-                        notes: ["Can substitue Bypass lines for cooldown if toppings aren't good enough alone. Do require near perfect toppings achieve with just them alone after all.", "An arena build for those who are extremely dedicated to Dark Cacao."],
-                    },
-                    notes: ["Can substitue toppings for chocolate if substats aren't good enough to hit cooldown cap."],
-                },
-                buildNotes: ["A lot of Dark Cacaos utility comes from his debuffs so you want high cooldown to apply them as often as possible and then DMG Resist to be able to apply them for longer. His DMG is good but not amazing so atk isn't too important. Could even use HP subs if you wanted instead."],
-                review: "The worst of the best. Dark Cacao is often said to be the weakest ancient and that's correct but he's still an ancient cookie. His debuffs are just as potent as they were years ago and his rally effect a massive boon for dark type teams. While he's rarely seen in arena if you're dedicated you could make something work and he's very useful in PvE soI give him an A+.",
-                rating: "A+"
-            },
-            {
-                name: "Awakened_golden_cheese",
-                displayName: "Golden Cheese Cookie (Immortal)",
-                element: "Earth",
-                type: "Ranged",
-                position: "Middle",
-                rarity: "AncientA",
-                skill: "Radiance of the Immortal",
-                cd: 13,
-                skillAttr: {
-                    attr1: [26.8, 57],
-                    attr2: [6, 12.7],
-                    attr3: [173.8, 369.9],
-                    attr4: [50.0, 70.0],
-                    attr5: [100.0, 118.3]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Cheese",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "DMG Resist", "Cooldown"]
-                    }, {
-                        resonance: "Cheese",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Crit", "DMG Resist"]
-                    }, {
-                        resonance: "Cheese",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Crit", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        element: "Earth",
-                        1: "Earth DMG",
-                        2: "Earth DMG",
-                        3: "Earth DMG",
-                        4: "Earth DMG"
-                    }, {
-                        element: "Earth",
-                        tainted: true,
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }],
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        notes: ["Build used for general earth team stuff. Can use tainted bescuit if you have one."]
-                    },
-                    2: {
-                        rank: "recommended",
-                        name: "Arena Nuke Build",
-                        toppings: 2,
-                        beascuit: 1,
-                        notes: ["Can also use a tainted beascuit with full bypass.", "Golden Cheese isn't meant to live long so aim for max damage"]
-                    },
-                    3: {
-                        name: "Alt Build",
-                        toppings: 3,
-                        beascuit: 3,
-                        notes: ["Less DMG than the general build but more frequent casts. Was used in Beast Raid."]
-                    }
-                },
-                buildNotes: ["Golden Cheese functions as a nuker in most cases so for generally you'll want to maximise dmg per cast but builds with cooldown can be useful as seen in Beast Raid."],
-                review: "Good single target and nuke potential. The premier earth cookie with a useful revive and shield but generally outclassed outside of specific comps. I give her an A+, maybe A.",
-                rating: "A+"
-            },
-            {
-                name: "Awakened_pure_vanilla",
-                displayName: "Pure Vanilla Cookie (Compassionate)",
-                element: "Light",
-                type: "Healing",
-                position: "Rear",
-                rarity: "AncientA",
-                skill: "Warmth of Compassion",
-                cd: 15,
-                skillAttr: {
-                    attr1: [70.2, 145.9],
-                    attr2: [24.9, 65.3]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Truth",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        1: "almond",
-                        2: "almond",
-                        3: "almond",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "DMG Resist", "HP"]
-                    }, {
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["Cooldown", "DMG Resist", "HP"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "DMG Resist",
-                        3: "DMG Resist",
-                        4: "DMG Resist"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "DMG Resist",
-                            value: "50%",
-                        }, {
-                            name: "Cooldown",
-                            value: "15%"
+                            1: "Cooldown",
+                            2: "HP",
+                            3: "HP",
+                            4: "HP"
                         }]
                     },
-                    2: {
-                        rank: "recommended",
-                        name: "HP build",
-                        toppings: 3,
-                        beascuit: 1,
-                        stats: [{
-                            name: "DMG Resist",
-                            value: "50%",
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "HP%",
+                                value: "≥80%"
+                            }, {
+                                name: "Cooldown",
+                                value: "15%"
+                            }, {
+                                name: "DMG Resist",
+                                value: "≥45%"
+                            }],
+                            notes: ["Used in arena."]
+                        },
+                        notes: ["Try to get as close to 15% Cooldown as possible for best results.",
+                            "Can swap out HP subs for CRIT% if you want to use resonant toppings and have hit the 80% HP requirement."
+                        ]
+                    },
+                    buildNotes: [
+                        "Doughael is very simple, scaling well of HP and getting cooldown from it because of the passive so you only need 15% extra cooldown to hit cap. Once you get those requirement dump everything else into DMG Resist but CRIT% isn't bad."
+                    ],
+                    review: "Doughael is a powerful healer with good buffs. Unfortunately for doughael the same could be said of many newer healers with stronger buffs. Still good but not the best of the best.",
+                    rating: "A+"
+                },
+                {
+                    name: "Camellia",
+                    displayName: "Camellia Cookie",
+                    element: "Grass",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Super Epic",
+                    skill: "Battle Scene Painting",
+                    cd: 13,
+                    initialCd: 0.6,
+                    skillAttr: {
+                        attr1: [119.9, 255.1],
+                        attr2: [58.7, 124.8],
+                        attr3: [103.8, 220.9]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "fragrant",
+                            1: "almond",
+                            2: "almond",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "ATK", "Cooldown"]
                         }, {
-                            name: "Cooldown",
-                            value: "15%"
-                        }],
-                        notes: ["This is the build used in arena less healing but APV will stay on the field much longer."]
-                    },
-                    3: {
-                        name: "DMG Resist build",
-                        toppings: 2,
-                        beascuit: 1,
-                        stats: [{
-                            name: "DMG Resist",
-                            value: "75%",
+                            resonance: "fragrant",
+                            1: "almond",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "ATK", "Cooldown"]
+                        },{
+                            resonance: "fragrant",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "ATK", "Cooldown"]
                         }, {
-                            name: "Cooldown",
-                            value: "15%"
+                            resonance: "fragrant",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["DMG Resist", "ATK", "Cooldown"]
                         }],
-                        notes: ["Aims for 75% DMG Resist to surive better againt teams with high amounts of Bypass."]
-                    }
-                },
-                buildNotes: ["50% DMG Resist is the cap for his passive but more never hurts."],
-                review: "Like his counterpart there is a reason Pure Vanilla has managed to stay releant for a very long time despite other healers like cookie{Doughael} Doughael and cookie{Sugar_swan} Sugar Swan with incredibly good sustain and the great burst healing and an amazing rally effect. He also has a very useful revive which, while it is outclassed by cookie{Sugar_swan} Sugar Swan is still handy.",
-                rating: "S+"
-            },
-            {
-                name: "Awakened_hollyberry",
-                displayName: "Hollyberry Cookie (Aegis)",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "AncientA",
-                skill: "Shield of Conviction",
-                cd: 13,
-                skillAttr: {
-                    attr1: [219.1, 575.2],
-                    attr2: [24.9, 65.3]
-                },
-                sets: {
-                    toppings: [{
-                        //resonance: "Passionate",
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }, {
-                        //resonance: "Passionate",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }, {
-                        //resonance: "Passionate",
-                        //This is for a specific comp that has HB be targeted by SMC 
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "almond",
-                        5: "kiwi",
-                        6: "peanut",
-                        substats: ["DMG Resist", "Debuff Resist", "Cooldown"]
-                    }, {
-                        //resonance: "Passionate",
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }, {
-                        //resonance: "Passionate",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "peanut",
-                        substats: ["HP", "DMG Resist", "Cooldown"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }, {
-                        1: "HP",
-                        2: "HP",
-                        3: "HP",
-                        4: "HP"
-                    }, {
-                        1: "DMG Resist",
-                        2: "DMG Resist",
-                        3: "DMG Resist",
-                        4: "DMG Resist"
-                    }, {
-                        1: "DMG Resist",
-                        2: "DMG Resist",
-                        3: "HP",
-                        4: "HP"
-                    }, {
-                        1: "DMG Resist",
-                        2: "DMG Resist",
-                        3: "DMG Resist",
-                        4: "Cooldown"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 4,
-                        stats: [{
-                            name: "DMG Resist",
-                            value: "≥40%",
-                        }],
-                        notes: ["With cookie{Millennial_tree} Millennial Tree AHB isn't used much in the arena but if you don't have him this is what I'd recommend."]
-                    },
-                    3: {
-                        name: "Alt Build 1",
-                        toppings: 2,
-                        beascuit: 2,
-                        notes: ["More tanky than the general build but less cooldown."]
-                    },
-                    4: {
-                        name: "Alt Build 2",
-                        toppings: 4,
-                        beascuit: 5,
-                        stats: [{
-                            name: "DMG Resist",
-                            value: "50%",
-                        }, {
-                            name: "Cooldown",
-                            value: "30%",
-                        }],
-                        notes: ["Another alt build which is more of a hybrid between HP, DMR, and cooldown."]
-                    },
-                    5: {
-                        name: "Alt Build 3",
-                        toppings: 5,
-                        beascuit: 2,
-                        notes: ["Yet another alt build with max cooldown but less DMR."]
-                    }, 
-                    6: {
-                        name: "SMC Target Build",
-                        toppings: 3,
-                        beascuit: 3,
-                        notes: ["Used in specific team comps to get hit by cookie{Shadow_milk} Shadow Milk"]
-                    }
-                },
-                buildNotes: ["Focus on HP and DMR for 90% of builds. Hollyberry has a storied build history with lot's of viable setups that vary CD requirements and hp requirements but first and foremost she's a tank. She also scales off HP for her massive final hit so another good reason to have a lot of it."],
-                review: "Extremely powerful defensive buffs for herself and her team. Had this been several months ago I'd claim she's the best tank in the game but because of the tree man she's second best. Still incredibly powerful and a mainstay in steel teams.",
-                rating: "S+"
-            },
-            {
-                name: "Awakened_white_lily",
-                displayName: "White Lily Cookie (Dawnbringer)",
-                element: "Grass",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "AncientA",
-                skill: "Freedom's Bloom",
-                cd: 15,
-                skillAttr: {
-                    attr1: [149.3, 391.8],
-                    attr2: [24.6, 64.4]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Blooming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Blooming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Blooming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Blooming",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Blooming",
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        element: "Grass",
-                        tainted: true,
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥22.3%"
-                        }],
-                        notes: ["This is what I'd recommend for most content. Aim for a 3s start. Bypass beascuit is for PvP. For PvE you can go with cooldown, atk, doesn't much matter. She get's enough grass dmg buffs so those aren't as useful."]
-                    },
-                    2: {
-                        name: "Arena HP",
-                        toppings: 2,
-                        beascuit: 1,
-                        notes: ["Don't have confirmation on this but I assume this becomes her best build at higher promotions just like for cookie{Silent_salt} Silent Salt."]
-                    },
-                    notes: ["If you don't have a tainted beascuit you can use a full Bypass beascuit instead. "],
-                },
-                buildNotes: ["Full chocolate and full raspberry are both perfectly viable and have at times been the meta. Even full peanut is a possibility though less recommended than the standard."],
-                review: "An incredibly powerful attacker with a variety of crowd control and grass DMG amplifacation for herself and the team cementing her a place in teams long in to the future as the premier grass type cookie. Also a great counter to Shadow Milk and Silent Salt being immune to silence and shackles. Slay our queen.",
-                rating: "S+"
-            },
-            {
-                name: "Mystic_flour",
-                displayName: "Mystic Flour Cookie",
-                element: null,
-                type: "Healing",
-                position: "Rear",
-                rarity: "Beast",
-                skill: "Whispers of Apathy",
-                cd: 15,
-                skillAttr: {
-                    attr1: [10.7, 22.7]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Gambit",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "almond",
-                        5: "almond",
-                        6: "almond",
-                        substats: ["Cooldown", "DMG Resist", "ATK"]
-                    }, {
-                        resonance: "Gambit",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "DMG Resist", "ATK"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥38%"
-                        }],
-                        notes: ["38% cooldown is required to maximise her passive but with good substats you should be able to reach 44.5% which is required for 2s start."]
-                    },
-                    2: {
-                        name: "Full Chocolate Build",
-                        toppings: 2,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥44.5%"
-                        }],
-                        notes: ["Full chocolate build to guaruntee a 2s start. Use if you have bad substats but wouldn't recommend sticking like this long term."]
-                    },
-                    notes: ["Can swap out the ATK substat for HP if desired."]
-                },
-                review: "Great healing output with passive heals even after death and in recent times one of the few counters to the pairing of cookie{Sugar_swan} Sugar Swan and cookie{Cream_ferret} Cream Ferret with her cooldown increasing ability. While often outclassed by the healers who came after her I actually prefer her in a lot of situations due to the HP shield she grants team mates. Won't be seen much in the arena but just as good a pick everywhere else.",
-                rating: "S"
-            },
-            {
-                name: "Burning_spice",
-                displayName: "Burning Spice Cookie",
-                element: "Fire",
-                type: "Charge",
-                position: "Front",
-                rarity: "Beast",
-                skill: "Tyrant's Wrath",
-                cd: 9,
-                skillAttr: {
-                    attr1: [334.4, 711.7],
-                    attr2: [510.7, 1087.1]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Destructive",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["DMG Resist", "ATK", "ATK SPD"]
-                    }],
-                    beascuit: [{
-                        element: "Fire",
-                        1: "Fire DMG",
-                        2: "Fire DMG",
-                        3: "Fire DMG",
-                        4: "Fire DMG"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1,
-                        notes: ["Can use CRIT% substats instead of ATK SPD if desired."]
-                    },
-                    2: {
-                        name: "Arena Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        notes: ["Can use HP or CD instead of ATK if desired.", "Arena build for those who are very dedicated to Burning Spice."]
-                    },
-                },
-                buildNotes: ["ATK and DMG Resist are the most important. After that the remaining substat can be ATK SPD, CRIT%, or Cooldown though Cooldown is a little weaker since he only has a 3s natural downtime anyway."],
-                review: "Far outclassed in the arena meta but still top tier for PvE. A great tank and incredible DPS. I'd still argue he's a must build all these years later.",
-                rating: "S",
-            },
-            {
-                name: "Shadow_milk",
-                displayName: "Shadow Milk Cookie",
-                element: null,
-                type: "Magic",
-                position: "Middle",
-                rarity: "Beast",
-                skill: "Act 1: Lies",
-                cd: 11,
-                initialCd: 0.6,
-                skillAttr: {
-                    attr1: [143.6, 305.7],
-                    attr2: [824.3, 1754.5]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Deceit",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Deceit",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Deceit",
-                        1: "applejelly",
-                        2: "applejelly",
-                        3: "applejelly",
-                        4: "applejelly",
-                        5: "raspberry",
-                        6: "applejelly",
-                        substats: ["Cooldown", "CRIT%", "ATK"]
-                    }],
-                    beascuit: [{
-                        1: "Cooldown",
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1
-                    },
-                    2: {
-                        rank: "recommended",
-                        name: "Arena Build (Full Raspberry)",
-                        toppings: 1,
-                        beascuit: 2
-                    },
-                    3: {
-                        rank: "recommended",
-                        name: "Arena Build (Full Chocolate)",
-                        toppings: 2,
-                        beascuit: 2
-                    },
-                    4: {
-                        rank: "recommended",
-                        name: "Red Velvet Dragon",
-                        toppings: 3,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "31.9-32.3%"
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                         }]
-                    }
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            notes: ["Alt build with more cooldown for maximal buff removal and stun."]
+                        }
+                    },
+                    buildNotes: ["Dmg Resist is important as a tank and Cooldown is good for utility so focus on those 2 stats."],
+                    review: "Camellia is a simple cookie with a simple skill. Buff removal, stun, and weakness are nice but beyond those he has the distinct advantage of being one of few good grass{Grass} Cookies so he has a place in grass comps.",
+                    rating: "A"
                 },
-                buildNotes: ["Overall either full raspberry or full chocolate is best depending on your situation or even personal preference. I personally use full raspberry because of his high scaling and big numbers but chocolate is a close second. Just be careful about overcapping on cooldown especially with a cooldown beascuit."],
-                review: "Holy Shit! He's not arena meta anymore! After a full year! That being said he's still insanely powerful, there is a reason he was meta for a year after all. Incredible single target and AoE damage while being extremely tanky with his revive and puppet. He's also still meta for RVD.",
-                rating: "S"
-            },
-            {
-                name: "Eternal_sugar",
-                displayName: "Eternal Sugar Cookie",
-                element: "Poison",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Beast",
-                skill: "Eternal Enchantment",
-                cd: 12,
-                initialCd: 0.5,
-                skillAttr: {
-                    attr1: [25.1, 65.9],
-                    attr2: [65.0, 119.5],
-                    attr3: [790.7, 1383.6]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Indolent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "candy",
-                        6: "candy",
-                        substats: ["DMG Resist", "Cooldown", "ATK"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "applejelly",
-                        2: "applejelly",
-                        3: "applejelly",
-                        4: "applejelly",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["Cooldown", "ATK", "CRIT%"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "applejelly",
-                        2: "applejelly",
-                        3: "applejelly",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["Cooldown", "ATK", "CRIT%"]
-                    }, {
-                        1: "peanut",
-                        2: "peanut",
-                        3: "peanut",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["Cooldown", "DMG Resist", "ATK"]
-                    }, {
-                        resonance: "Indolent",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "candy",
-                        6: "candy",
-                        substats: ["Cooldown", "DMG Resist", "ATK"]
-                    }],
-                    beascuit: [{
-                        element: "Poison",
-                        tainted: true,
-                        2: "Cooldown",
-                        3: "Cooldown",
-                        4: "Cooldown"
-                    }, {
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        element: "Poison",
-                        1: "Poison DMG",
-                        2: "Poison DMG",
-                        3: "Poison DMG",
-                        4: "Poison DMG"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "General Build",
-                        toppings: 1,
-                        beascuit: 1
+                {
+                    name: "Elder_faerie",
+                    displayName: "Elder Faerie Cookie",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Super Epic",
+                    skill: "Guardian's Valor",
+                    cd: 12,
+                    initialCd: 0.5,
+                    skillAttr: {
+                        attr1: [22.8, 47.4],
+                        attr2: [63.8, 135.9]
                     },
-                    2: {
-                        rank: "best",
-                        name: "Arena Build",
-                        toppings: 9,
-                        beascuit: 2,
-                        stats: [{
-                            name: "Cooldown",
-                            value: "≥16.7%"
-                        }],
-                        notes: ["Candy massively boosts her DMG due to the quality of buffs being granted."]
-                    },
-                    3: {
-                        rank: "recommended",
-                        name: "Living Abyss Build",
-                        toppings: 7,
-                        beascuit: 3
-                    },
-                    4: {
-                        name: "Cookie Aliance Build",
-                        toppings: 6,
-                        beascuit: 1,
-                    },
-                    5: {
-                        name: "HP Build",
-                        toppings: 8,
-                        beascuit: 2,
-                    },
-                },
-                buildNotes: ["Of all the beasts Eternal Sugar has by far the most build variety (Fun Fact: In my research I found 9 separate builds for her. Rarely do other cookies get even 5.) and for a good reason, having been a common sight in arena since release and utilized in every other gamemode. I have listed what I feel to be the nest builds at time of writing however you can definitely get away with pretty much anything. Any combination of chocolate and raspberry will work with the substats being able to change based on what you need.", "Beascuit options are significantly simpler than toppings however with a full bypass beascuit for arena and either Posion taint with full cooldown or Poison DMG beascuit depending."],
-                review: "One of the single best dps in the game, used in every game mode since release with insane area dmg, incredible crowd control, all on a very spammable skill. An absolute must build.",
-                rating: "S+"
-            },
-            {
-                name: "Silent_salt",
-                displayName: "Silent Salt Cookie",
-                element: ["Darkness", "Steel"],
-                type: "Ambush",
-                position: "Front",
-                rarity: "Beast",
-                skill: "End of Silence",
-                cd: 14,
-                initialCd: 0.44,
-                skillAttr: {
-                    attr1: [206.0, 480.8],
-                    attr2: [88.3, 206.0]
-                },
-                sets: {
-                    toppings: [{
-                        resonance: "Silent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Silent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Silent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "peanut",
-                        5: "peanut",
-                        6: "peanut",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Silent",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Silent",
-                        1: "chocolate",
-                        2: "chocolate",
-                        3: "chocolate",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "chocolate",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        element: "Steel",
-                        tainted: true,
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        element: "Darkness",
-                        1: "Darkness DMG",
-                        2: "Darkness DMG",
-                        3: "Darkness DMG",
-                        4: "Darkness DMG"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "Arena 1 Second Start Build",
-                        toppings: 2,
-                        beascuit: 1
-                    },
-                    2: {
-                        rank: "best",
-                        name: "Arena 2 Second Start Build",
-                        toppings: 1,
-                        beascuit: 1
-                    },
-                    3: {
-                        name: "PvP HP",
-                        toppings: 3,
-                        beascuit: 1,
-                        notes: ["Aims to give Silent Salt the high HP on the team to affect the targeting of cookie{Shadow_milk} Shadow Milk and cookie{Doughael} Doughael as well as general survivability", "This build becomes Silent Salts best build at 4 stars and above"]
-                    },
-                    4: {
-                        rank: "recommended",
-                        name: "PvE",
-                        toppings: 5,
-                        beascuit: 2,
-                        useOwn: true,
-                        notes: ["Can use pretty much any topping build here. I use full chocolate here as an example but I personally use the arena 1s start topping set up. I do recommend getting a Darkness DMG beascuit regardless of topping set up though.", "For general PvE content he's not all that useful, at least compared to his peers but is very useful in events so I still recommend."]
-                    },
-                    notes: ["If you don't have a tainted beascuit you can use a full Bypass beascuit instead.", "Should have the highest attack on the team to absorb status{fury_of_the_catacombs|und_debuff} Fury of the Catacombs"]
-                },
-                buildNotes: ["Full Chocolate or Raspberry can also work for arena and PvE"],
-                review: "Incredible crowd control and damage while being extremely hard to pin down himself being invulnerable during his skill as an ambush cookie and immune to cooldown impairing effects which thrn turn into buffs through Forsaken Freedom. One of the strongest DPS in arena and PvE. Can not recommend enough.",
-                rating: "S+"
-            },
-            {
-                name: "Dark_enchantress",
-                displayName: "Dark Enchantress Cookie",
-                element: "Chaos",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Witch",
-                skill: "Visions of Doom",
-                cd: 16,
-                initialCd: 0.72,
-                sets: {
-                    toppings: [{
-                        resonance: "Looming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "chocolate",
-                        5: "chocolate",
-                        6: "raspberry",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }, {
-                        resonance: "Looming",
-                        1: "raspberry",
-                        2: "raspberry",
-                        3: "raspberry",
-                        4: "raspberry",
-                        5: "raspberry",
-                        6: "raspberry",
-                        substats: ["ATK", "Cooldown", "DMG Resist"]
-                    }],
-                    beascuit: [{
-                        1: "Bypass",
-                        2: "Bypass",
-                        3: "Bypass",
-                        4: "Bypass"
-                    }, {
-                        element: "Chaos",
-                        1: "Chaos DMG",
-                        2: "Chaos DMG",
-                        3: "Chaos DMG",
-                        4: "Chaos DMG"
-                    }]
-                },
-                builds: {
-                    1: {
-                        rank: "best",
-                        name: "Arena Build",
-                        toppings: 2,
-                        beascuit: 1,
-                        stats: [{
-                            name: "Cooldown from toppings",
-                            value: "≥9%"
+                    sets: {
+                        toppings: [{
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "HP", ]
                         }, {
-                            name: "ATK from toppings",
-                            value: "≥108%"
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["DMG Resist", "Cooldown", "HP", ]
                         }],
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "HP",
+                            4: "HP"
+                        }]
                     },
-                    2: {
-                        rank: "recommended",
-                        name: "PvE Build",
-                        toppings: 1,
-                        beascuit: 2,
-                        stats: [{
-                            name: "Cooldown from toppings",
-                            value: "≥12%"
-                        }],
-                        notes: ["Because of just how powerful dark enchantress is she'll be in pretty much any team you make so I'd recommend making a chaos dmg beascuit for her when not in arena."]
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            notes: ["Also used in arena if you wanted to."]
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            notes: [
+                                "Alt build with 1s start and more cooldown to stack more status{prism_shard|und_buff} Prism Shards."]
+                        },
+                        notes: [
+                            "Can swap out tart depending on preference and situation but full set should be fine."]
                     },
-                    notes: ["You can use 3/3 raspberry/chocolate if you don't have good toppings but 4/2 is better"]
+                    buildNotes: [
+                        "2 HP lines is essential to cover full team with status{prism_shard|und_buff} Prism Shards.",
+                        "As a tank I prefer running full DMG Resist on Elder Faerie but full chocolate works well too to get as many Prism Shards on your cookies as possible."
+                    ],
+                    review: "Prism Shard does a lot of the heavy lifting here, completely blocking any one instance of damage that does more than 10% of cookies hp which is significant. He doesn't even have to compete with cookie{Awakened_hollyberry} Hollyberry (Aegis) because of great synergy he has as a steel{Steel} cookie. Now despite all that there are cookies who do his job better such as the afformentioned Hollyberry (Aegis) and cookie{Millennial_tree} Millennial Tree and he is just weaker overall with little else to offer to justify using him over them but if he can still be very useful to have on hand in niche scenarios.",
+                    rating: "A"
                 },
-                buildNotes: ["Because of \"Master of Sorcery\" there's little reason not to go for 35% cooldown. Accounting for set bonuses you need at minimum 51% ATK from toppings (which does not include set bonuses) so I'd aim a little higher at 56%.", "Can also use chocolate tart if struggling to hit 35% Cooldown but raspberry is optimal."],
-                //"Because of \"Master of Sorcery\" there's little reason not to go for 35% cooldown. With 2 chocolate and a raspberry tart the most you can get is 20.67% from the passive with the max amount you can get from toppings being 16% giving you 1.67% of wiggle room. With 1 chocolate the max you can get from the passive is 24.33% with the max you can get from toppings being 13% giving you 2.33% of wiggle room but factoring in the atk bonus of her passive you avtually have a 1% margin of error on the toppings cooldown side of things as opposed to the 4% on the other build which is why I recommend using 4/2 but if you have good toppings 5/1 is better.//
-                review: "Easily the one of if not THE single best cookie in the game and it's not even close. Insane damage and survivability along with absurd cc Dark Enchantress should be on every single one of your teams outside of guild battle. I tremble in fear at what could possibly power creep her.",
-                rating: "S+"
-            },
-            {
-                name: "Salt_cellar",
-                displayName: "Salt Cellar Cookie",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Charcoal",
-                displayName: "Charcoal Cookie",
-                element: "Darkness",
-                type: "Magic",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Menthol",
-                displayName: "Menthol Cookie",
-                element: "Water",
-                type: "Bomber",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Seltzer",
-                displayName: "Seltzer Cookie",
-                element: "Water",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Grapefruit",
-                displayName: "Grapefruit Cookie",
-                element: "Electricity",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Lime",
-                displayName: "Lime Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Manju",
-                displayName: "Manju Cookie",
-                element: "Water",
-                type: "Ambush",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Jagae",
-                displayName: "Jagae Cookie",
-                element: "Water",
-                type: "Support",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Orange",
-                displayName: "Orange Cookie",
-                element: "Electricity",
-                type: "Magic",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Lemon",
-                displayName: "Lemon Cookie",
-                element: "Electricity",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Cream_soda",
-                displayName: "Cream Soda Cookie",
-                element: "Water",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Sugarfly",
-                displayName: "Sugarfly Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Pavlova",
-                displayName: "Pavlova Cookie",
-                element: null,
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Agar_agar",
-                displayName: "Agar Agar Cookie",
-                element: ["Fire", "Electricity", "Water", "Wind", "Ice"],
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Wedding_cake",
-                displayName: "Wedding Cake Cookie",
-                element: null,
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Black_forest",
-                displayName: "Black Forest Cookie",
-                element: null,
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Black_sapphire",
-                displayName: "Black Sapphire Cookie",
-                element: "Poison",
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Candy_apple",
-                displayName: "Candy Apple Cookie",
-                element: null,
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Okchun",
-                displayName: "Okchun Cookie",
-                element: null,
-                type: "Healing",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Green_tea_mousse",
-                displayName: "Green Tea Mousse Cookie",
-                element: ["Wind", "Grass"],
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Pudding_a_la_mode",
-                displayName: "Pudding à la Mode Cookie",
-                element: "Electricity",
-                type: "Bomber",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Choco_drizzle",
-                displayName: "Choco Drizzle Cookie",
-                element: "Darkness",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Red_osmanthus",
-                displayName: "Red Osmanthus Cookie",
-                element: "Grass",
-                type: "Ranged",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Golden_osmanthus",
-                displayName: "Golden Osmanthus Cookie",
-                element: "Grass",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Smoked_cheese",
-                displayName: "Smoked Cheese Cookie",
-                element: "Earth",
-                type: "Magic",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Nutmeg_tiger",
-                displayName: "Nutmeg Tiger Cookie",
-                element: "Fire",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Star_coral",
-                displayName: "Star Coral Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Peach_blossom",
-                displayName: "Peach Blossom Cookie",
-                element: null,
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Cloud_haetae",
-                displayName: "Cloud Haetae Cookie",
-                element: null,
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Street_urchin",
-                displayName: "Street Urchin Cookie",
-                element: "Fire",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Caramel_choux",
-                displayName: "Caramel Choux Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Butter_roll",
-                displayName: "Butter Roll Cookie",
-                element: ["Steel", "Chaos"],
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Matcha",
-                displayName: "Matcha Cookie",
-                element: ["Poison", "Grass"],
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Mercurial_knight",
-                displayName: "Mercurial Knight Cookie",
-                element: "Steel",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Silverbell",
-                displayName: "Silverbell Cookie",
-                element: "Grass",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Rebel",
-                displayName: "Rebel Cookie",
-                element: "Wind",
-                type: "Ambush",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Creme_brulee",
-                displayName: "Crème Brûlée Cookie",
-                element: "Light",
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Linzer",
-                displayName: "Linzer Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Olive",
-                displayName: "Olive Cookie",
-                element: ["Earth", "Fire", "Electricity"],
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Mozzarella",
-                displayName: "Mozzarella Cookie",
-                element: "Earth",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Fettuccine",
-                displayName: "Fettuccine Cookie",
-                element: "Earth",
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Burnt_cheese",
-                displayName: "Burnt Cheese Cookie",
-                element: "Earth",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Frilled_jellyfish",
-                displayName: "Frilled Jellyfish Cookie",
-                element: ["Water", "Electricity"],
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Peppermint",
-                displayName: "Peppermint Cookie",
-                element: "Water",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Black_lemonade",
-                displayName: "Black Lemonade Cookie",
-                element: "Electricity",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Rockstar",
-                displayName: "Rockstar Cookie",
-                element: null,
-                type: "Healing",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Tarte_tatin",
-                displayName: "Tarte Tatin Cookie",
-                element: "Fire",
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Royal_margarine",
-                displayName: "Royal Margarine Cookie",
-                element: "Poison",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Kouign-amann",
-                displayName: "Kouign-Amann Cookie",
-                element: "Light",
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Prune_juice",
-                displayName: "Prune Juice Cookie",
-                element: "Poison",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Space_doughnut",
-                displayName: "Space Doughnut",
-                element: null,
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Blueberry_pie",
-                displayName: "Blueberry Pie Cookie",
-                element: "Electricity",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Milky_way",
-                displayName: "Milky Way Cookie",
-                element: null,
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Prophet",
-                displayName: "Prophet Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Pinecone",
-                displayName: "Pinecone Cookie",
-                element: "Ice",
-                type: "Bomber",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Carol",
-                displayName: "Carol Cookie",
-                element: "Grass",
-                type: "Healing",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Macaron",
-                displayName: "Macaron Cookie",
-                element: null,
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Schwarzwalder",
-                displayName: "Schwarzwälder",
-                element: ["Steel", "Chaos"],
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Candy_diver",
-                displayName: "Candy Diver Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Captain_caviar",
-                displayName: "Captain Caviar Cookie",
-                element: "Water",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Cream_unicorn",
-                displayName: "Cream Unicorn Cookie",
-                element: "Fire",
-                type: "Healing",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Financier",
-                displayName: "Financier Cookie",
-                element: "Light",
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Crunchy_chip",
-                displayName: "Crunchy Chip Cookie",
-                element: "Darkness",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Wildberry",
-                displayName: "Wildberry Cookie",
-                element: "Steel",
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Cherry_blossom",
-                displayName: "Cherry Blossom Cookie",
-                element: "Grass",
-                type: "Ambush",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Caramel_arrow",
-                displayName: "Caramel Arrow Cookie",
-                element: "Darkness",
-                type: "Ranged",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Affogato",
-                displayName: "Affogato Cookie",
-                element: "Poison",
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Tea_knight",
-                displayName: "Tea Knight Cookie",
-                element: "Steel",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Eclair",
-                displayName: "Eclair Cookie",
-                element: null,
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Cocoa",
-                displayName: "Cocoa Cookie",
-                element: null,
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Cotton",
-                displayName: "Cotton Cookie",
-                element: "Grass",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Pumpkin_pie",
-                displayName: "Pumpkin Pie Cookie",
-                element: "Darkness",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Twizzly_gummy",
-                displayName: "Twizzly Gummy Cookie",
-                element: "Electricity",
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic",
-                skill: "Twizzly Beam",
-                cd: 16,
-                mcSkill: "Blast from the Future"
-            },
-            {
-                name: "Mala_sauce",
-                displayName: "Mala Sauce Cookie",
-                element: "Fire",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Moon_rabbit",
-                displayName: "Moon Rabbit Cookie",
-                element: null,
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Raspberry",
-                displayName: "Raspberry Cookie",
-                element: "Steel",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Parfait",
-                displayName: "Parfait Cookie",
-                element: null,
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Sorbet_shark",
-                displayName: "Sorbet Shark Cookie",
-                element: "Water",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Squid_ink",
-                displayName: "Squid Ink Cookie",
-                element: "Water",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Lilac",
-                displayName: "Lilac Cookie",
-                element: "Grass",
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Mango",
-                displayName: "Mango Cookie",
-                element: "Water",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Red_velvet",
-                displayName: "Red Velvet Cookie",
-                element: "Darkness",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Pastry",
-                displayName: "Pastry Cookie",
-                element: "Wind",
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Fig",
-                displayName: "Fig Cookie",
-                element: "Grass",
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Strawberry_crepe",
-                displayName: "Strawberry Crepe Cookie",
-                element: null,
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Black_raisin",
-                displayName: "Black Raisin Cookie",
-                element: "Darkness",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Almond",
-                displayName: "Almond Cookie",
-                element: "Earth",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Cream_puff",
-                displayName: "Cream Puff Cookie",
-                element: "Light",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Latte",
-                displayName: "Latte Cookie",
-                element: "Earth",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Kumiho",
-                displayName: "Kumiho Cookie",
-                element: "Wind",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Snow_sugar",
-                displayName: "Snow Sugar Cookie",
-                element: "Ice",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Rye",
-                displayName: "Rye Cookie",
-                element: "Fire",
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Espresso",
-                displayName: "Espresso Cookie",
-                element: "Earth",
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Madeleine",
-                displayName: "Madeleine Cookie",
-                element: "Light",
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Licorice",
-                displayName: "Licorice Cookie",
-                element: ["Darkness", "Poison", "Chaos"],
-                type: "Magic",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Poison_mushroom",
-                displayName: "Poison Mushroom Cookie",
-                element: ["Poison", "Chaos"],
-                type: "Bomber",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Milk",
-                displayName: "Milk Cookie",
-                element: null,
-                type: "Defense",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Purple_yam",
-                displayName: "Purple Yam Cookie",
-                element: "Grass",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Pomegranate",
-                displayName: "Pomegranate Cookie",
-                element: "Chaos",
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Chili_pepper",
-                displayName: "Chili Pepper Cookie",
-                element: "Fire",
-                type: "Ambush",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Sparkling",
-                displayName: "Sparkling Cookie",
-                element: "Light",
-                type: "Healing",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Dark_choco",
-                displayName: "Dark Choco Cookie",
-                element: "Darkness",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Herb",
-                displayName: "Herb Cookie",
-                element: null,
-                type: "Healing",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Werewolf",
-                displayName: "Werewolf Cookie",
-                element: "Steel",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Mint_choco",
-                displayName: "Mint Choco Cookie",
-                element: "Wind",
-                type: "Support",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Tiger_lily",
-                displayName: "Tiger Lily Cookie",
-                element: null,
-                type: "Ranged",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Pom-pom_dough",
-                displayName: "Pom-pom Dough Cookie",
-                element: ["Poison", "Chaos"],
-                type: "Support",
-                position: "Middle",
-                rarity: "Epic"
-            },
-            {
-                name: "Mold_dough",
-                displayName: "Mold Dough Cookie",
-                element: "Chaos",
-                type: "Charge",
-                position: "Front",
-                rarity: "Epic"
-            },
-            {
-                name: "Chess_choco",
-                displayName: "Chess Choco Cookie",
-                element: "Chaos",
-                type: "Bomber",
-                position: "Rear",
-                rarity: "Epic"
-            },
-            {
-                name: "Vampire",
-                displayName: "Vampire Cookie",
-                element: null,
-                type: "Ambush",
-                position: "Rear",
-                rarity: "Epic"
-            }
-        ],
-        tierlists: [{
-            name: "Cookies",
-            features: {
-                eidolon: false,
-                tags: false,
-                elementIcon: false,
-                role: false
-            },
-            filters: {
-                rarity: ["Witch", "Beast", "Ancient", "Legendary", "Dragon", "Super Epic", "Epic", "Special",
-                    "Rare", "Common"
-                ],
-                type: ["Ambush", "Bomber", "Charge", "Defense", "Healing", "Magic", "Ranged", "Support", "BTS"],
-                element: ["Light", "Earth", "Darkness", "Water", "Poison", "Fire", "Electricity", "Ice", "Wind",
-                    "Steel", "Grass", "Chaos", null
-                ],
-                position: ["Front", "Middle", "Rear"]
-            },
+                {
+                    name: "Crimson_coral",
+                    displayName: "Crimson Coral Cookie",
+                    element: "Water",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Super Epic",
+                    skill: "Somber Affection",
+                    cd: 12,
+                    initialCd: 0.6,
+                    skillAttr: {
+                        attr1: [142.6, 303.3],
+                        attr2: [279.8, 595.2]
+                    },
+                    sets: {
+                        toppings: [{
+                                resonance: "sea",
+                                1: "chocolate",
+                                2: "chocolate",
+                                3: "chocolate",
+                                4: "chocolate",
+                                5: "chocolate",
+                                6: "chocolate",
+                                substats: ["Cooldown", "DMG Resist", "ATK"]
+                            },
+                            {
+                                resonance: "sea",
+                                1: "chocolate",
+                                2: "chocolate",
+                                3: "chocolate",
+                                4: "chocolate",
+                                5: "chocolate",
+                                6: "almond",
+                                substats: ["Cooldown", "DMG Resist", "ATK"]
+                            },
+                            {
+                                resonance: "sea",
+                                1: "almond",
+                                2: "almond",
+                                3: "almond",
+                                4: "almond",
+                                5: "almond",
+                                6: "almond",
+                                substats: ["Cooldown", "DMG Resist", "ATK"]
+                            }
+                        ],
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 3,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        }
+                    },
+                    buildNotes: ["Crimson corals passive 30% boost to all sources of DMG Resist means it goes a long on way on her especially as a tank. Of ocurse the more she casts the more shields she applies so just focus on DMG Resist and Cooldown and you'll be fine."],
+                    review: "I enjoy looking back at the old metas and seeing how cookie who are now substandard or just ok were called broken and unbelievably op. This goes for Crimson Coral cookie. once heralded as a god of sustain she can hold no candle to more recent tanks like cookie{Awakened_hollyberry} Hollyberry (Aegis) or cookie{Millennial_tree} Millennial Tree. She does still hold a niche use if you needed a sustain in a team of only water{Water} cookies but that's it. Still works but much better options available.",
+                    rating: "B"
+                },
+                {
+                    name: "Shining_glitter",
+                    displayName: "Shining Glitter Cookie",
+                    element: "Electricity",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Super Epic",
+                    skill: "All Eyes on the Stage!",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [40.9, 87.0],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "tropical",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "tropical",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "tropical",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "tropical",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "DMG Resist", "CRIT%"]
+                        }, {
+                            resonance: "tropical",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "ATK", "Cooldown"]
+                        }, {
+                            resonance: "tropical",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "tropical",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "applejelly",
+                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            element: "Electricity",
+                            1: "Electric DMG",
+                            2: "Electric DMG",
+                            3: "Electric DMG",
+                            4: "Electric DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 5,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 2,
+                            notes: ["An alt build to show off some build variety."]
+                        },
+                        notes: ["Can use basically any tart. Almond, apple jelly, chocolate, or rapberry, are all functional."]
+                    },
+                    buildNotes: ["Should have enough CRIT% to be consistently hitting crits and applying zap but aside from that you can kind of do whatever so pick builds based on the amount of outside CRIT% you get and survivability needs.", "In my reasearch I've found her to have a lot of build variety and the sets show that. You can seemingly use whichever is most appealing and be just fine as all of them have been used in some game mode at some point to success but these are the \"rules\" I followed to build mine.<br>1. Raspberry/ATK for damage<br>2. Add in apple jellies/CRIT% subs if you need more CRIT%<br>3. Add in almond/DMG Resist subs for survivability<br>4. Chocolate for more frequent casts.<br>These exist on a sort of spectrum from pure Raspberry to pure Chocolate.", "Shining Glitter is one of those cookies that was before beascuits so no concrete evidence but the two shown should be ok."],
+                    review: "Shining Glitter was meta at some point but since then she's just been outclassed by other electricity cookies. cookie{Stormbringer} Stormbringer, cookie{Twizzly_gummy} Twizzly Gummy, even cookie{Blueberry_pie} Blueberry Pie has more usage cause of guild battle. She's just caught in a very weird place where she's nudged out of any conventional teams by cookies of a lower rarity. That doesn't mean she's a bad cookie. It just means you'll almost never see/use her because there's better. I suppose if you needed someone to fill on for Stormbringer in an electricity{Electricity} comp or if you didn't have Twizzly Gummies magic candy yet she would make an appearance but that's not really a problem anyone should be having. Which is a shame, I love her design.",
+                    rating: "A"
+                },
+                {
+                    name: "Capsaicin",
+                    displayName: "Capsaicin Cookie",
+                    element: "Fire",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Super Epic",
+                    skill: "Capsaicin Magma",
+                    cd: 15,
+                    initialCd: 0.2,
+                    skillAttr: {
+                        attr1: [32.4, 68.9],
+                        attr2: [97.2, 206.7],
+                        attr3: [362.4, 770.8]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "trio",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "trio",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "trio",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "trio",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "applejelly",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "ATK", "CRIT%"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            element: "Fire",
+                            1: "Fire DMG",
+                            2: "Fire DMG",
+                            3: "Fire DMG",
+                            4: "Fire DMG"
+                        }],
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                    },
+                    buildNotes: ["ATK and DMG Resist are the most important. After that the remaining substat can be Cooldown, ATK SPD, or CRIT%."],
+                    review: "cookie{Capsaicin} Capsaicin, cookie{Burning_spice} The cooler Capsaicin. The first of the (currently) 3 Super Epic+ fire charge cookies. And unfortunately his power level is closer to the second than the third. cookie{Buring_spice} Burning Spice completely outclasses Capsaicin in every way. Capsaicin does have more DoT which is nice but he still does less damage. He's good in a pure fire{Fire} comp or if you just don't have Burning Spice yet but he'll usually be benched.",
+                    rating: "B"
+                },
+                {
+                    name: "Stardust",
+                    displayName: "Stardust Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Super Epic",
+                    skill: "Wrath of the Stars",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [231.6, 492.6],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "moon",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "CRIT%"]
+                        }, {
+                            resonance: "moon",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "CRIT%"]
+                        }, {
+                            resonance: "moon",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "moon",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }],
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "Cooldown",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "CRIT Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            notes: ["Aims to inflict as much sleep as possible with crit hits.", "Could be used in arena with Bypass beascuit instead."]
+                        }
+                    },
+                    buildNotes: ["CRIT% is important to proc sleep and DMG Resist is important to not die. Of course as with any DPS you can't go wrong with some cooldown or ATK."],
+                    review: "Stardust reigned from above in the meta for a bit but as with so many older cookies the bullshit beasts and other newer cookies are capable of is just too much. He can inflict as much sleep and rain down as many meteors as he desires but he'll never match the damage from a cookie{Silent_salt} Silent Salt Moon Explosion and as good as status{Sign_of_the_Stars} Sign of the Stars is a cookie like cookie{Eternal_sugar} Eternal Sugar just offers more. If you desire deeply to use him pair him up with his sister cookie{Moonlight} and he'll kill some shit just not as quickly as other cookies will.",
+                    rating: "A"
+                },
+                {
+                    name: "Sherbet",
+                    displayName: "Sherbet Cookie",
+                    element: "Ice",
+                    type: "Ranged",
+                    position: "Middle",
+                    rarity: "Super Epic",
+                    skill: "Frost Shards",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [39.3, 83.6],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "frost",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "CRIT%"]
+                        }, {
+                            resonance: "frost",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["DMG Resist", "Cooldown", "CRIT%"]
+                        }, {
+                            resonance: "frost",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "Cooldown", "CRIT%"]
+                        }, {
+                            resonance: "frost",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "Cooldown", "CRIT%"]
+                        }],
+                        beascuit: [{
+                            element: "Ice",
+                            1: "Ice DMG",
+                            2: "Ice DMG",
+                            3: "Cooldown",
+                            4: "CRIT%",
+                        }, {
+                            element: "Ice",
+                            1: "Ice DMG",
+                            2: "Ice DMG",
+                            3: "Ice DMG",
+                            4: "Ice DMG"
+                        }],
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            notes: ["Can swap out CRIT% for DMG Resist if you need more survivability."]
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 2,
+                            notes: ["Full almond build for when he recieeves less sustain."]
+                        }
+                    },
+                    buildNotes: ["Can use raspberry (primarily to have him be targeted by certain buffs) but I'd stick to chcolate for standard and almond if he keeps dying.", "Because of his low scalings CRIT% is generally a better pick than ATK as a substat but you can't exactly go wrong with ATK."],
+                    review: "Like his master cookie{Frost_queen} Frost Queen he's a core unit of the ice team and that is his saving grace. Not that he's bad but unless you're running an ice comp he's unlikely to see use. In terms of ranged cookies cookie{Wind_archer} Wind Archer is infinitely better especially with his cj or cookie{Twizzly_gummy} Twizzly Gummy also is a pretty common sight in PvE stuff. Worth building eventually just for Ice comps in events and stuff though.",
+                    rating: "A"
+                },
+                {
+                    name: "Oyster",
+                    displayName: "Oyster Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Super Epic"
+                },
+                {
+                    name: "Clotted_cream",
+                    displayName: "Clotted Cream Cookie",
+                    element: "Light",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Super Epic"
+                },
+                {
+                    name: "Venom_dough",
+                    displayName: "Venom Dough Cookie",
+                    element: ["Poison", "Chaos"],
+                    type: "Bomber",
+                    position: "Rear",
+                    rarity: "Super Epic",
+                    skill: "Mind Venom",
+                    cd: 14,
+                    sets: {
+                        toppings: [{
+                            resonance: "looming",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }],
+                        beascuit: [{
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Chaos",
+                            1: "Chaos DMG",
+                            2: "Chaos DMG",
+                            3: "Chaos DMG",
+                            4: "Chaos DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥35%"
+                            }],
+                        },
+                        2: {
+                            name: "PvE Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            notes: [
+                                "I actually don't know what to use here for the beascuit but I assume Chaos DMG is fine or maybe full atk? IDK, mostly used in arena anyway."]
+                        }
+                    },
+                    buildNotes: [
+                        "Cooldown is more important than attack since a lot of their damage comes from the hp damage they deal."
+                    ],
+                    review: "Incredible amounts of HP damage able to oneshot any cookie 2 times over when not accounting for buffs/sustain. Not too powerful in PvE but good for chaos and poison temas nontheless.",
+                    rating: "S+"
+                },
+                {
+                    name: "Pitaya_dragon",
+                    displayName: "Pitaya Dragon Cookie",
+                    element: "Fire",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Dragon",
+                    skill: "Draconic Bladestorm",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [119.9, 255.1],
+                        attr2: [58.7, 124.8],
+                        attr3: [103.8, 220.9]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "draconic",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "ATK", "Cooldown"]
+                        }, {
+                            resonance: "draconic",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "ATK", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "DMG Resist"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 2,
+                            notes: ["Alt build with 2s start."]
+                        }
+                    },
+                    buildNotes: [
+                        "Pitaya is from a time before beascuits so I couldn't find much on them but DMG Resist and Cooldown should both be good. If you really want to use him in arena maybe add in somebypass but I imagine he'd explode without full DMR."
+                    ],
+                    review: "Pitaya. I love him so much but he's not that good. Not in the grand scheme of things anyway. He's still serviceable as a fire attacker and tank but compared to his contemperaries in cookies like cookie{Burning_spice} Burning Spice, or cookie{Stormbringer} Stormbringer he's less tanky and in terms of damage cookie{Fire_spirit} Fire Spirit way outclasses him (ironic since cannonically Pitaya gave Fire Spirit his powers). He does have a place in the fire team though where he can put up good numbers with the support. Overall I hope he get's a crystal jam when the other dragons release otherwise there's no way he can keep up with them.",
+                    rating: "B"
+                },
+                {
+                    name: "Sugar_swan",
+                    displayName: "Sugar Swan Cookie",
+                    element: "Light",
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Legendary",
+                    skill: "Wings of Sugar",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [21.1, 60.1],
+                        attr2: [21.5, 61.3]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "life_energy",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "chocolate",
+                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "life_energy",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "life_energy",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "ATK", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            notes: ["Used in arena."]
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            notes: [
+                                "Weaker overall than 3-2-1 but useful situationally against anti crit teams. Recommended because I suspect she'll be meta for a while so the situations this will be useful will accumulate."]
+                        },
+                        3: {
+                            name: "Raid build",
+                            toppings: 3,
+                            beascuit: 1,
+                            notes: [
+                                "Used for bossing. Can be run in arena as well with high promo Sugar Swan but not recommended."]
+                        }
+                    },
+                    buildNotes: [
+                        "Because of her passive you need at least 35% ATK for max heals. This is easily achieved with just 3 raspberries without substats. For that reason I recommend CRIT% over ATK but you can use either."
+                    ],
+                    review: "Well here she is. Not as flashy as many would have hoped but more than powerful, rip Pure Vanilla. It should go without saying that 2 revives is insanely powerful. That alone would make her viable but the insane healing and buffs on top of that make her the best.",
+                    rating: "S+"
+                },
+                {
+                    name: "Fire_spirit",
+                    displayName: "Fire Spirit Cookie",
+                    element: "Fire",
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Legendary",
+                    skill: "Ever-Burning Flames",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [504.9, 1049.1],
+                        attr2: [126.2, 262.3],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "flaming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "flaming",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "flaming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "ATK", "CRIT%"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Fire",
+                            1: "Fire DMG",
+                            2: "Fire DMG",
+                            3: "Fire DMG",
+                            4: "Fire DMG"
+                        }],
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Arena One-Shot Build",
+                            toppings: 3,
+                            beascuit: 2,
+                            notes: [
+                                "One-shot build. Not often seen but he has high enough scalings I'd recomend having it around in case he re-enters the meta sometime."]
+                        }
+                    },
+                    buildNotes: [
+                        "Standard dps stat rules but tends to prefer atk over cooldown. Cooldown is still good but no need to double cast if the enemy is dead."
+                    ],
+                    review: "Fire spirit has some of the higherest ATK scalings in the game and they only get higher in a fire team. Massive damage potential especially against multiple enemies. Not quite arena meta anymore but still a very strong all around pick.",
+                    rating: "S"
+                },
+                {
+                    name: "Wind_archer",
+                    displayName: "Wind Archer Cookie",
+                    element: "Wind",
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Legendary",
+                    skill: "Last Wind",
+                    cd: 6,
+                    skillAttr: {
+                        attr1: [46.2, 98.4],
+                        attr2: [472.6, 1005.9],
+                    },
+                    cjSkill: "Last Gale",
+                    cjSkillAttr: {
+                        attr1: [12.0, 23.5],
+                        attr2: [320.0, 755.0]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "wind",
+                            1: "caramel",
+                            2: "caramel",
+                            3: "caramel",
+                            4: "caramel",
+                            5: "caramel",
+                            6: "caramel",
+                            substats: ["ATK SPD", "DMG Resist", "ATK"]
+                        }, {
+                            resonance: "wind",
+                            1: "caramel",
+                            2: "caramel",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK SPD", "DMG Resist", "ATK"]
+                        }, {
+                            resonance: "wind",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK SPD", "DMG Resist", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            element: "Wind",
+                            1: "Wind DMG",
+                            2: "Wind DMG",
+                            3: "Wind DMG",
+                            4: "Wind DMG"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 2
+                        },
+                        3: {
+                            name: "Living Abyss Build",
+                            toppings: 3,
+                            beascuit: 1,
+                            notes: ["Build for living abyss. Seems quite powerful so included."]
+                        }
+                    },
+                    buildNotes: [
+                        "Wind archer greatly values ATK SPD with his cj but if you don't have it or are too lazy to swap full raspberry works too.",
+                        "Can slot in some Cooldown if desired. Only needs 17% to hit 1s start. Was used in some older arena comps."
+                    ],
+                    review: "Wind Archer has a blazing fast 6s cooldown on his skill and a powerful skill it is especially with his crystal jam. Stuns, cyclones, and his Pursuer debuff which deals true dmg all applied nearly in an instant thanks to his fast ATK SPD. Also like his kin as an elemental guardian he's a must have for any content that favors wind type dmg. Must build.",
+                    rating: "S"
+                },
+                {
+                    name: "Stormbringer",
+                    displayName: "Stormbringer Cookie",
+                    element: "Electricity",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Legendary",
+                    skill: "Lightning Blitzstorm",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [38.8, 82.6],
+                        attr2: [666.0, 1417.6],
+                    },
+                    cjSkill: "Stormbringer's Wrath",
+                    cjSkillAttr: {
+                        attr1: [5.0, 15.0],
+                        attr2: [16.5, 27.5],
+                        attr3: [19.1, 31.9]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "fuzzy",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "DMG Resist", "ATK"]
+                        }, {
+                            resonance: "fuzzy",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            element: "Electricity",
+                            1: "Electric DMG",
+                            2: "Electric DMG",
+                            3: "Electric DMG",
+                            4: "Electric DMG"
+                        }, {
+                            element: "Electricity",
+                            1: "Electric DMG",
+                            2: "Electric DMG",
+                            3: "Electric DMG",
+                            4: "Bypass"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "CRIT%",
+                                value: "≥80%"
+                            }],
+                            notes: ["General build. Used in cookie alliance."]
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            stats: [{
+                                name: "CRIT%",
+                                value: "≥80%"
+                            }],
+                            notes: ["Can switch up ATK focus for Cooldown if desired."]
+                        }
+                    },
+                    buildNotes: [
+                        "Maximise crit. To get the most from her base skill you need 80% (200% for max damage) and for cj you'll need 120%"
+                    ],
+                    review: "Stormbringer is an odd cookie to rank. On the one hand there are better options but on the other hand she's core for electricity teams which are used more often than most, essential for many events or clearing the tower easily. She has good buffs for electricity type cookies and no lack of personal damge especially with her crystal jam. When I joined CRK she would have been an overall S tier but in that time bs like Dark Enchantress has released knocking her down a peg, especially in arena so overall A+.",
+                    rating: "A+"
+                },
+                {
+                    name: "Moonlight",
+                    displayName: "Moonlight Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Legendary",
+                    skill: "Dream of the Night Sky",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [59.1, 125.6],
+                    },
+                    cjSkill: "Twinkling Starry Sky",
+                    cjReplace: true,
+                    cjSkillAttr: {
+                        attr1: [7.0, 22.5],
+                        attr2: [1.5, 2.5],
+                        attr3: [41.8, 70.7]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "moon",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "moon",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }, {
+                            resonance: "moon",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 3,
+                            beascuit: 1,
+                            notes: [
+                                "You'll find a lot saying that Moonlight should use full chocolate but because she runs a full cooldown beascuit you don't need chocolate to hit 35%, only substats. Will still need chocolate to hit 2s start though so use for that or if you'd just prefer more cooldown."]
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 2,
+                            beascuit: 3,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥44.5%"
+                            }],
+                            notes: ["Moonlight's 20+ passive for her crystal jam makes it so she gains bypass from beascuit cooldown but less than if you ran full bypass. With tarts however you can hit 2s start without needing full chocolate still so this build is probably close to optimal.",
+                                "An arena comp for the biggest Moonlight fans."
+                            ],
+                        }
+                    },
+                    buildNotes: ["Fairly standard dps stat rules but tends to prefer cooldown over attack.",
+                        "Keep in mind the 20+ passive if building her for arena."
+                    ],
+                    review: "Despite being fairly old at this point Moonlight can still put up good performance even in the arena (though no longer meta) with powerful debuffs (sleep) and good damage. Also being invincible during her skill and capable of self healing she's surprsingly tanky. With no element she isn't as useful as some of her peers but being one of 2 cookies that can apply sleep, and a lot of it, she will serve you well if you decide to build her and her crystal jam. Just be aware her cj actually does less damage until level 10 and 20 so wait a bit before you unlock it.",
+                    rating: "A+"
+                },
+                {
+                    name: "Black_pearl",
+                    displayName: "Black Pearl Cookie",
+                    element: "Water",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Legendary",
+                    skill: "Duskgloom's Sovereign",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [253.6, 539.4],
+                    },
+                    cjSkill: "Duskgloom Hatred",
+                    cjSkillAttr: {
+                        attr1: [15.0, 25.0],
+                        attr2: [9, 15],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "sea",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "CRIT%"],
+                        }, {
+                            resonance: "sea",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }, {
+                            resonance: "sea",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            element: "Water",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
+                            4: "Water DMG"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 2,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥17.3%"
+                            }],
+                            notes: ["An arena comp for the biggest Black Pearl fans."],
+                        },
+                    },
+                    buildNotes: [
+                        "Standard DPS builds. Chocolate or raspberry work depending on preference."],
+                    review: "Black pearl is unfortunately the weakest legendary. Worst of the best but still the worst. With a lackluster rally effect that barely functions outside of arena (which given how much innate bypass most cookies get nowadays would barely function in the arena too) and poor damage compared to the beasts of today she's fallen off hard over the years.",
+                    rating: "B"
+                },
+                {
+                    name: "Frost_queen",
+                    displayName: "Frost Queen Cookie",
+                    element: "Ice",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Legendary",
+                    skill: "Freezing Squall",
+                    cd: 15,
+                    cjSkill: "Eternal Frost",
+                    cjReplace: true,
+                    skillAttr: {
+                        attr1: [67.8, 144.2],
+                        attr2: [271.2, 576.9]
+                    },
+                    cjSkillAttr: {
+                        attr1: [30.0, 40.0],
+                        attr2: [29.3, 48.8],
+                        attr3: [306.5, 510.8]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "frost",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "frost",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "frost",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "frost",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            element: "Ice",
+                            1: "Ice DMG",
+                            2: "Ice DMG",
+                            3: "Ice DMG",
+                            4: "Ice DMG"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            notes: ["An arena comp for the biggest Frost Queen fans."]
+                        },
+                        3: {
+                            name: "Alt Arena Build",
+                            toppings: 3,
+                            beascuit: 2,
+                            notes: [
+                                "An interesting build I discovered which uses full almond on Frost Queen."]
+                        },
+                    },
+                    buildNotes: [
+                        "Standard DPS builds. Chocolate or raspberry work depending on preference."],
+                    review: "Frost queen is the core of the ice teams and has some incredibly good debuffs with her crystal jam though like most early legendaries struggles to keep up in todays meta. Ice on the whole is just not a very good element due to lack of units and content where it's used so compared to the other guardians she has fewer use cases. Still worth building eventually though.",
+                    rating: "A"
+                },
+                {
+                    name: "Sea_fairy",
+                    displayName: "Sea Fairy Cookie",
+                    element: "Water",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Legendary",
+                    skill: "Soaring Compassion",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [216.3, 630.7],
+                    },
+                    cjSkill: "Rising Tide",
+                    cjSkillAttr: {
+                        attr1: [30.0, 45.0],
+                        attr2: [198.7, 230.8],
+                        attr3: [135.6, 167.2],
+                        attr4: [26.9, 44.8],
+                        attr5: [140.4, 196.6],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "sea",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "CRIT%"]
+                        }, {
+                            resonance: "sea",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }, {
+                            resonance: "sea",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            element: "Water",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
+                            4: "Water DMG"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Machine God Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "34.8%"
+                            }],
+                            notes: ["Can replace CRIT% subs with DMR if needed.",
+                                "Can also work as a general build."
+                            ]
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 3,
+                            beascuit: 2,
+                            notes: ["An arena comp for the biggest Sea Fairy fans.",
+                                "Also just alternate build with more attack."
+                            ]
+                        },
+                    },
+                    buildNotes: [
+                        "Sea Fairy has taken to valuing cooldown more than attack to apply debuffs more often but she can still hit quite hard if you want to go tha raspberry route."
+                    ],
+                    review: "Sea Fairy, or should I say farty, is widely considered quite washed but after her cj rework she's a must for any water team. Good personal damage, plenty of buffs and debuffs, and a very good rally effect, I'd say she's very good for PvE. However she is still quite weak in arena but at least she's meta for machine god and events.",
+                    rating: "A+"
+                },
+                {
+                    name: "Millennial_tree",
+                    displayName: "Millennial Tree Cookie",
+                    element: "Grass",
+                    type: "Support",
+                    position: "Front",
+                    rarity: "Legendary",
+                    skill: "Millennial Tree",
+                    cd: 8,
+                    initialCd: 0.65,
+                    skillAttr: {
+                        attr1: [17.0, 44.7],
+                        attr2: [47.3, 124.1],
+                    },
+                    rallyEffect: true,
+                    sets: {
+                        toppings: [{
+                            resonance: "root",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "root",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "candy",
+                            6: "candy",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "root",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "root",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "kiwi",
+                            6: "kiwi",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "HP",
+                            2: "HP",
+                            3: "HP",
+                            4: "HP"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥3.9%"
+                            }],
+                        },
+                        2: {
+                            rank: "best",
+                            name: "Arena Build",
+                            toppings: 4,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥3.9%"
+                            }, {
+                                name: "Debuff Resist",
+                                value: "≥20%"
+                            }],
+                            notes: ["1s start is essential for arena."]
+                        },
+                        3: {
+                            name: "Alt Arena Build",
+                            toppings: 3,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥3.9%"
+                            }],
+                            notes: ["Requires 5★+ to work."]
+                        },
+                        4: {
+                            name: "Alt Arena Build 2",
+                            toppings: 2,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥3.9%"
+                            }],
+                        },
+                        notes: ["Aim for 3.9% cooldown (so 2 substats) for the 1s start and then CRIT% or cooldown are both good.",
+                            "Can replace HP substats with CRIT% if using resonant toppings. (Why do resonant toppings have CRIT Resist instead of HP Devsis?"
+                        ]
+                    },
+                    buildNotes: [
+                        "HP is king. It is the most important stat for millenial tree. His other stat requirements are pretty easy so once you hit those prioritize HP.",
+                        "Remember, heals can crit so once you hit your cooldown requirements I'd say go for CRIT% over cooldown."
+                    ],
+                    review: "The tree man is insane. Incredible buffs and sustain with decent damage on top there's truly nothing he doesn't do. Fitting for the leader of the elemental guardians and protector of Earthbread.",
+                    rating: "S+"
+                },
+                {
+                    name: "Pure_vanilla",
+                    displayName: "Pure Vanilla Cookie",
+                    element: null,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Ancient",
+                    skill: "Love & Peace",
+                },
+                {
+                    name: "Hollyberry",
+                    displayName: "Hollyberry Cookie",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Ancient",
+                    skill: "Oath on the Shield"
+                },
+                {
+                    name: "Dark_cacao",
+                    displayName: "Dark Cacao Cookie",
+                    element: ["Darkness", "Electricity"],
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Ancient",
+                    skill: 'Solemn Judgment'
+                },
+                {
+                    name: "Golden_cheese",
+                    displayName: "Golden Cheese Cookie",
+                    element: "Earth",
+                    type: "Ranged",
+                    position: "Middle",
+                    rarity: "Ancient",
+                    skill: "Brilliance of the Absolute"
+                },
+                {
+                    name: "White_lily",
+                    displayName: "White Lily Cookie",
+                    element: "Grass",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Ancient",
+                    skill: "Lily Bud"
+                },
+                {
+                    name: "Awakened_dark_cacao",
+                    displayName: "Dark Cacao Cookie (Dragon Lord)",
+                    element: "Darkness",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "AncientA",
+                    skill: "Awakened King",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [49.2, 104.7],
+                        attr2: [691.5, 1471.8],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Gambit",
+                            1: "chocolate",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            //I believe this one is good for just bigger numbers for events
+                            resonance: "Gambit",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            substats: ["Cooldown", "ATK", "CRIT%"]
+                        }, {
+                            1: "chocolate",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["Cooldown", "DMG Resist", "HP"]
+                        }, {
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "HP"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            element: "Darkness",
+                            tainted: true,
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "35%"
+                            }],
+                            notes: ["General build. Used in cookie alliance."]
+                        },
+                        2: {
+                            name: "HP Build",
+                            toppings: 3,
+                            beascuit: 1,
+                        },
+                        3: {
+                            name: "Arena Build",
+                            toppings: 4,
+                            beascuit: 2,
+                            useOwn: true,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "35.9%"
+                            }],
+                            notes: ["Can substitue Bypass lines for cooldown if toppings aren't good enough alone. Do require near perfect toppings achieve with just them alone after all.",
+                                "An arena build for those who are extremely dedicated to Dark Cacao."
+                            ],
+                        },
+                        notes: [
+                            "Can substitue toppings for chocolate if substats aren't good enough to hit cooldown cap."],
+                    },
+                    buildNotes: [
+                        "A lot of Dark Cacaos utility comes from his debuffs so you want high cooldown to apply them as often as possible and then DMG Resist to be able to apply them for longer. His DMG is good but not amazing so atk isn't too important. Could even use HP subs if you wanted instead."
+                    ],
+                    review: "The worst of the best. Dark Cacao is often said to be the weakest ancient and that's correct but he's still an ancient cookie. His debuffs are just as potent as they were years ago and his rally effect a massive boon for dark type teams. While he's rarely seen in arena if you're dedicated you could make something work and he's very useful in PvE soI give him an A+.",
+                    rating: "A+"
+                },
+                {
+                    name: "Awakened_golden_cheese",
+                    displayName: "Golden Cheese Cookie (Immortal)",
+                    element: "Earth",
+                    type: "Ranged",
+                    position: "Middle",
+                    rarity: "AncientA",
+                    skill: "Radiance of the Immortal",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [26.8, 57],
+                        attr2: [6, 12.7],
+                        attr3: [173.8, 369.9],
+                        attr4: [50.0, 70.0],
+                        attr5: [100.0, 118.3]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Cheese",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "Cheese",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Crit", "DMG Resist"]
+                        }, {
+                            resonance: "Cheese",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Crit", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Earth",
+                            1: "Earth DMG",
+                            2: "Earth DMG",
+                            3: "Earth DMG",
+                            4: "Earth DMG"
+                        }, {
+                            element: "Earth",
+                            tainted: true,
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }],
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            notes: [
+                                "Build used for general earth team stuff. Can use tainted bescuit if you have one."]
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Arena Nuke Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            notes: ["Can also use a tainted beascuit with full bypass.",
+                                "Golden Cheese isn't meant to live long so aim for max damage"
+                            ]
+                        },
+                        3: {
+                            name: "Alt Build",
+                            toppings: 3,
+                            beascuit: 3,
+                            notes: [
+                                "Less DMG than the general build but more frequent casts. Was used in Beast Raid."]
+                        }
+                    },
+                    buildNotes: [
+                        "Golden Cheese functions as a nuker in most cases so for generally you'll want to maximise dmg per cast but builds with cooldown can be useful as seen in Beast Raid."
+                    ],
+                    review: "Good single target and nuke potential. The premier earth cookie with a useful revive and shield but generally outclassed outside of specific comps. I give her an A+, maybe A.",
+                    rating: "A+"
+                },
+                {
+                    name: "Awakened_pure_vanilla",
+                    displayName: "Pure Vanilla Cookie (Compassionate)",
+                    element: "Light",
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "AncientA",
+                    skill: "Warmth of Compassion",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [70.2, 145.9],
+                        attr2: [24.9, 65.3]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Truth",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "DMG Resist", "HP"]
+                        }, {
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["Cooldown", "DMG Resist", "HP"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "DMG Resist",
+                                value: "50%",
+                            }, {
+                                name: "Cooldown",
+                                value: "15%"
+                            }]
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "HP build",
+                            toppings: 3,
+                            beascuit: 1,
+                            stats: [{
+                                name: "DMG Resist",
+                                value: "50%",
+                            }, {
+                                name: "Cooldown",
+                                value: "15%"
+                            }],
+                            notes: [
+                                "This is the build used in arena less healing but APV will stay on the field much longer."]
+                        },
+                        3: {
+                            name: "DMG Resist build",
+                            toppings: 2,
+                            beascuit: 1,
+                            stats: [{
+                                name: "DMG Resist",
+                                value: "75%",
+                            }, {
+                                name: "Cooldown",
+                                value: "15%"
+                            }],
+                            notes: [
+                                "Aims for 75% DMG Resist to surive better againt teams with high amounts of Bypass."]
+                        }
+                    },
+                    buildNotes: ["50% DMG Resist is the cap for his passive but more never hurts."],
+                    review: "Like his counterpart there is a reason Pure Vanilla has managed to stay releant for a very long time despite other healers like cookie{Doughael} Doughael and cookie{Sugar_swan} Sugar Swan with incredibly good sustain and the great burst healing and an amazing rally effect. He also has a very useful revive which, while it is outclassed by cookie{Sugar_swan} Sugar Swan is still handy.",
+                    rating: "S+"
+                },
+                {
+                    name: "Awakened_hollyberry",
+                    displayName: "Hollyberry Cookie (Aegis)",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "AncientA",
+                    skill: "Shield of Conviction",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [219.1, 575.2],
+                        attr2: [24.9, 65.3]
+                    },
+                    sets: {
+                        toppings: [{
+                            //resonance: "Passionate",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            //resonance: "Passionate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            //resonance: "Passionate",
+                            //This is for a specific comp that has HB be targeted by SMC 
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "almond",
+                            5: "kiwi",
+                            6: "peanut",
+                            substats: ["DMG Resist", "Debuff Resist", "Cooldown"]
+                        }, {
+                            //resonance: "Passionate",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            //resonance: "Passionate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "peanut",
+                            substats: ["HP", "DMG Resist", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "HP",
+                            2: "HP",
+                            3: "HP",
+                            4: "HP"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "HP",
+                            4: "HP"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 4,
+                            stats: [{
+                                name: "DMG Resist",
+                                value: "≥40%",
+                            }],
+                            notes: [
+                                "With cookie{Millennial_tree} Millennial Tree AHB isn't used much in the arena but if you don't have him this is what I'd recommend."]
+                        },
+                        3: {
+                            name: "Alt Build 1",
+                            toppings: 2,
+                            beascuit: 2,
+                            notes: ["More tanky than the general build but less cooldown."]
+                        },
+                        4: {
+                            name: "Alt Build 2",
+                            toppings: 4,
+                            beascuit: 5,
+                            stats: [{
+                                name: "DMG Resist",
+                                value: "50%",
+                            }, {
+                                name: "Cooldown",
+                                value: "30%",
+                            }],
+                            notes: [
+                                "Another alt build which is more of a hybrid between HP, DMR, and cooldown."]
+                        },
+                        5: {
+                            name: "Alt Build 3",
+                            toppings: 5,
+                            beascuit: 2,
+                            notes: ["Yet another alt build with max cooldown but less DMR."]
+                        },
+                        6: {
+                            name: "SMC Target Build",
+                            toppings: 3,
+                            beascuit: 3,
+                            notes: [
+                                "Used in specific team comps to get hit by cookie{Shadow_milk} Shadow Milk"]
+                        }
+                    },
+                    buildNotes: [
+                        "Focus on HP and DMR for 90% of builds. Hollyberry has a storied build history with lot's of viable setups that vary CD requirements and hp requirements but first and foremost she's a tank. She also scales off HP for her massive final hit so another good reason to have a lot of it."
+                    ],
+                    review: "Extremely powerful defensive buffs for herself and her team. Had this been several months ago I'd claim she's the best tank in the game but because of the tree man she's second best. Still incredibly powerful and a mainstay in steel teams.",
+                    rating: "S+"
+                },
+                {
+                    name: "Awakened_white_lily",
+                    displayName: "White Lily Cookie (Dawnbringer)",
+                    element: "Grass",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "AncientA",
+                    skill: "Freedom's Bloom",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [149.3, 391.8],
+                        attr2: [24.6, 64.4]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Blooming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Blooming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Blooming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Blooming",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Blooming",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            element: "Grass",
+                            tainted: true,
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥22.3%"
+                            }],
+                            notes: [
+                                "This is what I'd recommend for most content. Aim for a 3s start. Bypass beascuit is for PvP. For PvE you can go with cooldown, atk, doesn't much matter. She get's enough grass dmg buffs so those aren't as useful."]
+                        },
+                        2: {
+                            name: "Arena HP",
+                            toppings: 2,
+                            beascuit: 1,
+                            notes: [
+                                "Don't have confirmation on this but I assume this becomes her best build at higher promotions just like for cookie{Silent_salt} Silent Salt."]
+                        },
+                        notes: [
+                            "If you don't have a tainted beascuit you can use a full Bypass beascuit instead. "],
+                    },
+                    buildNotes: [
+                        "Full chocolate and full raspberry are both perfectly viable and have at times been the meta. Even full peanut is a possibility though less recommended than the standard."
+                    ],
+                    review: "An incredibly powerful attacker with a variety of crowd control and grass DMG amplifacation for herself and the team cementing her a place in teams long in to the future as the premier grass type cookie. Also a great counter to Shadow Milk and Silent Salt being immune to silence and shackles. Slay our queen.",
+                    rating: "S+"
+                },
+                {
+                    name: "Mystic_flour",
+                    displayName: "Mystic Flour Cookie",
+                    element: null,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Beast",
+                    skill: "Whispers of Apathy",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [10.7, 22.7]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Gambit",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            resonance: "Gambit",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥38%"
+                            }],
+                            notes: [
+                                "38% cooldown is required to maximise her passive but with good substats you should be able to reach 44.5% which is required for 2s start."]
+                        },
+                        2: {
+                            name: "Full Chocolate Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥44.5%"
+                            }],
+                            notes: [
+                                "Full chocolate build to guaruntee a 2s start. Use if you have bad substats but wouldn't recommend sticking like this long term."]
+                        },
+                        notes: ["Can swap out the ATK substat for HP if desired."]
+                    },
+                    review: "Great healing output with passive heals even after death and in recent times one of the few counters to the pairing of cookie{Sugar_swan} Sugar Swan and cookie{Cream_ferret} Cream Ferret with her cooldown increasing ability. While often outclassed by the healers who came after her I actually prefer her in a lot of situations due to the HP shield she grants team mates. Won't be seen much in the arena but just as good a pick everywhere else.",
+                    rating: "S"
+                },
+                {
+                    name: "Burning_spice",
+                    displayName: "Burning Spice Cookie",
+                    element: "Fire",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Beast",
+                    skill: "Tyrant's Wrath",
+                    cd: 9,
+                    skillAttr: {
+                        attr1: [334.4, 711.7],
+                        attr2: [510.7, 1087.1]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Destructive",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "ATK", "ATK SPD"]
+                        }],
+                        beascuit: [{
+                            element: "Fire",
+                            1: "Fire DMG",
+                            2: "Fire DMG",
+                            3: "Fire DMG",
+                            4: "Fire DMG"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            notes: ["Can use CRIT% substats instead of ATK SPD if desired."]
+                        },
+                        2: {
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            notes: ["Can use HP or CD instead of ATK if desired.",
+                                "Arena build for those who are very dedicated to Burning Spice."
+                            ]
+                        },
+                    },
+                    buildNotes: [
+                        "ATK and DMG Resist are the most important. After that the remaining substat can be ATK SPD, CRIT%, or Cooldown."
+                    ],
+                    review: "Far outclassed in the arena meta but still top tier for PvE. A great tank and incredible DPS. I'd still argue he's a must build all these years later.",
+                    rating: "S",
+                },
+                {
+                    name: "Shadow_milk",
+                    displayName: "Shadow Milk Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Beast",
+                    skill: "Act 1: Lies",
+                    cd: 11,
+                    initialCd: 0.6,
+                    skillAttr: {
+                        attr1: [143.6, 305.7],
+                        attr2: [824.3, 1754.5]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Deceit",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Deceit",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Deceit",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "raspberry",
+                            6: "applejelly",
+                            substats: ["Cooldown", "CRIT%", "ATK"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Arena Build (Full Raspberry)",
+                            toppings: 1,
+                            beascuit: 2
+                        },
+                        3: {
+                            rank: "recommended",
+                            name: "Arena Build (Full Chocolate)",
+                            toppings: 2,
+                            beascuit: 2
+                        },
+                        4: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon",
+                            toppings: 3,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "31.9-32.3%"
+                            }]
+                        }
+                    },
+                    buildNotes: [
+                        "Overall either full raspberry or full chocolate is best depending on your situation or even personal preference. I personally use full raspberry because of his high scaling and big numbers but chocolate is a close second. Just be careful about overcapping on cooldown especially with a cooldown beascuit."
+                    ],
+                    review: "Holy Shit! He's not arena meta anymore! After a full year! That being said he's still insanely powerful, there is a reason he was meta for a year after all. Incredible single target and AoE damage while being extremely tanky with his revive and puppet. He's also still meta for RVD.",
+                    rating: "S"
+                },
+                {
+                    name: "Eternal_sugar",
+                    displayName: "Eternal Sugar Cookie",
+                    element: "Poison",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Beast",
+                    skill: "Eternal Enchantment",
+                    cd: 12,
+                    initialCd: 0.5,
+                    skillAttr: {
+                        attr1: [25.1, 65.9],
+                        attr2: [65.0, 119.5],
+                        attr3: [790.7, 1383.6]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Indolent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "candy",
+                            6: "candy",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "CRIT%"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "ATK", "CRIT%"]
+                        }, {
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "candy",
+                            6: "candy",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }],
+                        beascuit: [{
+                            element: "Poison",
+                            tainted: true,
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Poison",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Poison DMG",
+                            4: "Poison DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1
+                        },
+                        2: {
+                            rank: "best",
+                            name: "Arena Build",
+                            toppings: 9,
+                            beascuit: 2,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥16.7%"
+                            }],
+                            notes: [
+                                "Candy massively boosts her DMG due to the quality of buffs being granted."]
+                        },
+                        3: {
+                            rank: "recommended",
+                            name: "Living Abyss Build",
+                            toppings: 7,
+                            beascuit: 3
+                        },
+                        4: {
+                            name: "Cookie Aliance Build",
+                            toppings: 6,
+                            beascuit: 1,
+                        },
+                        5: {
+                            name: "HP Build",
+                            toppings: 8,
+                            beascuit: 2,
+                        },
+                    },
+                    buildNotes: [
+                        "Of all the beasts Eternal Sugar has by far the most build variety (Fun Fact: In my research I found 9 separate builds for her. Rarely do other cookies get even 5.) and for a good reason, having been a common sight in arena since release and utilized in every other gamemode. I have listed what I feel to be the nest builds at time of writing however you can definitely get away with pretty much anything. Any combination of chocolate and raspberry will work with the substats being able to change based on what you need.",
+                        "Beascuit options are significantly simpler than toppings however with a full bypass beascuit for arena and either Posion taint with full cooldown or Poison DMG beascuit depending."
+                    ],
+                    review: "One of the single best dps in the game, used in every game mode since release with insane area dmg, incredible crowd control, all on a very spammable skill. An absolute must build.",
+                    rating: "S+"
+                },
+                {
+                    name: "Silent_salt",
+                    displayName: "Silent Salt Cookie",
+                    element: ["Darkness", "Steel"],
+                    type: "Ambush",
+                    position: "Front",
+                    rarity: "Beast",
+                    skill: "End of Silence",
+                    cd: 14,
+                    initialCd: 0.44,
+                    skillAttr: {
+                        attr1: [206.0, 480.8],
+                        attr2: [88.3, 206.0]
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Silent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Silent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Silent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Silent",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Silent",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            element: "Steel",
+                            tainted: true,
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Darkness",
+                            1: "Darkness DMG",
+                            2: "Darkness DMG",
+                            3: "Darkness DMG",
+                            4: "Darkness DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Arena 1 Second Start Build",
+                            toppings: 2,
+                            beascuit: 1
+                        },
+                        2: {
+                            rank: "best",
+                            name: "Arena 2 Second Start Build",
+                            toppings: 1,
+                            beascuit: 1
+                        },
+                        3: {
+                            name: "PvP HP",
+                            toppings: 3,
+                            beascuit: 1,
+                            notes: ["Aims to give Silent Salt the high HP on the team to affect the targeting of cookie{Shadow_milk} Shadow Milk and cookie{Doughael} Doughael as well as general survivability",
+                                "This build becomes Silent Salts best build at 4 stars and above"
+                            ]
+                        },
+                        4: {
+                            rank: "recommended",
+                            name: "PvE",
+                            toppings: 5,
+                            beascuit: 2,
+                            useOwn: true,
+                            notes: ["Can use pretty much any topping build here. I use full chocolate here as an example but I personally use the arena 1s start topping set up. I do recommend getting a Darkness DMG beascuit regardless of topping set up though.",
+                                "For general PvE content he's not all that useful, at least compared to his peers but is very useful in events so I still recommend."
+                            ]
+                        },
+                        notes: ["If you don't have a tainted beascuit you can use a full Bypass beascuit instead.",
+                            "Should have the highest attack on the team to absorb status{fury_of_the_catacombs|und_debuff} Fury of the Catacombs"
+                        ]
+                    },
+                    buildNotes: ["Full Chocolate or Raspberry can also work for arena and PvE"],
+                    review: "Incredible crowd control and damage while being extremely hard to pin down himself being invulnerable during his skill as an ambush cookie and immune to cooldown impairing effects which thrn turn into buffs through Forsaken Freedom. One of the strongest DPS in arena and PvE. Can not recommend enough.",
+                    rating: "S+"
+                },
+                {
+                    name: "Dark_enchantress",
+                    displayName: "Dark Enchantress Cookie",
+                    element: "Chaos",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Witch",
+                    skill: "Visions of Doom",
+                    cd: 16,
+                    initialCd: 0.72,
+                    sets: {
+                        toppings: [{
+                            resonance: "Looming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Looming",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Chaos",
+                            1: "Chaos DMG",
+                            2: "Chaos DMG",
+                            3: "Chaos DMG",
+                            4: "Chaos DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Arena Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown from toppings",
+                                value: "≥9%"
+                            }, {
+                                name: "ATK from toppings",
+                                value: "≥108%"
+                            }],
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "PvE Build",
+                            toppings: 1,
+                            beascuit: 2,
+                            stats: [{
+                                name: "Cooldown from toppings",
+                                value: "≥12%"
+                            }],
+                            notes: [
+                                "Because of just how powerful dark enchantress is she'll be in pretty much any team you make so I'd recommend making a chaos dmg beascuit for her when not in arena."]
+                        },
+                        notes: [
+                            "You can use 3/3 raspberry/chocolate if you don't have good toppings but 4/2 is better"]
+                    },
+                    buildNotes: [
+                        "Because of \"Master of Sorcery\" there's little reason not to go for 35% cooldown. Accounting for set bonuses you need at minimum 51% ATK from toppings (which does not include set bonuses) so I'd aim a little higher at 56%.",
+                        "Can also use chocolate tart if struggling to hit 35% Cooldown but raspberry is optimal."
+                    ],
+                    //"Because of \"Master of Sorcery\" there's little reason not to go for 35% cooldown. With 2 chocolate and a raspberry tart the most you can get is 20.67% from the passive with the max amount you can get from toppings being 16% giving you 1.67% of wiggle room. With 1 chocolate the max you can get from the passive is 24.33% with the max you can get from toppings being 13% giving you 2.33% of wiggle room but factoring in the atk bonus of her passive you avtually have a 1% margin of error on the toppings cooldown side of things as opposed to the 4% on the other build which is why I recommend using 4/2 but if you have good toppings 5/1 is better.//
+                    review: "Easily the one of if not THE single best cookie in the game and it's not even close. Insane damage and survivability along with absurd cc Dark Enchantress should be on every single one of your teams outside of guild battle. I tremble in fear at what could possibly power creep her.",
+                    rating: "S+"
+                },
+                {
+                    name: "Salt_cellar",
+                    displayName: "Salt Cellar Cookie",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Charcoal",
+                    displayName: "Charcoal Cookie",
+                    element: "Darkness",
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Menthol",
+                    displayName: "Menthol Cookie",
+                    element: "Water",
+                    type: "Bomber",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Seltzer",
+                    displayName: "Seltzer Cookie",
+                    element: "Water",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Grapefruit",
+                    displayName: "Grapefruit Cookie",
+                    element: "Electricity",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Lime",
+                    displayName: "Lime Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Manju",
+                    displayName: "Manju Cookie",
+                    element: "Water",
+                    type: "Ambush",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Jagae",
+                    displayName: "Jagae Cookie",
+                    element: "Water",
+                    type: "Support",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Orange",
+                    displayName: "Orange Cookie",
+                    element: "Electricity",
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Lemon",
+                    displayName: "Lemon Cookie",
+                    element: "Electricity",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cream_soda",
+                    displayName: "Cream Soda Cookie",
+                    element: "Water",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Sugarfly",
+                    displayName: "Sugarfly Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pavlova",
+                    displayName: "Pavlova Cookie",
+                    element: null,
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Agar_agar",
+                    displayName: "Agar Agar Cookie",
+                    element: ["Fire", "Electricity", "Water", "Wind", "Ice"],
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Wedding_cake",
+                    displayName: "Wedding Cake Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Black_forest",
+                    displayName: "Black Forest Cookie",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Black_sapphire",
+                    displayName: "Black Sapphire Cookie",
+                    element: "Poison",
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Candy_apple",
+                    displayName: "Candy Apple Cookie",
+                    element: null,
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Okchun",
+                    displayName: "Okchun Cookie",
+                    element: null,
+                    type: "Healing",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Green_tea_mousse",
+                    displayName: "Green Tea Mousse Cookie",
+                    element: ["Wind", "Grass"],
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pudding_a_la_mode",
+                    displayName: "Pudding à la Mode Cookie",
+                    element: "Electricity",
+                    type: "Bomber",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Choco_drizzle",
+                    displayName: "Choco Drizzle Cookie",
+                    element: "Darkness",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Red_osmanthus",
+                    displayName: "Red Osmanthus Cookie",
+                    element: "Grass",
+                    type: "Ranged",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Golden_osmanthus",
+                    displayName: "Golden Osmanthus Cookie",
+                    element: "Grass",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Smoked_cheese",
+                    displayName: "Smoked Cheese Cookie",
+                    element: "Earth",
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Nutmeg_tiger",
+                    displayName: "Nutmeg Tiger Cookie",
+                    element: "Fire",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Star_coral",
+                    displayName: "Star Coral Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Peach_blossom",
+                    displayName: "Peach Blossom Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cloud_haetae",
+                    displayName: "Cloud Haetae Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Street_urchin",
+                    displayName: "Street Urchin Cookie",
+                    element: "Fire",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Caramel_choux",
+                    displayName: "Caramel Choux Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Butter_roll",
+                    displayName: "Butter Roll Cookie",
+                    element: ["Steel", "Chaos"],
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Matcha",
+                    displayName: "Matcha Cookie",
+                    element: ["Poison", "Grass"],
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Mercurial_knight",
+                    displayName: "Mercurial Knight Cookie",
+                    element: "Steel",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Silverbell",
+                    displayName: "Silverbell Cookie",
+                    element: "Grass",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Rebel",
+                    displayName: "Rebel Cookie",
+                    element: "Wind",
+                    type: "Ambush",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Creme_brulee",
+                    displayName: "Crème Brûlée Cookie",
+                    element: "Light",
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Linzer",
+                    displayName: "Linzer Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Olive",
+                    displayName: "Olive Cookie",
+                    element: ["Earth", "Fire", "Electricity"],
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Mozzarella",
+                    displayName: "Mozzarella Cookie",
+                    element: "Earth",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Fettuccine",
+                    displayName: "Fettuccine Cookie",
+                    element: "Earth",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Burnt_cheese",
+                    displayName: "Burnt Cheese Cookie",
+                    element: "Earth",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Frilled_jellyfish",
+                    displayName: "Frilled Jellyfish Cookie",
+                    element: ["Water", "Electricity"],
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Peppermint",
+                    displayName: "Peppermint Cookie",
+                    element: "Water",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Black_lemonade",
+                    displayName: "Black Lemonade Cookie",
+                    element: "Electricity",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Rockstar",
+                    displayName: "Rockstar Cookie",
+                    element: null,
+                    type: "Healing",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Tarte_tatin",
+                    displayName: "Tarte Tatin Cookie",
+                    element: "Fire",
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Royal_margarine",
+                    displayName: "Royal Margarine Cookie",
+                    element: "Poison",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Kouign-amann",
+                    displayName: "Kouign-Amann Cookie",
+                    element: "Light",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Prune_juice",
+                    displayName: "Prune Juice Cookie",
+                    element: "Poison",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Space_doughnut",
+                    displayName: "Space Doughnut",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Blueberry_pie",
+                    displayName: "Blueberry Pie Cookie",
+                    element: "Electricity",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Milky_way",
+                    displayName: "Milky Way Cookie",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Prophet",
+                    displayName: "Prophet Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pinecone",
+                    displayName: "Pinecone Cookie",
+                    element: "Ice",
+                    type: "Bomber",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Carol",
+                    displayName: "Carol Cookie",
+                    element: "Grass",
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Macaron",
+                    displayName: "Macaron Cookie",
+                    element: null,
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Schwarzwalder",
+                    displayName: "Schwarzwälder",
+                    element: ["Steel", "Chaos"],
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Candy_diver",
+                    displayName: "Candy Diver Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Captain_caviar",
+                    displayName: "Captain Caviar Cookie",
+                    element: "Water",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cream_unicorn",
+                    displayName: "Cream Unicorn Cookie",
+                    element: "Fire",
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Financier",
+                    displayName: "Financier Cookie",
+                    element: "Light",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Crunchy_chip",
+                    displayName: "Crunchy Chip Cookie",
+                    element: "Darkness",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Wildberry",
+                    displayName: "Wildberry Cookie",
+                    element: "Steel",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cherry_blossom",
+                    displayName: "Cherry Blossom Cookie",
+                    element: "Grass",
+                    type: "Ambush",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Caramel_arrow",
+                    displayName: "Caramel Arrow Cookie",
+                    element: "Darkness",
+                    type: "Ranged",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Affogato",
+                    displayName: "Affogato Cookie",
+                    element: "Poison",
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Tea_knight",
+                    displayName: "Tea Knight Cookie",
+                    element: "Steel",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Eclair",
+                    displayName: "Eclair Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cocoa",
+                    displayName: "Cocoa Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cotton",
+                    displayName: "Cotton Cookie",
+                    element: "Grass",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pumpkin_pie",
+                    displayName: "Pumpkin Pie Cookie",
+                    element: "Darkness",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Twizzly_gummy",
+                    displayName: "Twizzly Gummy Cookie",
+                    element: "Electricity",
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic",
+                    skill: "Twizzly Beam",
+                    cd: 16,
+                    mcSkill: "Blast from the Future"
+                },
+                {
+                    name: "Mala_sauce",
+                    displayName: "Mala Sauce Cookie",
+                    element: "Fire",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Moon_rabbit",
+                    displayName: "Moon Rabbit Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Raspberry",
+                    displayName: "Raspberry Cookie",
+                    element: "Steel",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Parfait",
+                    displayName: "Parfait Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Sorbet_shark",
+                    displayName: "Sorbet Shark Cookie",
+                    element: "Water",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Squid_ink",
+                    displayName: "Squid Ink Cookie",
+                    element: "Water",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Lilac",
+                    displayName: "Lilac Cookie",
+                    element: "Grass",
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Mango",
+                    displayName: "Mango Cookie",
+                    element: "Water",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Red_velvet",
+                    displayName: "Red Velvet Cookie",
+                    element: "Darkness",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pastry",
+                    displayName: "Pastry Cookie",
+                    element: "Wind",
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Fig",
+                    displayName: "Fig Cookie",
+                    element: "Grass",
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Strawberry_crepe",
+                    displayName: "Strawberry Crepe Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Black_raisin",
+                    displayName: "Black Raisin Cookie",
+                    element: "Darkness",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Almond",
+                    displayName: "Almond Cookie",
+                    element: "Earth",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Cream_puff",
+                    displayName: "Cream Puff Cookie",
+                    element: "Light",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Latte",
+                    displayName: "Latte Cookie",
+                    element: "Earth",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Kumiho",
+                    displayName: "Kumiho Cookie",
+                    element: "Wind",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Snow_sugar",
+                    displayName: "Snow Sugar Cookie",
+                    element: "Ice",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Rye",
+                    displayName: "Rye Cookie",
+                    element: "Fire",
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Espresso",
+                    displayName: "Espresso Cookie",
+                    element: "Earth",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Madeleine",
+                    displayName: "Madeleine Cookie",
+                    element: "Light",
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Licorice",
+                    displayName: "Licorice Cookie",
+                    element: ["Darkness", "Poison", "Chaos"],
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Poison_mushroom",
+                    displayName: "Poison Mushroom Cookie",
+                    element: ["Poison", "Chaos"],
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Milk",
+                    displayName: "Milk Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Purple_yam",
+                    displayName: "Purple Yam Cookie",
+                    element: "Grass",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pomegranate",
+                    displayName: "Pomegranate Cookie",
+                    element: "Chaos",
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Chili_pepper",
+                    displayName: "Chili Pepper Cookie",
+                    element: "Fire",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Sparkling",
+                    displayName: "Sparkling Cookie",
+                    element: "Light",
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Dark_choco",
+                    displayName: "Dark Choco Cookie",
+                    element: "Darkness",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Herb",
+                    displayName: "Herb Cookie",
+                    element: null,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Werewolf",
+                    displayName: "Werewolf Cookie",
+                    element: "Steel",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Mint_choco",
+                    displayName: "Mint Choco Cookie",
+                    element: "Wind",
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Tiger_lily",
+                    displayName: "Tiger Lily Cookie",
+                    element: null,
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Pom-pom_dough",
+                    displayName: "Pom-pom Dough Cookie",
+                    element: ["Poison", "Chaos"],
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Mold_dough",
+                    displayName: "Mold Dough Cookie",
+                    element: "Chaos",
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Chess_choco",
+                    displayName: "Chess Choco Cookie",
+                    element: "Chaos",
+                    type: "Bomber",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Vampire",
+                    displayName: "Vampire Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Rear",
+                    rarity: "Epic"
+                },
+                {
+                    name: "Rumi",
+                    displayName: "Rumi Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Front",
+                    rarity: "Special"
+                },
+                {
+                    name: "Mira",
+                    displayName: "Mira Cookie",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Special"
+                },
+                {
+                    name: "Zoey",
+                    displayName: "Zoey Cookie",
+                    element: null,
+                    type: "Ranged",
+                    position: "Rear",
+                    rarity: "Special"
+                }
+            ],
             tierlists: [{
-                name: "World Exploration",
-                tiers: ["S+", "S", "A+", "A", "B", "C", "D", "E"],
-                entries: [
-                    [
-                        "Burning Spice Cookie", "Fire Spirit Cookie", "Eternal Sugar Cookie",
-                        "White Lily Cookie (Dawnbringer)",
-                        "Pure Vanilla Cookie (Compassionate)", "Hollyberry Cookie (Aegis)",
-                        "Cream Ferret Cookie", "Wind Archer Cookie",
-                        "Mystic Flour Cookie", "Silent Salt Cookie", "Dark Enchantress Cookie",
-                        "Millennial Tree Cookie", "Rebel Cookie", "Sugar Swan Cookie"
+                name: "Cookies",
+                features: {
+                    eidolon: false,
+                    tags: false,
+                    elementIcon: false,
+                    role: false
+                },
+                filters: {
+                    rarity: ["Witch", "Beast", "Ancient", "Legendary", "Dragon", "Super Epic", "Epic",
+                        "Special",
+                        "Rare", "Common"
                     ],
-                    [
-                        "Stormbringer Cookie", "Crème Brûlée Cookie", "Star Coral Cookie",
-                        "Marshmallow Bunny Cookie", "Twizzly Gummy Cookie",
-                        "Black Lemonade Cookie", "Pudding à la Mode Cookie",
-                        "Dark Cacao Cookie (Dragon Lord)", "Shadow Milk Cookie",
-                        "Nutmeg Tiger Cookie", "Grapefruit Cookie", "Silverbell Cookie",
-                        "Fettuccine Cookie", "Icicle Yeti Cookie",
-                        "Doughael", "Green Tea Mousse Cookie", "Financier Cookie", "Mint Choco Cookie",
-                        "Sea Fairy Cookie", "Tarte Tatin Cookie", "Venom Dough Cookie",
-                        "Charcoal Cookie", "Pure Vanilla Cookie", "Snapdragon Cookie"
+                    type: ["Ambush", "Bomber", "Charge", "Defense", "Healing", "Magic", "Ranged",
+                        "Support", "BTS"
                     ],
-                    [
-                        "Golden Cheese Cookie (Immortal)", "Golden Cheese Cookie", "White Lily Cookie",
-                        "Frost Queen Cookie", "Sherbet Cookie",
-                        "Pavlova Cookie", "Linzer Cookie", "Salt Cellar Cookie", "Space Doughnut",
-                        "Jagae Cookie", "Manju Cookie", "Captain Caviar Cookie",
-                        "Candy Apple Cookie", "Menthol Cookie", "Seltzer Cookie",
-                        "Peach Blossom Cookie", "Moonlight Cookie", "Cream Puff Cookie",
-                        "Rockstar Cookie", "Mold Dough Cookie", "Shining Glitter Cookie",
-                        "Mozzarella Cookie", "Sparkling Cookie", "Wedding Cake Cookie",
-                        "Parfait Cookie", "Snow Sugar Cookie", "Pom-pom Dough Cookie"
+                    element: ["Light", "Earth", "Darkness", "Water", "Poison", "Fire", "Electricity",
+                        "Ice", "Wind",
+                        "Steel", "Grass", "Chaos", null
                     ],
-                    [
-                        "Hollyberry Cookie", "Crimson Coral Cookie", "Stardust Cookie",
-                        "Elder Faerie Cookie", "Camellia Cookie", "Burnt Cheese Cookie",
-                        "Kouign-Amann Cookie", "Cloud Haetae Cookie", "Dark Choco Cookie",
-                        "Smoked Cheese Cookie", "Black Pearl Cookie", "Capsaicin Cookie",
-                        "Pitaya Dragon Cookie", "Wildberry Cookie", "Peppermint Cookie",
-                        "Glinda Cookie", "Sugarfly Cookie", "Pinecone Cookie",
-                        "Milky Way Cookie", "Pastry Cookie", "Chess Choco Cookie",
-                        "Black Forest Cookie", "Lemon Cookie", "Cream Soda Cookie",
-                        "Mango Cookie", "Caramel Arrow Cookie", "Black Raisin Cookie", "Schwarzwälder",
-                        "Frilled Jellyfish Cookie", "Street Urchin Cookie",
-                        "Clotted Cream Cookie", "Cream Unicorn Cookie", "Herb Cookie",
-                        "Pomegranate Cookie"
-                    ],
-                    [
-                        "Dark Cacao Cookie", "Oyster Cookie", "Butter Roll Cookie", "Mala Sauce Cookie",
-                        "Werewolf Cookie", "Espresso Cookie",
-                        "Strawberry Crepe Cookie", "Squid Ink Cookie", "Macaron Cookie",
-                        "Mercurial Knight Cookie", "Golden Osmanthus Cookie",
-                        "Red Osmanthus Cookie", "Eclair Cookie", "Cotton Cookie", "Rye Cookie",
-                        "Madeleine Cookie", "Choco Drizzle Cookie", "Elphaba Cookie",
-                        "Orange Cookie", "Licorice Cookie", "Crunchy Chip Cookie",
-                        "Sorbet Shark Cookie", "Pumpkin Pie Cookie", "Carol Cookie",
-                        "Tea Knight Cookie", "Prune Juice Cookie", "Black Sapphire Cookie",
-                        "Caramel Choux Cookie", "Okchun Cookie", "Matcha Cookie",
-                        "Affogato Cookie", "Royal Margarine Cookie", "Blackberry Cookie",
-                        "Cherry Blossom Cookie", "BTS"
-                    ],
-                    [
-                        "Purple Yam Cookie", "Raspberry Cookie", "Blueberry Pie Cookie", "Lime Cookie",
-                        "Vampire Cookie", "Red Velvet Cookie",
-                        "Latte Cookie", "Prophet Cookie", "Moon Rabbit Cookie", "Agar Agar Cookie",
-                        "Olive Cookie", "Poison Mushroom Cookie",
-                        "Candy Diver Cookie", "Almond Cookie", "Carrot Cookie", "Kumiho Cookie"
-                    ],
-                    [
-                        "Chili Pepper Cookie", "Milk Cookie", "Lilac Cookie", "Cherry Cookie",
-                        "Sonic Cookie", "Tails Cookie", "Knight Cookie",
-                        "Avocado Cookie", "Tiger Lily Cookie", "Cocoa Cookie", "Devil Cookie",
-                        "Princess Cookie", "Custard Cookie III",
-                        "Wizard Cookie", "Pancake Cookie", "Gumball Cookie", "Alchemist Cookie",
-                        "Clover Cookie"
-                    ],
-                    [
-                        "GingerBrave", "Fig Cookie", "Onion Cookie", "Strawberry Cookie",
-                        "Muscle Cookie", "Beet Cookie", "Adventurer Cookie",
-                        "Ninja Cookie", "Angel Cookie"
-                    ]
-                ]
-            }, {
-                name: "Kingdom Arena",
-                tiers: ["S+", "S", "A", "B", "C", "D", "E"],
-                entries: [
-                    [
-                        "Dark Enchantress Cookie", "Silent Salt Cookie", "Millennial Tree Cookie",
-                        "Venom Dough Cookie",
-                        "White Lily Cookie (Dawnbringer)",
-                        "Eternal Sugar Cookie", "Sugar Swan Cookie"
-                    ],
-                    [
-                        "Cream Ferret Cookie", "Icicle Yeti Cookie", "Hollyberry Cookie (Aegis)",
-                         "Pure Vanilla Cookie (Compassionate)",
-                         "Shadow Milk Cookie", "Marshmallow Bunny Cookie",
-                    ],
-                    [
-                        "Stormbringer Cookie", "Doughael", "Golden Cheese Cookie (Immortal)",
-                        "Burning Spice Cookie", "Elder Faerie Cookie",
-                        "Green Tea Mousse Cookie", "Rockstar Cookie", "Wildberry Cookie",
-                        "Dark Cacao Cookie (Dragon Lord)", "Moonlight Cookie",
-                        "Financier Cookie", "Snapdragon Cookie", "Camellia Cookie",
-                         "Fire Spirit Cookie", "Mystic Flour Cookie",
-                        "Wind Archer Cookie",
-                    ],
-                    [
-                        "Pure Vanilla Cookie", "White Lily Cookie", "Golden Cheese Cookie",
-                        "Frost Queen Cookie", "Sea Fairy Cookie",
-                        "Rebel Cookie", "Burnt Cheese Cookie", "Salt Cellar Cookie", "Pavlova Cookie",
-                        "Stardust Cookie", "Black Forest Cookie",
-                        "Chess Choco Cookie", "Wedding Cake Cookie", "Raspberry Cookie",
-                        "Star Coral Cookie", "Silverbell Cookie",
-                        "Blueberry Pie Cookie", "Captain Caviar Cookie", "Manju Cookie", "Jagae Cookie",
-                        "Pastry Cookie", "Kouign-Amann Cookie",
-                        "Mold Dough Cookie", "Charcoal Cookie", "Dark Choco Cookie",
-                        "Cloud Haetae Cookie", "Mint Choco Cookie", "Parfait Cookie",
-                        "Peach Blossom Cookie", "Candy Apple Cookie", "Twizzly Gummy Cookie",
-                        "Pudding à la Mode Cookie", "Nutmeg Tiger Cookie",
-                        "Grapefruit Cookie", "Crème Brûlée Cookie", "Tea Knight Cookie",
-                        "Strawberry Crepe Cookie", "Black Lemonade Cookie",
-                        "Seltzer Cookie", "Menthol Cookie", "Capsaicin Cookie",
-                        "Shining Glitter Cookie", "Sherbet Cookie", "Smoked Cheese Cookie",
-                        "Mercurial Knight Cookie", "Milky Way Cookie", "Choco Drizzle Cookie",
-                        "Space Doughnut", "Snow Sugar Cookie", "Crimson Coral Cookie", "Fettuccine Cookie",
-                        "Hollyberry Cookie", "Frilled Jellyfish Cookie", "Pom-pom Dough Cookie"
-                    ],
-                    [
-                        "Dark Cacao Cookie", "Pitaya Dragon Cookie", "Black Pearl Cookie",
-                        "Clotted Cream Cookie", "Cream Unicorn Cookie",
-                        "Sugarfly Cookie", "Vampire Cookie", "Cream Puff Cookie", "Mozzarella Cookie",
-                        "Linzer Cookie", "Golden Osmanthus Cookie",
-                        "Red Osmanthus Cookie", "Cream Soda Cookie", "Sorbet Shark Cookie",
-                        "Madeleine Cookie", "Mango Cookie",
-                        "Peppermint Cookie", "Schwarzwälder", "Street Urchin Cookie", "Pinecone Cookie",
-                        "Almond Cookie", "Squid Ink Cookie",
-                        "Black Raisin Cookie", "Herb Cookie", "Werewolf Cookie", "Prune Juice Cookie",
-                        "Black Sapphire Cookie", "Butter Roll Cookie",
-                        "Mala Sauce Cookie", "Macaron Cookie", "Purple Yam Cookie", "Lemon Cookie",
-                        "Orange Cookie", "Latte Cookie",
-                        "Crunchy Chip Cookie", "Espresso Cookie", "Eclair Cookie", "Prophet Cookie",
-                        "Royal Margarine Cookie",
-                        "Pumpkin Pie Cookie", "Caramel Arrow Cookie", "Caramel Choux Cookie",
-                        "Tarte Tatin Cookie", "Rye Cookie",
-                        "Licorice Cookie", "Agar Agar Cookie", "Carol Cookie", "Cotton Cookie",
-                        "Pomegranate Cookie", "Lime Cookie",
-                        "Matcha Cookie", "Oyster Cookie", "Okchun Cookie", "Glinda Cookie",
-                        "Elphaba Cookie", "BTS", "Blackberry Cookie"
-                    ],
-                    [
-                        "Red Velvet Cookie", "Olive Cookie", "Affogato Cookie", "Cocoa Cookie",
-                        "Milk Cookie", "Poison Mushroom Cookie",
-                        "Candy Diver Cookie", "Cherry Blossom Cookie", "Kumiho Cookie",
-                        "Sparkling Cookie", "Tiger Lily Cookie",
-                        "Lilac Cookie", "Moon Rabbit Cookie", "Carrot Cookie"
-                    ],
-                    [
-                        "Chili Pepper Cookie", "Fig Cookie", "Sonic Cookie", "Tails Cookie",
-                        "GingerBrave", "Onion Cookie", "Strawberry Cookie",
-                        "Muscle Cookie", "Beet Cookie", "Adventurer Cookie",
-                        "Ninja Cookie", "Angel Cookie", "Knight Cookie",
-                        "Avocado Cookie", "Devil Cookie",
-                        "Princess Cookie", "Custard Cookie III",
-                        "Wizard Cookie", "Pancake Cookie", "Gumball Cookie", "Alchemist Cookie",
-                        "Clover Cookie", "Cherry Cookie"
-                    ]
-                ]
-            }, {
-                name: "Overall (avg)",
-                computedAverage: true,
-                tiers: ["S+", "S", "A+", "A", "B", "C", "D", "E", "F"],
-                entries: []
-            }, {
-                name: "Guild Battle",
+                    position: ["Front", "Middle", "Rear"]
+                },
                 tierlists: [{
-                    name: "Red Velvet Dragon",
-                    tiers: ["S", "A", "B", "C", "D", "E"],
+                    name: "World Exploration",
+                    tiers: ["S+", "S", "A+", "A", "B", "C", "D", "E"],
                     entries: [
                         [
-                            "Black Sapphire Cookie", "Prune Juice Cookie",
-                            "Shadow Milk Cookie", "Candy Apple Cookie",
-                            "Dark Choco Cookie", "Pom-pom Dough Cookie",
-                            "Venom Dough Cookie"
-                        ],
-                        [
-                            "Matcha Cookie", "Rebel Cookie", "Mystic Flour Cookie",
-                            "Twizzly Gummy Cookie",
-                            "Black Lemonade Cookie", "Eternal Sugar Cookie",
-                            "Fire Spirit Cookie", "Burning Spice Cookie",
-                            "Dark Cacao Cookie (Dragon Lord)",
-                            "Pure Vanilla Cookie (Compassionate)", "Black Raisin Cookie",
-                            "Rockstar Cookie", "Royal Margarine Cookie",
-                            "Snapdragon Cookie", "Cream Ferret Cookie",
-                            "Stormbringer Cookie", "Shining Glitter Cookie",
-                            "Pudding à la Mode Cookie", "Orange Cookie",
-                            "Lemon Cookie", "Linzer Cookie", "Mango Cookie",
-                            "Stardust Cookie", "Milky Way Cookie",
-                            "Eclair Cookie", "Space Doughnut", "Snow Sugar Cookie",
-                            "Cotton Cookie", "Sherbet Cookie",
-                            "Affogato Cookie", "Vampire Cookie", "Oyster Cookie",
-                            "Sorbet Shark Cookie", "Pomegranate Cookie",
-                            "Crunchy Chip Cookie", "Licorice Cookie",
-                            "Poison Mushroom Cookie", "Cream Unicorn Cookie",
-                            "Cream Puff Cookie", "Golden Cheese Cookie",
-                            "Peach Blossom Cookie", "Choco Drizzle Cookie",
-                            "Cream Soda Cookie", "BTS", "Pure Vanilla Cookie",
-                            "Seltzer Cookie", "Doughael"
-                        ],
-                        [
-                            "Hollyberry Cookie (Aegis)", "Pinecone Cookie",
-                            "Captain Caviar Cookie", "Fettuccine Cookie",
-                            "Cocoa Cookie", "Peppermint Cookie", "Macaron Cookie",
-                            "Carol Cookie", "Almond Cookie",
-                            "Raspberry Cookie", "Rye Cookie", "Mala Sauce Cookie",
-                            "Hollyberry Cookie", "Schwarzwälder",
-                            "Pumpkin Pie Cookie", "Parfait Cookie", "Wildberry Cookie",
-                            "Capsaicin Cookie", "Prophet Cookie",
-                            "Crimson Coral Cookie", "Menthol Cookie"
-                        ],
-                        [
-                            "Dark Cacao Cookie", "Herb Cookie", "Silverbell Cookie",
-                            "Espresso Cookie", "Moonlight Cookie",
-                            "Pitaya Dragon Cookie", "Sea Fairy Cookie", "Squid Ink Cookie",
-                            "Tea Knight Cookie",
-                            "Black Pearl Cookie", "Tarte Tatin Cookie",
-                            "Blueberry Pie Cookie", "Candy Diver Cookie",
-                            "Strawberry Crepe Cookie", "Moon Rabbit Cookie",
-                            "Kumiho Cookie", "Frilled Jellyfish Cookie",
-                            "Olive Cookie"
-                        ],
-                        [
-                            "Wind Archer Cookie", "Crème Brûlée Cookie",
-                            "Kouign-Amann Cookie", "Financier Cookie",
-                            "Werewolf Cookie", "Caramel Arrow Cookie", "Latte Cookie",
-                            "Sparkling Cookie", "Madeleine Cookie",
-                            "Pastry Cookie", "Lilac Cookie", "Mint Choco Cookie"
-                        ],
-                        [
-                            "Milk Cookie", "Purple Yam Cookie", "Chili Pepper Cookie",
-                            "Red Velvet Cookie", "Tiger Lily Cookie",
-                            "White Lily Cookie", "Frost Queen Cookie",
-                            "Clotted Cream Cookie", "Cherry Blossom Cookie",
-                            "Fig Cookie"
-                        ]
-                    ]
-                }, {
-                    name: "Avatar of Destiny",
-                    tiers: ["S", "A"],
-                    entries: [
-                        [
-                            "Crème Brûlée Cookie",
-                            "Pudding à la Mode Cookie",
-                            "Star Coral Cookie",
-                            "Cream Ferret Cookie",
-                            "Mint Choco Cookie"
-                        ],
-                        [
-                            "Twizzly Gummy Cookie",
-                            "Marshmallow Bunny Cookie",
-                            "Icicle Yeti Cookie",
-                            "Blackberry Cookie",
-                            "Cream Puff Cookie",
-                            "Madeleine Cookie",
-                            "Sonic Cookie",
-                            "Macaron Cookie",
-                            "Squid Ink Cookie",
-                            "Cherry Blossom Cookie",
-                            "Caramel Choux Cookie",
-                            "Shining Glitter Cookie",
-                            "Rye Cookie",
-                            "Rockstar Cookie",
-                            "Lime Cookie",
-                            "Pomegranate Cookie",
-                            "Oyster Cookie",
-                            "Snapdragon Cookie",
-                            "BTS",
-                            "Sugarfly Cookie",
-                            "Parfait Cookie",
-                            "Clotted Cream Cookie",
-                            "Pastry Cookie",
-                            "Peppermint Cookie",
-                            "Carol Cookie",
-                            "Tails Cookie",
-                            "Carrot Cookie",
-                            "Vampire Cookie",
-                            "Lemon Cookie"
-                        ]
-                    ]
-                }, {
-                    name: "Living Abyss",
-                    tiers: ["S", "A", "B", "C", "D", "E"],
-                    entries: [
-                        [
-                            "Blueberry Pie Cookie",
-                            "Wind Archer Cookie",
-                            "Cream Puff Cookie",
-                            "Marshmallow Bunny Cookie",
-                            "Cream Ferret Cookie",
-                            "Linzer Cookie",
-                            "Black Forest Cookie",
-                            "Twizzly Gummy Cookie",
+                            "Burning Spice Cookie", "Fire Spirit Cookie",
                             "Eternal Sugar Cookie",
-                            "Wedding Cake Cookie"
-                        ],
-                        [
-                            "Frost Queen Cookie",
-                            "Pinecone Cookie",
-                            "Star Coral Cookie",
-                            "Rockstar Cookie",
-                            "Rebel Cookie",
-                            "Fire Spirit Cookie",
-                            "Stormbringer Cookie",
-                            "Pitaya Dragon Cookie",
-                            "Burning Spice Cookie",
-                            "Shadow Milk Cookie",
+                            "White Lily Cookie (Dawnbringer)",
                             "Pure Vanilla Cookie (Compassionate)",
-                            "Dark Cacao Cookie (Dragon Lord)",
-                            "Macaron Cookie",
-                            "Space Doughnut",
-                            "Snow Sugar Cookie",
-                            "Snapdragon Cookie",
-                            "Captain Caviar Cookie",
-                            "Caramel Arrow Cookie",
-                            "Black Raisin Cookie",
-                            "Squid Ink Cookie",
-                            "Candy Apple Cookie",
-                            "Milky Way Cookie",
-                            "Cotton Cookie",
-                            "Mango Cookie",
-                            "Werewolf Cookie",
-                            "Schwarzwälder",
-                            "Dark Cacao Cookie",
-                            "Sherbet Cookie",
-                            "Crème Brûlée Cookie",
-                            "Black Pearl Cookie",
-                            "Sea Fairy Cookie",
-                            "Moonlight Cookie",
-                            "Espresso Cookie",
-                            "Shining Glitter Cookie",
-                            "Tarte Tatin Cookie",
-                            "Pomegranate Cookie",
-                            "Mystic Flour Cookie",
-                            "Pure Vanilla Cookie",
-                            "Peach Blossom Cookie",
-                            "Silverbell Cookie",
-                            "Sorbet Shark Cookie",
-                            "Clotted Cream Cookie",
-                            "Crunchy Chip Cookie",
-                            "Dark Choco Cookie",
-                            "Wildberry Cookie",
-                            "Cherry Blossom Cookie",
-                            "White Lily Cookie",
-                            "Latte Cookie",
-                            "Oyster Cookie",
-                            "Carol Cookie",
-                            "BTS",
-                            "Parfait Cookie",
-                            "Golden Cheese Cookie",
-                            "Purple Yam Cookie",
-                            "Street Urchin Cookie",
-                            "Stardust Cookie",
-                            "Peppermint Cookie"
+                            "Hollyberry Cookie (Aegis)",
+                            "Cream Ferret Cookie", "Wind Archer Cookie",
+                            "Mystic Flour Cookie", "Silent Salt Cookie",
+                            "Dark Enchantress Cookie",
+                            "Millennial Tree Cookie", "Rebel Cookie", "Sugar Swan Cookie"
                         ],
                         [
-                            "Fettuccine Cookie",
-                            "Hollyberry Cookie",
-                            "Pumpkin Pie Cookie",
-                            "Licorice Cookie",
-                            "Herb Cookie",
-                            "Cream Unicorn Cookie",
-                            "Frilled Jellyfish Cookie",
-                            "Mercurial Knight Cookie",
-                            "Kouign-Amann Cookie",
-                            "Tea Knight Cookie",
-                            "Burnt Cheese Cookie",
-                            "Butter Roll Cookie",
-                            "Financier Cookie",
-                            "Madeleine Cookie",
-                            "Capsaicin Cookie",
-                            "Mala Sauce Cookie"
-                        ],
-                        [
-                            "Crimson Coral Cookie",
-                            "Cocoa Cookie",
-                            "Black Lemonade Cookie",
-                            "Vampire Cookie",
-                            "Rye Cookie",
-                            "Eclair Cookie",
-                            "Strawberry Crepe Cookie",
-                            "Milk Cookie",
-                            "Poison Mushroom Cookie",
-                            "Matcha Cookie",
-                            "Candy Diver Cookie",
-                            "Cloud Haetae Cookie",
-                            "Sparkling Cookie",
+                            "Stormbringer Cookie", "Crème Brûlée Cookie",
+                            "Star Coral Cookie",
+                            "Marshmallow Bunny Cookie", "Twizzly Gummy Cookie",
+                            "Black Lemonade Cookie", "Pudding à la Mode Cookie",
+                            "Dark Cacao Cookie (Dragon Lord)", "Shadow Milk Cookie",
+                            "Nutmeg Tiger Cookie", "Grapefruit Cookie", "Silverbell Cookie",
+                            "Fettuccine Cookie", "Icicle Yeti Cookie",
+                            "Doughael", "Green Tea Mousse Cookie", "Financier Cookie",
                             "Mint Choco Cookie",
-                            "Pastry Cookie",
-                            "Kumiho Cookie",
-                            "Prophet Cookie",
-                            "Olive Cookie",
-                            "Lilac Cookie"
+                            "Sea Fairy Cookie", "Tarte Tatin Cookie", "Venom Dough Cookie",
+                            "Charcoal Cookie", "Pure Vanilla Cookie", "Snapdragon Cookie"
                         ],
                         [
-                            "Affogato Cookie",
-                            "Almond Cookie",
-                            "Moon Rabbit Cookie",
-                            "Caramel Choux Cookie"
+                            "Golden Cheese Cookie (Immortal)", "Golden Cheese Cookie",
+                            "White Lily Cookie",
+                            "Frost Queen Cookie", "Sherbet Cookie",
+                            "Pavlova Cookie", "Linzer Cookie", "Salt Cellar Cookie",
+                            "Space Doughnut",
+                            "Jagae Cookie", "Manju Cookie", "Captain Caviar Cookie",
+                            "Candy Apple Cookie", "Menthol Cookie", "Seltzer Cookie",
+                            "Peach Blossom Cookie", "Moonlight Cookie", "Cream Puff Cookie",
+                            "Rockstar Cookie", "Mold Dough Cookie",
+                            "Shining Glitter Cookie",
+                            "Mozzarella Cookie", "Sparkling Cookie", "Wedding Cake Cookie",
+                            "Parfait Cookie", "Snow Sugar Cookie", "Pom-pom Dough Cookie"
                         ],
                         [
-                            "Chili Pepper Cookie",
-                            "Fig Cookie",
-                            "Red Velvet Cookie",
-                            "Tiger Lily Cookie",
-                            "Raspberry Cookie",
-                            "Royal Margarine Cookie",
-                            "Prune Juice Cookie",
-                            "Black Sapphire Cookie"
+                            "Hollyberry Cookie", "Crimson Coral Cookie", "Stardust Cookie",
+                            "Elder Faerie Cookie", "Camellia Cookie", "Burnt Cheese Cookie",
+                            "Kouign-Amann Cookie", "Cloud Haetae Cookie",
+                            "Dark Choco Cookie",
+                            "Smoked Cheese Cookie", "Black Pearl Cookie",
+                            "Capsaicin Cookie",
+                            "Pitaya Dragon Cookie", "Wildberry Cookie", "Peppermint Cookie",
+                            "Glinda Cookie", "Sugarfly Cookie", "Pinecone Cookie",
+                            "Milky Way Cookie", "Pastry Cookie", "Chess Choco Cookie",
+                            "Black Forest Cookie", "Lemon Cookie", "Cream Soda Cookie",
+                            "Mango Cookie", "Caramel Arrow Cookie", "Black Raisin Cookie",
+                            "Schwarzwälder",
+                            "Frilled Jellyfish Cookie", "Street Urchin Cookie",
+                            "Clotted Cream Cookie", "Cream Unicorn Cookie", "Herb Cookie",
+                            "Pomegranate Cookie"
+                        ],
+                        [
+                            "Dark Cacao Cookie", "Oyster Cookie", "Butter Roll Cookie",
+                            "Mala Sauce Cookie",
+                            "Werewolf Cookie", "Espresso Cookie",
+                            "Strawberry Crepe Cookie", "Squid Ink Cookie", "Macaron Cookie",
+                            "Mercurial Knight Cookie", "Golden Osmanthus Cookie",
+                            "Red Osmanthus Cookie", "Eclair Cookie", "Cotton Cookie",
+                            "Rye Cookie",
+                            "Madeleine Cookie", "Choco Drizzle Cookie", "Elphaba Cookie",
+                            "Orange Cookie", "Licorice Cookie", "Crunchy Chip Cookie",
+                            "Sorbet Shark Cookie", "Pumpkin Pie Cookie", "Carol Cookie",
+                            "Tea Knight Cookie", "Prune Juice Cookie",
+                            "Black Sapphire Cookie",
+                            "Caramel Choux Cookie", "Okchun Cookie", "Matcha Cookie",
+                            "Affogato Cookie", "Royal Margarine Cookie",
+                            "Blackberry Cookie",
+                            "Cherry Blossom Cookie", "BTS"
+                        ],
+                        [
+                            "Purple Yam Cookie", "Raspberry Cookie", "Blueberry Pie Cookie",
+                            "Lime Cookie",
+                            "Vampire Cookie", "Red Velvet Cookie",
+                            "Latte Cookie", "Prophet Cookie", "Moon Rabbit Cookie",
+                            "Agar Agar Cookie",
+                            "Olive Cookie", "Poison Mushroom Cookie",
+                            "Candy Diver Cookie", "Almond Cookie", "Carrot Cookie",
+                            "Kumiho Cookie"
+                        ],
+                        [
+                            "Chili Pepper Cookie", "Milk Cookie", "Lilac Cookie",
+                            "Cherry Cookie",
+                            "Sonic Cookie", "Tails Cookie", "Knight Cookie",
+                            "Avocado Cookie", "Tiger Lily Cookie", "Cocoa Cookie",
+                            "Devil Cookie",
+                            "Princess Cookie", "Custard Cookie III",
+                            "Wizard Cookie", "Pancake Cookie", "Gumball Cookie",
+                            "Alchemist Cookie",
+                            "Clover Cookie"
+                        ],
+                        [
+                            "GingerBrave", "Fig Cookie", "Onion Cookie",
+                            "Strawberry Cookie",
+                            "Muscle Cookie", "Beet Cookie", "Adventurer Cookie",
+                            "Ninja Cookie", "Angel Cookie"
                         ]
                     ]
                 }, {
-                    name: "Machine-God of the Eternal Void",
-                    tiers: ["S", "A", "B", "C"],
+                    name: "Kingdom Arena",
+                    tiers: ["S+", "S", "A", "B", "C", "D", "E"],
                     entries: [
                         [
-                            "Menthol Cookie",
-                            "Seltzer Cookie",
-                            "Sea Fairy Cookie",
-                            "Frilled Jellyfish Cookie",
-                            "Cream Ferret Cookie",
-                            "Cream Soda Cookie"
+                            "Dark Enchantress Cookie", "Silent Salt Cookie",
+                            "Millennial Tree Cookie",
+                            "Venom Dough Cookie",
+                            "White Lily Cookie (Dawnbringer)",
+                            "Eternal Sugar Cookie", "Sugar Swan Cookie"
                         ],
                         [
-                            "Crimson Coral Cookie",
+                            "Cream Ferret Cookie", "Icicle Yeti Cookie",
+                            "Hollyberry Cookie (Aegis)",
+                            "Pure Vanilla Cookie (Compassionate)",
+                            "Shadow Milk Cookie", "Marshmallow Bunny Cookie",
+                        ],
+                        [
+                            "Stormbringer Cookie", "Doughael",
+                            "Golden Cheese Cookie (Immortal)",
+                            "Burning Spice Cookie", "Elder Faerie Cookie",
+                            "Green Tea Mousse Cookie", "Rockstar Cookie",
+                            "Wildberry Cookie",
+                            "Dark Cacao Cookie (Dragon Lord)", "Moonlight Cookie",
+                            "Financier Cookie", "Snapdragon Cookie", "Camellia Cookie",
+                            "Fire Spirit Cookie", "Mystic Flour Cookie",
+                            "Wind Archer Cookie",
+                        ],
+                        [
+                            "Pure Vanilla Cookie", "White Lily Cookie",
+                            "Golden Cheese Cookie",
+                            "Frost Queen Cookie", "Sea Fairy Cookie",
+                            "Rebel Cookie", "Burnt Cheese Cookie", "Salt Cellar Cookie",
+                            "Pavlova Cookie",
+                            "Stardust Cookie", "Black Forest Cookie",
+                            "Chess Choco Cookie", "Wedding Cake Cookie", "Raspberry Cookie",
+                            "Star Coral Cookie", "Silverbell Cookie",
+                            "Blueberry Pie Cookie", "Captain Caviar Cookie", "Manju Cookie",
+                            "Jagae Cookie",
+                            "Pastry Cookie", "Kouign-Amann Cookie",
+                            "Mold Dough Cookie", "Charcoal Cookie", "Dark Choco Cookie",
+                            "Cloud Haetae Cookie", "Mint Choco Cookie", "Parfait Cookie",
+                            "Peach Blossom Cookie", "Candy Apple Cookie",
+                            "Twizzly Gummy Cookie",
+                            "Pudding à la Mode Cookie", "Nutmeg Tiger Cookie",
+                            "Grapefruit Cookie", "Crème Brûlée Cookie", "Tea Knight Cookie",
+                            "Strawberry Crepe Cookie", "Black Lemonade Cookie",
+                            "Seltzer Cookie", "Menthol Cookie", "Capsaicin Cookie",
+                            "Shining Glitter Cookie", "Sherbet Cookie",
+                            "Smoked Cheese Cookie",
+                            "Mercurial Knight Cookie", "Milky Way Cookie",
+                            "Choco Drizzle Cookie",
+                            "Space Doughnut", "Snow Sugar Cookie", "Crimson Coral Cookie",
+                            "Fettuccine Cookie",
+                            "Hollyberry Cookie", "Frilled Jellyfish Cookie",
+                            "Pom-pom Dough Cookie"
+                        ],
+                        [
+                            "Dark Cacao Cookie", "Pitaya Dragon Cookie",
                             "Black Pearl Cookie",
-                            "Peppermint Cookie",
-                            "Captain Caviar Cookie",
-                            "Star Coral Cookie",
-                            "Manju Cookie",
-                            "Jagae Cookie"
-                        ],
-                        [
-                            "Mango Cookie",
+                            "Clotted Cream Cookie", "Cream Unicorn Cookie",
+                            "Sugarfly Cookie", "Vampire Cookie", "Cream Puff Cookie",
+                            "Mozzarella Cookie",
+                            "Linzer Cookie", "Golden Osmanthus Cookie",
+                            "Red Osmanthus Cookie", "Cream Soda Cookie",
                             "Sorbet Shark Cookie",
-                            "Snapdragon Cookie",
-                            "Marshmallow Bunny Cookie",
-                            "Icicle Yeti Cookie"
+                            "Madeleine Cookie", "Mango Cookie",
+                            "Peppermint Cookie", "Schwarzwälder", "Street Urchin Cookie",
+                            "Pinecone Cookie",
+                            "Almond Cookie", "Squid Ink Cookie",
+                            "Black Raisin Cookie", "Herb Cookie", "Werewolf Cookie",
+                            "Prune Juice Cookie",
+                            "Black Sapphire Cookie", "Butter Roll Cookie",
+                            "Mala Sauce Cookie", "Macaron Cookie", "Purple Yam Cookie",
+                            "Lemon Cookie",
+                            "Orange Cookie", "Latte Cookie",
+                            "Crunchy Chip Cookie", "Espresso Cookie", "Eclair Cookie",
+                            "Prophet Cookie",
+                            "Royal Margarine Cookie",
+                            "Pumpkin Pie Cookie", "Caramel Arrow Cookie",
+                            "Caramel Choux Cookie",
+                            "Tarte Tatin Cookie", "Rye Cookie",
+                            "Licorice Cookie", "Agar Agar Cookie", "Carol Cookie",
+                            "Cotton Cookie",
+                            "Pomegranate Cookie", "Lime Cookie",
+                            "Matcha Cookie", "Oyster Cookie", "Okchun Cookie",
+                            "Glinda Cookie",
+                            "Elphaba Cookie", "BTS", "Blackberry Cookie"
                         ],
                         [
-                            "Squid Ink Cookie",
-                            "Agar Agar Cookie"
+                            "Red Velvet Cookie", "Olive Cookie", "Affogato Cookie",
+                            "Cocoa Cookie",
+                            "Milk Cookie", "Poison Mushroom Cookie",
+                            "Candy Diver Cookie", "Cherry Blossom Cookie", "Kumiho Cookie",
+                            "Sparkling Cookie", "Tiger Lily Cookie",
+                            "Lilac Cookie", "Moon Rabbit Cookie", "Carrot Cookie"
+                        ],
+                        [
+                            "Chili Pepper Cookie", "Fig Cookie", "Sonic Cookie",
+                            "Tails Cookie",
+                            "GingerBrave", "Onion Cookie", "Strawberry Cookie",
+                            "Muscle Cookie", "Beet Cookie", "Adventurer Cookie",
+                            "Ninja Cookie", "Angel Cookie", "Knight Cookie",
+                            "Avocado Cookie", "Devil Cookie",
+                            "Princess Cookie", "Custard Cookie III",
+                            "Wizard Cookie", "Pancake Cookie", "Gumball Cookie",
+                            "Alchemist Cookie",
+                            "Clover Cookie", "Cherry Cookie"
                         ]
+                    ]
+                }, {
+                    name: "Overall (avg)",
+                    computedAverage: true,
+                    tiers: ["S+", "S", "A+", "A", "B", "C", "D", "E", "F"],
+                    entries: []
+                }, {
+                    name: "Guild Battle",
+                    tierlists: [{
+                        name: "Red Velvet Dragon",
+                        tiers: ["S", "A", "B", "C", "D", "E"],
+                        entries: [
+                            [
+                                "Black Sapphire Cookie", "Prune Juice Cookie",
+                                "Shadow Milk Cookie", "Candy Apple Cookie",
+                                "Dark Choco Cookie", "Pom-pom Dough Cookie",
+                                "Venom Dough Cookie"
+                            ],
+                            [
+                                "Matcha Cookie", "Rebel Cookie",
+                                "Mystic Flour Cookie",
+                                "Twizzly Gummy Cookie",
+                                "Black Lemonade Cookie", "Eternal Sugar Cookie",
+                                "Fire Spirit Cookie", "Burning Spice Cookie",
+                                "Dark Cacao Cookie (Dragon Lord)",
+                                "Pure Vanilla Cookie (Compassionate)",
+                                "Black Raisin Cookie",
+                                "Rockstar Cookie", "Royal Margarine Cookie",
+                                "Snapdragon Cookie", "Cream Ferret Cookie",
+                                "Stormbringer Cookie", "Shining Glitter Cookie",
+                                "Pudding à la Mode Cookie", "Orange Cookie",
+                                "Lemon Cookie", "Linzer Cookie", "Mango Cookie",
+                                "Stardust Cookie", "Milky Way Cookie",
+                                "Eclair Cookie", "Space Doughnut",
+                                "Snow Sugar Cookie",
+                                "Cotton Cookie", "Sherbet Cookie",
+                                "Affogato Cookie", "Vampire Cookie",
+                                "Oyster Cookie",
+                                "Sorbet Shark Cookie", "Pomegranate Cookie",
+                                "Crunchy Chip Cookie", "Licorice Cookie",
+                                "Poison Mushroom Cookie", "Cream Unicorn Cookie",
+                                "Cream Puff Cookie", "Golden Cheese Cookie",
+                                "Peach Blossom Cookie", "Choco Drizzle Cookie",
+                                "Cream Soda Cookie", "BTS", "Pure Vanilla Cookie",
+                                "Seltzer Cookie", "Doughael"
+                            ],
+                            [
+                                "Hollyberry Cookie (Aegis)", "Pinecone Cookie",
+                                "Captain Caviar Cookie", "Fettuccine Cookie",
+                                "Cocoa Cookie", "Peppermint Cookie",
+                                "Macaron Cookie",
+                                "Carol Cookie", "Almond Cookie",
+                                "Raspberry Cookie", "Rye Cookie",
+                                "Mala Sauce Cookie",
+                                "Hollyberry Cookie", "Schwarzwälder",
+                                "Pumpkin Pie Cookie", "Parfait Cookie",
+                                "Wildberry Cookie",
+                                "Capsaicin Cookie", "Prophet Cookie",
+                                "Crimson Coral Cookie", "Menthol Cookie"
+                            ],
+                            [
+                                "Dark Cacao Cookie", "Herb Cookie",
+                                "Silverbell Cookie",
+                                "Espresso Cookie", "Moonlight Cookie",
+                                "Pitaya Dragon Cookie", "Sea Fairy Cookie",
+                                "Squid Ink Cookie",
+                                "Tea Knight Cookie",
+                                "Black Pearl Cookie", "Tarte Tatin Cookie",
+                                "Blueberry Pie Cookie", "Candy Diver Cookie",
+                                "Strawberry Crepe Cookie", "Moon Rabbit Cookie",
+                                "Kumiho Cookie", "Frilled Jellyfish Cookie",
+                                "Olive Cookie"
+                            ],
+                            [
+                                "Wind Archer Cookie", "Crème Brûlée Cookie",
+                                "Kouign-Amann Cookie", "Financier Cookie",
+                                "Werewolf Cookie", "Caramel Arrow Cookie",
+                                "Latte Cookie",
+                                "Sparkling Cookie", "Madeleine Cookie",
+                                "Pastry Cookie", "Lilac Cookie", "Mint Choco Cookie"
+                            ],
+                            [
+                                "Milk Cookie", "Purple Yam Cookie",
+                                "Chili Pepper Cookie",
+                                "Red Velvet Cookie", "Tiger Lily Cookie",
+                                "White Lily Cookie", "Frost Queen Cookie",
+                                "Clotted Cream Cookie", "Cherry Blossom Cookie",
+                                "Fig Cookie"
+                            ]
+                        ]
+                    }, {
+                        name: "Avatar of Destiny",
+                        tiers: ["S", "A"],
+                        entries: [
+                            [
+                                "Crème Brûlée Cookie",
+                                "Pudding à la Mode Cookie",
+                                "Star Coral Cookie",
+                                "Cream Ferret Cookie",
+                                "Mint Choco Cookie"
+                            ],
+                            [
+                                "Twizzly Gummy Cookie",
+                                "Marshmallow Bunny Cookie",
+                                "Icicle Yeti Cookie",
+                                "Blackberry Cookie",
+                                "Cream Puff Cookie",
+                                "Madeleine Cookie",
+                                "Sonic Cookie",
+                                "Macaron Cookie",
+                                "Squid Ink Cookie",
+                                "Cherry Blossom Cookie",
+                                "Caramel Choux Cookie",
+                                "Shining Glitter Cookie",
+                                "Rye Cookie",
+                                "Rockstar Cookie",
+                                "Lime Cookie",
+                                "Pomegranate Cookie",
+                                "Oyster Cookie",
+                                "Snapdragon Cookie",
+                                "BTS",
+                                "Sugarfly Cookie",
+                                "Parfait Cookie",
+                                "Clotted Cream Cookie",
+                                "Pastry Cookie",
+                                "Peppermint Cookie",
+                                "Carol Cookie",
+                                "Tails Cookie",
+                                "Carrot Cookie",
+                                "Vampire Cookie",
+                                "Lemon Cookie"
+                            ]
+                        ]
+                    }, {
+                        name: "Living Abyss",
+                        tiers: ["S", "A", "B", "C", "D", "E"],
+                        entries: [
+                            [
+                                "Blueberry Pie Cookie",
+                                "Wind Archer Cookie",
+                                "Cream Puff Cookie",
+                                "Marshmallow Bunny Cookie",
+                                "Cream Ferret Cookie",
+                                "Linzer Cookie",
+                                "Black Forest Cookie",
+                                "Twizzly Gummy Cookie",
+                                "Eternal Sugar Cookie",
+                                "Wedding Cake Cookie"
+                            ],
+                            [
+                                "Frost Queen Cookie",
+                                "Pinecone Cookie",
+                                "Star Coral Cookie",
+                                "Rockstar Cookie",
+                                "Rebel Cookie",
+                                "Fire Spirit Cookie",
+                                "Stormbringer Cookie",
+                                "Pitaya Dragon Cookie",
+                                "Burning Spice Cookie",
+                                "Shadow Milk Cookie",
+                                "Pure Vanilla Cookie (Compassionate)",
+                                "Dark Cacao Cookie (Dragon Lord)",
+                                "Macaron Cookie",
+                                "Space Doughnut",
+                                "Snow Sugar Cookie",
+                                "Snapdragon Cookie",
+                                "Captain Caviar Cookie",
+                                "Caramel Arrow Cookie",
+                                "Black Raisin Cookie",
+                                "Squid Ink Cookie",
+                                "Candy Apple Cookie",
+                                "Milky Way Cookie",
+                                "Cotton Cookie",
+                                "Mango Cookie",
+                                "Werewolf Cookie",
+                                "Schwarzwälder",
+                                "Dark Cacao Cookie",
+                                "Sherbet Cookie",
+                                "Crème Brûlée Cookie",
+                                "Black Pearl Cookie",
+                                "Sea Fairy Cookie",
+                                "Moonlight Cookie",
+                                "Espresso Cookie",
+                                "Shining Glitter Cookie",
+                                "Tarte Tatin Cookie",
+                                "Pomegranate Cookie",
+                                "Mystic Flour Cookie",
+                                "Pure Vanilla Cookie",
+                                "Peach Blossom Cookie",
+                                "Silverbell Cookie",
+                                "Sorbet Shark Cookie",
+                                "Clotted Cream Cookie",
+                                "Crunchy Chip Cookie",
+                                "Dark Choco Cookie",
+                                "Wildberry Cookie",
+                                "Cherry Blossom Cookie",
+                                "White Lily Cookie",
+                                "Latte Cookie",
+                                "Oyster Cookie",
+                                "Carol Cookie",
+                                "BTS",
+                                "Parfait Cookie",
+                                "Golden Cheese Cookie",
+                                "Purple Yam Cookie",
+                                "Street Urchin Cookie",
+                                "Stardust Cookie",
+                                "Peppermint Cookie"
+                            ],
+                            [
+                                "Fettuccine Cookie",
+                                "Hollyberry Cookie",
+                                "Pumpkin Pie Cookie",
+                                "Licorice Cookie",
+                                "Herb Cookie",
+                                "Cream Unicorn Cookie",
+                                "Frilled Jellyfish Cookie",
+                                "Mercurial Knight Cookie",
+                                "Kouign-Amann Cookie",
+                                "Tea Knight Cookie",
+                                "Burnt Cheese Cookie",
+                                "Butter Roll Cookie",
+                                "Financier Cookie",
+                                "Madeleine Cookie",
+                                "Capsaicin Cookie",
+                                "Mala Sauce Cookie"
+                            ],
+                            [
+                                "Crimson Coral Cookie",
+                                "Cocoa Cookie",
+                                "Black Lemonade Cookie",
+                                "Vampire Cookie",
+                                "Rye Cookie",
+                                "Eclair Cookie",
+                                "Strawberry Crepe Cookie",
+                                "Milk Cookie",
+                                "Poison Mushroom Cookie",
+                                "Matcha Cookie",
+                                "Candy Diver Cookie",
+                                "Cloud Haetae Cookie",
+                                "Sparkling Cookie",
+                                "Mint Choco Cookie",
+                                "Pastry Cookie",
+                                "Kumiho Cookie",
+                                "Prophet Cookie",
+                                "Olive Cookie",
+                                "Lilac Cookie"
+                            ],
+                            [
+                                "Affogato Cookie",
+                                "Almond Cookie",
+                                "Moon Rabbit Cookie",
+                                "Caramel Choux Cookie"
+                            ],
+                            [
+                                "Chili Pepper Cookie",
+                                "Fig Cookie",
+                                "Red Velvet Cookie",
+                                "Tiger Lily Cookie",
+                                "Raspberry Cookie",
+                                "Royal Margarine Cookie",
+                                "Prune Juice Cookie",
+                                "Black Sapphire Cookie"
+                            ]
+                        ]
+                    }, {
+                        name: "Machine-God of the Eternal Void",
+                        tiers: ["S", "A", "B", "C"],
+                        entries: [
+                            [
+                                "Menthol Cookie",
+                                "Seltzer Cookie",
+                                "Sea Fairy Cookie",
+                                "Frilled Jellyfish Cookie",
+                                "Cream Ferret Cookie",
+                                "Cream Soda Cookie"
+                            ],
+                            [
+                                "Crimson Coral Cookie",
+                                "Black Pearl Cookie",
+                                "Peppermint Cookie",
+                                "Captain Caviar Cookie",
+                                "Star Coral Cookie",
+                                "Manju Cookie",
+                                "Jagae Cookie"
+                            ],
+                            [
+                                "Mango Cookie",
+                                "Sorbet Shark Cookie",
+                                "Snapdragon Cookie",
+                                "Marshmallow Bunny Cookie",
+                                "Icicle Yeti Cookie"
+                            ],
+                            [
+                                "Squid Ink Cookie",
+                                "Agar Agar Cookie"
+                            ]
+                        ]
+                    }]
+                }]
+            }, {
+                name: "Magic Candies",
+                features: {
+                    eidolon: false,
+                    tags: false,
+                    elementIcon: false,
+                    role: false,
+                    cardStyle: "candy"
+                },
+                tierlists: [{
+                    name: "World Exploration",
+                    tiers: ["S", "A", "B", "C", "D", "F"],
+                    entries: [
+                        ["Wind Archer", "Stormbringer", "Twizzly Gummy", "Captain Caviar"],
+                        ["Frost Queen", "Blueberry Pie", "Mango", "Dark Choco",
+                            "Black Raisin", "Pastry",
+                            "Cream Puff", "Caramel Arrow", "Kouign-Amann",
+                            "Green Tea Mousse"
+                        ],
+                        ["Sea Fairy", "Moonlight", "Mint Choco", "Frilled Jellyfish",
+                            "Pinecone",
+                            "Financier", "Parfait",
+                            "Peppermint", "Strawberry Crepe", "Snow Sugar", "Raspberry",
+                            "Squid Ink",
+                            "Werewolf", "Silverbell"
+                        ],
+                        ["Black Pearl", "Sparkling", "Cream Unicorn", "Mala Sauce",
+                            "Licorice", "Rye",
+                            "Madeleine", "Tea Knight", "Vampire"
+                        ],
+                        ["Latte", "Espresso", "Milk", "Sorbet Shark", "Purple Yam",
+                            "Wildberry", "Pomegranate", "Poison Mushroom"
+                        ],
+                        []
+                    ]
+                }, {
+                    name: "Kingdom Arena",
+                    tiers: ["S", "A", "B", "C", "D", "F"],
+                    entries: [
+                        ["Wind Archer", "Financier", "Stormbringer"],
+                        ["Moonlight", "Frost Queen", "Sea Fairy", "Black Pearl"],
+                        ["Wildberry", "Vampire", "Raspberry", "Captain Caviar",
+                            "Caramel Arrow",
+                            "Blueberry Pie", "Parfait", "Green Tea Mousse"
+                        ],
+                        [
+                            "Tea Knight", "Dark Choco", "Twizzly Gummy", "Strawberry Crepe",
+                            "Sorbet Shark",
+                            "Snow Sugar", "Black Raisin", "Pastry", "Mango", "Kouign-Amann",
+                            "Mala Sauce", "Cream Puff", "Mint Choco", "Werewolf",
+                            "Frilled Jellyfish",
+                            "Peppermint", "Pinecone", "Squid Ink", "Rye", "Madeleine",
+                            "Espresso", "Silverbell"
+                        ],
+                        ["Sparkling", "Latte", "Cream Unicorn", "Purple Yam", "Licorice",
+                            "Milk", "Pomegranate", "Poison Mushroom"
+                        ],
+                        []
                     ]
                 }]
-            }]
-        }, {
-            name: "Magic Candies",
-            features: {
-                eidolon: false,
-                tags: false,
-                elementIcon: false,
-                role: false,
-                cardStyle: "candy"
-            },
-            tierlists: [{
-                name: "World Exploration",
-                tiers: ["S", "A", "B", "C", "D", "F"],
-                entries: [
-                    ["Wind Archer", "Stormbringer", "Twizzly Gummy", "Captain Caviar"],
-                    ["Frost Queen", "Blueberry Pie", "Mango", "Dark Choco", "Black Raisin", "Pastry",
-                        "Cream Puff", "Caramel Arrow", "Kouign-Amann", "Green Tea Mousse"
-                    ],
-                    ["Sea Fairy", "Moonlight", "Mint Choco", "Frilled Jellyfish", "Pinecone",
-                        "Financier", "Parfait",
-                        "Peppermint", "Strawberry Crepe", "Snow Sugar", "Raspberry", "Squid Ink",
-                        "Werewolf", "Silverbell"
-                    ],
-                    ["Black Pearl", "Sparkling", "Cream Unicorn", "Mala Sauce", "Licorice", "Rye",
-                        "Madeleine", "Tea Knight", "Vampire"
-                    ],
-                    ["Latte", "Espresso", "Milk", "Sorbet Shark", "Purple Yam", "Wildberry", "Pomegranate", "Poison Mushroom"],
-                    []
-                ]
-            }, {
-                name: "Kingdom Arena",
-                tiers: ["S", "A", "B", "C", "D", "F"],
-                entries: [
-                    ["Wind Archer", "Financier", "Stormbringer"],
-                    ["Moonlight", "Frost Queen", "Sea Fairy", "Black Pearl"],
-                    ["Wildberry", "Vampire", "Raspberry", "Captain Caviar", "Caramel Arrow",
-                        "Blueberry Pie", "Parfait", "Green Tea Mousse"
-                    ],
-                    [
-                        "Tea Knight", "Dark Choco", "Twizzly Gummy", "Strawberry Crepe", "Sorbet Shark",
-                        "Snow Sugar", "Black Raisin", "Pastry", "Mango", "Kouign-Amann",
-                        "Mala Sauce", "Cream Puff", "Mint Choco", "Werewolf", "Frilled Jellyfish",
-                        "Peppermint", "Pinecone", "Squid Ink", "Rye", "Madeleine", "Espresso", "Silverbell"
-                    ],
-                    ["Sparkling", "Latte", "Cream Unicorn", "Purple Yam", "Licorice", "Milk", "Pomegranate", "Poison Mushroom"],
-                    []
-                ]
-            }] 
-        }]
-    }, /*{
-        id: "toa",
-        name: "Cookie Run: Tower of Adventures",
-        characters: [{
-                name: "Angel",
-                displayName: "Angel Cookie",
-                rarity: "Common",
-                element: "Light",
-                role: "Support",
-                type: "Assist"
-            }, {
-                name: "Cherry",
-                displayName: "Cherry Cookie",
-                rarity: "Common",
-                element: "Fire",
-                role: "Tagger",
-                type: "Ranged"
-            }, {
-                name: "Gingerbrave",
-                displayName: "GingerBrave",
-                rarity: "Common",
-                element: "Earth",
-                role: "Fighter",
-                type: "Smash"
-            }, {
-                name: "Muscle",
-                displayName: "Muscle Cookie",
-                rarity: "Common",
-                element: "Earth",
-                role: "Support",
-                type: "Smash"
-            }, {
-                name: "Ninja",
-                displayName: "Ninja Cookie",
-                rarity: "Common"
-            }, {
-                name: "Alchemist",
-                displayName: "Alchemist Cookie",
-                rarity: "Rare"
-            }, {
-                name: "Gumball",
-                displayName: "Gumball Cookie",
-                rarity: "Rare"
-            }, {
-                name: "Mala_Sauce",
-                displayName: "Mala Sauce Cookie",
-                rarity: "Rare"
-            }, {
-                name: "Pistachio",
-                displayName: "Pistachio Cookie",
-                rarity: "Rare"
-            }, {
-                name: "Twisted_Donut",
-                displayName: "Twisted Donut Cookie",
-                rarity: "Rare"
-            }, {
-                name: "Werewolf",
-                displayName: "Werewolf Cookie",
-                rarity: "Rare"
-            }, {
-                name: "Banana_Roti",
-                displayName: "Banana Roti Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Basil_Pesto",
-                displayName: "Basil Pesto Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Black_Barley",
-                displayName: "Black Barley Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Blackberry",
-                displayName: "Blackberry Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Buttermilk",
-                displayName: "Buttermilk Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Candy_Drop",
-                displayName: "Candy Drop Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Chamomile",
-                displayName: "Chamomile Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Chili_Pepper",
-                displayName: "Chili Pepper Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Cream_Soda",
-                displayName: "Cream Soda Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Crushed_Pepper",
-                displayName: "Crushed Pepper Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Dark_Choco",
-                displayName: "Dark Choco Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Dew",
-                displayName: "Dew Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Frostrock",
-                displayName: "Frostrock Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Greenbell",
-                displayName: "Greenbell Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Honeybear",
-                displayName: "Honeybear Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Ice_Mint",
-                displayName: "Ice Mint Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Iris",
-                displayName: "Iris Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Jalapeno",
-                displayName: "Jalapeño Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Kohlrabi",
-                displayName: "Kohlrabi Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Lemon",
-                displayName: "Lemon Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Lemon_Zest",
-                displayName: "Lemon Zest Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Marbleberry",
-                displayName: "Marbleberry Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Neon_Danish",
-                displayName: "Neon Danish Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Peach",
-                displayName: "Peach Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Plantain",
-                displayName: "Plantain Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Roasted_Bacon",
-                displayName: "Roasted Bacon Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Rockstar",
-                displayName: "Rockstar Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Rye",
-                displayName: "Rye Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Shallot",
-                displayName: "Shallot Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Shiningberry",
-                displayName: "Shiningberry Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Sonic_Water",
-                displayName: "Sonic Water Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Stained_Nougat",
-                displayName: "Stained Nougat Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Sting_Durian",
-                displayName: "Sting Durian Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Strawberry_Mochi",
-                displayName: "Strawberry Mochi Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Sugar_Globe",
-                displayName: "Sugar Globe Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Sundae",
-                displayName: "Sundae Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Wizard",
-                displayName: "Wizard Cookie",
-                rarity: "Epic"
-            }, {
-                name: "Wind_Asparagus",
-                displayName: "Wind Asparagus Cookie",
-                rarity: "Legendary"
-            }, {
-                name: "Melanchream",
-                displayName: "Melanchream Cookie",
-                rarity: "Legendary",
-                role: "Fighter",
-                type: "Slash",
-                element: "Dark"
-            }, {
-
-            }],
-        tierlists: [{
-            name: "Cookies",
-            features: {
-                eidolon: false,
-                tags: false,
-                elementIcon: true,
-                role: true
-            },
-            tierlists: [{
-            name: "Cookies",
-            tiers: ["S+", "S", "A", "B", "C", "D"],
-            roles: [{
-                name: "Fighter"
-            }, {
-                name: "Tagger"
-            }, {
-                name: "Support"
-            }],
-            filters: {
-                rarity: ["Legendary", "Epic", "Rare", "Common"],
-                type: ["Smash", "Slash", "Magic", "Ranged", "Assist"],
-                element: ["Fire", "Water", "Wind", "Earth", "Light", "Dark"
-                ],
-            },
-            entries: [
-                ["Melanchream"],
-                ["Gingerbrave", "Muscle", "Ninja", "Alchemist", "Gumball", "Mala Sauce", "Pistachio", "Twisted Donut", "Werewolf"],
-                ["Banana Roti", "Basil Pesto", "Black Barley", "Blackberry", "Buttermilk", "Candy Drop", "Chamomile", "Chili Pepper", "Cream Soda", "Crushed Pepper", "Dark Choco", "Dew", "Frostrock", "Greenbell", "Honeybear", "Ice Mint", "Iris", "Jalapeno", "Kohlrabi", "Lemon", "Lemon Zest", "Marbleberry", "Neon Danish", "Peach", "Plantain", "Roasted Bacon", "Rockstar", "Rye", "Shallot", "Shiningberry", "Sonic Water", "Stained Nougat", "Sting Durian", "Strawberry Mochi", "Sugar Globe", "Sundae", "Wizard", "Wind Asparagus"]
+            }
             ]
-        }]
-    }]
-    }*/]
+        },
+        /*{
+               id: "toa",
+               name: "Cookie Run: Tower of Adventures",
+               characters: [{
+                       name: "Angel",
+                       displayName: "Angel Cookie",
+                       rarity: "Common",
+                       element: "Light",
+                       role: "Support",
+                       type: "Assist"
+                   }, {
+                       name: "Cherry",
+                       displayName: "Cherry Cookie",
+                       rarity: "Common",
+                       element: "Fire",
+                       role: "Tagger",
+                       type: "Ranged"
+                   }, {
+                       name: "Gingerbrave",
+                       displayName: "GingerBrave",
+                       rarity: "Common",
+                       element: "Earth",
+                       role: "Fighter",
+                       type: "Smash"
+                   }, {
+                       name: "Muscle",
+                       displayName: "Muscle Cookie",
+                       rarity: "Common",
+                       element: "Earth",
+                       role: "Support",
+                       type: "Smash"
+                   }, {
+                       name: "Ninja",
+                       displayName: "Ninja Cookie",
+                       rarity: "Common"
+                   }, {
+                       name: "Alchemist",
+                       displayName: "Alchemist Cookie",
+                       rarity: "Rare"
+                   }, {
+                       name: "Gumball",
+                       displayName: "Gumball Cookie",
+                       rarity: "Rare"
+                   }, {
+                       name: "Mala_Sauce",
+                       displayName: "Mala Sauce Cookie",
+                       rarity: "Rare"
+                   }, {
+                       name: "Pistachio",
+                       displayName: "Pistachio Cookie",
+                       rarity: "Rare"
+                   }, {
+                       name: "Twisted_Donut",
+                       displayName: "Twisted Donut Cookie",
+                       rarity: "Rare"
+                   }, {
+                       name: "Werewolf",
+                       displayName: "Werewolf Cookie",
+                       rarity: "Rare"
+                   }, {
+                       name: "Banana_Roti",
+                       displayName: "Banana Roti Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Basil_Pesto",
+                       displayName: "Basil Pesto Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Black_Barley",
+                       displayName: "Black Barley Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Blackberry",
+                       displayName: "Blackberry Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Buttermilk",
+                       displayName: "Buttermilk Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Candy_Drop",
+                       displayName: "Candy Drop Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Chamomile",
+                       displayName: "Chamomile Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Chili_Pepper",
+                       displayName: "Chili Pepper Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Cream_Soda",
+                       displayName: "Cream Soda Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Crushed_Pepper",
+                       displayName: "Crushed Pepper Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Dark_Choco",
+                       displayName: "Dark Choco Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Dew",
+                       displayName: "Dew Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Frostrock",
+                       displayName: "Frostrock Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Greenbell",
+                       displayName: "Greenbell Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Honeybear",
+                       displayName: "Honeybear Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Ice_Mint",
+                       displayName: "Ice Mint Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Iris",
+                       displayName: "Iris Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Jalapeno",
+                       displayName: "Jalapeño Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Kohlrabi",
+                       displayName: "Kohlrabi Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Lemon",
+                       displayName: "Lemon Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Lemon_Zest",
+                       displayName: "Lemon Zest Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Marbleberry",
+                       displayName: "Marbleberry Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Neon_Danish",
+                       displayName: "Neon Danish Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Peach",
+                       displayName: "Peach Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Plantain",
+                       displayName: "Plantain Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Roasted_Bacon",
+                       displayName: "Roasted Bacon Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Rockstar",
+                       displayName: "Rockstar Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Rye",
+                       displayName: "Rye Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Shallot",
+                       displayName: "Shallot Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Shiningberry",
+                       displayName: "Shiningberry Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Sonic_Water",
+                       displayName: "Sonic Water Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Stained_Nougat",
+                       displayName: "Stained Nougat Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Sting_Durian",
+                       displayName: "Sting Durian Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Strawberry_Mochi",
+                       displayName: "Strawberry Mochi Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Sugar_Globe",
+                       displayName: "Sugar Globe Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Sundae",
+                       displayName: "Sundae Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Wizard",
+                       displayName: "Wizard Cookie",
+                       rarity: "Epic"
+                   }, {
+                       name: "Wind_Asparagus",
+                       displayName: "Wind Asparagus Cookie",
+                       rarity: "Legendary"
+                   }, {
+                       name: "Melanchream",
+                       displayName: "Melanchream Cookie",
+                       rarity: "Legendary",
+                       role: "Fighter",
+                       type: "Slash",
+                       element: "Dark"
+                   }, {
+
+                   }],
+               tierlists: [{
+                   name: "Cookies",
+                   features: {
+                       eidolon: false,
+                       tags: false,
+                       elementIcon: true,
+                       role: true
+                   },
+                   tierlists: [{
+                   name: "Cookies",
+                   tiers: ["S+", "S", "A", "B", "C", "D"],
+                   roles: [{
+                       name: "Fighter"
+                   }, {
+                       name: "Tagger"
+                   }, {
+                       name: "Support"
+                   }],
+                   filters: {
+                       rarity: ["Legendary", "Epic", "Rare", "Common"],
+                       type: ["Smash", "Slash", "Magic", "Ranged", "Assist"],
+                       element: ["Fire", "Water", "Wind", "Earth", "Light", "Dark"
+                       ],
+                   },
+                   entries: [
+                       ["Melanchream"],
+                       ["Gingerbrave", "Muscle", "Ninja", "Alchemist", "Gumball", "Mala Sauce", "Pistachio", "Twisted Donut", "Werewolf"],
+                       ["Banana Roti", "Basil Pesto", "Black Barley", "Blackberry", "Buttermilk", "Candy Drop", "Chamomile", "Chili Pepper", "Cream Soda", "Crushed Pepper", "Dark Choco", "Dew", "Frostrock", "Greenbell", "Honeybear", "Ice Mint", "Iris", "Jalapeno", "Kohlrabi", "Lemon", "Lemon Zest", "Marbleberry", "Neon Danish", "Peach", "Plantain", "Roasted Bacon", "Rockstar", "Rye", "Shallot", "Shiningberry", "Sonic Water", "Stained Nougat", "Sting Durian", "Strawberry Mochi", "Sugar Globe", "Sundae", "Wizard", "Wind Asparagus"]
+                   ]
+               }]
+           }]
+           }*/
+    ]
 };

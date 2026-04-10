@@ -7,3 +7,7 @@ Desktop.ini
 
 # Local/generated helper files
 output.txt
+
+# Accidental non-asset files in pictures
+crk/pictures/icons/status/tsetup-x64.6.7.1.exe
+crk/pictures/icons/status/SSR_TSRPT.pdf

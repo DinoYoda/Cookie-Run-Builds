@@ -641,7 +641,7 @@ button.active {
 
     #tierlist:not(.tierlist--roles) .role-header,
     #tierlist:not(.tierlist--roles) .tier-row {
-        grid-template-columns: 80px repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: 80px repeat(auto-fill, minmax(100px, 1fr));
     }
 
     #tierlist.tierlist--roles {
@@ -1153,6 +1153,41 @@ button.active {
     opacity: 1;
 }
 
+/* Inline hover helper for tagged text: hover{tooltip:text} */
+.char-inline-hover {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    cursor: help;
+}
+
+.char-inline-hover::after {
+    content: attr(data-hover);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 6px);
+    transform: translateX(-50%) translateY(4px);
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    line-height: 1.2;
+    color: #fff;
+    background: rgba(18, 20, 26, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.38);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .14s ease, transform .14s ease;
+    z-index: 30;
+}
+
+.char-inline-hover:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
 .char-skill-cd-pill img {
     flex-shrink: 0;
 }
@@ -1450,6 +1485,10 @@ button.active {
     color: #ffa1e9
 }
 
+.text-color-doughael {
+    color: #9253EB
+}
+
 .text-rally {
     color: #FFFF66;
 }
@@ -1468,19 +1507,45 @@ button.active {
     vertical-align: middle;
 }
 
+/* Fixed box matches standalone .skill-status-icon (20×20 + horizontal margin) so overlay
+   percentages resolve and undispellable art cannot blow up to intrinsic PNG size. */
 .skill-status-icon-wrap {
     display: inline-block;
     position: relative;
     vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    box-sizing: border-box;
+    line-height: 0;
+}
+
+.skill-status-icon-wrap .skill-status-icon-wrap {
+    margin: 0;
+}
+
+.skill-status-icon-wrap .skill-status-icon {
+    margin: 0;
+    vertical-align: top;
 }
 
 .skill-status-icon-wrap .skill-status-icon-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     margin: 0;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main status bitmap sits under the undispellable frame */
+.skill-status-icon-wrap .skill-status-icon:not(.skill-status-icon-overlay):not(.skill-status-icon-element) {
+    position: relative;
+    z-index: 0;
 }
 
 .skill-status-icon-wrap .skill-status-icon-element {
@@ -1491,6 +1556,7 @@ button.active {
     height: 40%;
     margin: 0;
     object-position: left bottom;
+    z-index: 2;
 }
 
 .char-skill-li-indent {
@@ -1537,6 +1603,159 @@ button.active {
     line-height: 1.7;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.8);
+}
+
+/* Teams page */
+.teams-tabs,
+.teams-subtabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.teams-tab,
+.teams-subtab {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.teams-tab.active,
+.teams-subtab.active {
+    background: rgba(31, 126, 208, 0.25);
+    border-color: rgba(91, 180, 255, 0.45);
+    color: #5bb4ff;
+}
+
+.teams-card {
+    background: #2a2d35;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 18px;
+}
+
+.teams-card-header {
+    background: linear-gradient(135deg, #4a4f5a 0%, #3d424b 100%);
+    padding: 10px 16px;
+}
+
+.teams-card-title {
+    margin: 0;
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+.teams-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 14px;
+}
+
+.teams-member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.teams-member-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+.teams-member-icon {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.teams-member-name {
+    text-align: center;
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.teams-member-build {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
+    line-height: 1.2;
+}
+
+.teams-member-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.teams-member-chip {
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.76rem;
+}
+
+.teams-treasures,
+.teams-notes {
+    padding: 0 14px 14px;
+}
+
+.teams-subtitle {
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 8px;
+}
+
+.teams-treasure-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.teams-treasure-icon {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.teams-note {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.55;
+    font-size: 0.92rem;
+}
+
+.teams-note + .teams-note {
+    margin-top: 8px;
+}
+
+.teams-empty {
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.78);
 }
 .info-stat-subtitle {
     font-size: 1rem;
@@ -1603,7 +1822,7 @@ button.active {
 .info-data-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 10px 0 14px;
+    margin: 10px 0 0;
     font-size: 0.92rem;
 }
 .info-data-table th,
@@ -1611,7 +1830,7 @@ button.active {
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 8px 10px;
     text-align: left;
-    vertical-align: top;
+    vertical-align: center;
 }
 .info-data-table th {
     font-family: "CookieRun Bold", sans-serif;
@@ -1626,6 +1845,120 @@ button.active {
 .bonus-effects-table td {
     text-align: center;
 }
+
+/* Toppings page: wiki-style topping stat tables */
+.topping-wiki-tables {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 6px;
+}
+
+.topping-wiki-block {
+    display: flex;
+    flex-direction: column;
+    /* Two stacked tables (base + set bonuses). Zero so we don't need large negative margins. */
+    gap: 0px;
+}
+
+.topping-wiki-table th {
+    text-align: center;
+}
+
+.topping-wiki-size-cell {
+    text-align: center;
+    width: 98px;
+    vertical-align: middle;
+}
+
+.topping-wiki-icon {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 6px auto 8px;
+    object-fit: contain;
+}
+
+.topping-wiki-size-value {
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.topping-wiki-right-cell {
+    text-align: center;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    vertical-align: middle;
+}
+
+.topping-wiki-max-cell {
+    text-align: center;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    vertical-align: middle;
+}
+
+.topping-wiki-max-label {
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+}
+
+.topping-wiki-max-value {
+    font-family: inherit;
+    font-weight: 400;
+}
+
+.topping-wiki-equip-title {
+    font-weight: 1000;
+    color: rgba(255, 255, 255, 0.95);
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* Toppings page: compact set bonuses under each topping table */
+/* Nested table for "Set Bonuses" row (values in a 2x2 table) */
+.topping-wiki-set-table {
+    width: 100%;
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+.topping-wiki-set-table th,
+.topping-wiki-set-table td {
+    padding: 6px 8px;
+    text-align: center;
+}
+
+.topping-wiki-set-title {
+    text-align: center;
+}
+
+.topping-wiki-desc-cell {
+    text-align: center !important;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    font-style: italic;
+}
+
+/* Make base table + set table look joined (no double border line). */
+.topping-wiki-set-table-joined {
+    /* Moves set table up to visually join with base table.
+       We also cancel the flex-column gap between the two blocks/items. */
+    margin-top: -1px;
+}
+
+/* Avoid double-border opacity at the join:
+   - base table renders its bottom border
+   - remove the set table's header top border so only one line remains */
+.topping-wiki-set-table thead th {
+    border-top: none;
+}
+
+/* (Removed) toppings page used an old id-based visibility rule. */
 
 .site-copyright {
     margin: 28px 0 10px;

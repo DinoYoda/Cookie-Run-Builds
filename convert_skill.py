@@ -28,7 +28,9 @@ def convert_statuses(text):
         "The Destroyer's Gaze", "Taunted", "Pale Plague", "Touch of Meaninglessness", "Light Cage", "Chilled", "Drowsy",
         "Terror of the Abyss", "Water Cage", "Lividness", "Supercharge", "Ultracharge", "CRIT Chance Down Resist", "Cyclone",
         "Trace of the Wind", "Pursuer", "Mighty Gale", "Mysterious Melody", "Howling Gust", "Sheltering Branches",
-        "Blessing of the World Tree", "Elemental Force", "Equilibrium", "Pitaya Dragon Cookie's Scale"
+        "Blessing of the World Tree", "Elemental Force", "Equilibrium", "Pitaya Dragon Cookie's Scale",
+        "Disciple of the Abyss", "Selfless Sacrifice", "Sacred Preachings", "Prism Shard", "Prism Shard Target",
+        "Coral Armor", "Resistance to DEF Reduction", "Sign of the Stars", "Magma"
     ]
 
     elements = [
@@ -131,7 +133,7 @@ def convert(text):
 
 if __name__ == "__main__":
 
-    with open(sys.argv[1], "r", encoding="utf8") as f:
+    with open("input.txt", "r", encoding="utf8") as f:
         data = f.read()
 
     result = convert(data)

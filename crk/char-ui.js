@@ -109,7 +109,7 @@ function _imgErrToppingAttr() {
   const u = getGamePictureRoot() + "/toppings/unknown.png"
   return "if(!this.dataset.fallbackDone&&this.dataset.fallbackSrc){this.dataset.fallbackDone='1';this.src=this.dataset.fallbackSrc}else{this.onerror=null;this.src='" + u.replace(/\\/g, "\\\\").replace(/'/g, "\\'") + "'}"
 }
-const _TAG_RE = /(ice|fire|status|light|dark|color|steel|darkness|poison|water|wind|grass|electricity|chaos|earth|rally|header|cookie|treasure|skill|type)(-header)?\{([^}]*)\}/g
+const _TAG_RE = /(ice|fire|status|light|dark|color|steel|darkness|poison|water|wind|grass|electricity|chaos|earth|rally|header|cookie|treasure|skill|type|position|hover)(-header)?\{([^}]*)\}/g
 const _EL_ICONS = { ice: "Ice", fire: "Fire", light: "Light", dark: "Darkness", steel: "Steel", poison: "Poison", water: "Water", wind: "Wind", grass: "Grass", electricity: "Electricity", chaos: "Chaos", earth: "Earth", darkness: "Darkness" }
 
 function tagParser(text) {
@@ -119,7 +119,7 @@ function tagParser(text) {
     if (tag === "header") return `<span class="text-tag text-bold">${_esc(content)}</span>`
     if (tag === "cookie") {
       const cookieName = content.trim()
-      const href = `crk/character.html?char=${encodeURIComponent(cookieName)}`
+      const href = `character.html?char=${encodeURIComponent(cookieName)}`
       return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_esc(cookieName)}_head.png" alt="${_esc(cookieName)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
     }
     if (tag === "treasure") return `<img src="${pic}/treasures/Treasure_${_esc(content.trim())}.png" alt="${_esc(content.trim())}" class="skill-status-icon" onerror="${_imgErrHide}">`
@@ -143,6 +143,15 @@ function tagParser(text) {
       return html
     }
     if (tag === "type") { const t = content.trim(); return `<img src="${pic}/icons/${_esc(t)}.png" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
+    if (tag === "position") { const p = content.trim(); return `<img src="${pic}/icons/${_esc(p)}.png" alt="${_esc(p)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
+    if (tag === "hover") {
+      const raw = String(content || "")
+      const i = raw.indexOf(":")
+      const hoverText = i >= 0 ? raw.slice(0, i).trim() : raw.trim()
+      const visibleText = i >= 0 ? raw.slice(i + 1).trim() : raw.trim()
+      if (!visibleText) return ""
+      return `<span class="char-inline-hover" data-hover="${_esc(hoverText || visibleText)}">${_esc(visibleText)}</span>`
+    }
     if (tag === "color") {
       const ci = content.indexOf(":"), key = ci >= 0 ? content.slice(0, ci).trim() : content
       const disp = ci >= 0 ? content.slice(ci + 1).trim() : content
@@ -195,13 +204,9 @@ function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
       if (!arr || !Array.isArray(arr)) return `%{${inner}}`
       const val = arr[levelIndex]
       if (val == null) return "%"
-      const n = Number(val)
       const isFlat = modifier === "flat"
-      const formatted = isNaN(n)
-        ? String(val)
-        : isFlat
-          ? n.toLocaleString("en-US", { maximumFractionDigits: 0 })
-          : n.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+      // Never round attr values; use the exact precision provided in data.
+      const formatted = String(val)
       const suffix = isFlat ? "" : "%"
       return formatted + suffix
     })
@@ -544,7 +549,7 @@ async function renderCharacterPage(){
 
         function skillBar(skillKey, useBase, notes, ascension, barEnchantsText, hasEnchants, hasAscension, hasGameplayNotes, useLevel1And30) {
             const showNotes = skillKey === "normal" ? showGameplayNotesNormal : showGameplayNotesCj
-            const levelLabel = useLevel1And30 ? (useBase ? "Level 1 ►" : "◄ Level 30") : (useBase ? "Base Level ►" : "◄ Max Level")
+            const levelLabel = useLevel1And30 ? (useBase ? "Level 30 ►" : "◄ Level 1") : (useBase ? "Max Level ►" : "◄ Base Level")
             const levelBtn = `<button type="button" class="char-skill-bar-btn char-skill-level-btn" data-skill="${skillKey}" data-level-style="${useLevel1And30 ? "1-30" : "base-max"}">${levelLabel}</button>`
             const enchantsBtn = hasEnchants ? `<button type="button" class="char-skill-bar-btn char-skill-enchants-btn" data-skill="${skillKey}">${showEnchants ? "Hide Enchants" : "Show Enchants"}</button>` : ""
             const ascensionBtn = hasAscension ? `<button type="button" class="char-skill-bar-btn char-skill-ascension-btn" data-skill="${skillKey}">${showAscension ? "Hide Ascension" : "Show Ascension"}</button>` : ""
@@ -717,7 +722,7 @@ async function renderCharacterPage(){
                 const key = btn.dataset.skill
                 const isBase = key === "normal" ? useBaseLevelNormal : useBaseLevelCj
                 const use1And30 = btn.dataset.levelStyle === "1-30"
-                btn.textContent = use1And30 ? (isBase ? "Level 1 ►" : "◄ Level 30") : (isBase ? "Base Level ►" : "◄ Max Level")
+                btn.textContent = use1And30 ? (isBase ? "Level 30 ►" : "◄ Level 1") : (isBase ? "Max Level ►" : "◄ Base Level")
             })
             skillSection.querySelectorAll(".char-skill-enchants-wrap").forEach((wrap) => {
                 wrap.classList.toggle("char-skill-enchants-hidden", !showEnchants)

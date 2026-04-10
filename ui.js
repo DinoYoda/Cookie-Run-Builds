@@ -24,7 +24,7 @@ function cardImageFilename(gameId, name) {
     if (gameId === "toa") {
         return `${n}_Cookie_Profile_Icon.png`
     }
-    return `Cookie_${String(n).toLowerCase()}_card.png`
+    return `Cookie_${String(n).toLowerCase(n)}_card.png`
 }
 
 const tierSectionSelect = document.getElementById("tierSectionSelect")
@@ -589,6 +589,19 @@ function tierValueForCharacter(char, leaf) {
     return null
 }
 
+/** 0 = best row in that list; used for Guild Battle per-boss normalization. */
+function tierRowIndexForCharacter(char, leaf) {
+    if (!leaf?.tiers || !leaf?.entries) return null
+    for (let i = 0; i < leaf.entries.length; i++) {
+        const row = leaf.entries[i]
+        if (!row) continue
+        for (const cell of row) {
+            if (nameMatchesCell(char, cell)) return i
+        }
+    }
+    return null
+}
+
 function entryKeyForCharacter(char, worldLeaf) {
     if (!worldLeaf?.entries) return char.displayName || char.name
     for (const row of worldLeaf.entries) {
@@ -645,6 +658,8 @@ function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
 
 /**
  * CRK Cookies only: average World Exploration + Kingdom Arena rank indices; branch rules for ties / lower tiers.
+ * When the W+A mean sits at A or below (index >= 3) and needs other lists, weights are ⅓ World EX,
+ * ⅓ Arena, and ⅓ the mean of all remaining tier lists (not equal weight across every list).
  */
 function computeCookiesOverallEntries(game, section) {
     const tierOrder = [...OVERALL_TIER_RANK_ORDER]
@@ -655,6 +670,7 @@ function computeCookiesOverallEntries(game, section) {
         return { tiers: tierOrder, entries: tierOrder.map(() => []) }
     }
     const allLeaves = leaves.filter(t => t.tiers && t.entries)
+    const otherLeaves = allLeaves.filter(t => t !== world && t !== arena)
     const chars = game.characters || []
     const entries = tierOrder.map(() => [])
 
@@ -671,10 +687,15 @@ function computeCookiesOverallEntries(game, section) {
         } else if (avg2 < 3) {
             finalV = Math.floor(avg2)
         } else {
-            const vals = allLeaves.map(leaf => tierValueForCharacter(char, leaf)).filter(v => v != null)
-            if (vals.length === 0) continue
-            const avgN = vals.reduce((a, b) => a + b, 0) / vals.length
-            finalV = roundNearestHalfDown(avgN)
+            const otherVals = otherLeaves.map(leaf => tierValueForCharacter(char, leaf)).filter(v => v != null)
+            let blended
+            if (otherVals.length === 0) {
+                blended = (vW + vA) / 2
+            } else {
+                const avgOthers = otherVals.reduce((a, b) => a + b, 0) / otherVals.length
+                blended = (vW + vA + avgOthers) / 3
+            }
+            finalV = roundNearestHalfDown(blended)
         }
 
         finalV = Math.max(0, Math.min(finalV, tierOrder.length - 1))

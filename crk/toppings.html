@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Toppings</title>
 <link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/png" href="pictures/icons/cookie/Silent_salt_head.png">
 </head>
 <body>
 
@@ -19,7 +20,8 @@
   </div>
   <div class="sidebar-header">Menu</div>
   <a href="../characters.html" class="sidebar-link">Cookies</a>
-  <a href="../index.html" class="sidebar-link">Tier Lists</a>
+  <a href="teams.html" class="sidebar-link">Teams</a>
+  <a href="../tierlist.html" class="sidebar-link">Tier Lists</a>
   <a href="stats.html" class="sidebar-link">Stats</a>
   <a href="toppings.html" class="sidebar-link sidebar-link-active">Toppings</a>
   <a href="beascuits.html" class="sidebar-link">Beascuits</a>
@@ -39,28 +41,9 @@
   </section>
 
   <section class="info-section">
-    <h2 class="info-section-title">Set Effects</h2>
-    <div class="info-section-body">
-      <p>Equipping multiple toppings of the same type activates set bonuses. In practice, most builds use either a full 5-piece set or a split that hits a specific breakpoint.</p>
-      <p>Because set effects are strong, topping type choice usually comes first, then substat optimization within that set.</p>
-    </div>
-  </section>
-
-  <section class="info-section">
     <h2 class="info-section-title">Topping Types</h2>
     <div class="info-section-body">
-      <ul>
-        <li><strong>Searing Raspberry</strong> - increases ATK.</li>
-        <li><strong>Hard Walnut</strong> - increases DEF.</li>
-        <li><strong>Healthy Peanut</strong> - increases HP.</li>
-        <li><strong>Bouncy Caramel</strong> - increases ATK SPD.</li>
-        <li><strong>Juicy Apple Jelly</strong> - increases CRIT%.</li>
-        <li><strong>Swift Chocolate</strong> - reduces Cooldown.</li>
-        <li><strong>Solid Almond</strong> - increases DMG Resist.</li>
-        <li><strong>Hearty Hazelnut</strong> - increases CRIT Resist.</li>
-        <li><strong>Sweet Candy</strong> - increases Amplify Buff.</li>
-        <li><strong>Fresh Kiwi</strong> - increases Debuff Resist.</li>
-      </ul>
+      <div id="toppingWikiTables" class="topping-wiki-tables"></div>
     </div>
     <div class="info-section-body">
       <h3 class="info-stat-subtitle">Bonus Effects</h3>
@@ -83,7 +66,7 @@
     <h2 class="info-section-title">Resonant Toppings</h2>
     <div class="info-section-body">
       <p>Resonant toppings can only be equipped by certain cookies, usually thematic with the topping, but have higher minimum substat values. They also only offer the 6 meta substats: ATK, ATK SPD, CRIT%, Cooldown, DMG Resist, and CRIT Resist.</p>
-      <p>That last one is why resonant toppings are not strictly better than normal ones - some cookies (like many supports) would prefer HP as a substat.</p>
+      <p>That last one is why resonant toppings are not strictly better than normal ones. HP is used by many cookies and CRIT Resist none. I can only pray Devsis changes this one day. I think Ancient Root toppings on my Millenial Tree would look really nice.</p>
     </div>
     <div class="info-section-body">
       <h3 class="info-stat-subtitle">Bonus Effects (Resonant Toppings)</h3>
@@ -135,7 +118,7 @@
 </div>
 
 <footer class="site-copyright">
-  <p>This site was developed by DinoYoda. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
+  <p>This site was developed by DinoYoda and is currently a WIP. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
 </footer>
 
 <script>
@@ -144,6 +127,160 @@ const sb = document.getElementById("sidebar")
 const ov = document.getElementById("sidebarOverlay")
 st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
 ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="crk_descriptions.js"></script>
+<script>
+// Topping wiki tables (base values + value-per-level + computed max).
+(function () {
+  const levels = { xs: 6, s: 9, m: 12 }
+  const toppings = [
+    { type: "raspberry", name: "Searing Raspberry", stat: "ATK", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 8, 5: 10, 6: 12 } },
+    { type: "walnut", name: "Hard Walnut", stat: "DEF", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 10, 3: 13, 5: 20, 6: 25 } },
+    { type: "peanut", name: "Healthy Peanut", stat: "HP", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 10, 5: 12, 6: 15 } },
+    { type: "caramel", name: "Bouncy Caramel", stat: "ATK SPD", base: { xs: 1.1, s: 1.5, m: 1.7 }, perLevelAbs: 0.2, equip: { 2: 7, 3: 8, 5: 10, 6: 12 } },
+    { type: "applejelly", name: "Juicy Apple Jelly", stat: "CRIT%", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 6, 5: 8, 6: 10 } },
+    // Note: values are negative reductions; perLevelAbs is the magnitude.
+    { type: "chocolate", name: "Swift Chocolate", stat: "Cooldown", base: { xs: -0.4, s: -1.1, m: -1.8 }, perLevelAbs: 0.1, equip: { 2: -2, 3: -4, 5: -5, 6: -6 } },
+    { type: "almond", name: "Solid Almond", stat: "DMG Resist", base: { xs: 1, s: 1.5, m: 1.7 }, perLevelAbs: 0.2, equip: { 2: 3, 3: 7, 5: 8, 6: 10 } },
+    { type: "hazelnut", name: "Hearty Hazelnut", stat: "CRIT Resist", base: { xs: 1.1, s: 1.5, m: 2.1 }, perLevelAbs: 0.2, equip: { 2: 20, 3: 25, 5: 30, 6: 35 } },
+    { type: "candy", name: "Sweet Candy", stat: "Amplify Buff", base: { xs: 0.4, s: 1.1, m: 1.8 }, perLevelAbs: 0.1, equip: { 2: 9, 3: 10, 5: 11, 6: 12 } },
+    { type: "kiwi", name: "Fresh Kiwi", stat: "Debuff Resist", base: { xs: 0.4, s: 1.1, m: 1.8 }, perLevelAbs: 0.1, equip: { 2: 10, 3: 11, 5: 12, 6: 13 } }
+  ]
+
+  const fmtNumber = (n) => {
+    const rounded1 = Math.round(n * 10) / 10
+    const isInt = Math.abs(rounded1 - Math.round(rounded1)) < 1e-9
+    return isInt ? String(Math.round(rounded1)) : String(rounded1.toFixed(1)).replace(/\.0$/, "")
+  }
+  const fmtSigned = (n) => (n >= 0 ? "+" + fmtNumber(n) : fmtNumber(n))
+
+  function computeMax(baseVal, perLevelAbs, sizeKey) {
+    const dir = baseVal >= 0 ? 1 : -1 // positive stats grow upward, negative stats grow downward
+    // Toppings start at level 0, so the max is base + (value-per-level * maxLevelIndex)
+    // where maxLevelIndex is the given level count (e.g. XS has 6 levels => max at Lv 6).
+    return baseVal + (dir * perLevelAbs * levels[sizeKey])
+  }
+
+  const container = document.getElementById("toppingWikiTables")
+  if (!container) return
+  container.innerHTML = ""
+
+  const getDesc = (type) => window.CRK_DESCRIPTIONS?.topping_description?.[type] || ""
+
+  for (const t of toppings) {
+    const iconXsSrc = `pictures/toppings/${t.type}/Topping_${t.type}_1.png`
+    const iconS_src = `pictures/toppings/${t.type}/Topping_${t.type}_2.png`
+    const iconM_src = `pictures/toppings/${t.type}/Topping_${t.type}_3.png`
+    const maxXs = computeMax(t.base.xs, t.perLevelAbs, "xs")
+    const maxS = computeMax(t.base.s, t.perLevelAbs, "s")
+    const maxM = computeMax(t.base.m, t.perLevelAbs, "m")
+    const desc = getDesc(t.type)
+
+    const block = document.createElement("div")
+    block.className = "topping-wiki-block"
+
+    const table = document.createElement("table")
+    table.className = "topping-wiki-table topping-wiki-base-table info-data-table"
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>XS</th><th>S</th><th>M</th><th>Stats</th>
+        </tr>
+        <tr>
+          <th colspan="4">${t.name} (${t.stat})</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="topping-wiki-size-cell" rowspan="4">
+            <img class="topping-wiki-icon" src="${iconXsSrc}" alt="${t.name}">
+            <div class="topping-wiki-size-value">${fmtSigned(t.base.xs)}%</div>
+          </td>
+          <td class="topping-wiki-size-cell" rowspan="4">
+            <img class="topping-wiki-icon" src="${iconS_src}" alt="${t.name}">
+            <div class="topping-wiki-size-value">${fmtSigned(t.base.s)}%</div>
+          </td>
+          <td class="topping-wiki-size-cell" rowspan="4">
+            <img class="topping-wiki-icon" src="${iconM_src}" alt="${t.name}">
+            <div class="topping-wiki-size-value">${fmtSigned(t.base.m)}%</div>
+          </td>
+                    <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Value per Level:</span>
+            <span class="topping-wiki-max-value"> +${fmtNumber(t.perLevelAbs)}% ${t.stat}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Max Value XS:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(maxXs)}% ${t.stat}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Max Value S:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(maxS)}% ${t.stat}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Max Value M:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(maxM)}% ${t.stat}</span>
+          </td>
+        </tr>
+      </tbody>
+    `
+
+    const setTable = document.createElement("table")
+    setTable.className = "topping-wiki-set-table topping-wiki-set-table-joined info-data-table"
+    setTable.innerHTML = `
+      <thead>
+        <tr>
+          <th colspan="2" class="topping-wiki-set-title">Set Bonuses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+                    <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Equip 2:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[2])}% ${t.stat}</span>
+          </td>
+          <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Equip 3:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[3])}% ${t.stat}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Equip 3:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[3])}% ${t.stat}</span>
+          </td>
+          <td class="topping-wiki-max-cell">
+            <span class="topping-wiki-max-label">Equip 6:</span>
+            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[6])}% ${t.stat}</span>
+          </td>
+        </tr>
+      </tbody>
+    `
+
+    block.appendChild(table)
+    block.appendChild(setTable)
+
+    // Description goes directly beneath the topping name (in the base table header).
+    if (desc) {
+      const thead = table.querySelector("thead")
+      if (thead) {
+        const tr = document.createElement("tr")
+        const td = document.createElement("td")
+        td.colSpan = 4
+        td.className = "topping-wiki-desc-cell"
+        td.textContent = desc
+        tr.appendChild(td)
+        thead.appendChild(tr)
+      }
+    }
+    container.appendChild(block)
+  }
+})()
 </script>
 <script src="../sidebar-game.js"></script>
 

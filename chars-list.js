@@ -104,13 +104,15 @@ function buildFilters(filters) {
     const g = document.createElement("div")
     g.className = "filter-group"
     vals.forEach(v => {
-      if (!v) return
+      if (v === undefined) return
+      const displayValue = v == null ? "None" : v
+      const iconValue = v == null ? "null" : v
       const btn = document.createElement("button")
       btn.className = "filter-icon-btn"
       btn.dataset.category = cat
-      btn.dataset.value = v
-      btn.title = v
-      btn.innerHTML = `<img src="${listPictureRoot()}/icons/${v}.png" alt="${v}">`
+      btn.dataset.value = iconValue
+      btn.title = displayValue
+      btn.innerHTML = `<img src="${listPictureRoot()}/icons/${iconValue}.png" alt="${displayValue}">`
       btn.onclick = () => {
         if (!activeFilters[cat]) activeFilters[cat] = []
         const i = activeFilters[cat].indexOf(v)

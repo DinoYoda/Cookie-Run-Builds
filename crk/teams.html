@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Beascuits</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams</title>
 <link rel="stylesheet" href="../styles.css">
 <link rel="icon" type="image/png" href="pictures/icons/cookie/Silent_salt_head.png">
 </head>
@@ -20,42 +21,24 @@
   </div>
   <div class="sidebar-header">Menu</div>
   <a href="../characters.html" class="sidebar-link">Cookies</a>
-  <a href="teams.html" class="sidebar-link">Teams</a>
+  <a href="teams.html" class="sidebar-link sidebar-link-active">Teams</a>
   <a href="../tierlist.html" class="sidebar-link">Tier Lists</a>
   <a href="stats.html" class="sidebar-link">Stats</a>
   <a href="toppings.html" class="sidebar-link">Toppings</a>
-  <a href="beascuits.html" class="sidebar-link sidebar-link-active">Beascuits</a>
+  <a href="beascuits.html" class="sidebar-link">Beascuits</a>
   <a href="about.html" class="sidebar-link">About</a>
 </div>
 
-<div class="info-page">
-  <h1 class="info-title">Beascuits</h1>
+<div class="info-page teams-page">
+  <h1 class="info-title">Teams</h1>
   <div class="info-divider"></div>
 
-  <section class="info-section">
-    <h2 class="info-section-title">How Beascuits Work</h2>
-    <div class="info-section-body">
-      <p>Beascuits provide four additional stat lines and are a major part of endgame optimization.</p>
-      <p>Like toppings, quality is determined by both line type and roll strength, not just rarity.</p>
-    </div>
-  </section>
+  <div class="teams-tabs" id="teamsCategoryTabs" role="tablist" aria-label="Team categories"></div>
+  <div class="teams-subtabs" id="teamsSectionTabs" role="tablist" aria-label="Team subsections"></div>
 
   <section class="info-section">
-    <h2 class="info-section-title">General Priorities</h2>
     <div class="info-section-body">
-      <ul>
-        <li>Meet survivability and cooldown needs first.</li>
-        <li>Then stack damage stats that match the cookie's role and team.</li>
-        <li>Element-focused teams should prioritize the matching elemental line once core breakpoints are met.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="info-section">
-    <h2 class="info-section-title">Practical Notes</h2>
-    <div class="info-section-body">
-      <p>If a build card lists specific beascuit targets, those values take priority over generic recommendations.</p>
-      <p>For most accounts, one strong all-purpose beascuit per cookie is better than several half-finished niche variants.</p>
+      <div id="teamsContent"></div>
     </div>
   </section>
 </div>
@@ -64,6 +47,8 @@
   <p>This site was developed by DinoYoda and is currently a WIP. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
 </footer>
 
+<script src="../data.js"></script>
+<script src="teams.js"></script>
 <script>
 const st = document.getElementById("sidebarToggle")
 const sb = document.getElementById("sidebar")
