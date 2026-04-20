@@ -1,0 +1,52 @@
+{
+  "wikiApi": "https://cookierun.wiki/mw/api.php",
+  "cookies": {
+    "Moonlight": {
+      "wikiTitle": "Moonlight Cookie/Kingdom",
+      "keys": {
+        "moonlight": {
+          "skill_details": "color-header{moonlight:Star of the Nightsky}<br>DMG: +25.0% for 12.0 sec: stacks up to x1<br>Starlight Periodic DMG: up to x10 ticks for 1.8 sec; %{attr1} DMG per tick<br>Additional Starlight DMG: 5.5% of Max HP (Cookies)<br>Starlight ignoring DMG Resist: 40.0%<br>color-header{moonlight:Moonlight of the Nightsky}<br>DMG (Cookies): 125.0% of ATK + 3.0% of true DMG proportional to Max HP + Sleep for 2.0 sec<br>DMG (Others): 255.0% of ATK + Sleep for 2.0 sec<br>status{Drowsy} Drowsiness: ATK SPD -15.0%, MOV SPD -15.0% for 15.0 sec<br>color-header{moonlight:Dreaming Moon}<br>status{Healing} Self-healing: 29.8% of ATK",
+          "skillAttr": {
+            "attr1": [
+              59.1,
+              119.6
+            ]
+          },
+          "skill_notes": "Regular attack deals % ATK DMG to the nearest target.<br>color-header{moonlight:Star of the Nightsky}<br>Moonlight Cookie becomes intangible while using her skill.<br>color-header{moonlight:Moonlight of the Nightsky}<br>The projectile is not affected by ATK SPD changes.<br>color-header{moonlight:Dreaming Moon}<br>Moonlight Cookie restores her own HP after the skill duration and after receiving Sleep effects.",
+          "rally_effects": "color-header{moonlight:Rally Effect}<br>color-header{moonlight:Moonlight's Protection}<br>status{Debuff_Resist} Team gains Debuff Resist +%{attr1} upon entering battle<br>status{Debuff_Resist} Team gains extra Debuff Resist +20.0% for 3 sec when Moonlight Cookie uses her skill"
+        },
+        "moonlight_cj": {
+          "skill_details": "color-header{moonlight:Brilliant Starlight}<br>Periodic DMG: x10 ticks over 1.8 sec, 33.0% DMG per tick<br>DMG (Cookies): %{attr2} of Max HP<br>DMG Resist Bypass: 35.0%<br>Extra DMG: +25.0% for 12 sec; stacks up to x1<br>status{Sleep}: 2.5 sec<br>Drowsy: ATK SPD -20.0%, MOV SPD -20.0% for 15 sec<br>color-header{moonlight:Gleaming Moonlight}<br>Periodic DMG (Cookies): x3 ticks over 0.9 sec, %{attr3} DMG per tick + 2.0% True DMG proportional to Max HP<br>Periodic DMG (Others): x3 ticks over 0.9 sec, 255.0% DMG per tick<br>color-header{moonlight:Night Sky}<br>status{Amplify_Buff} Moonlight Cookie's Amplify Buff: +30.0%<br>Moonlight Cookie Immune to Sleep & Drowsy<br>Moonlight Cookie Self-Healing: 5.5% of ATK when affected by Sleep",
+          "cjSkillAttr": {
+            "attr1": [
+              7.0,
+              22.5
+            ],
+            "attr2": [
+              1.5,
+              2.5
+            ],
+            "attr3": [
+              41.8,
+              70.7
+            ]
+          },
+          "skill_notes": "color-header{moonlight:Moonlight's Protection} (Rally Effect)<br>Debuff Resist gained from the Rally Effect is undispellable.<br>color-header{moonlight:Brilliant Starlight}<br>Each tick of damage inflicts Sleep, refreshing it on application. This results in Sleep being applied for a longer duration per skill cast than shown."
+        }
+      },
+      "enchants": {
+        "moonlight_10": "Activates the Radiant Crescent:<br>Extra DMG to Gleaming Moonlight Targets: 103.2% of ATK<br>Gleaming Moonlight DMG Resist Bypass: 35.0%",
+        "moonlight_20": "Sends Falling Stars upon up to five targets of Brilliant Starlight with the highest ATK, dealing DMG equal to 144.0% of ATK<br>Skill DMG Resist Bypass: +1.7% per each 1% of Cooldown decreased with Beascuits; capped at 30.0%",
+        "moonlight_30": "Augmented by the full moon's radiance, Falling Stars deal area damage:<br>Falling Stars Area DMG: 107.7% of ATK"
+      },
+      "ascension_effects": {
+        "moonlight_1": "Moonlight Cookie's Max HP +5.0%",
+        "moonlight_2": "Moonlight Cookie's DMG Resist +5.0%",
+        "moonlight_3": "Moonlight Cookie's ATK +5.0%",
+        "moonlight_4": "Moonlight Cookie's CRIT DMG +7.0%",
+        "moonlight_5": "Moonlight Cookie's DMG Resist Bypass +7.0%"
+      },
+      "warnings": []
+    }
+  }
+}

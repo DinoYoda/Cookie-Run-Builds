@@ -98,6 +98,60 @@ function buildGameplayNotesHtml(notesObj, skillAttr, notesPrefix) {
 }
 
 const _esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
+
+/** Display label for status{mainId|…} hover (internal ids use SNAKE_CASE). */
+function _statusIdToHoverLabel(mainId) {
+  const raw = String(mainId || "").trim()
+  if (!raw) return ""
+  return raw.split("_").map((seg) => {
+    if (!seg) return ""
+    if (/^[A-Z0-9]+$/.test(seg)) {
+      if (seg.length <= 4) return seg
+      return seg.charAt(0) + seg.slice(1).toLowerCase()
+    }
+    return seg.charAt(0).toUpperCase() + seg.slice(1).toLowerCase()
+  }).filter(Boolean).join(" ")
+}
+
+let _skillStatusCursorTipBound = false
+function _ensureSkillStatusCursorTip() {
+  if (_skillStatusCursorTipBound || typeof document === "undefined") return
+  _skillStatusCursorTipBound = true
+  let tipEl = document.getElementById("skill-status-cursor-tip")
+  if (!tipEl) {
+    tipEl = document.createElement("div")
+    tipEl.id = "skill-status-cursor-tip"
+    tipEl.className = "skill-status-cursor-tip"
+    tipEl.setAttribute("aria-hidden", "true")
+    document.body.appendChild(tipEl)
+  }
+  let activeWrap = null
+  const hide = () => {
+    activeWrap = null
+    tipEl.classList.remove("is-visible")
+    tipEl.textContent = ""
+  }
+  const offsetX = 14
+  const offsetY = 18
+  document.addEventListener(
+    "mousemove",
+    (e) => {
+      const wrap = e.target && e.target.closest ? e.target.closest(".skill-status-hover-wrap") : null
+      const label = wrap && wrap.dataset && wrap.dataset.statusTip ? wrap.dataset.statusTip : ""
+      if (!label) {
+        if (activeWrap) hide()
+        return
+      }
+      activeWrap = wrap
+      tipEl.textContent = label
+      tipEl.classList.add("is-visible")
+      tipEl.style.left = `${e.clientX + offsetX}px`
+      tipEl.style.top = `${e.clientY + offsetY}px`
+    },
+    true
+  )
+  document.addEventListener("scroll", () => { if (activeWrap) hide() }, true)
+}
 /** Clear onerror before changing src so missing fallbacks cannot loop forever */
 const _imgErrHide = "this.onerror=null;this.style.display='none'"
 /** Main skill icon: one fallback to unknown, then stop (avoids loop if unknown.png is missing) */
@@ -111,10 +165,11 @@ function _imgErrToppingAttr() {
 }
 const _TAG_RE = /(ice|fire|status|light|dark|color|steel|darkness|poison|water|wind|grass|electricity|chaos|earth|rally|header|cookie|treasure|skill|type|position|hover)(-header)?\{([^}]*)\}/g
 const _EL_ICONS = { ice: "Ice", fire: "Fire", light: "Light", dark: "Darkness", steel: "Steel", poison: "Poison", water: "Water", wind: "Wind", grass: "Grass", electricity: "Electricity", chaos: "Chaos", earth: "Earth", darkness: "Darkness" }
+const _COLOR_HEADER_PREFIX = "color-header{"
 
-function tagParser(text) {
+/** Remaining text: standard tag{…} tokens only (no color-header — use balanced expand first). */
+function _replaceStandardTags(text, pic) {
   if (!text || typeof text !== "string") return ""
-  const pic = getGamePictureRoot()
   return text.replace(_TAG_RE, (_, tag, noIcon, content) => {
     if (tag === "header") return `<span class="text-tag text-bold">${_esc(content)}</span>`
     if (tag === "cookie") {
@@ -140,7 +195,9 @@ function tagParser(text) {
         const elImg = `<img src="${pic}/icons/${_esc(elIconName)}.png" alt="${_esc(element)}" class="skill-status-icon skill-status-icon-element" onerror="${_imgErrHide}">`
         html = `<span class="skill-status-icon-wrap">${html}${elImg}</span>`
       }
-      return html
+      const tip = _statusIdToHoverLabel(mainId)
+      const tipAttr = tip ? ` data-status-tip="${_esc(tip)}"` : ""
+      return `<span class="skill-status-hover-wrap"${tipAttr}>${html}</span>`
     }
     if (tag === "type") { const t = content.trim(); return `<img src="${pic}/icons/${_esc(t)}.png" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
     if (tag === "position") { const p = content.trim(); return `<img src="${pic}/icons/${_esc(p)}.png" alt="${_esc(p)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
@@ -155,8 +212,11 @@ function tagParser(text) {
     if (tag === "color") {
       const ci = content.indexOf(":"), key = ci >= 0 ? content.slice(0, ci).trim() : content
       const disp = ci >= 0 ? content.slice(ci + 1).trim() : content
-      // Support elemental palette keys (e.g. color{fire:...}) without showing an icon.
-      // This maps to existing CSS classes like `.text-fire`, `.text-water`, etc.
+      const hexKey = String(key).trim()
+      if (/^[0-9a-f]{3}$/i.test(hexKey) || /^[0-9a-f]{6}$/i.test(hexKey) || /^[0-9a-f]{8}$/i.test(hexKey)) {
+        const hx = /^[0-9a-f]{3}$/i.test(hexKey) ? hexKey.split("").map((c) => c + c).join("") : hexKey
+        return `<span class="text-tag text-bold" style="color:#${_esc(hx)}">${_expandColorHeaderBlocks(disp, pic)}</span>`
+      }
       const keyNorm = String(key).trim().toLowerCase()
       const elementToCss = {
         ice: "ice",
@@ -175,14 +235,11 @@ function tagParser(text) {
       }
       const elCss = elementToCss[keyNorm]
       if (elCss) {
-        return `<span class="text-tag text-${elCss} text-bold">${_esc(disp)}</span>`
+        return `<span class="text-tag text-${elCss} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
       }
-      return `<span class="text-tag text-color-${_esc(key)} text-bold">${_esc(disp)}</span>`
+      return `<span class="text-tag text-color-${_esc(key)} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
     }
     if (tag === "rally") {
-      // Styled inline rally header (used for Millennial Tree's unique rally placement).
-      // Render as text only (no icon), and use header detection in renderSkillTaggedText
-      // so the next line is not treated as an indented list item.
       return `<span class="text-tag text-rally text-bold">${_esc(content)}</span>`
     }
     const span = `<span class="text-tag text-${tag} text-bold">${_esc(content)}</span>`
@@ -190,6 +247,78 @@ function tagParser(text) {
     const iconName = _EL_ICONS[tag] || tag.charAt(0).toUpperCase() + tag.slice(1)
     return `<img src="${pic}/icons/${_esc(iconName)}.png" alt="${_esc(tag)}" class="skill-status-icon text-tag" onerror="${_imgErrHide}">${span}`
   })
+}
+
+/**
+ * color-header{HEX:…} or color-header{slug:…} with balanced {…} so payload may contain status{…|…}.
+ */
+function _expandColorHeaderBlocks(text, pic) {
+  if (!text || typeof text !== "string") return ""
+  let i = 0
+  let out = ""
+  while (i < text.length) {
+    const k = text.indexOf(_COLOR_HEADER_PREFIX, i)
+    if (k < 0) {
+      out += _replaceStandardTags(text.slice(i), pic)
+      break
+    }
+    out += _replaceStandardTags(text.slice(i, k), pic)
+    const openBrace = k + _COLOR_HEADER_PREFIX.length - 1
+    let depth = 0
+    let j = openBrace
+    for (; j < text.length; j++) {
+      const c = text[j]
+      if (c === "{") depth++
+      else if (c === "}") {
+        depth--
+        if (depth === 0) {
+          j++
+          break
+        }
+      }
+    }
+    if (depth !== 0) {
+      out += text.slice(k)
+      break
+    }
+    const inner = text.slice(openBrace + 1, j - 1)
+    const hexHdr = inner.match(/^([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8}):([\s\S]*)$/i)
+    if (hexHdr) {
+      const key = hexHdr[1]
+      const disp = hexHdr[2]
+      const hx = key.length === 3 ? key.split("").map((c) => c + c).join("") : key
+      out += `<span class="text-tag text-bold" style="color:#${_esc(hx)}">${_expandColorHeaderBlocks(disp, pic)}</span>`
+    } else {
+      const colon = inner.indexOf(":")
+      const slug = colon >= 0 ? inner.slice(0, colon).trim() : inner.trim()
+      const disp = colon >= 0 ? inner.slice(colon + 1) : ""
+      out += `<span class="text-tag text-color-${_esc(slug)} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
+    }
+    i = j
+  }
+  return out
+}
+
+function tagParser(text) {
+  if (!text || typeof text !== "string") return ""
+  return _expandColorHeaderBlocks(text, getGamePictureRoot())
+}
+
+/**
+ * Skill detail / %{attr} display: insert thousands separators (e.g. 1087 → 1,087) without rounding
+ * or changing fractional digits (matches in-game style).
+ */
+function formatSkillAttrNumberForDisplay(val) {
+  const s = String(val).trim()
+  if (!s || /[eE]/.test(s)) return s
+  const neg = s.startsWith("-")
+  const rest = neg ? s.slice(1) : s
+  const dot = rest.indexOf(".")
+  const intPart = dot >= 0 ? rest.slice(0, dot) : rest
+  const fracPart = dot >= 0 ? rest.slice(dot) : ""
+  if (!/^\d+$/.test(intPart)) return s
+  const withCommas = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  return (neg ? "-" : "") + withCommas + fracPart
 }
 
 function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
@@ -206,7 +335,7 @@ function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
       if (val == null) return "%"
       const isFlat = modifier === "flat"
       // Never round attr values; use the exact precision provided in data.
-      const formatted = String(val)
+      const formatted = formatSkillAttrNumberForDisplay(val)
       const suffix = isFlat ? "" : "%"
       return formatted + suffix
     })
@@ -407,6 +536,8 @@ async function renderCharacterPage(){
     const name = urlName || localStorage.getItem("selectedCookie")
     if(!name) return
 
+    _ensureSkillStatusCursorTip()
+
     const img = document.getElementById("char-image")
     img.src = getPageImagePath(name)
 
@@ -599,6 +730,17 @@ async function renderCharacterPage(){
             const mergedDetails = (detailsText) => {
                 const baseText = detailsText || ""
                 if (useInlineRally && rallyData) {
+                    const r = String(rallyData).trim()
+                    if (r.length < 16) return baseText
+                    if (baseText.includes(r)) return baseText
+                    // Wiki often repeats rally in skill_details with different status{…} ids than rally_effects.
+                    const normRally = (s) => String(s)
+                        .replace(/status\{[^}]*\}/g, "status{}")
+                        .replace(/<br\s*\/?>/gi, " ")
+                        .replace(/\s+/g, " ")
+                        .trim()
+                    const br = normRally(r)
+                    if (br.length >= 12 && normRally(baseText).includes(br)) return baseText
                     return `${baseText}${rallyData}`
                 }
                 return baseText
@@ -608,7 +750,8 @@ async function renderCharacterPage(){
             const swapClass = useBaseLevelNormal ? "level-base" : "level-max"
             normalSkillDetailsHtml = `<div class="char-skill-details-swap ${swapClass}" data-level-swap="normal" style="margin-top:16px"><div class="char-skill-details" data-level="base">${base}</div><div class="char-skill-details" data-level="max">${max}</div></div>`
         }
-        const normalEnchantsRaw = (!isCJ || !hasCJ) ? buildEnchantsHtml(descData.enchants, charData?.skillAttr, slug) : ""
+        // Enchants apply to Magic Candy / Crystal Jam only — same key shape as wiki import ({slug}_10 / _20 / _30).
+        const normalEnchantsRaw = !hasMcCj ? buildEnchantsHtml(descData.enchants, charData?.skillAttr, slug) : ""
         const normalEnchantsHtml = wrapEnchantsToggleable(normalEnchantsRaw, "normal", showEnchants)
         const normalGameplayNotesRaw = buildGameplayNotesHtml(descData.skill_notes, charData?.skillAttr, slug)
         const normalGameplayNotesHtml = wrapGameplayNotesBubble(normalGameplayNotesRaw, "normal", showGameplayNotesNormal)
@@ -673,9 +816,11 @@ async function renderCharacterPage(){
                 useBaseLevelCj ? 0 : 1,
                 "mc"
             )
-            const cjEnchantsRaw = buildEnchantsHtml(descData.enchants, charData?.skillAttrMc ?? charData?.skillAttr, `${slug}_mc`)
+            const mcEnchantsSource = descData.cj_enchants && Object.keys(descData.cj_enchants).length ? descData.cj_enchants : descData.enchants
+            const cjEnchantsRaw = buildEnchantsHtml(mcEnchantsSource, charData?.skillAttrMc ?? charData?.skillAttr, slug)
             cjEnchantsHtml = wrapEnchantsToggleable(cjEnchantsRaw, "mc", showEnchants)
-            const cjAscensionRaw = buildAscensionHtml(descData.ascension_effects, charData?.skillAttrMc ?? charData?.skillAttr, `${slug}_mc`)
+            const mcAscensionSource = descData.cj_ascension && Object.keys(descData.cj_ascension).length ? descData.cj_ascension : descData.ascension_effects
+            const cjAscensionRaw = buildAscensionHtml(mcAscensionSource, charData?.skillAttrMc ?? charData?.skillAttr, slug)
             cjAscensionHtml = wrapAscensionToggleable(cjAscensionRaw, "mc", showAscension)
             const mcGameplayNotesRaw = buildGameplayNotesHtml(descData.skill_notes, charData?.skillAttrMc ?? charData?.skillAttr, `${slug}_mc`)
             gameplayNotesHtml = wrapGameplayNotesBubble(mcGameplayNotesRaw, "mc", showGameplayNotesCj)
@@ -820,8 +965,9 @@ async function renderCharacterPage(){
             const notesItems = [...(useOwn ? [] : (generalNotes || [])), ...buildNotes]
                 .map(n => `<div class="char-build-note">${renderInlineTaggedText(n, charData?.skillAttr)}</div>`).join("")
             const notesHtml = notesItems ? `<div class="char-build-notes-header-bar"><h4 class="char-build-notes-title">Build Notes</h4></div><div style="padding: 10px 20px;">${notesItems}</div>` : ""
-            const rankIcon = rank === "best" || rank === "recommended" 
-                ? `<div class="char-build-rank-icon char-build-rank-${rank}"></div>` 
+            const rankTitle = rank === "best" ? "Best" : rank === "recommended" ? "Recommended" : ""
+            const rankIcon = rank === "best" || rank === "recommended"
+                ? `<span class="char-build-rank-icon-wrap" data-tooltip="${_esc(rankTitle)}"><div class="char-build-rank-icon char-build-rank-${rank}"></div></span>`
                 : ""
             cardsHtml += `<div class="char-build-card" data-build-id="${id}">
                 <div class="char-build-name-bar">${name}${rankIcon}</div>

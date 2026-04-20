@@ -1,0 +1,45 @@
+<includeonly><!--
+--><span class="status basic-tooltip" style="cursor:help; position:relative; display:inline; z-index:1;" title="<!--
+  -->{{#if:{{{tip|}}}|{{{tip}}}<!--
+
+changes Element status names
+  -->|{{#if:{{{element|}}}|{{#switch:{{{1}}}
+|ATK Up|CRIT DMG Up={{ucfirst:{{{element}}}}}-type {{{1}}}
+|Weakness={{ucfirst:{{{element}}}}}-type{{#ifeq:{{ucfirst:{{{element}}}}}|All|s|}} DMG Up
+|#default={{{1}}}}}|{{{1}}}}}}}{{#if:{{{desc|}}}|&nbsp;({{{desc}}})}}"><!--
+ --><span class="status-image" style="width:{{{width|18}}}px; height:{{{width|18}}}px; position:relative;"><!--
+   -->[[File:Status {{{1}}}.png|{{{width|18}}}px|link={{#ifeq:{{{link}}}|true|{{{1}}}|Status Effects#{{{1}}}}}]]<!--
+ --></span><!--
+
+Undispellable
+ -->{{#if:{{{nodispel|}}}|<span class="status-undispellable" style="position:absolute; z-index:2; left:0; top:2px; line-height:0;">[[File:Status Undispellable {{ucfirst:{{{nodispel}}}}}.png|{{{width|18}}}px|link={{#ifeq:{{{link}}}|true|{{{1}}}|Status Effects#{{{1}}}}}]]</span><!--
+
+Undispellable (auto)
+-->|{{#switch:{{{1}}}
+<!--Buffs-->|Invulnerable|DMG Focus|Immortality|Revive|Wrath of the Commander|Wild|Tamer|Paladin Protector|Light's Shield|Berserker's Fury|Berserker's Spirit|Noble Resolution|Snowy Forest|Berry of Life|Seed of Life|Cream Buff|Pitaya Dragon Cookie's Scale|Draconic Lifeforce|Lividness|Coral Armor|Gatekeeper's Fury|Fettuccine Wraps|Accelerando|Mysterious Melody|Amalgamation|Prism Shard|Friendly Helper|Supercharge|Loyalty|Precious Friend|Mighty Gale|Berserker|Revelry of Flames|Immortal's Return|Okchun Gift|Light of Truth|Reprise|Shield of Conviction|Ultracharge|Bunny Surprise|Soft Bunny|Sweet Bunny|Fluffy Bunny|Citrus Party|Disciple of the Abyss|Blessings of Devotion|Selfless Sacrifice|Power of Spirits|Forsaken Freedom|Magic Siphon|Venom Essence|Venom Core
+
+|Destiny Reversal|Indestructible|Divine Honey Cream Crown|Extra DMG per attack|Dream Whistle|Shiny Jelly Watch|Snowball Magic|Energy Overflow|Vial of Raging Dunes|Holiday Gift Box|Magnificent Crown|Great Sage's Gem|Elder Pilgrim's Torch|Berry Necklace|Crimson Whistle
+
+|Yin Effect|Yang Effect|Spice Smog Buff|Spice Storm Buff|Distortion Buff|Deception Buff|Playtime Buff|Light of Salvation Buff|Rationalization Buff|Chariot Passive|Soul of Salt|Power Consumed
+
+<!--Debuffs-->|Injury|Chill|Light Cage|Claw Mark|Greed of the Tome|Matcha Malice|Suspect|Trace of the Wind|Spear of Immortality|Immortal's Punishment|Penumbral Mark|Puppet Show|Shards of Light|Laxness|Scarlet Mark|Stinging Fizz|Fury of the Catacombs|Checkmate|Exhaustion|Failed Creation|Venom Distortion
+
+|Data Corruption|Spore Dispersal|Apathy|Spice Smog Debuff|Spice Storm Debuff|Distortion Debuff|Deception Debuff|Playtime Debuff|Light of Salvation Debuff|Rationalization Debuff|Sticky Jam|Salt Rock|Salt Dread|Salt Seal|Psionic Wave|Absorption Circle=<span class="status-undispellable" style="position:absolute; z-index:2; left:0; top:2px; line-height:0;">[[File:Status Undispellable {{#switch:{{{1}}}
+<!--Buffs-->|Invulnerable|DMG Focus|Immortality|Revive|Wrath of the Commander|Wild|Tamer|Paladin Protector|Light's Shield|Berserker's Fury|Berserker's Spirit|Noble Resolution|Snowy Forest|Berry of Life|Seed of Life|Cream Buff|Pitaya Dragon Cookie's Scale|Draconic Lifeforce|Lividness|Coral Armor|Gatekeeper's Fury|Fettuccine Wraps|Accelerando|Mysterious Melody|Amalgamation|Prism Shard|Friendly Helper|Supercharge|Loyalty|Precious Friend|Mighty Gale|Berserker|Revelry of Flames|Immortal's Return|Okchun Gift|Light of Truth|Reprise|Shield of Conviction|Ultracharge|Bunny Surprise|Soft Bunny|Sweet Bunny|Fluffy Bunny|Citrus Party|Disciple of the Abyss|Blessings of Devotion|Selfless Sacrifice|Power of Spirits|Forsaken Freedom|Magic Siphon|Venom Essence|Venom Core
+
+|Destiny Reversal|Indestructible|Divine Honey Cream Crown|Extra DMG per attack|Dream Whistle|Shiny Jelly Watch|Snowball Magic|Energy Overflow|Vial of Raging Dunes|Holiday Gift Box|Magnificent Crown|Great Sage's Gem|Elder Pilgrim's Torch|Berry Necklace|Crimson Whistle
+
+|Yin Effect|Yang Effect|Spice Smog Buff|Spice Storm Buff|Distortion Buff|Deception Buff|Playtime Buff|Light of Salvation Buff|Rationalization Buff|Chariot Passive|Soul of Salt=Buff
+<!--Debuffs-->|Injury|Chill|Light Cage|Claw Mark|Greed of the Tome|Matcha Malice|Suspect|Trace of the Wind|Spear of Immortality|Immortal's Punishment|Penumbral Mark|Puppet Show|Shards of Light|Laxness|Scarlet Mark|Stinging Fizz|Fury of the Catacombs|Checkmate|Exhaustion|Failed Creation|Venom Distortion
+
+|Data Corruption|Spore Dispersal|Apathy|Spice Smog Debuff|Spice Storm Debuff|Distortion Debuff|Deception Debuff|Playtime Debuff|Light of Salvation Debuff|Rationalization Debuff|Sticky Jam|Salt Rock|Salt Dread|Salt Seal=Debuff}}.png|{{{width|18}}}px|link={{#ifeq:{{{link}}}|true|{{{1}}}|Status Effects#{{{1}}}}}]]</span>|#default=}}<!--
+ -->}}<!--
+
+Elements
+ -->{{#if:{{{element|}}}|<span class="status-element" style="position:absolute; left:-1px; top:{{#ifeq:{{{width}}}|30|11px|1px}}; z-index:3;">[[File:Crk_element {{lc:{{ucfirst:{{{element}}}}}}}.png|{{#ifeq:{{{width}}}|30|15px|{{{width2|8}}}px}}|link=]]</span><!--
+ 
+Elements (auto)
+ -->|{{#switch:{{{1}}}|Poison|Burn|Magma|Zap|Overcurrent|Freeze|Water Cage|Sea Foam|Endless Flow|Stinging Fizz|Tendrils of Chaos=<span class="status-element" style="position:absolute; left:-1px; top:{{#ifeq:{{{width}}}|30|11px|1px}}; z-index:3;">[[File:Crk_element {{lc:{{ucfirst:{{#switch:{{{1}}}|Poison=Poison|Burn|Magma|Explosive Burn=Fire|Zap|Overcurrent=Electricity|Freeze=Ice|Water Cage|Sea Foam|Endless Flow|Stinging Fizz=Water|Tendrils of Chaos=Chaos}}}}}}.png|{{#ifeq:{{{width}}}|30|15px|{{{width2|8}}}px}}|link=]]</span>|#default=}}<!--
+ -->}}<!--
+needed space--> {{#ifeq:{{{icononly}}}|true||{{#if:{{{2|}}}|{{#if:{{{link|}}}|[[{{{link}}}|{{{2}}}]]|{{{2}}}}}|{{Status/data|{{{1}}}|element={{{element|}}}|link={{{link|}}}}}}}}}<!--
+--></span></includeonly><noinclude>{{Documentation}}</noinclude>

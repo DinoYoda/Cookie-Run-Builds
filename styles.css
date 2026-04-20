@@ -1153,6 +1153,30 @@ button.active {
     opacity: 1;
 }
 
+/* Same layout/behavior as CD tooltip, own sizing/colors */
+.char-build-rank-icon-wrap::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    padding: 8px 14px;
+    background: #4a4f5a 0%;
+    font-size: 0.88rem;
+    font-weight: normal;
+    white-space: nowrap;
+    border-radius: 8px;
+    border: 1px solid rgba(30, 34, 43, 0.12);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0s;
+}
+
+.char-build-rank-icon-wrap:hover::after {
+    opacity: 1;
+}
+
 /* Inline hover helper for tagged text: hover{tooltip:text} */
 .char-inline-hover {
     position: relative;
@@ -1433,62 +1457,6 @@ button.active {
   color: #F23D97
 }
 
-.text-color-silent_salt {
-  color: #8FA7BF
-}
-
-.text-color-shadow_milk {
-  color: #3572EF
-}
-
-.text-color-white_lily {
-  color: #23A41A
-}
-
-.text-color-hollyberry {
-    color: #D72C5E
-}
-
-.text-color-pure_vanilla {
-    color: #D1A319
-}
-
-.text-color-eternal_sugar {
-    color: #FFC4FF
-}
-
-.text-color-burning_spice {
-    color: #AA2A21
-}
-
-.text-color-mystic_flour {
-    color: #D9C398
-}
-
-.text-color-mystic_flour_2 {
-    color: #FFD073
-}
-
-.text-color-moonlight {
-    color: #264AFF
-}
-
-.text-color-millennial_tree {
-    color: #6E8D23
-}
-
-.text-color-millennial_tree_2 {
-    color: #784926
-}
-
-.text-color-sugar_swan {
-    color: #ffa1e9
-}
-
-.text-color-doughael {
-    color: #9253EB
-}
-
 .text-rally {
     color: #FFFF66;
 }
@@ -1557,6 +1525,47 @@ button.active {
     margin: 0;
     object-position: left bottom;
     z-index: 2;
+}
+
+.skill-status-hover-wrap {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.skill-status-hover-wrap[data-status-tip] {
+    cursor: help;
+}
+
+.skill-status-cursor-tip {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    line-height: 1.2;
+    color: #fff;
+    background: rgba(18, 20, 26, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.38);
+    pointer-events: none;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.08s ease;
+}
+
+.skill-status-cursor-tip.is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Longer blurbs (e.g. Cookies list MC/CJ first) — same bubble, allow wrapping */
+.skill-status-cursor-tip.skill-status-cursor-tip--wrap {
+    white-space: normal;
+    max-width: min(320px, 92vw);
+    line-height: 1.35;
 }
 
 .char-skill-li-indent {
@@ -2112,9 +2121,10 @@ button.active {
 }
 
 .char-build-card {
+    --char-build-card-radius: clamp(8px, 0.75vw, 12px);
     background: #2a2d35;
-    border-radius: clamp(8px, 0.75vw, 12px);
-    overflow: hidden;
+    border-radius: var(--char-build-card-radius);
+    overflow: visible;
     margin-bottom: 0;
     box-shadow: 0 clamp(1px, 0.125vw, 2px) clamp(6px, 0.5vw, 8px) rgba(0, 0, 0, 0.3);
     max-width: 100%;
@@ -2128,14 +2138,21 @@ button.active {
     align-self: start;
 }
 
-.char-build-rank-icon {
+/* Wrapper holds position + instant data-tooltip (icon uses ::before/::after) */
+.char-build-rank-icon-wrap {
     position: absolute;
     top: 50%;
     right: clamp(8px, 0.75vw, 12px);
     transform: translateY(-50%);
+    z-index: 10;
+    cursor: help;
+    line-height: 0;
+}
+
+.char-build-rank-icon {
+    position: relative;
     width: clamp(32px, 2.5vw, 40px);
     height: clamp(32px, 2.5vw, 40px);
-    z-index: 10;
 }
 
 .char-build-rank-icon::before {
@@ -2172,13 +2189,22 @@ button.active {
     background-image: url("crk/pictures/icons/recommendation_recommended.png");
 }
 
+.char-build-card > .char-build-name-bar {
+    border-radius: var(--char-build-card-radius) var(--char-build-card-radius) 0 0;
+}
+
+.char-build-card > :last-child {
+    border-bottom-left-radius: var(--char-build-card-radius);
+    border-bottom-right-radius: var(--char-build-card-radius);
+    overflow: hidden;
+}
+
 .char-build-name-bar {
     background: linear-gradient(135deg, #4a4f5a 0%, #3d424b 100%);
     color: white;
     padding: 10px 16px;
     font-family: "CookieRun Bold", sans-serif;
     font-size: 1rem;
-    border-radius: 0;
     margin-bottom: 0;
     position: relative;
 }
@@ -2684,6 +2710,174 @@ button.active {
     color: rgba(255,255,255,0.4);
     padding: 8px 18px 10px;
 }
+/* Sidebar — flex footer: pushes gear + settings to bottom */
+.sidebar-flex-spacer {
+    flex: 1 1 auto;
+    min-height: 12px;
+}
+.sidebar-settings-dock {
+    position: relative;
+    flex-shrink: 0;
+    padding: 10px 10px 0px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: auto;
+}
+.sidebar-settings-gear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    background: rgba(0,0,0,0.28);
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.sidebar-settings-gear:hover {
+    color: rgba(91,180,255,0.95);
+    border-color: rgba(91,180,255,0.35);
+    background: rgba(91,180,255,0.1);
+}
+.sidebar-settings-gear.open {
+    color: #5bb4ff;
+    border-color: rgba(91,180,255,0.45);
+    background: rgba(91,180,255,0.14);
+    box-shadow: 0 0 14px rgba(74,159,239,0.25);
+}
+.sidebar-settings-gear:focus-visible {
+    outline: 2px solid rgba(91,180,255,0.65);
+    outline-offset: 2px;
+}
+.sidebar-settings-gear-svg {
+    display: block;
+    opacity: 0.92;
+}
+/* Panel: opens upward, same visual language as .sidebar-game-menu */
+.sidebar-settings-panel {
+    display: none;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: calc(100% + 8px);
+    flex-direction: column;
+    max-height: min(70vh, 320px);
+    overflow: auto;
+    background: rgba(22, 24, 30, 0.98);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    box-shadow: 0 -8px 28px rgba(0,0,0,0.45);
+    z-index: 30;
+    animation: sidebar-settings-panel-in 0.18s ease-out;
+}
+.sidebar-settings-panel.open {
+    display: flex;
+}
+@keyframes sidebar-settings-panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.sidebar-settings-panel-header {
+    font-family: "CookieRun Bold", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    padding: 10px 14px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.sidebar-settings-panel-body {
+    padding: 10px 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.sidebar-setting-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.sidebar-setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+.sidebar-setting-row:hover {
+    background: rgba(0,0,0,0.32);
+    border-color: rgba(91,180,255,0.15);
+}
+.sidebar-setting-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.25;
+    min-width: 0;
+}
+/* Optional explanation only when a setting needs it (one blurb per item, below the row). */
+.sidebar-setting-blurb {
+    margin: 6px 6px 0;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.42);
+    line-height: 1.45;
+}
+.sidebar-setting-switch {
+    appearance: none;
+    width: 44px;
+    height: 26px;
+    border-radius: 13px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.25);
+}
+.sidebar-setting-switch::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #f5f8fc 0%, #d8dee8 100%);
+    top: 2px;
+    left: 3px;
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+.sidebar-setting-switch:hover {
+    border-color: rgba(91,180,255,0.25);
+}
+.sidebar-setting-switch:checked {
+    background: linear-gradient(145deg, #4a9fef 0%, #2a6fb8 100%);
+    border-color: rgba(91,180,255,0.45);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 0 12px rgba(74,159,239,0.35);
+}
+.sidebar-setting-switch:checked::after {
+    transform: translateX(16px);
+    background: linear-gradient(180deg, #ffffff 0%, #e8eef5 100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.sidebar-setting-switch:focus-visible {
+    outline: 2px solid rgba(91,180,255,0.7);
+    outline-offset: 3px;
+}
 .sidebar-link {
     display: block;
     padding: 10px 18px;
@@ -2745,6 +2939,7 @@ button.active {
 }
 .charlist-sort-dir:hover { background: #3a3d47; }
 .charlist-mccj-label {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -2755,11 +2950,12 @@ button.active {
   color: rgba(255,255,255,0.9);
   font-family: CookieRunR, sans-serif;
   font-size: 0.9rem;
-  cursor: pointer;
+  cursor: help;
   user-select: none;
   line-height: 1;
 }
 .charlist-mccj-label:hover { background: #3a3d47; }
+/* Tooltip follows cursor (see chars-list.js + .skill-status-cursor-tip); no static ::after */
 .charlist-mccj-label input {
   margin: 0;
   width: 16px;

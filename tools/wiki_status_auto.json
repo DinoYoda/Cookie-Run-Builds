@@ -1,0 +1,546 @@
+{
+  "Absorption Circle": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Accelerando": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Amalgamation": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Apathy": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Berry Necklace": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Berry of Life": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Berserker": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Berserker's Fury": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Berserker's Spirit": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Blessings of Devotion": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Bunny Surprise": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Burn": {
+    "element": "fire",
+    "undispel": null
+  },
+  "Chariot Passive": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Checkmate": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Chill": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Chilled": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Choco Shadow": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Citrus Party": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Claw Mark": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Coral Armor": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Cream Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Crimson Whistle": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "DMG Focus": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Data Corruption": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Deception Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Deception Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Destiny Reversal": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Disciple of the Abyss": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Distortion Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Distortion Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Divine Honey Cream Crown": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Draconic Lifeforce": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Dream Whistle": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Elder Pilgrim's Torch": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Endless Flow": {
+    "element": "water",
+    "undispel": null
+  },
+  "Energy Overflow": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Exhaustion": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Extra DMG per attack": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Failed Creation": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Fettuccine Wraps": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Fluffy Bunny": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Forsaken Freedom": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Freeze": {
+    "element": "ice",
+    "undispel": null
+  },
+  "Friendly Helper": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Fury of the Catacombs": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Gatekeeper's Fury": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Great Sage's Gem": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Greed of the Tome": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Holiday Gift Box": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Immortal's Punishment": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Immortal's Return": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Immortality": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Indestructible": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Injury": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Invulnerable": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Laxness": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Light Cage": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Light of Salvation Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Light of Salvation Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Light of Truth": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Light's Shield": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Lividness": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Loyalty": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Magic Siphon": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Magma": {
+    "element": "fire",
+    "undispel": null
+  },
+  "Magnificent Crown": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Matcha Malice": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Mighty Gale": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Mysterious Melody": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Noble Resolution": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Okchun Gift": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Overcurrent": {
+    "element": "electricity",
+    "undispel": null
+  },
+  "Paladin Protector": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Penumbral Mark": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Pitaya Dragon Cookie's Scale": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Playtime Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Playtime Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Poison": {
+    "element": "poison",
+    "undispel": null
+  },
+  "Power Consumed": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Power of Spirits": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Precious Friend": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Prism Shard": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Psionic Wave": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Puppet Show": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Rationalization": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Rationalization Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Rationalization Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Reprise": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Revelry of Flames": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Revive": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Salt Dread": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Salt Rock": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Salt Seal": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Scarlet Mark": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Sea Foam": {
+    "element": "water",
+    "undispel": null
+  },
+  "Seed of Life": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Selfless Sacrifice": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Shards of Light": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Shield of Conviction": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Shiny Jelly Watch": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Snowball Magic": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Snowy Forest": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Soft Bunny": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Soul of Salt": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Spear of Immortality": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Spice Smog Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Spice Smog Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Spice Storm Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Spice Storm Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Spore Dispersal": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Stage Absorption Circle": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Stage Data Corruption": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Stage Psionic Wave": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Stage Soul of Salt": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Stage Sticky Jam": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Sticky Jam": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Stinging Fizz": {
+    "element": "water",
+    "undispel": "debuff"
+  },
+  "Supercharge": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Suspect": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Sweet Bunny": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Tamer": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Tendrils of Chaos": {
+    "element": "chaos",
+    "undispel": null
+  },
+  "The Order's Sacred Fork": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Trace of the Wind": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Ultracharge": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Venom Core": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Venom Distortion": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Venom Essence": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Vial of Raging Dunes": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Water Cage": {
+    "element": "water",
+    "undispel": null
+  },
+  "Wild": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Wrath of the Commander": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Yang Effect": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Yin Effect": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Zap": {
+    "element": "electricity",
+    "undispel": null
+  },
+  "Zapped": {
+    "element": "electricity",
+    "undispel": null
+  }
+}

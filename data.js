@@ -2,13 +2,113 @@ window.CRK_DATA = {
     games: [{
             id: "crk",
             name: "Cookie Run: Kingdom",
-            characters: [{
+            characters: [
+                {
+                    name: "Zhen_huan",
+                    displayName: "Zhen Huan Cookie",
+                    cnEx: true,
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Special",
+                    skill: "Enchanting Dance Dash",
+                    cd: 16,
+                },
+                {
+                    name: "Ruby",
+                    displayName: "Ruby Cookie",
+                    element: null,
+                    type: "Bomber",
+                    position: "Middle",
+                    rarity: "Epic",
+                    skill: "Who Tied the Luban Rock into an Unbreakable Knot?",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [72.0, 145.4],
+                    },
+                    cnEx: true,
+                },
+                {
+                    name: "Moonstone",
+                    displayName: "Moonstone Cookie",
+                    element: null,
+                    type: "Support",
+                    position: "Middle",
+                    rarity: "Epic",
+                    skill: "Silent Reading",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [72.0, 145.4],
+                    },
+                    cnEx: true,
+                },
+                {
+                    name: "Cobalt",
+                    displayName: "Cobalt Cookie",
+                    element: "|Designer =",
+                    type: "Ambush",
+                    position: "Middle",
+                    rarity: "Epic",
+                    skill: "Cold Steel",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [93.7, 170.4],
+                    },
+                    cnEx: true,
+                },
+                {
+                    name: "Jadeite",
+                    displayName: "Jadeite Cookie",
+                    element: null,
+                    type: "Defense",
+                    position: "Front",
+                    rarity: "Super Epic",
+                    skill: "Luxury Jade Umbrella",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [72.0, 145.4],
+                    },
+                    cnEx: true,
+                },
+                {
+                    name: "Baili",
+                    displayName: "Baili Cookie",
+                    element: null,
+                    type: "Ambush",
+                    position: "Rear",
+                    rarity: "Legendary",
+                    skill: "Sealing Python",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [72.0, 145.4],
+                    },
+                    cnEx: true,
+                },
+                {
+                    name: "Tengshe",
+                    displayName: "Tengshe Cookie",
+                    element: null,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Common",
+                    skill: "Brave Dash",
+                    cd: 8,
+                    skillAttr: {
+                        attr1: [150.0, 266.3],
+                    },
+                    cnEx: true,
+                }, {
                     name: "Gingerbrave",
                     displayName: "GingerBrave",
                     element: null,
                     type: "Charge",
                     position: "Front",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Brave Dash",
+                    cd: 8,
+                    skillAttr: {
+                        attr1: [150.0, 266.3],
+                    },
                 },
                 {
                     name: "Muscle",
@@ -16,7 +116,12 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Muscle King Power",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [81.0, 172.9],
+                    },
                 },
                 {
                     name: "Strawberry",
@@ -24,7 +129,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Defense",
                     position: "Front",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Don't Come Near!",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [21.0, 43.9],
+                    },
                 },
                 {
                     name: "Wizard",
@@ -32,7 +142,12 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Magic Storm",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [40.0, 84.6],
+                    },
                 },
                 {
                     name: "Beet",
@@ -40,7 +155,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Hunter's Sense",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [67.0, 142.1],
+                    },
                 },
                 {
                     name: "Ninja",
@@ -48,7 +168,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Swift Strike",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [89.0, 190.1],
+                    },
                 },
                 {
                     name: "Angel",
@@ -56,7 +181,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Healing",
                     position: "Rear",
-                    rarity: "Common"
+                    rarity: "Common",
+                    skill: "Celestial Light",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [50.0, 105.8],
+                    },
                 },
                 {
                     name: "Adventurer",
@@ -64,7 +194,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Rope Master",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [410.0, 873.1],
+                    },
                 },
                 {
                     name: "Alchemist",
@@ -72,7 +207,12 @@ window.CRK_DATA = {
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Unstable Formula",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [34.5, 73.4],
+                    },
                 },
                 {
                     name: "Avocado",
@@ -80,7 +220,12 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Battle Smithing",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [55.0, 116.7],
+                    },
                 },
                 {
                     name: "Blackberry",
@@ -88,7 +233,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Magic",
                     position: "Rear",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Ghost Servants",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [17.0, 35.6],
+                    },
                 },
                 {
                     name: "Carrot",
@@ -96,7 +246,12 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Support",
                     position: "Middle",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Carrot Harvest",
+                    cd: 19,
+                    skillAttr: {
+                        attr1: [138.0, 294.6],
+                    },
                 },
                 {
                     name: "Cherry",
@@ -104,7 +259,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Bomber",
                     position: "Rear",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Huge Cherry Bomb",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [146.0, 309.6],
+                    },
                 },
                 {
                     name: "Clover",
@@ -112,7 +272,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Bard's Song",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [12.0, 26.4],
+                    },
                 },
                 {
                     name: "Custard_iii",
@@ -120,7 +285,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Healing",
                     position: "Rear",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "King's Favor",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [157.3, 334.7],
+                    },
                 },
                 {
                     name: "Devil",
@@ -128,7 +298,12 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Devilish Rune",
+                    cd: 18,
+                    skillAttr: {
+                        attr1: [160.3, 341.1],
+                    },
                 },
                 {
                     name: "Gumball",
@@ -136,7 +311,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Bomber",
                     position: "Rear",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Art-illery",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [264.0, 560.8],
+                    },
                 },
                 {
                     name: "Knight",
@@ -144,7 +324,12 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Cavalry Charge",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [260.0, 552.8],
+                    },
                 },
                 {
                     name: "Onion",
@@ -152,7 +337,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Middle",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Unstoppable Tears",
+                    cd: 19,
+                    skillAttr: {
+                        attr1: [67.0, 142.9],
+                        attr2: [671.0, 1429.0],
+                    },
                 },
                 {
                     name: "Pancake",
@@ -160,7 +351,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Rear",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Take an Acorn!",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [40.0, 84.8],
+                    },
                 },
                 {
                     name: "Princess",
@@ -168,7 +364,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Charge",
                     position: "Front",
-                    rarity: "Rare"
+                    rarity: "Rare",
+                    skill: "Royal Swing",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [319.0, 678.6],
+                    },
                 },
                 {
                     name: "Marshmallow_bunny",
@@ -176,7 +377,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Let's Go, Bunny Tunnel!",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [15.5, 27.2],
+                    },
                 },
                 {
                     name: "Cream_ferret",
@@ -184,7 +390,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Snuggly Ferret",
+                    cd: 18,
+                    skillAttr: {
+                        attr1: [13.4, 28.4],
+                    },
                 },
                 {
                     name: "Icicle_yeti",
@@ -192,7 +403,13 @@ window.CRK_DATA = {
                     element: "Ice",
                     type: "Healing",
                     position: "Front",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Let's Be Friends!",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [6.7, 14.3],
+                        attr2: [16.9, 35.9],
+                    },
                 },
                 {
                     name: "Snapdragon",
@@ -200,7 +417,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Arcane Blossom",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [12.3, 26.1],
+                    },
                 },
                 {
                     name: "Sonic",
@@ -208,7 +430,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Sonic's Spin Dash",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [201.9, 389.6],
+                    },
                 },
                 {
                     name: "Tails",
@@ -216,7 +443,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Tails' Spin Dash",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [202.5, 390.6],
+                    },
                 },
                 {
                     name: "Elphaba",
@@ -224,7 +456,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Magic",
                     position: "Rear",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Unlimited!",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [232.7, 344.0],
+                        attr2: [358.0, 529.2],
+                    },
                 },
                 {
                     name: "Glinda",
@@ -232,7 +470,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Magic",
                     position: "Rear",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Dazzling Presence",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [57.0, 133.0],
+                    },
                 },
                 {
                     name: "BTS",
@@ -253,7 +496,7 @@ window.CRK_DATA = {
                     cd: 15,
                     skillAttr: {
                         attr1: [0.48, 1.26],
-                        attr2: [0.88, 2.31]
+                        attr2: [0.88, 2.31],
                     },
                     sets: {
                         toppings: [{
@@ -317,9 +560,7 @@ window.CRK_DATA = {
                     cd: 13,
                     initialCd: 0.6,
                     skillAttr: {
-                        attr1: [119.9, 255.1],
-                        attr2: [58.7, 124.8],
-                        attr3: [103.8, 220.9]
+                        attr1: [451.9, 961.9],
                     },
                     sets: {
                         toppings: [{
@@ -396,7 +637,7 @@ window.CRK_DATA = {
                     initialCd: 0.5,
                     skillAttr: {
                         attr1: [22.8, 47.4],
-                        attr2: [63.8, 135.9]
+                        attr2: [63.8, 135.9],
                     },
                     sets: {
                         toppings: [{
@@ -460,7 +701,7 @@ window.CRK_DATA = {
                     initialCd: 0.6,
                     skillAttr: {
                         attr1: [142.6, 303.3],
-                        attr2: [279.8, 595.2]
+                        attr2: [279.8, 595.2],
                     },
                     sets: {
                         toppings: [{
@@ -640,7 +881,7 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [32.4, 68.9],
                         attr2: [97.2, 206.7],
-                        attr3: [362.4, 770.8]
+                        attr3: [362.4, 770.8],
                     },
                     sets: {
                         toppings: [{
@@ -879,7 +1120,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Super Epic"
+                    rarity: "Super Epic",
+                    skill: "Might of House Oyster",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [94.0, 200.0],
+                        attr2: [42.9, 91.2],
+                    },
                 },
                 {
                     name: "Clotted_cream",
@@ -887,17 +1134,25 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Super Epic"
+                    rarity: "Super Epic",
+                    skill: "Consul's Orders",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [595.3, 1057.5],
+                    },
                 },
                 {
                     name: "Venom_dough",
                     displayName: "Venom Dough Cookie",
-                    element: ["Poison", "Chaos"],
+                    element: ["Chaos", "Poison"],
                     type: "Bomber",
                     position: "Rear",
                     rarity: "Super Epic",
                     skill: "Mind Venom",
                     cd: 14,
+                    skillAttr: {
+                        attr1: [38.7, 110.6],
+                    },
                     sets: {
                         toppings: [{
                             resonance: "looming",
@@ -959,7 +1214,7 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [119.9, 255.1],
                         attr2: [58.7, 124.8],
-                        attr3: [103.8, 220.9]
+                        attr3: [103.8, 220.9],
                     },
                     sets: {
                         toppings: [{
@@ -1016,15 +1271,15 @@ window.CRK_DATA = {
                 {
                     name: "Sugar_swan",
                     displayName: "Sugar Swan Cookie",
-                    element: "Light",
+                    element: null,
                     type: "Healing",
                     position: "Rear",
                     rarity: "Legendary",
                     skill: "Wings of Sugar",
                     cd: 13,
                     skillAttr: {
-                        attr1: [21.1, 60.1],
-                        attr2: [21.5, 61.3]
+                        attr1: [21.0, 60.1],
+                        attr2: [21.5, 61.3],
                     },
                     sets: {
                         toppings: [{
@@ -1189,8 +1444,8 @@ window.CRK_DATA = {
                     },
                     cjSkill: "Last Gale",
                     cjSkillAttr: {
-                        attr1: [12.0, 23.5],
-                        attr2: [320.0, 755.0]
+                        attr1: [320.0, 755.0],
+                        attr2: [12.0, 23.5],
                     },
                     sets: {
                         toppings: [{
@@ -1276,9 +1531,9 @@ window.CRK_DATA = {
                     },
                     cjSkill: "Stormbringer's Wrath",
                     cjSkillAttr: {
-                        attr1: [5.0, 15.0],
-                        attr2: [16.5, 27.5],
-                        attr3: [19.1, 31.9]
+                        attr1: [16.5, 27.5],
+                        attr2: [19.1, 31.9],
+                        attr3: [5.0, 15.0],
                     },
                     sets: {
                         toppings: [{
@@ -1368,9 +1623,9 @@ window.CRK_DATA = {
                     cjSkill: "Twinkling Starry Sky",
                     cjReplace: true,
                     cjSkillAttr: {
-                        attr1: [7.0, 22.5],
-                        attr2: [1.5, 2.5],
-                        attr3: [41.8, 70.7]
+                        attr1: [1.5, 2.5],
+                        attr2: [41.8, 70.7],
+                        attr3: [7.0, 22.5],
                     },
                     sets: {
                         toppings: [{
@@ -1460,8 +1715,9 @@ window.CRK_DATA = {
                     },
                     cjSkill: "Duskgloom Hatred",
                     cjSkillAttr: {
-                        attr1: [15.0, 25.0],
-                        attr2: [9, 15],
+                        attr1: [50.0, 35.0],
+                        attr2: [9.0, 15.0],
+                        attr3: [15.0, 25.0],
                     },
                     sets: {
                         toppings: [{
@@ -1541,12 +1797,12 @@ window.CRK_DATA = {
                     cjReplace: true,
                     skillAttr: {
                         attr1: [67.8, 144.2],
-                        attr2: [271.2, 576.9]
+                        attr2: [271.2, 576.9],
                     },
                     cjSkillAttr: {
-                        attr1: [30.0, 40.0],
-                        attr2: [29.3, 48.8],
-                        attr3: [306.5, 510.8]
+                        attr1: [29.3, 48.8],
+                        attr2: [306.5, 510.8],
+                        attr3: [30.0, 40.0],
                     },
                     sets: {
                         toppings: [{
@@ -1639,11 +1895,11 @@ window.CRK_DATA = {
                     },
                     cjSkill: "Rising Tide",
                     cjSkillAttr: {
-                        attr1: [30.0, 45.0],
-                        attr2: [198.7, 230.8],
-                        attr3: [135.6, 167.2],
-                        attr4: [26.9, 44.8],
-                        attr5: [140.4, 196.6],
+                        attr1: [198.7, 230.8],
+                        attr2: [135.6, 167.2],
+                        attr3: [26.9, 44.8],
+                        attr4: [140.4, 196.6],
+                        attr5: [30.0, 45.0],
                     },
                     sets: {
                         toppings: [{
@@ -1730,7 +1986,6 @@ window.CRK_DATA = {
                         attr1: [17.0, 44.7],
                         attr2: [47.3, 124.1],
                     },
-                    rallyEffect: true,
                     sets: {
                         toppings: [{
                             resonance: "root",
@@ -1825,7 +2080,7 @@ window.CRK_DATA = {
                         ]
                     },
                     buildNotes: [
-                        "HP is king. It is the most important stat for millenial tree. His other stat requirements are pretty easy so once you hit those prioritize HP.",
+                        "HP is king. It is the most important stat for millennial tree. His other stat requirements are pretty easy so once you hit those prioritize HP.",
                         "Remember, heals can crit so once you hit your cooldown requirements I'd say go for CRIT% over cooldown."
                     ],
                     review: "The tree man is insane. Incredible buffs and sustain with decent damage on top there's truly nothing he doesn't do. Fitting for the leader of the elemental guardians and protector of Earthbread.",
@@ -1839,6 +2094,10 @@ window.CRK_DATA = {
                     position: "Rear",
                     rarity: "Ancient",
                     skill: "Love & Peace",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [112.0, 204.2],
+                    },
                 },
                 {
                     name: "Hollyberry",
@@ -1847,7 +2106,11 @@ window.CRK_DATA = {
                     type: "Defense",
                     position: "Front",
                     rarity: "Ancient",
-                    skill: "Oath on the Shield"
+                    skill: "Oath on the Shield",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [185.5, 375.9],
+                    },
                 },
                 {
                     name: "Dark_cacao",
@@ -1856,7 +2119,12 @@ window.CRK_DATA = {
                     type: "Charge",
                     position: "Front",
                     rarity: "Ancient",
-                    skill: 'Solemn Judgment'
+                    skill: "Solemn Judgment",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [59.7, 120.9],
+                        attr2: [338.3, 685.4],
+                    },
                 },
                 {
                     name: "Golden_cheese",
@@ -1865,7 +2133,12 @@ window.CRK_DATA = {
                     type: "Ranged",
                     position: "Middle",
                     rarity: "Ancient",
-                    skill: "Brilliance of the Absolute"
+                    skill: "Brilliance of the Absolute",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [22.3, 43.1],
+                        attr2: [386.9, 746.5],
+                    },
                 },
                 {
                     name: "White_lily",
@@ -1874,7 +2147,11 @@ window.CRK_DATA = {
                     type: "Bomber",
                     position: "Middle",
                     rarity: "Ancient",
-                    skill: "Lily Bud"
+                    skill: "Lily Bud",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [178.0, 360.8],
+                    },
                 },
                 {
                     name: "Awakened_dark_cacao",
@@ -1979,7 +2256,7 @@ window.CRK_DATA = {
                     buildNotes: [
                         "A lot of Dark Cacaos utility comes from his debuffs so you want high cooldown to apply them as often as possible and then DMG Resist to be able to apply them for longer. His DMG is good but not amazing so atk isn't too important. Could even use HP subs if you wanted instead."
                     ],
-                    review: "The worst of the best. Dark Cacao is often said to be the weakest ancient and that's correct but he's still an ancient cookie. His debuffs are just as potent as they were years ago and his rally effect a massive boon for dark type teams. While he's rarely seen in arena if you're dedicated you could make something work and he's very useful in PvE soI give him an A+.",
+                    review: "The worst of the best. Dark Cacao is often said to be the weakest ancient and that's correct but he's still an ancient cookie. His debuffs are just as potent as they were years ago and his rally effect a massive boon for dark type teams. While he's rarely seen in arena if you're dedicated you could make something work and he's very useful in PvE so I give him an A+.",
                     rating: "A+"
                 },
                 {
@@ -1992,11 +2269,12 @@ window.CRK_DATA = {
                     skill: "Radiance of the Immortal",
                     cd: 13,
                     skillAttr: {
-                        attr1: [26.8, 57],
-                        attr2: [6, 12.7],
+                        attr1: [26.8, 57.0],
+                        attr2: [6.0, 12.7],
                         attr3: [173.8, 369.9],
                         attr4: [50.0, 70.0],
-                        attr5: [100.0, 118.3]
+                        attr5: [50.0, 70.0],
+                        attr6: [100.0, 118.3],
                     },
                     sets: {
                         toppings: [{
@@ -2089,7 +2367,6 @@ window.CRK_DATA = {
                     cd: 15,
                     skillAttr: {
                         attr1: [70.2, 145.9],
-                        attr2: [24.9, 65.3]
                     },
                     sets: {
                         toppings: [{
@@ -2184,7 +2461,7 @@ window.CRK_DATA = {
                     cd: 13,
                     skillAttr: {
                         attr1: [219.1, 575.2],
-                        attr2: [24.9, 65.3]
+                        attr2: [24.9, 65.3],
                     },
                     sets: {
                         toppings: [{
@@ -2330,7 +2607,7 @@ window.CRK_DATA = {
                     cd: 15,
                     skillAttr: {
                         attr1: [149.3, 391.8],
-                        attr2: [24.6, 64.4]
+                        attr2: [24.6, 64.4],
                     },
                     sets: {
                         toppings: [{
@@ -2431,7 +2708,7 @@ window.CRK_DATA = {
                     skill: "Whispers of Apathy",
                     cd: 15,
                     skillAttr: {
-                        attr1: [10.7, 22.7]
+                        attr1: [10.7, 22.7],
                     },
                     sets: {
                         toppings: [{
@@ -2500,7 +2777,7 @@ window.CRK_DATA = {
                     cd: 9,
                     skillAttr: {
                         attr1: [334.4, 711.7],
-                        attr2: [510.7, 1087.1]
+                        attr2: [510.7, 1087.1],
                     },
                     sets: {
                         toppings: [{
@@ -2561,7 +2838,7 @@ window.CRK_DATA = {
                     initialCd: 0.6,
                     skillAttr: {
                         attr1: [143.6, 305.7],
-                        attr2: [824.3, 1754.5]
+                        attr2: [824.3, 1754.5],
                     },
                     sets: {
                         toppings: [{
@@ -2653,7 +2930,8 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [25.1, 65.9],
                         attr2: [65.0, 119.5],
-                        attr3: [790.7, 1383.6]
+                        attr3: [790.7, 1383.6],
+                        attr4: [790.7, 1383.6],
                     },
                     sets: {
                         toppings: [{
@@ -2793,8 +3071,8 @@ window.CRK_DATA = {
                         },
                     },
                     buildNotes: [
-                        "Of all the beasts Eternal Sugar has by far the most build variety (Fun Fact: In my research I found 9 separate builds for her. Rarely do other cookies get even 5.) and for a good reason, having been a common sight in arena since release and utilized in every other gamemode. I have listed what I feel to be the nest builds at time of writing however you can definitely get away with pretty much anything. Any combination of chocolate and raspberry will work with the substats being able to change based on what you need.",
-                        "Beascuit options are significantly simpler than toppings however with a full bypass beascuit for arena and either Posion taint with full cooldown or Poison DMG beascuit depending."
+                        "Of all the beasts Eternal Sugar has by far the most build variety (Fun Fact: In my research I found 9 separate builds for her. Rarely do other cookies get even 5.) and for a good reason, having been a common sight in arena since release and utilized in every other gamemode. I have listed what I feel to be the best builds at time of writing however you can definitely get away with pretty much anything. Any combination of chocolate and raspberry will work with the substats being able to change based on what you need.",
+                        "Beascuit options are significantly simpler than toppings however with a full bypass beascuit for arena and either Poison taint with full cooldown or Poison DMG beascuit depending."
                     ],
                     review: "One of the single best dps in the game, used in every game mode since release with insane area dmg, incredible crowd control, all on a very spammable skill. An absolute must build.",
                     rating: "S+"
@@ -2811,8 +3089,9 @@ window.CRK_DATA = {
                     initialCd: 0.44,
                     skillAttr: {
                         attr1: [206.0, 480.8],
-                        attr2: [88.3, 206.0]
+                        attr2: [88.3, 206.0],
                     },
+                    resonants: ["Crossed_fates", "Silent", "Lunar_eclipse", "Smithy"],
                     sets: {
                         toppings: [{
                             resonance: "Silent",
@@ -2892,7 +3171,7 @@ window.CRK_DATA = {
                             toppings: 3,
                             beascuit: 1,
                             notes: ["Aims to give Silent Salt the high HP on the team to affect the targeting of cookie{Shadow_milk} Shadow Milk and cookie{Doughael} Doughael as well as general survivability",
-                                "This build becomes Silent Salts best build at 4 stars and above"
+                                "This build becomes Silent Salt's best build at 4 stars and above"
                             ]
                         },
                         4: {
@@ -2910,7 +3189,7 @@ window.CRK_DATA = {
                         ]
                     },
                     buildNotes: ["Full Chocolate or Raspberry can also work for arena and PvE"],
-                    review: "Incredible crowd control and damage while being extremely hard to pin down himself being invulnerable during his skill as an ambush cookie and immune to cooldown impairing effects which thrn turn into buffs through Forsaken Freedom. One of the strongest DPS in arena and PvE. Can not recommend enough.",
+                    review: "Incredible crowd control and damage while being extremely hard to pin down himself being invulnerable during his skill as an ambush cookie and immune to cooldown impairing effects which then turn into buffs through Forsaken Freedom. One of the strongest DPS in arena and PvE. Can not recommend enough.",
                     rating: "S+"
                 },
                 {
@@ -2923,9 +3202,13 @@ window.CRK_DATA = {
                     skill: "Visions of Doom",
                     cd: 16,
                     initialCd: 0.72,
+                    skillAttr: {
+                        attr1: [53.0, 151.5],
+                        attr2: [72.9, 208.3],
+                    },
                     sets: {
                         toppings: [{
-                            resonance: "Looming",
+                            resonance: "Looming_Darkness",
                             1: "raspberry",
                             2: "raspberry",
                             3: "raspberry",
@@ -2934,7 +3217,7 @@ window.CRK_DATA = {
                             6: "raspberry",
                             substats: ["ATK", "Cooldown", "DMG Resist"]
                         }, {
-                            resonance: "Looming",
+                            resonance: "Looming_Darkness",
                             1: "raspberry",
                             2: "raspberry",
                             3: "raspberry",
@@ -2999,7 +3282,13 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Knight of Solidarity",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [30.2, 75.5],
+                        attr2: [382.2, 955.4],
+                    },
                 },
                 {
                     name: "Charcoal",
@@ -3007,7 +3296,14 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Magic",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Tombkeeper's Rite",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [60.8, 135.2],
+                        attr2: [506.4, 1125.4],
+                        attr3: [73.0, 162.2],
+                    },
                 },
                 {
                     name: "Menthol",
@@ -3015,7 +3311,12 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Bomber",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Menthol Censer",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [147.4, 368.5],
+                    },
                 },
                 {
                     name: "Seltzer",
@@ -3023,7 +3324,12 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Bubble Rain",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [21.6, 34.5],
+                    },
                 },
                 {
                     name: "Grapefruit",
@@ -3031,7 +3337,12 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Catch Me If You Can!",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [76.0, 169.0],
+                    },
                 },
                 {
                     name: "Lime",
@@ -3039,7 +3350,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Beach Ball Surprise",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [11.3, 25.0],
+                        attr2: [36.5, 81.0],
+                    },
                 },
                 {
                     name: "Manju",
@@ -3047,7 +3364,12 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Ambush",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Flash Strike",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [385.1, 641.9],
+                    },
                 },
                 {
                     name: "Jagae",
@@ -3055,7 +3377,13 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Support",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Iridescent Storm",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [54.1, 120.1],
+                        attr2: [54.1, 120.1],
+                    },
                 },
                 {
                     name: "Orange",
@@ -3063,7 +3391,13 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Magic",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Juicy Serve!",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [477.1, 795.2],
+                        attr2: [238.6, 397.6],
+                    },
                 },
                 {
                     name: "Lemon",
@@ -3071,7 +3405,12 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Lightning Dash",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [215.3, 358.8],
+                    },
                 },
                 {
                     name: "Cream_soda",
@@ -3079,7 +3418,14 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Cream Soda Blade",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [102.0, 255.0],
+                        attr2: [115.4, 288.5],
+                        attr3: [174.1, 435.2],
+                    },
                 },
                 {
                     name: "Sugarfly",
@@ -3087,7 +3433,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Butterfly's Whisper",
+                    cd: 6,
+                    skillAttr: {
+                        attr1: [12.4, 31.1],
+                    },
                 },
                 {
                     name: "Pavlova",
@@ -3095,7 +3446,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Heart-Piercing Arrow",
+                    cd: 6,
+                    skillAttr: {
+                        attr1: [54.2, 135.5],
+                    },
                 },
                 {
                     name: "Agar_agar",
@@ -3103,7 +3459,16 @@ window.CRK_DATA = {
                     element: ["Fire", "Electricity", "Water", "Wind", "Ice"],
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Ravenous Mirror",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [56.2, 112.4],
+                        attr2: [409.4, 810.0],
+                        attr3: [182.1, 360.4],
+                        attr4: [290.5, 574.8],
+                        attr5: [166.6, 329.7],
+                    },
                 },
                 {
                     name: "Wedding_cake",
@@ -3111,7 +3476,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Anything for the Bride!",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [48.9, 96.8],
+                        attr2: [73.4, 145.2],
+                    },
                 },
                 {
                     name: "Black_forest",
@@ -3119,7 +3490,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "For the Creators!",
+                    cd: 8,
+                    skillAttr: {
+                        attr1: [213.0, 421.5],
+                    },
                 },
                 {
                     name: "Black_sapphire",
@@ -3127,7 +3503,13 @@ window.CRK_DATA = {
                     element: "Poison",
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "It's Showtime!",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [1.8, 3.5],
+                        attr2: [44.6, 88.3],
+                    },
                 },
                 {
                     name: "Candy_apple",
@@ -3135,7 +3517,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Apple of My Eye!",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [329.6, 668.1],
+                        attr2: [14.8, 30.0],
+                    },
                 },
                 {
                     name: "Okchun",
@@ -3143,7 +3531,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Healing",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Okchun Pouch",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [16.2, 32.8],
+                        attr2: [32.4, 65.6],
+                    },
                 },
                 {
                     name: "Green_tea_mousse",
@@ -3151,7 +3545,14 @@ window.CRK_DATA = {
                     element: ["Wind", "Grass"],
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Mousse Shield",
+                    cd: 11,
+                    mcSkill: "Rush of Tea Leaves",
+                    skillAttrMc: {
+                        attr1: [623.2, 778.5],
+                        attr2: [223.1, 327.3],
+                    },
                 },
                 {
                     name: "Pudding_a_la_mode",
@@ -3159,7 +3560,12 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Bomber",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Plasma Cannon",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [320.1, 671.9],
+                    },
                 },
                 {
                     name: "Choco_drizzle",
@@ -3167,7 +3573,12 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Choco Penumbra",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [72.1, 146.1],
+                    },
                 },
                 {
                     name: "Red_osmanthus",
@@ -3175,7 +3586,13 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Ranged",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "The Pipa's Song",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [108.3, 219.6],
+                        attr2: [132.3, 268.3],
+                    },
                 },
                 {
                     name: "Golden_osmanthus",
@@ -3183,7 +3600,12 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Incense of Love",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [130.1, 263.7],
+                    },
                 },
                 {
                     name: "Smoked_cheese",
@@ -3191,7 +3613,13 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Magic",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Get Smoked!",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [31.5, 63.8],
+                        attr2: [330.5, 670.0],
+                    },
                 },
                 {
                     name: "Nutmeg_tiger",
@@ -3199,7 +3627,12 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "The Great General",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [428.9, 869.4],
+                    },
                 },
                 {
                     name: "Star_coral",
@@ -3207,7 +3640,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Twinkling Coral",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [111.4, 225.8],
+                    },
                 },
                 {
                     name: "Peach_blossom",
@@ -3215,7 +3653,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Heavenly Fruit",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [14.3, 29.0],
+                        attr2: [94.7, 189.0],
+                    },
                 },
                 {
                     name: "Cloud_haetae",
@@ -3223,7 +3667,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Haetae Charge",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [178.0, 360.8],
+                        attr2: [241.2, 489.0],
+                    },
                 },
                 {
                     name: "Street_urchin",
@@ -3231,7 +3681,12 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Ride or Crumble",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [407.1, 825.2],
+                    },
                 },
                 {
                     name: "Caramel_choux",
@@ -3239,7 +3694,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "I've Got Choux",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [54.1, 109.6],
+                    },
                 },
                 {
                     name: "Butter_roll",
@@ -3247,7 +3707,13 @@ window.CRK_DATA = {
                     element: ["Steel", "Chaos"],
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Dough Experiment",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [88.5, 179.3],
+                        attr2: [314.7, 637.9],
+                    },
                 },
                 {
                     name: "Matcha",
@@ -3255,7 +3721,13 @@ window.CRK_DATA = {
                     element: ["Poison", "Grass"],
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Sinister Scheme",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [45.4, 92.0],
+                        attr2: [523.4, 1060.9],
+                    },
                 },
                 {
                     name: "Mercurial_knight",
@@ -3263,15 +3735,31 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Mercurial Knight's Oath",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [101.4, 205.6],
+                    },
                 },
                 {
                     name: "Silverbell",
                     displayName: "Silverbell Cookie",
-                    element: "Grass",
+                    element: ["Grass\n<!--|Bonds = -->|Stats = Cooldown", "Dmg Resist", "Atk", "Crit%"],
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Gleeful Chime",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [138.4, 292.0],
+                        attr2: [138.4, 292.0],
+                    },
+                    mcSkill: "Verdant Chime",
+                    skillAttrMc: {
+                        attr1: [379.0, 606.4],
+                        attr2: [23.0, 36.8],
+                    },
                 },
                 {
                     name: "Rebel",
@@ -3279,7 +3767,13 @@ window.CRK_DATA = {
                     element: "Wind",
                     type: "Ambush",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Here, There, Everywhere!",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [110.2, 223.2],
+                        attr2: [162.3, 197.5],
+                    },
                 },
                 {
                     name: "Creme_brulee",
@@ -3287,7 +3781,13 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Accelerando",
+                    cd: 9,
+                    skillAttr: {
+                        attr1: [356.1, 721.3],
+                        attr2: [50.1, 101.4],
+                    },
                 },
                 {
                     name: "Linzer",
@@ -3295,7 +3795,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "The Culprit... is YOU!",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [433.6, 878.3],
+                        attr2: [552.7, 1119.7],
+                    },
                 },
                 {
                     name: "Olive",
@@ -3303,7 +3809,14 @@ window.CRK_DATA = {
                     element: ["Earth", "Fire", "Electricity"],
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Bat Attack",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [437.5, 886.2],
+                        attr2: [218.7, 443.8],
+                        attr3: [262.5, 531.7],
+                    },
                 },
                 {
                     name: "Mozzarella",
@@ -3311,7 +3824,12 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Mozzarella Master Plan",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [522.9, 1059.4],
+                    },
                 },
                 {
                     name: "Fettuccine",
@@ -3319,7 +3837,13 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Unstable Fettuccine",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [377.8, 765.4],
+                        attr2: [46.5, 94.1],
+                    },
                 },
                 {
                     name: "Burnt_cheese",
@@ -3327,7 +3851,13 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Protector of the Golden City",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [155.3, 314.5],
+                        attr2: [381.9, 773.8],
+                    },
                 },
                 {
                     name: "Frilled_jellyfish",
@@ -3335,7 +3865,16 @@ window.CRK_DATA = {
                     element: ["Water", "Electricity"],
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Frilled Shackles",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [188.6, 382.0],
+                    },
+                    mcSkill: "Snare of the Deep",
+                    skillAttrMc: {
+                        attr1: [128.1, 213.6],
+                    },
                 },
                 {
                     name: "Peppermint",
@@ -3343,7 +3882,16 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Freshness of the Sea",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [90.3, 182.9],
+                    },
+                    mcSkill: "Refreshing Waves",
+                    skillAttrMc: {
+                        attr1: [354.0, 495.6],
+                    },
                 },
                 {
                     name: "Black_lemonade",
@@ -3351,7 +3899,13 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Electrifying Rock!",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [25.7, 52.1],
+                        attr2: [156.6, 317.2],
+                    },
                 },
                 {
                     name: "Rockstar",
@@ -3359,7 +3913,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Healing",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Legend of Rock",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [17.0, 34.4],
+                    },
                 },
                 {
                     name: "Tarte_tatin",
@@ -3367,7 +3926,13 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Cannonade",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [271.1, 549.2],
+                        attr2: [417.1, 844.9],
+                    },
                 },
                 {
                     name: "Royal_margarine",
@@ -3375,7 +3940,15 @@ window.CRK_DATA = {
                     element: "Poison",
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Buttercream Blast",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [29.7, 60.2],
+                        attr2: [12.2, 24.7],
+                        attr3: [21.4, 43.3],
+                        attr4: [142.8, 289.4],
+                    },
                 },
                 {
                     name: "Kouign-amann",
@@ -3383,7 +3956,17 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Paladin's Way",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [182.0, 368.6],
+                        attr2: [375.8, 761.4],
+                    },
+                    mcSkill: "Paladin of Light",
+                    skillAttrMc: {
+                        attr1: [79.8, 111.7],
+                    },
                 },
                 {
                     name: "Prune_juice",
@@ -3391,7 +3974,13 @@ window.CRK_DATA = {
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Prune Juice Potion",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [52.1, 105.5],
+                        attr2: [36.7, 74.3],
+                    },
                 },
                 {
                     name: "Space_doughnut",
@@ -3399,7 +3988,15 @@ window.CRK_DATA = {
                     element: null,
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Doughnut Beam",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [47.9, 97.0],
+                        attr2: [41.0, 83.3],
+                        attr3: [183.7, 372.2],
+                        attr4: [229.6, 465.2],
+                    },
                 },
                 {
                     name: "Blueberry_pie",
@@ -3407,7 +4004,18 @@ window.CRK_DATA = {
                     element: "Electricity",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Cursed Tome",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [134.6, 272.7],
+                        attr2: [87.3, 176.8],
+                        attr3: [17.7, 35.9],
+                    },
+                    mcSkill: "Secrets of the Tome",
+                    skillAttrMc: {
+                        attr1: [28.3, 40.4],
+                    },
                 },
                 {
                     name: "Milky_way",
@@ -3415,7 +4023,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Sugarcloud Express",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [173.8, 352.1],
+                    },
                 },
                 {
                     name: "Prophet",
@@ -3423,7 +4036,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Seven Prophecies",
+                    cd: 19,
+                    skillAttr: {
+                        attr1: [100.3, 210.0],
+                        attr2: [360.5, 730.3],
+                    },
                 },
                 {
                     name: "Pinecone",
@@ -3431,7 +4050,17 @@ window.CRK_DATA = {
                     element: "Ice",
                     type: "Bomber",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Pinecone Bomb",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [73.5, 148.8],
+                        attr2: [122.5, 248.1],
+                    },
+                    mcSkill: "Snowy Forest",
+                    skillAttrMc: {
+                        attr1: [15.0, 40.0],
+                    },
                 },
                 {
                     name: "Carol",
@@ -3439,7 +4068,13 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Healing",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Magic Songs",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [82.4, 167.0],
+                        attr2: [180.4, 365.4],
+                    },
                 },
                 {
                     name: "Macaron",
@@ -3447,7 +4082,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Mighty Macaron Parade",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [15.5, 31.4],
+                        attr2: [24.5, 49.6],
+                    },
                 },
                 {
                     name: "Schwarzwalder",
@@ -3455,7 +4096,12 @@ window.CRK_DATA = {
                     element: ["Steel", "Chaos"],
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Choco Chip Hammer",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [244.9, 496.1],
+                    },
                 },
                 {
                     name: "Candy_diver",
@@ -3463,7 +4109,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Deep-sea Diver",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [43.5, 88.2],
+                        attr2: [10.9, 22.1],
+                    },
                 },
                 {
                     name: "Captain_caviar",
@@ -3471,7 +4123,17 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Black Shark Torpedo",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [331.1, 670.7],
+                        attr2: [132.4, 268.3],
+                    },
+                    mcSkill: "Black Shark Torpedo Mk.2",
+                    skillAttrMc: {
+                        attr1: [195.7, 254.3],
+                    },
                 },
                 {
                     name: "Cream_unicorn",
@@ -3479,7 +4141,16 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Healing",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Midsummer Night's Dream",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [39.6, 80.3],
+                    },
+                    mcSkill: "Dreamy Blue Flame",
+                    skillAttrMc: {
+                        attr1: [289.6, 464.3],
+                    },
                 },
                 {
                     name: "Financier",
@@ -3487,7 +4158,18 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Paladin Protection",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [211.7, 428.9],
+                        attr2: [43.5, 88.2],
+                        attr3: [65.3, 132.3],
+                    },
+                    mcSkill: "Paladin's Devotion",
+                    skillAttrMc: {
+                        attr1: [11.0, 28.5],
+                    },
                 },
                 {
                     name: "Crunchy_chip",
@@ -3495,7 +4177,13 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Wolf Squadron",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [88.6, 179.4],
+                        attr2: [102.9, 208.4],
+                    },
                 },
                 {
                     name: "Wildberry",
@@ -3503,7 +4191,17 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Wild Punch",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [19.3, 39.1],
+                        attr2: [63.7, 129.1],
+                    },
+                    mcSkill: "Royal Bodyguard",
+                    skillAttrMc: {
+                        attr1: [3.0, 15.0],
+                    },
                 },
                 {
                     name: "Cherry_blossom",
@@ -3511,7 +4209,12 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Ambush",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Cherry Blossom Rain",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [48.3, 97.8],
+                    },
                 },
                 {
                     name: "Caramel_arrow",
@@ -3519,7 +4222,18 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Ranged",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Arrow of Resolution",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [88.3, 178.8],
+                        attr2: [22.1, 44.9],
+                        attr3: [2.2, 4.3],
+                    },
+                    mcSkill: "Finality of Resolution",
+                    skillAttrMc: {
+                        attr1: [231.2, 385.4],
+                    },
                 },
                 {
                     name: "Affogato",
@@ -3527,7 +4241,14 @@ window.CRK_DATA = {
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Sweet Scheme",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [31.3, 63.4],
+                        attr2: [15.0, 30.4],
+                        attr3: [300.2, 608.2],
+                    },
                 },
                 {
                     name: "Tea_knight",
@@ -3535,7 +4256,17 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Battlemaster",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [542.4, 1098.8],
+                    },
+                    mcSkill: "Knight's Virtue",
+                    skillAttrMc: {
+                        attr1: [125.0, 200.0],
+                        attr2: [300.0, 500.0],
+                    },
                 },
                 {
                     name: "Eclair",
@@ -3543,7 +4274,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Book of History",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [480.6, 973.6],
+                    },
                 },
                 {
                     name: "Cocoa",
@@ -3551,7 +4287,13 @@ window.CRK_DATA = {
                     element: null,
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Cocoa is Love",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [41.7, 84.5],
+                        attr2: [42.8, 86.7],
+                    },
                 },
                 {
                     name: "Cotton",
@@ -3559,7 +4301,12 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "A Warm Light",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [14.2, 28.9],
+                    },
                 },
                 {
                     name: "Pumpkin_pie",
@@ -3567,7 +4314,12 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Pompon, help!",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [44.4, 88.2],
+                    },
                 },
                 {
                     name: "Twizzly_gummy",
@@ -3578,7 +4330,10 @@ window.CRK_DATA = {
                     rarity: "Epic",
                     skill: "Twizzly Beam",
                     cd: 16,
-                    mcSkill: "Blast from the Future"
+                    mcSkill: "Blast from the Future",
+                    skillAttrMc: {
+                        attr1: [25.0, 40.0],
+                    },
                 },
                 {
                     name: "Mala_sauce",
@@ -3586,7 +4341,19 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Spicy Mala Strike",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [70.4, 142.5],
+                        attr2: [164.1, 332.4],
+                        attr3: [30.4, 61.7],
+                    },
+                    mcSkill: "Flaming Mala",
+                    skillAttrMc: {
+                        attr1: [379.8, 455.8],
+                        attr2: [26.8, 32.1],
+                    },
                 },
                 {
                     name: "Moon_rabbit",
@@ -3594,7 +4361,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Giant Rice Cake Bunny",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [127.9, 259.0],
+                    },
                 },
                 {
                     name: "Raspberry",
@@ -3602,7 +4374,17 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Raspberry Reprise",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [40.9, 102.2],
+                        attr2: [286.2, 715.4],
+                    },
+                    mcSkill: "Raspberry Sword Dance",
+                    skillAttrMc: {
+                        attr1: [31.2, 59.5],
+                    },
                 },
                 {
                     name: "Parfait",
@@ -3610,7 +4392,16 @@ window.CRK_DATA = {
                     element: null,
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Paru-Paru-Parfait!★",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [14.4, 29.3],
+                    },
+                    mcSkill: "Sweet Melody",
+                    skillAttrMc: {
+                        attr1: [125.5, 178.0],
+                    },
                 },
                 {
                     name: "Sorbet_shark",
@@ -3618,7 +4409,17 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Shark Splash",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [18.0, 34.7],
+                        attr2: [378.0, 766.4],
+                    },
+                    mcSkill: "Shark Bite",
+                    skillAttrMc: {
+                        attr1: [729.9, 804.4],
+                    },
                 },
                 {
                     name: "Squid_ink",
@@ -3626,7 +4427,18 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Ink Tentacle Slap",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [37.4, 75.8],
+                    },
+                    mcSkill: "Abyssal Tentacles",
+                    skillAttrMc: {
+                        attr1: [5.0, 13.0],
+                        attr2: [16.6, 21.0],
+                        attr3: [15.0, 37.5],
+                    },
                 },
                 {
                     name: "Lilac",
@@ -3634,7 +4446,12 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Chakram Throw",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [105.0, 212.7],
+                    },
                 },
                 {
                     name: "Mango",
@@ -3642,7 +4459,16 @@ window.CRK_DATA = {
                     element: "Water",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Mango Juice Wave",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [104.4, 211.5],
+                    },
+                    mcSkill: "Tour Guide Expert",
+                    skillAttrMc: {
+                        attr1: [136.0, 163.2],
+                    },
                 },
                 {
                     name: "Red_velvet",
@@ -3650,7 +4476,72 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Crimson Hand",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [835.0, 1611.3],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "Looming_Darkness",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }, {
+                            resonance: "Looming_Darkness",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
+                        }],
+                        beascuit: [{
+                            element: "Darkness",
+                            tainted: true,
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            1: "Darkness DMG",
+                            2: "Darkness DMG",
+                            3: "Darkness DMG",
+                            4: "Darkness DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            name: "General Build",
+                            rank: "best",
+                            toppings: 1,
+                            beascuit: 1
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 2,
+                            notes: ["Using a full cooldown beascuit and perfect substats you can get the cooldown to 35% without chocolate toppings so I put full raspberry so he can more easily drop the back line. Not recommended since he doesn't do that much damage but could help if you need it."]
+                        }
+                    },
+                    buildNotes: ["Red Velvet's most valuable asset is his stun so this build aims to reduce cooldown by as much as possible with full chocolate. Because the toppings meet his every requirement you can kind of do what you want for the beascuit. I have displayed a tainted dark with full DMG Resist but you can run some cooldown lines if you need more or darkness dmg ."],
+                    review: "Why won't they give you a magic candy? 1600% is good but not amazing and while a 5 second stun is substantial that's the extent of his utility and unfortunately a lot of cookies can do way more. A shame. I think he's very cool.",
+                    rating: "D"
                 },
                 {
                     name: "Pastry",
@@ -3658,7 +4549,16 @@ window.CRK_DATA = {
                     element: "Wind",
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Battle Prayer",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [71.7, 145.4],
+                    },
+                    mcSkill: "Fervent Prayer",
+                    skillAttrMc: {
+                        attr1: [35.5, 53.3],
+                    },
                 },
                 {
                     name: "Fig",
@@ -3666,7 +4566,12 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Jelly Horn",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [221.0, 426.0],
+                    },
                 },
                 {
                     name: "Strawberry_crepe",
@@ -3674,7 +4579,16 @@ window.CRK_DATA = {
                     element: null,
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Crepe Thrust",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [330.0, 669.4],
+                    },
+                    mcSkill: "Crepe Energy Blast!",
+                    skillAttrMc: {
+                        attr1: [10.0, 20.0],
+                    },
                 },
                 {
                     name: "Black_raisin",
@@ -3682,7 +4596,16 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Shadow Watcher",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [79.7, 159.0],
+                    },
+                    mcSkill: "Sentinel's Strike",
+                    skillAttrMc: {
+                        attr1: [162.5, 195.0],
+                    },
                 },
                 {
                     name: "Almond",
@@ -3690,7 +4613,12 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Almond Handcuffs",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [70.0, 121.6],
+                    },
                 },
                 {
                     name: "Cream_puff",
@@ -3698,7 +4626,22 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Jellius Extremus!",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [469.6, 599.3],
+                        attr2: [113.9, 145.3],
+                        attr3: [1166.9, 1489.2],
+                        attr4: [250.6, 319.8],
+                    },
+                    mcSkill: "Extra Cream",
+                    skillAttrMc: {
+                        attr1: [10.0, 25.0],
+                        attr2: [0.5, 1.0],
+                        attr3: [3.0, 15.0],
+                        attr4: [6.0, 30.0],
+                    },
                 },
                 {
                     name: "Latte",
@@ -3706,7 +4649,17 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Care for a Latte?",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [229.3, 464.4],
+                        attr2: [299.5, 606.8],
+                    },
+                    mcSkill: "Stronger Cup of Latte",
+                    skillAttrMc: {
+                        attr1: [266.7, 320.0],
+                    },
                 },
                 {
                     name: "Kumiho",
@@ -3714,7 +4667,12 @@ window.CRK_DATA = {
                     element: "Wind",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Somersault",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [245.4, 497.1],
+                    },
                 },
                 {
                     name: "Snow_sugar",
@@ -3722,7 +4680,18 @@ window.CRK_DATA = {
                     element: "Ice",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Blizzard",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [26.0, 52.7],
+                    },
+                    mcSkill: "Help Me, Snow King!",
+                    skillAttrMc: {
+                        attr1: [25.0, 37.5],
+                        attr2: [70.9, 118.1],
+                        attr3: [189.0, 315.0],
+                    },
                 },
                 {
                     name: "Rye",
@@ -3730,7 +4699,18 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Final Showdown",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [72.0, 145.4],
+                    },
+                    mcSkill: "Best Shot in the Kingdom",
+                    skillAttrMc: {
+                        attr1: [10.0, 34.6],
+                        attr2: [47.4, 79.0],
+                        attr3: [61.6, 102.7],
+                    },
                 },
                 {
                     name: "Espresso",
@@ -3738,7 +4718,19 @@ window.CRK_DATA = {
                     element: "Earth",
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Grinding",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [98.4, 198.8],
+                        attr2: [123.0, 248.2],
+                    },
+                    mcSkill: "Perfect Extraction",
+                    skillAttrMc: {
+                        attr1: [338.3, 409.3],
+                        attr2: [198.4, 297.6],
+                        attr3: [8.0, 15.5],
+                    },
                 },
                 {
                     name: "Madeleine",
@@ -3746,7 +4738,17 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Commander's Honor",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [108.0, 251.6],
+                    },
+                    mcSkill: "Power of the Light",
+                    skillAttrMc: {
+                        attr1: [76.0, 140.4],
+                        attr2: [267.0, 320.4],
+                    },
                 },
                 {
                     name: "Licorice",
@@ -3754,7 +4756,16 @@ window.CRK_DATA = {
                     element: ["Darkness", "Poison", "Chaos"],
                     type: "Magic",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Licorice Servants",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [239.0, 484.0],
+                    },
+                    mcSkill: "Licorice Curse",
+                    skillAttrMc: {
+                        attr1: [234.1, 281.0],
+                    },
                 },
                 {
                     name: "Poison_mushroom",
@@ -3762,7 +4773,16 @@ window.CRK_DATA = {
                     element: ["Poison", "Chaos"],
                     type: "Bomber",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Poison Cloud",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [187.4, 535.5],
+                    },
+                    mcSkill: "Full of Shroomies",
+                    skillAttrMc: {
+                        attr1: [74.2, 185.4],
+                    },
                 },
                 {
                     name: "Milk",
@@ -3770,7 +4790,18 @@ window.CRK_DATA = {
                     element: null,
                     type: "Defense",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Noble Sacrifice",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [230.3, 466.5],
+                    },
+                    mcSkill: "Noble Resolution",
+                    skillAttrMc: {
+                        attr1: [30.0, 50.0],
+                        attr2: [77.5, 100.7],
+                        attr3: [8.0, 15.0],
+                    },
                 },
                 {
                     name: "Purple_yam",
@@ -3778,7 +4809,17 @@ window.CRK_DATA = {
                     element: "Grass",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Purple Tornado",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [54.0, 110.1],
+                    },
+                    mcSkill: "Berserker's Fury",
+                    skillAttrMc: {
+                        attr1: [20.0, 25.0],
+                        attr2: [8.0, 10.0],
+                    },
                 },
                 {
                     name: "Pomegranate",
@@ -3786,7 +4827,16 @@ window.CRK_DATA = {
                     element: "Chaos",
                     type: "Support",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Pomegranate Magic",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [17.4, 37.9],
+                    },
+                    mcSkill: "Pomegranate Gem Magic",
+                    skillAttrMc: {
+                        attr1: [55.3, 138.3],
+                    },
                 },
                 {
                     name: "Chili_pepper",
@@ -3794,7 +4844,12 @@ window.CRK_DATA = {
                     element: "Fire",
                     type: "Ambush",
                     position: "Middle",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Cheap Shot",
+                    cd: 12,
+                    skillAttr: {
+                        attr1: [83.4, 177.4],
+                    },
                 },
                 {
                     name: "Sparkling",
@@ -3802,7 +4857,16 @@ window.CRK_DATA = {
                     element: "Light",
                     type: "Healing",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Sparkling Cocktail",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [139.0, 281.9],
+                    },
+                    mcSkill: "Cocktail Party",
+                    skillAttrMc: {
+                        attr1: [122.7, 171.8],
+                    },
                 },
                 {
                     name: "Dark_choco",
@@ -3810,7 +4874,16 @@ window.CRK_DATA = {
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Sword of Darkness",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [247.0, 500.9],
+                    },
+                    mcSkill: "Downpour of Darkness",
+                    skillAttrMc: {
+                        attr1: [201.0, 335.0],
+                    },
                 },
                 {
                     name: "Herb",
@@ -3818,7 +4891,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Healing",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Sunny Garden",
+                    cd: 17,
+                    skillAttr: {
+                        attr1: [9.0, 28.7],
+                    },
                 },
                 {
                     name: "Werewolf",
@@ -3826,7 +4904,16 @@ window.CRK_DATA = {
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Transformation",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [77.0, 155.7],
+                    },
+                    mcSkill: "Lone Hunter",
+                    skillAttrMc: {
+                        attr1: [30.0, 71.5],
+                    },
                 },
                 {
                     name: "Mint_choco",
@@ -3834,7 +4921,16 @@ window.CRK_DATA = {
                     element: "Wind",
                     type: "Support",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Battlefield Symphony",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [450.8, 913.8],
+                    },
+                    mcSkill: "Music of the Wind",
+                    skillAttrMc: {
+                        attr1: [12.5, 17.5],
+                    },
                 },
                 {
                     name: "Tiger_lily",
@@ -3842,15 +4938,25 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Tiger Rider",
+                    cd: 13,
+                    skillAttr: {
+                        attr1: [127.0, 270.7],
+                    },
                 },
                 {
                     name: "Pom-pom_dough",
                     displayName: "Pom-pom Dough Cookie",
                     element: ["Poison", "Chaos"],
                     type: "Support",
-                    position: "Middle",
-                    rarity: "Epic"
+                    position: "Rear",
+                    rarity: "Epic",
+                    skill: "Pom-pom Spores!",
+                    cd: 15,
+                    skillAttr: {
+                        attr1: [23.7, 67.6],
+                    },
                 },
                 {
                     name: "Mold_dough",
@@ -3858,7 +4964,13 @@ window.CRK_DATA = {
                     element: "Chaos",
                     type: "Charge",
                     position: "Front",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Order: Eliminate",
+                    cd: 10,
+                    skillAttr: {
+                        attr1: [221.3, 632.3],
+                        attr2: [122.6, 350.3],
+                    },
                 },
                 {
                     name: "Chess_choco",
@@ -3866,7 +4978,15 @@ window.CRK_DATA = {
                     element: "Chaos",
                     type: "Bomber",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Chess Time!",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [159.5, 354.5],
+                        attr2: [209.4, 465.4],
+                        attr3: [542.0, 1355.0],
+                        attr4: [73.2, 182.9],
+                    },
                 },
                 {
                     name: "Vampire",
@@ -3874,7 +4994,16 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Rear",
-                    rarity: "Epic"
+                    rarity: "Epic",
+                    skill: "Vampirism",
+                    cd: 13,
+                    mcSkill: "Fatal Bite",
+                    skillAttrMc: {
+                        attr1: [55.4, 72.1],
+                        attr2: [32.9, 42.8],
+                        attr3: [83.3, 100.0],
+                        attr4: [20.8, 25.0],
+                    },
                 },
                 {
                     name: "Rumi",
@@ -3882,7 +5011,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ambush",
                     position: "Front",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Demon Slayage!",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [203.7, 582.1],
+                    },
                 },
                 {
                     name: "Mira",
@@ -3890,7 +5024,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Charge",
                     position: "Front",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Unchained Hunter",
+                    cd: 16,
+                    skillAttr: {
+                        attr1: [276.9, 791.2],
+                    },
                 },
                 {
                     name: "Zoey",
@@ -3898,7 +5037,12 @@ window.CRK_DATA = {
                     element: null,
                     type: "Ranged",
                     position: "Rear",
-                    rarity: "Special"
+                    rarity: "Special",
+                    skill: "Zoey Time!",
+                    cd: 11,
+                    skillAttr: {
+                        attr1: [223.7, 639.0],
+                    },
                 }
             ],
             tierlists: [{

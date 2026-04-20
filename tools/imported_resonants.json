@@ -1,0 +1,617 @@
+{
+  "Zhen_huan": [],
+  "Ruby": [],
+  "Moonstone": [],
+  "Cobalt": [],
+  "Jadeite": [],
+  "Baili": [],
+  "Tengshe": [],
+  "Gingerbrave": [],
+  "Muscle": [
+    "Smithy"
+  ],
+  "Strawberry": [],
+  "Wizard": [
+    "Heaven_splitter"
+  ],
+  "Beet": [],
+  "Ninja": [],
+  "Angel": [],
+  "Adventurer": [],
+  "Alchemist": [
+    "Frost_herbalist"
+  ],
+  "Avocado": [
+    "Smithy"
+  ],
+  "Blackberry": [],
+  "Carrot": [
+    "Frost_herbalist"
+  ],
+  "Cherry": [],
+  "Clover": [],
+  "Custard_iii": [],
+  "Devil": [
+    "Lunar_eclipse"
+  ],
+  "Gumball": [],
+  "Knight": [
+    "Smithy"
+  ],
+  "Onion": [],
+  "Pancake": [],
+  "Princess": [],
+  "Marshmallow_bunny": [
+    "Fuzzy_wuzzy"
+  ],
+  "Cream_ferret": [],
+  "Icicle_yeti": [
+    "Frosted_crystal",
+    "Frost_herbalist"
+  ],
+  "Snapdragon": [
+    "Draconic"
+  ],
+  "Sonic": [],
+  "Tails": [],
+  "Elphaba": [
+    "Verdigris"
+  ],
+  "Glinda": [
+    "Verdigris"
+  ],
+  "BTS": [],
+  "Doughael": [
+    "Destined"
+  ],
+  "Camellia": [
+    "Fragrant",
+    "Frost_herbalist"
+  ],
+  "Elder_faerie": [
+    "Smithy"
+  ],
+  "Crimson_coral": [
+    "Sea_salt",
+    "Smithy"
+  ],
+  "Shining_glitter": [
+    "Tropical_rock",
+    "Heaven_splitter"
+  ],
+  "Capsaicin": [
+    "Triple_cone_cup_trio",
+    "Smithy"
+  ],
+  "Stardust": [
+    "Moonkissed"
+  ],
+  "Sherbet": [
+    "Frosted_crystal",
+    "Frost_herbalist"
+  ],
+  "Oyster": [],
+  "Clotted_cream": [
+    "Lunar_eclipse"
+  ],
+  "Venom_dough": [
+    "Life_energy",
+    "Frost_herbalist",
+    "Heaven_splitter"
+  ],
+  "Pitaya_dragon": [
+    "Draconic",
+    "Smithy"
+  ],
+  "Sugar_swan": [
+    "Life_energy"
+  ],
+  "Fire_spirit": [
+    "Ancient_root",
+    "Flaming",
+    "Smithy"
+  ],
+  "Wind_archer": [
+    "Ancient_root",
+    "Life-sprouting",
+    "Heaven_splitter"
+  ],
+  "Stormbringer": [
+    "Ancient_root",
+    "Fuzzy_wuzzy",
+    "Heaven_splitter"
+  ],
+  "Moonlight": [
+    "Ancient_root",
+    "Moonkissed"
+  ],
+  "Black_pearl": [
+    "Ancient_root",
+    "Sea_salt",
+    "Smithy"
+  ],
+  "Frost_queen": [
+    "Ancient_root",
+    "Frosted_crystal",
+    "Frost_herbalist"
+  ],
+  "Sea_fairy": [
+    "Ancient_root",
+    "Sea_salt",
+    "Smithy"
+  ],
+  "Millennial_tree": [
+    "Ancient_root",
+    "Frost_herbalist"
+  ],
+  "Pure_vanilla": [
+    "Crossed_fates",
+    "Truthful"
+  ],
+  "Hollyberry": [
+    "Crossed_fates",
+    "Passionate",
+    "Draconic",
+    "Smithy"
+  ],
+  "Dark_cacao": [
+    "Crossed_fates",
+    "Gambit",
+    "Lunar_eclipse",
+    "Heaven_splitter"
+  ],
+  "Golden_cheese": [
+    "Crossed_fates",
+    "Radiant_cheese",
+    "Lunar_eclipse"
+  ],
+  "White_lily": [
+    "Crossed_fates",
+    "Blooming",
+    "Frost_herbalist"
+  ],
+  "Awakened_dark_cacao": [
+    "Lunar_eclipse"
+  ],
+  "Awakened_golden_cheese": [
+    "Lunar_eclipse"
+  ],
+  "Awakened_pure_vanilla": [
+    "Lunar_eclipse"
+  ],
+  "Awakened_hollyberry": [
+    "Smithy"
+  ],
+  "Awakened_white_lily": [
+    "Frost_herbalist"
+  ],
+  "Mystic_flour": [
+    "Crossed_fates",
+    "Gambit"
+  ],
+  "Burning_spice": [
+    "Crossed_fates",
+    "Destructive",
+    "Smithy"
+  ],
+  "Shadow_milk": [
+    "Crossed_fates",
+    "Deceitful"
+  ],
+  "Eternal_sugar": [
+    "Crossed_fates",
+    "Indolent",
+    "Frost_herbalist"
+  ],
+  "Silent_salt": [
+    "Crossed_fates",
+    "Silent",
+    "Lunar_eclipse",
+    "Smithy"
+  ],
+  "Dark_enchantress": [
+    "Life_energy",
+    "Looming_darkness",
+    "Heaven_splitter"
+  ],
+  "Salt_cellar": [
+    "Blooming",
+    "Smithy"
+  ],
+  "Charcoal": [
+    "Silent",
+    "Lunar_eclipse"
+  ],
+  "Menthol": [
+    "Destined",
+    "Smithy"
+  ],
+  "Seltzer": [
+    "Destined",
+    "Smithy"
+  ],
+  "Grapefruit": [
+    "Seafarer",
+    "Fuzzy_wuzzy",
+    "Heaven_splitter"
+  ],
+  "Lime": [
+    "Seafarer",
+    "Fuzzy_wuzzy"
+  ],
+  "Manju": [
+    "Seafarer",
+    "Smithy"
+  ],
+  "Jagae": [
+    "Seafarer",
+    "Smithy"
+  ],
+  "Orange": [
+    "Seafarer",
+    "Fuzzy_wuzzy",
+    "Heaven_splitter"
+  ],
+  "Lemon": [
+    "Verdigris",
+    "Seafarer",
+    "Fuzzy_wuzzy",
+    "Heaven_splitter"
+  ],
+  "Cream_soda": [
+    "Smithy"
+  ],
+  "Sugarfly": [
+    "Unison",
+    "Passionate"
+  ],
+  "Pavlova": [
+    "Indolent"
+  ],
+  "Agar_agar": [
+    "Flaming",
+    "Frost_herbalist",
+    "Heaven_splitter",
+    "Smithy"
+  ],
+  "Wedding_cake": [
+    "Sacred_vow"
+  ],
+  "Black_forest": [
+    "Sacred_vow"
+  ],
+  "Black_sapphire": [
+    "Deceitful",
+    "Frost_herbalist"
+  ],
+  "Candy_apple": [
+    "Deceitful"
+  ],
+  "Okchun": [
+    "Unison"
+  ],
+  "Green_tea_mousse": [
+    "Blooming",
+    "Iris_gem",
+    "Frost_herbalist",
+    "Heaven_splitter"
+  ],
+  "Pudding_a_la_mode": [
+    "Iris_gem",
+    "Heaven_splitter"
+  ],
+  "Choco_drizzle": [
+    "Iris_gem",
+    "Lunar_eclipse"
+  ],
+  "Red_osmanthus": [
+    "Fragrant",
+    "Frost_herbalist"
+  ],
+  "Golden_osmanthus": [
+    "Fragrant",
+    "Frost_herbalist"
+  ],
+  "Smoked_cheese": [
+    "Radiant_cheese",
+    "Lunar_eclipse"
+  ],
+  "Nutmeg_tiger": [
+    "Destructive",
+    "Smithy"
+  ],
+  "Star_coral": [
+    "Moonkissed"
+  ],
+  "Peach_blossom": [],
+  "Cloud_haetae": [
+    "Verdigris"
+  ],
+  "Street_urchin": [
+    "Smithy"
+  ],
+  "Caramel_choux": [
+    "Unison"
+  ],
+  "Butter_roll": [
+    "Looming_darkness",
+    "Heaven_splitter",
+    "Smithy"
+  ],
+  "Matcha": [
+    "Looming_darkness",
+    "Frost_herbalist"
+  ],
+  "Mercurial_knight": [
+    "Verdigris",
+    "Smithy"
+  ],
+  "Silverbell": [
+    "Blooming"
+  ],
+  "Rebel": [
+    "Life-sprouting",
+    "Heaven_splitter"
+  ],
+  "Creme_brulee": [
+    "Lunar_eclipse"
+  ],
+  "Linzer": [],
+  "Olive": [
+    "Radiant_cheese",
+    "Lunar_eclipse",
+    "Heaven_splitter",
+    "Smithy"
+  ],
+  "Mozzarella": [
+    "Unison",
+    "Sacred_vow",
+    "Radiant_cheese",
+    "Lunar_eclipse"
+  ],
+  "Fettuccine": [
+    "Radiant_cheese",
+    "Lunar_eclipse"
+  ],
+  "Burnt_cheese": [
+    "Radiant_cheese",
+    "Lunar_eclipse"
+  ],
+  "Frilled_jellyfish": [
+    "Sea_salt",
+    "Heaven_splitter",
+    "Smithy"
+  ],
+  "Peppermint": [
+    "Sea_salt",
+    "Smithy"
+  ],
+  "Black_lemonade": [
+    "Tropical_rock",
+    "Heaven_splitter"
+  ],
+  "Rockstar": [
+    "Tropical_rock"
+  ],
+  "Tarte_tatin": [
+    "Draconic",
+    "Smithy"
+  ],
+  "Royal_margarine": [
+    "Draconic",
+    "Frost_herbalist"
+  ],
+  "Kouign-amann": [
+    "Truthful",
+    "Triple_cone_cup_trio",
+    "Lunar_eclipse"
+  ],
+  "Prune_juice": [
+    "Triple_cone_cup_trio",
+    "Frost_herbalist"
+  ],
+  "Space_doughnut": [
+    "Moonkissed"
+  ],
+  "Blueberry_pie": [
+    "Moonkissed",
+    "Heaven_splitter"
+  ],
+  "Milky_way": [
+    "Moonkissed"
+  ],
+  "Prophet": [],
+  "Pinecone": [
+    "Frosted_crystal",
+    "Frost_herbalist"
+  ],
+  "Carol": [
+    "Frost_herbalist"
+  ],
+  "Macaron": [],
+  "Schwarzwalder": [
+    "Heaven_splitter",
+    "Smithy"
+  ],
+  "Candy_diver": [],
+  "Captain_caviar": [
+    "Smithy"
+  ],
+  "Cream_unicorn": [
+    "Smithy"
+  ],
+  "Financier": [
+    "Sacred_vow",
+    "Truthful",
+    "Lunar_eclipse"
+  ],
+  "Crunchy_chip": [
+    "Lunar_eclipse"
+  ],
+  "Wildberry": [
+    "Passionate",
+    "Draconic",
+    "Smithy"
+  ],
+  "Cherry_blossom": [
+    "Frost_herbalist"
+  ],
+  "Caramel_arrow": [
+    "Unison",
+    "Sacred_vow",
+    "Lunar_eclipse"
+  ],
+  "Affogato": [
+    "Looming_darkness",
+    "Frost_herbalist"
+  ],
+  "Tea_knight": [
+    "Smithy"
+  ],
+  "Eclair": [],
+  "Cocoa": [],
+  "Cotton": [
+    "Frosted_crystal",
+    "Frost_herbalist"
+  ],
+  "Pumpkin_pie": [
+    "Lunar_eclipse"
+  ],
+  "Twizzly_gummy": [
+    "Heaven_splitter"
+  ],
+  "Mala_sauce": [
+    "Smithy"
+  ],
+  "Moon_rabbit": [],
+  "Raspberry": [
+    "Passionate",
+    "Smithy"
+  ],
+  "Parfait": [
+    "Tropical_rock"
+  ],
+  "Sorbet_shark": [
+    "Sea_salt",
+    "Smithy"
+  ],
+  "Squid_ink": [
+    "Smithy"
+  ],
+  "Lilac": [
+    "Frost_herbalist"
+  ],
+  "Mango": [
+    "Tropical_rock",
+    "Smithy"
+  ],
+  "Red_velvet": [
+    "Looming_darkness",
+    "Lunar_eclipse"
+  ],
+  "Pastry": [
+    "Life-sprouting",
+    "Heaven_splitter"
+  ],
+  "Fig": [
+    "Frost_herbalist"
+  ],
+  "Strawberry_crepe": [],
+  "Black_raisin": [
+    "Radiant_cheese",
+    "Lunar_eclipse"
+  ],
+  "Almond": [
+    "Lunar_eclipse"
+  ],
+  "Cream_puff": [
+    "Lunar_eclipse"
+  ],
+  "Latte": [
+    "Lunar_eclipse"
+  ],
+  "Kumiho": [
+    "Life-sprouting",
+    "Heaven_splitter"
+  ],
+  "Snow_sugar": [
+    "Frosted_crystal",
+    "Frost_herbalist"
+  ],
+  "Rye": [
+    "Smithy"
+  ],
+  "Espresso": [
+    "Lunar_eclipse"
+  ],
+  "Madeleine": [
+    "Destined",
+    "Lunar_eclipse"
+  ],
+  "Licorice": [
+    "Looming_darkness",
+    "Lunar_eclipse",
+    "Frost_herbalist",
+    "Heaven_splitter"
+  ],
+  "Poison_mushroom": [
+    "Looming_darkness",
+    "Frost_herbalist",
+    "Heaven_splitter"
+  ],
+  "Milk": [],
+  "Purple_yam": [
+    "Frost_herbalist"
+  ],
+  "Pomegranate": [
+    "Looming_darkness",
+    "Heaven_splitter"
+  ],
+  "Chili_pepper": [
+    "Smithy"
+  ],
+  "Sparkling": [
+    "Truthful",
+    "Lunar_eclipse"
+  ],
+  "Dark_choco": [
+    "Lunar_eclipse"
+  ],
+  "Herb": [],
+  "Werewolf": [
+    "Tropical_rock",
+    "Smithy"
+  ],
+  "Mint_choco": [
+    "Life-sprouting",
+    "Heaven_splitter"
+  ],
+  "Tiger_lily": [
+    "Passionate"
+  ],
+  "Pom-pom_dough": [
+    "Life_energy",
+    "Frost_herbalist",
+    "Heaven_splitter"
+  ],
+  "Mold_dough": [
+    "Life_energy",
+    "Looming_darkness",
+    "Heaven_splitter"
+  ],
+  "Chess_choco": [
+    "Looming_darkness",
+    "Gambit",
+    "Heaven_splitter"
+  ],
+  "Vampire": [],
+  "Rumi": [
+    "Unison"
+  ],
+  "Mira": [
+    "Unison"
+  ],
+  "Zoey": [
+    "Unison"
+  ]
+}

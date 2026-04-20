@@ -1,6 +1,10 @@
 .history/
 .vscode/
 
+# Python
+__pycache__/
+*.py[cod]
+
 # OS files
 Thumbs.db
 Desktop.ini

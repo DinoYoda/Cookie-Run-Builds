@@ -52,7 +52,7 @@
     <div class="select-expand-panel" id="charlistSortPanel" role="listbox" hidden></div>
   </div>
   <button class="charlist-sort-dir" id="charlistSortDir" title="Reverse order">↓</button>
-  <label class="charlist-mccj-label"><input type="checkbox" id="charlistMcCj" title="When on, cookies with Magic Candy or Crystal Jam appear first within each rarity"> MC/CJ first</label>
+  <label class="charlist-mccj-label" data-tooltip="When on, cookies with Magic Candy or Crystal Jam appear first within each rarity"><input type="checkbox" id="charlistMcCj"> MC/CJ first</label>
   <span id="charlistCounter"></span>
 </div>
 
@@ -66,6 +66,7 @@
 
 <script src="crk/release-order.js"></script>
 <script src="data.js"></script>
+<script src="crk-settings.js"></script>
 <script src="chars-list.js"></script>
 <script>
 const st = document.getElementById("sidebarToggle")

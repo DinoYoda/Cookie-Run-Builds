@@ -1,4 +1,11 @@
 const cookieByDate = [
+    "Zhen Huan Cookie",
+    "Tengshe Cookie",
+    "Cobalt Cookie",
+    "Baili Cookie",
+    "Jadeite Cookie",
+    "Moonstone Cookie",
+    "Ruby Cookie",
     "GingerBrave",
     "Strawberry Cookie",
     "Wizard Cookie",
@@ -235,6 +242,7 @@ const candyByDate = [
     "Black Pearl Cookie",
     "Sorbet Shark Cookie",
     "Black Raisin Cookie",
+    "Frost Queen Cookie",
     "Snow Sugar Cookie",
     "Financier Cookie",
     "Pinecone Cookie",
@@ -259,5 +267,4 @@ const candyByDate = [
     "Wind Archer Cookie",
     "Poison Mushroom Cookie",
     "Pomegranate Cookie",
-    "Frost Queen Cookie"
 ]

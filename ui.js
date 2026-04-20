@@ -471,6 +471,9 @@ FILTER LOGIC
 ----------------------------- */
 
 function applyFilters(character) {
+    if (typeof characterPassesCnExFilter === "function" && !characterPassesCnExFilter(character)) {
+        return false
+    }
     // Search filter
     if (searchText) {
         let searchBase = character.name ? character.name.replace(/_/g, " ") : ""
@@ -628,6 +631,11 @@ function normalizeTierLabel(label) {
     return OVERALL_TIER_RANK_ORDER.includes(clean) ? clean : null
 }
 
+/** Within the same rarity band, CN-exclusive cookies sort after global-release cookies. */
+function cnExSortRank(c) {
+    return c && c.cnEx ? 1 : 0
+}
+
 function shouldHighlightRatingMismatch(char, placedTierLabel) {
     const isOverallComputed = currentTierlist?.computedAverage &&
         currentGame?.id === "crk" &&
@@ -647,11 +655,15 @@ function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
         const b = characterMap[kb]
         if (!a || !b) return String(ka).localeCompare(String(kb))
         if (isCandy) {
+            const cx = cnExSortRank(a) - cnExSortRank(b)
+            if (cx !== 0) return cx
             return (releaseOrderMapCandy[b.displayName ?? b.name] ?? 9999) -
                 (releaseOrderMapCandy[a.displayName ?? a.name] ?? 9999)
         }
         const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b.rarity] ?? 999)
         if (rarityDiff !== 0) return rarityDiff
+        const cx = cnExSortRank(a) - cnExSortRank(b)
+        if (cx !== 0) return cx
         return (releaseOrderMap[(b.displayName ?? b.name)] ?? 9999) - (releaseOrderMap[(a.displayName ?? a.name)] ?? 9999)
     })
 }
@@ -792,6 +804,8 @@ function renderTierlist() {
                             const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b
                                 .rarity] ?? 999)
                             if (rarityDiff !== 0) return rarityDiff
+                            const cx = cnExSortRank(a) - cnExSortRank(b)
+                            if (cx !== 0) return cx
                             return (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
                         })
                         .forEach(c => {
@@ -818,6 +832,8 @@ function renderTierlist() {
                         // 1. Sort by rarity
                         const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b.rarity] ?? 999)
                         if (rarityDiff !== 0) return rarityDiff
+                        const cx = cnExSortRank(a) - cnExSortRank(b)
+                        if (cx !== 0) return cx
                         // 2. Sort by release order (newer cookies first)
                         return (releaseOrderMap[(b.displayName ?? b.name)] ?? 9999) - (releaseOrderMap[(a.displayName ?? a.name)] ?? 9999)
                     })
@@ -933,3 +949,7 @@ function createCard(char, opts = {}) {
 if (DATA.games && DATA.games.length) {
     buildGameSelector()
 }
+
+window.addEventListener("crkSettingsChanged", () => {
+    if (currentGame && typeof renderTierlist === "function") renderTierlist()
+})

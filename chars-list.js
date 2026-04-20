@@ -37,6 +37,48 @@ const SORT_OPTIONS = [
   { value: "alpha", label: "A–Z" }
 ]
 
+/**
+ * Floating cursor tooltip (same element + styling as skill status icons in crk/char-ui.js).
+ */
+function initCharlistCursorTips() {
+  if (typeof document === "undefined") return
+  if (!document.querySelector(".charlist-mccj-label[data-tooltip]")) return
+  let tipEl = document.getElementById("skill-status-cursor-tip")
+  if (!tipEl) {
+    tipEl = document.createElement("div")
+    tipEl.id = "skill-status-cursor-tip"
+    tipEl.className = "skill-status-cursor-tip"
+    tipEl.setAttribute("aria-hidden", "true")
+    document.body.appendChild(tipEl)
+  }
+  let active = false
+  const hide = () => {
+    active = false
+    tipEl.classList.remove("is-visible", "skill-status-cursor-tip--wrap")
+    tipEl.textContent = ""
+  }
+  const offsetX = 14
+  const offsetY = 18
+  document.addEventListener(
+    "mousemove",
+    (e) => {
+      const el = e.target && e.target.closest && e.target.closest(".charlist-mccj-label[data-tooltip]")
+      const text = el && el.getAttribute("data-tooltip")
+      if (!text) {
+        if (active) hide()
+        return
+      }
+      active = true
+      tipEl.textContent = text
+      tipEl.classList.add("is-visible", "skill-status-cursor-tip--wrap")
+      tipEl.style.left = `${e.clientX + offsetX}px`
+      tipEl.style.top = `${e.clientY + offsetY}px`
+    },
+    true
+  )
+  document.addEventListener("scroll", () => { if (active) hide() }, true)
+}
+
 function syncCharlistSortUI() {
   const opt = SORT_OPTIONS.find(o => o.value === sortMode)
   const lbl = document.getElementById("charlistSortLabel")
@@ -98,6 +140,11 @@ function hasMcCj(c) {
   return !!(c?.cjSkill || c?.mcSkill)
 }
 
+/** Within the same rarity, CN-exclusive cookies sort after global-release cookies (unknown CN dates). */
+function cnExSortRank(c) {
+  return c && c.cnEx ? 1 : 0
+}
+
 function buildFilters(filters) {
   const wrap = document.getElementById("charlistFilters")
   Object.entries(filters).forEach(([cat, vals]) => {
@@ -141,7 +188,7 @@ function loadCharListForCurrentGame() {
   if (wrap) wrap.innerHTML = ""
   activeFilters = {}
   const raw = game?.characters || []
-  allChars = raw.filter(c => c && c.name)
+  allChars = raw.filter(c => c && c.name && (typeof characterPassesCnExFilter !== "function" || characterPassesCnExFilter(c)))
   const filters = game?.tierlists?.find(t => t.filters && Object.keys(t.filters).length)?.filters || {}
   buildFilters(filters)
   const titleEl = document.querySelector(".charlist-title")
@@ -223,10 +270,17 @@ function render() {
     const cjFirst = (x, y) => (hasMcCj(x) ? 0 : 1) - (hasMcCj(y) ? 0 : 1)
     let v
     if (sortMode === "alpha") v = (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
-    else if (sortMode === "release") v = rel(b) - rel(a)
+    else if (sortMode === "release") {
+      v = rel(b) - rel(a)
+      if (v === 0) v = cnExSortRank(a) - cnExSortRank(b)
+    }
     else {
       const rd = ri(a.rarity) - ri(b.rarity)
-      v = rd !== 0 ? rd : useMcCj && cjFirst(a, b) !== 0 ? cjFirst(a, b) : rel(b) - rel(a)
+      if (rd !== 0) v = rd
+      else {
+        const xd = cnExSortRank(a) - cnExSortRank(b)
+        v = xd !== 0 ? xd : useMcCj && cjFirst(a, b) !== 0 ? cjFirst(a, b) : rel(b) - rel(a)
+      }
     }
     return sortReverse ? -v : v
   })
@@ -281,5 +335,7 @@ document.addEventListener("keydown", e => {
   })
 })
 
+initCharlistCursorTips()
 initCharlistSortExpand()
 loadCharListForCurrentGame()
+window.addEventListener("crkSettingsChanged", () => loadCharListForCurrentGame())
