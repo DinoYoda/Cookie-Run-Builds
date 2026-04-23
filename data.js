@@ -13,6 +13,9 @@ window.CRK_DATA = {
                     rarity: "Special",
                     skill: "Enchanting Dance Dash",
                     cd: 16,
+                    skillAttr: {
+                        attr1: [201.9, 389.6],
+                    },
                 },
                 {
                     name: "Ruby",
@@ -88,11 +91,11 @@ window.CRK_DATA = {
                     name: "Tengshe",
                     displayName: "Tengshe Cookie",
                     element: null,
-                    type: "Charge",
-                    position: "Front",
-                    rarity: "Common",
-                    skill: "Brave Dash",
-                    cd: 8,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Legendary",
+                    skill: "Golden Snake Blessing",
+                    cd: 13,
                     skillAttr: {
                         attr1: [150.0, 266.3],
                     },
@@ -1155,7 +1158,7 @@ window.CRK_DATA = {
                     },
                     sets: {
                         toppings: [{
-                            resonance: "looming",
+                            resonance: "Looming_darkness",
                             1: "chocolate",
                             2: "chocolate",
                             3: "chocolate",
@@ -1331,7 +1334,7 @@ window.CRK_DATA = {
                             toppings: 2,
                             beascuit: 1,
                             notes: [
-                                "Weaker overall than 3-2-1 but useful situationally against anti crit teams. Recommended because I suspect she'll be meta for a while so the situations this will be useful will accumulate."]
+                                "Weaker overall than 3-2-1 but useful against anti crit teams like ones that run jewelry box."]
                         },
                         3: {
                             name: "Raid build",
@@ -3051,7 +3054,7 @@ window.CRK_DATA = {
                                 value: "≥16.7%"
                             }],
                             notes: [
-                                "Candy massively boosts her DMG due to the quality of buffs being granted."]
+                                "Candy boosts the healing recieved so she survives longer."]
                         },
                         3: {
                             rank: "recommended",
@@ -3138,6 +3141,15 @@ window.CRK_DATA = {
                             5: "chocolate",
                             6: "chocolate",
                             substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Silent",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "CRIT%"]
                         }],
                         beascuit: [{
                             element: "Steel",
@@ -3286,8 +3298,8 @@ window.CRK_DATA = {
                     skill: "Knight of Solidarity",
                     cd: 14,
                     skillAttr: {
-                        attr1: [30.2, 75.5],
-                        attr2: [382.2, 955.4],
+                        attr1: [30.2, 79.3],
+                        attr2: [382.2, 1003.2],
                     },
                 },
                 {
@@ -3300,9 +3312,9 @@ window.CRK_DATA = {
                     skill: "Tombkeeper's Rite",
                     cd: 12,
                     skillAttr: {
-                        attr1: [60.8, 135.2],
-                        attr2: [506.4, 1125.4],
-                        attr3: [73.0, 162.2],
+                        attr1: [60.8, 141.9],
+                        attr2: [506.4, 1181.6],
+                        attr3: [73.0, 170.3],
                     },
                 },
                 {
@@ -3315,7 +3327,7 @@ window.CRK_DATA = {
                     skill: "Menthol Censer",
                     cd: 15,
                     skillAttr: {
-                        attr1: [147.4, 368.5],
+                        attr1: [147.4, 386.9],
                     },
                 },
                 {
@@ -3328,7 +3340,7 @@ window.CRK_DATA = {
                     skill: "Bubble Rain",
                     cd: 12,
                     skillAttr: {
-                        attr1: [21.6, 34.5],
+                        attr1: [21.6, 36.2],
                     },
                 },
                 {
@@ -3341,7 +3353,7 @@ window.CRK_DATA = {
                     skill: "Catch Me If You Can!",
                     cd: 13,
                     skillAttr: {
-                        attr1: [76.0, 169.0],
+                        attr1: [76.0, 177.4],
                     },
                 },
                 {
@@ -3354,8 +3366,8 @@ window.CRK_DATA = {
                     skill: "Beach Ball Surprise",
                     cd: 15,
                     skillAttr: {
-                        attr1: [11.3, 25.0],
-                        attr2: [36.5, 81.0],
+                        attr1: [11.3, 26.3],
+                        attr2: [36.5, 85.0],
                     },
                 },
                 {
@@ -3368,7 +3380,7 @@ window.CRK_DATA = {
                     skill: "Flash Strike",
                     cd: 17,
                     skillAttr: {
-                        attr1: [385.1, 641.9],
+                        attr1: [385.1, 674.0],
                     },
                 },
                 {
@@ -3381,8 +3393,8 @@ window.CRK_DATA = {
                     skill: "Iridescent Storm",
                     cd: 13,
                     skillAttr: {
-                        attr1: [54.1, 120.1],
-                        attr2: [54.1, 120.1],
+                        attr1: [54.1, 126.1],
+                        attr2: [54.1, 126.1],
                     },
                 },
                 {
@@ -3395,8 +3407,8 @@ window.CRK_DATA = {
                     skill: "Juicy Serve!",
                     cd: 12,
                     skillAttr: {
-                        attr1: [477.1, 795.2],
-                        attr2: [238.6, 397.6],
+                        attr1: [477.1, 835.0],
+                        attr2: [238.6, 417.5],
                     },
                 },
                 {
@@ -3409,7 +3421,7 @@ window.CRK_DATA = {
                     skill: "Lightning Dash",
                     cd: 12,
                     skillAttr: {
-                        attr1: [215.3, 358.8],
+                        attr1: [215.3, 376.7],
                     },
                 },
                 {
@@ -3422,9 +3434,9 @@ window.CRK_DATA = {
                     skill: "Cream Soda Blade",
                     cd: 14,
                     skillAttr: {
-                        attr1: [102.0, 255.0],
-                        attr2: [115.4, 288.5],
-                        attr3: [174.1, 435.2],
+                        attr1: [102.0, 267.8],
+                        attr2: [115.4, 302.9],
+                        attr3: [174.1, 457.0],
                     },
                 },
                 {
@@ -3437,7 +3449,7 @@ window.CRK_DATA = {
                     skill: "Butterfly's Whisper",
                     cd: 6,
                     skillAttr: {
-                        attr1: [12.4, 31.1],
+                        attr1: [12.4, 32.6],
                     },
                 },
                 {
@@ -3450,7 +3462,7 @@ window.CRK_DATA = {
                     skill: "Heart-Piercing Arrow",
                     cd: 6,
                     skillAttr: {
-                        attr1: [54.2, 135.5],
+                        attr1: [54.2, 142.3],
                     },
                 },
                 {
@@ -3463,11 +3475,11 @@ window.CRK_DATA = {
                     skill: "Ravenous Mirror",
                     cd: 15,
                     skillAttr: {
-                        attr1: [56.2, 112.4],
-                        attr2: [409.4, 810.0],
-                        attr3: [182.1, 360.4],
-                        attr4: [290.5, 574.8],
-                        attr5: [166.6, 329.7],
+                        attr1: [56.2, 118.0],
+                        attr2: [409.4, 850.5],
+                        attr3: [182.1, 378.4],
+                        attr4: [290.5, 603.6],
+                        attr5: [166.6, 346.1],
                     },
                 },
                 {
@@ -3480,8 +3492,8 @@ window.CRK_DATA = {
                     skill: "Anything for the Bride!",
                     cd: 15,
                     skillAttr: {
-                        attr1: [48.9, 96.8],
-                        attr2: [73.4, 145.2],
+                        attr1: [48.9, 101.6],
+                        attr2: [73.4, 152.4],
                     },
                 },
                 {
@@ -3494,7 +3506,7 @@ window.CRK_DATA = {
                     skill: "For the Creators!",
                     cd: 8,
                     skillAttr: {
-                        attr1: [213.0, 421.5],
+                        attr1: [213.0, 442.6],
                     },
                 },
                 {
@@ -3507,8 +3519,8 @@ window.CRK_DATA = {
                     skill: "It's Showtime!",
                     cd: 15,
                     skillAttr: {
-                        attr1: [1.8, 3.5],
-                        attr2: [44.6, 88.3],
+                        attr1: [1.8, 3.7],
+                        attr2: [44.6, 92.7],
                     },
                 },
                 {
@@ -3521,8 +3533,8 @@ window.CRK_DATA = {
                     skill: "Apple of My Eye!",
                     cd: 12,
                     skillAttr: {
-                        attr1: [329.6, 668.1],
-                        attr2: [14.8, 30.0],
+                        attr1: [329.6, 701.5],
+                        attr2: [14.8, 31.5],
                     },
                 },
                 {
@@ -3535,8 +3547,8 @@ window.CRK_DATA = {
                     skill: "Okchun Pouch",
                     cd: 15,
                     skillAttr: {
-                        attr1: [16.2, 32.8],
-                        attr2: [32.4, 65.6],
+                        attr1: [16.2, 34.5],
+                        attr2: [32.4, 68.9],
                     },
                 },
                 {
@@ -3548,6 +3560,9 @@ window.CRK_DATA = {
                     rarity: "Epic",
                     skill: "Mousse Shield",
                     cd: 11,
+                    skillAttr: {
+                        attr1: [511.8, 1089.3],
+                    },
                     mcSkill: "Rush of Tea Leaves",
                     skillAttrMc: {
                         attr1: [623.2, 778.5],
@@ -3564,7 +3579,7 @@ window.CRK_DATA = {
                     skill: "Plasma Cannon",
                     cd: 11,
                     skillAttr: {
-                        attr1: [320.1, 671.9],
+                        attr1: [320.1, 705.5],
                     },
                 },
                 {
@@ -3577,7 +3592,7 @@ window.CRK_DATA = {
                     skill: "Choco Penumbra",
                     cd: 12,
                     skillAttr: {
-                        attr1: [72.1, 146.1],
+                        attr1: [72.1, 153.4],
                     },
                 },
                 {
@@ -3590,8 +3605,8 @@ window.CRK_DATA = {
                     skill: "The Pipa's Song",
                     cd: 10,
                     skillAttr: {
-                        attr1: [108.3, 219.6],
-                        attr2: [132.3, 268.3],
+                        attr1: [108.3, 230.6],
+                        attr2: [132.3, 281.7],
                     },
                 },
                 {
@@ -3604,7 +3619,7 @@ window.CRK_DATA = {
                     skill: "Incense of Love",
                     cd: 13,
                     skillAttr: {
-                        attr1: [130.1, 263.7],
+                        attr1: [130.1, 276.9],
                     },
                 },
                 {
@@ -3617,8 +3632,8 @@ window.CRK_DATA = {
                     skill: "Get Smoked!",
                     cd: 15,
                     skillAttr: {
-                        attr1: [31.5, 63.8],
-                        attr2: [330.5, 670.0],
+                        attr1: [31.5, 67.0],
+                        attr2: [330.5, 703.5],
                     },
                 },
                 {
@@ -3631,7 +3646,7 @@ window.CRK_DATA = {
                     skill: "The Great General",
                     cd: 12,
                     skillAttr: {
-                        attr1: [428.9, 869.4],
+                        attr1: [428.9, 912.8],
                     },
                 },
                 {
@@ -3644,7 +3659,7 @@ window.CRK_DATA = {
                     skill: "Twinkling Coral",
                     cd: 14,
                     skillAttr: {
-                        attr1: [111.4, 225.8],
+                        attr1: [111.4, 237.0],
                     },
                 },
                 {
@@ -3657,8 +3672,8 @@ window.CRK_DATA = {
                     skill: "Heavenly Fruit",
                     cd: 12,
                     skillAttr: {
-                        attr1: [14.3, 29.0],
-                        attr2: [94.7, 189.0],
+                        attr1: [14.3, 30.4],
+                        attr2: [94.7, 198.5],
                     },
                 },
                 {
@@ -3671,8 +3686,8 @@ window.CRK_DATA = {
                     skill: "Haetae Charge",
                     cd: 11,
                     skillAttr: {
-                        attr1: [178.0, 360.8],
-                        attr2: [241.2, 489.0],
+                        attr1: [178.0, 378.8],
+                        attr2: [241.2, 513.5],
                     },
                 },
                 {
@@ -3685,7 +3700,7 @@ window.CRK_DATA = {
                     skill: "Ride or Crumble",
                     cd: 12,
                     skillAttr: {
-                        attr1: [407.1, 825.2],
+                        attr1: [407.1, 866.4],
                     },
                 },
                 {
@@ -3698,7 +3713,7 @@ window.CRK_DATA = {
                     skill: "I've Got Choux",
                     cd: 15,
                     skillAttr: {
-                        attr1: [54.1, 109.6],
+                        attr1: [54.1, 115.1],
                     },
                 },
                 {
@@ -3711,8 +3726,8 @@ window.CRK_DATA = {
                     skill: "Dough Experiment",
                     cd: 12,
                     skillAttr: {
-                        attr1: [88.5, 179.3],
-                        attr2: [314.7, 637.9],
+                        attr1: [88.5, 188.2],
+                        attr2: [314.7, 669.8],
                     },
                 },
                 {
@@ -3725,8 +3740,8 @@ window.CRK_DATA = {
                     skill: "Sinister Scheme",
                     cd: 12,
                     skillAttr: {
-                        attr1: [45.4, 92.0],
-                        attr2: [523.4, 1060.9],
+                        attr1: [45.4, 96.6],
+                        attr2: [523.4, 1114.0],
                     },
                 },
                 {
@@ -3739,21 +3754,21 @@ window.CRK_DATA = {
                     skill: "Mercurial Knight's Oath",
                     cd: 11,
                     skillAttr: {
-                        attr1: [101.4, 205.6],
+                        attr1: [101.4, 215.9],
                     },
                 },
                 {
                     name: "Silverbell",
+                    element: "Grass",
                     displayName: "Silverbell Cookie",
-                    element: ["Grass\n<!--|Bonds = -->|Stats = Cooldown", "Dmg Resist", "Atk", "Crit%"],
                     type: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Gleeful Chime",
                     cd: 15,
                     skillAttr: {
-                        attr1: [138.4, 292.0],
-                        attr2: [138.4, 292.0],
+                        attr1: [138.4, 306.6],
+                        attr2: [138.4, 306.6],
                     },
                     mcSkill: "Verdant Chime",
                     skillAttrMc: {
@@ -3771,7 +3786,7 @@ window.CRK_DATA = {
                     skill: "Here, There, Everywhere!",
                     cd: 13,
                     skillAttr: {
-                        attr1: [110.2, 223.2],
+                        attr1: [110.2, 234.4],
                         attr2: [162.3, 197.5],
                     },
                 },
@@ -3785,8 +3800,8 @@ window.CRK_DATA = {
                     skill: "Accelerando",
                     cd: 9,
                     skillAttr: {
-                        attr1: [356.1, 721.3],
-                        attr2: [50.1, 101.4],
+                        attr1: [356.1, 757.4],
+                        attr2: [50.1, 106.5],
                     },
                 },
                 {
@@ -3799,8 +3814,8 @@ window.CRK_DATA = {
                     skill: "The Culprit... is YOU!",
                     cd: 16,
                     skillAttr: {
-                        attr1: [433.6, 878.3],
-                        attr2: [552.7, 1119.7],
+                        attr1: [433.6, 922.2],
+                        attr2: [552.7, 1175.6],
                     },
                 },
                 {
@@ -3813,9 +3828,9 @@ window.CRK_DATA = {
                     skill: "Bat Attack",
                     cd: 15,
                     skillAttr: {
-                        attr1: [437.5, 886.2],
-                        attr2: [218.7, 443.8],
-                        attr3: [262.5, 531.7],
+                        attr1: [437.5, 930.5],
+                        attr2: [218.7, 466.0],
+                        attr3: [262.5, 558.3],
                     },
                 },
                 {
@@ -3828,7 +3843,7 @@ window.CRK_DATA = {
                     skill: "Mozzarella Master Plan",
                     cd: 11,
                     skillAttr: {
-                        attr1: [522.9, 1059.4],
+                        attr1: [522.9, 1112.3],
                     },
                 },
                 {
@@ -3841,8 +3856,8 @@ window.CRK_DATA = {
                     skill: "Unstable Fettuccine",
                     cd: 12,
                     skillAttr: {
-                        attr1: [377.8, 765.4],
-                        attr2: [46.5, 94.1],
+                        attr1: [377.8, 803.6],
+                        attr2: [46.5, 98.8],
                     },
                 },
                 {
@@ -3855,8 +3870,8 @@ window.CRK_DATA = {
                     skill: "Protector of the Golden City",
                     cd: 10,
                     skillAttr: {
-                        attr1: [155.3, 314.5],
-                        attr2: [381.9, 773.8],
+                        attr1: [155.3, 330.2],
+                        attr2: [381.9, 812.5],
                     },
                 },
                 {
@@ -3869,7 +3884,7 @@ window.CRK_DATA = {
                     skill: "Frilled Shackles",
                     cd: 12,
                     skillAttr: {
-                        attr1: [188.6, 382.0],
+                        attr1: [188.6, 401.1],
                     },
                     mcSkill: "Snare of the Deep",
                     skillAttrMc: {
@@ -3886,7 +3901,7 @@ window.CRK_DATA = {
                     skill: "Freshness of the Sea",
                     cd: 17,
                     skillAttr: {
-                        attr1: [90.3, 182.9],
+                        attr1: [90.3, 192.0],
                     },
                     mcSkill: "Refreshing Waves",
                     skillAttrMc: {
@@ -3903,8 +3918,8 @@ window.CRK_DATA = {
                     skill: "Electrifying Rock!",
                     cd: 10,
                     skillAttr: {
-                        attr1: [25.7, 52.1],
-                        attr2: [156.6, 317.2],
+                        attr1: [25.7, 54.7],
+                        attr2: [156.6, 333.1],
                     },
                 },
                 {
@@ -3917,7 +3932,7 @@ window.CRK_DATA = {
                     skill: "Legend of Rock",
                     cd: 15,
                     skillAttr: {
-                        attr1: [17.0, 34.4],
+                        attr1: [17.0, 36.2],
                     },
                 },
                 {
@@ -3930,8 +3945,8 @@ window.CRK_DATA = {
                     skill: "Cannonade",
                     cd: 12,
                     skillAttr: {
-                        attr1: [271.1, 549.2],
-                        attr2: [417.1, 844.9],
+                        attr1: [271.1, 576.6],
+                        attr2: [417.1, 887.1],
                     },
                 },
                 {
@@ -3944,10 +3959,10 @@ window.CRK_DATA = {
                     skill: "Buttercream Blast",
                     cd: 12,
                     skillAttr: {
-                        attr1: [29.7, 60.2],
-                        attr2: [12.2, 24.7],
-                        attr3: [21.4, 43.3],
-                        attr4: [142.8, 289.4],
+                        attr1: [29.7, 63.2],
+                        attr2: [12.2, 26.0],
+                        attr3: [21.4, 45.4],
+                        attr4: [142.8, 303.8],
                     },
                 },
                 {
@@ -3960,8 +3975,8 @@ window.CRK_DATA = {
                     skill: "Paladin's Way",
                     cd: 12,
                     skillAttr: {
-                        attr1: [182.0, 368.6],
-                        attr2: [375.8, 761.4],
+                        attr1: [182.0, 387.0],
+                        attr2: [375.8, 799.5],
                     },
                     mcSkill: "Paladin of Light",
                     skillAttrMc: {
@@ -3978,8 +3993,8 @@ window.CRK_DATA = {
                     skill: "Prune Juice Potion",
                     cd: 15,
                     skillAttr: {
-                        attr1: [52.1, 105.5],
-                        attr2: [36.7, 74.3],
+                        attr1: [52.1, 110.8],
+                        attr2: [36.7, 78.0],
                     },
                 },
                 {
@@ -3992,10 +4007,10 @@ window.CRK_DATA = {
                     skill: "Doughnut Beam",
                     cd: 12,
                     skillAttr: {
-                        attr1: [47.9, 97.0],
-                        attr2: [41.0, 83.3],
-                        attr3: [183.7, 372.2],
-                        attr4: [229.6, 465.2],
+                        attr1: [47.9, 101.8],
+                        attr2: [41.0, 87.3],
+                        attr3: [183.7, 390.8],
+                        attr4: [229.6, 488.5],
                     },
                 },
                 {
@@ -4008,9 +4023,9 @@ window.CRK_DATA = {
                     skill: "Cursed Tome",
                     cd: 15,
                     skillAttr: {
-                        attr1: [134.6, 272.7],
-                        attr2: [87.3, 176.8],
-                        attr3: [17.7, 35.9],
+                        attr1: [134.6, 286.4],
+                        attr2: [87.3, 185.7],
+                        attr3: [17.7, 37.7],
                     },
                     mcSkill: "Secrets of the Tome",
                     skillAttrMc: {
@@ -4027,7 +4042,7 @@ window.CRK_DATA = {
                     skill: "Sugarcloud Express",
                     cd: 15,
                     skillAttr: {
-                        attr1: [173.8, 352.1],
+                        attr1: [173.8, 369.7],
                     },
                 },
                 {
@@ -4054,8 +4069,8 @@ window.CRK_DATA = {
                     skill: "Pinecone Bomb",
                     cd: 12,
                     skillAttr: {
-                        attr1: [73.5, 148.8],
-                        attr2: [122.5, 248.1],
+                        attr1: [73.5, 156.3],
+                        attr2: [122.5, 260.5],
                     },
                     mcSkill: "Snowy Forest",
                     skillAttrMc: {
@@ -4072,8 +4087,8 @@ window.CRK_DATA = {
                     skill: "Magic Songs",
                     cd: 16,
                     skillAttr: {
-                        attr1: [82.4, 167.0],
-                        attr2: [180.4, 365.4],
+                        attr1: [82.4, 175.3],
+                        attr2: [180.4, 383.6],
                     },
                 },
                 {
@@ -4086,8 +4101,8 @@ window.CRK_DATA = {
                     skill: "Mighty Macaron Parade",
                     cd: 15,
                     skillAttr: {
-                        attr1: [15.5, 31.4],
-                        attr2: [24.5, 49.6],
+                        attr1: [15.5, 33.0],
+                        attr2: [24.5, 52.1],
                     },
                 },
                 {
@@ -4100,7 +4115,7 @@ window.CRK_DATA = {
                     skill: "Choco Chip Hammer",
                     cd: 12,
                     skillAttr: {
-                        attr1: [244.9, 496.1],
+                        attr1: [244.9, 520.9],
                     },
                 },
                 {
@@ -4113,8 +4128,8 @@ window.CRK_DATA = {
                     skill: "Deep-sea Diver",
                     cd: 15,
                     skillAttr: {
-                        attr1: [43.5, 88.2],
-                        attr2: [10.9, 22.1],
+                        attr1: [43.5, 92.6],
+                        attr2: [10.9, 23.3],
                     },
                 },
                 {
@@ -4127,8 +4142,8 @@ window.CRK_DATA = {
                     skill: "Black Shark Torpedo",
                     cd: 15,
                     skillAttr: {
-                        attr1: [331.1, 670.7],
-                        attr2: [132.4, 268.3],
+                        attr1: [331.1, 704.2],
+                        attr2: [132.4, 281.7],
                     },
                     mcSkill: "Black Shark Torpedo Mk.2",
                     skillAttrMc: {
@@ -4145,7 +4160,7 @@ window.CRK_DATA = {
                     skill: "Midsummer Night's Dream",
                     cd: 17,
                     skillAttr: {
-                        attr1: [39.6, 80.3],
+                        attr1: [39.6, 84.3],
                     },
                     mcSkill: "Dreamy Blue Flame",
                     skillAttrMc: {
@@ -4162,9 +4177,9 @@ window.CRK_DATA = {
                     skill: "Paladin Protection",
                     cd: 15,
                     skillAttr: {
-                        attr1: [211.7, 428.9],
-                        attr2: [43.5, 88.2],
-                        attr3: [65.3, 132.3],
+                        attr1: [211.7, 450.3],
+                        attr2: [43.5, 92.6],
+                        attr3: [65.3, 138.9],
                     },
                     mcSkill: "Paladin's Devotion",
                     skillAttrMc: {
@@ -4181,8 +4196,8 @@ window.CRK_DATA = {
                     skill: "Wolf Squadron",
                     cd: 13,
                     skillAttr: {
-                        attr1: [88.6, 179.4],
-                        attr2: [102.9, 208.4],
+                        attr1: [88.6, 188.4],
+                        attr2: [102.9, 218.8],
                     },
                 },
                 {
@@ -4195,8 +4210,8 @@ window.CRK_DATA = {
                     skill: "Wild Punch",
                     cd: 10,
                     skillAttr: {
-                        attr1: [19.3, 39.1],
-                        attr2: [63.7, 129.1],
+                        attr1: [19.3, 41.1],
+                        attr2: [63.7, 135.5],
                     },
                     mcSkill: "Royal Bodyguard",
                     skillAttrMc: {
@@ -4213,7 +4228,7 @@ window.CRK_DATA = {
                     skill: "Cherry Blossom Rain",
                     cd: 17,
                     skillAttr: {
-                        attr1: [48.3, 97.8],
+                        attr1: [48.3, 102.7],
                     },
                 },
                 {
@@ -4226,9 +4241,9 @@ window.CRK_DATA = {
                     skill: "Arrow of Resolution",
                     cd: 10,
                     skillAttr: {
-                        attr1: [88.3, 178.8],
-                        attr2: [22.1, 44.9],
-                        attr3: [2.2, 4.3],
+                        attr1: [88.3, 187.8],
+                        attr2: [22.1, 47.1],
+                        attr3: [2.2, 4.7],
                     },
                     mcSkill: "Finality of Resolution",
                     skillAttrMc: {
@@ -4245,9 +4260,9 @@ window.CRK_DATA = {
                     skill: "Sweet Scheme",
                     cd: 15,
                     skillAttr: {
-                        attr1: [31.3, 63.4],
-                        attr2: [15.0, 30.4],
-                        attr3: [300.2, 608.2],
+                        attr1: [31.3, 66.5],
+                        attr2: [15.0, 31.9],
+                        attr3: [300.2, 638.6],
                     },
                 },
                 {
@@ -4260,7 +4275,7 @@ window.CRK_DATA = {
                     skill: "Battlemaster",
                     cd: 13,
                     skillAttr: {
-                        attr1: [542.4, 1098.8],
+                        attr1: [542.4, 1153.8],
                     },
                     mcSkill: "Knight's Virtue",
                     skillAttrMc: {
@@ -4278,7 +4293,7 @@ window.CRK_DATA = {
                     skill: "Book of History",
                     cd: 16,
                     skillAttr: {
-                        attr1: [480.6, 973.6],
+                        attr1: [480.6, 1022.3],
                     },
                 },
                 {
@@ -4291,8 +4306,8 @@ window.CRK_DATA = {
                     skill: "Cocoa is Love",
                     cd: 15,
                     skillAttr: {
-                        attr1: [41.7, 84.5],
-                        attr2: [42.8, 86.7],
+                        attr1: [41.7, 88.7],
+                        attr2: [42.8, 91.0],
                     },
                 },
                 {
@@ -4305,7 +4320,7 @@ window.CRK_DATA = {
                     skill: "A Warm Light",
                     cd: 17,
                     skillAttr: {
-                        attr1: [14.2, 28.9],
+                        attr1: [14.2, 30.3],
                     },
                 },
                 {
@@ -4318,7 +4333,7 @@ window.CRK_DATA = {
                     skill: "Pompon, help!",
                     cd: 17,
                     skillAttr: {
-                        attr1: [44.4, 88.2],
+                        attr1: [44.4, 92.6],
                     },
                 },
                 {
@@ -4330,6 +4345,10 @@ window.CRK_DATA = {
                     rarity: "Epic",
                     skill: "Twizzly Beam",
                     cd: 16,
+                    skillAttr: {
+                        attr1: [7.7, 20.4],
+                        attr2: [4.6, 12.2],
+                    },
                     mcSkill: "Blast from the Future",
                     skillAttrMc: {
                         attr1: [25.0, 40.0],
@@ -4345,9 +4364,9 @@ window.CRK_DATA = {
                     skill: "Spicy Mala Strike",
                     cd: 15,
                     skillAttr: {
-                        attr1: [70.4, 142.5],
-                        attr2: [164.1, 332.4],
-                        attr3: [30.4, 61.7],
+                        attr1: [70.4, 149.7],
+                        attr2: [164.1, 349.0],
+                        attr3: [30.4, 64.8],
                     },
                     mcSkill: "Flaming Mala",
                     skillAttrMc: {
@@ -4365,7 +4384,7 @@ window.CRK_DATA = {
                     skill: "Giant Rice Cake Bunny",
                     cd: 14,
                     skillAttr: {
-                        attr1: [127.9, 259.0],
+                        attr1: [127.9, 272.0],
                     },
                 },
                 {
@@ -4378,8 +4397,8 @@ window.CRK_DATA = {
                     skill: "Raspberry Reprise",
                     cd: 11,
                     skillAttr: {
-                        attr1: [40.9, 102.2],
-                        attr2: [286.2, 715.4],
+                        attr1: [40.9, 107.3],
+                        attr2: [286.2, 751.2],
                     },
                     mcSkill: "Raspberry Sword Dance",
                     skillAttrMc: {
@@ -4396,7 +4415,7 @@ window.CRK_DATA = {
                     skill: "Paru-Paru-Parfait!★",
                     cd: 17,
                     skillAttr: {
-                        attr1: [14.4, 29.3],
+                        attr1: [14.4, 30.7],
                     },
                     mcSkill: "Sweet Melody",
                     skillAttrMc: {
@@ -4413,8 +4432,8 @@ window.CRK_DATA = {
                     skill: "Shark Splash",
                     cd: 13,
                     skillAttr: {
-                        attr1: [18.0, 34.7],
-                        attr2: [378.0, 766.4],
+                        attr1: [18.0, 36.5],
+                        attr2: [378.0, 804.7],
                     },
                     mcSkill: "Shark Bite",
                     skillAttrMc: {
@@ -4431,7 +4450,7 @@ window.CRK_DATA = {
                     skill: "Ink Tentacle Slap",
                     cd: 16,
                     skillAttr: {
-                        attr1: [37.4, 75.8],
+                        attr1: [37.4, 79.6],
                     },
                     mcSkill: "Abyssal Tentacles",
                     skillAttrMc: {
@@ -4450,7 +4469,7 @@ window.CRK_DATA = {
                     skill: "Chakram Throw",
                     cd: 13,
                     skillAttr: {
-                        attr1: [105.0, 212.7],
+                        attr1: [105.0, 223.4],
                     },
                 },
                 {
@@ -4463,7 +4482,7 @@ window.CRK_DATA = {
                     skill: "Mango Juice Wave",
                     cd: 15,
                     skillAttr: {
-                        attr1: [104.4, 211.5],
+                        attr1: [104.4, 222.1],
                     },
                     mcSkill: "Tour Guide Expert",
                     skillAttrMc: {
@@ -4480,7 +4499,7 @@ window.CRK_DATA = {
                     skill: "Crimson Hand",
                     cd: 15,
                     skillAttr: {
-                        attr1: [835.0, 1611.3],
+                        attr1: [835.0, 1691.8],
                     },
                     sets: {
                         toppings: [{
@@ -4553,7 +4572,7 @@ window.CRK_DATA = {
                     skill: "Battle Prayer",
                     cd: 13,
                     skillAttr: {
-                        attr1: [71.7, 145.4],
+                        attr1: [71.7, 152.7],
                     },
                     mcSkill: "Fervent Prayer",
                     skillAttrMc: {
@@ -4570,7 +4589,7 @@ window.CRK_DATA = {
                     skill: "Jelly Horn",
                     cd: 15,
                     skillAttr: {
-                        attr1: [221.0, 426.0],
+                        attr1: [221.0, 447.3],
                     },
                 },
                 {
@@ -4583,7 +4602,7 @@ window.CRK_DATA = {
                     skill: "Crepe Thrust",
                     cd: 15,
                     skillAttr: {
-                        attr1: [330.0, 669.4],
+                        attr1: [330.0, 702.9],
                     },
                     mcSkill: "Crepe Energy Blast!",
                     skillAttrMc: {
@@ -4600,7 +4619,7 @@ window.CRK_DATA = {
                     skill: "Shadow Watcher",
                     cd: 14,
                     skillAttr: {
-                        attr1: [79.7, 159.0],
+                        attr1: [79.7, 167.0],
                     },
                     mcSkill: "Sentinel's Strike",
                     skillAttrMc: {
@@ -4617,7 +4636,7 @@ window.CRK_DATA = {
                     skill: "Almond Handcuffs",
                     cd: 15,
                     skillAttr: {
-                        attr1: [70.0, 121.6],
+                        attr1: [70.0, 127.6],
                     },
                 },
                 {
@@ -4630,10 +4649,10 @@ window.CRK_DATA = {
                     skill: "Jellius Extremus!",
                     cd: 16,
                     skillAttr: {
-                        attr1: [469.6, 599.3],
-                        attr2: [113.9, 145.3],
-                        attr3: [1166.9, 1489.2],
-                        attr4: [250.6, 319.8],
+                        attr1: [469.6, 629.2],
+                        attr2: [113.9, 152.6],
+                        attr3: [1166.9, 1563.6],
+                        attr4: [250.6, 335.8],
                     },
                     mcSkill: "Extra Cream",
                     skillAttrMc: {
@@ -4653,8 +4672,9 @@ window.CRK_DATA = {
                     skill: "Care for a Latte?",
                     cd: 15,
                     skillAttr: {
-                        attr1: [229.3, 464.4],
-                        attr2: [299.5, 606.8],
+                        attr1: [229.3, 487.6],
+                        attr2: [299.5, 637.2],
+                        attr3: [276.8, 588.9],
                     },
                     mcSkill: "Stronger Cup of Latte",
                     skillAttrMc: {
@@ -4671,7 +4691,7 @@ window.CRK_DATA = {
                     skill: "Somersault",
                     cd: 14,
                     skillAttr: {
-                        attr1: [245.4, 497.1],
+                        attr1: [245.4, 522.0],
                     },
                 },
                 {
@@ -4684,7 +4704,7 @@ window.CRK_DATA = {
                     skill: "Blizzard",
                     cd: 14,
                     skillAttr: {
-                        attr1: [26.0, 52.7],
+                        attr1: [26.0, 55.3],
                     },
                     mcSkill: "Help Me, Snow King!",
                     skillAttrMc: {
@@ -4703,7 +4723,7 @@ window.CRK_DATA = {
                     skill: "Final Showdown",
                     cd: 15,
                     skillAttr: {
-                        attr1: [72.0, 145.4],
+                        attr1: [72.0, 152.7],
                     },
                     mcSkill: "Best Shot in the Kingdom",
                     skillAttrMc: {
@@ -4722,8 +4742,8 @@ window.CRK_DATA = {
                     skill: "Grinding",
                     cd: 15,
                     skillAttr: {
-                        attr1: [98.4, 198.8],
-                        attr2: [123.0, 248.2],
+                        attr1: [98.4, 208.8],
+                        attr2: [123.0, 260.6],
                     },
                     mcSkill: "Perfect Extraction",
                     skillAttrMc: {
@@ -4742,7 +4762,7 @@ window.CRK_DATA = {
                     skill: "Commander's Honor",
                     cd: 10,
                     skillAttr: {
-                        attr1: [108.0, 251.6],
+                        attr1: [108.0, 264.2],
                     },
                     mcSkill: "Power of the Light",
                     skillAttrMc: {
@@ -4760,7 +4780,7 @@ window.CRK_DATA = {
                     skill: "Licorice Servants",
                     cd: 14,
                     skillAttr: {
-                        attr1: [239.0, 484.0],
+                        attr1: [239.0, 508.2],
                     },
                     mcSkill: "Licorice Curse",
                     skillAttrMc: {
@@ -4794,7 +4814,7 @@ window.CRK_DATA = {
                     skill: "Noble Sacrifice",
                     cd: 12,
                     skillAttr: {
-                        attr1: [230.3, 466.5],
+                        attr1: [230.3, 489.8],
                     },
                     mcSkill: "Noble Resolution",
                     skillAttrMc: {
@@ -4813,7 +4833,7 @@ window.CRK_DATA = {
                     skill: "Purple Tornado",
                     cd: 12,
                     skillAttr: {
-                        attr1: [54.0, 110.1],
+                        attr1: [54.0, 115.6],
                     },
                     mcSkill: "Berserker's Fury",
                     skillAttrMc: {
@@ -4861,7 +4881,7 @@ window.CRK_DATA = {
                     skill: "Sparkling Cocktail",
                     cd: 13,
                     skillAttr: {
-                        attr1: [139.0, 281.9],
+                        attr1: [139.0, 296.0],
                     },
                     mcSkill: "Cocktail Party",
                     skillAttrMc: {
@@ -4878,7 +4898,7 @@ window.CRK_DATA = {
                     skill: "Sword of Darkness",
                     cd: 13,
                     skillAttr: {
-                        attr1: [247.0, 500.9],
+                        attr1: [247.0, 525.9],
                     },
                     mcSkill: "Downpour of Darkness",
                     skillAttrMc: {
@@ -4908,7 +4928,7 @@ window.CRK_DATA = {
                     skill: "Transformation",
                     cd: 11,
                     skillAttr: {
-                        attr1: [77.0, 155.7],
+                        attr1: [77.0, 163.5],
                     },
                     mcSkill: "Lone Hunter",
                     skillAttrMc: {
@@ -4925,7 +4945,7 @@ window.CRK_DATA = {
                     skill: "Battlefield Symphony",
                     cd: 16,
                     skillAttr: {
-                        attr1: [450.8, 913.8],
+                        attr1: [450.8, 959.5],
                     },
                     mcSkill: "Music of the Wind",
                     skillAttrMc: {
@@ -4982,10 +5002,10 @@ window.CRK_DATA = {
                     skill: "Chess Time!",
                     cd: 14,
                     skillAttr: {
-                        attr1: [159.5, 354.5],
-                        attr2: [209.4, 465.4],
-                        attr3: [542.0, 1355.0],
-                        attr4: [73.2, 182.9],
+                        attr1: [159.5, 372.2],
+                        attr2: [209.4, 488.6],
+                        attr3: [542.0, 1422.8],
+                        attr4: [73.2, 192.1],
                     },
                 },
                 {
@@ -4997,6 +5017,9 @@ window.CRK_DATA = {
                     rarity: "Epic",
                     skill: "Vampirism",
                     cd: 13,
+                    skillAttr: {
+                        attr1: [542.5, 1235.6],
+                    },
                     mcSkill: "Fatal Bite",
                     skillAttrMc: {
                         attr1: [55.4, 72.1],
@@ -5045,6 +5068,127 @@ window.CRK_DATA = {
                     },
                 }
             ],
+            teams: {
+                categories: [{
+                    name: "World Expoloration",
+                    teams: [
+
+                    ]
+                }, {
+                    name: "Arena",
+                    teams: [{
+                        name: "Eternal Sugar",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 2
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 1
+                        }, {
+                            name: "Eternal_sugar",
+                            build: 2
+                        }, {
+                            name: "Venom_dough",
+                            build: 1
+                        }, {
+                            name: "Sugar_swan",
+                            build: 1
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["dream_conductors_whistle", "explorers_monocle", "sleepyheads_jelly_watch"],
+                        notes: ["Counters cookie{Eternal_sugar} Eternal Sugar", "Run treasure{dream_conductors_whistle} Whistle and treasure{mysterious_jewelry_box} Box into treasure{explorers_monocle} Monocle and Whistle or non box builds."]
+                    }, {
+                        name: "White Lily",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 2
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 1
+                        }, {
+                            name: "Awakened_white_lily",
+                            toppings: 3,
+                            beascuit: 1
+                        }, {
+                            name: "Venom_dough",
+                            build: 1
+                        }, {
+                            name: "Sugar_swan",
+                            build: 1
+                        }],
+                        rally: "Awakened_white_lily",
+                        treasures: ["vial_of_raging_dunes", "dream_conductors_whistle", "sleepyheads_jelly_watch"],
+                        notes: ["Counters cookie{Eternal_sugar} Eternal Sugar"]
+                    }, {
+                        name: "Silent Salt",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 2
+                        }, {
+                            name: "Silent_salt",
+                            toppings: 4,
+                            beascuit: 1
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 1
+                        }, {
+                            name: "Venom_dough",
+                            build: 1
+                        }, {
+                            name: "Sugar_swan",
+                            build: 1
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["mysterious_jewelry_box", "explorers_monocle", "sleepyheads_jelly_watch"],
+                        notes: ["Counters cookie{Awakened_white_lily} White Lily", "Do not run it into cookie{Eternal_sugar} Eternal Sugar"]
+                    }, {
+                        name: "Secret Cursed? Shadow Milk Team",
+                            cookies: [{
+                                name: "Millennial_tree",
+                                build: 2
+                            }, {
+                                name: "Dark_enchantress",
+                                build: 1
+                            }, {
+                                name: "Shadow_milk",
+                                build: 2
+                            }, {
+                                name: "Venom_dough",
+                                build: 1
+                            }, {
+                                name: "Sugar_swan",
+                                build: 1
+                            }],
+                            rally: "Millennial_tree",
+                            treasures: ["mysterious_jewelry_box", "explorers_monocle", "sleepyheads_jelly_watch"],
+                            notes: ["Mainly Counters cookie{Awakened_white_lily} White Lily", "Can also run full Chocolate on cookie{Shadow_milk} Shadow Milk"]
+                    }],
+                    notes: ["Sugar swan should run full Raspberry against treasure{mysterious_jewelry_box} Box."]
+                }, {
+                    name: "Guild Battle",
+                    sections: [{
+                        name: "Red Velvet Dragon",
+                        teams: []
+                    }, {
+                        name: "Living Abyss",
+                        teams: []
+                    }, {
+                        name: "Machine God of the Eternal Void",
+                        teams: []
+                    }, {
+                        name: "Avatar of Destiny",
+                        teams: []
+                    }]
+                }, {
+                    name: "Cookie Alliance",
+                }, {
+                    name: "Events",
+                    sections: [{
+                        name: "Demon Distress",
+                        teams: []
+                    }]
+                }]
+            },
             tierlists: [{
                 name: "Cookies",
                 features: {

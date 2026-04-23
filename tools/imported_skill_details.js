@@ -2,6 +2,21 @@
 window.WIKI_IMPORTED_SKILL_DETAILS = {
   "wikiApi": "https://cookierun.wiki/mw/api.php",
   "cookies": {
+    "Zhen_huan": {
+      "wikiTitle": "Zhen Huan Cookie",
+      "keys": {
+        "zhen_huan": {
+          "skill_details": "Single hit DMG: %{attr1}<br>status{ATK_SPD_Up} ATK SPD: +15.0% for 7 sec",
+          "skillAttr": {
+            "attr1": [
+              201.9,
+              389.6
+            ]
+          }
+        }
+      },
+      "warnings": []
+    },
     "Ruby": {
       "wikiTitle": "Ruby Cookie/Kingdom",
       "keys": {
@@ -90,7 +105,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               14.3,
-              25.0
+              25
             ]
           },
           "skill_notes": "Regular attacks hit 2 times."
@@ -840,7 +855,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
               1005.9
             ]
           },
-          "skill_notes": "Regular attacks alternate between a single arrow that deals 100.0% of ATK and two arrows that each deal 50.0% of ATK. Both attacks grant 1 stack of status{Tailwind} Tailwind.<br>status{Immunity|und_buff} Immunity is undispellable and lasts for 11 seconds. It can be applied even if Wind Archer Cookie has a status{Curse} Curse debuff, dispelling all dispellable debuffs.<br>Wind Archer Cookie's version of Immunity cannot block status{Curse} Curse from being applied onto him.<br>status{Trace_of_the_Wind|und_debuff} Trace of the Wind debuffs are undispellable.<br>color-header{00A661:Arrow of Gale}<br>Grants self a stack of status{Tailwind} Tailwind.<br>Pushes all enemies back a short distance.<br>Inflicts status{Pursuer} Pursuer and two separate stacking Trace of the Wind debuffs, both with a status{Trace_of_the_Wind|und_debuff|wind} Wind icon and status{Trace_of_the_Wind|und_debuff} without.<br>color-header{00A661:Pursuer's Arrow}<br>While transformed, each attack shoots five arrows, divided evenly among all targetable enemies within attack range and prioritizing those with the highest ATK. Each arrow applies status{Pursuer} Pursuer and pushes targets back a small distance.<br>* Additional arrows are not counted as regular attacks, and do not trigger boss passive effects that trigger from receiving too many regular attacks within a given period of time. They also do not gain bonuses from effects that affect regular attacks such as status{Mysterious_Melody|und_buff} Mysterious Melody.<br>Wind Archer Cookie resists interrupting effects while transformed.<br>Pursuer DMG can only deal up to 300,000 DMG per trigger, and prevents status{Pursuer} Pursuer stacks from being applied for 1 second afterwards.<br>At maximum stacks, status{Mighty_Gale|und_buff} Mighty Gale grants DMG Resist Bypass +30% and ATK +22.5%.<br>color-header{00A661:Last Wind}<br>Immediately deals damage and inflicts status{Cyclone} Cyclone in an area once it appears, even before flying forward.<br>At maximum stacks of status{Mighty_Gale|und_buff} Mighty Gale, deals wind{754.5%} additional DMG.<br>status{Cyclone} Cyclone pauses the skill Cooldowns of Cookies that it debilitates.<br>status{Cyclone} Cyclone may affect and debilitate certain bosses, even if those bosses would normally be immune to interrupting effects.<br>If no enemies are in range when the transformation duration ends, Wind Archer Cookie will save Last Wind and move forward, performing it only once an enemy is within range.<br>If Wind Archer Cookie falls in battle while casting it, the animation will still play but have no effect on enemies.",
+          "skill_notes": "Regular attacks alternate between a single arrow that deals 100.0% of ATK and two arrows that each deal 50.0% of ATK. Both attacks grant 1 stack of status{Tailwind} Tailwind.<br>status{Immunity|und_buff} Immunity is undispellable and lasts for 11 seconds. It can be applied even if Wind Archer Cookie has a status{Curse} Curse debuff, dispelling all dispellable debuffs.<br>Wind Archer Cookie's version of Immunity cannot block status{Curse} Curse from being applied onto him.<br>status{Trace_of_the_Wind|und_debuff} Trace of the Wind debuffs are undispellable.<br>color-header{00A661:Arrow of Gale}<br>Grants self a stack of status{Tailwind} Tailwind.<br>Pushes all enemies back a short distance.<br>Inflicts status{Pursuer} Pursuer and two separate stacking Trace of the Wind debuffs, both with a status{Trace_of_the_Wind|und_debuff|wind} Wind icon and status{Trace_of_the_Wind|und_debuff} without.<br>color-header{00A661:Pursuer's Arrow}<br>While transformed, each attack shoots five arrows, divided evenly among all targetable enemies within attack range and prioritizing those with the highest ATK. Each arrow applies status{Pursuer} Pursuer and pushes targets back a small distance.<br>* Additional arrows are not counted as regular attacks, and do not trigger boss passive effects that trigger from receiving too many regular attacks within a given period of time. They also do not gain bonuses from effects that affect regular attacks such as status{Mysterious_Melody|und_buff} Mysterious Melody.<br>Wind Archer Cookie resists interrupting effects while transformed.<br>Pursuer DMG can only deal up to 300,000 DMG per trigger, and prevents status{Pursuer} Pursuer stacks from being applied for 1 second afterwards.<br>At maximum stacks, status{Mighty_Gale|und_buff} Mighty Gale grants DMG Resist Bypass +30% and ATK +22.5%.<br>color-header{00A661:Last Wind}<br>Has a 3.2 second cast time and is unaffected by ATK SPD changes.<br>Immediately deals damage and inflicts status{Cyclone} Cyclone in an area once it appears, even before flying forward.<br>At maximum stacks of status{Mighty_Gale|und_buff} Mighty Gale, deals wind{754.5%} additional DMG.<br>status{Cyclone} Cyclone pauses the skill Cooldowns of Cookies that it debilitates.<br>status{Cyclone} Cyclone may affect and debilitate certain bosses, even if those bosses would normally be immune to interrupting effects.<br>If no enemies are in range when the transformation duration ends, Wind Archer Cookie will save Last Wind and move forward, performing it only once an enemy is within range.<br>If Wind Archer Cookie falls in battle while casting it, the animation will still play but have no effect on enemies.",
           "rally_effects": "color-header{FFFF66:Rally Effect}<br>color-header{00A661:Wind's Guidance}<br>Adds Knockback to Wind-type Cookies' regular attacks<br>status{ATK_Up|und_buff} ATK +16.0% per 10.0% of Wind-type Cookies' ATK SPD; capped at 55.0% at the start of battle<br>Wind-type Cookies' status{ATK_SPD_Up|und_buff} ATK SPD +%{attr2} at the start of battle"
         },
         "wind_archer_cj": {
@@ -855,7 +870,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
               23.5
             ]
           },
-          "skill_notes": "While transformed, additional arrows are added to each of Wind Archer Cookie's attacks for each ATK SPD milestone reached.<br>Wind Archer Cookie gains a stack of status{Howling_Gust} Howling Gust whenever he gains or refreshes his 15th stack of status{Mighty_Gale|und_buff} Mighty Gale."
+          "skill_notes": "While transformed, additional arrows are added to each of Wind Archer Cookie's attacks for each ATK SPD milestone reached.<br>Wind Archer Cookie gains a stack of status{Howling_Gust} Howling Gust whenever he gains or refreshes his 15th stack of status{Mighty_Gale|und_buff} Mighty Gale.<br>Last Gale's DMG depends on the base skill's level."
         }
       },
       "enchants": {
@@ -1478,14 +1493,14 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               30.2,
-              75.5
+              79.3
             ],
             "attr2": [
               382.2,
-              955.4
+              1003.2
             ]
           },
-          "skill_notes": "Kala Namak Knights have a passive +50% MOV SPD boost."
+          "skill_notes": "Kala Namak Knights have a passive +50% MOV SPD boost.<br>Summoning new Kala Namak Knights will expire old ones."
         }
       },
       "warnings": []
@@ -1498,15 +1513,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               60.8,
-              135.2
+              141.9
             ],
             "attr2": [
               506.4,
-              1125.4
+              1181.6
             ],
             "attr3": [
               73.0,
-              162.2
+              170.3
             ]
           },
           "skill_notes": "Charcoal Cookie is immune to ATK SPD changes while using the skill.<br>Applies status{Consuming_Darkness} Consuming Darkness once per skill.<br>All of Charcoal Cookie's buffs and Weakness debuff are undispellable."
@@ -1522,7 +1537,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               147.4,
-              368.5
+              386.9
             ]
           },
           "skill_notes": "Has a 3 second cast time.<br>Resists interrupting effects during the skill."
@@ -1538,7 +1553,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               21.6,
-              34.5
+              36.2
             ]
           },
           "skill_notes": "Has a 2 second cast time.<br>Skill is unaffected by ATK SPD changes.<br>status{Stinging_Fizz|und_debuff|water} Stinging Fizz is undispellable."
@@ -1554,7 +1569,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               76.0,
-              169
+              177.4
             ]
           },
           "skill_notes": "Becomes intangible while using the skill."
@@ -1570,11 +1585,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               11.3,
-              25
+              26.3
             ],
             "attr2": [
               36.5,
-              81
+              85
             ]
           }
         }
@@ -1589,7 +1604,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               385.1,
-              641.9
+              674
             ]
           },
           "skill_notes": "Flash Strike is unaffected by ATK SPD changes.<br>The 3 final hits of Flash Strike are guaranteed to be CRIT hits.<br>Whenever cookie{Jagae} Jagae Cookie uses , Manju Cookie's Cooldown is reduced by 100% (effectively resetting it) and automatically triggers his skill regardless of the auto-cast order. If he is still casting, it will be triggered again after his first skill's duration."
@@ -1605,11 +1620,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               54.1,
-              120.1
+              126.1
             ],
             "attr2": [
               54.1,
-              120.1
+              126.1
             ]
           },
           "skill_notes": "Jagae Cookie's initial Cooldown has a 0.5x multiplier.<br>The skill is unaffected by ATK SPD changes."
@@ -1625,11 +1640,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               477.1,
-              795.2
+              835
             ],
             "attr2": [
               238.6,
-              397.6
+              417.5
             ]
           }
         }
@@ -1644,7 +1659,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               215.3,
-              358.8
+              376.7
             ]
           }
         }
@@ -1659,15 +1674,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               102.0,
-              255
+              267.8
             ],
             "attr2": [
               115.4,
-              288.5
+              302.9
             ],
             "attr3": [
               174.1,
-              435.2
+              457
             ]
           },
           "skill_notes": "Has a 2.733 second cast time.<br>Cream Soda Cookie resists interrupting effects while performing her skill.<br>Cream Soda Cookie gains status{ATK_Up} Water-type ATK DMG and status{CRIT_Chance_Up} CRIT Chance Up at the beginning of the skill. On the third slash, she gains status{After_School_Training} After School Training and status{ATK_SPD_Up} ATK SPD Up, and inflicts status{Weakness|0|water} Water-type DMG.<br>status{After_School_Training} After School Training is signified by a pool of whirling water beneath Cream Soda Cookie."
@@ -1683,7 +1698,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               12.4,
-              31.1
+              32.6
             ]
           }
         }
@@ -1698,7 +1713,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               54.2,
-              135.5
+              142.3
             ]
           },
           "skill_notes": "Has a ~1.688 second cast time.<br>Upon using his skill, Pavlova Cookie will immediately apply status{CRIT_Chance_Up} CRIT Chance Up and status{CRIT_DMG_Up} CRIT DMG Up buffs, then take ~1.5 seconds to apply status{Red_Thread} Red Thread within a certain area, before taking ~0.125 seconds to damage enemies with a rain of arrows in a smaller area."
@@ -1714,23 +1729,23 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               56.2,
-              112.4
+              118
             ],
             "attr2": [
               409.4,
-              810
+              850.5
             ],
             "attr3": [
               182.1,
-              360.4
+              378.4
             ],
             "attr4": [
               290.5,
-              574.8
+              603.6
             ],
             "attr5": [
               166.6,
-              329.7
+              346.1
             ]
           },
           "skill_notes": "If a compatible Legendary Cookie is on the team, Agar Agar Cookie has a battle interaction with that Legendary Cookie and a bonding visual effect, indicating which Cookie's skill she will mimic for the rest of the battle.<br>If multiple compatible Cookies are on the team, Agar Agar Cookie will randomly choose only one of them to mimic for the entire battle.<br>Agar Agar Cookie's mimicked skills do not inflict any debuffs not listed on her skill (ex. status{Frost} Frost, status{Cyclone} Cyclone).<br>status{ATK_SPD_Down} ATK SPD Down, status{MOV_SPD_Down} MOV SPD Down, and status{Shackle_Immunity} Shackle Immunity are applied once the mimicked skill is performed."
@@ -1746,14 +1761,14 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               48.9,
-              96.8
+              101.6
             ],
             "attr2": [
               73.4,
-              145.2
+              152.4
             ]
           },
-          "skill_notes": "The Cooldown Reduction buff granted from color-header{A3CCC5:Star of the Hour} is undispellable."
+          "skill_notes": "Regular attacks deal 211.6% of ATK DMG to the nearest target.<br>Has a 0.9 second cast time.<br>The Cooldown Reduction buff granted from color-header{A3CCC5:Star of the Hour} is undispellable."
         }
       },
       "warnings": []
@@ -1766,10 +1781,10 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               213.0,
-              421.5
+              442.6
             ]
           },
-          "skill_notes": "Black Forest Cookie resists interrupting effects during the skill cast animation, but not while transformed.<br>Thorns status{Stun} Stun lasts ~2 seconds.<br>status{ATK_SPD_Up} ATK SPD and status{DMG_Resist} DMG Resist buffs are undispellable. The status{Cooldown_Down|und_buff} Cooldown Down buff granted by color-header{A3CCC5:Star of the Hour} is also undispellable.<br>Black Forest Cookie only gains status{Star_of_the_Wedding} Star of the Wedding from if she is either performing her skill or transformed.<br>If no enemies are in melee range when the skill ends, Black Forest Cookie will save her final strike attack and continue to move forward, performing it once an enemy is in melee range.<br>Until Black Forest Cookie finishes performing her final strike attack, she keeps all buffs gained from her transformation."
+          "skill_notes": "Regular attacks deal 203.5% of ATK DMG to the nearest target.<br>Black Forest Cookie resists interrupting effects during the skill cast animation, but not while transformed.<br>Thorns status{Stun} Stun lasts ~2 seconds.<br>status{ATK_SPD_Up} ATK SPD and status{DMG_Resist} DMG Resist buffs are undispellable. The status{Cooldown_Down|und_buff} Cooldown Down buff granted by color-header{A3CCC5:Star of the Hour} is also undispellable.<br>Black Forest Cookie only gains status{Star_of_the_Wedding} Star of the Wedding from if she is either performing her skill or transformed.<br>If no enemies are in melee range when the skill ends, Black Forest Cookie will save her final strike attack and continue to move forward, performing it once an enemy is in melee range.<br>Until Black Forest Cookie finishes performing her final strike attack, she keeps all buffs gained from her transformation."
         }
       },
       "warnings": []
@@ -1782,11 +1797,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               1.8,
-              3.5
+              3.7
             ],
             "attr2": [
               44.6,
-              88.3
+              92.7
             ]
           },
           "skill_notes": "Regular attacks deal 85.5% of ATK DMG to the nearest target and inflict status{Poison|0|poison} Poison for 10 sec, dealing poison{35.0%} DMG every 1 sec.<br>Resists interruption effects and ATK SPD changes while using the skill.<br>Has a 3.433 second cast time.<br>Black Sapphire Cookie applies status{DMG_Down} DMG Down and status{Healing} Healing to himself and poison{Poison}-type allies as soon as the skill is cast. Then, debuffs are inflicted on enemies after 2.803 seconds.<br>The skill's status{Poison|0|poison} Poison DMG (excluding the extra debuff from Deceitful Trio) is amplified per x1 stack of Poison (from any source) on the target and its DMG is capped at x25-26 stacks. Both Poison debuffs have no limit to stacking, but do not refresh their durations.<br>While on the battlefield, Black Sapphire Cookie grants status{ATK_Up|und_buff|poison} Poison-type DMG to all allied Cookies regardless of their element, and the effect is undispellable. The effect is removed once he is defeated.<br>color-header{A3CCC5:Deceitful Trio}<br>All three Cookies in the team are not required for this effect to trigger:<br>* cookie{Candy_Apple} Candy Apple Cookie in the team but not cookie{Shadow_Milk} Shadow Milk Cookie will still add Knockback to her regular attacks.<br>* Shadow Milk Cookie in the team but not Candy Apple Cookie will not trigger anything.<br>* Both mentioned Cookies in the team are required to activate Black Sapphire Cookie's extra Poison stack and stronger healing for them."
@@ -1802,11 +1817,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               329.6,
-              668.1
+              701.5
             ],
             "attr2": [
               14.8,
-              30
+              31.5
             ]
           },
           "skill_notes": "Regular attack targets up to three enemies, dealing 107.5% of ATK as DMG.<br>* Activating her skill while her projectiles are thrown will make them dissapear, however the visual effects will still appear on enemies hit and the damage will still be dealt.<br>Upon using the skill, Candy Apple Cookie takes 4.5 seconds to deal damage and apply effects. She resists interrupting effects and is unaffected by ATK SPD changes while casting."
@@ -1822,11 +1837,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               16.2,
-              32.8
+              34.5
             ],
             "attr2": [
               32.4,
-              65.6
+              68.9
             ]
           },
           "skill_notes": "Okchun Cookie resists interrupting effects while performing her skill.<br>Buffs are granted at the end of the skill.<br>If Okchun Cookie is interrupted mid-skill, she will still heal 3 times and grant status{Okchun_Candy} Okchun Candy to all allies.<br>Okchun Cookie will grant status{Okchun_Candy} Okchun Candy even if an ally has status{Curse} Curse.<br>status{Okchun_Gift|und_buff} Okchun Gift is undispellable, and remains as long as Okchun Cookie is in battle.<br>status{Okchun_Gift|und_buff} Okchun Gift is only applied to Summoned Creatures if Okchun Cookie's team enters battle with them, such as the Bone Dragon from Guild Battle."
@@ -1838,7 +1853,13 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Green Tea Mousse Cookie/Kingdom",
       "keys": {
         "green_tea_mousse": {
-          "skill_details": "Transformation: 10 sec<br>status{Taunt} Taunt: 5 sec<br>Mousse Shield DMG: wind{511.8%} of ATK<br>Regular Attack DMG during Transformation: wind{385.0%} of ATK<br>status{Stun} Stun: 50.0% chance for 3 sec<br>status{DMG_Focus|und_buff} DMG Focus: absorbs 20.0% of DMG allies take while transformed<br>Mousse Shield: 10.0% DMG Reflect for self + status{DMG_Down|und_buff} DMG Resist +50.0%<br>status{HP_Shield} HP Shield: blocks DMG equal to 30.0% of Max HP for 10 sec<br>status{DMG_Down} DMG Resist: +25.0% for 10 sec<br>status{Healing} Healing when hit: +58.3% of DEF when hit x5<br>Max Healing: 50.0% of target's Max HP, activated every 5 sec<br>status{Tailwind} Tailwind: DMG Resist +10.0%, ATK SPD +7.0% for 10.0 sec with regular attacks; stacks up to x3<br>color-header{A3CCC5:Team Drizzle}<br>Green Tea Mousse Cookie's status{Taunt|und_buff} Taunt can't be dispelled<br>status{DMG_Focus|und_buff} DMG Focus for Choco Drizzle Cookie and Pudding à la Mode Cookie: 40.0%<br>status{DMG_Down} DMG Resist increase for Choco Drizzle Cookie and Pudding à la Mode Cookie: +45.0%<br>status{Debuff_Resist} Debuff Resist: +50.0% for 10 sec for the team upon using her skill",
+          "skill_details": "Transformation: 10 sec<br>status{Taunt} Taunt: 5 sec<br>Mousse Shield DMG: wind{%{attr1}} of ATK<br>Regular Attack DMG during Transformation: wind{385.0%} of ATK<br>status{Stun} Stun: 50.0% chance for 3 sec<br>status{DMG_Focus|und_buff} DMG Focus: absorbs 20.0% of DMG allies take while transformed<br>Mousse Shield: 10.0% DMG Reflect for self + status{DMG_Down|und_buff} DMG Resist +50.0%<br>status{HP_Shield} HP Shield: blocks DMG equal to 30.0% of Max HP for 10 sec<br>status{DMG_Down} DMG Resist: +25.0% for 10 sec<br>status{Healing} Healing when hit: +58.3% of DEF when hit x5<br>Max Healing: 50.0% of target's Max HP, activated every 5 sec<br>status{Tailwind} Tailwind: DMG Resist +10.0%, ATK SPD +7.0% for 10.0 sec with regular attacks; stacks up to x3<br>color-header{A3CCC5:Team Drizzle}<br>Green Tea Mousse Cookie's status{Taunt|und_buff} Taunt can't be dispelled<br>status{DMG_Focus|und_buff} DMG Focus for Choco Drizzle Cookie and Pudding à la Mode Cookie: 40.0%<br>status{DMG_Down} DMG Resist increase for Choco Drizzle Cookie and Pudding à la Mode Cookie: +45.0%<br>status{Debuff_Resist} Debuff Resist: +50.0% for 10 sec for the team upon using her skill",
+          "skillAttr": {
+            "attr1": [
+              511.8,
+              1089.3
+            ]
+          },
           "skill_notes": "Regular attacks hit 2 times and grant Green Tea Mousse Cookie 1 stack of status{Tailwind} Tailwind. Each hit CRITs independently of each other.<br>Green Tea Mousse Cookie resists interrupting effects while transformed."
         },
         "green_tea_mousse_mc": {
@@ -1870,10 +1891,10 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               320.1,
-              671.9
+              705.5
             ]
           },
-          "skill_notes": "Regular attacks fire a single projectile targeting the nearest enemy, dealing 95.6% of ATK and Knocking targets back a short distance.<br>Pudding à la Mode Cookie resists interrupting effects while performing her skill.<br>status{ATK_SPD_Up|und_buff} ATK SPD Up while Drones are active is undispellable.<br>If a target receives status{Penumbral_Mark|und_debuff} Penumbral Mark, an exclamation mark will appear above all three drones. They will proceed to target them with purple-colored projectiles instead of blue, ignoring status{Taunt} Taunt effects.<br>Drones disappear if Pudding à la Mode Cookie uses her skill while they are still active."
+          "skill_notes": "Regular attacks fire a single projectile targeting the nearest enemy, dealing 95.6% of ATK and Knocking targets back a short distance.<br>Has a 3 second cast time.<br>Pudding à la Mode Cookie resists interrupting effects while performing her skill.<br>Upon using her skill, Pudding à la Mode Cookie will immediately apply buffs, then take 1.45 seconds to damage enemies, then another 1.45 seconds to call upon her drones.<br>status{ATK_SPD_Up|und_buff} ATK SPD Up while Drones are active is undispellable.<br>If a target receives status{Penumbral_Mark|und_debuff} Penumbral Mark, an exclamation mark will appear above all three drones. They will proceed to target them with purple-colored projectiles instead of blue, ignoring status{Taunt} Taunt effects.<br>Drones disappear if Pudding à la Mode Cookie uses her skill while they are still active."
         }
       },
       "warnings": []
@@ -1886,7 +1907,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               72.1,
-              146.1
+              153.4
             ]
           },
           "skill_notes": "Regular attacks fire a single projectile targeting the nearest enemy, dealing 197.6% of ATK DMG.<br>The skill is not affected by ATK SPD changes.<br>status{Penumbral_Mark|und_debuff} Penumbral Mark and status{Consuming_Darkness} Consuming Darkness is inflicted on the farthest target at the beginning of the skill.<br>If a Cookie target without status{Taunt} Taunt has status{Penumbral_Mark|und_debuff} Penumbral Mark, Choco Drizzle Cookie will target that Cookie even if she is status{Taunted} Taunted. Otherwise, she will be forced to target only Cookies with Taunt.<br>status{Penumbral_Mark|und_debuff} Penumbral Mark is undispellable.<br>After the skill's multihit attack, if status{Penumbral_Mark|und_debuff} Penumbral Mark is present on the initial target, a Drizzle Strike is performed immediately afterwards on the initial target. If the initial target of the skill is defeated during the multihits, Drizzle Strike will not be used.<br>Choco Drizzle Cookie is intangible during either version of Drizzle Strike.<br>Whenever an enemy's HP falls below the HP threshold, Choco Drizzle Cookie gains a reserve of Drizzle Strike (Weakness). These reserves are performed as soon as possible on their respective targets, and cannot interrupt Choco Drizzle Cookie's regular attack or skill to be performed. Choco Drizzle Cookie performs these immediately after either her skill or the Drizzle Strike triggered by her skill, all without losing intangibility.<br>If multiple enemies fall below the HP threshold at the same time, Drizzle Strike (Weakness) will trigger for each enemy, beginning with the farthest targets and ending with the nearest ones.<br>Enemies can only be targeted by Drizzle Strike (Weakness) once per battle, even if they fall below the HP threshold again or are revived.<br>If a target of Drizzle Strike (Weakness) is intangible, Choco Drizzle Cookie will wait until the target becomes tangible before performing it.<br>*However, in some cases, such as Boss Rush, she could use Drizzle Strike (Weakness) early, if the boss has a big hitbox (such as the Webbed Spider Queen), she could end up stuck in their hitbox, unable to activate her skill or do regular attacks."
@@ -1902,11 +1923,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               108.3,
-              219.6
+              230.6
             ],
             "attr2": [
               132.3,
-              268.3
+              281.7
             ]
           },
           "skill_notes": "Red Osmanthus Cookie resists interrupting effects while performing her skill.<br>While transformed, Red Osmanthus Cookie's regular attacks hit all enemies in front of her in a lanewide floral wave.<br>Red Osmanthus Cookie attacks about 6 times without any ATK SPD buffs."
@@ -1922,7 +1943,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               130.1,
-              263.7
+              276.9
             ]
           },
           "skill_notes": "Golden Osmanthus Cookie resists interrupting effects while performing her skill.<br>Healing, HP Shields, and buffs are granted at the beginning of the skill, while damage and Charm are inflicted at the end of the skill.<br>status{ATK_Up} ATK can stack, but does not refresh in duration when stacked with itself."
@@ -1938,11 +1959,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               31.5,
-              63.8
+              67
             ],
             "attr2": [
               330.5,
-              670
+              703.5
             ]
           },
           "skill_notes": "Smoked Cheese Cookie resists interrupting effects while performing his skill.<br>Each smoke hit inflicts status{Charm} Charm, while only the first hit inflicts status{Weakness} Weakness.<br>The explosion hit pushes targets Airborne.<br>Smoked Cheese Cookie cannot grant himself status{Guardian's_Return} Guardian's Return.<br>Buffs granted by the Protector of the Golden City effect are undispellable."
@@ -1958,10 +1979,10 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               428.9,
-              869.4
+              912.8
             ]
           },
-          "skill_notes": "Nutmeg Tiger Cookie resists interrupting effects while performing her skill.<br>Nutmeg Tiger Cookie's Summoned Fighter gains status{Taunt} Taunt 1 second after being summoned."
+          "skill_notes": "Nutmeg Tiger Cookie resists interrupting effects while performing her skill.<br>Nutmeg Tiger Cookie's Summoned Fighter gains status{Taunt} Taunt 1 second after being summoned.<br>Summoning the Elite Guard will expire old summons."
         }
       },
       "warnings": []
@@ -1974,7 +1995,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               111.4,
-              225.8
+              237
             ]
           },
           "skill_notes": "Regular attacks heal the two lowest HP targets for 21.6% of ATK.<br>Star Coral Cookie is passively immune to status{Sleep} Sleep and status{Drowsy} Drowsy, instead healing for the Lunar Lantern Healing amount whenever she would receive these debuffs.<br>Has a ~2.062 second cast time.<br>Upon using her skill, Star Coral Cookie will take ~0.375 seconds to apply buffs to allies, then takes ~0.437 seconds to damage enemies."
@@ -1990,11 +2011,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               14.3,
-              29
+              30.4
             ],
             "attr2": [
               94.7,
-              189
+              198.5
             ]
           },
           "skill_notes": "Peach Blossom Cookie can't use this skill if there are no enemy targets within his attack range.<br>Peach Blossom Cookie resists interrupting effects while using the skill.<br>status{Heavenly_Fruit} Heavenly Fruit and status{Unripe_Peach_Bao} Unripe Peach Bao are applied to targets when the fruits in his skill animation land in the center of their respective targets.<br>Allied Cookies that are intangible when the fruit lands or are too far from the fruit's landing area will not receive status{Heavenly_Fruit} Heavenly Fruit."
@@ -2010,11 +2031,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               178.0,
-              360.8
+              378.8
             ],
             "attr2": [
               241.2,
-              489
+              513.5
             ]
           },
           "skill_notes": "On every third regular attack, Cloud Haetae Cookie heals themselves for 57.7% of ATK instead of dealing damage.<br>While transformed, Cloud Haetae Cookie resists interrupting effects, and their attacks both hit all targets within melee range and throw a Cloud Roll at another ally with the lowest HP, healing them. The transformation lasts for 10 sec.<br>status{DEF_Up|und_buff} DEF Up and status{DMG_Down|und_buff} DMG Resist gained during the skill are undispellable.<br>Until Cloud Haetae Cookie finishes performing their Last Charge attack, they remain resistant to interrupting effects and retain their status{DEF_Up|und_buff} DEF Up and status{DMG_Down|und_buff} DMG Resist buffs.<br>If Cloud Haetae Cookie performs at least two attacks since their last self-heal while transformed, their first regular attack upon changing back to Cookie form will be the self-heal.<br>Cloud Haetae Cookie only grants the Visions of Apathy buffs to allies when battling in Beast-Yeast Episode 3 and Episode 4. These buffs are undispellable.<br>Using the skill dispels all status{Power_of_Apathy|und_buff} Power of Apathy buffs from all enemies within a large range for 10 sec, even though such buffs appear undispellable. Units that are summoned or enter Cloud Haetae Cookie's range after skill use are unaffected.<br>status{No_Debuff_Immunity|und_debuff} No Debuff Immunity is an undispellable debuff that hides status{Immunity} Immunity on the target and disables all debuff-blocking effects that the target's buffs may have without dispelling them. New applications of Immunity are also affected, but can purify other existing debuffs. When No Debuff Immunity expires, other debuffs applied on the target will remain even if the target still has an Immunity effect.<br>Cloud Haetae Cookie will only attempt to inflict status{No_Debuff_Immunity|und_debuff} No Debuff Immunity on Cookie targets. On all other targets, they will instead attempt to dispel status{Power_of_Apathy|und_buff} Power of Apathy from them.<br>status{Loyalty|und_buff} Loyalty is undispellable, and remains even if cookie{Mystic_Flour} Mystic Flour Cookie is defeated."
@@ -2030,7 +2051,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               407.1,
-              825.2
+              866.4
             ]
           },
           "skill_notes": "Regular attacks lob a spiked urchin ball at the nearest target, dealing 163.1% ATK damage to all enemies in an area.<br>When Street Urchin Cookie uses her skill, she leaps back a long distance and mounts her bike; she then revs up her bike before rushing forward. Upon encountering any enemy during this rush, she'll push back all enemies around her a short distance before performing the Motorbike Explosion. She then lands a set distance away from where the Motorbike Explosion was performed.<br>The skill's cooldown begins recharging as soon as Street Urchin Cookie mounts her bike.<br>Street Urchin Cookie grants herself status{CRIT_Chance_Up} CRIT% Up and applies status{Fire-type_DMG_Up} Fire-type DMG Up to enemies before dealing damage, but applies status{Burn|0|fire} Burn only afterwards.<br>Street Urchin Cookie gains a stack of status{ATK_Up|0|fire} Fire-type ATK Up for each enemy inflicted with Burn, including from her own skill.<br>If Street Urchin Cookie doesn't encounter any enemies during her rush, she will automatically perform the Motorbike Explosion either after traveling a very long distance or at the location where she would encounter an enemy if they hadn't been defeated."
@@ -2046,7 +2067,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               54.1,
-              109.6
+              115.1
             ]
           },
           "skill_notes": "Regular Attacks heal up to 2 targets equal to 40.4% of ATK.<br>status{Friendly_Helper|und_buff} Friendly Helper is undispellable, and remains as long as Caramel Choux Cookie is in battle.<br>status{Friendly_Helper|und_buff} Friendly Helper is only applied to summoned creatures if Caramel Choux Cookie's team enters battle with them, such as the Bone Dragon from Guild Battle."
@@ -2062,11 +2083,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               88.5,
-              179.3
+              188.2
             ],
             "attr2": [
               314.7,
-              637.9
+              669.8
             ]
           },
           "skill_notes": "Regular attacks hit up to 5 targets within range. Each target struck has a 25% chance to be status{Stun} Stunned for 2.5 seconds.<br>Butter Roll Cookie gains the status{DMG_Down} DMG Resist at the beginning of the skill.<br>Whisk Spin's Pull effect ignores movement-impairment resistance.<br>On Whisk Beat's hit, enemies are pushed back a long distance."
@@ -2082,11 +2103,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               45.4,
-              92
+              96.6
             ],
             "attr2": [
               523.4,
-              1060.9
+              1114
             ]
           },
           "skill_notes": "Matcha Cookie needs at least 45 debuffs to reach the maximum chance for status{Matcha_Malice|und_debuff} Matcha Malice to trigger.<br>status{Matcha_Malice|und_debuff} Matcha Malice is undispellable and can only trigger on one enemy target per skill cast. It cannot be applied enemies that are immune to status{Shackles} Shackles. The target afflicted with Matcha Malice will be knocked back an average distance (if they can be moved)."
@@ -2102,7 +2123,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               101.4,
-              205.6
+              215.9
             ]
           },
           "skill_notes": "Regular attacks strike all enemies within melee range.<br>Transformation last 8 seconds and strike 2 times, with each hit applying a stack of status{Mercury_Poisoning} Mercury Poisoning.<br>Mercurial Knight Cookie is intangible during his Final Strike and not affected by ATK SPD changes. Removes all stacks of Mercury Poisoning from targets struck.<br>If no enemies are in range when the skill duration ends, Mercurial Knight Cookie will save his Final Strike and move forward, performing it only once an enemy is within range.<br>status{Amalgamation|und_buff} Amalgamation stacks are undispellable. Mercury Storm mode removes all Amalgamation stacks and prevents them from gained.<br>Upon entering Mercury Storm mode, Mercurial Knight Cookie becomes resistant to interrupting effects.<br>All buffs gained in Mercury Storm are undispellable, and cannot be affected by effects that would reduce their values.<br>All buffs granted by color-header{A3CCC5:Silver Knighthood} are undispellable.<br>When Mercurial Knight Cookie is used in running stages, Amalgamation still stacks and Mercury Storm will activate if he runs for over 60 seconds. However, this doesn't have any effect in the running stage other than changing his appearance."
@@ -2118,11 +2139,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               138.4,
-              292
+              306.6
             ],
             "attr2": [
               138.4,
-              292
+              306.6
             ]
           },
           "skill_notes": "Regular attacks status{Healing} heal up to two allies with the lowest HP.<br>status{Silverbell_Pollen} Silverbell Pollen's Final Hit DMG and Stun will trigger regardless of whether the debuff expires, is purified, or is removed by status{Immunity} Immunity effects.<br>The Silver Knighthood buffs are undispellable. These buffs are only gained if cookie{Mercurial_Knight} Mercurial Knight Cookie is on the team."
@@ -2157,7 +2178,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               110.2,
-              223.2
+              234.4
             ],
             "attr2": [
               162.3,
@@ -2177,14 +2198,14 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               356.1,
-              721.3
+              757.4
             ],
             "attr2": [
               50.1,
-              101.4
+              106.5
             ]
           },
-          "skill_notes": "Both regular attacks and enhanced regular attacks target the enemy with the highest ATK.<br>Regular attacks deal light{221%} of ATK.<br>Enhanced regular attacks last for 8 seconds and launch an additional 4/8/14 Crème Brûlée Pieces depending on the current number of status{Accelerando|und_buff} Accelerando stacks (x1/x2/x3). Crème Brûlée Pieces are divided evenly among all available targets within attack range, prioritizing those with the highest ATK.<br>If Crème Brûlée Cookie is status{Taunted} Taunted, only 1 Crème Brûlée Piece will be redirected to the enemy with Taunt. The targeting of the remaining Crème Brûlée Pieces will be unaffected.<br>status{Accelerando|und_buff} Accelerando and status{Mysterious_Melody|und_buff} Mysterious Melody are undispellable.<br>status{Mysterious_Melody|und_buff} Mysterious Melody only grants additional damage for regular attacks."
+          "skill_notes": "Both regular attacks and enhanced regular attacks target the enemy with the highest ATK.<br>Regular attacks deal light{221%} of ATK.<br>Enhanced regular attacks last for 8 seconds and launch an additional 4/8/14 Crème Brûlée Pieces depending on the current number of status{Accelerando|und_buff} Accelerando stacks (x1/x2/x3). Crème Brûlée Pieces are divided evenly among all available targets within attack range, prioritizing those with the highest ATK.<br>If Crème Brûlée Cookie is status{Taunted} Taunted, only 1 Crème Brûlée Piece will be redirected to the enemy with Taunt. The targeting of the remaining Crème Brûlée Pieces will be unaffected.<br>status{Accelerando|und_buff} Accelerando and status{Mysterious_Melody|und_buff} Mysterious Melody are undispellable.<br>status{Mysterious_Melody|und_buff} Mysterious Melody only grants additional Indirect damage for Direct regular attacks."
         }
       },
       "warnings": []
@@ -2197,14 +2218,14 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               433.6,
-              878.3
+              922.2
             ],
             "attr2": [
               552.7,
-              1119.7
+              1175.6
             ]
           },
-          "skill_notes": "60px|thumb<br>Deduction stacks are signified by dark scribbles that float around Linzer Cookie. A notable sound effect plays when she gains her 7th Deduction stack.<br>When using the skill at maximum Deduction stacks, the status{Suspect|und_debuff} Suspect debuff will inflict All-type DMG received +80% and ATK -19%.<br>status{Suspect|und_debuff} Suspect and status{DEF_Down|und_debuff} DEF Down are undispellable. Additionally, these debuffs have unique priority: they can be applied to ANY boss regardless of their immunity to debuffs.<br>Debuffs are applied first before the skill deals DMG. The area DMG is dealt second, and the single-target DMG is dealt last.<br>If the primary target of the skill is defeated during the skill animation, the remaining single-target DMG hits will be dealt to the next target with the highest ATK in a small area around the initial target, preferring the nearest target in case of ties."
+          "skill_notes": "Has a 1.833 second cast time.<br>60px|thumb<br>Deduction stacks are signified by dark scribbles that float around Linzer Cookie. A notable sound effect plays when she gains her 7th Deduction stack.<br>When using the skill at maximum Deduction stacks, the status{Suspect|und_debuff} Suspect debuff will inflict All-type DMG received +80% and ATK -19%.<br>status{Suspect|und_debuff} Suspect and status{DEF_Down|und_debuff} DEF Down are undispellable. Additionally, these debuffs have unique priority: they can be applied to ANY boss regardless of their immunity to debuffs.<br>Debuffs are applied first before the skill deals DMG. The area DMG is dealt second, and the single-target DMG is dealt last.<br>If the primary target of the skill is defeated during the skill animation, the remaining single-target DMG hits will be dealt to the next target with the highest ATK in a small area around the initial target, preferring the nearest target in case of ties."
         }
       },
       "warnings": []
@@ -2217,15 +2238,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               437.5,
-              886.2
+              930.5
             ],
             "attr2": [
               218.7,
-              443.8
+              466
             ],
             "attr3": [
               262.5,
-              531.7
+              558.3
             ]
           },
           "skill_notes": "Regular attacks target either the nearest or farthest enemy within her attack range. These attacks will randomly select an item to throw at enemies (an olive, pan, or compass) and deal damage to up to 2 other targets near the primary target.<br>Olive Cookie resists interrupting effects while using the skill and becomes intangible in the middle of it.<br>Contrary to the wording (\"per hit\"), the skill only hits once for every bat type.<br>If Olive Cookie runs into an enemy on the way back, she will not push the enemy back."
@@ -2241,7 +2262,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               522.9,
-              1059.4
+              1112.3
             ]
           },
           "skill_notes": "The Mozzarella Bird starts flying from the position of the nearest enemy within range, pushing all targets it encounters Airborne and back. Targets are flung back the same distance regardless of when they are struck by the Mozzarella Bird. The Mozzarella Puddle is created a set distance away from the Mozzarella Bird's starting location.<br>status{MOV_SPD_Down|und_debuff} MOV SPD Down and status{ATK_SPD_Down|und_debuff} ATK SPD Down are undispellable, and are only applied when the Mozzarella Puddle is created."
@@ -2257,11 +2278,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               377.8,
-              765.4
+              803.6
             ],
             "attr2": [
               46.5,
-              94.1
+              98.8
             ]
           },
           "skill_notes": "Fettuccine Cookie's initial Cooldown has a 0.2x multiplier.<br>status{Taunt|und_buff} Taunt and status{Fettuccine_Wraps|und_buff} Fettuccine Wraps gained from using the skill are undispellable.<br>status{ATK_Down|und_debuff} ATK Down from Unstable Aura is undispellable.<br>status{Immortality|und_buff} Immortality and status{ATK_SPD_Down|und_debuff} ATK SPD Down from Unstable State activating is undispellable.<br>status{DMG_Down|und_buff} DMG Down based on Fettuccine Cookie's missing Max HP is undispellable, and appears even when Fettuccine Cookie is at full HP. The maximum DMG Resist gained is capped at -20% Max HP."
@@ -2277,11 +2298,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               155.3,
-              314.5
+              330.2
             ],
             "attr2": [
               381.9,
-              773.8
+              812.5
             ]
           },
           "skill_notes": "status{Curse_Protection} Curse Protection has the same duration as status{Protector_of_the_Golden_City} Protector of the Golden City.<br>status{Protector_of_the_Golden_City} Protector of the Golden City does not disappear while status{No_Debuff_Immunity} No Debuff Immunity is active.<br>Unlike status{Immunity} Immunity, status{Protector_of_the_Golden_City} Protector of the Golden City cannot purify debuffs that have been applied to targets through status{No_Debuff_Immunity} No Debuff Immunity whenever it is reapplied.<br>If cookie{Golden_Cheese} Golden Cheese Cookie is defeated for the first time, Burnt Cheese Cookie grants himself status{Gatekeeper's_Fury|und_buff} Gatekeeper's Fury, increasing his ATK and ATK SPD for 16 seconds.<br>status{DMG_Down|und_buff} DMG Resist from Loyal Follower is undispellable."
@@ -2297,7 +2318,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               188.6,
-              382
+              401.1
             ]
           },
           "skill_notes": "Frilled Jellyfish Cookie's initial Cooldown has a 0.3x multiplier.<br>Has a 4.933 second cast time.<br>Upon using her skill, Frilled Jellyfish Cookie takes 0.833 seconds to burrow herself and apply skill effects. She'll stay burrowed for 3.3 seconds, before taking 0.8 seconds to end the skill duration.<br>The little jellyfish stays on the battlefield until the battle ends, following the center of the team.<br>If Frilled Jellyfish Cookie is defeated but revived at a later time, the little jellyfish will not heal until Frilled Jellyfish Cookie is defeated again. However, it will still remain on the battlefield visually.<br>status{DMG_Down|und_buff} DMG Down is undispellable."
@@ -2328,7 +2349,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               90.3,
-              182.9
+              192
             ]
           },
           "skill_notes": "Regular Attack heals two lowest HP allies by 35.1% of ATK."
@@ -2359,11 +2380,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               25.7,
-              52.1
+              54.7
             ],
             "attr2": [
               156.6,
-              317.2
+              333.1
             ]
           },
           "skill_notes": "Enhanced regular attacks lasts for 5 seconds.<br>status{Electrifying_Rock_Spirit} Electrifying Rock Spirit stacks have no limit.<br>Allies with status{Electrifying_Rock_Spirit} Electrifying Rock Spirit gain a stack of status{Electrifying_Rock!} Electrifying Rock! per status{Electrifying_Rock_Spirit} Electrifying Rock Spirit stack whenever they deal a CRIT hit or a tick of damage via status{Zap|0|electricity} Zap. These stacks reset at 2 stacks, dealing bonus damage to the target that received the CRIT hit or Zap damage. Damage dealt this way is indirect, is attributed to Black Lemonade Cookie, and can be increased by Elecricity-type damage increase buffs on her.<br>CRIT ticks of Zap damage only grant one status{Electrifying_Rock!} Electrifying Rock! stack."
@@ -2379,7 +2400,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               17.0,
-              34.4
+              36.2
             ]
           },
           "skill_notes": "At least 5% CRIT% via Toppings or Topping Tarts is required to grant the maximum +35% CRIT% from the skill. CRIT% gained from Beascuits is not counted.<br>When Rockstar Cookie is defeated, he will begin playing his Encore and gain status{Immortality|und_buff} Immortality for the healing duration, during which time he cannot be healed. Afterward, he will be defeated.<br>Rockstar Cookie jumps back a short distance when he performs his Encore.<br>If treasure{sugar_swans_shining_feather} or treasure{insignia} is active while Rockstar Cookie would be defeated, he will instead perform his Encore first, with the Treasures only activating after he finishes playing his Encore. If another Cookie would be knocked out while Rockstar Cookie is playing his Encore, the Insignia treasure will not protect that Cookie."
@@ -2395,11 +2416,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               271.1,
-              549.2
+              576.6
             ],
             "attr2": [
               417.1,
-              844.9
+              887.1
             ]
           },
           "skill_notes": "Regular attacks deal damage to all targets within a medium area around the primary target. All targets damaged are pushed back a minor distance, with the primary target pushed back twice as far. thumb|80px|Enhanced skill indicator|right<br>The skill becomes enhanced on every other use.<br>Enhanced Cannonball Extra DMG to Bosses: fire{1178.6%} of ATK.<br>Tarte Tatin Cookie has to hit enemies with either her regular attack or skill first before their defeat can grant her status{ATK_Up} ATK Up.<br>All status{ATK_Up} ATK Up buffs granted by the skill through defeating enemies are undispellable, and refresh in duration whenever a buff stack would be applied."
@@ -2415,19 +2436,19 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               29.7,
-              60.2
+              63.2
             ],
             "attr2": [
               12.2,
-              24.7
+              26
             ],
             "attr3": [
               21.4,
-              43.3
+              45.4
             ],
             "attr4": [
               142.8,
-              289.4
+              303.8
             ]
           },
           "skill_notes": "The Cooldown for Royal Margarine Cookie's skill begins immediately after casting, even during the skill animation.<br>Royal Margarine Cookie is intangible during the swoop portion of the ability.<br>Royal Margarine Cookie reappears at the position of the rearmost Cookie on the team at the skill's end, preferring non-safeguarded Cookies.<br>At max stacks, status{ATK_Down} Targets' ATK is decreased by -15.0% for Cookies and -45.0% for others.<br>At max stacks, status{DEF_Down} Targets' DEF is decreased by -21.0% for Cookies and -40.5% for others."
@@ -2443,11 +2464,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               182.0,
-              368.6
+              387
             ],
             "attr2": [
               375.8,
-              761.4
+              799.5
             ]
           },
           "skill_notes": "status{DMG_Down|und_buff} DMG Down from the Paladin's Way passive is undispellable.<br>Both regular attacks and enhanced attacks hit all enemies within melee range.<br>Transformation lasts 8 seconds. While transformed, regular attacks alternate between a frontal slash and overhead slash.<br>Attacks grant Kouign-Amann Cookie a stack of status{ATK_SPD_Up} ATK SPD Up. Buffs from this effect are refreshed on each attack.<br>Light Strike sends foes Airborne, but is affected by only 15% of ATK SPD buffs.<br>If no enemies are in range when the skill's duration ends, Kouign-Amann Cookie will save her Light Strike and move forward, performing it only once an enemy is within range."
@@ -2478,14 +2499,14 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               52.1,
-              105.5
+              110.8
             ],
             "attr2": [
               36.7,
-              74.3
+              78
             ]
           },
-          "skill_notes": "Regular attacks deal no direct damage, and instead inflict status{Poison|0|poison} Poison to all targets around the primary target.<br>Unlike most Poison debuffers, Prune Juice Cookie's status{Poison|0|poison} Poison debuffs stack indefinitely."
+          "skill_notes": "Regular attacks deal no direct damage, and instead inflict status{Poison|0|poison} Poison to all targets around the primary target.<br>Has a 1.5 second cast time.<br>Unlike most Poison debuffers, Prune Juice Cookie's status{Poison|0|poison} Poison debuffs stack indefinitely."
         }
       },
       "warnings": []
@@ -2498,19 +2519,19 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               47.9,
-              97
+              101.8
             ],
             "attr2": [
               41.0,
-              83.3
+              87.3
             ],
             "attr3": [
               183.7,
-              372.2
+              390.8
             ],
             "attr4": [
               229.6,
-              465.2
+              488.5
             ]
           },
           "skill_notes": "Regular attacks have Space Doughnut roll forward into their target before bouncing back to their original position.<br>Space Doughnut is intangible while using their skill.<br>Space Doughnut gain a stack of status{Doughnut_Doughnut!} Doughnut Doughnut! for each enemy transformed via status{Doughnut_Beam} Doughnut Beam. The transformation is applied after damage is dealt, meaning that Space Doughnut will not gain stacks from enemies defeated by the skill before they can be transformed.<br>Cookie enemies cannot be transformed by status{Doughnut_Beam} Doughnut Beam.<br>Whenever Space Doughnut accumulates 10 or more stacks of status{Doughnut_Doughnut!} Doughnut Doughnut!, they consume 10 stacks of Doughnut Doughnut! to gain a reserve of Super Doughnut Blast. These reserves are used as soon as possible and can stack indefinitely.<br>Space Doughnut is intangible while performing Super Doughnut Blast. They will teleport back to their original position after performing it.<br>If there are no enemies in range when a reserve of Super Doughnut Blast is prepared, Space Doughnut will save it and move forward, performing it once an enemy is within their regular attack range.<br>cannot be used until all reserves of Super Doughnut Blast are used, even if the skill's Cooldown is fully charged."
@@ -2526,18 +2547,18 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               134.6,
-              272.7
+              286.4
             ],
             "attr2": [
               87.3,
-              176.8
+              185.7
             ],
             "attr3": [
               17.7,
-              35.9
+              37.7
             ]
           },
-          "skill_notes": "Whenever Blueberry Pie Cookie accumulates 7 or more stacks of Greed, she consumes 7 stacks of Greed to gain a reserve of Sealed Power. These reserves are used as soon as possible and can stack indefinitely.<br>Blueberry Pie Cookie resists interrupting effects while using Sealed Power.<br>If there are no enemies in range when a reserve of Sealed Power is prepared, Blueberry Pie Cookie will save it and move forward, performing it only once an enemy is within her regular attack range.<br>cannot be used until all reserves of Sealed Power are used, even if the skill is off Cooldown.<br>Greed is dispellable, meaning that it can be blocked by Curse effects.<br>Sealed Power's status{ATK_Up} ATK Up buff cannot stack."
+          "skill_notes": "Regular attacks deal electricity{145.7%} of ATK DMG to the nearest target.<br>Has a 1.9 second cast time.<br>Whenever Blueberry Pie Cookie accumulates 7 or more stacks of Greed, she consumes 7 stacks of Greed to gain a reserve of Sealed Power. These reserves are used as soon as possible and can stack indefinitely.<br>Blueberry Pie Cookie resists interrupting effects while using Sealed Power.<br>If there are no enemies in range when a reserve of Sealed Power is prepared, Blueberry Pie Cookie will save it and move forward, performing it only once an enemy is within her regular attack range.<br>cannot be used until all reserves of Sealed Power are used, even if the skill is off Cooldown.<br>Greed is dispellable, meaning that it can be blocked by Curse effects.<br>Sealed Power's status{ATK_Up} ATK Up buff cannot stack."
         },
         "blueberry_pie_mc": {
           "skill_details": "Sealed Power Extra DMG: electricity{%{attr1}} of ATK + electricity{2.0%} per 1% of CRIT%; capped at 200.0%<br>status{Zap|0|electricity} Zap: electricity{45.5%} DMG every 1 sec for 13 sec; stacks up to x3, nullifies HP Shield<br>status{Current_Charge} Current Charge: CRIT% +10.0% for 10 sec; stacks up to x1",
@@ -2564,7 +2585,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               173.8,
-              352.1
+              369.7
             ]
           },
           "skill_notes": "Milky Way Cookie's regular attacks only heal herself, dealing no damage."
@@ -2576,17 +2597,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Prophet Cookie/Kingdom",
       "keys": {
         "prophet": {
-          "skill_details": "DMG of 7 Prophecies: total damage ranges from %{attr1} to %{attr2}<br>status{Amplified_Debuffs} Amplified Debuffs: +5.0% for 20 sec; stacks up to x1<br>status{Healing} Healing: heals HP equal to 10.0% of ATK every 1 sec for 5 sec<br>status{Amplify_Buff} Amplified Buffs: +17.5% for 20 sec; stack up to x1<br>Locked Prophecy: activated upon exceeding 10.0% in CRIT% with Toppings",
-          "skillAttr": {
-            "attr1": [
-              100.3,
-              210
-            ],
-            "attr2": [
-              360.5,
-              730.3
-            ]
-          },
+          "skill_details": "DMG of 7 Prophecies: total damage ranges from 100.3% to 360.5%<br>status{Amplified_Debuffs} Amplified Debuffs: +5.0% for 20 sec; stacks up to x1<br>status{Healing} Healing: heals HP equal to 10.0% of ATK every 1 sec for 5 sec<br>status{Amplify_Buff} Amplified Buffs: +17.5% for 20 sec; stack up to x1<br>Locked Prophecy: activated upon exceeding 10.0% in CRIT% with Toppings",
           "skill_notes": "Regular attack heal the lowest HP ally by 41.0% of ATK."
         }
       },
@@ -2600,11 +2611,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               73.5,
-              148.8
+              156.3
             ],
             "attr2": [
               122.5,
-              248.1
+              260.5
             ]
           },
           "skill_notes": "Regular Attacks strike a target within melee range dealing ice{110%} ATK damage, then calls down a pinecone to fall on them if they survive. The pinecone deals ice{55%} ATK damage to the primary target and up to 2 nearby enemies.<br>Pinecone Cookie can use this skill at any time, even if no enemies are onscreen. On Auto-Battle, they will only use this skill once an enemy is within their transformed regular attack range.<br>The Tree Golem transformation lasts for 15 sec.<br>While transformed, Pinecone Cookie can only attack when an enemy is a short distance away from them. However, their ranged attacks can target any enemy up to thrice the distance away from them. The attacks deals slight knockback to targets hit.<br>status{Max_HP_Up} Max HP Up is undispellable."
@@ -2635,11 +2646,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               82.4,
-              167
+              175.3
             ],
             "attr2": [
               180.4,
-              365.4
+              383.6
             ]
           },
           "skill_notes": "Regular attacks heal equal to 99.9%/49.95%/33.3%/24.9303%/19.98% of ATK for 1/2/3/4/5 target(s).<br>Regular attacks target up to 5 Cookies on the team, including Safeguarded Cookies, and cannot target Summoned Creatures.<br>Song of Change has a base Cooldown of 4 seconds.<br>Song of Joy swaps to Song of Change when only one allied Cookie other than Carol Cookie is on the field. If an additional ally Cookie is revived or added to the team mid-battle, Song of Change does not swap back to Song of Joy."
@@ -2655,11 +2666,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               15.5,
-              31.4
+              33
             ],
             "attr2": [
               24.5,
-              49.6
+              52.1
             ]
           },
           "skill_notes": "Macaron Cookie can use this skill at any time, even if no enemies are onscreen. On Auto-Battle, she will only use this skill once an enemy is within a distance a little further her regular attack range.<br>Macaron Animals will march forward a significant distance during their march.<br>At least 90 hits with the skill are required to obtain the maximum amount of status{Happy_Parade} Happy Parade stacks."
@@ -2675,7 +2686,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               244.9,
-              496.1
+              520.9
             ]
           },
           "skill_notes": "Schwarzwälder's initial Cooldown has a 0.5x multiplier.<br>Schwarzwälder is heavier than other Cookies and is less affected by Knockback and Flying."
@@ -2687,15 +2698,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Candy Diver Cookie/Kingdom",
       "keys": {
         "candy_diver": {
-          "skill_details": "status{DEF_Down} Regular Attack DEF Reduction: 7.5% for 10.0 sec, stacks up to 2 times<br>status{Weakness} Regular Attack DMG Boost: 5.0% for 10.0 sec, stacks up to 2 times<br>Super Success Rate: 10.0% + Amplify Buff%<br>Failed Super Success Carryover Rate: 15.0%<br>status{Healing} Regular Relic HP Healing: %{attr1}<br>status{Amplify_Buff} Siren Statue: Amplify Buff +15.0% for 10.0 sec<br>status{ATK_Up} Pirate Sword: ATK +10.0% for 10.0 sec<br>status{DEF_Up} Anchor: DEF +15.0% for 10.0 sec<br>(Rare Relic) Black Pearl Shell:<br>status{Healing} Healing +%{attr2} every 1.0 sec for 7.0 sec<br>status{Amplify_Buff} Amplify Buff +15.0% for 10.0 sec<br>status{ATK_Up} ATK +25.0% for 10.0 sec",
+          "skill_details": "status{DEF_Down} Regular Attack DEF Reduction: -7.5% for 10.0 sec, stacks up to 2 times<br>status{Weakness} Regular Attack DMG Boost: +5.0% for 10.0 sec, stacks up to 2 times<br>Super Success Rate: 10.0% + Amplify Buff%<br>Failed Super Success Carryover Rate: 15.0%<br>status{Healing} Regular Relic HP Healing: %{attr1}<br>status{Amplify_Buff} Siren Statue: Amplify Buff +15.0% for 10.0 sec<br>status{ATK_Up} Pirate Sword: ATK +10.0% for 10.0 sec<br>status{DEF_Up} Anchor: DEF +15.0% for 10.0 sec<br>(Rare Relic) Black Pearl Shell:<br>status{Healing} Healing %{attr2} every 1.0 sec for 7.0 sec<br>status{Amplify_Buff} Amplify Buff +15.0% for 10.0 sec<br>status{ATK_Up} ATK +25.0% for 10.0 sec",
           "skillAttr": {
             "attr1": [
               43.5,
-              88.2
+              92.6
             ],
             "attr2": [
               10.9,
-              22.1
+              23.3
             ]
           },
           "skill_notes": "Regular attacks deal no damage.<br>status{Spirit_of_the_Abyss} Spirit of the Abyss is an undispellable buff that represents Candy Diver Cookie's Safeguarded ability, and lasts throughout the battle."
@@ -2711,11 +2722,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               331.1,
-              670.7
+              704.2
             ],
             "attr2": [
               132.4,
-              268.3
+              281.7
             ]
           }
         },
@@ -2744,7 +2755,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               39.6,
-              80.3
+              84.3
             ]
           },
           "skill_notes": "Regular healing heals both Cream Unicorn Cookie themself and their healing target, granting both of them status{DMG_Down} DMG Resist.<br>Cream Unicorn Cookie becomes intangible while using the skill."
@@ -2774,15 +2785,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               211.7,
-              428.9
+              450.3
             ],
             "attr2": [
               43.5,
-              88.2
+              92.6
             ],
             "attr3": [
               65.3,
-              132.3
+              138.9
             ]
           },
           "skill_notes": "While Financier Cookie is in battle, status{Paladin_Protector|und_buff} Paladin Protector is passively granted to either cookie{Clotted_Cream} Clotted Cream Cookie or the Cookie with the highest ATK, prioritizing Clotted Cream Cookie. If that Cookie is defeated, the buff is moved to the next Cookie with the highest ATK that isn't Financier Cookie. Paladin Protector is dispelled if Financier Cookie is defeated.<br>Buffs are granted to both Financier Cookie and the Cookie with status{Paladin_Protector|und_buff} Paladin Protector when Financier Cookie raises her sword upwards during the skill.<br>status{Light's_Shield|und_buff} Light's Shield is undispellable, disappearing only once the shield granted by the skill either expires or is depleted.<br>The shield granted by status{Light's_Shield|und_buff} Light's Shield is not affected by effects that would destroy or prevent shields such as status{Zap|0|electricity} Zap or status{Shields_Blocked} Shields Blocked.<br>status{DMG_Down} DMG Down, status{CRIT_Resist_Up} CRIT Resist Up, and status{ATK_Up} ATK Up buffs have no stack limit, but do not have their durations refreshed when reapplied."
@@ -2812,11 +2823,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               88.6,
-              179.4
+              188.4
             ],
             "attr2": [
               102.9,
-              208.4
+              218.8
             ]
           },
           "skill_notes": "Crunchy Chip Cookie has a 5% higher base CRIT% than most Cookies, totaling 10%.<br>While mounted, regular attacks hit all targets within melee range dealing darkness{74.6%} of ATK damage, and launch a projectile (his claws) at the highest ATK target within a long range, dealing darkness{111.9%} of ATK damage and inflicting status{Claw_Mark|und_debuff} Claw Mark on them.<br>Unlike other attacks that hit multiple targets, all targets receive a CRIT Hit when Crunchy Chip Cookie's regular attack CRITs. The launched projectile will also CRIT."
@@ -2832,11 +2843,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               19.3,
-              39.1
+              41.1
             ],
             "attr2": [
               63.7,
-              129.1
+              135.5
             ]
           },
           "skill_notes": "Regular attacks knock enemies back a short distance and send them Airborne, interrupting skills or special attacks. During Battle Rage, this knockback distance is doubled.<br>The extra DMG to Knockback-resisting Enemies only applies to his transformed regular attacks and Uppercut.<br>Battle Rage lasts 8 seconds.<br>status{Wild|und_buff} Wild is undispellable. At maximum stacks, Final Blow will deal additional DMG equal to 150% of Wildberry Cookie's Max HP.<br>If no enemies are in melee range when Battle Rage ends, Wildberry Cookie will save his uppercut combo and continue forward, performing it once an enemy is in melee range.<br>Wildberry Cookie's team-wide status{DMG_Resist} DMG Resist buff is undispellable unless he is defeated."
@@ -2866,7 +2877,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               48.3,
-              97.8
+              102.7
             ]
           }
         }
@@ -2881,15 +2892,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               88.3,
-              178.8
+              187.8
             ],
             "attr2": [
               22.1,
-              44.9
+              47.1
             ],
             "attr3": [
               2.2,
-              4.3
+              4.7
             ]
           },
           "skill_notes": "Regular attacks hit up to 2 targets within melee range.<br>This skill cannot be used until a target is within melee range.<br>Upon using the skill, Caramel Arrow Cookie jumps back a long distance and performs ranged attacks for the duration.<br>Each ranged attack targets the 3 frontmost enemies regardless of range, prioritizing Cookies.<br>Caramel Arrow Cookie remains resistant to interrupting effects until she can perform her rush attack.<br>Caramel Arrow Cookie will cancel her rush attack if no enemies have status{Arrow_Mark} Arrow Mark at the end of the transformation period."
@@ -2920,15 +2931,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               31.3,
-              63.4
+              66.5
             ],
             "attr2": [
               15.0,
-              30.4
+              31.9
             ],
             "attr3": [
               300.2,
-              608.2
+              638.6
             ]
           }
         }
@@ -2943,7 +2954,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               542.4,
-              1098.8
+              1153.8
             ]
           },
           "skill_notes": "Regular attack hits all nearby targets dealing damage equal to 128.7% of ATK."
@@ -2977,7 +2988,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               480.6,
-              973.6
+              1022.3
             ]
           }
         }
@@ -2992,11 +3003,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               41.7,
-              84.5
+              88.7
             ],
             "attr2": [
               42.8,
-              86.7
+              91
             ]
           },
           "skill_notes": "While in her giant cocoa mug, Cocoa Cookie slowly moves forward as it spins, pushing all targets damaged back a short distance on each hit.<br>Cocoa is Love hits up to 10 times."
@@ -3012,10 +3023,10 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               14.2,
-              28.9
+              30.3
             ]
           },
-          "skill_notes": "Sheep are summoned at a tiny interval."
+          "skill_notes": "3 sheep are summoned periodically within a tiny interval."
         }
       },
       "warnings": []
@@ -3028,7 +3039,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               44.4,
-              88.2
+              92.6
             ]
           },
           "skill_notes": "Pumpkin Pie Cookie's initial Cooldown has a 0.2x multiplier.<br>Pompon's lifetime lasts 24 seconds.<br>Pompon's Strike Attack inflicts status{Consuming_Darkness} Consuming Darkness.<br>Pumpkin Pie Cookie will not receive status{Darkness_Absorption} Darkness Absorption healing when Pompon attacks."
@@ -3040,8 +3051,18 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Twizzly Gummy Cookie/Kingdom",
       "keys": {
         "twizzly_gummy": {
-          "skill_details": "Single Hit DMG (Cookies): electricity{7.7%}<br>Single Hit DMG (Others): electricity{4.6%}<br>Skill CRIT DMG: +350.0%<br>status{Zap|0|electricity} Zap: electricity{2.8%} DMG every 1.0 sec for 7.0 sec. Nullifies HP Shield.",
-          "skill_notes": "Regular attacks hit 6 times, dealing damage equal to electricity{17.7%} of ATK each hit.<br>Twizzly Beam hits up to 12 times."
+          "skill_details": "Single-hit DMG (Cookies): electricity{%{attr1}}<br>Single-hit DMG (Others): electricity{%{attr2}}<br>Skill CRIT DMG: +350.0%<br>status{Zap|0|electricity} Zap: electricity{2.8%} DMG every 1.0 sec for 7.0 sec. Nullifies HP Shield.",
+          "skillAttr": {
+            "attr1": [
+              7.7,
+              20.4
+            ],
+            "attr2": [
+              4.6,
+              12.2
+            ]
+          },
+          "skill_notes": "Regular attacks hit 6 times, dealing damage equal to electricity{17.7%} of ATK each hit.<br>Charges up Electrojelly Gun for 0.7 seconds then fires laser beam for 1.4 seconds.<br>Twizzly Beam hits up to 12 times."
         },
         "twizzly_gummy_mc": {
           "skill_details": "Laser Beam Extra DMG: electricity{%{attr1}} of ATK<br>Skill CRIT DMG: changed to +400.0%<br>status{Zap|0|electricity} Zap: changed to stacks up to x5<br>status{Current_Charge} Current Charge: CRIT% +7.5% for 15 sec; stacks up to x2<br>status{CRIT_DMG_Up} CRIT DMG: +20.0% for 15 sec; stacks up to x1",
@@ -3069,15 +3090,15 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               70.4,
-              142.5
+              149.7
             ],
             "attr2": [
               164.1,
-              332.4
+              349
             ],
             "attr3": [
               30.4,
-              61.7
+              64.8
             ]
           },
           "skill_notes": "Regular attacks hit 3 times, with the third hit dealing more damage. Each hit CRITs independently from each other."
@@ -3111,7 +3132,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               127.9,
-              259
+              272
             ]
           }
         }
@@ -3126,11 +3147,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               40.9,
-              102.2
+              107.3
             ],
             "attr2": [
               286.2,
-              715.4
+              751.2
             ]
           },
           "skill_notes": "Multi-hit attacks up to 9 times, and then strikes a final time (10 hits total)."
@@ -3160,7 +3181,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               14.4,
-              29.3
+              30.7
             ]
           }
         },
@@ -3189,11 +3210,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               18.0,
-              34.7
+              36.5
             ],
             "attr2": [
               378.0,
-              766.4
+              804.7
             ]
           }
         },
@@ -3222,7 +3243,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               37.4,
-              75.8
+              79.6
             ]
           },
           "skill_notes": "Hits up to 7 times.<br>Becomes intangible while using the skill."
@@ -3260,7 +3281,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               105.0,
-              212.7
+              223.4
             ]
           },
           "skill_notes": "Transformation lasts 10.0 sec<br>Regular attacks hit 2 times.<br>Lilac Cookie can use this skill at any time, even if no enemies are onscreen. On Auto-Battle, he will only use this skill once an enemy is within his regular attack range.<br>While transformed, regular attacks hit all enemies in a large cone via a wave of chakrams, centered on Lilac Cookie's primary target. The wave of chakrams alternates between leading from the right and leading from the left.<br>status{Regular_DMG_Up} Regular Attack DMG can stack. However, this is only achievable through either treasure{sugar_swans_shining_feather} reviving Lilac Cookie while the previous buff is still active or using the empowered version of ."
@@ -3276,7 +3297,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               104.4,
-              211.5
+              222.1
             ]
           },
           "skill_notes": "Hits up to 3 times.<br>Waves push targets Airborne."
@@ -3307,7 +3328,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               835.0,
-              1611.3
+              1691.8
             ]
           },
           "skill_notes": "Regular attacks hit up to 3 targets within melee range."
@@ -3323,7 +3344,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               71.7,
-              145.4
+              152.7
             ]
           },
           "skill_notes": "Regular attacks hit up to 2 targets within range, each projectile ricocheting up to 2 times and dealing DMG equal to wind{49.1%} of ATK.<br>Ricochet hits prioritize the nearest target and have unlimited range, but won't hit targets already targeted by another regular attack or ricochet hit unless Pastry Cookie is transformed.<br>If a regular attack CRITs, all of its ricochet hits will also CRIT.<br>Battle Prayer lasts 10 seconds. The skill immediately grants status{CRIT_Chance_Up} CRIT Chance Up upon skill cast, then grants status{ATK_SPD_Up} ATK SPD Up when the transformation period begins.<br>Pastry Cookie resists interrupting effects while transformed.<br>Ricochet hits while transformed prioritize the nearest targets that have taken the fewest hits from the current projectile, and decrease in damage when the same target is hit, capping at x15 hits.<br>Pastry Cookie remains transformed whenever she attacks while transformed; this is indicated cosmetically by the status{Sanctuary} Sanctuary buff.<br>Pastry Cookie can use this skill at any time, even if no enemies are onscreen. On Auto-Battle, she will only use this skill once an enemy is within twice her regular attack range."
@@ -3354,7 +3375,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               221.0,
-              426
+              447.3
             ]
           }
         }
@@ -3369,7 +3390,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               330.0,
-              669.4
+              702.9
             ]
           },
           "skill_notes": "Regular Attacks hit 2 times.<br>Strawberry Crepe Cookie can move forward while using this skill.<br>status{DMG_Down} DMG Down is granted shortly after the beginning of the skill.<br>At the end of the skill, all enemies damaged are pushed back a medium distance."
@@ -3400,7 +3421,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               79.7,
-              159
+              167
             ]
           },
           "skill_notes": "60px|thumb<br>Regular attacks hit 2 times, dealing DMG equal to darkness{63%} of ATK each hit.<br>A marker appears above the middlemost enemy that the skill targets upon use.<br>Shadow Watcher hits up to 5 times."
@@ -3430,7 +3451,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               70.0,
-              121.6
+              127.6
             ]
           },
           "skill_notes": "status{Damage_Link} Damage Link acts as a regular debuff, and cannot be applied to a target with immunities to debuffs.<br>Enemies that are immune to debuffs can still be linked to the target that receives status{Damage_Link} Damage Link, and will receive damage from the effect."
@@ -3446,19 +3467,19 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               469.6,
-              599.3
+              629.2
             ],
             "attr2": [
               113.9,
-              145.3
+              152.6
             ],
             "attr3": [
               1166.9,
-              1489.2
+              1563.6
             ],
             "attr4": [
               250.6,
-              319.8
+              335.8
             ]
           }
         },
@@ -3496,15 +3517,19 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Latte Cookie/Kingdom",
       "keys": {
         "latte": {
-          "skill_details": "Single-hit DMG: earth{%{attr1}}<br>Inner Latte Glyph DMG (total): earth{%{attr2}}<br>Outer Latte Glyph DMG (total}): earth{276.8%}<br>status{Silence} Silence: 1.5 sec<br>Immobilized: 5.0 sec<br>status{Earth's_Protection} Earth's Protection: Debuff Resist +3.0%, DEF +5.0% for 10 sec upon using skill; stacks up to x2",
+          "skill_details": "Single-hit DMG: earth{%{attr1}}<br>Inner Latte Glyph DMG (total): earth{%{attr2}}<br>Outer Latte Glyph DMG (total): earth{%{attr3}}<br>status{Silence} Silence: 1.5 sec<br>Immobilized: 5.0 sec<br>status{Earth's_Protection} Earth's Protection: Debuff Resist +3.0%, DEF +5.0% for 10 sec upon using skill; stacks up to x2",
           "skillAttr": {
             "attr1": [
               229.3,
-              464.4
+              487.6
             ],
             "attr2": [
               299.5,
-              606.8
+              637.2
+            ],
+            "attr3": [
+              276.8,
+              588.9
             ]
           },
           "skill_notes": "The skill deals 5 hits of damage every sec over 5 seconds."
@@ -3535,7 +3560,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               245.4,
-              497.1
+              522
             ]
           },
           "skill_notes": "Kumiho Cookie briefly becomes intangible when transforming.<br>Transformation lasts for 12 seconds.<br>While transformed, Kumiho Cookie's regular attacks hit up to 5 targets with Fox Spirit Flames."
@@ -3551,7 +3576,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               26.0,
-              52.7
+              55.3
             ]
           },
           "skill_notes": "Snow King lasts for 10 sec."
@@ -3590,7 +3615,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               72.0,
-              145.4
+              152.7
             ]
           },
           "skill_notes": "Regular attacks hit 2 times."
@@ -3628,11 +3653,11 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               98.4,
-              198.8
+              208.8
             ],
             "attr2": [
               123.0,
-              248.2
+              260.6
             ]
           },
           "skill_notes": "The skill deals damage every 0.2 sec over 1.5 seconds.<br>The final hit inflicts a strong Airborne effect that interrupts all enemies hit, even if they have status{Immunity} Immunity. This does not bypass resistance to interrupting effects or incapacitation immunity."
@@ -3670,7 +3695,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               108.0,
-              251.6
+              264.2
             ]
           },
           "skill_notes": "Madeleine Cookie resists interrupting effects during the skill cast animation, but not while transformed."
@@ -3705,7 +3730,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               239.0,
-              484
+              508.2
             ]
           },
           "skill_notes": "The skill hits 3 times, with each Black Lightning hit distributed among the 3 nearest targets.<br>Licorice Cookie can use this skill at any time, even if no enemies are onscreen.<br>Licorice Cookie can continue to move forward while using this skill."
@@ -3766,7 +3791,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               230.3,
-              466.5
+              489.8
             ]
           },
           "skill_notes": "Milk Cookie can use this skill a long distance away from the nearest enemy. Upon use, he rushes towards the nearest enemy and deals DMG in an area around that enemy.<br>Milk Cookie transforms to a shield stance when using this skill. While transformed, he does not use Regular Attacks and resists interrupting effects.<br>Milk Cookie remains resistant to interrupting effects for 0.8 seconds after his transformation expires."
@@ -3805,7 +3830,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               54.0,
-              110.1
+              115.6
             ]
           },
           "skill_notes": "Purple Yam Cookie moves forward while using his skill."
@@ -3886,7 +3911,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               139.0,
-              281.9
+              296
             ]
           },
           "skill_notes": "Sparkling Cookie can move while performing his skill.<br>Buffs are granted at the end of the skill.<br>status{CRIT_Chance_Up} CRIT Chance Up can stack, but does not refresh itself."
@@ -3917,7 +3942,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               247.0,
-              500.9
+              525.9
             ]
           },
           "skill_notes": "Dark Choco Cookie can move forward and resists interrupting effects while using this skill.<br>This skill is comprised of 3 hits that each deal Single Hit DMG and inflict status{DEF_Down} DEF Down and status{Consuming_Darkness} Consuming Darkness.<br>Lightning strikes hit regular-sized enemies such as Cookies and monsters once, while large-sized enemies such as bosses can be struck by all hits, receiving damage and debuffs from each hit."
@@ -3964,7 +3989,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               77.0,
-              155.7
+              163.5
             ]
           },
           "skill_notes": "Regular attacks hit all enemies within a short melee range, while empowered attacks reach twice as far.<br>This skill cannot be used until an enemy is within range of the skill's empowered attacks.<br>The single-hit area damage incapacitates all enemies hit, even if they have status{Immunity} Immunity. This does not bypass resistance to interrupting effects or incapacitation immunity.<br>status{Max_HP_Up} Max HP Up is undispellable."
@@ -3995,7 +4020,7 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
           "skillAttr": {
             "attr1": [
               450.8,
-              913.8
+              959.5
             ]
           },
           "skill_notes": "Regular attacks deal 152.2% of ATK DMG to the nearest target.<br>Has a 2.5 second cast time.<br>Upon using his skill, Mint Choco Cookie will take 0.4 seconds to apply status{ATK_SPD_Up} ATK SPD Up and status{Warm_Breeze} Warm Breeze.<br>Mint Choco Cookie resists interrupting effects while performing his skill.<br>At the end of the skill animation, a Mint Gust will move forward and deal DMG. Healing is granted after the Mint Gust disappears.<br>status{ATK_SPD_Up} ATK SPD Up buffs do not refresh their duration when stacking with each other.<br>Bonus Healing from status{Tailwind} Tailwind is granted shortly after the skill's first Healing. It will only count the first stack and not increase Healing per stack unless he has his Magic Candy."
@@ -4073,23 +4098,23 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Chess Choco Cookie/Kingdom",
       "keys": {
         "chess_choco": {
-          "skill_details": "White Rook DMG: x4 hits over 0.6 sec, chaos{%{attr1}} of ATK per hit<br>Black Bishop DMG: x3 hits over 0.9 sec, chaos{%{attr2}} of ATK per hit<br>Chessboard Single-hit DMG: chaos{358.6%} of ATK<br>status{Rook's_Blessing} Rook's Blessing: ATK +15.0%, DMG Resist +20.0% for 10 sec; stacks up to x1<br>status{Bishop's_Judgment} Bishop's Judgment: taken DMG +15.0%, ATK SPD -25.0% for 12 sec; stacks up to x1<br>status{White_Rook} White Rook: DEF -15.0% until the end of battle; stacks up to x1<br>status{Black_Bishop} Black Bishop: ATK -20.0% until the end of battle; stacks up to x1<br>status{Tendrils_of_Chaos|0|chaos} Tendrils of Chaos: Chaos-type DMG +7.0% for 10 sec, DEF -10.0%; stacks up to x1<br>color-header{8C3F3F:Check}<br>Triggers when White Rook and Black Bishop are applied simultaneously after their duration is over<br>status{Stun} Stun: 2 sec<br>Single-hit DMG (World Exploration Bosses): chaos{%{attr3}} of ATK<br>status{Checkmate|und_debuff} Checkmate (World Exploration Bosses): ATK -25.0%, DEF -50.0%, taken CRIT DMG +35.0%, taken DMG +65.0% for 15 sec; stacks up to x1<br>Single-hit DMG (Others): chaos{%{attr4}} of ATK<br>status{Checkmate|und_debuff} Checkmate (Others): ATK -20.0%, DEF -20.0%, taken CRIT DMG +15.0% for 3 sec; stacks up to x1<br>color-header{chess_choco:status{Promotion} Pawn Promotion}<br>When entering battle with cookie{De} De Cookie, one of the buffs below will be applied to Chess Choco Cookie after 30 sec with a 25% chance; stacks up to x1<br>Promotion-Rook: DMG Resist +15.0%<br>Promotion-Knight: MOV SPD +10.0%, ATK SPD +15.0%<br>Promotion-Bishop: Amplify Buff +15.0%, Debuff Resist +20.0%<br>Promotion-Queen: CRIT% +15.0%, CRIT DMG +15.0%",
+          "skill_details": "White Rook DMG: x4 hits over 0.6 sec, chaos{%{attr1}} of ATK per hit<br>Black Bishop DMG: x3 hits over 0.9 sec, chaos{%{attr2}} of ATK per hit<br>Chessboard Single-hit DMG: chaos{358.6%} of ATK<br>status{Rook's_Blessing} Rook's Blessing: ATK +15.0%, DMG Resist +20.0% for 10 sec; stacks up to x1<br>status{Bishop's_Judgment} Bishop's Judgment: taken DMG +15.0%, ATK SPD -25.0% for 12 sec; stacks up to x1<br>status{White_Rook} White Rook: DEF -15.0% until the end of battle; stacks up to x1<br>status{Black_Bishop} Black Bishop: ATK -20.0% until the end of battle; stacks up to x1<br>status{Tendrils_of_Chaos|0|chaos} Tendrils of Chaos: Chaos-type DMG +7.0% for 10 sec, DEF -10.0%; stacks up to x1<br>color-header{8C3F3F:Check}color{FFF1DB:mate}<br>Triggers when White Rook and Black Bishop are applied simultaneously after their duration is over<br>status{Stun} Stun: 2 sec<br>Single-hit DMG (World Exploration Bosses): chaos{%{attr3}} of ATK<br>status{Checkmate|und_debuff} Checkmate (World Exploration Bosses): ATK -25.0%, DEF -50.0%, taken CRIT DMG +35.0%, taken DMG +65.0% for 15 sec; stacks up to x1<br>Single-hit DMG (Others): chaos{%{attr4}} of ATK<br>status{Checkmate|und_debuff} Checkmate (Others): ATK -20.0%, DEF -20.0%, taken CRIT DMG +15.0% for 3 sec; stacks up to x1<br>color-header{chess_choco:status{Promotion} Pawn Promotion}<br>When entering battle with cookie{De} De Cookie, one of the buffs below will be applied to Chess Choco Cookie after 30 sec with a 25% chance; stacks up to x1<br>Promotion-Rook: DMG Resist +15.0%<br>Promotion-Knight: MOV SPD +10.0%, ATK SPD +15.0%<br>Promotion-Bishop: Amplify Buff +15.0%, Debuff Resist +20.0%<br>Promotion-Queen: CRIT% +15.0%, CRIT DMG +15.0%",
           "skillAttr": {
             "attr1": [
               159.5,
-              354.5
+              372.2
             ],
             "attr2": [
               209.4,
-              465.4
+              488.6
             ],
             "attr3": [
               542.0,
-              1355
+              1422.8
             ],
             "attr4": [
               73.2,
-              182.9
+              192.1
             ]
           },
           "skill_notes": "Pawn White Cookie applies their effects upon first skill cast, and Pawn Black Cookie applies theirs upon every other skill cast.<br>Similar to cookie{Linzer} Linzer Cookie's status{Suspect|und_debuff} Suspect, the status{Checkmate|und_debuff} Checkmate debuff bypasses any immunity to debuffs if applied to a World Exploration Boss."
@@ -4101,7 +4126,13 @@ window.WIKI_IMPORTED_SKILL_DETAILS = {
       "wikiTitle": "Vampire Cookie/Kingdom",
       "keys": {
         "vampire": {
-          "skill_details": "status{Healing} Vampirism: 15.0% of DMG<br>Single hit DMG: 542.5%",
+          "skill_details": "status{Healing} Vampirism: 15.0% of DMG<br>Single hit DMG: %{attr1}",
+          "skillAttr": {
+            "attr1": [
+              542.5,
+              1235.6
+            ]
+          },
           "skill_notes": "Regular attacks deal DMG equal to 105.0% of ATK and status{Healing} restore HP equal to 1.2% of DMG dealt."
         },
         "vampire_mc": {

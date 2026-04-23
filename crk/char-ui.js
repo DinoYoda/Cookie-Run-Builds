@@ -98,6 +98,8 @@ function buildGameplayNotesHtml(notesObj, skillAttr, notesPrefix) {
 }
 
 const _esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
+/** Encode a file name (single path segment) for img/src URLs — % ' ! etc. break on GitHub Pages without this. */
+const _urlFile = (name) => encodeURIComponent(String(name))
 
 /** Display label for status{mainId|…} hover (internal ids use SNAKE_CASE). */
 function _statusIdToHoverLabel(mainId) {
@@ -175,32 +177,44 @@ function _replaceStandardTags(text, pic) {
     if (tag === "cookie") {
       const cookieName = content.trim()
       const href = `character.html?char=${encodeURIComponent(cookieName)}`
-      return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_esc(cookieName)}_head.png" alt="${_esc(cookieName)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
+      return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieName)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
     }
-    if (tag === "treasure") return `<img src="${pic}/treasures/Treasure_${_esc(content.trim())}.png" alt="${_esc(content.trim())}" class="skill-status-icon" onerror="${_imgErrHide}">`
-    if (tag === "skill") { const s = content.trim(); const fn = s + "_skill"; return `<img src="${pic}/skills/${_esc(fn)}.png" alt="${_esc(s)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
+    if (tag === "treasure") {
+      const t = content.trim()
+      return `<img src="${pic}/treasures/${_urlFile(`Treasure_${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    }
+    if (tag === "skill") {
+      const s = content.trim()
+      return `<img src="${pic}/skills/${_urlFile(`${s}_skill.png`)}" alt="${_esc(s)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    }
     if (tag === "status") {
       const p = content.split("|").map(s => s.trim())
       const mainId = p[0] || ""
       const overlay = p[1]
       const element = p[2]
       const mainIconName = mainId.split("_").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join("_")
-      let html = `<img src="${pic}/icons/status/status_${_esc(mainIconName)}.png" alt="${_esc(mainId)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+      let html = `<img src="${pic}/icons/status/${_urlFile(`status_${mainIconName}.png`)}" alt="${_esc(mainId)}" class="skill-status-icon" onerror="${_imgErrHide}">`
       if (overlay === "und_debuff" || overlay === "und_buff") {
         const ovName = overlay === "und_debuff" ? "Undispellable_Debuff" : "Undispellable_Buff"
-        html = `<span class="skill-status-icon-wrap"><img src="${pic}/icons/status/status_${ovName}.png" alt="${_esc(overlay)}" class="skill-status-icon skill-status-icon-overlay" onerror="${_imgErrHide}">${html}</span>`
+        html = `<span class="skill-status-icon-wrap"><img src="${pic}/icons/status/${_urlFile(`status_${ovName}.png`)}" alt="${_esc(overlay)}" class="skill-status-icon skill-status-icon-overlay" onerror="${_imgErrHide}">${html}</span>`
       }
       if (element) {
         const elIconName = _EL_ICONS[element.toLowerCase()] || (element.charAt(0).toUpperCase() + element.slice(1))
-        const elImg = `<img src="${pic}/icons/${_esc(elIconName)}.png" alt="${_esc(element)}" class="skill-status-icon skill-status-icon-element" onerror="${_imgErrHide}">`
+        const elImg = `<img src="${pic}/icons/${_urlFile(`${elIconName}.png`)}" alt="${_esc(element)}" class="skill-status-icon skill-status-icon-element" onerror="${_imgErrHide}">`
         html = `<span class="skill-status-icon-wrap">${html}${elImg}</span>`
       }
       const tip = _statusIdToHoverLabel(mainId)
       const tipAttr = tip ? ` data-status-tip="${_esc(tip)}"` : ""
       return `<span class="skill-status-hover-wrap"${tipAttr}>${html}</span>`
     }
-    if (tag === "type") { const t = content.trim(); return `<img src="${pic}/icons/${_esc(t)}.png" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
-    if (tag === "position") { const p = content.trim(); return `<img src="${pic}/icons/${_esc(p)}.png" alt="${_esc(p)}" class="skill-status-icon" onerror="${_imgErrHide}">` }
+    if (tag === "type") {
+      const t = content.trim()
+      return `<img src="${pic}/icons/${_urlFile(`${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    }
+    if (tag === "position") {
+      const p = content.trim()
+      return `<img src="${pic}/icons/${_urlFile(`${p}.png`)}" alt="${_esc(p)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    }
     if (tag === "hover") {
       const raw = String(content || "")
       const i = raw.indexOf(":")
@@ -245,7 +259,7 @@ function _replaceStandardTags(text, pic) {
     const span = `<span class="text-tag text-${tag} text-bold">${_esc(content)}</span>`
     if (noIcon) return span
     const iconName = _EL_ICONS[tag] || tag.charAt(0).toUpperCase() + tag.slice(1)
-    return `<img src="${pic}/icons/${_esc(iconName)}.png" alt="${_esc(tag)}" class="skill-status-icon text-tag" onerror="${_imgErrHide}">${span}`
+    return `<img src="${pic}/icons/${_urlFile(`${iconName}.png`)}" alt="${_esc(tag)}" class="skill-status-icon text-tag" onerror="${_imgErrHide}">${span}`
   })
 }
 
@@ -394,14 +408,16 @@ function getGamePictureRoot() {
 }
 
 function getPageImagePath(name) {
-    return `${getGamePictureRoot()}/chars/${name}_illustration.png`
+    return `${getGamePictureRoot()}/chars/${_urlFile(`${name}_illustration.png`)}`
 }
 
 function getToppingImagePath(type, resonance, isTart) {
   const pic = getGamePictureRoot()
-  if (isTart) return `${pic}/toppings/tart/Topping_tart_${type}_3.png`
-  if (resonance) return `${pic}/toppings/${type}/Topping_${type}_${resonance.toLowerCase()}.png`
-  return `${pic}/toppings/${type}/Topping_${type}_3.png`
+  if (isTart) return `${pic}/toppings/tart/${_urlFile(`Topping_tart_${type}_3.png`)}`
+  if (resonance) {
+    return `${pic}/toppings/${type}/${_urlFile(`Topping_${type}_${resonance.toLowerCase()}.png`)}`
+  }
+  return `${pic}/toppings/${type}/${_urlFile(`Topping_${type}_3.png`)}`
 }
 
 function getBeascuitStatLabel(val) {
@@ -487,11 +503,15 @@ function buildToppingsSetBlockHtml(topSet) {
   return { starHtml, substatsHtml }
 }
 
-/** Beascuit column inner HTML for one entry in sets.beascuit */
-function buildBeascuitSetBlockHtml(biscuitSet, charData) {
+/**
+ * Beascuit column inner HTML for one entry in sets.beascuit
+ * @param {{ teamsImageOverlay?: boolean }} [options] - If teamsImageOverlay, omit the name and paint stats on top of the image (teams cards).
+ */
+function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   if (!biscuitSet || typeof biscuitSet !== "object") {
     return { beascuitNameHtml: "", beascuitRowHtml: "" }
   }
+  const teamsImageOverlay = !!(options && options.teamsImageOverlay)
   const el = (biscuitSet.element || "").trim()
   const cookieType = (charData?.type || "unknown").toLowerCase()
   const tainted = !!biscuitSet.tainted
@@ -504,22 +524,39 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData) {
   } else {
     statsLines = [biscuitSet["1"], biscuitSet["2"], biscuitSet["3"], biscuitSet["4"]].filter(Boolean)
   }
-  const beascuitNameHtml = beascuitName ? `<div class="char-beascuit-name">${beascuitName}</div>` : ""
+  const beascuitNameHtml = teamsImageOverlay
+    ? ""
+    : (beascuitName ? `<div class="char-beascuit-name">${beascuitName}</div>` : "")
   const baseNumber = getBeascuitBaseNumber(el)
   const baseOverlay = el
     ? `<img src="${pic}/beascuit/Beascuit_base_${cookieType}_${baseNumber}.png" alt="${el} base" class="char-beascuit-base-overlay" onerror="${_imgErrHide}">`
     : ""
-  const beascuitHtml = `<div class="char-beascuit-image-wrapper">
-    <img src="${pic}/beascuit/Beascuit_${cookieType}_legendary.png" alt="${el}" class="char-beascuit-icon" onerror="${_imgErrHide}">
-    ${baseOverlay}
-  </div>`
-  let beascuitStatsHtml = ""
+  const imgAlt = _esc(beascuitName || "Beascuit")
+  let statsBeside = ""
+  let statsOnImage = ""
   if (statsLines.length > 0) {
-    beascuitStatsHtml = `<div class="char-build-beascuit-stats"><div class="char-build-beascuit-stats-title">Stats</div>${statsLines.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join("")}</div>`
+    if (teamsImageOverlay) {
+      statsOnImage = `<div class="char-build-beascuit-stats teams-beascuit-stats-on-image" aria-label="Beascuit stats"><div class="char-build-beascuit-stats-title">Stats</div>${statsLines.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join("")}</div>`
+    } else {
+      statsBeside = `<div class="char-build-beascuit-stats"><div class="char-build-beascuit-stats-title">Stats</div>${statsLines.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join("")}</div>`
+    }
   }
-  const beascuitRowHtml = (beascuitHtml || beascuitStatsHtml)
-    ? `<div class="char-beascuit-content-row">${beascuitHtml}${beascuitStatsHtml}</div>`
-    : ""
+  const wrapExtraClass = teamsImageOverlay && statsOnImage ? " teams-beascuit-image-has-stats" : ""
+  const beascuitImageHtml = `<div class="char-beascuit-image-wrapper${wrapExtraClass}">
+    <img src="${pic}/beascuit/Beascuit_${cookieType}_legendary.png" alt="${imgAlt}" class="char-beascuit-icon" onerror="${_imgErrHide}">
+    ${baseOverlay}
+    ${teamsImageOverlay ? statsOnImage : ""}
+  </div>`
+  let beascuitRowHtml = ""
+  if (teamsImageOverlay) {
+    beascuitRowHtml = beascuitImageHtml
+      ? `<div class="char-beascuit-content-row teams-beascuit-row-teams">${beascuitImageHtml}</div>`
+      : ""
+  } else {
+    beascuitRowHtml = (beascuitImageHtml || statsBeside)
+      ? `<div class="char-beascuit-content-row">${beascuitImageHtml}${statsBeside}</div>`
+      : ""
+  }
   return { beascuitNameHtml, beascuitRowHtml }
 }
 
@@ -610,10 +647,10 @@ async function renderCharacterPage(){
         const elements = Array.isArray(charData.element) ? charData.element : (charData.element ? [charData.element] : [])
         const pic = getGamePictureRoot()
 
-        const rarityIconPath = rarity ? `${pic}/icons/${rarity}.png` : ""
-        const typeRow = type ? `<div class="char-stat-pill"><img src="${pic}/icons/${type}.png" alt="" onerror="${_imgErrHide}"><span>${type}</span></div>` : ""
-        const posRow = position ? `<div class="char-stat-pill"><img src="${pic}/icons/${position}.png" alt="" onerror="${_imgErrHide}"><span>${position}</span></div>` : ""
-        const elemRow = elements.length ? `<div class="char-stat-pill"><span>Element</span>${elements.map(e => `<img src="${pic}/icons/${e}.png" alt="${e}" title="${e}" onerror="${_imgErrHide}">`).join("")}</div>` : ""
+        const rarityIconPath = rarity ? `${pic}/icons/${_urlFile(`${rarity}.png`)}` : ""
+        const typeRow = type ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${type}.png`)}" alt="" onerror="${_imgErrHide}"><span>${type}</span></div>` : ""
+        const posRow = position ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${position}.png`)}" alt="" onerror="${_imgErrHide}"><span>${position}</span></div>` : ""
+        const elemRow = elements.length ? `<div class="char-stat-pill"><span>Element</span>${elements.map(e => `<img src="${pic}/icons/${_urlFile(`${e}.png`)}" alt="${e}" title="${e}" onerror="${_imgErrHide}">`).join("")}</div>` : ""
         infoBox.innerHTML = `
             ${rarity ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${rarity}" title="${rarity}" onerror="${_imgErrHide}">` : ""}
             <div class="char-stats-row">
@@ -717,7 +754,7 @@ async function renderCharacterPage(){
             charData?.cd ?? null,
             charData?.initialCd ?? null,
             descData.skill_description?.[slug],
-            `${pic}/skills/${skillImageName}_skill.png`,
+            `${pic}/skills/${_urlFile(`${skillImageName}_skill.png`)}`,
             true,
             hasNormalRally ? null : normalSkillDetailsRaw,
             charData?.skillAttr,
@@ -783,7 +820,7 @@ async function renderCharacterPage(){
                 charData.cjCd ?? charData.cd ?? null,
                 charData.initialCjCd ?? charData.initialCd ?? null,
                 descData.skill_description?.[`${slug}_cj`],
-                `${pic}/skills/${skillImageName}_cj_skill.png`,
+                `${pic}/skills/${_urlFile(`${skillImageName}_cj_skill.png`)}`,
                 true,
                 null,
                 null,
@@ -809,7 +846,7 @@ async function renderCharacterPage(){
                 charData.mcCd ?? charData.cd ?? null,
                 charData.initialMcCd ?? charData.initialCd ?? null,
                 descData.skill_description?.[`${slug}_mc`],
-                `${pic}/skills/${skillImageName}_mc_skill.png`,
+                `${pic}/skills/${_urlFile(`${skillImageName}_mc_skill.png`)}`,
                 true,
                 descData.skill_details?.[`${slug}_mc`],
                 charData?.skillAttrMc ?? charData?.skillAttr,
@@ -1130,4 +1167,6 @@ async function renderCharacterPage(){
     }
 }
 
-renderCharacterPage()
+if (document.getElementById("char-skill-section")) {
+  void renderCharacterPage()
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teams</title>
+<title>Treasures</title>
 <link rel="stylesheet" href="../styles.css">
 <link rel="icon" type="image/png" href="pictures/icons/cookie/Silent_salt_head.png">
 </head>
@@ -21,25 +21,29 @@
   </div>
   <div class="sidebar-header">Menu</div>
   <a href="../characters.html" class="sidebar-link">Cookies</a>
-  <a href="teams.html" class="sidebar-link sidebar-link-active">Teams</a>
+  <a href="teams.html" class="sidebar-link">Teams</a>
   <a href="../tierlist.html" class="sidebar-link">Tier Lists</a>
   <a href="stats.html" class="sidebar-link">Stats</a>
   <a href="toppings.html" class="sidebar-link">Toppings</a>
   <a href="beascuits.html" class="sidebar-link">Beascuits</a>
-  <a href="treasures.html" class="sidebar-link">Treasures</a>
+  <a href="treasures.html" class="sidebar-link sidebar-link-active">Treasures</a>
   <a href="about.html" class="sidebar-link">About</a>
 </div>
 
-<div class="info-page teams-page">
-  <h1 class="info-title">Teams</h1>
+<div class="info-page">
+  <h1 class="info-title">Treasures</h1>
   <div class="info-divider"></div>
-
-  <div class="teams-tabs" id="teamsCategoryTabs" role="tablist" aria-label="Team categories"></div>
-  <div class="teams-subtabs" id="teamsSectionTabs" role="tablist" aria-label="Team subsections"></div>
 
   <section class="info-section">
     <div class="info-section-body">
-      <div id="teamsContent"></div>
+      <p>Treasure effects and notes will live here. Content is a work in progress.</p>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">All treasures</h2>
+    <div class="info-section-body">
+      <div id="treasuresContent" class="treasures-content"></div>
     </div>
   </section>
 </div>
@@ -48,10 +52,6 @@
   <p>This site was developed by DinoYoda and is currently a WIP. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
 </footer>
 
-<script src="../data.js"></script>
-<script src="../crk-settings.js"></script>
-<script src="char-ui.js"></script>
-<script src="teams.js"></script>
 <script>
 const st = document.getElementById("sidebarToggle")
 const sb = document.getElementById("sidebar")
@@ -59,6 +59,8 @@ const ov = document.getElementById("sidebarOverlay")
 st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
 ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
 </script>
+<script src="../crk-settings.js"></script>
+<script src="treasures.js"></script>
 <script src="../sidebar-game.js"></script>
 
 </body>

@@ -350,11 +350,33 @@ def supplement_infobox_fields_from_pipe_lines(block: str, fields: dict[str, str]
             fields[k] = v
 
 
+def _sanitize_infobox_value(v: str | None) -> str | None:
+    """
+    Wiki often puts `|elements=…` and `|stats=…` (and `<!--|bonds=…-->`) on one line. Without this,
+    the elements value can include comment garbage and stats substats, which then split() into fake elements.
+    """
+    if v is None:
+        return None
+    t = str(v).strip()
+    if not t:
+        return None
+    t = re.sub(r"<!--[\s\S]*?-->", "", t)
+    m = re.search(
+        r"(?i)\s*\|\s*(?:stats?|bonds?|toppings?)\s*=",
+        t,
+    )
+    if m:
+        t = t[: m.start()]
+    t = t.strip()
+    return t if t else None
+
+
 def normalize_element(raw: str | None) -> str | list[str] | None:
     """Infobox `elements` may be comma-separated; one value → str, several → list (matches data.js)."""
-    if not raw or not raw.strip():
+    raw = _sanitize_infobox_value(raw)
+    if not raw or not str(raw).strip():
         return None
-    parts = [p.strip() for p in raw.split(",") if p.strip()]
+    parts = [p.strip() for p in str(raw).split(",") if p.strip()]
     normed: list[str] = []
     for p in parts:
         low = p.lower()
@@ -726,9 +748,46 @@ def _mw_balanced_double_brace_span(s: str, start: int) -> tuple[int, int] | None
     return None
 
 
+def _color_positionals_and_named(
+    raw_parts: list[str],
+) -> tuple[list[str], dict[str, str]]:
+    """Split `|a|b|text2=…|color2=…` into positional args and lowercase named keys (e.g. sh=, size=)."""
+    pos: list[str] = []
+    named: dict[str, str] = {}
+    for p in raw_parts:
+        t = p.strip()
+        if not t:
+            continue
+        m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$", t)
+        if m:
+            named[m.group(1).strip().lower()] = m.group(2).strip()
+        else:
+            pos.append(t)
+    return pos, named
+
+
+def _color_secondary_mate_tag(text2: str, color2_raw: str) -> str:
+    """
+    If color2 is a #hex, emit color{HEX:mate} (secondary tint; char-ui _replaceStandardTags color{}).
+    """
+    t2 = (text2 or "").strip()
+    c2 = (color2_raw or "").strip()
+    if not t2 or not c2:
+        return ""
+    m = re.match(
+        r"^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$",
+        c2,
+    )
+    if not m:
+        return ""
+    h2 = _wiki_hex_for_css(m.group(1))
+    return f"color{{{h2}:{t2}}}"
+
+
 def _color_template_block_to_site(block: str, cookie_slug: str | None) -> str:
     """
     {{Color|label|#hex|…}} → color-header{HEX:label} (label may contain status{…}; balanced | for nested Status).
+    Optional: |text2=mate|color2=#RRGGBB|… → appends color{HEX:mate} (no space; char-ui renders inline).
     Single-arg or missing hex → color-header from tools/wiki_cookie_skill_header_hex.json, else slug fallback.
     """
     b = block.strip()
@@ -738,7 +797,11 @@ def _color_template_block_to_site(block: str, cookie_slug: str | None) -> str:
     inner = b[m_open.end() : -2]
     inner = expand_wiki_status_templates(inner)
     raw_parts = split_balanced_piped_args(inner)
+    positionals, named = _color_positionals_and_named(raw_parts)
+    text2 = named.get("text2")
+    color2 = named.get("color2")
     theme_hex = _skill_header_hex_for_slug(cookie_slug)
+    extra = _color_secondary_mate_tag(text2 or "", color2 or "")
 
     def _emit_header(label: str) -> str:
         if theme_hex and label:
@@ -747,26 +810,27 @@ def _color_template_block_to_site(block: str, cookie_slug: str | None) -> str:
             return f"color-header{{{cookie_slug}:{label}}}"
         return label if label else block
 
-    if len(raw_parts) < 2:
-        lone = raw_parts[0].strip() if raw_parts else ""
+    if len(positionals) < 2:
+        lone = positionals[0].strip() if positionals else ""
         if lone:
-            return _emit_header(lone)
-        return block
-    title = raw_parts[0].strip()
-    hex_candidate = raw_parts[1].strip()
+            return _emit_header(lone) + extra
+        return (block if not extra else extra)
+    title = positionals[0].strip()
+    hex_candidate = positionals[1].strip()
     hex_m = re.match(
         r"^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$",
         hex_candidate,
     )
     if hex_m and title:
         hx = _wiki_hex_for_css(hex_m.group(1))
-        return f"color-header{{{hx}:{title}}}"
-    return _emit_header(title)
+        return f"color-header{{{hx}:{title}}}" + extra
+    return _emit_header(title) + extra
 
 
 def expand_wiki_color_templates(s: str, *, cookie_slug: str | None = None) -> str:
     """
-    {{Color|Visible text|#RRGGBB|size=…|…}} → color-header{HEX:…} (extra params dropped).
+    {{Color|Visible text|#RRGGBB|sh=…|size=…}} → color-header{HEX:…} (named args other than
+    text2=/color2= are ignored for output). |text2=mate|color2=#RRGGBB| appends color{HEX:mate}.
     Uses balanced {{…}} matching so inner | and }} in other params do not break parsing.
     """
     out: list[str] = []
@@ -921,9 +985,15 @@ def build_import_document(
         fields = infobox_key_values(infobox_block)
         supplement_infobox_fields_from_pipe_lines(infobox_block, fields)
 
-        role = normalize_infobox_label((fields.get("role") or fields.get("type") or "").strip() or None)
-        pos = normalize_infobox_label((fields.get("position") or "").strip() or None)
-        rarity = normalize_infobox_label((fields.get("rarity") or "").strip() or None)
+        role = normalize_infobox_label(
+            (_sanitize_infobox_value(fields.get("role") or fields.get("type") or "")).strip() or None
+        )
+        pos = normalize_infobox_label(
+            (_sanitize_infobox_value(fields.get("position") or "")).strip() or None
+        )
+        rarity = normalize_infobox_label(
+            (_sanitize_infobox_value(fields.get("rarity") or "")).strip() or None
+        )
         if rarity and rarity.replace(" ", "").lower() == "awakenedancient":
             rarity = "AncientA"
         elem_raw = fields.get("elements") or fields.get("element")

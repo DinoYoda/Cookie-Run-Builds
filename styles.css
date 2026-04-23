@@ -1614,13 +1614,17 @@ button.active {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* Teams page */
 .teams-tabs,
 .teams-subtabs {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 14px;
+}
+
+.teams-subtabs[hidden] {
+    display: none !important;
+    margin-bottom: 0;
 }
 
 .teams-tab,
@@ -1642,12 +1646,30 @@ button.active {
     color: #5bb4ff;
 }
 
+.teams-entry {
+    margin-bottom: 18px;
+}
+
 .teams-card {
     background: #2a2d35;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    margin-bottom: 18px;
+}
+
+/* One surface with team + notes (same idea as build card: stats / notes are continuous) */
+.teams-page .teams-entry.teams-entry--with-notes {
+    background: #2a2d35;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.teams-page .teams-entry.teams-entry--with-notes .teams-card {
+    background: transparent;
+    box-shadow: none;
+    /* Rounded on top only; bottom edge is square where notes connect */
+    border-radius: 12px 12px 0 0;
 }
 
 .teams-card-header {
@@ -1662,19 +1684,26 @@ button.active {
     color: #fff;
 }
 
-.teams-members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-    padding: 14px;
-}
-
-.teams-member-card {
+/* One build per row: cookie (left) → topping star + substats | beascuit */
+.teams-build-rows {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+}
+
+.teams-build-row {
+    --teams-gear-size: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 6px;
-    padding: 12px 10px;
+    gap: 10px 14px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
     text-decoration: none;
@@ -1682,37 +1711,117 @@ button.active {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.teams-member-card:hover {
+.teams-build-row--missing {
+    pointer-events: none;
+}
+
+.teams-build-row:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.16);
 }
 
-.teams-member-icon {
-    width: 58px;
-    height: 58px;
-    object-fit: contain;
+.teams-build-row-cookie {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: min(12.5rem, 42vw);
 }
 
-.teams-member-name {
-    text-align: center;
+.teams-build-row-cookie-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1 1 auto;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.teams-build-row .teams-member-name,
+.teams-build-row .teams-member-build {
+    text-align: left;
+}
+
+.teams-build-row .teams-member-name {
     font-family: "CookieRun Bold", sans-serif;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.95);
     font-size: 0.9rem;
     line-height: 1.2;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    /* Cap height so long names don’t stretch the row on small screens */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-clamp: 2;
 }
 
-.teams-member-build {
-    text-align: center;
+.teams-build-row .teams-member-build {
     color: rgba(255, 255, 255, 0.78);
     font-size: 0.82rem;
     line-height: 1.2;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-clamp: 1;
 }
 
-.teams-member-meta {
+.teams-member-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Toppings + beascuit + chip meta, aligned to the right of the row */
+.teams-build-row-gear {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px 14px;
+    margin-left: auto;
+    min-width: 0;
+    flex: 0 1 auto;
+}
+
+.teams-build-toppings-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 0 1 auto;
+}
+
+.teams-build-row-substats {
+    min-width: 0;
+    max-width: 280px;
+    text-align: left;
+}
+
+.teams-build-row-beascuit {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.teams-build-row-meta {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
     gap: 6px;
 }
 
@@ -1725,9 +1834,154 @@ button.active {
     font-size: 0.76rem;
 }
 
-.teams-treasures,
-.teams-notes {
+.teams-page .teams-build-row .char-toppings-star {
+    width: var(--teams-gear-size, 100px);
+    height: var(--teams-gear-size, 100px);
+    flex-shrink: 0;
+}
+
+.teams-page .teams-build-row .char-topping-star-slot {
+    width: 24px;
+    height: 24px;
+}
+
+/* Same canvas size as the topping star */
+.teams-page .teams-build-row .char-beascuit-image-wrapper {
+    width: var(--teams-gear-size, 100px);
+    height: var(--teams-gear-size, 100px);
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.teams-page .teams-build-row .char-beascuit-icon,
+.teams-page .teams-build-row .char-beascuit-base-overlay {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+.teams-page .teams-build-row .char-beascuit-content-row.teams-beascuit-row-teams {
+    justify-content: center;
+    width: auto;
+    margin: 0;
+}
+
+.teams-page .teams-build-row .char-build-substats {
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    padding: 0;
+    background: transparent;
+}
+
+.teams-page .teams-build-row .char-build-substat {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    text-align: left;
+    margin: 0;
+}
+
+.teams-page .teams-build-row .char-beascuit-image-wrapper.teams-beascuit-image-has-stats {
+    align-self: center;
+}
+
+.teams-page .teams-build-row .teams-beascuit-stats-on-image {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 2px;
+    right: 2px;
+    width: auto;
+    transform: translateY(-50%);
+    margin: 0;
+    max-width: none;
+    max-height: calc(100% - 4px);
+    min-width: 0;
+    background: rgba(30, 33, 39, 0.52);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 5px;
+    padding: 3px 4px 4px;
+    text-align: center;
+    box-sizing: border-box;
+    pointer-events: none;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    overflow: hidden;
+}
+
+.teams-page .teams-build-row .teams-beascuit-stats-on-image .char-build-beascuit-stats-title {
+    font-size: 0.66rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255);
+    margin-bottom: 2px;
+    line-height: 1.15;
+}
+
+.teams-page .teams-build-row .teams-beascuit-stats-on-image .char-build-beascuit-stat {
+    font-size: 0.6rem;
+    line-height: 1.15;
+    color: rgba(255, 255, 255);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* ~731px and down: stack gear under the cookie block (full width each) */
+@media (max-width: 730px) {
+    .teams-build-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px 14px;
+    }
+
+    .teams-build-row-cookie {
+        max-width: 100%;
+        width: 100%;
+        flex: 0 0 auto;
+        align-items: flex-start;
+    }
+
+    .teams-build-row-gear {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* 515–730px: one line for cookie name, build label on the line below (see cookie-text order) */
+@media (min-width: 515px) and (max-width: 730px) {
+    .teams-build-row .teams-member-name {
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+    }
+
+    .teams-build-row .teams-member-build {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+}
+
+.teams-treasures {
     padding: 0 14px 14px;
+    text-align: center;
+}
+
+/* Continues the team; only this block has rounded lower corners (team stays square on bottom) */
+.teams-page .teams-entry.teams-entry--with-notes > .char-build-notes.teams-team-notes {
+    margin: 0;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    box-shadow: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
 
 .teams-subtitle {
@@ -1740,6 +1994,7 @@ button.active {
 .teams-treasure-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
 }
 
