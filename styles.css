@@ -1614,36 +1614,97 @@ button.active {
     color: rgba(255, 255, 255, 0.8);
 }
 
+.teams-hint-section {
+    margin-bottom: 18px;
+}
+
+/* Category + section tabs: one card, section reads as under the active category */
+.teams-nav-cluster {
+    margin: 0 0 20px;
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(180deg, rgba(35, 38, 46, 0.95) 0%, rgba(28, 30, 36, 0.98) 100%);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.teams-nav-group {
+    padding: 12px 14px 14px;
+}
+
+.teams-nav-group--category {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.teams-nav-group--section {
+    padding-top: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(60, 130, 210, 0.22);
+}
+
+.teams-nav-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 0 8px 2px;
+    font-family: CookieRun, sans-serif;
+}
+
+.teams-nav-group--section .teams-nav-label {
+    color: rgba(91, 180, 255, 0.55);
+}
+
 .teams-tabs,
 .teams-subtabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 8px 10px;
+    margin: 0;
 }
 
 .teams-subtabs[hidden] {
     display: none !important;
-    margin-bottom: 0;
+}
+
+.teams-nav-group[hidden] {
+    display: none !important;
 }
 
 .teams-tab,
 .teams-subtab {
     padding: 8px 14px;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
     color: rgba(255, 255, 255, 0.9);
     font-family: "CookieRun Bold", sans-serif;
     font-weight: 400;
     cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.teams-subtab {
+    font-size: 0.9rem;
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .teams-tab.active,
 .teams-subtab.active {
-    background: rgba(31, 126, 208, 0.25);
-    border-color: rgba(91, 180, 255, 0.45);
+    background: rgba(31, 126, 208, 0.28);
+    border-color: rgba(91, 180, 255, 0.5);
     color: #5bb4ff;
+}
+
+.teams-subtab.active {
+    background: rgba(31, 126, 208, 0.2);
+    border-color: rgba(91, 180, 255, 0.38);
 }
 
 .teams-entry {
@@ -1737,7 +1798,7 @@ button.active {
     min-width: 0;
     flex: 1 1 auto;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .teams-build-row .teams-member-name,
@@ -1750,28 +1811,21 @@ button.active {
     font-weight: 400;
     color: rgba(255, 255, 255, 0.95);
     font-size: 0.9rem;
-    line-height: 1.2;
+    line-height: 1.35;
     overflow-wrap: anywhere;
     word-break: break-word;
-    /* Cap height so long names don’t stretch the row on small screens */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    line-clamp: 2;
+    hyphens: auto;
+    overflow: visible;
 }
 
 .teams-build-row .teams-member-build {
     color: rgba(255, 255, 255, 0.78);
     font-size: 0.82rem;
-    line-height: 1.2;
+    line-height: 1.35;
     overflow-wrap: anywhere;
     word-break: break-word;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    line-clamp: 1;
+    hyphens: auto;
+    overflow: visible;
 }
 
 .teams-member-icon {
@@ -1954,19 +2008,6 @@ button.active {
     }
 }
 
-/* 515–730px: one line for cookie name, build label on the line below (see cookie-text order) */
-@media (min-width: 515px) and (max-width: 730px) {
-    .teams-build-row .teams-member-name {
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
-    }
-
-    .teams-build-row .teams-member-build {
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-    }
-}
-
 .teams-treasures {
     padding: 0 14px 14px;
     text-align: center;
@@ -1998,10 +2039,47 @@ button.active {
     gap: 10px;
 }
 
+.teams-treasure-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 54px;
+    min-height: 54px;
+    max-width: 11rem;
+}
+
 .teams-treasure-icon {
     width: 54px;
     height: 54px;
     object-fit: contain;
+}
+
+.teams-treasure-fallback {
+    font-size: 0.78rem;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.88);
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.skill-treasure-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    max-width: 9em;
+}
+
+.skill-treasure-fallback {
+    display: block;
+    font-size: 0.68em;
+    line-height: 1.15;
+    color: rgba(255, 255, 255, 0.88);
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .teams-note {
@@ -2241,7 +2319,7 @@ button.active {
 }
 
 /* Build section */
-#char-build-section {
+#Builds {
     display: none;
     width: 100%;
     max-width: 100%;
@@ -2393,12 +2471,16 @@ button.active {
     align-self: start;
 }
 
-/* Wrapper holds position + instant data-tooltip (icon uses ::before/::after) */
-.char-build-rank-icon-wrap {
-    position: absolute;
-    top: 50%;
-    right: clamp(8px, 0.75vw, 12px);
-    transform: translateY(-50%);
+/* In the name bar, rank icon sits in a row with the title; title wraps, icon stays top-right of the bar. */
+.char-build-name-bar .char-build-rank-icon-wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    margin-left: auto;
+    margin-top: 2px;
     z-index: 10;
     cursor: help;
     line-height: 0;
@@ -2455,6 +2537,11 @@ button.active {
 }
 
 .char-build-name-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px 12px;
     background: linear-gradient(135deg, #4a4f5a 0%, #3d424b 100%);
     color: white;
     padding: 10px 16px;
@@ -2462,6 +2549,17 @@ button.active {
     font-size: 1rem;
     margin-bottom: 0;
     position: relative;
+    min-width: 0;
+    overflow: visible;
+}
+
+.char-build-name-text {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+    line-height: 1.35;
 }
 
 .char-build-name-bar::after {

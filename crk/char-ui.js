@@ -181,7 +181,13 @@ function _replaceStandardTags(text, pic) {
     }
     if (tag === "treasure") {
       const t = content.trim()
-      return `<img src="${pic}/treasures/${_urlFile(`Treasure_${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+      const onTreasureErr =
+        "this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n)n.removeAttribute('hidden')"
+      return (
+        `<span class="skill-treasure-wrap">` +
+        `<img src="${pic}/treasures/${_urlFile(`Treasure_${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${onTreasureErr}">` +
+        `<span class="skill-treasure-fallback" hidden>${_esc(t)}</span></span>`
+      )
     }
     if (tag === "skill") {
       const s = content.trim()
@@ -960,7 +966,7 @@ async function renderCharacterPage(){
     renderSkillSectionContent()
 
     function renderBuildSection() {
-        const buildSection = document.getElementById("char-build-section")
+        const buildSection = document.getElementById("Builds")
         if (!buildSection) return
         const sets = charData?.sets
         const builds = charData?.builds && typeof charData.builds === "object" ? charData.builds : {}
@@ -1007,7 +1013,7 @@ async function renderCharacterPage(){
                 ? `<span class="char-build-rank-icon-wrap" data-tooltip="${_esc(rankTitle)}"><div class="char-build-rank-icon char-build-rank-${rank}"></div></span>`
                 : ""
             cardsHtml += `<div class="char-build-card" data-build-id="${id}">
-                <div class="char-build-name-bar">${name}${rankIcon}</div>
+                <div class="char-build-name-bar"><span class="char-build-name-text">${name}</span>${rankIcon}</div>
                 <div class="char-build-content">
                     <div class="char-build-toppings-col">
                         <div class="char-build-section-title">Toppings</div>
@@ -1036,7 +1042,7 @@ async function renderCharacterPage(){
         toppingSetsList.forEach((topSet, i) => {
             const { starHtml, substatsHtml } = buildToppingsSetBlockHtml(topSet)
             toppingSetCardsHtml += `<div class="char-build-card char-set-card">
-                <div class="char-build-name-bar">Topping set ${i + 1}</div>
+                <div class="char-build-name-bar"><span class="char-build-name-text">Topping set ${i + 1}</span></div>
                 <div class="char-build-content char-build-content-set-single">
                     <div class="char-build-toppings-col">
                         <div class="char-build-section-title">Toppings</div>
@@ -1053,7 +1059,7 @@ async function renderCharacterPage(){
         beascuitSetsList.forEach((biscuitSet, i) => {
             const { beascuitNameHtml, beascuitRowHtml } = buildBeascuitSetBlockHtml(biscuitSet, charData)
             beascuitSetCardsHtml += `<div class="char-build-card char-set-card">
-                <div class="char-build-name-bar">Beascuit ${i + 1}</div>
+                <div class="char-build-name-bar"><span class="char-build-name-text">Beascuit ${i + 1}</span></div>
                 <div class="char-build-content char-build-content-set-single">
                     <div class="char-build-beascuit-col">
                         <div class="char-build-section-title">Beascuit</div>
@@ -1142,6 +1148,21 @@ async function renderCharacterPage(){
                 })
             })
         })
+
+        if (/^#Builds$/i.test(location.hash || "")) {
+            const buildBtn = buildSection.querySelector('.char-build-view-btn[data-view="builds"]')
+            const activeBtn = buildSection.querySelector(".char-build-view-btn.active")
+            if (buildBtn && activeBtn && activeBtn.dataset.view === "sets" && hasValidBuilds) {
+                buildBtn.click()
+            }
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    if (buildSection.style.display !== "none") {
+                        buildSection.scrollIntoView({ behavior: "smooth", block: "start" })
+                    }
+                })
+            })
+        }
     }
     renderBuildSection()
 

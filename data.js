@@ -2864,11 +2864,11 @@ window.CRK_DATA = {
                             substats: ["ATK", "Cooldown", "DMG Resist"]
                         }, {
                             resonance: "Deceit",
-                            1: "applejelly",
+                            1: "raspberry",
                             2: "applejelly",
                             3: "applejelly",
                             4: "applejelly",
-                            5: "raspberry",
+                            5: "applejelly",
                             6: "applejelly",
                             substats: ["Cooldown", "CRIT%", "ATK"]
                         }],
@@ -3017,6 +3017,15 @@ window.CRK_DATA = {
                             5: "candy",
                             6: "candy",
                             substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            resonance: "Indolent",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
+                            substats: ["Cooldown", "DMG Resist", "HP"]
                         }],
                         beascuit: [{
                             element: "Poison",
@@ -3035,6 +3044,11 @@ window.CRK_DATA = {
                             2: "Poison DMG",
                             3: "Poison DMG",
                             4: "Poison DMG"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                         }]
                     },
                     builds: {
@@ -3058,16 +3072,26 @@ window.CRK_DATA = {
                         },
                         3: {
                             rank: "recommended",
-                            name: "Living Abyss Build",
+                            name: "Living Abyss",
                             toppings: 7,
                             beascuit: 3
                         },
                         4: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon",
+                            toppings: 10,
+                            beascuit: 4,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥7.8%"
+                            }]
+                        },
+                        5: {
                             name: "Cookie Aliance Build",
                             toppings: 6,
                             beascuit: 1,
                         },
-                        5: {
+                        6: {
                             name: "HP Build",
                             toppings: 8,
                             beascuit: 2,
@@ -3522,6 +3546,56 @@ window.CRK_DATA = {
                         attr1: [1.8, 3.7],
                         attr2: [44.6, 92.7],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "Deceit",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "raspberry",
+                            substats: ["Cooldown", "CRIT%", "ATK"]
+                        }, {
+                            resonance: "Deceit",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["Cooldown", "CRIT%", "ATK"]
+                        }],
+                        beascuit: [{
+                            element: "Poison",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Poison DMG",
+                            4: "Poison DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon (Deceit)",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "7.6-7.8% or ≥7.9%"
+                            }]
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon (ES & Linzer)",
+                            toppings: 2,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥7.6%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Candy_apple",
@@ -3536,6 +3610,42 @@ window.CRK_DATA = {
                         attr1: [329.6, 701.5],
                         attr2: [14.8, 31.5],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "Deceit",
+                            1: "almond",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "caramel",
+                            6: "caramel",
+                            substats: ["DMG Resist", "ATK SPD", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "ATK SPD",
+                            3: "ATK SPD",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "13-13.5%"
+                            }, {
+                                name: "DMG Resist",
+                                value: "≥40%"
+                            }, {
+                                name: "ATK SPD",
+                                value: "≥44.8%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Okchun",
@@ -3817,6 +3927,41 @@ window.CRK_DATA = {
                         attr1: [433.6, 922.2],
                         attr2: [552.7, 1175.6],
                     },
+                    sets: {
+                        toppings: [{
+                            1: "chocolate",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "caramel",
+                            6: "caramel",
+                            substats: ["Cooldown", "DMG Resist", "ATK SPD"]
+                        }],
+                        beascuit: [{
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "ATK SPD"
+                        }]
+                    },
+                    builds: {
+                        2: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥11.7%"
+                            }, {
+                                name: "DMG Resist",
+                                value: "≥73%"
+                            }, {
+                                name: "ATK SPD",
+                                value: "≥39.1% or 33.4%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Olive",
@@ -3996,6 +4141,69 @@ window.CRK_DATA = {
                         attr1: [52.1, 110.8],
                         attr2: [36.7, 78.0],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "trio",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "ATK SPD", "Cooldown"]
+                        }, {
+                            resonance: "trio",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["CRIT%", "ATK", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            element: "Poison",
+                            tainted: true,
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            element: "Poison",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon (Deceit)",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "35.1%"
+                            }, {
+                                name: "ATK SPD",
+                                value: "9.5-14.3%"
+                            }],
+                            notes: ["Once you hit the ATK SPD requirements use ATK subs."]
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon (ES & Linzer)",
+                            toppings: 2,
+                            beascuit: 2,
+                            stats: [{
+                                name: "Poison DMG",
+                                value: "≥29%"
+                            }, {
+                                name: "Cooldown",
+                                value: "35.1%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Space_doughnut",
@@ -4977,6 +5185,43 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [23.7, 67.6],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "life_energy",
+                            1: "raspberry",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                            substats: ["CRIT%", "ATK", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            element: "Poison",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Poison DMG",
+                            4: "Poison DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Red Velvet Dragon (Deceit)",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            rank: "recommended",
+                            name: "Red Velvet Dragon (ES & Linzer)",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥8.3%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Mold_dough",
@@ -5168,7 +5413,51 @@ window.CRK_DATA = {
                     name: "Guild Battle",
                     sections: [{
                         name: "Red Velvet Dragon",
-                        teams: []
+                        teams: [{
+                            name: "Deceitful",
+                            cookies: [{
+                                name: "Pom-pom_dough",
+                                build: 1
+                            }, {
+                                name: "Shadow_milk",
+                                build: 4
+                            }, {
+                                name: "Prune_juice",
+                                build: 1
+                            }, {
+                                name: "Black_sapphire",
+                                build: 1
+                            }, {
+                                name: "Candy_apple",
+                                build: 1
+                            }],
+                            treasures: ["old_pilgrims_scroll", "crimson_magic_whistle", "sleepyheads_jelly_watch"],
+                            notes: ["header{Timings}<br>1. Queue Shadow Milk.<br>2. Spam Pom-pom Dough when BOSS banner appears.<br>3. Pom-pom should cast one frame before Shadow Milk. Restart if they cast simultaneously.<br>4. Spam Sapphire and queue Candy Apple.<br>5. Cast Prune Juice at the 10/4 treasure glint.<br>6. Cast Sapphire at 47.625s or later.<br>7. Spam."]
+                        }, {
+                            name: "Red Velvet Dragon (ES & Linzer)",
+                            cookies: [{
+                                name: "Pom-pom_dough",
+                                build: 2
+                            }, {
+                                name: "Eternal_sugar",
+                                build: 4
+                            }, {
+                                name: "Prune_juice",
+                                build: 2
+                            }, {
+                                name: "Black_sapphire",
+                                build: 2
+                            }, {
+                                name: "Linzer",
+                                build: 2
+                            }],
+                            treasures: ["old_pilgrims_scroll", "crimson_magic_whistle", "sleepyheads_jelly_watch"],
+                            notes: ["ES and Linzer have a higher ceiling than Deceit (33.7b vs 32.6b) but if you already have ES and Linzers skills leveled it becomes much harder",
+                                "header{Timings}<br>1. Queue Pom-pom Dough.<br>2. Spam Sapphire and Eternal Sugar.<br>3. Cast Prune Juice right after the 12/6 treasure glint.<br>4. Auto Linzer at roughly 49-48s.<br>5. Linzer at 32.750s or later.<br>6. Linzer at 16.438s or later.<br>7. If Linzer isn't dead, cast at next 7 stacks and spam."
+                            ]
+                        }],
+                        
+            
                     }, {
                         name: "Living Abyss",
                         teams: []

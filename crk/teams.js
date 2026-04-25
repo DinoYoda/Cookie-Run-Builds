@@ -1,5 +1,6 @@
 ;(function () {
   const UI_STATE_KEY = "tierlistUIState"
+  const TEAMS_PAGE_STATE_KEY = "teamsPageViewState"
 
   function getSelectedGameId() {
     try {
@@ -21,8 +22,14 @@
 
   const categoryTabsEl = document.getElementById("teamsCategoryTabs")
   const sectionTabsEl = document.getElementById("teamsSectionTabs")
+  const sectionGroupEl = document.getElementById("teamsSectionGroup")
   const contentEl = document.getElementById("teamsContent")
   if (!categoryTabsEl || !sectionTabsEl || !contentEl) return
+
+  function setSectionSubtabsVisible(show) {
+    sectionTabsEl.hidden = !show
+    if (sectionGroupEl) sectionGroupEl.hidden = !show
+  }
 
   const game = (window.CRK_DATA?.games || []).find(g => g.id === getSelectedGameId())
   const categories = Array.isArray(game?.teams?.categories) ? game.teams.categories : []
@@ -71,7 +78,12 @@
     const id = String(srcId || "").trim()
     if (!id) return ""
     const label = treasureIdToLabel(id)
-    return `<img src="${pic}/treasures/Treasure_${id}.png" alt="${esc(label)}" title="${esc(label)}" class="teams-treasure-icon" onerror="this.style.display='none'">`
+    const idHtml = esc(id)
+    const onErr =
+      "this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n)n.removeAttribute('hidden')"
+    return `<span class="teams-treasure-item" title="${esc(label)}">` +
+      `<img src="${pic}/treasures/Treasure_${id}.png" alt="${esc(label)}" class="teams-treasure-icon" onerror="${onErr}">` +
+      `<span class="teams-treasure-fallback" hidden>${idHtml}</span></span>`
   }
 
   /**
@@ -148,7 +160,12 @@
     }
     const metaHtml = chips.length ? `<div class="teams-build-row-meta">${chips.join("")}</div>` : ""
 
-    const href = `character.html?char=${encodeURIComponent(charData.name || charData.displayName || "")}`
+    const nameParam = encodeURIComponent(charData.name || charData.displayName || "")
+    const path = `character.html?char=${nameParam}#Builds`
+    let href = path
+    try {
+      href = new URL(path, location.href).href
+    } catch (e) { /* same-document relative fallback */ }
     const imgName = charData.name || ""
 
     const displayN = charData.displayName || charData.name || ""
@@ -236,12 +253,77 @@
   /** Array indices only — categories/sections use `name` in data, no `id` required. */
   let activeCategoryIdx = 0
   let activeSectionIdx = 0
+  let teamsRestoring = false
+  let saveScrollRaf = null
+
+  const gameIdForTeams = getSelectedGameId()
+  let savedScrollY = null
+  try {
+    const raw = sessionStorage.getItem(TEAMS_PAGE_STATE_KEY)
+    if (raw) {
+      const s = JSON.parse(raw)
+      if (s && s.game === gameIdForTeams && Array.isArray(categories) && categories.length) {
+        const c = Number(s.cat)
+        if (Number.isInteger(c) && c >= 0 && c < categories.length) activeCategoryIdx = c
+        const sec = Number(s.sec)
+        if (Number.isInteger(sec) && sec >= 0) activeSectionIdx = sec
+        const y = Number(s.y)
+        if (Number.isFinite(y) && y >= 0) savedScrollY = y
+      }
+    }
+  } catch (e) { /* ignore */ }
+
+  function saveTeamsState(force) {
+    if (teamsRestoring && !force) return
+    try {
+      const payload = {
+        game: gameIdForTeams,
+        cat: activeCategoryIdx,
+        sec: activeSectionIdx,
+        y: window.scrollY || 0
+      }
+      sessionStorage.setItem(TEAMS_PAGE_STATE_KEY, JSON.stringify(payload))
+    } catch (e) { /* quota / private mode */ }
+  }
+
+  function onTeamsScroll() {
+    if (saveScrollRaf) return
+    saveScrollRaf = requestAnimationFrame(() => {
+      saveScrollRaf = null
+      saveTeamsState()
+    })
+  }
+  window.addEventListener("scroll", onTeamsScroll, { passive: true })
+  window.addEventListener("pagehide", () => saveTeamsState(true))
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") saveTeamsState(true)
+  })
+
+  function scheduleRestoreScroll(y) {
+    if (y == null || !Number.isFinite(y) || y < 1) return
+    teamsRestoring = true
+    const go = () => {
+      try {
+        window.scrollTo(0, y)
+      } catch (e) { /* ignore */ }
+    }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        go()
+        setTimeout(go, 50)
+        setTimeout(go, 200)
+        setTimeout(() => {
+          teamsRestoring = false
+        }, 400)
+      })
+    })
+  }
 
   function renderSections() {
     const cat = categories[activeCategoryIdx]
     if (!cat) {
       sectionTabsEl.innerHTML = ""
-      sectionTabsEl.hidden = true
+      setSectionSubtabsVisible(false)
       contentEl.innerHTML = `<div class="teams-empty">No data.</div>`
       return
     }
@@ -250,14 +332,14 @@
 
     if (!categoryHasSectionTabs(cat)) {
       sectionTabsEl.innerHTML = ""
-      sectionTabsEl.hidden = true
+      setSectionSubtabsVisible(false)
       const flat = Array.isArray(cat.teams) ? cat.teams : []
       const parentNotes = Array.isArray(cat.notes) ? cat.notes : []
       renderTeams({ teams: flat, notes: parentNotes })
       return
     }
 
-    sectionTabsEl.hidden = false
+    setSectionSubtabsVisible(true)
     if (activeSectionIdx >= sections.length) activeSectionIdx = 0
     if (activeSectionIdx < 0) activeSectionIdx = 0
 
@@ -275,6 +357,7 @@
         const sec = subs[activeSectionIdx] || { teams: [] }
         const secNotes = Array.isArray(sec.notes) ? sec.notes : []
         renderTeams({ teams: Array.isArray(sec.teams) ? sec.teams : [], notes: secNotes })
+        saveTeamsState(true)
       })
     })
     setActiveSectionButtons(activeSectionIdx)
@@ -289,6 +372,7 @@
     if (!categories.length) {
       categoryTabsEl.innerHTML = ""
       sectionTabsEl.innerHTML = ""
+      setSectionSubtabsVisible(false)
       contentEl.innerHTML = `<div class="teams-empty">No team categories added yet.</div>`
       return
     }
@@ -310,7 +394,9 @@
     })
     setActiveCategoryButtons(activeCategoryIdx)
     renderSections()
+    saveTeamsState(true)
   }
 
   renderCategories()
+  if (savedScrollY != null && savedScrollY >= 1) scheduleRestoreScroll(savedScrollY)
 })()

@@ -34,8 +34,22 @@
   <h1 class="info-title">Teams</h1>
   <div class="info-divider"></div>
 
-  <div class="teams-tabs" id="teamsCategoryTabs" role="tablist" aria-label="Team categories"></div>
-  <div class="teams-subtabs" id="teamsSectionTabs" role="tablist" aria-label="Team subsections"></div>
+  <section class="info-section teams-hint-section">
+    <div class="info-section-body">
+      <p>Click a cookie to open that character’s page, where you can see more build information such as stats and notes.</p>
+    </div>
+  </section>
+
+  <div class="teams-nav-cluster" aria-label="Team category and section">
+    <div class="teams-nav-group teams-nav-group--category">
+      <span class="teams-nav-label" id="teamsCategoryLabel">Category</span>
+      <div class="teams-tabs" id="teamsCategoryTabs" role="tablist" aria-labelledby="teamsCategoryLabel"></div>
+    </div>
+    <div class="teams-nav-group teams-nav-group--section" id="teamsSectionGroup" hidden>
+      <span class="teams-nav-label" id="teamsSectionLabel">Section</span>
+      <div class="teams-subtabs" id="teamsSectionTabs" role="tablist" aria-labelledby="teamsSectionLabel"></div>
+    </div>
+  </div>
 
   <section class="info-section">
     <div class="info-section-body">
