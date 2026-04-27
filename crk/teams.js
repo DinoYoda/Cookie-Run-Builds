@@ -257,6 +257,19 @@
   let saveScrollRaf = null
 
   const gameIdForTeams = getSelectedGameId()
+
+  /* Sidebar “Teams” links use ?menu so each visit from the menu starts fresh (category/section/scroll). */
+  try {
+    const u = new URL(window.location.href)
+    if (u.searchParams.has("menu")) {
+      sessionStorage.removeItem(TEAMS_PAGE_STATE_KEY)
+      u.searchParams.delete("menu")
+      const qs = u.searchParams.toString()
+      const next = u.pathname + (qs ? `?${qs}` : "") + u.hash
+      history.replaceState({}, "", next)
+    }
+  } catch (_) { /* ignore */ }
+
   let savedScrollY = null
   try {
     const raw = sessionStorage.getItem(TEAMS_PAGE_STATE_KEY)

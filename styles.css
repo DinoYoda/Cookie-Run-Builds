@@ -22,6 +22,17 @@
     --tier-rank-10: rgb(22, 7, 9);
     --tier-rank-11: rgb(18, 6, 8);
     --tier-rank-12: rgb(14, 5, 6);
+    /* Below this width (see media query), layout stays 320px wide and scrolls horizontally. */
+    --site-layout-min-width: 320px;
+}
+
+/* Viewport width strictly under 320px: keep layout at design minimum and pan sideways.
+   Min-width only on html — min-width on body would add *in addition* to its padding (content-box)
+   and inflate scroll width (~400px), which feels like a scrollbar “too early”. */
+@media (max-width: 319px) {
+    html {
+        min-width: var(--site-layout-min-width);
+    }
 }
 
 body {
@@ -2058,24 +2069,6 @@ button.active {
 .teams-treasure-fallback {
     font-size: 0.78rem;
     line-height: 1.2;
-    color: rgba(255, 255, 255, 0.88);
-    text-align: center;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-}
-
-.skill-treasure-wrap {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    vertical-align: middle;
-    max-width: 9em;
-}
-
-.skill-treasure-fallback {
-    display: block;
-    font-size: 0.68em;
-    line-height: 1.15;
     color: rgba(255, 255, 255, 0.88);
     text-align: center;
     word-break: break-word;

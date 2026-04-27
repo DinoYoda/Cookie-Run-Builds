@@ -181,13 +181,8 @@ function _replaceStandardTags(text, pic) {
     }
     if (tag === "treasure") {
       const t = content.trim()
-      const onTreasureErr =
-        "this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n)n.removeAttribute('hidden')"
-      return (
-        `<span class="skill-treasure-wrap">` +
-        `<img src="${pic}/treasures/${_urlFile(`Treasure_${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${onTreasureErr}">` +
-        `<span class="skill-treasure-fallback" hidden>${_esc(t)}</span></span>`
-      )
+      /* Icon only in prose (teams page uses its own markup + text fallback when the asset is missing). */
+      return `<img src="${pic}/treasures/${_urlFile(`Treasure_${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
     }
     if (tag === "skill") {
       const s = content.trim()
