@@ -1293,7 +1293,7 @@ window.CRK_DATA = {
                             4: "applejelly",
                             5: "applejelly",
                             6: "chocolate",
-                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                            substats: ["Cooldown", "DMG Resist", "CRIT%"]
                         }, {
                             resonance: "life_energy",
                             1: "raspberry",
@@ -1302,7 +1302,7 @@ window.CRK_DATA = {
                             4: "raspberry",
                             5: "raspberry",
                             6: "raspberry",
-                            substats: ["CRIT%", "DMG Resist", "Cooldown"]
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
                         }, {
                             resonance: "life_energy",
                             1: "raspberry",

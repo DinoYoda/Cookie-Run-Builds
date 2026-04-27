@@ -570,6 +570,100 @@ function normalizeRarity(rarity) {
   return rarity === "AncientA" ? "Ancient" : rarity
 }
 
+/** Match CSS breakpoint in styles.css (wide build columns / sets grid). */
+const BUILD_MASONRY_MIN_WIDTH = 1800
+
+function isBuildMasonryWideViewport() {
+  return window.matchMedia(`(min-width: ${BUILD_MASONRY_MIN_WIDTH}px)`).matches
+}
+
+function isCharacterBuildSectionHidden(el) {
+  if (!el) return true
+  if (el.style.display === "none") return true
+  return getComputedStyle(el).display === "none"
+}
+
+function scheduleCharacterBuildsMasonryAfterImages(root) {
+  if (!root) return
+  root.querySelectorAll("img").forEach((img) => {
+    if (img.complete) return
+    img.addEventListener("load", scheduleCharacterBuildsMasonrySync, { once: true })
+    img.addEventListener("error", scheduleCharacterBuildsMasonrySync, { once: true })
+  })
+}
+
+function applyBuildMasonryFromFlatWrapper(wrapper) {
+  const cards = Array.from(wrapper.querySelectorAll(".char-build-card[data-build-id]"))
+  if (cards.length <= 1) return
+  const masonry = document.createElement("div")
+  masonry.className = "char-build-masonry"
+  const colA = document.createElement("div")
+  colA.className = "char-build-masonry-col"
+  const colB = document.createElement("div")
+  colB.className = "char-build-masonry-col"
+  masonry.appendChild(colA)
+  masonry.appendChild(colB)
+  wrapper.innerHTML = ""
+  wrapper.appendChild(masonry)
+  colA.appendChild(cards[0])
+  colB.appendChild(cards[1])
+  for (let i = 2; i < cards.length; i++) {
+    const aH = colA.getBoundingClientRect().height
+    const bH = colB.getBoundingClientRect().height
+    ;(aH <= bH ? colA : colB).appendChild(cards[i])
+  }
+}
+
+function flattenBuildMasonryWrapper(wrapper) {
+  if (!wrapper.querySelector(".char-build-masonry")) return
+  const cards = Array.from(wrapper.querySelectorAll(".char-build-card[data-build-id]"))
+  if (!cards.length) return
+  cards.sort((a, b) =>
+    String(a.dataset.buildId).localeCompare(String(b.dataset.buildId), undefined, { numeric: true })
+  )
+  const frag = document.createDocumentFragment()
+  cards.forEach((c) => frag.appendChild(c))
+  wrapper.innerHTML = ""
+  wrapper.appendChild(frag)
+}
+
+function syncCharacterBuildsMasonryLayout() {
+  const buildSection = document.getElementById("Builds")
+  if (!buildSection || isCharacterBuildSectionHidden(buildSection)) return
+
+  const buildsPanel = buildSection.querySelector('.char-build-panel[data-panel="builds"]')
+  const wrapper = buildsPanel && buildsPanel.querySelector(".char-build-section-wrapper")
+  if (!wrapper || wrapper.classList.contains("char-build-section-wrapper-single")) return
+
+  const cardCount = wrapper.querySelectorAll(".char-build-card[data-build-id]").length
+  if (cardCount <= 1) return
+
+  const wide = isBuildMasonryWideViewport()
+  const buildsVisible = buildsPanel && buildsPanel.style.display !== "none"
+  const hasMasonry = !!wrapper.querySelector(".char-build-masonry")
+
+  if (!wide) {
+    if (hasMasonry) flattenBuildMasonryWrapper(wrapper)
+    return
+  }
+
+  if (!buildsVisible) return
+
+  if (hasMasonry) flattenBuildMasonryWrapper(wrapper)
+  applyBuildMasonryFromFlatWrapper(wrapper)
+}
+
+let characterBuildMasonryResizeTimer = null
+let characterBuildMasonryResizeBound = false
+
+function scheduleCharacterBuildsMasonrySync() {
+  if (characterBuildMasonryResizeTimer) clearTimeout(characterBuildMasonryResizeTimer)
+  characterBuildMasonryResizeTimer = setTimeout(() => {
+    characterBuildMasonryResizeTimer = null
+    syncCharacterBuildsMasonryLayout()
+  }, 120)
+}
+
 async function renderCharacterPage(){
     const urlName = getCharacterFromURL()
     if (urlName) {
@@ -1100,38 +1194,9 @@ async function renderCharacterPage(){
         buildSection.innerHTML = html
         buildSection.style.display = "block"
 
-        // Masonry-ish two-column distribution (prevents row-height gaps when neighbor cards are taller).
-        // Only apply when we have multiple build cards and wide screens (the old 2-column layout triggers on >= 1800px).
-        if (hasValidBuilds && buildsPanelDisplay === "block" && window.innerWidth >= 1800) {
-            const wrapper = buildSection.querySelector(".char-build-panel[data-panel=\"builds\"] .char-build-section-wrapper")
-            if (wrapper && !wrapper.classList.contains("char-build-section-wrapper-single")) {
-                const cards = Array.from(wrapper.querySelectorAll(".char-build-card[data-build-id]"))
-                if (cards.length > 1) {
-                    const masonry = document.createElement("div")
-                    masonry.className = "char-build-masonry"
-
-                    const colA = document.createElement("div")
-                    colA.className = "char-build-masonry-col"
-                    const colB = document.createElement("div")
-                    colB.className = "char-build-masonry-col"
-
-                    masonry.appendChild(colA)
-                    masonry.appendChild(colB)
-
-                    wrapper.innerHTML = ""
-                    wrapper.appendChild(masonry)
-
-                    // Tie-break: keep first build on the left, second build on the right (matches your expectation).
-                    colA.appendChild(cards[0])
-                    colB.appendChild(cards[1])
-
-                    for (let i = 2; i < cards.length; i++) {
-                        const aH = colA.getBoundingClientRect().height
-                        const bH = colB.getBoundingClientRect().height
-                        ;(aH <= bH ? colA : colB).appendChild(cards[i])
-                    }
-                }
-            }
+        if (hasValidBuilds && buildsPanelDisplay === "block") {
+            scheduleCharacterBuildsMasonryAfterImages(buildSection)
+            syncCharacterBuildsMasonryLayout()
         }
 
         buildSection.querySelectorAll(".char-build-view-btn").forEach((btn) => {
@@ -1146,6 +1211,7 @@ async function renderCharacterPage(){
                 buildSection.querySelectorAll(".char-build-panel").forEach((p) => {
                     p.style.display = p.dataset.panel === v ? "block" : "none"
                 })
+                scheduleCharacterBuildsMasonrySync()
             })
         })
 
@@ -1185,6 +1251,18 @@ async function renderCharacterPage(){
             <div class="char-review-content">${bodyHtml}${ratingHtml}</div>
         `
         reviewSection.style.display = "block"
+    }
+
+    if (!characterBuildMasonryResizeBound) {
+        characterBuildMasonryResizeBound = true
+        window.addEventListener("resize", scheduleCharacterBuildsMasonrySync, { passive: true })
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener("resize", scheduleCharacterBuildsMasonrySync, { passive: true })
+        }
+        const buildsRoot = document.getElementById("Builds")
+        if (buildsRoot && typeof ResizeObserver !== "undefined") {
+            new ResizeObserver(() => scheduleCharacterBuildsMasonrySync()).observe(buildsRoot)
+        }
     }
 }
 
