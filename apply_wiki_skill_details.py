@@ -14,6 +14,9 @@ Patches:
   python apply_wiki_skill_details.py --no-descriptions
 
 Run import_wiki_skill_details.py first to refresh the import file.
+
+When data.js skill attrs change, or crk_descriptions.js skill-related text changes for a cookie,
+pageUpdated is set on that cookie in data.js to the current UTC time (full runs and --name).
 """
 
 from __future__ import annotations
@@ -30,10 +33,13 @@ from apply_wiki_cookie_data import (
     DEFAULT_DATA,
     DEFAULT_DESC,
     apply_description_map,
+    apply_page_updated_stamp,
+    cookie_names_for_description_keys,
     ensure_trailing_comma_on_line,
     find_character_block,
     find_desc_section,
     find_prop_line,
+    page_updated_stamp_iso,
 )
 
 ROOT = illu.ROOT
@@ -219,6 +225,11 @@ def apply_skill_import_doc(
     data_changed = False
     desc_changed = False
 
+    stamp = page_updated_stamp_iso()
+    stamp_names: set[str] = set()
+    desc_keys_touched: set[str] = set()
+    data_lines: list[str] | None = None
+
     if not no_data:
         with open(data_js, encoding="utf-8") as f:
             data_lines = f.readlines()
@@ -226,9 +237,7 @@ def apply_skill_import_doc(
             keys = cdoc.get("keys") or {}
             if apply_one_cookie_data(data_lines, cname, keys, dry_run, log):
                 data_changed = True
-        if data_changed and not dry_run:
-            with open(data_js, "w", encoding="utf-8", newline="\n") as f:
-                f.writelines(data_lines)
+                stamp_names.add(cname)
 
     if not no_descriptions:
         with open(descriptions_js, encoding="utf-8") as f:
@@ -262,56 +271,79 @@ def apply_skill_import_doc(
             if not skd:
                 print("Lost skill_details section", file=sys.stderr)
                 raise SystemExit(1)
-            if apply_description_map(
+            ch, keys = apply_description_map(
                 desc_lines, skd[0], skd[1], all_details, dry_run, log, "skill_details"
-            ):
+            )
+            if ch:
                 desc_changed = True
+                desc_keys_touched.update(keys)
 
         if all_rally:
             ral = find_desc_section(desc_lines, "  rally_effects: {", "  enchants:")
             if not ral:
                 print("Lost rally_effects section", file=sys.stderr)
                 raise SystemExit(1)
-            if apply_description_map(
+            ch, keys = apply_description_map(
                 desc_lines, ral[0], ral[1], all_rally, dry_run, log, "rally_effects"
-            ):
+            )
+            if ch:
                 desc_changed = True
+                desc_keys_touched.update(keys)
 
         if all_enc:
             enc = find_desc_section(desc_lines, "  enchants: {", "  ascension_effects:")
             if not enc:
                 print("Lost enchants section", file=sys.stderr)
                 raise SystemExit(1)
-            if apply_description_map(
+            ch, keys = apply_description_map(
                 desc_lines, enc[0], enc[1], all_enc, dry_run, log, "enchants"
-            ):
+            )
+            if ch:
                 desc_changed = True
+                desc_keys_touched.update(keys)
 
         if all_asc:
             asc = find_desc_section(desc_lines, "  ascension_effects: {", "  skill_notes:")
             if not asc:
                 print("Lost ascension_effects section", file=sys.stderr)
                 raise SystemExit(1)
-            if apply_description_map(
+            ch, keys = apply_description_map(
                 desc_lines, asc[0], asc[1], all_asc, dry_run, log, "ascension_effects"
-            ):
+            )
+            if ch:
                 desc_changed = True
+                desc_keys_touched.update(keys)
 
         if all_notes:
             sn = find_desc_section(desc_lines, "  skill_notes: {", "  topping_description:")
             if not sn:
                 print("Lost skill_notes section", file=sys.stderr)
                 raise SystemExit(1)
-            if apply_description_map(
+            ch, keys = apply_description_map(
                 desc_lines, sn[0], sn[1], all_notes, dry_run, log, "skill_notes"
-            ):
+            )
+            if ch:
                 desc_changed = True
+                desc_keys_touched.update(keys)
 
         if desc_changed and not dry_run:
             with open(descriptions_js, "w", encoding="utf-8", newline="\n") as f:
                 f.writelines(desc_lines)
 
-    return data_changed, desc_changed, log
+    if not no_data:
+        stamp_names.update(
+            cookie_names_for_description_keys(desc_keys_touched, list(cookies.keys()))
+        )
+
+    if not no_data and data_lines is not None:
+        for n in sorted(stamp_names):
+            apply_page_updated_stamp(data_lines, n, stamp, dry_run, log)
+        if not dry_run and (data_changed or stamp_names):
+            with open(data_js, "w", encoding="utf-8", newline="\n") as f:
+                f.writelines(data_lines)
+
+    data_js_touched = (not no_data) and (data_changed or bool(stamp_names))
+    return data_js_touched, desc_changed, log
 
 
 def main() -> None:

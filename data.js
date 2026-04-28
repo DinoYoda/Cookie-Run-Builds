@@ -6,6 +6,7 @@ window.CRK_DATA = {
                 {
                     name: "Zhen_huan",
                     displayName: "Zhen Huan Cookie",
+                    pageUpdated: "2026-04-27T19:35:44Z",
                     cnEx: true,
                     element: null,
                     type: "Support",
@@ -90,12 +91,13 @@ window.CRK_DATA = {
                 {
                     name: "Tengshe",
                     displayName: "Tengshe Cookie",
+                    pageUpdated: "2026-04-27T19:35:44Z",
                     element: null,
-                    type: "Healing",
-                    position: "Rear",
-                    rarity: "Legendary",
-                    skill: "Golden Snake Blessing",
-                    cd: 13,
+                    type: "Charge",
+                    position: "Front",
+                    rarity: "Common",
+                    skill: "Brave Dash",
+                    cd: 8,
                     skillAttr: {
                         attr1: [150.0, 266.3],
                     },
@@ -103,6 +105,7 @@ window.CRK_DATA = {
                 }, {
                     name: "Gingerbrave",
                     displayName: "GingerBrave",
+                    pageUpdated: "2026-04-27T19:31:39Z",
                     element: null,
                     type: "Charge",
                     position: "Front",
@@ -1158,7 +1161,7 @@ window.CRK_DATA = {
                     },
                     sets: {
                         toppings: [{
-                            resonance: "Looming_darkness",
+                            resonance: "looming_darkness",
                             1: "chocolate",
                             2: "chocolate",
                             3: "chocolate",
@@ -1274,6 +1277,7 @@ window.CRK_DATA = {
                 {
                     name: "Sugar_swan",
                     displayName: "Sugar Swan Cookie",
+                    pageUpdated: "2026-04-27",
                     element: null,
                     type: "Healing",
                     position: "Rear",
@@ -1326,14 +1330,14 @@ window.CRK_DATA = {
                             name: "General Build",
                             toppings: 1,
                             beascuit: 1,
-                            notes: ["Used in arena."]
+                            notes: ["Used in arena sometimes."]
                         },
                         2: {
-                            rank: "recommended",
+                            rank: "best",
                             name: "Alt Build",
                             toppings: 2,
                             beascuit: 1,
-                            notes: [
+                            notes: ["Main arena build.", 
                                 "Weaker overall than 3-2-1 but useful against anti crit teams like ones that run jewelry box."]
                         },
                         3: {
@@ -2026,6 +2030,15 @@ window.CRK_DATA = {
                             5: "kiwi",
                             6: "kiwi",
                             substats: ["HP", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "root",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "kiwi",
+                            6: "kiwi",
+                            substats: ["HP", "DMG Resist", "Debuff Resist"]
                         }],
                         beascuit: [{
                             1: "HP",
@@ -2044,6 +2057,7 @@ window.CRK_DATA = {
                                 name: "Cooldown",
                                 value: "≥3.9%"
                             }],
+                            notes: ["Can replace HP substats with CRIT% if using resonant toppings. (Why do resonant toppings have CRIT Resist instead of HP Devsis?) "]
                         },
                         2: {
                             rank: "best",
@@ -2057,30 +2071,15 @@ window.CRK_DATA = {
                                 name: "Debuff Resist",
                                 value: "≥20%"
                             }],
-                            notes: ["1s start is essential for arena."]
+                            notes: ["1s start is essential for arena.", "Debuff resist is very valuable to keep uptime so don't fret if you get some."]
                         },
                         3: {
-                            name: "Alt Arena Build",
-                            toppings: 3,
+                            name: "Alt Arena Build (2s start)",
+                            toppings: 5,
                             beascuit: 1,
-                            stats: [{
-                                name: "Cooldown",
-                                value: "≥3.9%"
-                            }],
-                            notes: ["Requires 5★+ to work."]
+                            useOwn: true,
                         },
-                        4: {
-                            name: "Alt Arena Build 2",
-                            toppings: 2,
-                            beascuit: 1,
-                            stats: [{
-                                name: "Cooldown",
-                                value: "≥3.9%"
-                            }],
-                        },
-                        notes: ["Aim for 3.9% cooldown (so 2 substats) for the 1s start and then CRIT% or cooldown are both good.",
-                            "Can replace HP substats with CRIT% if using resonant toppings. (Why do resonant toppings have CRIT Resist instead of HP Devsis?"
-                        ]
+                        notes: ["Aim for 3.9% cooldown (so 2 substats) for the 1s start and then CRIT% or cooldown are both good."]
                     },
                     buildNotes: [
                         "HP is king. It is the most important stat for millennial tree. His other stat requirements are pretty easy so once you hit those prioritize HP.",
@@ -3061,22 +3060,29 @@ window.CRK_DATA = {
                         2: {
                             rank: "best",
                             name: "Arena Build",
-                            toppings: 9,
+                            toppings: 3,
                             beascuit: 2,
                             stats: [{
                                 name: "Cooldown",
                                 value: "≥16.7%"
                             }],
-                            notes: [
-                                "Candy boosts the healing recieved so she survives longer."]
                         },
                         3: {
+                            name: "Alt Arena Build",
+                            toppings: 2,
+                            beascuit: 2,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥16.7%"
+                            }],
+                        },
+                        4: {
                             rank: "recommended",
                             name: "Living Abyss",
                             toppings: 7,
                             beascuit: 3
                         },
-                        4: {
+                        5: {
                             rank: "recommended",
                             name: "Red Velvet Dragon",
                             toppings: 10,
@@ -3086,15 +3092,10 @@ window.CRK_DATA = {
                                 value: "≥7.8%"
                             }]
                         },
-                        5: {
+                        6: {
                             name: "Cookie Aliance Build",
                             toppings: 6,
                             beascuit: 1,
-                        },
-                        6: {
-                            name: "HP Build",
-                            toppings: 8,
-                            beascuit: 2,
                         },
                     },
                     buildNotes: [
@@ -3118,7 +3119,6 @@ window.CRK_DATA = {
                         attr1: [206.0, 480.8],
                         attr2: [88.3, 206.0],
                     },
-                    resonants: ["Crossed_fates", "Silent", "Lunar_eclipse", "Smithy"],
                     sets: {
                         toppings: [{
                             resonance: "Silent",
@@ -3174,6 +3174,15 @@ window.CRK_DATA = {
                             5: "raspberry",
                             6: "raspberry",
                             substats: ["ATK", "Cooldown", "CRIT%"]
+                        }, {
+                            resonance: "Silent",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "kiwi",
+                            6: "kiwi",
+                            substats: ["DMG Resist", "Cooldown", "ATK"]
                         }],
                         beascuit: [{
                             element: "Steel",
@@ -3203,12 +3212,11 @@ window.CRK_DATA = {
                             beascuit: 1
                         },
                         3: {
-                            name: "PvP HP",
-                            toppings: 3,
+                            name: "PvP Kiwi",
+                            rank: "recommended",
+                            toppings: 7,
                             beascuit: 1,
-                            notes: ["Aims to give Silent Salt the high HP on the team to affect the targeting of cookie{Shadow_milk} Shadow Milk and cookie{Doughael} Doughael as well as general survivability",
-                                "This build becomes Silent Salt's best build at 4 stars and above"
-                            ]
+                            notes: ["Actually the arena meta at the moment for Silent Salt."]
                         },
                         4: {
                             rank: "recommended",
@@ -3261,6 +3269,15 @@ window.CRK_DATA = {
                             5: "raspberry",
                             6: "raspberry",
                             substats: ["ATK", "Cooldown", "DMG Resist"]
+                        }, {
+                            resonance: "Looming_Darkness",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
                         }],
                         beascuit: [{
                             1: "Bypass",
@@ -3285,11 +3302,22 @@ window.CRK_DATA = {
                                 name: "Cooldown from toppings",
                                 value: "≥9%"
                             }, {
-                                name: "ATK from toppings",
+                                name: "ATK from toppings (+ATK from beascuit)",
                                 value: "≥108%"
                             }],
+                            notes: ["Ensure you have 35% cooldown from gear and passive."]
                         },
                         2: {
+                            name: "Alt Arena Build (2s Start)",
+                            toppings: 3,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥19.9%"
+                            }],
+                            notes: ["With good enough subs can use a raspberry tart and replace a raspberry topping with chocolate."]
+                        },
+                        3: {
                             rank: "recommended",
                             name: "PvE Build",
                             toppings: 1,
@@ -4035,6 +4063,17 @@ window.CRK_DATA = {
                     skillAttrMc: {
                         attr1: [128.1, 213.6],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "sea",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
+                        }]
+                    }
                 },
                 {
                     name: "Peppermint",
@@ -5322,7 +5361,7 @@ window.CRK_DATA = {
                 }, {
                     name: "Arena",
                     teams: [{
-                        name: "Eternal Sugar",
+                        name: "Main Comp",
                         cookies: [{
                             name: "Millennial_tree",
                             build: 2
@@ -5337,42 +5376,82 @@ window.CRK_DATA = {
                             build: 1
                         }, {
                             name: "Sugar_swan",
-                            build: 1
+                            build: 2
                         }],
                         rally: "Millennial_tree",
-                        treasures: ["dream_conductors_whistle", "explorers_monocle", "sleepyheads_jelly_watch"],
-                        notes: ["Counters cookie{Eternal_sugar} Eternal Sugar", "Run treasure{dream_conductors_whistle} Whistle and treasure{mysterious_jewelry_box} Box into treasure{explorers_monocle} Monocle and Whistle or non box builds."]
+                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "explorers_monocle"],
+                        notes: ["Best run into a mirror team with the treasure{cursed_catacombs_candle} Candle.", "Don't run it into the treasure{mysterious_jewelry_box} Box."]
                     }, {
-                        name: "White Lily",
+                        name: "Candle Comp",
                         cookies: [{
                             name: "Millennial_tree",
-                            build: 2
+                            build: 3
                         }, {
                             name: "Dark_enchantress",
                             build: 1
                         }, {
-                            name: "Awakened_white_lily",
-                            toppings: 3,
-                            beascuit: 1
+                            name: "Eternal_sugar",
+                            build: 2
                         }, {
                             name: "Venom_dough",
                             build: 1
                         }, {
                             name: "Sugar_swan",
-                            build: 1
+                            build: 2
                         }],
-                        rally: "Awakened_white_lily",
-                        treasures: ["vial_of_raging_dunes", "dream_conductors_whistle", "sleepyheads_jelly_watch"],
-                        notes: ["Counters cookie{Eternal_sugar} Eternal Sugar"]
+                        rally: "Millennial_tree",
+                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "cursed_catacombs_candle"],
+                        notes: ["Best run into the treasure{mysterious_jewelry_box} Box.", "ES should cast before MT in this comp."]
+                    }, {
+                        name: "Box Comp (4/2 ES)",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 3
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 1
+                        }, {
+                            name: "Eternal_sugar",
+                            build: 3
+                        }, {
+                            name: "Venom_dough",
+                            build: 1
+                        }, {
+                            name: "Sugar_swan",
+                            build: 2
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "mysterious_jewelry_box"],
+                        notes: ["Best run into teams with treasure{explorers_monocle} Monocle.", "Best if you don't run this into treasure{cursed_catacombs_candle} Candle."]
+                    }, {
+                        name: "Box Comp (2s Start DE)",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 3
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 2
+                        }, {
+                            name: "Eternal_sugar",
+                            build: 2
+                        }, {
+                            name: "Venom_dough",
+                            build: 1
+                        }, {
+                            name: "Sugar_swan",
+                            build: 2
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "mysterious_jewelry_box"],
+                        notes: ["Can run 4/2 ES build or even 4/2 candy (topping set 9).", "Best run into teams with treasure{explorers_monocle} Monocle.", "Best if you don't run this into treasure{cursed_catacombs_candle} Candle."]
                     }, {
                         name: "Silent Salt",
                         cookies: [{
                             name: "Millennial_tree",
-                            build: 2
+                            build: 3
                         }, {
                             name: "Silent_salt",
-                            toppings: 4,
-                            beascuit: 1
+                            build: 3
                         }, {
                             name: "Dark_enchantress",
                             build: 1
@@ -5381,34 +5460,13 @@ window.CRK_DATA = {
                             build: 1
                         }, {
                             name: "Sugar_swan",
-                            build: 1
+                            build: 2
                         }],
                         rally: "Millennial_tree",
-                        treasures: ["mysterious_jewelry_box", "explorers_monocle", "sleepyheads_jelly_watch"],
-                        notes: ["Counters cookie{Awakened_white_lily} White Lily", "Do not run it into cookie{Eternal_sugar} Eternal Sugar"]
-                    }, {
-                        name: "Secret Cursed? Shadow Milk Team",
-                            cookies: [{
-                                name: "Millennial_tree",
-                                build: 2
-                            }, {
-                                name: "Dark_enchantress",
-                                build: 1
-                            }, {
-                                name: "Shadow_milk",
-                                build: 2
-                            }, {
-                                name: "Venom_dough",
-                                build: 1
-                            }, {
-                                name: "Sugar_swan",
-                                build: 1
-                            }],
-                            rally: "Millennial_tree",
-                            treasures: ["mysterious_jewelry_box", "explorers_monocle", "sleepyheads_jelly_watch"],
-                            notes: ["Mainly Counters cookie{Awakened_white_lily} White Lily", "Can also run full Chocolate on cookie{Shadow_milk} Shadow Milk"]
+                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "cursed_catacombs_candle"],
+                        notes: ["Best run into the treasure{cursed_catacombs_candle} Candle.", "Best used if Silent Salt is 4★ and above."]
                     }],
-                    notes: ["Sugar swan should run full Raspberry against treasure{mysterious_jewelry_box} Box."]
+                    notes: ["Arena is super RNG heavy this season so don't be surprised if you lose to a team you're built to counter."]
                 }, {
                     name: "Guild Battle",
                     sections: [{
@@ -5440,7 +5498,7 @@ window.CRK_DATA = {
                                 build: 2
                             }, {
                                 name: "Eternal_sugar",
-                                build: 4
+                                build: 5
                             }, {
                                 name: "Prune_juice",
                                 build: 2
@@ -5456,14 +5514,25 @@ window.CRK_DATA = {
                                 "header{Timings}<br>1. Queue Pom-pom Dough.<br>2. Spam Sapphire and Eternal Sugar.<br>3. Cast Prune Juice right after the 12/6 treasure glint.<br>4. Auto Linzer at roughly 49-48s.<br>5. Linzer at 32.750s or later.<br>6. Linzer at 16.438s or later.<br>7. If Linzer isn't dead, cast at next 7 stacks and spam."
                             ]
                         }],
-                        
-            
                     }, {
                         name: "Living Abyss",
                         teams: []
                     }, {
                         name: "Machine God of the Eternal Void",
-                        teams: []
+                        teams: [{
+                            name: "Machine God of the Eternal Void",
+                            cookies: [{
+                                name: "Frilled_jellyfish",
+                                build: 1
+                            }, {
+                                name: "Sea_fairy",
+                                build: 1
+                            }, {
+                                name: "Cream_ferret",
+                                build: 1
+                            }, {
+                            }]
+                        }]
                     }, {
                         name: "Avatar of Destiny",
                         teams: []

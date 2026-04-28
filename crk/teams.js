@@ -313,7 +313,7 @@
   })
 
   function scheduleRestoreScroll(y) {
-    if (y == null || !Number.isFinite(y) || y < 1) return
+    if (y == null || !Number.isFinite(y) || y < 0) return
     teamsRestoring = true
     const go = () => {
       try {
@@ -327,6 +327,8 @@
         setTimeout(go, 200)
         setTimeout(() => {
           teamsRestoring = false
+          /* Persist scroll after layout so the next reload does not read y:0 from a pre-restore save. */
+          saveTeamsState(true)
         }, 400)
       })
     })
@@ -403,13 +405,17 @@
         activeSectionIdx = 0
         setActiveCategoryButtons(activeCategoryIdx)
         renderSections()
+        saveTeamsState(true)
       })
     })
     setActiveCategoryButtons(activeCategoryIdx)
     renderSections()
-    saveTeamsState(true)
   }
 
   renderCategories()
-  if (savedScrollY != null && savedScrollY >= 1) scheduleRestoreScroll(savedScrollY)
+  if (savedScrollY != null && Number.isFinite(savedScrollY) && savedScrollY >= 0) {
+    scheduleRestoreScroll(savedScrollY)
+  } else {
+    saveTeamsState(true)
+  }
 })()

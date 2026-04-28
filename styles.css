@@ -703,7 +703,7 @@ button.active {
         grid-column: 1 !important;
         grid-row: 2 !important;
     }
-    .char-info-box {
+    .char-meta-column {
         grid-column: 1 !important;
         grid-row: 3 !important;
         justify-self: center;
@@ -783,9 +783,17 @@ button.active {
     justify-content: center;
 }
 
-.char-info-box {
+.char-meta-column {
     grid-column: 3;
     grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 1vw, 16px);
+    justify-self: end;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .character-art img {
@@ -873,6 +881,7 @@ button.active {
 .char-info-box {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: clamp(8px, 0.75vw, 12px);
     padding: clamp(16px, 1.5vw, 24px);
     background: #2a2d34;
@@ -882,6 +891,7 @@ button.active {
     max-width: 100%;
     justify-self: end;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .char-rarity-icon {
@@ -919,6 +929,70 @@ button.active {
 .char-elements-row {
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+
+.char-resonant-toppings {
+    box-sizing: border-box;
+}
+
+.char-resonant-toppings[hidden] {
+    display: none !important;
+}
+
+.char-resonant-inner {
+    padding: clamp(12px, 1vw, 16px) clamp(14px, 1.1vw, 18px);
+    background: #2a2d34;
+    border-radius: clamp(8px, 0.625vw, 10px);
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+}
+
+.char-resonant-heading {
+    margin: 0 0 clamp(10px, 0.85vw, 14px) 0;
+    font-size: clamp(0.95rem, 0.72vw, 1.05rem);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: CookieRun Bold, CookieRunR, sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+.char-resonant-list {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(10px, 0.85vw, 12px);
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.char-resonant-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(10px, 0.85vw, 14px);
+    width: max-content;
+    max-width: 100%;
+}
+
+.char-resonant-preview {
+    width: clamp(36px, 2.75vw, 44px);
+    height: clamp(36px, 2.75vw, 44px);
+    object-fit: contain;
+    image-rendering: auto;
+    flex-shrink: 0;
+}
+
+.char-resonant-item-label {
+    font-size: clamp(0.78rem, 0.55vw, 0.88rem);
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: left;
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000;
 }
 
 /* Skill section */
@@ -1629,51 +1703,46 @@ button.active {
     margin-bottom: 18px;
 }
 
-/* Category + section tabs: one card, section reads as under the active category */
+/* Category + section tabs styled like tierlist selectors */
 .teams-nav-cluster {
     margin: 0 0 20px;
     padding: 0;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: linear-gradient(180deg, rgba(35, 38, 46, 0.95) 0%, rgba(28, 30, 36, 0.98) 100%);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
 }
 
 .teams-nav-group {
-    padding: 12px 14px 14px;
+    padding: 0 0 10px;
 }
 
 .teams-nav-group--category {
-    background: rgba(0, 0, 0, 0.12);
+    background: transparent;
 }
 
 .teams-nav-group--section {
-    padding-top: 10px;
-    background: rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(60, 130, 210, 0.22);
+    padding-top: 2px;
+    background: transparent;
+    border-top: none;
 }
 
 .teams-nav-label {
     display: block;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.45);
-    margin: 0 0 8px 2px;
-    font-family: CookieRun, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 6px;
+    font-family: CookieRunR, sans-serif;
 }
 
 .teams-nav-group--section .teams-nav-label {
-    color: rgba(91, 180, 255, 0.55);
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .teams-tabs,
 .teams-subtabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 10px;
+    gap: 6px;
     margin: 0;
 }
 
@@ -1687,35 +1756,33 @@ button.active {
 
 .teams-tab,
 .teams-subtab {
-    padding: 8px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "CookieRun Bold", sans-serif;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #2a2d34;
+    color: rgba(255,255,255,0.75);
+    font-family: CookieRunR, sans-serif;
     font-weight: 400;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .teams-subtab {
-    font-size: 0.9rem;
-    padding: 7px 12px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    padding-left: 20px;
+}
+
+.teams-tab:hover,
+.teams-subtab:hover {
+    background: #3a3d47;
+    color: white;
 }
 
 .teams-tab.active,
 .teams-subtab.active {
-    background: rgba(31, 126, 208, 0.28);
-    border-color: rgba(91, 180, 255, 0.5);
+    background: rgba(31,126,208,0.35);
+    border-color: #1e88e5;
     color: #5bb4ff;
-}
-
-.teams-subtab.active {
-    background: rgba(31, 126, 208, 0.2);
-    border-color: rgba(91, 180, 255, 0.38);
 }
 
 .teams-entry {
@@ -1976,14 +2043,6 @@ button.active {
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     overflow: hidden;
-}
-
-.teams-page .teams-build-row .teams-beascuit-stats-on-image .char-build-beascuit-stats-title {
-    font-size: 0.66rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255);
-    margin-bottom: 2px;
-    line-height: 1.15;
 }
 
 .teams-page .teams-build-row .teams-beascuit-stats-on-image .char-build-beascuit-stat {
@@ -2294,6 +2353,17 @@ button.active {
 }
 
 /* (Removed) toppings page used an old id-based visibility rule. */
+
+/* Manual “last updated” (site-page-meta.js / data.js pageUpdated) */
+.site-last-updated {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.site-copyright .site-last-updated {
+    margin-bottom: 12px;
+}
 
 .site-copyright {
     margin: 28px 0 10px;

@@ -14,8 +14,15 @@ Resonant (unless --no-resonant):
   Local: crk/pictures/toppings/<type>/Topping_<type>_<resonance>.png
   with resonance lowercased (matches crk/char-ui.js getToppingImagePath).
 
-You maintain resonance *wiki slugs* in tools/wiki_resonant_topping_slugs.json
-(JSON array of strings; normalized like crossed_fates).
+  Selectable UI icon (one per resonance slug):
+  Wiki:  File:Topping_selectable_<resonance>.png
+  Local: crk/pictures/toppings/resonant/Topping_selectable_<resonance>.png
+  (matches crk/char-ui.js getResonantSelectableImagePath).
+
+You maintain resonance *wiki slugs* in tools/resonant_toppings.json
+either as a JSON array of strings (legacy) or an object mapping each
+slug to a list of data.js cookie names who can use that resonance
+(importer uses the object keys only).
 
 Types: raspberry, chocolate, applejelly, caramel, kiwi, candy, walnut, almond, hazelnut, peanut
 Missing wiki files for resonant pairs are expected sometimes — they are counted, not errors.
@@ -46,7 +53,7 @@ import import_wiki_illustrations as illu
 
 ROOT = illu.ROOT
 TOPPINGS_ROOT = os.path.join(ROOT, "crk", "pictures", "toppings")
-SLUGS_PATH = os.path.join(ROOT, "tools", "wiki_resonant_topping_slugs.json")
+SLUGS_PATH = os.path.join(ROOT, "tools", "resonant_toppings.json")
 
 TOPPING_TYPES: tuple[str, ...] = (
     "raspberry",
@@ -77,21 +84,41 @@ def load_resonance_slugs() -> list[str]:
         sys.exit(1)
     with open(SLUGS_PATH, encoding="utf-8") as f:
         data = json.load(f)
-    if not isinstance(data, list):
-        print("wiki_resonant_topping_slugs.json must be a JSON array of strings", file=sys.stderr)
-        sys.exit(1)
     out: list[str] = []
-    for item in data:
-        if not item or not str(item).strip():
-            continue
-        slug = normalize_resonance_slug(str(item))
-        if slug and slug not in out:
-            out.append(slug)
-    return out
+    if isinstance(data, list):
+        for item in data:
+            if not item or not str(item).strip():
+                continue
+            slug = normalize_resonance_slug(str(item))
+            if slug and slug not in out:
+                out.append(slug)
+        return out
+    if isinstance(data, dict):
+        for key in data:
+            if key is None or not str(key).strip():
+                continue
+            slug = normalize_resonance_slug(str(key))
+            if slug and slug not in out:
+                out.append(slug)
+        return out
+    print(
+        "resonant_toppings.json must be a JSON array of slugs or an object { slug: [cookies...] }",
+        file=sys.stderr,
+    )
+    sys.exit(1)
 
 
 def wiki_file_title(topping_type: str, resonance_slug: str) -> str:
     return f"File:Topping_{topping_type}_{resonance_slug}.png"
+
+
+def wiki_selectable_title(resonance_slug: str) -> str:
+    return f"File:Topping_selectable_{resonance_slug}.png"
+
+
+def local_selectable_dest(resonance_slug: str) -> str:
+    slug = resonance_slug.strip().lower()
+    return os.path.join(TOPPINGS_ROOT, "resonant", f"Topping_selectable_{slug}.png")
 
 
 def local_dest(topping_type: str, resonance_slug: str) -> str:
@@ -109,6 +136,10 @@ def dest_display(dest: str) -> str:
 
 def cdn_url(topping_type: str, resonance_slug: str) -> str:
     return illu.cdn_wikimg_url_for_filename(f"Topping_{topping_type}_{resonance_slug}.png")
+
+
+def cdn_selectable_url(resonance_slug: str) -> str:
+    return illu.cdn_wikimg_url_for_filename(f"Topping_selectable_{resonance_slug}.png")
 
 
 def main() -> None:
@@ -136,23 +167,28 @@ def main() -> None:
             print("No resonance slugs in", SLUGS_PATH, file=sys.stderr)
             sys.exit(1)
 
-    planned: list[tuple[str, str, str, str]] = []
-    # (topping_type, resonance_slug, dest, wiki_title)
+    planned: list[tuple[str, str, str, str, str]] = []
+    # (kind, a, b, dest, wiki_title) — base: a=type b=rarity; resonant: a=type b=slug; selectable: a=b=slug
     all_titles: list[str] = []
     if not args.no_base:
         for t in TOPPING_TYPES:
             for r in BASE_RARITIES:
                 title = wiki_file_title(t, r)
                 dest = local_dest(t, r)
-                planned.append((t, r, dest, title))
+                planned.append(("base", t, r, dest, title))
                 all_titles.append(title)
     if not args.no_resonant:
         for res in resonance_slugs:
             for t in TOPPING_TYPES:
                 title = wiki_file_title(t, res)
                 dest = local_dest(t, res)
-                planned.append((t, res, dest, title))
+                planned.append(("resonant", t, res, dest, title))
                 all_titles.append(title)
+        for res in resonance_slugs:
+            title = wiki_selectable_title(res)
+            dest = local_selectable_dest(res)
+            planned.append(("selectable", res, res, dest, title))
+            all_titles.append(title)
 
     if not planned:
         print("No work planned", file=sys.stderr)
@@ -166,7 +202,7 @@ def main() -> None:
     skipped_ok = 0
     failed = 0
 
-    for topping_type, res_slug, dest, title in planned:
+    for kind, a, b, dest, title in planned:
         info = title_to_info.get(title)
         url = info["url"] if illu._info_ok(info) else None
         remote_wh: tuple[int, int] | None = None
@@ -174,12 +210,15 @@ def main() -> None:
             remote_wh = (info["width"], info["height"])
 
         if not url and args.fallback_hash_url:
-            url = cdn_url(topping_type, res_slug)
+            if kind == "selectable":
+                url = cdn_selectable_url(a)
+            else:
+                url = cdn_url(a, b)
 
         if not url:
             missing_wiki += 1
             if args.verbose:
-                print("  [no wiki file]", topping_type, res_slug, title)
+                print("  [no wiki file]", kind, a, b, title)
             continue
 
         os.makedirs(os.path.dirname(dest), exist_ok=True)
@@ -196,6 +235,9 @@ def main() -> None:
                 return True, "no local file (or empty)"
             if local_wh is None:
                 return True, "local file exists but is not a valid PNG (e.g. WebP renamed .png)"
+            if target_wh is not None and local_wh == target_wh:
+                # Canonical canvas already present; skip recurring "remote bigger" refetch loops.
+                return False, "canonical size already normalized"
             if remote_px is None:
                 return True, "remote dims unknown (verify after download)"
             if remote_px > local_px:
@@ -204,13 +246,17 @@ def main() -> None:
 
         do_fetch, reason = should_fetch()
 
-        label = f"{topping_type}/{res_slug}"
+        if kind == "selectable":
+            label = f"selectable/{a}"
+        else:
+            label = f"{a}/{b}"
 
         if args.dry_run:
             rw, rh = remote_wh if remote_wh else ("?", "?")
             if do_fetch:
+                post = f" -> normalize {target_wh[0]}x{target_wh[1]}" if target_wh is not None else ""
                 print(
-                    f"  [dry-run fetch] {label} ({reason}) wiki ~{rw}x{rh} -> {dest_display(dest)}"
+                    f"  [dry-run fetch] {label} ({reason}) wiki ~{rw}x{rh} -> {dest_display(dest)}{post}"
                 )
                 downloaded += 1
             else:
@@ -264,16 +310,19 @@ def main() -> None:
 
     total = len(planned)
     n_base = 0 if args.no_base else len(TOPPING_TYPES) * len(BASE_RARITIES)
-    n_res_pairs = 0 if args.no_resonant else len(TOPPING_TYPES) * len(resonance_slugs)
+    n_res_by_type = 0 if args.no_resonant else len(TOPPING_TYPES) * len(resonance_slugs)
+    n_res_selectable = 0 if args.no_resonant else len(resonance_slugs)
     if args.dry_run:
         print(
-            f"Done (dry-run). planned={total} (base={n_base} resonant_pairs={n_res_pairs}) "
+            f"Done (dry-run). planned={total} (base={n_base} resonant_by_type={n_res_by_type} "
+            f"selectable={n_res_selectable}) "
             f"would_fetch={downloaded} would_skip={skipped_ok} "
             f"missing_wiki={missing_wiki} failed={failed}"
         )
     else:
         print(
-            f"Done. planned={total} (base={n_base} resonant_pairs={n_res_pairs}) "
+            f"Done. planned={total} (base={n_base} resonant_by_type={n_res_by_type} "
+            f"selectable={n_res_selectable}) "
             f"new={downloaded} upgraded={upgraded} skipped={skipped_ok} "
             f"missing_wiki={missing_wiki} failed={failed}"
         )

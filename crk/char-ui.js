@@ -421,6 +421,53 @@ function getToppingImagePath(type, resonance, isTart) {
   return `${pic}/toppings/${type}/${_urlFile(`Topping_${type}_3.png`)}`
 }
 
+/** In-game selectable art: `toppings/resonant/Topping_selectable_<resonance_slug>.png` (slug lowercased, underscores). */
+function getResonantSelectableImagePath(resonanceSlug) {
+  const pic = getGamePictureRoot()
+  const raw = String(resonanceSlug || "").trim().toLowerCase().replace(/\s+/g, "_")
+  if (!raw) return `${pic}/toppings/${_urlFile("unknown.png")}`
+  return `${pic}/toppings/resonant/${_urlFile(`Topping_selectable_${raw}.png`)}`
+}
+
+function formatResonanceSetLabel(slug) {
+  const s = String(slug || "").trim()
+  if (!s) return ""
+  return s
+    .split("_")
+    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : ""))
+    .filter(Boolean)
+    .join(" ")
+}
+
+function siteRelativePath(file) {
+  const p = (location.pathname || "").replace(/\\/g, "/")
+  if (/\/crk\/[^/]+\.html$/i.test(p)) return `../${file}`
+  return file
+}
+
+let _resonantToppingsMapPromise = null
+async function loadResonantToppingsMap() {
+  if (_resonantToppingsMapPromise) return _resonantToppingsMapPromise
+  _resonantToppingsMapPromise = fetch(siteRelativePath("tools/resonant_toppings.json"), { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((j) => (j && typeof j === "object" && !Array.isArray(j) ? j : null))
+    .catch(() => null)
+  return _resonantToppingsMapPromise
+}
+
+function getResonancesForCookieFromMap(mapObj, cookieName) {
+  if (!mapObj || !cookieName) return []
+  const target = String(cookieName).trim().toLowerCase()
+  if (!target) return []
+  const out = []
+  for (const [slug, cookies] of Object.entries(mapObj)) {
+    if (!slug || !Array.isArray(cookies)) continue
+    const hit = cookies.some((c) => String(c || "").trim().toLowerCase() === target)
+    if (hit) out.push(String(slug))
+  }
+  return out
+}
+
 function getBeascuitStatLabel(val) {
   const map = { drb: "DMR", cd: "CD", atk: "ATK", hp: "HP" }
   const v = String(val || "").toLowerCase()
@@ -537,7 +584,7 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   let statsOnImage = ""
   if (statsLines.length > 0) {
     if (teamsImageOverlay) {
-      statsOnImage = `<div class="char-build-beascuit-stats teams-beascuit-stats-on-image" aria-label="Beascuit stats"><div class="char-build-beascuit-stats-title">Stats</div>${statsLines.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join("")}</div>`
+      statsOnImage = `<div class="char-build-beascuit-stats teams-beascuit-stats-on-image" aria-label="Beascuit stats">${statsLines.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join("")}</div>`
     } else {
       statsBeside = `<div class="char-build-beascuit-stats"><div class="char-build-beascuit-stats-title">Stats</div>${statsLines.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join("")}</div>`
     }
@@ -659,6 +706,36 @@ function scheduleCharacterBuildsMasonrySync() {
   }, 120)
 }
 
+function renderCharPageUpdatedLine(charData) {
+  const foot = document.querySelector(".site-copyright")
+  if (!foot) return
+  const raw = charData?.pageUpdated
+  if (!raw || !String(raw).trim()) {
+    const el = document.getElementById("siteLastUpdated")
+    if (el) {
+      el.remove()
+    }
+    return
+  }
+  const iso = String(raw).trim()
+  const fmt =
+    typeof window.formatManualPageDate === "function" ? window.formatManualPageDate(iso) : iso
+  let el = document.getElementById("siteLastUpdated")
+  if (!el) {
+    el = document.createElement("p")
+    el.id = "siteLastUpdated"
+    el.className = "site-last-updated"
+    foot.insertBefore(el, foot.firstChild)
+  }
+  el.hidden = false
+  el.replaceChildren()
+  el.appendChild(document.createTextNode("Page last updated on "))
+  const time = document.createElement("time")
+  time.dateTime = iso
+  time.textContent = fmt
+  el.appendChild(time)
+}
+
 async function renderCharacterPage(){
     const urlName = getCharacterFromURL()
     if (urlName) {
@@ -756,8 +833,41 @@ async function renderCharacterPage(){
         `
     }
 
+    const resonantEl = document.getElementById("char-resonant-toppings")
+    if (resonantEl) {
+      const resonantMap = await loadResonantToppingsMap()
+      const fromMap = getResonancesForCookieFromMap(resonantMap, charData?.name || name)
+      const fromData = charData && Array.isArray(charData.resonants)
+        ? charData.resonants.filter((r) => r != null && String(r).trim() !== "")
+        : []
+      const resonants = (fromMap.length ? fromMap : fromData)
+        .map((r) => String(r || "").trim())
+        .filter(Boolean)
+      if (!charData || resonants.length === 0) {
+        resonantEl.hidden = true
+        resonantEl.innerHTML = ""
+      } else {
+        resonantEl.hidden = false
+        const items = resonants.map((res) => {
+          const label = formatResonanceSetLabel(res)
+          const src = getResonantSelectableImagePath(res)
+          return `<div class="char-resonant-item">
+            <img src="${src}" alt="${_esc(label)}" title="${_esc(label)}" class="char-resonant-preview" onerror="${_imgErrToppingAttr()}">
+            <span class="char-resonant-item-label">${_esc(label)}</span>
+          </div>`
+        }).join("")
+        resonantEl.innerHTML = `<div class="char-resonant-inner">
+          <h3 class="char-resonant-heading">Resonant Toppings</h3>
+          <div class="char-resonant-list">${items}</div>
+        </div>`
+      }
+    }
+
     const skillSection = document.getElementById("char-skill-section")
-    if (!skillSection) return
+    if (!skillSection) {
+        renderCharPageUpdatedLine(charData)
+        return
+    }
     let useBaseLevelNormal = true
     let useBaseLevelCj = true
     let showEnchants = false
@@ -1259,6 +1369,8 @@ async function renderCharacterPage(){
             new ResizeObserver(() => scheduleCharacterBuildsMasonrySync()).observe(buildsRoot)
         }
     }
+
+    renderCharPageUpdatedLine(charData)
 }
 
 if (document.getElementById("char-skill-section")) {

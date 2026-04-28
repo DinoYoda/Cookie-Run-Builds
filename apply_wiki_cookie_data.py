@@ -17,6 +17,9 @@ Behavior:
   python apply_wiki_cookie_data.py --no-data    # descriptions only
   python apply_wiki_cookie_data.py --no-descriptions
 
+When data.js fields change for a cookie, or that cookie’s description / skill_description text in
+crk_descriptions.js changes, pageUpdated is set to the current UTC time (ISO) for that character.
+
 Requires a prior successful wiki fetch per cookie (same rules as import_wiki_cookie_data.py).
 
 If wiki infobox parsing yields element, type, position, and rarity all null, data.js patches for that
@@ -33,6 +36,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, timezone
 from typing import Any
 
 import import_wiki_illustrations as illu
@@ -175,6 +179,47 @@ def find_prop_line(lines: list[str], body_start: int, body_end: int, key: str) -
     return None
 
 
+def page_updated_stamp_iso() -> str:
+    """UTC instant for data.js pageUpdated (importer runs)."""
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def apply_page_updated_stamp(
+    lines: list[str],
+    cookie_name: str,
+    stamp: str,
+    dry_run: bool,
+    log: list[str],
+) -> None:
+    """Set or insert pageUpdated on a character block (manual last-updated line on cookie pages)."""
+    block = find_character_block(lines, cookie_name)
+    if not block:
+        return
+    start, end = block
+    body_start = start + 1
+    body_end = end
+    new_line = format_data_js_property_line("pageUpdated", stamp)
+    idx = find_prop_line(lines, body_start, body_end, "pageUpdated")
+    if idx is not None:
+        old_val = parse_data_js_property_value(lines[idx], "pageUpdated")
+        if old_val == stamp:
+            return
+        log.append(f"  data {cookie_name}.pageUpdated: {old_val!r} -> {stamp!r}")
+        if not dry_run:
+            lines[idx] = new_line + "\n"
+        return
+    log.append(f"  data {cookie_name}.pageUpdated: (insert) {stamp!r}")
+    if not dry_run:
+        insert_after = ("displayName", "name")
+        insert_at = body_start
+        for pred in insert_after:
+            q = find_prop_line(lines, body_start, body_end, pred)
+            if q is not None:
+                insert_at = max(insert_at, q)
+        lines[insert_at] = ensure_trailing_comma_on_line(lines[insert_at])
+        lines.insert(insert_at + 1, new_line + "\n")
+
+
 def apply_cookie_fields(
     lines: list[str],
     wiki_cookie: dict[str, Any],
@@ -277,8 +322,10 @@ def apply_description_map(
     dry_run: bool,
     log: list[str],
     label: str,
-) -> bool:
+) -> tuple[bool, set[str]]:
+    """Returns (any_change, description_object_keys_touched)."""
     changed = False
+    touched_keys: set[str] = set()
     body_start = open_i + 1
     cur_close = close_i
     for key, val in updates.items():
@@ -298,13 +345,29 @@ def apply_description_map(
             if not dry_run:
                 lines[found] = new_line + "\n"
             changed = True
+            touched_keys.add(key)
         else:
             log.append(f"  {label} {key}: (insert)")
             if not dry_run:
                 lines.insert(cur_close, new_line + "\n")
                 cur_close += 1
             changed = True
-    return changed
+            touched_keys.add(key)
+    return changed, touched_keys
+
+
+def cookie_names_for_description_keys(changed_keys: set[str], cookie_names: list[str]) -> set[str]:
+    """Map crk_descriptions.js object keys (wiki slugs, e.g. purple_yam, purple_yam_cj) to data.js name."""
+    if not changed_keys:
+        return set()
+    out: set[str] = set()
+    for name in cookie_names:
+        base = illu.cookie_name_to_wiki_slug(name)
+        for k in changed_keys:
+            if k == base or k.startswith(f"{base}_"):
+                out.add(name)
+                break
+    return out
 
 
 def print_wiki_import_preview(doc: dict[str, Any], name: str) -> None:
@@ -348,7 +411,8 @@ def apply_wiki_import_doc(
 ) -> tuple[bool, bool, list[str]]:
     """
     Patch data.js and crk/crk_descriptions.js from an import document (same rules as CLI).
-    Returns (data_changed, desc_changed, log_lines).
+    Returns (data_js_touched, desc_changed, log_lines). data_js_touched is true if data.js would be
+    or was updated (field edits and/or pageUpdated stamps for touched cookies).
     On structural errors (missing sections), prints to stderr and raises SystemExit(1).
     """
     skip_data_names = _skip_data_js_names(doc)
@@ -361,6 +425,10 @@ def apply_wiki_import_doc(
     log: list[str] = []
     data_changed = False
     desc_changed = False
+    stamp = page_updated_stamp_iso()
+    stamp_names: set[str] = set()
+    desc_keys_touched: set[str] = set()
+    data_lines: list[str] | None = None
 
     if not no_data:
         with open(data_js, encoding="utf-8") as f:
@@ -370,9 +438,7 @@ def apply_wiki_import_doc(
                 continue
             if apply_cookie_fields(data_lines, wc, dry_run, log):
                 data_changed = True
-        if data_changed and not dry_run:
-            with open(data_js, "w", encoding="utf-8", newline="\n") as f:
-                f.writelines(data_lines)
+                stamp_names.add(wc["name"])
 
     if not no_descriptions:
         with open(descriptions_js, encoding="utf-8") as f:
@@ -386,23 +452,41 @@ def apply_wiki_import_doc(
         s_open, s_close = sksec
         wiki_d = doc["descriptions"]["description"]
         wiki_s = doc["descriptions"]["skill_description"]
-        if wiki_d and apply_description_map(
-            desc_lines, d_open, d_close, wiki_d, dry_run, log, "description"
-        ):
-            desc_changed = True
+        if wiki_d:
+            dch, dkeys = apply_description_map(
+                desc_lines, d_open, d_close, wiki_d, dry_run, log, "description"
+            )
+            if dch:
+                desc_changed = True
+                desc_keys_touched.update(dkeys)
         s_open, s_close = find_desc_section(desc_lines, "  skill_description: {", "  skill_details:")
         if s_open is None:
             print("Lost skill_description section after edits", file=sys.stderr)
             raise SystemExit(1)
-        if wiki_s and apply_description_map(
-            desc_lines, s_open, s_close, wiki_s, dry_run, log, "skill_description"
-        ):
-            desc_changed = True
+        if wiki_s:
+            sch, skeys = apply_description_map(
+                desc_lines, s_open, s_close, wiki_s, dry_run, log, "skill_description"
+            )
+            if sch:
+                desc_changed = True
+                desc_keys_touched.update(skeys)
         if desc_changed and not dry_run:
             with open(descriptions_js, "w", encoding="utf-8", newline="\n") as f:
                 f.writelines(desc_lines)
 
-    return data_changed, desc_changed, log
+    if not no_data:
+        cookie_names_list = [wc["name"] for wc in doc.get("cookies") or []]
+        stamp_names.update(cookie_names_for_description_keys(desc_keys_touched, cookie_names_list))
+
+    if not no_data and data_lines is not None:
+        for n in sorted(stamp_names):
+            apply_page_updated_stamp(data_lines, n, stamp, dry_run, log)
+        if not dry_run and (data_changed or stamp_names):
+            with open(data_js, "w", encoding="utf-8", newline="\n") as f:
+                f.writelines(data_lines)
+
+    data_js_touched = (not no_data) and (data_changed or bool(stamp_names))
+    return data_js_touched, desc_changed, log
 
 
 def main() -> None:
