@@ -4063,17 +4063,6 @@ window.CRK_DATA = {
                     skillAttrMc: {
                         attr1: [128.1, 213.6],
                     },
-                    sets: {
-                        toppings: [{
-                            resonance: "sea",
-                            1: "applejelly",
-                            2: "applejelly",
-                            3: "applejelly",
-                            4: "applejelly",
-                            5: "applejelly",
-                            6: "applejelly",
-                        }]
-                    }
                 },
                 {
                     name: "Peppermint",
