@@ -460,12 +460,23 @@ function getResonancesForCookieFromMap(mapObj, cookieName) {
   const target = String(cookieName).trim().toLowerCase()
   if (!target) return []
   const out = []
-  for (const [slug, cookies] of Object.entries(mapObj)) {
-    if (!slug || !Array.isArray(cookies)) continue
+  for (const [slug, raw] of Object.entries(mapObj)) {
+    if (!slug) continue
+    const cookies = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.cookies) ? raw.cookies : [])
     const hit = cookies.some((c) => String(c || "").trim().toLowerCase() === target)
     if (hit) out.push(String(slug))
   }
   return out
+}
+
+function getResonanceDisplayNameFromMap(mapObj, slug) {
+  if (!mapObj || !slug) return ""
+  const raw = mapObj[String(slug)]
+  if (raw && typeof raw === "object" && !Array.isArray(raw) && typeof raw.name === "string") {
+    const name = raw.name.trim()
+    if (name) return name
+  }
+  return ""
 }
 
 function getBeascuitStatLabel(val) {
@@ -849,7 +860,7 @@ async function renderCharacterPage(){
       } else {
         resonantEl.hidden = false
         const items = resonants.map((res) => {
-          const label = formatResonanceSetLabel(res)
+          const label = getResonanceDisplayNameFromMap(resonantMap, res) || formatResonanceSetLabel(res)
           const src = getResonantSelectableImagePath(res)
           return `<div class="char-resonant-item">
             <img src="${src}" alt="${_esc(label)}" title="${_esc(label)}" class="char-resonant-preview" onerror="${_imgErrToppingAttr()}">

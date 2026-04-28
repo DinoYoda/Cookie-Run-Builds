@@ -21,7 +21,9 @@ Resonant (unless --no-resonant):
 
 You maintain resonance *wiki slugs* in tools/resonant_toppings.json
 either as a JSON array of strings (legacy) or an object mapping each
-slug to a list of data.js cookie names who can use that resonance
+slug to either:
+  - a list of data.js cookie names
+  - or an object like { "name": "...", "cookies": [...] }
 (importer uses the object keys only).
 
 Types: raspberry, chocolate, applejelly, caramel, kiwi, candy, walnut, almond, hazelnut, peanut
@@ -102,7 +104,7 @@ def load_resonance_slugs() -> list[str]:
                 out.append(slug)
         return out
     print(
-        "resonant_toppings.json must be a JSON array of slugs or an object { slug: [cookies...] }",
+        "resonant_toppings.json must be a JSON array of slugs or an object { slug: [cookies...] | {name, cookies} }",
         file=sys.stderr,
     )
     sys.exit(1)
@@ -235,9 +237,6 @@ def main() -> None:
                 return True, "no local file (or empty)"
             if local_wh is None:
                 return True, "local file exists but is not a valid PNG (e.g. WebP renamed .png)"
-            if target_wh is not None and local_wh == target_wh:
-                # Canonical canvas already present; skip recurring "remote bigger" refetch loops.
-                return False, "canonical size already normalized"
             if remote_px is None:
                 return True, "remote dims unknown (verify after download)"
             if remote_px > local_px:
@@ -254,9 +253,8 @@ def main() -> None:
         if args.dry_run:
             rw, rh = remote_wh if remote_wh else ("?", "?")
             if do_fetch:
-                post = f" -> normalize {target_wh[0]}x{target_wh[1]}" if target_wh is not None else ""
                 print(
-                    f"  [dry-run fetch] {label} ({reason}) wiki ~{rw}x{rh} -> {dest_display(dest)}{post}"
+                    f"  [dry-run fetch] {label} ({reason}) wiki ~{rw}x{rh} -> {dest_display(dest)}"
                 )
                 downloaded += 1
             else:
