@@ -474,6 +474,9 @@ function applyFilters(character) {
     if (typeof characterPassesCnExFilter === "function" && !characterPassesCnExFilter(character)) {
         return false
     }
+    if (typeof characterPassesBetaFilter === "function" && !characterPassesBetaFilter(character)) {
+        return false
+    }
     // Search filter
     if (searchText) {
         let searchBase = character.name ? character.name.replace(/_/g, " ") : ""
@@ -946,7 +949,197 @@ function createCard(char, opts = {}) {
     return card
 }
 
+function buildTierFeedbackSummary(form) {
+    const section = currentSection?.name || ""
+    const listName = form.tierlistName?.value || currentTierlist?.name || ""
+    const game = currentGame?.name || currentGame?.id || ""
+    const cookie = form.cookie.value || "(unspecified)"
+    const suggestedTier = form.suggestedTier.value || "(unspecified)"
+    const confidence = form.confidence.value || "(unspecified)"
+    const reason = (form.reason.value || "").trim()
+    const mode = form.mode.value || "placement"
+    const lines = [
+        `Game: ${game}`,
+        `Section: ${section}`,
+        `Tierlist: ${listName}`,
+        `Feedback Type: ${mode}`,
+        `Cookie: ${cookie}`,
+        `Suggested Tier: ${suggestedTier}`,
+        `Confidence: ${confidence}`,
+    ]
+    if (reason) lines.push(`Reason: ${reason}`)
+    lines.push(`URL: ${location.href}`)
+    return lines.join("\n")
+}
+
+function initTierFeedback() {
+    if (typeof document === "undefined") return
+    if (document.getElementById("tierFeedbackButton")) return
+
+    const btn = document.createElement("button")
+    btn.type = "button"
+    btn.id = "tierFeedbackButton"
+    btn.className = "tier-feedback-button"
+    btn.textContent = "Tier Feedback"
+
+    const modal = document.createElement("div")
+    modal.id = "tierFeedbackModal"
+    modal.className = "tier-feedback-modal"
+    modal.setAttribute("hidden", "")
+    modal.innerHTML = `
+      <div class="tier-feedback-backdrop" data-close="1"></div>
+      <div class="tier-feedback-panel" role="dialog" aria-modal="true" aria-label="Tierlist feedback">
+        <div class="tier-feedback-header">
+          <h3>Tierlist Feedback</h3>
+          <button type="button" class="tier-feedback-close" data-close="1" aria-label="Close">✕</button>
+        </div>
+        <form id="tierFeedbackForm" class="tier-feedback-form">
+          <label>Feedback type
+            <select name="mode">
+              <option value="placement">Placement suggestion</option>
+              <option value="general">General tierlist feedback</option>
+            </select>
+          </label>
+          <label>Cookie
+            <input name="cookie" id="tierFeedbackCookie" class="tier-feedback-cookie-input" list="tierFeedbackCookieList" placeholder="Type to search cookie...">
+            <datalist id="tierFeedbackCookieList"></datalist>
+          </label>
+          <label>Tierlist
+            <select name="tierlistName" id="tierFeedbackTierlist"></select>
+          </label>
+          <label>Suggested tier
+            <select name="suggestedTier" id="tierFeedbackTier"></select>
+          </label>
+          <label>How strongly do you feel?
+            <select name="confidence">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </label>
+          <label>Reason / notes
+            <textarea name="reason" rows="4" placeholder="Example: Performs better in Arena after latest patch."></textarea>
+          </label>
+          <div class="tier-feedback-actions">
+            <button type="button" id="tierFeedbackCopy">Copy</button>
+            <button type="button" id="tierFeedbackEmail">Open Email Draft</button>
+            <button type="submit" id="tierFeedbackSubmit">Submit Feedback</button>
+          </div>
+          <div class="tier-feedback-status" id="tierFeedbackStatus" aria-live="polite"></div>
+        </form>
+      </div>`
+
+    document.body.appendChild(btn)
+    document.body.appendChild(modal)
+
+    const form = modal.querySelector("#tierFeedbackForm")
+    const cookieInput = modal.querySelector("#tierFeedbackCookie")
+    const cookieList = modal.querySelector("#tierFeedbackCookieList")
+    const tierlistSel = modal.querySelector("#tierFeedbackTierlist")
+    const tierSel = modal.querySelector("#tierFeedbackTier")
+    const statusEl = modal.querySelector("#tierFeedbackStatus")
+    let cookieSearchRows = []
+
+    const normalizeSearchText = (s) => {
+        return String(s || "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+    }
+
+    const currentFeedbackTierlist = () => {
+        const leaves = flattenTierlistLeaves(currentSection?.tierlists || [])
+        const selectedName = tierlistSel.value
+        return leaves.find((t) => t?.name === selectedName) || currentTierlist || leaves[0] || null
+    }
+
+    const refreshTierOptions = () => {
+        const picked = currentFeedbackTierlist()
+        const tiers = picked?.tiers || []
+        tierSel.innerHTML = tiers.map((t) => `<option value="${String(t).replace(/"/g, "&quot;")}">${t}</option>`).join("")
+    }
+
+    const refreshOptions = () => {
+        const charsRaw = currentGame?.characters || []
+        cookieSearchRows = charsRaw
+            .filter((c) => c && (c.displayName || c.name))
+            .map((c) => {
+                const label = c.displayName || c.name
+                let searchBase = c.name ? String(c.name).replace(/_/g, " ") : ""
+                if (c.displayName && /cookie/i.test(c.displayName) && !/cookie/i.test(searchBase)) {
+                    searchBase += (searchBase ? " " : "") + "cookie"
+                }
+                const searchIn = [searchBase, c.displayName].filter(Boolean).join(" ")
+                return {
+                    label,
+                    normalized: normalizeSearchText(searchIn),
+                }
+            })
+            .sort((a, b) => a.label.localeCompare(b.label))
+
+        cookieList.innerHTML = cookieSearchRows
+            .map((row) => `<option value="${row.label.replace(/"/g, "&quot;")}"></option>`)
+            .join("")
+
+        const leaves = flattenTierlistLeaves(currentSection?.tierlists || [])
+        tierlistSel.innerHTML = leaves
+            .map((t) => `<option value="${String(t?.name || "").replace(/"/g, "&quot;")}">${t?.name || ""}</option>`)
+            .join("")
+        const worldEx = leaves.find((t) => String(t?.name || "").toLowerCase() === "world exploration")
+        const fallback = worldEx || currentTierlist || leaves[0] || null
+        tierlistSel.value = fallback?.name || ""
+        refreshTierOptions()
+    }
+
+    const openModal = () => {
+        refreshOptions()
+        modal.removeAttribute("hidden")
+    }
+    const closeModal = () => modal.setAttribute("hidden", "")
+
+    btn.addEventListener("click", openModal)
+    modal.addEventListener("click", (e) => {
+        if (e.target && e.target.getAttribute("data-close") === "1") closeModal()
+    })
+    tierlistSel.addEventListener("change", refreshTierOptions)
+    cookieInput.addEventListener("input", () => {
+        const q = normalizeSearchText(cookieInput.value.trim())
+        const filtered = !q
+            ? cookieSearchRows
+            : cookieSearchRows.filter((row) => row.normalized.includes(q))
+        cookieList.innerHTML = filtered
+            .slice(0, 80)
+            .map((row) => `<option value="${row.label.replace(/"/g, "&quot;")}"></option>`)
+            .join("")
+    })
+
+    modal.querySelector("#tierFeedbackCopy").addEventListener("click", async () => {
+        const text = buildTierFeedbackSummary(form)
+        try {
+            await navigator.clipboard.writeText(text)
+            statusEl.textContent = "Copied feedback text."
+        } catch {
+            statusEl.textContent = "Could not copy automatically. Try Open Email Draft."
+        }
+    })
+
+    const openFeedbackEmailDraft = () => {
+        const subject = encodeURIComponent("Tierlist feedback")
+        const body = encodeURIComponent(buildTierFeedbackSummary(form))
+        window.open(`https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com&su=${subject}&body=${body}`, "_blank", "noopener,noreferrer")
+    }
+
+    modal.querySelector("#tierFeedbackEmail").addEventListener("click", openFeedbackEmailDraft)
+    form.addEventListener("submit", (e) => {
+        e.preventDefault()
+        openFeedbackEmailDraft()
+        statusEl.textContent = "Opened prefilled email draft. Send to submit."
+        closeModal()
+    })
+}
+
 if (DATA.games && DATA.games.length) {
+    initTierFeedback()
     buildGameSelector()
 }
 

@@ -1,5 +1,6 @@
 /**
- * Shared sidebar settings (localStorage tierlistUIState) and CN-exclusive cookie visibility.
+ * Shared sidebar settings (localStorage tierlistUIState), CN-exclusive cookie visibility,
+ * and beta-tagged cookie visibility.
  * Gear button (bottom of sidebar) opens a panel similar to the game selector menu.
  */
 ;(function (global) {
@@ -23,8 +24,9 @@
     localStorage.setItem(UI_STATE_KEY, JSON.stringify(s))
   }
 
+  /** Opt-in: off until the user enables; `true`/`false` is stored in tierlistUIState. */
   function getShowCnExCookies() {
-    return readUIState().showCnExCookies !== false
+    return readUIState().showCnExCookies === true
   }
 
   function characterPassesCnExFilter(c) {
@@ -32,8 +34,20 @@
     return getShowCnExCookies()
   }
 
+  /** Opt-in: off until the user enables; `true`/`false` is stored in tierlistUIState. */
+  function getShowBetaCookies() {
+    return readUIState().showBetaCookies === true
+  }
+
+  function characterPassesBetaFilter(c) {
+    if (!c || !c.beta) return true
+    return getShowBetaCookies()
+  }
+
   global.getShowCnExCookies = getShowCnExCookies
   global.characterPassesCnExFilter = characterPassesCnExFilter
+  global.getShowBetaCookies = getShowBetaCookies
+  global.characterPassesBetaFilter = characterPassesBetaFilter
 
   function closePanel(gear, panel) {
     panel.classList.remove("open")
@@ -69,6 +83,13 @@
       'aria-label="Show CN-exclusive cookies">' +
       "</label>" +
       "</div>" +
+      '<div class="sidebar-setting-item">' +
+      '<label class="sidebar-setting-row">' +
+      '<span class="sidebar-setting-name">Beta cookies</span>' +
+      '<input type="checkbox" class="sidebar-setting-switch" id="crkShowBetaCookies" ' +
+      'aria-label="Show beta cookies">' +
+      "</label>" +
+      "</div>" +
       "</div>" +
       "</div>"
 
@@ -78,10 +99,17 @@
     const gear = dock.querySelector("#sidebarSettingsGear")
     const panel = dock.querySelector("#sidebarSettingsPanel")
     const cb = dock.querySelector("#crkShowCnExCookies")
+    const cbBeta = dock.querySelector("#crkShowBetaCookies")
 
     cb.checked = getShowCnExCookies()
     cb.addEventListener("change", () => {
       writeUIState({ showCnExCookies: cb.checked })
+      global.dispatchEvent(new CustomEvent("crkSettingsChanged"))
+    })
+
+    cbBeta.checked = getShowBetaCookies()
+    cbBeta.addEventListener("change", () => {
+      writeUIState({ showBetaCookies: cbBeta.checked })
       global.dispatchEvent(new CustomEvent("crkSettingsChanged"))
     })
 

@@ -1213,32 +1213,13 @@ button.active {
     font-size: 0.9rem;
     font-weight: bold;
     color: #fff;
+}
+
+.char-skill-cd-pill[data-status-tip] {
     cursor: help;
 }
 
-.char-skill-cd-pill::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-4px);
-    padding: 4px 8px;
-    background: #1a1a1a;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: normal;
-    white-space: nowrap;
-    border-radius: 4px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0s;
-}
-
-.char-skill-cd-pill:hover::after {
-    opacity: 1;
-}
-
-/* Same layout/behavior as CD tooltip, own sizing/colors */
+/* Same layout/behavior as old CD ::after tooltip, own sizing/colors */
 .char-build-rank-icon-wrap::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -2114,15 +2095,72 @@ button.active {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
     min-width: 54px;
     min-height: 54px;
-    max-width: 11rem;
 }
 
 .teams-treasure-icon {
     width: 54px;
     height: 54px;
     object-fit: contain;
+}
+
+.teams-treasure-caption {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 6px);
+    transform: translateX(-50%) translateY(4px);
+    z-index: 5;
+    min-width: max-content;
+    max-width: min(14rem, 70vw);
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    pointer-events: none;
+    background: rgba(20, 18, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s;
+}
+
+.teams-treasure-item:hover .teams-treasure-caption,
+.teams-treasure-item:focus-within .teams-treasure-caption {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.teams-treasure-item:focus-visible {
+    outline: 2px solid rgba(255, 200, 120, 0.85);
+    outline-offset: 3px;
+}
+
+@media (hover: none) {
+    .teams-treasure-caption {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        min-width: 0;
+        max-width: 11rem;
+        margin-top: 4px;
+        padding: 0;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        background: none;
+        border: none;
+        box-shadow: none;
+        color: rgba(255, 255, 255, 0.9);
+    }
 }
 
 .teams-treasure-fallback {
@@ -3067,6 +3105,92 @@ button.active {
     background: rgba(0,0,0,0.45);
 }
 .sidebar-overlay.open { display: block; }
+
+.tier-feedback-button {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 60;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #3b62ff;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+}
+
+.tier-feedback-modal[hidden] { display: none; }
+.tier-feedback-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+.tier-feedback-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+.tier-feedback-panel {
+    position: relative;
+    width: min(560px, calc(100vw - 28px));
+    margin: 8vh auto 0;
+    background: #12151d;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 14px;
+}
+.tier-feedback-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.tier-feedback-close {
+    background: transparent;
+    color: #fff;
+    border: 0;
+    font-size: 1rem;
+    padding: 4px 8px;
+}
+.tier-feedback-form {
+    display: grid;
+    gap: 10px;
+}
+.tier-feedback-form label {
+    display: grid;
+    gap: 4px;
+    font-size: 0.9rem;
+}
+.tier-feedback-cookie-input {
+    padding: 7px 12px;
+    width: 100%;
+    background: #2a2d34;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.9rem;
+}
+.tier-feedback-cookie-input::placeholder { color: rgba(255,255,255,0.4); }
+.tier-feedback-form select,
+.tier-feedback-form textarea {
+    width: 100%;
+    background: #0d1118;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    font: inherit;
+}
+.tier-feedback-actions {
+    display: flex;
+    gap: 8px;
+}
+.tier-feedback-status {
+    min-height: 1.2rem;
+    font-size: 0.84rem;
+    color: #a9d4ff;
+}
 .sidebar {
     position: fixed;
     top: 0;

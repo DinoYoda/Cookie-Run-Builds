@@ -1,50 +1,154 @@
 {
-  "unison": ["Rumi", "Mira", "Zoey", "Sugarfly", "Okchun", "Caramel_choux", "Mozzarella", "Caramel_arrow"],
-  "life_energy": ["Sugar_swan", "Dark_enchantress", "Venom_dough", "Pom-pom_dough", "Mold_dough"],
-  "crossed_fates": ["Awakened_white_lily", "White_lily", "Awakened_hollyberry", "Hollyberry", "Awakened_pure_vanilla", "Pure_vanilla", "Awakened_golden_cheese", "Golden_cheese", "Awakened_dark_cacao", "Dark_cacao", "Silent_salt", "Eternal_sugar", "Shadow_milk", "Burning_spice", "Mystic_flour"],
-  "lunar_eclipse": [],
-  "frost_herbalist": [],
-  "heaven_splitter": [],
-  "smithy": [],
-  "looming_darkness": ["Dark_enchantress", "Venom_dough", "Pom-pom_dough", "Mold_dough", "Chess_choco", "Butter_roll", "Matcha", "Schwarzwalder", "Affogato", "Red_velvet", "Pomegranate", "Licorice", "Poison_mushroom"],
-  "ancient_root": ["Millennial_tree", "Fire_spirit", "Stormbringer", "Wind_archer", "Moonlight", "Black_pearl", "Frost_queen", "Sea_fairy"],
-  "verdigris": ["Glinda", "Elphaba", "Lemon", "Cloud_haetae", "Mercurial_knight"],
-  "gambit": ["Awakened_dark_cacao", "Dark_cacao", "Mystic_flour", "Chess_choco"],
-  "blooming": ["Awakened_white_lily", "White_lily", "Salt_cellar", "Silverbell", "Green_tea_mousse"],
-  "silent": ["Silent_salt", "Charcoal"],
-  "destined": ["Doughael", "Seltzer", "Menthol", "Madeleine"],
-  "seafarer": ["Jagae", "Manju", "Lemon", "Orange", "Lime", "Grapefruit"],
-  "fuzzy": ["Stormbringer", "Marshmallow_bunny", "Lemon", "Orange", "Lime", "Grapefruit"],
-  "passionate": ["Awakened_hollyberry", "Hollyberry", "Raspberry", "Wildberry", "Tiger_lily", "Sugarfly"],
-  "indolent": ["Eternal_sugar", "Pavlova"],
-  "flaming": ["Fire_spirit", "Agar_agar"],
-  "wedding": ["Wedding_cake", "Black_forest", "Caramel_arrow", "Schwarzwalder", "Financier", "Mozzarella"],
-  "truth": ["Awakened_pure_vanilla", "Pure_vanilla", "Sparkling", "Kouign-amann", "Creme_brulee", "Financier"],
-  "deceit": ["Shadow_milk", "Candy_apple", "Black_sapphire"],
-  "iris": ["Choco_drizzle", "Pudding_a_la_mode", "Green_tea_mousse"],
-  "fragrant": ["Camellia", "Golden_osmanthus", "Red_osmanthus"],
-  "destructive": ["Burning_spice", "Nutmeg_tiger"],
-  "wind": ["Wind_archer", "Rebel", "Mint_choco", "Pastry", "Kumiho"],
-  "frost": ["Frost_queen", "Sherbet", "Icicle_yeti", "Snow_sugar", "Cotton", "Pinecone"],
-  "cheese": ["Awakened_golden_cheese", "Golden_cheese", "Smoked_cheese", "Mozzarella", "Olive", "Fettuccine", "Burnt_cheese", "Black_raisin"],
-  "sea": {
-    "name": "Sea Salt",
-    "cookies": ["Sea_fairy", "Black_pearl", "Crimson_coral", "Frilled_jellyfish", "Sorbet_shark", "Peppermint"]
-  },
-  "tropical": {
-    "name": "Tropical Rock",
-    "cookies": ["Shining_glitter", "Rockstar", "Black_lemonade", "Parfait", "Mango", "Werewolf"]
-  },
-  "draconic": {
-    "name": "Draconic",
-    "cookies": ["Awakened_hollyberry", "Hollyberry", "Pitaya_dragon", "Snapdragon", "Tarte_tatin", "Royal_margarine", "Wildberry"]
-  },
-  "trio": {
-    "name": "Triple Cone Cup Trio",
-    "cookies": ["Capsaicin", "Prune_juice", "Kouig-amann"]
-  },
-  "moon": {
-    "name": "Moonkissed",
-    "cookies": ["Moonlight", "Stardust", "Star_coral", "Milky_way", "Blueberry_pie", "Space_doughnut"]
-  }
+    "unison": {
+        "name": "Unison",
+        "cookies": ["Rumi", "Mira", "Zoey", "Sugarfly", "Okchun", "Caramel_choux", "Mozzarella", "Caramel_arrow"]
+    },
+    "life_energy": {
+        "name": "Life Energy",
+        "cookies": ["Sugar_swan", "Dark_enchantress", "Venom_dough", "Pom-pom_dough", "Mold_dough"]
+    },
+    "crossed_fates": {
+        "name": "Crossed Fates",
+        "cookies": ["Awakened_white_lily", "White_lily", "Awakened_hollyberry", "Hollyberry", "Awakened_pure_vanilla",
+            "Pure_vanilla", "Awakened_golden_cheese", "Golden_cheese", "Awakened_dark_cacao", "Dark_cacao",
+            "Silent_salt", "Eternal_sugar", "Shadow_milk", "Burning_spice", "Mystic_flour"
+        ]
+    },
+    "lunar_eclipse": ["Silent_salt", "Awakened_golden_cheese", "Golden_cheese", "Awakened_dark_cacao", "Dark_cacao", "Awakened_pure_vanilla", "Pure_vanilla",
+        "Clotted_cream", "Caramel_arrow", "Madeleine", "Financier", "Espresso", "Latte", "Dark_choco", "Black_raisin", "Kouign-amann", "Licorice", "Cream_puff",
+        "Sparkling", "Creme_brulee", "Crunchy_chip", "Red_velvet", "Burnt_cheese", "Fettuccine", "Mozzarella", "Charcoal", "Choco_drizzle", "Pumpkin_pie", 
+        "Smoked_cheese", "Olive", "Almond", "Devil"],
+    "frost_herbalist": ["Eternal_sugar", "Awakened_white_lily", "White_lily", "Millennial_tree", "Frost_queen",
+        "Sherbet", "Camellia", "Purple_yam", "Snow_sugar", "Pinecone", "Silverbell", "Green_tea_mousse",
+        "Red_osmanthus", "Golden_osmanthus", "Affogato", "Royal_margarine", "Black_sapphire", "Poison_mushroom",
+        "Prune_juice", "Matcha",
+        "Cherry_blossom", "Agar_agar", "Cotton", "Carol", "Fig", "Lilac", "Icicle_yeti", "Alchemist", "Carrot"
+    ],
+    "heaven_splitter": ["Dark_enchantress", "Awakened_dark_cacao", "Dark_cacao", "Wind_archer", "Stormbringer",
+        "Shining_glitter", "Mold_dough", "Green_tea_mousse", "Pastry", "Blueberry_pie", "Twizzly_gummy", "Licorice",
+        "Mint_choco", "Frilled_jellyfish", "Butter_roll", "Grapefruit", "Schwarzwalder", "Kumiho", "Chess_choco",
+        "Red_velvet", "Pudding_a_la_mode", "Rebel", "Black_lemonade", "Affogato", "Orange", "poison_mushroom", "Lemon",
+        "Agar_agar", "Olive",
+        "Pomegranate", "Wizard"
+    ],
+    "smithy": ["Silent_salt", "Burning_spice", "Awakened_hollyberry", "Hollyberry", "Black_Pearl", "Fire_spirit",
+        "Black_Pearl", "Sea_fairy", "Pitaya_dragon", "Elder_faerie", "Capsaicin", "Crimson_coral", "Chili_pepper",
+        "Mala_sauce", "Raspberry", "Wildberry", "Tea_knight", "Werewolf", "Sorbet_shark", "Squid_ink", "Rye",
+        "Captain_caviar",
+        "Mango", "Frilled_jellyfish", "Peppermint", "Cream_unicorn", "Butter_roll", "Schwarzwalder", "Menthol",
+        "Tarte_tatin", "Cream_soda", "Salt_cellar", "Street_urchin", "Mercurial_knight",
+        "Manju", "Jagae", "Seltzer", "Agar_agar", "Nutmeg_tiger", "Olive", "Knight", "Avacado", "Muscle"
+    ],
+    "looming_darkness": {
+        "name": "Looming Darkness",
+        "cookies": ["Dark_enchantress", "Venom_dough", "Pom-pom_dough", "Mold_dough", "Chess_choco", "Butter_roll",
+            "Matcha", "Schwarzwalder", "Affogato", "Red_velvet", "Pomegranate", "Licorice", "Poison_mushroom"
+        ]
+    },
+    "ancient_root": {
+        "name": "Ancient Root",
+        "cookies": ["Millennial_tree", "Fire_spirit", "Stormbringer", "Wind_archer", "Moonlight", "Black_pearl",
+            "Frost_queen", "Sea_fairy"
+        ]
+    },
+    "verdigris": {
+        "name": "Verdigris",
+        "cookies": ["Glinda", "Elphaba", "Lemon", "Cloud_haetae", "Mercurial_knight"]
+    },
+    "gambit": {
+        "name": "Gambit",
+        "cookies": ["Awakened_dark_cacao", "Dark_cacao", "Mystic_flour", "Chess_choco"]
+    },
+    "blooming": {
+        "name": "Blooming",
+        "cookies": ["Awakened_white_lily", "White_lily", "Salt_cellar", "Silverbell", "Green_tea_mousse"]
+    },
+    "silent": {
+        "name": "Silent",
+        "cookies": ["Silent_salt", "Charcoal"]
+    },
+    "destined": {
+        "name": "Destined",
+        "cookies": ["Doughael", "Seltzer", "Menthol", "Madeleine"]
+    },
+    "seafarer": {
+        "name": "Seafarer",
+        "cookies": ["Jagae", "Manju", "Lemon", "Orange", "Lime", "Grapefruit"]
+    },
+    "fuzzy": {
+        "name": "Fuzzy Wuzzy",
+        "cookies": ["Stormbringer", "Marshmallow_bunny", "Lemon", "Orange", "Lime", "Grapefruit"]
+    },
+    "passionate": {
+        "name": "Passionate",
+        "cookies": ["Awakened_hollyberry", "Hollyberry", "Raspberry", "Wildberry", "Tiger_lily", "Sugarfly"]
+    },
+    "indolent": {
+        "name": "Indolent",
+        "cookies": ["Eternal_sugar", "Pavlova"]
+    },
+    "flaming": {
+        "name": "Flaming",
+        "cookies": ["Fire_spirit", "Agar_agar"]
+    },
+    "wedding": {
+        "name": "Sacred Vow",
+        "cookies": ["Wedding_cake", "Black_forest", "Caramel_arrow", "Schwarzwalder", "Financier", "Mozzarella"]
+    },
+    "truth": {
+        "name": "Truthful",
+        "cookies": ["Awakened_pure_vanilla", "Pure_vanilla", "Sparkling", "Kouign-amann", "Creme_brulee", "Financier"]
+    },
+    "deceit": {
+        "name": "Deceitful",
+        "cookies": ["Shadow_milk", "Candy_apple", "Black_sapphire"]
+    },
+    "iris": {
+        "name": "Iris Gem",
+        "cookies": ["Choco_drizzle", "Pudding_a_la_mode", "Green_tea_mousse"]
+    },
+    "fragrant": {
+        "name": "Fragrant",
+        "cookies": ["Camellia", "Golden_osmanthus", "Red_osmanthus"]
+    },
+    "destructive": {
+        "name": "Destructive",
+        "cookies": ["Burning_spice", "Nutmeg_tiger"]
+    },
+    "wind": {
+        "name": "Life-sprouting",
+        "cookies": ["Wind_archer", "Rebel", "Mint_choco", "Pastry", "Kumiho"]
+    },
+    "frost": {
+        "name": "Frosted Crystal",
+        "cookies": ["Frost_queen", "Sherbet", "Icicle_yeti", "Snow_sugar", "Cotton", "Pinecone"]
+    },
+    "cheese": {
+        "name": "Radiant Cheese",
+        "cookies": ["Awakened_golden_cheese", "Golden_cheese", "Smoked_cheese", "Mozzarella", "Olive", "Fettuccine",
+            "Burnt_cheese", "Black_raisin"
+        ]
+    },
+    "sea": {
+        "name": "Sea Salt",
+        "cookies": ["Sea_fairy", "Black_pearl", "Crimson_coral", "Frilled_jellyfish", "Sorbet_shark", "Peppermint"]
+    },
+    "tropical": {
+        "name": "Tropical Rock",
+        "cookies": ["Shining_glitter", "Rockstar", "Black_lemonade", "Parfait", "Mango", "Werewolf"]
+    },
+    "draconic": {
+        "name": "Draconic",
+        "cookies": ["Awakened_hollyberry", "Hollyberry", "Pitaya_dragon", "Snapdragon", "Tarte_tatin",
+            "Royal_margarine", "Wildberry"
+        ]
+    },
+    "trio": {
+        "name": "Triple Cone Cup Trio",
+        "cookies": ["Capsaicin", "Prune_juice", "Kouign-amann"]
+    },
+    "moon": {
+        "name": "Moonkissed",
+        "cookies": ["Moonlight", "Stardust", "Star_coral", "Milky_way", "Blueberry_pie", "Space_doughnut"]
+    }
 }

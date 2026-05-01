@@ -73,17 +73,39 @@
       .join(" ")
   }
 
+  function treasurePngUrl(pic, slug) {
+    const file = `Treasure_${slug}.png`
+    return `${pic}/treasures/${encodeURIComponent(file)}`
+  }
+
   function renderTreasure(srcId) {
     const pic = getGamePictureRoot()
-    const id = String(srcId || "").trim()
-    if (!id) return ""
-    const label = treasureIdToLabel(id)
-    const idHtml = esc(id)
+    const raw = String(srcId || "").trim()
+    if (!raw) return ""
+    const parseFn = typeof parseTreasureBracketInner === "function" ? parseTreasureBracketInner : (s) => ({ main: String(s).trim(), iconOnly: false })
+    const { main, iconOnly } = parseFn(raw)
+    const tmap = typeof CRK_TREASURE_SLUG_MAP === "object" && CRK_TREASURE_SLUG_MAP ? CRK_TREASURE_SLUG_MAP : {}
+    const kw = typeof CRK_TREASURE_KEYWORD_DISPLAY === "object" && CRK_TREASURE_KEYWORD_DISPLAY ? CRK_TREASURE_KEYWORD_DISPLAY : {}
+    const resolved =
+      typeof resolveTreasureWiki === "function"
+        ? resolveTreasureWiki(main, tmap, kw)
+        : { slug: main, display: treasureIdToLabel(main) }
+    const slug = resolved.slug
+    if (!slug) return ""
+    const label = resolved.display || main || raw
+    const idHtml = esc(label)
     const onErr =
-      "this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n)n.removeAttribute('hidden')"
-    return `<span class="teams-treasure-item" title="${esc(label)}">` +
-      `<img src="${pic}/treasures/Treasure_${id}.png" alt="${esc(label)}" class="teams-treasure-icon" onerror="${onErr}">` +
-      `<span class="teams-treasure-fallback" hidden>${idHtml}</span></span>`
+      "this.onerror=null;this.style.display='none';var p=this.parentElement;var f=p&&p.querySelector('.teams-treasure-fallback');if(f)f.removeAttribute('hidden')"
+    const caption =
+      !iconOnly && label
+        ? `<span class="teams-treasure-caption">${idHtml}</span>`
+        : ""
+    const a11y = esc(label)
+    const titleOnlyIcon = iconOnly && label ? ` title="${a11y}"` : ""
+    return `<span class="teams-treasure-item" tabindex="0" aria-label="${a11y}"${titleOnlyIcon}>` +
+      `<img src="${treasurePngUrl(pic, slug)}" alt="" class="teams-treasure-icon" onerror="${onErr}">` +
+      `${caption}` +
+      `<span class="teams-treasure-fallback" hidden>${esc(raw)}</span></span>`
   }
 
   /**

@@ -122,10 +122,11 @@ def _wiki_title_stem_for_match(title: str) -> str:
 def _allowed_wiki_title_stems(
     name: str, display_name: str, name_alternates: dict[str, str]
 ) -> set[str]:
-    """Stems that are valid for this data.js character (resolved page must match one when redirects were used)."""
+    """Stems valid for this cookie; avoid trusting displayName when it conflicts with name."""
     stems: set[str] = set()
-    stems.add(illu.cookie_name_to_wiki_slug(name))
-    for label in (display_name, (name_alternates.get(name) or "").strip()):
+    name_stem = illu.cookie_name_to_wiki_slug(name)
+    stems.add(name_stem)
+    for label in ((name_alternates.get(name) or "").strip(),):
         if not label:
             continue
         p = illu.display_name_plain_slug(label)
@@ -133,6 +134,13 @@ def _allowed_wiki_title_stems(
             stems.add(p)
             if p.endswith("_cookie"):
                 stems.add(p[: -len("_cookie")].rstrip("_"))
+    # Only accept displayName-derived stems when they agree with name_stem.
+    disp = illu.display_name_plain_slug(display_name or "")
+    if disp:
+        disp_base = disp[: -len("_cookie")].rstrip("_") if disp.endswith("_cookie") else disp
+        if disp_base == name_stem:
+            stems.add(disp)
+            stems.add(disp_base)
     return {x for x in stems if x}
 
 
@@ -235,7 +243,11 @@ def _wiki_title_candidates(display_name: str, alternate_label: str | None) -> li
 
 def resolve_wiki_title(api: str, name: str, display_name: str, name_alternates: dict[str, str]) -> str | None:
     alt = (name_alternates.get(name) or "").strip() or None
-    for t in _wiki_title_candidates(display_name, alt):
+    name_guess = " ".join(part.capitalize() for part in illu.cookie_name_to_wiki_slug(name).split("_") if part)
+    name_guess_cookie = f"{name_guess} Cookie" if name_guess else ""
+    first_pass = _wiki_title_candidates(display_name, alt)
+    second_pass = _wiki_title_candidates(name_guess_cookie, alt)
+    for t in first_pass + [x for x in second_pass if x not in first_pass]:
         wt, resolved, _followed = fetch_wikitext_with_meta(api, t)
         if not wt or not has_usable_kingdom_page(wt):
             continue
@@ -245,28 +257,28 @@ def resolve_wiki_title(api: str, name: str, display_name: str, name_alternates: 
             continue
         return t
     # search fallback: first exact-ish Kingdom hub
-    term = f"{display_name} Kingdom"
-    data = api_get(
-        api,
-        {
-            "action": "query",
-            "list": "search",
-            "srsearch": term,
-            "srnamespace": 0,
-            "srlimit": 10,
-        },
-    )
-    for hit in data.get("query", {}).get("search", []):
-        tit = hit.get("title", "")
-        if tit.endswith("/Kingdom") and "/Kingdom/" not in tit:
-            wt, resolved, _followed = fetch_wikitext_with_meta(api, tit)
-            if not wt or not has_usable_kingdom_page(wt):
-                continue
-            if not wiki_resolved_title_matches_cookie(
-                resolved, name, display_name, name_alternates
-            ):
-                continue
-            return tit
+    for term in [f"{display_name} Kingdom", f"{name_guess} Kingdom", f"{name} Kingdom"]:
+        data = api_get(
+            api,
+            {
+                "action": "query",
+                "list": "search",
+                "srsearch": term,
+                "srnamespace": 0,
+                "srlimit": 10,
+            },
+        )
+        for hit in data.get("query", {}).get("search", []):
+            tit = hit.get("title", "")
+            if tit.endswith("/Kingdom") and "/Kingdom/" not in tit:
+                wt, resolved, _followed = fetch_wikitext_with_meta(api, tit)
+                if not wt or not has_usable_kingdom_page(wt):
+                    continue
+                if not wiki_resolved_title_matches_cookie(
+                    resolved, name, display_name, name_alternates
+                ):
+                    continue
+                return tit
     return None
 
 
@@ -388,6 +400,33 @@ def normalize_element(raw: str | None) -> str | list[str] | None:
     if len(normed) == 1:
         return normed[0]
     return normed
+
+
+def infer_element_from_skill_box_text(raw: str | None) -> str | list[str] | None:
+    """
+    Fallback when infobox omits |element(s)=.
+    Infer from {{Element|<name>|...}} markers present in skill-box text.
+    """
+    if not raw:
+        return None
+    hits = re.findall(r"\{\{Element\|([^|}]+)\|", str(raw), flags=re.I)
+    if not hits:
+        return None
+    ordered: list[str] = []
+    seen: set[str] = set()
+    for h in hits:
+        v = normalize_element(h)
+        vals = v if isinstance(v, list) else ([v] if v else [])
+        for one in vals:
+            if one in seen:
+                continue
+            seen.add(one)
+            ordered.append(one)
+    if not ordered:
+        return None
+    if len(ordered) == 1:
+        return ordered[0]
+    return ordered
 
 
 # Wiki templates often use lowercase; data.js uses Title Case (per-word), with a few exceptions.
@@ -1036,6 +1075,8 @@ def build_import_document(
                 cj_skill, cj_desc_raw, cj_cd, cj_initial = sn, sd, scd, si
 
         elem = normalize_element(elem_raw)
+        if elem is None and skill_boxes:
+            elem = infer_element_from_skill_box_text(skill_boxes[0][1])
         game_plain = finalize_crk_description_for_html(strip_wiki_markup(game_desc)) if game_desc else None
         skill_plain = finalize_crk_description_for_html(strip_wiki_markup(skill_desc)) if skill_desc else None
 

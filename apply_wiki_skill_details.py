@@ -15,8 +15,9 @@ Patches:
 
 Run import_wiki_skill_details.py first to refresh the import file.
 
-When data.js skill attrs change, or crk_descriptions.js skill-related text changes for a cookie,
-pageUpdated is set on that cookie in data.js to the current UTC time (full runs and --name).
+If pageUpdated is missing on a processed cookie, it is inserted in data.js.
+If pageUpdated already exists, it is only updated when that cookie's data.js skill attrs or
+crk_descriptions.js skill-related text changed.
 """
 
 from __future__ import annotations
@@ -227,6 +228,7 @@ def apply_skill_import_doc(
 
     stamp = page_updated_stamp_iso()
     stamp_names: set[str] = set()
+    processed_names: set[str] = set(cookies.keys())
     desc_keys_touched: set[str] = set()
     data_lines: list[str] | None = None
 
@@ -335,14 +337,24 @@ def apply_skill_import_doc(
             cookie_names_for_description_keys(desc_keys_touched, list(cookies.keys()))
         )
 
+    page_updated_changed = False
     if not no_data and data_lines is not None:
-        for n in sorted(stamp_names):
-            apply_page_updated_stamp(data_lines, n, stamp, dry_run, log)
-        if not dry_run and (data_changed or stamp_names):
+        stamp_targets = processed_names | stamp_names
+        for n in sorted(stamp_targets):
+            changed = apply_page_updated_stamp(
+                data_lines,
+                n,
+                stamp,
+                dry_run,
+                log,
+                update_existing=(n in stamp_names),
+            )
+            page_updated_changed = page_updated_changed or changed
+        if not dry_run and (data_changed or page_updated_changed):
             with open(data_js, "w", encoding="utf-8", newline="\n") as f:
                 f.writelines(data_lines)
 
-    data_js_touched = (not no_data) and (data_changed or bool(stamp_names))
+    data_js_touched = (not no_data) and (data_changed or page_updated_changed)
     return data_js_touched, desc_changed, log
 
 

@@ -21,13 +21,15 @@ Emitted per cookie (when applicable):
 Wiki templates expanded toward crk/crk_descriptions.js conventions:
   {{Element|Light|675.4%}}     → light{675.4%}
   {{Color|Title|#hex|sh=true}} → <span style="color:#…">Title</span> (inline wiki hex)
-  {{Crk treasure|Feather}}     → treasure{<slug>} + full name from tools/wiki_treasure_keyword_display.json
-                                 (keywords from https://cookierun.wiki/w/Template:Crk_treasure); slug from wiki_treasure_slug_map.json
+  {{Crk treasure|Feather}}     → treasure{Feather} (wiki {{{1}}}; optional |icononly in braces).
+  {{csi|carol}}                → skill{carol} (cookie skill icon; first | arg only if extra params).
   {{Kch|dc}} / {{Kch|olive|Custom}} → cookie{…} then optional label (icon before text, like status{…});
     balanced | args; icononly= ignored;
     tools/wiki_kch_module_crk.json + wiki_kch_to_cookie_key.json)
   {{Type|Charge}}            → type{charge}
-  {{Tip|wiki text|…}}          → wiki text (balanced; status{…} / nested {{…}} in visible OK)
+  {{Tip|visible|tooltip}}      → hover{tooltip:visible} (balanced; nested {{…}} supported)
+  Wiki list lines: leading * / ** / *** … (after |Notes= line-split) → top-level * stripped; each
+    extra * becomes indent{} so ** nested bullets match site skill_notes layout.
   {{Status|…}}                 → status{Id|…} + visible label (wiki param 2, or Status/data-style text
                                  for ATK Up / CRIT DMG Up / Weakness + element; icononly → icon only)
   [[Link|text]]                → text
@@ -79,8 +81,6 @@ from wiki_expand_status import expand_wiki_status_templates, expand_wiki_tip_tem
 
 ROOT = illu.ROOT
 TREASURE_MAP_PATH = os.path.join(ROOT, "tools", "wiki_treasure_slug_map.json")
-TREASURE_KEYWORD_DISPLAY_PATH = os.path.join(ROOT, "tools", "wiki_treasure_keyword_display.json")
-_treasure_keyword_display_cache: dict[str, str] | None = None
 KCH_MAP_PATH = os.path.join(ROOT, "tools", "wiki_kch_to_cookie_key.json")
 KCH_MODULE_CRK_PATH = os.path.join(ROOT, "tools", "wiki_kch_module_crk.json")
 DEFAULT_OUT = os.path.join(ROOT, "tools", "imported_skill_details.js")
@@ -101,20 +101,6 @@ def _load_treasure_map() -> dict[str, str]:
     with open(TREASURE_MAP_PATH, encoding="utf-8") as f:
         raw = json.load(f)
     return {str(k).strip(): str(v).strip() for k, v in raw.items()}
-
-
-def _load_treasure_keyword_display() -> dict[str, str]:
-    """Wiki {{{1}}} keywords (Template:Crk treasure) → in-game style full treasure name for visible label."""
-    global _treasure_keyword_display_cache
-    if _treasure_keyword_display_cache is not None:
-        return _treasure_keyword_display_cache
-    if not os.path.isfile(TREASURE_KEYWORD_DISPLAY_PATH):
-        _treasure_keyword_display_cache = {}
-        return _treasure_keyword_display_cache
-    with open(TREASURE_KEYWORD_DISPLAY_PATH, encoding="utf-8") as f:
-        raw = json.load(f)
-    _treasure_keyword_display_cache = {str(k).strip(): str(v).strip() for k, v in raw.items()}
-    return _treasure_keyword_display_cache
 
 
 def _load_kch_map() -> dict[str, str]:
@@ -377,65 +363,25 @@ def _expand_element(s: str) -> str:
     return s
 
 
-def _treasure_display_label(wiki_key: str, slug: str, tmap: dict[str, str], kw: dict[str, str]) -> str:
-    """Full treasure name after treasure{{slug}}, using Template:Crk treasure keyword table when possible."""
-    k = (wiki_key or "").strip()
-    slug = (slug or "").strip()
-    slug_l = slug.lower()
-
-    def from_kw(key: str) -> str | None:
-        if key in kw:
-            return kw[key]
-        k2 = key.replace("_", " ")
-        if k2 in kw:
-            return kw[k2]
-        return None
-
-    hit = from_kw(k)
-    if hit:
-        return hit
-
-    for mk, ms in tmap.items():
-        if ms.lower() != slug_l:
-            continue
-        hit = from_kw(mk)
-        if hit:
-            return hit
-
-    if k in tmap and tmap[k].lower() == slug_l:
-        hit = from_kw(k)
-        return hit if hit else k
-
-    key_as_slug = re.sub(r"[^a-z0-9_]+", "_", k.lower()).strip("_")
-    if key_as_slug == slug_l:
-        for mk, ms in tmap.items():
-            if ms.lower() != slug_l:
-                continue
-            hit = from_kw(mk)
-            if hit:
-                return hit
-        return " ".join(p.capitalize() for p in slug.split("_") if p)
-
-    if k:
-        return k
-    return " ".join(p.capitalize() for p in slug.split("_") if p)
-
-
-def _expand_crk_treasure(s: str, tmap: dict[str, str]) -> str:
-    kw = _load_treasure_keyword_display()
+def _expand_crk_treasure(s: str, _tmap: dict[str, str]) -> str:
+    """Wiki → site tag: pass through {{{1}}} (and any |icononly flags) for char-ui to resolve like the wiki template."""
 
     def repl(m: re.Match[str]) -> str:
-        key = m.group(1).strip()
-        slug = tmap.get(key) or tmap.get(key.replace("_", " "))
-        if slug:
-            inner = slug
-        else:
-            inner = re.sub(r"[^a-z0-9_]+", "_", key.lower()).strip("_")
-        base = f"treasure{{{inner}}}"
-        label = _treasure_display_label(key, inner, tmap, kw)
-        return f"{base} {label}" if label else base
+        inner = m.group(1).strip()
+        return f"treasure{{{inner}}}"
 
     return re.sub(r"\{\{Crk treasure\|([^}]+)\}\}", repl, s, flags=re.I)
+
+
+def _expand_csi(s: str) -> str:
+    """{{csi|cookie_slug}} → skill{slug} (same as site skill{…} tag / char-ui)."""
+
+    def repl(m: re.Match[str]) -> str:
+        inner = m.group(1).strip()
+        slug = inner.split("|")[0].strip()
+        return f"skill{{{slug}}}" if slug else m.group(0)
+
+    return re.sub(r"\{\{csi\|([^}]+)\}\}", repl, s, flags=re.I)
 
 
 def _expand_type(s: str) -> str:
@@ -493,6 +439,7 @@ def expand_wiki_skill_fragment(
         t = expand_wiki_kch_templates_for_skill(t, kmap)
         t = _expand_type(t)
         t = _expand_crk_treasure(t, tmap)
+        t = _expand_csi(t)
         # Status before Color so {{Color|{{Status|Id}}|#hex}} resolves; sole {{Color|…}} inside Status is expanded in wiki_expand_status.
         t = expand_wiki_status_templates(t)
         t = expand_wiki_color_templates(t, cookie_slug=cookie_slug)
@@ -519,7 +466,12 @@ def section_to_lines(section: str) -> list[str]:
             continue
         if s.startswith(";"):
             s = s[1:].strip()
-        if s.startswith("*"):
+        star_run = 0
+        while star_run < len(s) and s[star_run] == "*":
+            star_run += 1
+        if star_run >= 2:
+            s = ("indent{}" * (star_run - 1)) + s[star_run:]
+        elif star_run == 1:
             s = s[1:].strip()
         if s:
             out.append(s)

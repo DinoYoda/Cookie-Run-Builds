@@ -6,7 +6,7 @@ window.CRK_DATA = {
                 {
                     name: "Zhen_huan",
                     displayName: "Zhen Huan Cookie",
-                    pageUpdated: "2026-04-27T19:35:44Z",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     cnEx: true,
                     element: null,
                     type: "Support",
@@ -21,7 +21,8 @@ window.CRK_DATA = {
                 {
                     name: "Ruby",
                     displayName: "Ruby Cookie",
-                    element: null,
+                    pageUpdated: "2026-04-30T07:08:36Z",
+                    element: "Fire",
                     type: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
@@ -35,7 +36,8 @@ window.CRK_DATA = {
                 {
                     name: "Moonstone",
                     displayName: "Moonstone Cookie",
-                    element: null,
+                    pageUpdated: "2026-04-30T07:08:36Z",
+                    element: "Fire",
                     type: "Support",
                     position: "Middle",
                     rarity: "Epic",
@@ -49,6 +51,7 @@ window.CRK_DATA = {
                 {
                     name: "Cobalt",
                     displayName: "Cobalt Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "|Designer =",
                     type: "Ambush",
                     position: "Middle",
@@ -63,7 +66,8 @@ window.CRK_DATA = {
                 {
                     name: "Jadeite",
                     displayName: "Jadeite Cookie",
-                    element: null,
+                    pageUpdated: "2026-04-30T07:08:36Z",
+                    element: "Fire",
                     type: "Defense",
                     position: "Front",
                     rarity: "Super Epic",
@@ -77,7 +81,8 @@ window.CRK_DATA = {
                 {
                     name: "Baili",
                     displayName: "Baili Cookie",
-                    element: null,
+                    pageUpdated: "2026-04-30T07:08:36Z",
+                    element: "Fire",
                     type: "Ambush",
                     position: "Rear",
                     rarity: "Legendary",
@@ -91,15 +96,15 @@ window.CRK_DATA = {
                 {
                     name: "Tengshe",
                     displayName: "Tengshe Cookie",
-                    pageUpdated: "2026-04-27T19:35:44Z",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: null,
-                    type: "Charge",
-                    position: "Front",
-                    rarity: "Common",
-                    skill: "Brave Dash",
-                    cd: 8,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Legendary",
+                    skill: "Golden Snake Blessing",
+                    cd: 13,
                     skillAttr: {
-                        attr1: [150.0, 266.3],
+                        attr1: [14.3, 25.0],
                     },
                     cnEx: true,
                 }, {
@@ -119,6 +124,7 @@ window.CRK_DATA = {
                 {
                     name: "Muscle",
                     displayName: "Muscle Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
@@ -132,6 +138,7 @@ window.CRK_DATA = {
                 {
                     name: "Strawberry",
                     displayName: "Strawberry Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Defense",
                     position: "Front",
@@ -145,6 +152,7 @@ window.CRK_DATA = {
                 {
                     name: "Wizard",
                     displayName: "Wizard Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Electricity",
                     type: "Magic",
                     position: "Middle",
@@ -158,6 +166,7 @@ window.CRK_DATA = {
                 {
                     name: "Beet",
                     displayName: "Beet Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Ranged",
                     position: "Rear",
@@ -171,6 +180,7 @@ window.CRK_DATA = {
                 {
                     name: "Ninja",
                     displayName: "Ninja Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Ambush",
                     position: "Middle",
@@ -184,6 +194,7 @@ window.CRK_DATA = {
                 {
                     name: "Angel",
                     displayName: "Angel Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Healing",
                     position: "Rear",
@@ -197,6 +208,7 @@ window.CRK_DATA = {
                 {
                     name: "Adventurer",
                     displayName: "Adventurer Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Ambush",
                     position: "Middle",
@@ -210,6 +222,7 @@ window.CRK_DATA = {
                 {
                     name: "Alchemist",
                     displayName: "Alchemist Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
@@ -223,6 +236,7 @@ window.CRK_DATA = {
                 {
                     name: "Avocado",
                     displayName: "Avocado Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -236,6 +250,7 @@ window.CRK_DATA = {
                 {
                     name: "Blackberry",
                     displayName: "Blackberry Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Magic",
                     position: "Rear",
@@ -249,6 +264,7 @@ window.CRK_DATA = {
                 {
                     name: "Carrot",
                     displayName: "Carrot Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
                     type: "Support",
                     position: "Middle",
@@ -262,6 +278,7 @@ window.CRK_DATA = {
                 {
                     name: "Cherry",
                     displayName: "Cherry Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Bomber",
                     position: "Rear",
@@ -275,6 +292,7 @@ window.CRK_DATA = {
                 {
                     name: "Clover",
                     displayName: "Clover Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -288,6 +306,7 @@ window.CRK_DATA = {
                 {
                     name: "Custard_iii",
                     displayName: "Custard Cookie III",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Healing",
                     position: "Rear",
@@ -301,6 +320,7 @@ window.CRK_DATA = {
                 {
                     name: "Devil",
                     displayName: "Devil Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Darkness",
                     type: "Magic",
                     position: "Middle",
@@ -314,6 +334,7 @@ window.CRK_DATA = {
                 {
                     name: "Gumball",
                     displayName: "Gumball Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Bomber",
                     position: "Rear",
@@ -327,6 +348,7 @@ window.CRK_DATA = {
                 {
                     name: "Knight",
                     displayName: "Knight Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -340,6 +362,7 @@ window.CRK_DATA = {
                 {
                     name: "Onion",
                     displayName: "Onion Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Middle",
@@ -354,6 +377,7 @@ window.CRK_DATA = {
                 {
                     name: "Pancake",
                     displayName: "Pancake Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Ambush",
                     position: "Rear",
@@ -367,6 +391,7 @@ window.CRK_DATA = {
                 {
                     name: "Princess",
                     displayName: "Princess Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Charge",
                     position: "Front",
@@ -380,6 +405,7 @@ window.CRK_DATA = {
                 {
                     name: "Marshmallow_bunny",
                     displayName: "Marshmallow Bunny Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -393,6 +419,7 @@ window.CRK_DATA = {
                 {
                     name: "Cream_ferret",
                     displayName: "Cream Ferret Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -402,10 +429,40 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [13.4, 28.4],
                     },
+                    sets: {
+                        toppings: [{
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "CRIT%"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Machine God",
+                            toppings: 1,
+                            beascuit: 1,
+                            stast: [{
+                                name: "Cooldown",
+                                value: "53.8%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Icicle_yeti",
                     displayName: "Icicle Yeti Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Ice",
                     type: "Healing",
                     position: "Front",
@@ -420,6 +477,7 @@ window.CRK_DATA = {
                 {
                     name: "Snapdragon",
                     displayName: "Snapdragon Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -433,6 +491,7 @@ window.CRK_DATA = {
                 {
                     name: "Sonic",
                     displayName: "Sonic Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Ambush",
                     position: "Middle",
@@ -446,6 +505,7 @@ window.CRK_DATA = {
                 {
                     name: "Tails",
                     displayName: "Tails Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Ambush",
                     position: "Middle",
@@ -459,6 +519,7 @@ window.CRK_DATA = {
                 {
                     name: "Elphaba",
                     displayName: "Elphaba Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Magic",
                     position: "Rear",
@@ -473,6 +534,7 @@ window.CRK_DATA = {
                 {
                     name: "Glinda",
                     displayName: "Glinda Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Magic",
                     position: "Rear",
@@ -494,6 +556,7 @@ window.CRK_DATA = {
                 {
                     name: "Doughael",
                     displayName: "Doughael",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Healing",
                     position: "Middle",
@@ -558,6 +621,7 @@ window.CRK_DATA = {
                 {
                     name: "Camellia",
                     displayName: "Camellia Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Grass",
                     type: "Charge",
                     position: "Front",
@@ -634,6 +698,7 @@ window.CRK_DATA = {
                 {
                     name: "Elder_faerie",
                     displayName: "Elder Faerie Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -698,6 +763,7 @@ window.CRK_DATA = {
                 {
                     name: "Crimson_coral",
                     displayName: "Crimson Coral Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Water",
                     type: "Defense",
                     position: "Front",
@@ -768,6 +834,7 @@ window.CRK_DATA = {
                 {
                     name: "Shining_glitter",
                     displayName: "Shining Glitter Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Electricity",
                     type: "Magic",
                     position: "Middle",
@@ -877,6 +944,7 @@ window.CRK_DATA = {
                 {
                     name: "Capsaicin",
                     displayName: "Capsaicin Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
                     type: "Charge",
                     position: "Front",
@@ -960,6 +1028,7 @@ window.CRK_DATA = {
                 {
                     name: "Stardust",
                     displayName: "Stardust Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Ambush",
                     position: "Middle",
@@ -1040,6 +1109,7 @@ window.CRK_DATA = {
                 {
                     name: "Sherbet",
                     displayName: "Sherbet Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Ice",
                     type: "Ranged",
                     position: "Middle",
@@ -1113,7 +1183,7 @@ window.CRK_DATA = {
                             name: "Alt Build",
                             toppings: 2,
                             beascuit: 2,
-                            notes: ["Full almond build for when he recieeves less sustain."]
+                            notes: ["Full almond build for when he recieves less sustain."]
                         }
                     },
                     buildNotes: ["Can use raspberry (primarily to have him be targeted by certain buffs) but I'd stick to chcolate for standard and almond if he keeps dying.", "Because of his low scalings CRIT% is generally a better pick than ATK as a substat but you can't exactly go wrong with ATK."],
@@ -1123,20 +1193,82 @@ window.CRK_DATA = {
                 {
                     name: "Oyster",
                     displayName: "Oyster Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
                     rarity: "Super Epic",
                     skill: "Might of House Oyster",
                     cd: 17,
+                    initialCd: 0.3,
                     skillAttr: {
                         attr1: [94.0, 200.0],
                         attr2: [42.9, 91.2],
                     },
+                    sets: {
+                        toppings: [{
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }, {
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
+                        }, {
+                            1: "ATK",
+                            2: "ATK",
+                            3: "ATK",
+                            4: "ATK"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 3,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "≥55.6%"
+                            }],
+                            notes: ["Cooldown factors in everything including treasures so I recommend this for more bulk."]
+                        },
+                    },
+                    buildNotes: ["Cooldown is the most important stat for Oyster, needing 55.6% to max her buffs. This is very easily achieved if using the treasure{watch2} So full chocolate and full cooldown beascuit like you'll see is overkill for most scenarios but can be run for native max cooldown.", "One could hypothetically even run ATK if the cooldown from toppings is sufficient such as with full chocolate.", "So long as she hits 55.6% total cd she's good but aim for 60% total since her skill cooldown is so long."],
+                    review: "Oyster, what a fall from grace as so many have had. Nice to keep around in the event there's an event that shills summons I guess but even the compared to the absurd things modern cookies can do she just isn't all that good.",
+                    rating: "B"
                 },
                 {
                     name: "Clotted_cream",
                     displayName: "Clotted Cream Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Light",
                     type: "Magic",
                     position: "Middle",
@@ -1146,10 +1278,76 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [595.3, 1057.5],
                     },
+                    sets: {
+                        toppings: [{
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "raspberry",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }, {
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["Cooldown", "DMG Resist", "ATK"]
+                        }],
+                        beascuit: [{
+                            element: "Light",
+                            1: "Light DMG",
+                            2: "Light DMG",
+                            3: "Light DMG",
+                            4: "Light DMG"
+                        }, {
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Quickcast Build",
+                            toppings: 3,
+                            beascuit: 1,
+                            notes: ["Focused on casting more often as opposed to doing more damage per cast."]
+                        },
+                        notes: ["Can use almond, raspberry, or chocolate tart depending on needs."]
+                    },
+                    buildNotes: ["Fairly standard dps build but there is some play with whether you go for chocolate or raspberry."],
+                    review: "Clotted Cream was at one time arena meta but like so many is completely outclassed by modern cookies. His one saving grace? That he's one of 2 light{Light} cookies to be an attacker so in the event you need a full light DMG team he's a shoo in. Compared to said cookie{Creme_brulee} other cookie he's weak but again, there are only two so take what you can get.",
+                    rating: "B"
                 },
                 {
                     name: "Venom_dough",
                     displayName: "Venom Dough Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: ["Chaos", "Poison"],
                     type: "Bomber",
                     position: "Rear",
@@ -1211,6 +1409,7 @@ window.CRK_DATA = {
                 {
                     name: "Pitaya_dragon",
                     displayName: "Pitaya Dragon Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Fire",
                     type: "Charge",
                     position: "Front",
@@ -1277,8 +1476,8 @@ window.CRK_DATA = {
                 {
                     name: "Sugar_swan",
                     displayName: "Sugar Swan Cookie",
-                    pageUpdated: "2026-04-27",
-                    element: null,
+                    pageUpdated: "2026-04-30T07:07:18Z",
+                    element: "Light",
                     type: "Healing",
                     position: "Rear",
                     rarity: "Legendary",
@@ -1357,6 +1556,7 @@ window.CRK_DATA = {
                 {
                     name: "Fire_spirit",
                     displayName: "Fire Spirit Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Fire",
                     type: "Magic",
                     position: "Rear",
@@ -1439,6 +1639,7 @@ window.CRK_DATA = {
                 {
                     name: "Wind_archer",
                     displayName: "Wind Archer Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Wind",
                     type: "Ranged",
                     position: "Rear",
@@ -1526,6 +1727,7 @@ window.CRK_DATA = {
                 {
                     name: "Stormbringer",
                     displayName: "Stormbringer Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Electricity",
                     type: "Charge",
                     position: "Front",
@@ -1618,6 +1820,7 @@ window.CRK_DATA = {
                 {
                     name: "Moonlight",
                     displayName: "Moonlight Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Magic",
                     position: "Middle",
@@ -1711,6 +1914,7 @@ window.CRK_DATA = {
                 {
                     name: "Black_pearl",
                     displayName: "Black Pearl Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Water",
                     type: "Ambush",
                     position: "Middle",
@@ -1794,6 +1998,7 @@ window.CRK_DATA = {
                 {
                     name: "Frost_queen",
                     displayName: "Frost Queen Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Ice",
                     type: "Magic",
                     position: "Middle",
@@ -1891,6 +2096,7 @@ window.CRK_DATA = {
                 {
                     name: "Sea_fairy",
                     displayName: "Sea Fairy Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Water",
                     type: "Bomber",
                     position: "Middle",
@@ -1982,6 +2188,7 @@ window.CRK_DATA = {
                 {
                     name: "Millennial_tree",
                     displayName: "Millennial Tree Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Grass",
                     type: "Support",
                     position: "Front",
@@ -2091,6 +2298,7 @@ window.CRK_DATA = {
                 {
                     name: "Pure_vanilla",
                     displayName: "Pure Vanilla Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Healing",
                     position: "Rear",
@@ -2104,6 +2312,7 @@ window.CRK_DATA = {
                 {
                     name: "Hollyberry",
                     displayName: "Hollyberry Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -2117,6 +2326,7 @@ window.CRK_DATA = {
                 {
                     name: "Dark_cacao",
                     displayName: "Dark Cacao Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: ["Darkness", "Electricity"],
                     type: "Charge",
                     position: "Front",
@@ -2131,6 +2341,7 @@ window.CRK_DATA = {
                 {
                     name: "Golden_cheese",
                     displayName: "Golden Cheese Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Ranged",
                     position: "Middle",
@@ -2145,6 +2356,7 @@ window.CRK_DATA = {
                 {
                     name: "White_lily",
                     displayName: "White Lily Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Grass",
                     type: "Bomber",
                     position: "Middle",
@@ -2158,6 +2370,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_dark_cacao",
                     displayName: "Dark Cacao Cookie (Dragon Lord)",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
@@ -2264,6 +2477,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_golden_cheese",
                     displayName: "Golden Cheese Cookie (Immortal)",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Earth",
                     type: "Ranged",
                     position: "Middle",
@@ -2361,6 +2575,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_pure_vanilla",
                     displayName: "Pure Vanilla Cookie (Compassionate)",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Light",
                     type: "Healing",
                     position: "Rear",
@@ -2455,6 +2670,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_hollyberry",
                     displayName: "Hollyberry Cookie (Aegis)",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -2601,6 +2817,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_white_lily",
                     displayName: "White Lily Cookie (Dawnbringer)",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Grass",
                     type: "Bomber",
                     position: "Middle",
@@ -2703,6 +2920,7 @@ window.CRK_DATA = {
                 {
                     name: "Mystic_flour",
                     displayName: "Mystic Flour Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: null,
                     type: "Healing",
                     position: "Rear",
@@ -2771,6 +2989,7 @@ window.CRK_DATA = {
                 {
                     name: "Burning_spice",
                     displayName: "Burning Spice Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
                     type: "Charge",
                     position: "Front",
@@ -2831,6 +3050,7 @@ window.CRK_DATA = {
                 {
                     name: "Shadow_milk",
                     displayName: "Shadow Milk Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Magic",
                     position: "Middle",
@@ -2922,6 +3142,7 @@ window.CRK_DATA = {
                 {
                     name: "Eternal_sugar",
                     displayName: "Eternal Sugar Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
@@ -3108,6 +3329,7 @@ window.CRK_DATA = {
                 {
                     name: "Silent_salt",
                     displayName: "Silent Salt Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: ["Darkness", "Steel"],
                     type: "Ambush",
                     position: "Front",
@@ -3239,6 +3461,7 @@ window.CRK_DATA = {
                 {
                     name: "Dark_enchantress",
                     displayName: "Dark Enchantress Cookie",
+                    pageUpdated: "2026-04-30T06:59:28Z",
                     element: "Chaos",
                     type: "Magic",
                     position: "Middle",
@@ -3252,16 +3475,16 @@ window.CRK_DATA = {
                     },
                     sets: {
                         toppings: [{
-                            resonance: "Looming_Darkness",
-                            1: "raspberry",
-                            2: "raspberry",
+                            resonance: "looming_Darkness",
+                            1: "chocolate",
+                            2: "chocolate",
                             3: "raspberry",
-                            4: "chocolate",
-                            5: "chocolate",
+                            4: "raspberry",
+                            5: "raspberry",
                             6: "raspberry",
                             substats: ["ATK", "Cooldown", "DMG Resist"]
                         }, {
-                            resonance: "Looming_Darkness",
+                            resonance: "looming_Darkness",
                             1: "raspberry",
                             2: "raspberry",
                             3: "raspberry",
@@ -3270,7 +3493,7 @@ window.CRK_DATA = {
                             6: "raspberry",
                             substats: ["ATK", "Cooldown", "DMG Resist"]
                         }, {
-                            resonance: "Looming_Darkness",
+                            resonance: "looming_Darkness",
                             1: "raspberry",
                             2: "raspberry",
                             3: "raspberry",
@@ -3278,7 +3501,16 @@ window.CRK_DATA = {
                             5: "chocolate",
                             6: "chocolate",
                             substats: ["ATK", "Cooldown", "DMG Resist"]
-                        }],
+                        }, {
+                            resonance: "looming_Darkness",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "CRIT%"]
+                        }, ],
                         beascuit: [{
                             1: "Bypass",
                             2: "Bypass",
@@ -3305,7 +3537,7 @@ window.CRK_DATA = {
                                 name: "ATK from toppings (+ATK from beascuit)",
                                 value: "≥108%"
                             }],
-                            notes: ["Ensure you have 35% cooldown from gear and passive."]
+                            notes: ["Optimal set up but requires incredibly good toppings.", "Ensure you have 35% cooldown from gear and passive."]
                         },
                         2: {
                             name: "Alt Arena Build (2s Start)",
@@ -3320,21 +3552,20 @@ window.CRK_DATA = {
                         3: {
                             rank: "recommended",
                             name: "PvE Build",
-                            toppings: 1,
+                            toppings: 4,
                             beascuit: 2,
                             stats: [{
                                 name: "Cooldown from toppings",
-                                value: "≥12%"
+                                value: "≥9%"
                             }],
                             notes: [
                                 "Because of just how powerful dark enchantress is she'll be in pretty much any team you make so I'd recommend making a chaos dmg beascuit for her when not in arena."]
                         },
-                        notes: [
-                            "You can use 3/3 raspberry/chocolate if you don't have good toppings but 4/2 is better"]
                     },
                     buildNotes: [
                         "Because of \"Master of Sorcery\" there's little reason not to go for 35% cooldown. Accounting for set bonuses you need at minimum 51% ATK from toppings (which does not include set bonuses) so I'd aim a little higher at 56%.",
-                        "Can also use chocolate tart if struggling to hit 35% Cooldown but raspberry is optimal."
+                        "Can also use chocolate tart if struggling to hit 35% Cooldown but raspberry is optimal.",
+                        "For a 4/2 set up you want at least 90% ATK from gear and 15% Cooldown."
                     ],
                     //"Because of \"Master of Sorcery\" there's little reason not to go for 35% cooldown. With 2 chocolate and a raspberry tart the most you can get is 20.67% from the passive with the max amount you can get from toppings being 16% giving you 1.67% of wiggle room. With 1 chocolate the max you can get from the passive is 24.33% with the max you can get from toppings being 13% giving you 2.33% of wiggle room but factoring in the atk bonus of her passive you avtually have a 1% margin of error on the toppings cooldown side of things as opposed to the 4% on the other build which is why I recommend using 4/2 but if you have good toppings 5/1 is better.//
                     review: "Easily the one of if not THE single best cookie in the game and it's not even close. Insane damage and survivability along with absurd cc Dark Enchantress should be on every single one of your teams outside of guild battle. I tremble in fear at what could possibly power creep her.",
@@ -3343,6 +3574,7 @@ window.CRK_DATA = {
                 {
                     name: "Salt_cellar",
                     displayName: "Salt Cellar Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -3357,6 +3589,7 @@ window.CRK_DATA = {
                 {
                     name: "Charcoal",
                     displayName: "Charcoal Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Darkness",
                     type: "Magic",
                     position: "Rear",
@@ -3372,6 +3605,7 @@ window.CRK_DATA = {
                 {
                     name: "Menthol",
                     displayName: "Menthol Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Water",
                     type: "Bomber",
                     position: "Rear",
@@ -3381,10 +3615,45 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [147.4, 386.9],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "destined",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK SPD", "ATK"]
+                        }],
+                        beascuit: [{
+                            element: "Water",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
+                            4: "Water DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Machine God",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "18.8% or 19.2% or ≥19.6%"
+                            }, {
+                                name: "ATK SPD",
+                                value: "9.1% or 11.6% or ≥14.3%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Seltzer",
                     displayName: "Seltzer Cookie",
+                    pageUpdated: "2026-04-29",
                     element: "Water",
                     type: "Support",
                     position: "Rear",
@@ -3394,10 +3663,42 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [21.6, 36.2],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "destined",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            element: "Water",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
+                            4: "Water DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Machine God",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "24-24.4%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Grapefruit",
                     displayName: "Grapefruit Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Electricity",
                     type: "Charge",
                     position: "Front",
@@ -3411,6 +3712,7 @@ window.CRK_DATA = {
                 {
                     name: "Lime",
                     displayName: "Lime Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -3425,6 +3727,7 @@ window.CRK_DATA = {
                 {
                     name: "Manju",
                     displayName: "Manju Cookie",
+                    pageUpdated: "2026-04-30T05:40:56Z",
                     element: "Water",
                     type: "Ambush",
                     position: "Rear",
@@ -3438,6 +3741,7 @@ window.CRK_DATA = {
                 {
                     name: "Jagae",
                     displayName: "Jagae Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Water",
                     type: "Support",
                     position: "Front",
@@ -3452,6 +3756,7 @@ window.CRK_DATA = {
                 {
                     name: "Orange",
                     displayName: "Orange Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Electricity",
                     type: "Magic",
                     position: "Rear",
@@ -3466,6 +3771,7 @@ window.CRK_DATA = {
                 {
                     name: "Lemon",
                     displayName: "Lemon Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Electricity",
                     type: "Ambush",
                     position: "Middle",
@@ -3479,6 +3785,7 @@ window.CRK_DATA = {
                 {
                     name: "Cream_soda",
                     displayName: "Cream Soda Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Water",
                     type: "Charge",
                     position: "Front",
@@ -3494,6 +3801,7 @@ window.CRK_DATA = {
                 {
                     name: "Sugarfly",
                     displayName: "Sugarfly Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -3507,6 +3815,7 @@ window.CRK_DATA = {
                 {
                     name: "Pavlova",
                     displayName: "Pavlova Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Ranged",
                     position: "Rear",
@@ -3520,6 +3829,7 @@ window.CRK_DATA = {
                 {
                     name: "Agar_agar",
                     displayName: "Agar Agar Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: ["Fire", "Electricity", "Water", "Wind", "Ice"],
                     type: "Ambush",
                     position: "Middle",
@@ -3537,6 +3847,7 @@ window.CRK_DATA = {
                 {
                     name: "Wedding_cake",
                     displayName: "Wedding Cake Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Magic",
                     position: "Middle",
@@ -3551,6 +3862,7 @@ window.CRK_DATA = {
                 {
                     name: "Black_forest",
                     displayName: "Black Forest Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Charge",
                     position: "Front",
@@ -3564,6 +3876,7 @@ window.CRK_DATA = {
                 {
                     name: "Black_sapphire",
                     displayName: "Black Sapphire Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Poison",
                     type: "Support",
                     position: "Middle",
@@ -3628,6 +3941,7 @@ window.CRK_DATA = {
                 {
                     name: "Candy_apple",
                     displayName: "Candy Apple Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: null,
                     type: "Bomber",
                     position: "Middle",
@@ -3678,6 +3992,7 @@ window.CRK_DATA = {
                 {
                     name: "Okchun",
                     displayName: "Okchun Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Healing",
                     position: "Middle",
@@ -3692,6 +4007,7 @@ window.CRK_DATA = {
                 {
                     name: "Green_tea_mousse",
                     displayName: "Green Tea Mousse Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: ["Wind", "Grass"],
                     type: "Defense",
                     position: "Front",
@@ -3710,6 +4026,7 @@ window.CRK_DATA = {
                 {
                     name: "Pudding_a_la_mode",
                     displayName: "Pudding à la Mode Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Electricity",
                     type: "Bomber",
                     position: "Rear",
@@ -3723,6 +4040,7 @@ window.CRK_DATA = {
                 {
                     name: "Choco_drizzle",
                     displayName: "Choco Drizzle Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Darkness",
                     type: "Ambush",
                     position: "Middle",
@@ -3736,6 +4054,7 @@ window.CRK_DATA = {
                 {
                     name: "Red_osmanthus",
                     displayName: "Red Osmanthus Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Grass",
                     type: "Ranged",
                     position: "Middle",
@@ -3750,6 +4069,7 @@ window.CRK_DATA = {
                 {
                     name: "Golden_osmanthus",
                     displayName: "Golden Osmanthus Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
                     type: "Bomber",
                     position: "Middle",
@@ -3763,6 +4083,7 @@ window.CRK_DATA = {
                 {
                     name: "Smoked_cheese",
                     displayName: "Smoked Cheese Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Magic",
                     position: "Rear",
@@ -3777,6 +4098,7 @@ window.CRK_DATA = {
                 {
                     name: "Nutmeg_tiger",
                     displayName: "Nutmeg Tiger Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
                     type: "Support",
                     position: "Rear",
@@ -3790,6 +4112,7 @@ window.CRK_DATA = {
                 {
                     name: "Star_coral",
                     displayName: "Star Coral Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -3803,6 +4126,7 @@ window.CRK_DATA = {
                 {
                     name: "Peach_blossom",
                     displayName: "Peach Blossom Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Middle",
@@ -3817,6 +4141,7 @@ window.CRK_DATA = {
                 {
                     name: "Cloud_haetae",
                     displayName: "Cloud Haetae Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Defense",
                     position: "Front",
@@ -3831,6 +4156,7 @@ window.CRK_DATA = {
                 {
                     name: "Street_urchin",
                     displayName: "Street Urchin Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
                     type: "Bomber",
                     position: "Middle",
@@ -3844,6 +4170,7 @@ window.CRK_DATA = {
                 {
                     name: "Caramel_choux",
                     displayName: "Caramel Choux Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -3857,6 +4184,7 @@ window.CRK_DATA = {
                 {
                     name: "Butter_roll",
                     displayName: "Butter Roll Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: ["Steel", "Chaos"],
                     type: "Charge",
                     position: "Front",
@@ -3871,6 +4199,7 @@ window.CRK_DATA = {
                 {
                     name: "Matcha",
                     displayName: "Matcha Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: ["Poison", "Grass"],
                     type: "Magic",
                     position: "Middle",
@@ -3885,6 +4214,7 @@ window.CRK_DATA = {
                 {
                     name: "Mercurial_knight",
                     displayName: "Mercurial Knight Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
@@ -3899,6 +4229,7 @@ window.CRK_DATA = {
                     name: "Silverbell",
                     element: "Grass",
                     displayName: "Silverbell Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     type: "Support",
                     position: "Rear",
                     rarity: "Epic",
@@ -3917,6 +4248,7 @@ window.CRK_DATA = {
                 {
                     name: "Rebel",
                     displayName: "Rebel Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Wind",
                     type: "Ambush",
                     position: "Front",
@@ -3931,6 +4263,7 @@ window.CRK_DATA = {
                 {
                     name: "Creme_brulee",
                     displayName: "Crème Brûlée Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Light",
                     type: "Ranged",
                     position: "Rear",
@@ -3945,6 +4278,7 @@ window.CRK_DATA = {
                 {
                     name: "Linzer",
                     displayName: "Linzer Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -3994,6 +4328,7 @@ window.CRK_DATA = {
                 {
                     name: "Olive",
                     displayName: "Olive Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: ["Earth", "Fire", "Electricity"],
                     type: "Support",
                     position: "Rear",
@@ -4009,6 +4344,7 @@ window.CRK_DATA = {
                 {
                     name: "Mozzarella",
                     displayName: "Mozzarella Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Magic",
                     position: "Middle",
@@ -4022,6 +4358,7 @@ window.CRK_DATA = {
                 {
                     name: "Fettuccine",
                     displayName: "Fettuccine Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Defense",
                     position: "Front",
@@ -4036,6 +4373,7 @@ window.CRK_DATA = {
                 {
                     name: "Burnt_cheese",
                     displayName: "Burnt Cheese Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Earth",
                     type: "Charge",
                     position: "Front",
@@ -4050,6 +4388,7 @@ window.CRK_DATA = {
                 {
                     name: "Frilled_jellyfish",
                     displayName: "Frilled Jellyfish Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: ["Water", "Electricity"],
                     type: "Support",
                     position: "Middle",
@@ -4063,10 +4402,42 @@ window.CRK_DATA = {
                     skillAttrMc: {
                         attr1: [128.1, 213.6],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "sea",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "Cooldown", "CRIT%"]
+                        }],
+                        beascuit: [{
+                            element: "Water",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
+                            4: "Water DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "recommended",
+                            name: "Machine God",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "Cooldown",
+                                value: "34.9%"
+                            }]
+                        }
+                    }
                 },
                 {
                     name: "Peppermint",
                     displayName: "Peppermint Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Water",
                     type: "Support",
                     position: "Rear",
@@ -4084,6 +4455,7 @@ window.CRK_DATA = {
                 {
                     name: "Black_lemonade",
                     displayName: "Black Lemonade Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Electricity",
                     type: "Bomber",
                     position: "Middle",
@@ -4098,6 +4470,7 @@ window.CRK_DATA = {
                 {
                     name: "Rockstar",
                     displayName: "Rockstar Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Healing",
                     position: "Middle",
@@ -4111,6 +4484,7 @@ window.CRK_DATA = {
                 {
                     name: "Tarte_tatin",
                     displayName: "Tarte Tatin Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
                     type: "Ranged",
                     position: "Rear",
@@ -4125,6 +4499,7 @@ window.CRK_DATA = {
                 {
                     name: "Royal_margarine",
                     displayName: "Royal Margarine Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Poison",
                     type: "Ambush",
                     position: "Middle",
@@ -4141,6 +4516,7 @@ window.CRK_DATA = {
                 {
                     name: "Kouign-amann",
                     displayName: "Kouign-Amann Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Light",
                     type: "Defense",
                     position: "Front",
@@ -4159,6 +4535,7 @@ window.CRK_DATA = {
                 {
                     name: "Prune_juice",
                     displayName: "Prune Juice Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
@@ -4236,6 +4613,7 @@ window.CRK_DATA = {
                 {
                     name: "Space_doughnut",
                     displayName: "Space Doughnut",
+                    pageUpdated: "2026-04-30T05:40:56Z",
                     element: null,
                     type: "Charge",
                     position: "Front",
@@ -4252,6 +4630,7 @@ window.CRK_DATA = {
                 {
                     name: "Blueberry_pie",
                     displayName: "Blueberry Pie Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Electricity",
                     type: "Magic",
                     position: "Middle",
@@ -4271,6 +4650,7 @@ window.CRK_DATA = {
                 {
                     name: "Milky_way",
                     displayName: "Milky Way Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Charge",
                     position: "Front",
@@ -4284,6 +4664,7 @@ window.CRK_DATA = {
                 {
                     name: "Prophet",
                     displayName: "Prophet Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -4298,6 +4679,7 @@ window.CRK_DATA = {
                 {
                     name: "Pinecone",
                     displayName: "Pinecone Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Ice",
                     type: "Bomber",
                     position: "Front",
@@ -4316,6 +4698,7 @@ window.CRK_DATA = {
                 {
                     name: "Carol",
                     displayName: "Carol Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
                     type: "Healing",
                     position: "Rear",
@@ -4330,6 +4713,7 @@ window.CRK_DATA = {
                 {
                     name: "Macaron",
                     displayName: "Macaron Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Magic",
                     position: "Middle",
@@ -4344,6 +4728,7 @@ window.CRK_DATA = {
                 {
                     name: "Schwarzwalder",
                     displayName: "Schwarzwälder",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: ["Steel", "Chaos"],
                     type: "Charge",
                     position: "Front",
@@ -4357,6 +4742,7 @@ window.CRK_DATA = {
                 {
                     name: "Candy_diver",
                     displayName: "Candy Diver Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -4371,6 +4757,7 @@ window.CRK_DATA = {
                 {
                     name: "Captain_caviar",
                     displayName: "Captain Caviar Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Water",
                     type: "Bomber",
                     position: "Middle",
@@ -4389,6 +4776,7 @@ window.CRK_DATA = {
                 {
                     name: "Cream_unicorn",
                     displayName: "Cream Unicorn Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Fire",
                     type: "Healing",
                     position: "Rear",
@@ -4406,6 +4794,7 @@ window.CRK_DATA = {
                 {
                     name: "Financier",
                     displayName: "Financier Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Light",
                     type: "Defense",
                     position: "Front",
@@ -4425,6 +4814,7 @@ window.CRK_DATA = {
                 {
                     name: "Crunchy_chip",
                     displayName: "Crunchy Chip Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
@@ -4439,6 +4829,7 @@ window.CRK_DATA = {
                 {
                     name: "Wildberry",
                     displayName: "Wildberry Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -4457,6 +4848,7 @@ window.CRK_DATA = {
                 {
                     name: "Cherry_blossom",
                     displayName: "Cherry Blossom Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
                     type: "Ambush",
                     position: "Rear",
@@ -4470,6 +4862,7 @@ window.CRK_DATA = {
                 {
                     name: "Caramel_arrow",
                     displayName: "Caramel Arrow Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Darkness",
                     type: "Ranged",
                     position: "Front",
@@ -4489,6 +4882,7 @@ window.CRK_DATA = {
                 {
                     name: "Affogato",
                     displayName: "Affogato Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
@@ -4504,6 +4898,7 @@ window.CRK_DATA = {
                 {
                     name: "Tea_knight",
                     displayName: "Tea Knight Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
@@ -4522,6 +4917,7 @@ window.CRK_DATA = {
                 {
                     name: "Eclair",
                     displayName: "Eclair Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Middle",
@@ -4535,6 +4931,7 @@ window.CRK_DATA = {
                 {
                     name: "Cocoa",
                     displayName: "Cocoa Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Defense",
                     position: "Front",
@@ -4549,6 +4946,7 @@ window.CRK_DATA = {
                 {
                     name: "Cotton",
                     displayName: "Cotton Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Grass",
                     type: "Support",
                     position: "Rear",
@@ -4562,6 +4960,7 @@ window.CRK_DATA = {
                 {
                     name: "Pumpkin_pie",
                     displayName: "Pumpkin Pie Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Darkness",
                     type: "Magic",
                     position: "Middle",
@@ -4575,6 +4974,7 @@ window.CRK_DATA = {
                 {
                     name: "Twizzly_gummy",
                     displayName: "Twizzly Gummy Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Electricity",
                     type: "Ranged",
                     position: "Rear",
@@ -4593,6 +4993,7 @@ window.CRK_DATA = {
                 {
                     name: "Mala_sauce",
                     displayName: "Mala Sauce Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Fire",
                     type: "Charge",
                     position: "Front",
@@ -4613,6 +5014,7 @@ window.CRK_DATA = {
                 {
                     name: "Moon_rabbit",
                     displayName: "Moon Rabbit Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
                     type: "Defense",
                     position: "Front",
@@ -4626,6 +5028,7 @@ window.CRK_DATA = {
                 {
                     name: "Raspberry",
                     displayName: "Raspberry Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
@@ -4644,6 +5047,7 @@ window.CRK_DATA = {
                 {
                     name: "Parfait",
                     displayName: "Parfait Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Support",
                     position: "Rear",
@@ -4661,6 +5065,7 @@ window.CRK_DATA = {
                 {
                     name: "Sorbet_shark",
                     displayName: "Sorbet Shark Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Water",
                     type: "Ambush",
                     position: "Middle",
@@ -4679,6 +5084,7 @@ window.CRK_DATA = {
                 {
                     name: "Squid_ink",
                     displayName: "Squid Ink Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Water",
                     type: "Magic",
                     position: "Middle",
@@ -4698,6 +5104,7 @@ window.CRK_DATA = {
                 {
                     name: "Lilac",
                     displayName: "Lilac Cookie",
+                    pageUpdated: "2026-04-30T05:35:08Z",
                     element: "Grass",
                     type: "Support",
                     position: "Middle",
@@ -4711,6 +5118,7 @@ window.CRK_DATA = {
                 {
                     name: "Mango",
                     displayName: "Mango Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Water",
                     type: "Magic",
                     position: "Middle",
@@ -4728,6 +5136,7 @@ window.CRK_DATA = {
                 {
                     name: "Red_velvet",
                     displayName: "Red Velvet Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
@@ -4801,6 +5210,7 @@ window.CRK_DATA = {
                 {
                     name: "Pastry",
                     displayName: "Pastry Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Wind",
                     type: "Ranged",
                     position: "Rear",
@@ -4818,6 +5228,7 @@ window.CRK_DATA = {
                 {
                     name: "Fig",
                     displayName: "Fig Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
                     type: "Support",
                     position: "Middle",
@@ -4831,6 +5242,7 @@ window.CRK_DATA = {
                 {
                     name: "Strawberry_crepe",
                     displayName: "Strawberry Crepe Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
                     type: "Defense",
                     position: "Front",
@@ -4848,6 +5260,7 @@ window.CRK_DATA = {
                 {
                     name: "Black_raisin",
                     displayName: "Black Raisin Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Darkness",
                     type: "Ambush",
                     position: "Middle",
@@ -4865,6 +5278,7 @@ window.CRK_DATA = {
                 {
                     name: "Almond",
                     displayName: "Almond Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Support",
                     position: "Rear",
@@ -4878,6 +5292,7 @@ window.CRK_DATA = {
                 {
                     name: "Cream_puff",
                     displayName: "Cream Puff Cookie",
+                    pageUpdated: "2026-04-30T05:35:08Z",
                     element: "Light",
                     type: "Support",
                     position: "Rear",
@@ -4901,6 +5316,7 @@ window.CRK_DATA = {
                 {
                     name: "Latte",
                     displayName: "Latte Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Magic",
                     position: "Middle",
@@ -4920,6 +5336,7 @@ window.CRK_DATA = {
                 {
                     name: "Kumiho",
                     displayName: "Kumiho Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Wind",
                     type: "Charge",
                     position: "Front",
@@ -4933,6 +5350,7 @@ window.CRK_DATA = {
                 {
                     name: "Snow_sugar",
                     displayName: "Snow Sugar Cookie",
+                    pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Ice",
                     type: "Magic",
                     position: "Middle",
@@ -4952,6 +5370,7 @@ window.CRK_DATA = {
                 {
                     name: "Rye",
                     displayName: "Rye Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Fire",
                     type: "Ranged",
                     position: "Rear",
@@ -4971,6 +5390,7 @@ window.CRK_DATA = {
                 {
                     name: "Espresso",
                     displayName: "Espresso Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
                     type: "Magic",
                     position: "Middle",
@@ -4991,6 +5411,7 @@ window.CRK_DATA = {
                 {
                     name: "Madeleine",
                     displayName: "Madeleine Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Light",
                     type: "Defense",
                     position: "Front",
@@ -5009,6 +5430,7 @@ window.CRK_DATA = {
                 {
                     name: "Licorice",
                     displayName: "Licorice Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: ["Darkness", "Poison", "Chaos"],
                     type: "Magic",
                     position: "Middle",
@@ -5026,6 +5448,7 @@ window.CRK_DATA = {
                 {
                     name: "Poison_mushroom",
                     displayName: "Poison Mushroom Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: ["Poison", "Chaos"],
                     type: "Bomber",
                     position: "Middle",
@@ -5043,6 +5466,7 @@ window.CRK_DATA = {
                 {
                     name: "Milk",
                     displayName: "Milk Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Defense",
                     position: "Front",
@@ -5062,6 +5486,7 @@ window.CRK_DATA = {
                 {
                     name: "Purple_yam",
                     displayName: "Purple Yam Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
                     type: "Charge",
                     position: "Front",
@@ -5080,6 +5505,7 @@ window.CRK_DATA = {
                 {
                     name: "Pomegranate",
                     displayName: "Pomegranate Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Chaos",
                     type: "Support",
                     position: "Middle",
@@ -5097,6 +5523,7 @@ window.CRK_DATA = {
                 {
                     name: "Chili_pepper",
                     displayName: "Chili Pepper Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Fire",
                     type: "Ambush",
                     position: "Middle",
@@ -5110,6 +5537,7 @@ window.CRK_DATA = {
                 {
                     name: "Sparkling",
                     displayName: "Sparkling Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Light",
                     type: "Healing",
                     position: "Rear",
@@ -5127,6 +5555,7 @@ window.CRK_DATA = {
                 {
                     name: "Dark_choco",
                     displayName: "Dark Choco Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
@@ -5144,6 +5573,7 @@ window.CRK_DATA = {
                 {
                     name: "Herb",
                     displayName: "Herb Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Healing",
                     position: "Rear",
@@ -5157,6 +5587,7 @@ window.CRK_DATA = {
                 {
                     name: "Werewolf",
                     displayName: "Werewolf Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
                     type: "Charge",
                     position: "Front",
@@ -5174,6 +5605,7 @@ window.CRK_DATA = {
                 {
                     name: "Mint_choco",
                     displayName: "Mint Choco Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Wind",
                     type: "Support",
                     position: "Rear",
@@ -5191,6 +5623,7 @@ window.CRK_DATA = {
                 {
                     name: "Tiger_lily",
                     displayName: "Tiger Lily Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
                     type: "Ranged",
                     position: "Rear",
@@ -5204,6 +5637,7 @@ window.CRK_DATA = {
                 {
                     name: "Pom-pom_dough",
                     displayName: "Pom-pom Dough Cookie",
+                    pageUpdated: "2026-04-30T05:46:42Z",
                     element: ["Poison", "Chaos"],
                     type: "Support",
                     position: "Rear",
@@ -5254,6 +5688,7 @@ window.CRK_DATA = {
                 {
                     name: "Mold_dough",
                     displayName: "Mold Dough Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Chaos",
                     type: "Charge",
                     position: "Front",
@@ -5268,6 +5703,7 @@ window.CRK_DATA = {
                 {
                     name: "Chess_choco",
                     displayName: "Chess Choco Cookie",
+                    pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Chaos",
                     type: "Bomber",
                     position: "Rear",
@@ -5284,6 +5720,7 @@ window.CRK_DATA = {
                 {
                     name: "Vampire",
                     displayName: "Vampire Cookie",
+                    pageUpdated: "2026-04-30T05:35:08Z",
                     element: null,
                     type: "Ambush",
                     position: "Rear",
@@ -5304,6 +5741,7 @@ window.CRK_DATA = {
                 {
                     name: "Rumi",
                     displayName: "Rumi Cookie",
+                    pageUpdated: "2026-04-30T05:35:08Z",
                     element: null,
                     type: "Ambush",
                     position: "Front",
@@ -5317,6 +5755,7 @@ window.CRK_DATA = {
                 {
                     name: "Mira",
                     displayName: "Mira Cookie",
+                    pageUpdated: "2026-04-30T05:35:08Z",
                     element: null,
                     type: "Charge",
                     position: "Front",
@@ -5330,6 +5769,7 @@ window.CRK_DATA = {
                 {
                     name: "Zoey",
                     displayName: "Zoey Cookie",
+                    pageUpdated: "2026-04-30T05:35:08Z",
                     element: null,
                     type: "Ranged",
                     position: "Rear",
@@ -5339,6 +5779,66 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [223.7, 639.0],
                     },
+                },
+                {
+                    name: "Timekeeper",
+                    displayName: "Timekeeper Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
+                    beta: true,
+                    element: "Light",
+                    type: "Magic",
+                    position: "Middle",
+                    rarity: "Legendary",
+                    skill: "Temporal Stabilization"
+                },
+                {
+                    name: "Ash_salt",
+                    displayName: "Ash Salt Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
+                    beta: true,
+                    element: "Darkness",
+                    type: "Ambush",
+                    position: "Front",
+                    rarity: "Epic",
+                    skill: "Ashen Assassin",
+                },
+                {
+                    name: "Croissant",
+                    displayName: "Croissant Cookie",
+                    pageUpdated: "2026-04-30T05:59:28Z",
+                    beta: true,
+                    element: null,
+                    type: "Support",
+                    position: "Rear",
+                    rarity: "Epic",
+                    skill: "Time Portal Removal"
+                },
+                {
+                    name: "Povidone-iodine",
+                    displayName: "Povidone-Iodine Cookie",
+                    beta: true,
+                    element: null,
+                    type: "Bomber",
+                    position: "Front",
+                    rarity: "Super Epic",
+                },
+                {
+                    name: "Litmus",
+                    displayName: "Litmus Cookie",
+                    beta: true,
+                    element: null,
+                    type: "Healing",
+                    position: "Rear",
+                    rarity: "Epic",
+                },
+                {
+                    name: "Ananas_dragon",
+                    displayName: "Ananas Dragon Cookie",
+                    beta: true,
+                    element: "Earth",
+                    type: "Magic",
+                    position: "Rear",
+                    rarity: "Dragon",
                 }
             ],
             teams: {
@@ -5517,10 +6017,16 @@ window.CRK_DATA = {
                                 name: "Sea_fairy",
                                 build: 1
                             }, {
-                                name: "Cream_ferret",
+                                name: "Seltzer",
                                 build: 1
                             }, {
-                            }]
+                                name: "Menthol",
+                                build: 1
+                            }, {
+                                name: "Cream_ferret",
+                                build: 1
+                            }],
+                            treasures: ["Scroll", ""]
                         }]
                     }, {
                         name: "Avatar of Destiny",

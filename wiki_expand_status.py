@@ -1,6 +1,6 @@
 """
 Expand {{Status|…}} (Cookie Run Wiki) into site tags: status{id|…} plus trailing visible label.
-Also provides {{Tip|visible|tooltip}} → visible (balanced, so visible may contain status{…} or nested templates).
+Also provides {{Tip|visible|tooltip}} → hover{tooltip:visible} (balanced, so either side may contain nested templates).
 
 Mirrors Template:Status / Template:Status/data for common cases (element + ATK Up / CRIT DMG Up /
 Weakness, explicit second positional, icononly). Unknown statuses fall back to the wiki's first
@@ -212,7 +212,7 @@ def _status_template_to_site(inner: str) -> str:
 
 
 def expand_wiki_tip_templates(s: str) -> str:
-    """{{Tip|visible|tooltip}} → visible (tooltip dropped). Supports | and {{…}} inside *visible*."""
+    """{{Tip|visible|tooltip}} → hover{tooltip:visible}. Supports | and {{…}} in either side."""
     out: list[str] = []
     i = 0
     while True:
@@ -230,7 +230,13 @@ def expand_wiki_tip_templates(s: str) -> str:
         inner = s[m.end() : end - 2]
         parts = split_balanced_piped_args(inner)
         visible = parts[0].strip() if parts else ""
-        out.append(visible)
+        tooltip = parts[1].strip() if len(parts) > 1 else ""
+        if visible and tooltip:
+            out.append(f"hover{{{tooltip}:{visible}}}")
+        elif visible:
+            out.append(visible)
+        elif tooltip:
+            out.append(tooltip)
         i = end
     return "".join(out)
 

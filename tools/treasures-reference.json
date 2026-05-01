@@ -1,0 +1,469 @@
+{
+  "wikiKeywords": [
+    {
+      "shorthand": "Acorn Bomb",
+      "name": "Blossoming Acorn Bomb",
+      "slug": "blossoming_acorn_bomb"
+    },
+    {
+      "shorthand": "Acorn Snowball",
+      "name": "Acorn Snowball With a Tiny Cookie",
+      "slug": "acorn_snowball_with_a_tiny_cookie"
+    },
+    {
+      "shorthand": "Branch",
+      "name": "Sacred Pomegranate Branch",
+      "slug": "sacred_pomegranate_branch"
+    },
+    {
+      "shorthand": "Candle",
+      "name": "Cursed Catacombs Candle",
+      "slug": "cursed_catacombs_candle"
+    },
+    {
+      "shorthand": "Cape",
+      "name": "Cape of the Vanquisher",
+      "slug": "cape_of_the_vanquisher"
+    },
+    {
+      "shorthand": "Cape2",
+      "name": "Cape of the Vanquisher",
+      "slug": "cape_of_the_vanquisher"
+    },
+    {
+      "shorthand": "Charm",
+      "name": "Priestess Cookie's Paper Charm",
+      "slug": "priestess_cookie27s_paper_charm"
+    },
+    {
+      "shorthand": "Charm2",
+      "name": "Thunder God's Paper Charm",
+      "slug": "thunder_gods_paper_charm"
+    },
+    {
+      "shorthand": "Crown",
+      "name": "Divine Honey Cream Crown",
+      "slug": "divine_honey_cream_crown"
+    },
+    {
+      "shorthand": "Crown2",
+      "name": "Twinkling Starlight Crown",
+      "slug": "twinkling_starlight_crown"
+    },
+    {
+      "shorthand": "Energy Drink",
+      "name": "Ice-cold Energy Drink",
+      "slug": "ice-cold_energy_drink"
+    },
+    {
+      "shorthand": "Feather",
+      "name": "Sugar Swan's Shining Feather",
+      "slug": "sugar_swans_shining_feather"
+    },
+    {
+      "shorthand": "Fork",
+      "name": "The Order's Sacred Fork",
+      "slug": "the_orders_sacred_fork"
+    },
+    {
+      "shorthand": "Fork2",
+      "name": "Mystical Silver Fork",
+      "slug": null
+    },
+    {
+      "shorthand": "Gem",
+      "name": "Great Sage's Gem",
+      "slug": "great_sages_gem"
+    },
+    {
+      "shorthand": "Gift Box",
+      "name": "Festive Acorn Gift Box",
+      "slug": null
+    },
+    {
+      "shorthand": "Goo",
+      "name": "Jelly Worm's Sticky Goo",
+      "slug": "jelly_worm27s_sticky_goo"
+    },
+    {
+      "shorthand": "Horn",
+      "name": "Gatekeeper Ghost's Horn",
+      "slug": "gatekeeper_ghosts_horn"
+    },
+    {
+      "shorthand": "Hurricane",
+      "name": "Echo of the Hurricane's Song",
+      "slug": "echo_of_the_hurricane27s_song"
+    },
+    {
+      "shorthand": "Ice Cream",
+      "name": "Miraculous Ghost Ice Cream",
+      "slug": "miraculous_ghost_ice_cream"
+    },
+    {
+      "shorthand": "Insignia",
+      "name": "Insignia of the Indomitable Knights",
+      "slug": "insignia_of_the_indomitable_knights"
+    },
+    {
+      "shorthand": "Jewelry Box",
+      "name": "Mysterious Jewelry Box",
+      "slug": "mysterious_jewelry_box"
+    },
+    {
+      "shorthand": "Lollipop",
+      "name": "Bear Jelly's Lollipop",
+      "slug": "bear_jellys_lollipop"
+    },
+    {
+      "shorthand": "Monocle",
+      "name": "Bookseller's Monocle",
+      "slug": "booksellers_monocle"
+    },
+    {
+      "shorthand": "Monocle2",
+      "name": "Explorer's Monocle",
+      "slug": "explorers_monocle"
+    },
+    {
+      "shorthand": "Necklace",
+      "name": "Hollyberrian Royal Necklace",
+      "slug": "hollyberrian_royal_necklace"
+    },
+    {
+      "shorthand": "Necklace2",
+      "name": "Unyielding Berry Necklace",
+      "slug": null
+    },
+    {
+      "shorthand": "Pincushion",
+      "name": "Seamstress's Pin Cushion",
+      "slug": "seamstress_pin_cushion"
+    },
+    {
+      "shorthand": "Purse",
+      "name": "Cheesebird's Coin Purse",
+      "slug": "cheesebirds_coin_purse"
+    },
+    {
+      "shorthand": "Remedy",
+      "name": "Miraculous Natural Remedy",
+      "slug": "miraculous_natural_remedy"
+    },
+    {
+      "shorthand": "Remedy2",
+      "name": "Subtle Fragrant Remedy",
+      "slug": null
+    },
+    {
+      "shorthand": "Robes",
+      "name": "Librarian's Enchanted Robes",
+      "slug": "librarian27s_enchanted_robes"
+    },
+    {
+      "shorthand": "Robes2",
+      "name": "Cape of the Vanquisher",
+      "slug": "cape_of_the_vanquisher"
+    },
+    {
+      "shorthand": "Safe",
+      "name": "Ginkgoblin's Trophy Safe",
+      "slug": "ginkgoblins_trophy_safe"
+    },
+    {
+      "shorthand": "Scroll",
+      "name": "Old Pilgrim's Scroll",
+      "slug": "old_pilgrims_scroll"
+    },
+    {
+      "shorthand": "Scroll2",
+      "name": "Disciple's Magic Scroll",
+      "slug": "disciples_magic_scroll"
+    },
+    {
+      "shorthand": "Scythe",
+      "name": "Grim-looking Scythe",
+      "slug": "grim-looking_scythe"
+    },
+    {
+      "shorthand": "Scythe2",
+      "name": "Grim-looking Electrifying Scythe",
+      "slug": "grim-looking_electrifying_scythe"
+    },
+    {
+      "shorthand": "Slingshot",
+      "name": "Pilgrim's Slingshot",
+      "slug": "pilgrims_slingshot"
+    },
+    {
+      "shorthand": "Staff",
+      "name": "Blind Healer's Staff",
+      "slug": "blind_healers_staff"
+    },
+    {
+      "shorthand": "Torch",
+      "name": "Elder Pilgrim's Torch",
+      "slug": "elder_pilgrim27s_torch"
+    },
+    {
+      "shorthand": "Torch2",
+      "name": "Milk Tribe's Frozen Torch",
+      "slug": "milk_tribes_frozen_torch"
+    },
+    {
+      "shorthand": "Tube",
+      "name": "Durianeer's Squeaky Flamingo Tube",
+      "slug": "durianeers_squeaky_flamingo_tube"
+    },
+    {
+      "shorthand": "Vessel",
+      "name": "Darkness Vessel",
+      "slug": null
+    },
+    {
+      "shorthand": "Vial",
+      "name": "Vial of Raging Dunes",
+      "slug": "vial_of_raging_dunes"
+    },
+    {
+      "shorthand": "Watch",
+      "name": "Squishy Jelly Watch",
+      "slug": "squishy_jelly_watch"
+    },
+    {
+      "shorthand": "Watch2",
+      "name": "Sleepyhead's Jelly Watch",
+      "slug": "sleepyheads_jelly_watch"
+    },
+    {
+      "shorthand": "Whistle",
+      "name": "Dream Conductor's Whistle",
+      "slug": "dream_conductors_whistle"
+    },
+    {
+      "shorthand": "Whistle2",
+      "name": "Crimson Magic Whistle",
+      "slug": null
+    }
+  ],
+  "slugMapExtras": [
+    {
+      "key": "acorn_snowball_with_a_tiny_cookie",
+      "slug": "acorn_snowball_with_a_tiny_cookie"
+    },
+    {
+      "key": "bear_jellys_lollipop",
+      "slug": "bear_jellys_lollipop"
+    },
+    {
+      "key": "blind_healers_staff",
+      "slug": "blind_healers_staff"
+    },
+    {
+      "key": "blossoming_acorn_bomb",
+      "slug": "blossoming_acorn_bomb"
+    },
+    {
+      "key": "booksellers_monocle",
+      "slug": "booksellers_monocle"
+    },
+    {
+      "key": "cape_of_the_vanquisher",
+      "slug": "cape_of_the_vanquisher"
+    },
+    {
+      "key": "cheesebirds_coin_purse",
+      "slug": "cheesebirds_coin_purse"
+    },
+    {
+      "key": "disciples_magic_scroll",
+      "slug": "disciples_magic_scroll"
+    },
+    {
+      "key": "divine_honey_cream_crown",
+      "slug": "divine_honey_cream_crown"
+    },
+    {
+      "key": "dream_conductors_whistle",
+      "slug": "dream_conductors_whistle"
+    },
+    {
+      "key": "durianeers_squeaky_flamingo_tube",
+      "slug": "durianeers_squeaky_flamingo_tube"
+    },
+    {
+      "key": "echo_of_the_hurricane27s_song",
+      "slug": "echo_of_the_hurricane27s_song"
+    },
+    {
+      "key": "elder_pilgrim27s_torch",
+      "slug": "elder_pilgrim27s_torch"
+    },
+    {
+      "key": "explorers_monocle",
+      "slug": "explorers_monocle"
+    },
+    {
+      "key": "gatekeeper_ghosts_horn",
+      "slug": "gatekeeper_ghosts_horn"
+    },
+    {
+      "key": "ginkgoblins_trophy_safe",
+      "slug": "ginkgoblins_trophy_safe"
+    },
+    {
+      "key": "great_sages_gem",
+      "slug": "great_sages_gem"
+    },
+    {
+      "key": "grim_looking_electrifying_scythe",
+      "slug": "grim-looking_electrifying_scythe"
+    },
+    {
+      "key": "grim_looking_scythe",
+      "slug": "grim-looking_scythe"
+    },
+    {
+      "key": "grim-looking_electrifying_scythe",
+      "slug": "grim-looking_electrifying_scythe"
+    },
+    {
+      "key": "grim-looking_scythe",
+      "slug": "grim-looking_scythe"
+    },
+    {
+      "key": "hollyberrian_royal_necklace",
+      "slug": "hollyberrian_royal_necklace"
+    },
+    {
+      "key": "ice_cold_energy_drink",
+      "slug": "ice-cold_energy_drink"
+    },
+    {
+      "key": "ice-cold_energy_drink",
+      "slug": "ice-cold_energy_drink"
+    },
+    {
+      "key": "insignia_of_the_indomitable_knights",
+      "slug": "insignia_of_the_indomitable_knights"
+    },
+    {
+      "key": "jelly_worm27s_sticky_goo",
+      "slug": "jelly_worm27s_sticky_goo"
+    },
+    {
+      "key": "librarian27s_enchanted_robes",
+      "slug": "librarian27s_enchanted_robes"
+    },
+    {
+      "key": "milk_tribes_frozen_torch",
+      "slug": "milk_tribes_frozen_torch"
+    },
+    {
+      "key": "miraculous_ghost_ice_cream",
+      "slug": "miraculous_ghost_ice_cream"
+    },
+    {
+      "key": "miraculous_natural_remedy",
+      "slug": "miraculous_natural_remedy"
+    },
+    {
+      "key": "mysterious_jewelry_box",
+      "slug": "mysterious_jewelry_box"
+    },
+    {
+      "key": "old_pilgrims_scroll",
+      "slug": "old_pilgrims_scroll"
+    },
+    {
+      "key": "pilgrims_slingshot",
+      "slug": "pilgrims_slingshot"
+    },
+    {
+      "key": "priestess_cookie27s_paper_charm",
+      "slug": "priestess_cookie27s_paper_charm"
+    },
+    {
+      "key": "sacred_pomegranate_branch",
+      "slug": "sacred_pomegranate_branch"
+    },
+    {
+      "key": "seamstress_pin_cushion",
+      "slug": "seamstress_pin_cushion"
+    },
+    {
+      "key": "sleepyheads_jelly_watch",
+      "slug": "sleepyheads_jelly_watch"
+    },
+    {
+      "key": "squishy_jelly_watch",
+      "slug": "squishy_jelly_watch"
+    },
+    {
+      "key": "Sugar Swan's Shining Feather",
+      "slug": "sugar_swans_shining_feather"
+    },
+    {
+      "key": "sugar_swans_shining_feather",
+      "slug": "sugar_swans_shining_feather"
+    },
+    {
+      "key": "the_orders_sacred_fork",
+      "slug": "the_orders_sacred_fork"
+    },
+    {
+      "key": "thunder_gods_paper_charm",
+      "slug": "thunder_gods_paper_charm"
+    },
+    {
+      "key": "twinkling_starlight_crown",
+      "slug": "twinkling_starlight_crown"
+    },
+    {
+      "key": "vial_of_raging_dunes",
+      "slug": "vial_of_raging_dunes"
+    }
+  ],
+  "pngStems": [
+    "acorn_snowball_with_a_tiny_cookie",
+    "bear_jellys_lollipop",
+    "blind_healers_staff",
+    "blossoming_acorn_bomb",
+    "booksellers_monocle",
+    "cape_of_the_vanquisher",
+    "cheesebirds_coin_purse",
+    "disciples_magic_scroll",
+    "divine_honey_cream_crown",
+    "dream_conductors_whistle",
+    "durianeers_squeaky_flamingo_tube",
+    "echo_of_the_hurricane27s_song",
+    "elder_pilgrim27s_torch",
+    "explorers_monocle",
+    "gatekeeper_ghosts_horn",
+    "ginkgoblins_trophy_safe",
+    "great_sages_gem",
+    "grim-looking_electrifying_scythe",
+    "grim-looking_scythe",
+    "hollyberrian_royal_necklace",
+    "ice-cold_energy_drink",
+    "insignia_of_the_indomitable_knights",
+    "jelly_worm27s_sticky_goo",
+    "librarian27s_enchanted_robes",
+    "milk_tribes_frozen_torch",
+    "miraculous_ghost_ice_cream",
+    "miraculous_natural_remedy",
+    "mysterious_jewelry_box",
+    "old_pilgrims_scroll",
+    "pilgrims_slingshot",
+    "priestess_cookie27s_paper_charm",
+    "sacred_pomegranate_branch",
+    "seamstress_pin_cushion",
+    "sleepyheads_jelly_watch",
+    "squishy_jelly_watch",
+    "sugar_swans_shining_feather",
+    "the_orders_sacred_fork",
+    "thunder_gods_paper_charm",
+    "twinkling_starlight_crown",
+    "vial_of_raging_dunes"
+  ]
+}

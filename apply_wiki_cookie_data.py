@@ -18,7 +18,8 @@ Behavior:
   python apply_wiki_cookie_data.py --no-descriptions
 
 When data.js fields change for a cookie, or that cookie’s description / skill_description text in
-crk_descriptions.js changes, pageUpdated is set to the current UTC time (ISO) for that character.
+crk_descriptions.js changes, pageUpdated is set to the current UTC time (ISO). If a processed cookie
+has no pageUpdated line, one is inserted even when other fields are unchanged.
 
 Requires a prior successful wiki fetch per cookie (same rules as import_wiki_cookie_data.py).
 
@@ -152,7 +153,11 @@ def find_character_block(lines: list[str], cookie_name: str) -> tuple[int, int] 
         return None
     end_line = None
     for j in range(name_line + 1, len(lines)):
-        if re.match(r"^                \},\s*$", lines[j]):
+        # Object separators can be either:
+        #   "                },"
+        # or same-line next-object opener:
+        #   "                }, {"
+        if re.match(r"^                \},(?:\s*\{)?\s*$", lines[j]):
             end_line = j
             break
     if end_line is None:
@@ -160,6 +165,9 @@ def find_character_block(lines: list[str], cookie_name: str) -> tuple[int, int] 
     start_line = None
     k = name_line - 1
     while k >= 0:
+        if re.match(r"^                \},\s*\{\s*$", lines[k]):
+            start_line = k
+            break
         if re.match(r"^                \{\s*$", lines[k]):
             start_line = k
             break
@@ -190,24 +198,33 @@ def apply_page_updated_stamp(
     stamp: str,
     dry_run: bool,
     log: list[str],
-) -> None:
-    """Set or insert pageUpdated on a character block (manual last-updated line on cookie pages)."""
+    *,
+    update_existing: bool = False,
+) -> bool:
+    """
+    Ensure pageUpdated on a character block.
+    - Missing pageUpdated: insert.
+    - Existing pageUpdated: only update when update_existing=True.
+    Returns True when a change is (or would be) made.
+    """
     block = find_character_block(lines, cookie_name)
     if not block:
-        return
+        return False
     start, end = block
     body_start = start + 1
     body_end = end
     new_line = format_data_js_property_line("pageUpdated", stamp)
     idx = find_prop_line(lines, body_start, body_end, "pageUpdated")
     if idx is not None:
+        if not update_existing:
+            return False
         old_val = parse_data_js_property_value(lines[idx], "pageUpdated")
         if old_val == stamp:
-            return
+            return False
         log.append(f"  data {cookie_name}.pageUpdated: {old_val!r} -> {stamp!r}")
         if not dry_run:
             lines[idx] = new_line + "\n"
-        return
+        return True
     log.append(f"  data {cookie_name}.pageUpdated: (insert) {stamp!r}")
     if not dry_run:
         insert_after = ("displayName", "name")
@@ -218,6 +235,7 @@ def apply_page_updated_stamp(
                 insert_at = max(insert_at, q)
         lines[insert_at] = ensure_trailing_comma_on_line(lines[insert_at])
         lines.insert(insert_at + 1, new_line + "\n")
+    return True
 
 
 def apply_cookie_fields(
@@ -412,7 +430,7 @@ def apply_wiki_import_doc(
     """
     Patch data.js and crk/crk_descriptions.js from an import document (same rules as CLI).
     Returns (data_js_touched, desc_changed, log_lines). data_js_touched is true if data.js would be
-    or was updated (field edits and/or pageUpdated stamps for touched cookies).
+    or was updated (field edits and/or pageUpdated insert/update as applicable).
     On structural errors (missing sections), prints to stderr and raises SystemExit(1).
     """
     skip_data_names = _skip_data_js_names(doc)
@@ -427,6 +445,7 @@ def apply_wiki_import_doc(
     desc_changed = False
     stamp = page_updated_stamp_iso()
     stamp_names: set[str] = set()
+    processed_names: set[str] = set()
     desc_keys_touched: set[str] = set()
     data_lines: list[str] | None = None
 
@@ -436,6 +455,7 @@ def apply_wiki_import_doc(
         for wc in doc["cookies"]:
             if wc["name"] in skip_data_names:
                 continue
+            processed_names.add(wc["name"])
             if apply_cookie_fields(data_lines, wc, dry_run, log):
                 data_changed = True
                 stamp_names.add(wc["name"])
@@ -478,14 +498,24 @@ def apply_wiki_import_doc(
         cookie_names_list = [wc["name"] for wc in doc.get("cookies") or []]
         stamp_names.update(cookie_names_for_description_keys(desc_keys_touched, cookie_names_list))
 
+    page_updated_changed = False
     if not no_data and data_lines is not None:
-        for n in sorted(stamp_names):
-            apply_page_updated_stamp(data_lines, n, stamp, dry_run, log)
-        if not dry_run and (data_changed or stamp_names):
+        stamp_targets = processed_names | stamp_names
+        for n in sorted(stamp_targets):
+            changed = apply_page_updated_stamp(
+                data_lines,
+                n,
+                stamp,
+                dry_run,
+                log,
+                update_existing=(n in stamp_names),
+            )
+            page_updated_changed = page_updated_changed or changed
+        if not dry_run and (data_changed or page_updated_changed):
             with open(data_js, "w", encoding="utf-8", newline="\n") as f:
                 f.writelines(data_lines)
 
-    data_js_touched = (not no_data) and (data_changed or bool(stamp_names))
+    data_js_touched = (not no_data) and (data_changed or page_updated_changed)
     return data_js_touched, desc_changed, log
 
 

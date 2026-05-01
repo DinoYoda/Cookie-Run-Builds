@@ -188,7 +188,12 @@ function loadCharListForCurrentGame() {
   if (wrap) wrap.innerHTML = ""
   activeFilters = {}
   const raw = game?.characters || []
-  allChars = raw.filter(c => c && c.name && (typeof characterPassesCnExFilter !== "function" || characterPassesCnExFilter(c)))
+  allChars = raw.filter(c => {
+    if (!c || !c.name) return false
+    if (typeof characterPassesCnExFilter === "function" && !characterPassesCnExFilter(c)) return false
+    if (typeof characterPassesBetaFilter === "function" && !characterPassesBetaFilter(c)) return false
+    return true
+  })
   const filters = game?.tierlists?.find(t => t.filters && Object.keys(t.filters).length)?.filters || {}
   buildFilters(filters)
   const titleEl = document.querySelector(".charlist-title")

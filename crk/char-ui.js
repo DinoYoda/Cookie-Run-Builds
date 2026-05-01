@@ -101,6 +101,31 @@ const _esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").repla
 /** Encode a file name (single path segment) for img/src URLs — % ' ! etc. break on GitHub Pages without this. */
 const _urlFile = (name) => encodeURIComponent(String(name))
 
+/** Wiki / data.js ids are snake_case; icon files on disk use Status_<Pascal_Segments>.png for stable Git casing. */
+function _statusIconBaseFromMainId(mainId) {
+  const raw = String(mainId || "").trim()
+  if (!raw) return ""
+  return raw
+    .split("_")
+    .map((seg) => {
+      const s = String(seg || "")
+      if (!s) return ""
+      if (/^[A-Z]{2,}$/.test(s)) return s
+      if (/^[0-9]/.test(s) || /%/.test(s)) return s.charAt(0).toUpperCase() + s.slice(1)
+      return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
+    })
+    .filter(Boolean)
+    .join("_")
+}
+
+function _statusIconImgTag(pic, mainId, altText) {
+  const base = _statusIconBaseFromMainId(mainId)
+  if (!base) return ""
+  const primary = `${pic}/icons/status/${_urlFile(`Status_${base}.png`)}`
+  const legacy = `${pic}/icons/status/${_urlFile(`status_${base}.png`)}`
+  return `<img src="${primary}" data-status-alt-src="${_esc(legacy)}" alt="${_esc(altText)}" class="skill-status-icon" onerror="${_imgErrStatusIconAttr()}">`
+}
+
 /** Display label for status{mainId|…} hover (internal ids use SNAKE_CASE). */
 function _statusIdToHoverLabel(mainId) {
   const raw = String(mainId || "").trim()
@@ -138,7 +163,10 @@ function _ensureSkillStatusCursorTip() {
   document.addEventListener(
     "mousemove",
     (e) => {
-      const wrap = e.target && e.target.closest ? e.target.closest(".skill-status-hover-wrap") : null
+      const wrap =
+        e.target && e.target.closest
+          ? e.target.closest(".skill-status-hover-wrap[data-status-tip], .char-skill-cd-pill[data-status-tip]")
+          : null
       const label = wrap && wrap.dataset && wrap.dataset.statusTip ? wrap.dataset.statusTip : ""
       if (!label) {
         if (activeWrap) hide()
@@ -147,6 +175,7 @@ function _ensureSkillStatusCursorTip() {
       activeWrap = wrap
       tipEl.textContent = label
       tipEl.classList.add("is-visible")
+      tipEl.classList.remove("skill-status-cursor-tip--wrap")
       tipEl.style.left = `${e.clientX + offsetX}px`
       tipEl.style.top = `${e.clientY + offsetY}px`
     },
@@ -165,6 +194,9 @@ function _imgErrToppingAttr() {
   const u = getGamePictureRoot() + "/toppings/unknown.png"
   return "if(!this.dataset.fallbackDone&&this.dataset.fallbackSrc){this.dataset.fallbackDone='1';this.src=this.dataset.fallbackSrc}else{this.onerror=null;this.src='" + u.replace(/\\/g, "\\\\").replace(/'/g, "\\'") + "'}"
 }
+function _imgErrStatusIconAttr() {
+  return "if(!this.dataset.fbStatus&&this.dataset.statusAltSrc){this.dataset.fbStatus='1';this.src=this.dataset.statusAltSrc}else{this.onerror=null;this.style.display='none'}"
+}
 const _TAG_RE = /(ice|fire|status|light|dark|color|steel|darkness|poison|water|wind|grass|electricity|chaos|earth|rally|header|cookie|treasure|skill|type|position|hover)(-header)?\{([^}]*)\}/g
 const _EL_ICONS = { ice: "Ice", fire: "Fire", light: "Light", dark: "Darkness", steel: "Steel", poison: "Poison", water: "Water", wind: "Wind", grass: "Grass", electricity: "Electricity", chaos: "Chaos", earth: "Earth", darkness: "Darkness" }
 const _COLOR_HEADER_PREFIX = "color-header{"
@@ -180,9 +212,16 @@ function _replaceStandardTags(text, pic) {
       return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieName)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
     }
     if (tag === "treasure") {
-      const t = content.trim()
-      /* Icon only in prose (teams page uses its own markup + text fallback when the asset is missing). */
-      return `<img src="${pic}/treasures/${_urlFile(`Treasure_${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+      const { main, iconOnly } = parseTreasureBracketInner(content)
+      const tmap = typeof CRK_TREASURE_SLUG_MAP === "object" && CRK_TREASURE_SLUG_MAP ? CRK_TREASURE_SLUG_MAP : {}
+      const kw = typeof CRK_TREASURE_KEYWORD_DISPLAY === "object" && CRK_TREASURE_KEYWORD_DISPLAY ? CRK_TREASURE_KEYWORD_DISPLAY : {}
+      const { slug, display } = resolveTreasureWiki(main, tmap, kw)
+      const alt = display || main
+      const img = `<img src="${pic}/treasures/${_urlFile(`Treasure_${slug}.png`)}" alt="${_esc(alt)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+      if (!iconOnly && display) {
+        return `<span class="skill-treasure-inline">${img}<span class="skill-treasure-inline-label"> ${_esc(display)}</span></span>`
+      }
+      return img
     }
     if (tag === "skill") {
       const s = content.trim()
@@ -193,11 +232,12 @@ function _replaceStandardTags(text, pic) {
       const mainId = p[0] || ""
       const overlay = p[1]
       const element = p[2]
-      const mainIconName = mainId.split("_").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join("_")
-      let html = `<img src="${pic}/icons/status/${_urlFile(`status_${mainIconName}.png`)}" alt="${_esc(mainId)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+      let html = _statusIconImgTag(pic, mainId, mainId)
       if (overlay === "und_debuff" || overlay === "und_buff") {
         const ovName = overlay === "und_debuff" ? "Undispellable_Debuff" : "Undispellable_Buff"
-        html = `<span class="skill-status-icon-wrap"><img src="${pic}/icons/status/${_urlFile(`status_${ovName}.png`)}" alt="${_esc(overlay)}" class="skill-status-icon skill-status-icon-overlay" onerror="${_imgErrHide}">${html}</span>`
+        const ovPrimary = `${pic}/icons/status/${_urlFile(`Status_${ovName}.png`)}`
+        const ovLegacy = `${pic}/icons/status/${_urlFile(`status_${ovName}.png`)}`
+        html = `<span class="skill-status-icon-wrap"><img src="${ovPrimary}" data-status-alt-src="${_esc(ovLegacy)}" alt="${_esc(overlay)}" class="skill-status-icon skill-status-icon-overlay" onerror="${_imgErrStatusIconAttr()}">${html}</span>`
       }
       if (element) {
         const elIconName = _EL_ICONS[element.toLowerCase()] || (element.charAt(0).toUpperCase() + element.slice(1))
@@ -910,8 +950,8 @@ async function renderCharacterPage(){
             const icd = (cooldown != null && initialCd != null) ? Math.round(cooldown * 0.3 * initialCd) : null
             const cdPills = cooldown != null
                 ? `<span class="char-skill-cd-pills">
-                    <span class="char-skill-cd-pill" data-tooltip="Base CD"><img src="${pic}/icons/clock.png" alt="" class="char-skill-clock" onerror="${_imgErrHide}">${cooldown} sec</span>
-                    ${icd ? `<span class="char-skill-cd-pill char-skill-icd-pill" data-tooltip="Initial CD"><img src="${pic}/icons/clock.png" alt="" class="char-skill-clock char-skill-clock-muted" onerror="${_imgErrHide}">${icd} sec</span>` : ""}
+                    <span class="char-skill-cd-pill" data-status-tip="Base CD"><img src="${pic}/icons/clock.png" alt="" class="char-skill-clock" onerror="${_imgErrHide}">${cooldown} sec</span>
+                    ${icd ? `<span class="char-skill-cd-pill char-skill-icd-pill" data-status-tip="Initial CD"><img src="${pic}/icons/clock.png" alt="" class="char-skill-clock char-skill-clock-muted" onerror="${_imgErrHide}">${icd} sec</span>` : ""}
                    </span>`
                 : ""
             const middle = middleContent || ""

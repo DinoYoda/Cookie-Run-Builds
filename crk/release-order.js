@@ -217,7 +217,13 @@ const cookieByDate = [
     "Mold Dough Cookie",
     "Venom Dough Cookie",
     "Pom-pom Dough Cookie",
-    "Sugar Swan Cookie"
+    "Sugar Swan Cookie",
+    "Timekeeper Cookie",
+    "Ash Salt Cookie",
+    "Croissant Cookie",
+    "Povidone-Iodine Cookie",
+    "Litmus Cookie",
+    "Ananas Dragon Cookie"
 ]
 
 // Magic Candy release order (cookie displayNames, for future MC-specific sorting)
