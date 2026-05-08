@@ -29,12 +29,16 @@ Extra slug alternates (e.g. `financier_cookie` → also `financier`) are appende
 If the wiki API returns no file for any candidate title, the importer tries the CDN md5 URL
 for **each** slug until one returns a valid PNG (`--no-cdn-fallback` to disable).
 
-Slug candidates (**best resolution** among API hits):
+Slug candidates (**best resolution** within each tier):
   1) cookie name as wiki slug
   2) If Awakened_*: name without Awakened_ prefix
   3) wiki_illustration_slug (awakened displayName rule + illustration overrides)
   4) display_name_plain_slug (ASCII-ish)
   5) display_name_unicode_slug (keeps ä, è, etc. — matches wiki files like Crk_skill_schwarzwälder.png)
+
+For **Awakened_*** cookies, slug-based `Crk_skill_*` / `Crk_mc_skill_*` / `Crk_cj_skill_*` lookups
+try non–base slugs before the plain ancient slug (same as cards/heads), so the base icon does not
+win solely on higher resolution.
 
 Optional: tools/wiki_skill_slug_overrides.json  { "CookieName": "wiki_slug" }
 (Shared slug logic: import_wiki_cards.py uses the same candidate list via wiki_asset_candidate_slugs.)
@@ -55,7 +59,6 @@ import urllib.error
 import urllib.parse
 
 import import_wiki_illustrations as illu
-import import_wiki_candy as candy
 
 ROOT = illu.ROOT
 SKILLS_DIR = os.path.join(ROOT, "crk", "pictures", "skills")
@@ -110,6 +113,34 @@ def wiki_asset_candidate_slugs(
     return out
 
 
+def wiki_crk_asset_file_title_groups(
+    name: str, slugs: list[str], crk_basename: str
+) -> list[list[str]]:
+    """
+    MediaWiki File: title batches for Crk_* assets (e.g. Crk_card_, Crk_head_).
+
+    For **Awakened_*** cookies, tries slugs other than the base ancient first
+    (e.g. awakened_dark_cacao before dark_cacao). Otherwise the base file often
+    has more pixels and incorrectly wins a global "best resolution" pick.
+    """
+    prefix = crk_basename.rstrip("_") + "_"
+
+    def titles_for(ss: list[str]) -> list[str]:
+        return [f"File:{prefix}{s}.png" for s in ss]
+
+    titles = titles_for(slugs)
+    if not name.startswith("Awakened_"):
+        return [titles]
+    base_slug = illu.cookie_name_to_wiki_slug(name[9:])
+    preferred_slugs = [s for s in slugs if s != base_slug]
+    if not preferred_slugs:
+        return [titles]
+    preferred_titles = titles_for(preferred_slugs)
+    if preferred_titles == titles:
+        return [titles]
+    return [preferred_titles, titles]
+
+
 def expand_skill_icon_slug_candidates(slugs: list[str]) -> list[str]:
     """Add filename alternates wiki may use (e.g. display slug `foo_cookie` vs `foo`)."""
     out: list[str] = []
@@ -130,6 +161,12 @@ def expand_skill_icon_slug_candidates(slugs: list[str]) -> list[str]:
 def file_titles_for_variant(slugs: list[str], variant: str) -> list[str]:
     p = VARIANT_PREFIX[variant]
     return [f"File:{p}{s}.png" for s in slugs]
+
+
+def file_title_groups_for_skill_variant(name: str, slugs: list[str], variant: str) -> list[list[str]]:
+    """Ordered File: batches for Crk_skill_ / Crk_mc_skill_ / Crk_cj_skill_ (awakened-aware)."""
+    basename = VARIANT_PREFIX[variant].rstrip("_")
+    return wiki_crk_asset_file_title_groups(name, slugs, basename)
 
 
 def display_name_without_cookie_suffix(display_name: str) -> str | None:
@@ -258,6 +295,10 @@ def _pick_best_info_ordered_groups(
 
 
 def main() -> None:
+    # Lazy import to avoid circular import with import_wiki_candy, which
+    # imports shared helpers from this module.
+    import import_wiki_candy as candy
+
     ap = argparse.ArgumentParser(description="Import CRK skill icons (base, MC, CJ) from Cookie Run Wiki")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--force", action="store_true")
@@ -324,12 +365,11 @@ def main() -> None:
         def add_variant(variant: str) -> None:
             named_stems: list[str] | None = None
             if variant == "cj":
-                title_groups = [
-                    file_titles_for_variant(slugs, "cj"),
-                    file_titles_for_variant(slugs, "mc"),
-                ]
+                title_groups = file_title_groups_for_skill_variant(
+                    name, slugs, "cj"
+                ) + file_title_groups_for_skill_variant(name, slugs, "mc")
             elif variant == "skill":
-                title_groups = [file_titles_for_variant(slugs, "skill")]
+                title_groups = file_title_groups_for_skill_variant(name, slugs, "skill")
                 stems = merge_named_icon_stems(
                     skill_phrase_to_wiki_named_icon_stems(base_skill),
                     skill_phrase_to_wiki_named_icon_stems(short_display),
@@ -338,7 +378,7 @@ def main() -> None:
                     title_groups.append(file_titles_for_named_skill_icons(stems))
                     named_stems = stems
             elif variant == "mc":
-                title_groups = [file_titles_for_variant(slugs, "mc")]
+                title_groups = file_title_groups_for_skill_variant(name, slugs, "mc")
                 stems = merge_named_icon_stems(
                     skill_phrase_to_wiki_named_icon_stems(mc_skill),
                     skill_phrase_to_wiki_named_icon_stems(short_display),
@@ -347,7 +387,7 @@ def main() -> None:
                     title_groups.append(file_titles_for_named_skill_icons(stems))
                     named_stems = stems
             else:
-                title_groups = [file_titles_for_variant(slugs, variant)]
+                title_groups = file_title_groups_for_skill_variant(name, slugs, variant)
             titles_flat = [t for g in title_groups for t in g]
             dest = os.path.join(SKILLS_DIR, f"{name}{LOCAL_SUFFIX[variant]}")
             planned.append(

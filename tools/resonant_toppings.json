@@ -1,4 +1,8 @@
 {
+    "chrono": {
+        "name": "Chrono",
+        "cookies": ["Timekeeper", "Ash_salt"]
+    },
     "unison": {
         "name": "Unison",
         "cookies": ["Rumi", "Mira", "Zoey", "Sugarfly", "Okchun", "Caramel_choux", "Mozzarella", "Caramel_arrow"]

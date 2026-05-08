@@ -59,6 +59,22 @@ function initCharlistCursorTips() {
   }
   const offsetX = 14
   const offsetY = 18
+  const positionTip = (clientX, clientY) => {
+    const pad = 10
+    tipEl.style.left = `${clientX + offsetX}px`
+    tipEl.style.top = `${clientY + offsetY}px`
+    const r = tipEl.getBoundingClientRect()
+    let x = clientX + offsetX
+    let y = clientY + offsetY
+    const vw = window.innerWidth
+    const vh = window.innerHeight
+    if (r.right > vw - pad) x = vw - r.width - pad
+    if (r.bottom > vh - pad) y = vh - r.height - pad
+    if (x < pad) x = pad
+    if (y < pad) y = pad
+    tipEl.style.left = `${Math.round(x)}px`
+    tipEl.style.top = `${Math.round(y)}px`
+  }
   document.addEventListener(
     "mousemove",
     (e) => {
@@ -71,8 +87,7 @@ function initCharlistCursorTips() {
       active = true
       tipEl.textContent = text
       tipEl.classList.add("is-visible", "skill-status-cursor-tip--wrap")
-      tipEl.style.left = `${e.clientX + offsetX}px`
-      tipEl.style.top = `${e.clientY + offsetY}px`
+      positionTip(e.clientX, e.clientY)
     },
     true
   )

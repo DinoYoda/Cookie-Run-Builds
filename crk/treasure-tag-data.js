@@ -4,6 +4,7 @@
   "Sugar Swan's Shining Feather": "sugar_swans_shining_feather",
   "Pincushion": "seamstress_pin_cushion",
   "Candle": "cursed_catacombs_candle",
+  "Watch3": "tbd_ticking_jelly_watch",
   "Horn": "gatekeeper_ghosts_horn",
   "Purse": "cheesebirds_coin_purse",
   "Safe": "ginkgoblins_trophy_safe",
@@ -43,6 +44,7 @@
   "Cape2": "cape_of_the_vanquisher",
   "Robes2": "cape_of_the_vanquisher",
   "Gem": "great_sages_gem",
+  "Box": "mysterious_jewelry_box",
   "Jewelry Box": "mysterious_jewelry_box",
   "acorn_snowball_with_a_tiny_cookie": "acorn_snowball_with_a_tiny_cookie",
   "bear_jellys_lollipop": "bear_jellys_lollipop",
@@ -132,11 +134,13 @@
   "Robes2": "Cape of the Vanquisher",
   "Gem": "Great Sage's Gem",
   "Remedy2": "Subtle Fragrant Remedy",
+  "Box": "Mysterious Jewelry Box",
   "Jewelry Box": "Mysterious Jewelry Box",
   "Fork2": "Mystical Silver Fork",
   "Candle": "Cursed Catacombs Candle",
   "Necklace2": "Unyielding Berry Necklace",
   "Whistle2": "Crimson Magic Whistle",
-  "Vessel": "Darkness Vessel"
+  "Vessel": "Darkness Vessel",
+  "Watch3": "TBD Ticking Jelly Watch"
 }
 })(typeof window !== "undefined" ? window : globalThis)

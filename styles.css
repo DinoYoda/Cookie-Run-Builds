@@ -1219,63 +1219,15 @@ button.active {
     cursor: help;
 }
 
-/* Same layout/behavior as old CD ::after tooltip, own sizing/colors */
-.char-build-rank-icon-wrap::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-6px);
-    padding: 8px 14px;
-    background: #4a4f5a 0%;
-    font-size: 0.88rem;
-    font-weight: normal;
-    white-space: nowrap;
-    border-radius: 8px;
-    border: 1px solid rgba(30, 34, 43, 0.12);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0s;
-}
+/* Rank "Best" / "Recommended" tooltip: follows cursor (crk/char-ui.js + .skill-status-cursor-tip) */
 
-.char-build-rank-icon-wrap:hover::after {
-    opacity: 1;
-}
-
-/* Inline hover helper for tagged text: hover{tooltip:text} */
+/* Inline hover helper for tagged text: hover{tooltip:text}; tip follows cursor */
 .char-inline-hover {
     position: relative;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
     cursor: help;
-}
-
-.char-inline-hover::after {
-    content: attr(data-hover);
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 6px);
-    transform: translateX(-50%) translateY(4px);
-    padding: 6px 8px;
-    border-radius: 6px;
-    font-size: 0.74rem;
-    line-height: 1.2;
-    color: #fff;
-    background: rgba(18, 20, 26, 0.96);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.38);
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity .14s ease, transform .14s ease;
-    z-index: 30;
-}
-
-.char-inline-hover:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
 
 .char-skill-cd-pill img {
@@ -2106,61 +2058,68 @@ button.active {
     object-fit: contain;
 }
 
-.teams-treasure-caption {
-    position: absolute;
-    left: 50%;
-    top: calc(100% + 6px);
-    transform: translateX(-50%) translateY(4px);
-    z-index: 5;
-    min-width: max-content;
-    max-width: min(14rem, 70vw);
-    padding: 6px 8px;
-    border-radius: 6px;
-    font-size: 0.72rem;
-    line-height: 1.25;
-    color: rgba(255, 255, 255, 0.95);
-    text-align: center;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-    pointer-events: none;
-    background: rgba(20, 18, 28, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s;
+/*
+ * Treasure name is never shown under the icon.
+ * Pointer hover: floating tip follows cursor (crk/char-ui.js + data-cursor-tip).
+ * Keyboard / coarse pointer tap: same copy in a bubble above the icon only while focused.
+ */
+.teams-treasure-caption--static-only {
+    display: none;
 }
 
-.teams-treasure-item:hover .teams-treasure-caption,
-.teams-treasure-item:focus-within .teams-treasure-caption {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+@media (hover: hover) {
+    .teams-treasure-item:focus-within:not(:hover) .teams-treasure-caption--static-only {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 6px);
+        transform: translateX(-50%);
+        z-index: 9999;
+        min-width: max-content;
+        max-width: min(14rem, 70vw);
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 0.72rem;
+        line-height: 1.25;
+        color: rgba(255, 255, 255, 0.95);
+        text-align: center;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        pointer-events: none;
+        background: rgba(20, 18, 28, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+}
+
+@media (hover: none) {
+    .teams-treasure-item:focus-within .teams-treasure-caption--static-only {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: calc(100% + 6px);
+        transform: translateX(-50%);
+        z-index: 9999;
+        min-width: max-content;
+        max-width: min(14rem, 70vw);
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 0.72rem;
+        line-height: 1.25;
+        color: rgba(255, 255, 255, 0.95);
+        text-align: center;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        pointer-events: none;
+        background: rgba(20, 18, 28, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
 }
 
 .teams-treasure-item:focus-visible {
     outline: 2px solid rgba(255, 200, 120, 0.85);
     outline-offset: 3px;
-}
-
-@media (hover: none) {
-    .teams-treasure-caption {
-        position: static;
-        left: auto;
-        top: auto;
-        transform: none;
-        min-width: 0;
-        max-width: 11rem;
-        margin-top: 4px;
-        padding: 0;
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-        background: none;
-        border: none;
-        box-shadow: none;
-        color: rgba(255, 255, 255, 0.9);
-    }
 }
 
 .teams-treasure-fallback {

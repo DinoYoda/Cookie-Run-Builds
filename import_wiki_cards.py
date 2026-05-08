@@ -6,7 +6,10 @@ Wiki:   File:Crk_card_<slug>.png  (e.g. Crk_card_gingerbrave.png)
 Local:  crk/pictures/cards/Cookie_<name_lower>_card.png
         Matches ui.js cardImageFilename for CRK: Cookie_${name.toLowerCase()}_card.png
 
-Uses the same slug candidates as skill icons (wiki_asset_candidate_slugs): best resolution wins.
+Uses the same slug candidates as skill icons (wiki_asset_candidate_slugs).
+For **Awakened_*** ancients, prefers non–base slugs before the plain ancient name
+so the awakened card is not replaced by a higher-res base card (same logic as heads).
+Within each tier, best resolution wins.
 
 Optional: tools/wiki_card_slug_overrides.json  { "CookieName": "wiki_slug" }
 Also respects tools/wiki_illustration_slug_overrides.json in candidate (3).
@@ -25,7 +28,11 @@ import sys
 import urllib.error
 
 import import_wiki_illustrations as illu
-from import_wiki_skill_icons import _pick_best_info, wiki_asset_candidate_slugs
+from import_wiki_skill_icons import (
+    _pick_best_info_ordered_groups,
+    wiki_asset_candidate_slugs,
+    wiki_crk_asset_file_title_groups,
+)
 
 ROOT = illu.ROOT
 CARDS_DIR = os.path.join(ROOT, "crk", "pictures", "cards")
@@ -43,10 +50,6 @@ def load_card_overrides() -> dict[str, str]:
 def local_card_filename(name: str) -> str:
     """Match ui.js: Cookie_${String(name).toLowerCase()}_card.png"""
     return f"Cookie_{str(name).lower()}_card.png"
-
-
-def card_file_titles(slugs: list[str]) -> list[str]:
-    return [f"File:Crk_card_{s}.png" for s in slugs]
 
 
 def cdn_url_card_first_slug(slugs: list[str]) -> str | None:
@@ -79,17 +82,18 @@ def main() -> None:
     os.makedirs(CARDS_DIR, exist_ok=True)
     display_by_name = {r["name"]: r.get("displayName") or r["name"] for r in rows}
 
-    planned: list[tuple[str, str, list[str], list[str]]] = []
+    planned: list[tuple[str, str, list[list[str]], list[str]]] = []
     all_titles: list[str] = []
     for r in rows:
         name = r["name"]
         slugs = wiki_asset_candidate_slugs(
             name, display_by_name[name], illustration_ov, card_ov
         )
-        titles = card_file_titles(slugs)
+        title_groups = wiki_crk_asset_file_title_groups(name, slugs, "Crk_card")
         dest = os.path.join(CARDS_DIR, local_card_filename(name))
-        planned.append((name, dest, titles, slugs))
-        all_titles.extend(titles)
+        planned.append((name, dest, title_groups, slugs))
+        for g in title_groups:
+            all_titles.extend(g)
 
     title_to_info = illu._batch_query_titles(list(dict.fromkeys(all_titles)))
 
@@ -99,8 +103,8 @@ def main() -> None:
     skipped_ok = 0
     failed = 0
 
-    for name, dest, titles, slugs in planned:
-        info, won_title = _pick_best_info(titles, title_to_info)
+    for name, dest, title_groups, slugs in planned:
+        info, won_title = _pick_best_info_ordered_groups(title_groups, title_to_info)
         url = info["url"] if info else None
         remote_wh: tuple[int, int] | None = None
         if info and info.get("width") is not None and info.get("height") is not None:
@@ -111,7 +115,8 @@ def main() -> None:
 
         if not url:
             missing_api.append(name)
-            print("  [no wiki file]", name, " ; ".join(titles))
+            titles_try = [t for g in title_groups for t in g]
+            print("  [no wiki file]", name, " ; ".join(titles_try))
             continue
 
         exists_nonempty = os.path.isfile(dest) and os.path.getsize(dest) > 0

@@ -244,6 +244,11 @@
       "shorthand": "Whistle2",
       "name": "Crimson Magic Whistle",
       "slug": null
+    },    
+    {
+      "shorthand": "Watch3",
+      "name": "TBD Ticking Jelly Watch",
+      "slug": "tbd_ticking_jelly_watch"
     }
   ],
   "slugMapExtras": [
@@ -422,6 +427,10 @@
     {
       "key": "vial_of_raging_dunes",
       "slug": "vial_of_raging_dunes"
+    },
+    {
+      "key": "tbd_ticking_jelly_watch",
+      "slug": "tbd_ticking_jelly_watch"
     }
   ],
   "pngStems": [
@@ -464,6 +473,7 @@
     "the_orders_sacred_fork",
     "thunder_gods_paper_charm",
     "twinkling_starlight_crown",
-    "vial_of_raging_dunes"
+    "vial_of_raging_dunes",
+    "tbd_ticking_jelly_watch"
   ]
 }

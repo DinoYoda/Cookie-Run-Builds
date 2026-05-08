@@ -26,6 +26,10 @@
   const contentEl = document.getElementById("teamsContent")
   if (!categoryTabsEl || !sectionTabsEl || !contentEl) return
 
+  if (typeof window.ensureSkillStatusCursorTip === "function") {
+    window.ensureSkillStatusCursorTip()
+  }
+
   function setSectionSubtabsVisible(show) {
     sectionTabsEl.hidden = !show
     if (sectionGroupEl) sectionGroupEl.hidden = !show
@@ -98,11 +102,13 @@
       "this.onerror=null;this.style.display='none';var p=this.parentElement;var f=p&&p.querySelector('.teams-treasure-fallback');if(f)f.removeAttribute('hidden')"
     const caption =
       !iconOnly && label
-        ? `<span class="teams-treasure-caption">${idHtml}</span>`
+        ? `<span class="teams-treasure-caption teams-treasure-caption--static-only">${idHtml}</span>`
         : ""
+    const cursorTipAttr =
+      !iconOnly && label ? ` data-cursor-tip="${esc(label)}"` : ""
     const a11y = esc(label)
     const titleOnlyIcon = iconOnly && label ? ` title="${a11y}"` : ""
-    return `<span class="teams-treasure-item" tabindex="0" aria-label="${a11y}"${titleOnlyIcon}>` +
+    return `<span class="teams-treasure-item" tabindex="0" aria-label="${a11y}"${cursorTipAttr}${titleOnlyIcon}>` +
       `<img src="${treasurePngUrl(pic, slug)}" alt="" class="teams-treasure-icon" onerror="${onErr}">` +
       `${caption}` +
       `<span class="teams-treasure-fallback" hidden>${esc(raw)}</span></span>`

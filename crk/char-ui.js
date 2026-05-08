@@ -140,6 +140,42 @@ function _statusIdToHoverLabel(mainId) {
   }).filter(Boolean).join(" ")
 }
 
+const _CURSOR_TIP_SELECTOR = [
+  ".skill-status-hover-wrap[data-status-tip]",
+  ".char-skill-cd-pill[data-status-tip]",
+  ".char-inline-hover[data-hover]",
+  ".char-build-rank-icon-wrap[data-tooltip]",
+  ".teams-treasure-item[data-cursor-tip]",
+].join(", ")
+
+function _cursorTipLabelFromEl(el) {
+  if (!el || !el.dataset) return ""
+  const d = el.dataset
+  if (d.statusTip) return d.statusTip
+  if (d.hover) return d.hover
+  if (d.tooltip) return d.tooltip
+  if (d.cursorTip) return d.cursorTip
+  return ""
+}
+
+/** Keep the floating tip on-screen while anchoring near the pointer. */
+function _positionCursorTipEl(tipEl, clientX, clientY, offsetX, offsetY) {
+  const pad = 10
+  tipEl.style.left = `${clientX + offsetX}px`
+  tipEl.style.top = `${clientY + offsetY}px`
+  const r = tipEl.getBoundingClientRect()
+  let x = clientX + offsetX
+  let y = clientY + offsetY
+  const vw = window.innerWidth
+  const vh = window.innerHeight
+  if (r.right > vw - pad) x = vw - r.width - pad
+  if (r.bottom > vh - pad) y = vh - r.height - pad
+  if (x < pad) x = pad
+  if (y < pad) y = pad
+  tipEl.style.left = `${Math.round(x)}px`
+  tipEl.style.top = `${Math.round(y)}px`
+}
+
 let _skillStatusCursorTipBound = false
 function _ensureSkillStatusCursorTip() {
   if (_skillStatusCursorTipBound || typeof document === "undefined") return
@@ -155,7 +191,7 @@ function _ensureSkillStatusCursorTip() {
   let activeWrap = null
   const hide = () => {
     activeWrap = null
-    tipEl.classList.remove("is-visible")
+    tipEl.classList.remove("is-visible", "skill-status-cursor-tip--wrap")
     tipEl.textContent = ""
   }
   const offsetX = 14
@@ -164,10 +200,8 @@ function _ensureSkillStatusCursorTip() {
     "mousemove",
     (e) => {
       const wrap =
-        e.target && e.target.closest
-          ? e.target.closest(".skill-status-hover-wrap[data-status-tip], .char-skill-cd-pill[data-status-tip]")
-          : null
-      const label = wrap && wrap.dataset && wrap.dataset.statusTip ? wrap.dataset.statusTip : ""
+        e.target && e.target.closest ? e.target.closest(_CURSOR_TIP_SELECTOR) : null
+      const label = _cursorTipLabelFromEl(wrap)
       if (!label) {
         if (activeWrap) hide()
         return
@@ -175,9 +209,15 @@ function _ensureSkillStatusCursorTip() {
       activeWrap = wrap
       tipEl.textContent = label
       tipEl.classList.add("is-visible")
-      tipEl.classList.remove("skill-status-cursor-tip--wrap")
-      tipEl.style.left = `${e.clientX + offsetX}px`
-      tipEl.style.top = `${e.clientY + offsetY}px`
+      if (
+        wrap.classList.contains("char-inline-hover") ||
+        wrap.classList.contains("teams-treasure-item")
+      ) {
+        tipEl.classList.add("skill-status-cursor-tip--wrap")
+      } else {
+        tipEl.classList.remove("skill-status-cursor-tip--wrap")
+      }
+      _positionCursorTipEl(tipEl, e.clientX, e.clientY, offsetX, offsetY)
     },
     true
   )
@@ -201,15 +241,58 @@ const _TAG_RE = /(ice|fire|status|light|dark|color|steel|darkness|poison|water|w
 const _EL_ICONS = { ice: "Ice", fire: "Fire", light: "Light", dark: "Darkness", steel: "Steel", poison: "Poison", water: "Water", wind: "Wind", grass: "Grass", electricity: "Electricity", chaos: "Chaos", earth: "Earth", darkness: "Darkness" }
 const _COLOR_HEADER_PREFIX = "color-header{"
 
+/** Lowercase key → { name: data.js name, displayName } for cookie{…} links (char= is case-sensitive). */
+let _cookieLinkLookup = null
+
+function _buildCookieLinkLookup() {
+  const m = new Map()
+  try {
+    const data = typeof window !== "undefined" ? window.CRK_DATA : null
+    if (!data?.games) return m
+    const gid = getSelectedGameId()
+    const game = data.games.find((g) => g.id === gid) || data.games[0]
+    const chars = Array.isArray(game?.characters) ? game.characters : []
+    for (const c of chars) {
+      if (!c?.name) continue
+      const name = String(c.name)
+      const displayName = c.displayName != null ? String(c.displayName).trim() : ""
+      const rec = { name, displayName: displayName || name }
+      m.set(name.toLowerCase(), rec)
+      if (displayName) {
+        const dk = displayName.toLowerCase()
+        if (!m.has(dk)) m.set(dk, rec)
+        const noCookie = displayName.replace(/\s+Cookie\s*$/i, "").trim()
+        if (noCookie) {
+          const nk = noCookie.toLowerCase()
+          if (!m.has(nk)) m.set(nk, rec)
+        }
+      }
+    }
+  } catch {
+    /* ignore */
+  }
+  return m
+}
+
+function _resolveCookieForLink(raw) {
+  const key = String(raw ?? "").trim()
+  if (!key) return { name: "", displayName: "" }
+  if (!_cookieLinkLookup) _cookieLinkLookup = _buildCookieLinkLookup()
+  const hit = _cookieLinkLookup.get(key.toLowerCase())
+  if (hit) return { name: hit.name, displayName: hit.displayName }
+  return { name: key, displayName: key }
+}
+
 /** Remaining text: standard tag{…} tokens only (no color-header — use balanced expand first). */
 function _replaceStandardTags(text, pic) {
   if (!text || typeof text !== "string") return ""
   return text.replace(_TAG_RE, (_, tag, noIcon, content) => {
     if (tag === "header") return `<span class="text-tag text-bold">${_esc(content)}</span>`
     if (tag === "cookie") {
-      const cookieName = content.trim()
+      const { name: cookieName, displayName: cookieLabel } = _resolveCookieForLink(content)
+      if (!cookieName) return ""
       const href = `character.html?char=${encodeURIComponent(cookieName)}`
-      return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieName)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
+      return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieLabel)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
     }
     if (tag === "treasure") {
       const { main, iconOnly } = parseTreasureBracketInner(content)
@@ -1422,6 +1505,10 @@ async function renderCharacterPage(){
     }
 
     renderCharPageUpdatedLine(charData)
+}
+
+if (typeof window !== "undefined") {
+  window.ensureSkillStatusCursorTip = _ensureSkillStatusCursorTip
 }
 
 if (document.getElementById("char-skill-section")) {

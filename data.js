@@ -36,8 +36,8 @@ window.CRK_DATA = {
                 {
                     name: "Moonstone",
                     displayName: "Moonstone Cookie",
-                    pageUpdated: "2026-04-30T07:08:36Z",
-                    element: "Fire",
+                    pageUpdated: "2026-05-07T14:24:05Z",
+                    element: "Steel",
                     type: "Support",
                     position: "Middle",
                     rarity: "Epic",
@@ -415,6 +415,40 @@ window.CRK_DATA = {
                     skillAttr: {
                         attr1: [15.5, 27.2],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "fuzzy",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "candy",
+                            substats: ["AMP Buff", "Cooldown", "CRIT%"]
+                        }],
+                        beascuit: [{
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 1,
+                            stats: [{
+                                name: "AMP Buff",
+                                value: "25%"
+                            }, {
+                                name: "Cooldown",
+                                value: "≥30%"
+                            }],
+                            notes: ["Need to consider costume bonds when making this build. Will probably need to swap out an apple for candy if you're missing some costumes.", "Can also be used as a general build."]
+                        }
+                    }
                 },
                 {
                     name: "Cream_ferret",
@@ -1347,7 +1381,7 @@ window.CRK_DATA = {
                 {
                     name: "Venom_dough",
                     displayName: "Venom Dough Cookie",
-                    pageUpdated: "2026-04-30T05:54:39Z",
+                    pageUpdated: "2026-05-07T14:24:05Z",
                     element: ["Chaos", "Poison"],
                     type: "Bomber",
                     position: "Rear",
@@ -1476,7 +1510,7 @@ window.CRK_DATA = {
                 {
                     name: "Sugar_swan",
                     displayName: "Sugar Swan Cookie",
-                    pageUpdated: "2026-04-30T07:07:18Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Light",
                     type: "Healing",
                     position: "Rear",
@@ -1727,7 +1761,7 @@ window.CRK_DATA = {
                 {
                     name: "Stormbringer",
                     displayName: "Stormbringer Cookie",
-                    pageUpdated: "2026-04-30T05:54:39Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Electricity",
                     type: "Charge",
                     position: "Front",
@@ -2096,7 +2130,7 @@ window.CRK_DATA = {
                 {
                     name: "Sea_fairy",
                     displayName: "Sea Fairy Cookie",
-                    pageUpdated: "2026-04-30T05:54:39Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Water",
                     type: "Bomber",
                     position: "Middle",
@@ -2269,7 +2303,7 @@ window.CRK_DATA = {
                         2: {
                             rank: "best",
                             name: "Arena Build",
-                            toppings: 4,
+                            toppings: 2,
                             beascuit: 1,
                             stats: [{
                                 name: "Cooldown",
@@ -2370,7 +2404,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_dark_cacao",
                     displayName: "Dark Cacao Cookie (Dragon Lord)",
-                    pageUpdated: "2026-04-30T05:59:28Z",
+                    pageUpdated: "2026-05-07T14:24:05Z",
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
@@ -2575,7 +2609,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_pure_vanilla",
                     displayName: "Pure Vanilla Cookie (Compassionate)",
-                    pageUpdated: "2026-05-01T06:23:39Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Light",
                     type: "Healing",
                     position: "Rear",
@@ -2634,8 +2668,8 @@ window.CRK_DATA = {
                             }]
                         },
                         2: {
-                            rank: "recommended",
-                            name: "HP build",
+                            rank: "best",
+                            name: "Arena HP build",
                             toppings: 3,
                             beascuit: 1,
                             stats: [{
@@ -2670,7 +2704,7 @@ window.CRK_DATA = {
                 {
                     name: "Awakened_hollyberry",
                     displayName: "Hollyberry Cookie (Aegis)",
-                    pageUpdated: "2026-04-30T05:54:39Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Steel",
                     type: "Defense",
                     position: "Front",
@@ -3142,7 +3176,7 @@ window.CRK_DATA = {
                 {
                     name: "Eternal_sugar",
                     displayName: "Eternal Sugar Cookie",
-                    pageUpdated: "2026-04-30T05:59:28Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Poison",
                     type: "Bomber",
                     position: "Middle",
@@ -3423,24 +3457,19 @@ window.CRK_DATA = {
                     builds: {
                         1: {
                             rank: "best",
-                            name: "Arena 1 Second Start Build",
-                            toppings: 2,
-                            beascuit: 1
+                            name: "Arena Raspberry Build",
+                            toppings: 4,
+                            beascuit: 1,
+                            notes: []
                         },
                         2: {
                             rank: "best",
-                            name: "Arena 2 Second Start Build",
-                            toppings: 1,
-                            beascuit: 1
+                            name: "Arena Chocolate Build",
+                            toppings: 5,
+                            beascuit: 1,
+                            notes: ["Should be paired with 2s cookie{Timekeeper} Timekeeper if running current meta team."]
                         },
                         3: {
-                            name: "PvP Kiwi",
-                            rank: "recommended",
-                            toppings: 7,
-                            beascuit: 1,
-                            notes: ["Actually the arena meta at the moment for Silent Salt."]
-                        },
-                        4: {
                             rank: "recommended",
                             name: "PvE",
                             toppings: 5,
@@ -5136,7 +5165,7 @@ window.CRK_DATA = {
                 {
                     name: "Red_velvet",
                     displayName: "Red Velvet Cookie",
-                    pageUpdated: "2026-04-30T05:46:42Z",
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Darkness",
                     type: "Charge",
                     position: "Front",
@@ -5637,7 +5666,7 @@ window.CRK_DATA = {
                 {
                     name: "Pom-pom_dough",
                     displayName: "Pom-pom Dough Cookie",
-                    pageUpdated: "2026-04-30T05:46:42Z",
+                    pageUpdated: "2026-05-01",
                     element: ["Poison", "Chaos"],
                     type: "Support",
                     position: "Rear",
@@ -5657,6 +5686,15 @@ window.CRK_DATA = {
                             5: "applejelly",
                             6: "applejelly",
                             substats: ["CRIT%", "ATK", "Cooldown"]
+                        }, {
+                            resonance: "looming_darkness",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "Cooldown", "DMG Resist"]
                         }],
                         beascuit: [{
                             element: "Poison",
@@ -5672,6 +5710,7 @@ window.CRK_DATA = {
                             name: "Red Velvet Dragon (Deceit)",
                             toppings: 1,
                             beascuit: 1,
+                            notes: ["Should work well as a general build too."]
                         },
                         2: {
                             rank: "recommended",
@@ -5682,13 +5721,22 @@ window.CRK_DATA = {
                                 name: "Cooldown",
                                 value: "≥8.3%"
                             }]
+                        },
+                        3: {
+                            name: "Alt Build",
+                            toppings: 2,
+                            beascuit: 1,
+                            notes: ["More standard raspberry build."]
                         }
-                    }
+                    },
+                    buildNotes: ["Fairly standard dps rules but as you can see from the RVD build should prioritize CRIT% to maximize periodic DMG."],
+                    review: "Very good poison support. Or really for any debuff focused team. Meta for RVD for a reason though beyond that she's not as strong. Still powerful but not omnipresent like some higher rarity cookies.",
+                    rating: "A"
                 },
                 {
                     name: "Mold_dough",
                     displayName: "Mold Dough Cookie",
-                    pageUpdated: "2026-04-30T05:59:28Z",
+                    pageUpdated: "2026-05-07T14:24:05Z",
                     element: "Chaos",
                     type: "Charge",
                     position: "Front",
@@ -5699,6 +5747,65 @@ window.CRK_DATA = {
                         attr1: [221.3, 632.3],
                         attr2: [122.6, 350.3],
                     },
+                    sets: {
+                        toppings: [{
+                            resonance: "looming_darkness",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "looming_darkness",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }, {
+                            resonance: "looming_darkness",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["ATK", "DMG Resist", "Cooldown"]
+                        }],
+                        beascuit: [{
+                            element: "Chaos",
+                            1: "Chaos DMG",
+                            2: "Chaos DMG",
+                            3: "Chaos DMG",
+                            4: "Chaos DMG"
+                        }, {
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "General Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            name: "Alt Build",
+                            toppings: 3,
+                            beascuit: 1,
+                            notes: ["Cooldown build. Was used in boss rush with full cooldown beascuit but since that event didn't allow for treasures I have swapped the beascuit out for chaos{Chaos} DMG to account for the treasure{watch2}."]
+                        }
+                    },
+                    buldNotes: ["Standard charge toppings."],
+                    review: "Mold dough is good. He's not amazing but he is good. Good to have in a chaos comp and can put out respectable dmg. Unlike his creator he's not omnipresent but he is nice to have on hand just in case.",
+                    rating: "A"
                 },
                 {
                     name: "Chess_choco",
@@ -5783,24 +5890,89 @@ window.CRK_DATA = {
                 {
                     name: "Timekeeper",
                     displayName: "Timekeeper Cookie",
-                    pageUpdated: "2026-04-30T05:59:28Z",
-                    beta: true,
+                    pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Light",
                     type: "Magic",
                     position: "Middle",
                     rarity: "Legendary",
-                    skill: "Temporal Stabilization"
+                    skill: "Temporal Stabilization",
+                    cd: 15,
+                    initialCd: 0.477,
+                    skillAttr: {
+                        attr1: [201.3, 411.7],
+                    },
+                    sets: {
+                        toppings: [{
+                            resonance: "chrono",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "raspberry",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }, {
+                            resonance: "chrono",
+                            1: "raspberry",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
+                            substats: ["Cooldown", "ATK", "DMG Resist"]
+                        }],
+                        beascuit: [{
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
+                        }, {
+                            element: "Light",
+                            1: "Light DMG",
+                            2: "Light DMG",
+                            3: "Light DMG",
+                            4: "Light DMG"
+                        }]
+                    },
+                    builds: {
+                        1: {
+                            rank: "best",
+                            name: "Arena Build",
+                            toppings: 1,
+                            beascuit: 1,
+                        },
+                        2: {
+                            rank: "best",
+                            name: "Arena Build (1s Start)",
+                            toppings: 2,
+                            beascuit: 1,
+                        },
+                        3: {
+                            rank: "best",
+                            name: "PvE Build",
+                            toppings: 1,
+                            beascuit: 2,
+                        },
+                        notes: ["It's not easy but do try to get as close to 30% cooldown as you can without factoring in set bonuses. This does require perfect substats however.", "Can run one raspberry topping as opposed to tart."]
+                    },
+                    buildNotes: ["Can run full raspberry to sucess howevever full chocolate is usually preferred due to her passive giving ATK from cooldown anyway."],
+                    review: "MY GIRL IS HEEEEERE!!! Uhm, mhm, back on topic Timekeeper is legitimately broken in arena and PvE. She does insane damage, has insane support, and is herself even more tanky. Shutting down revives with dial lock means at least one of your opponents (and your own) cookies will almost immediately die at round start in arena. Can throw her in anywhere that isn't like a specific elemental comp.",
+                    rating: "S+"
                 },
                 {
                     name: "Ash_salt",
                     displayName: "Ash Salt Cookie",
-                    pageUpdated: "2026-04-30T05:59:28Z",
-                    beta: true,
+                    pageUpdated: "2026-05-08T05:02:50Z",
                     element: "Darkness",
                     type: "Ambush",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Ashen Assassin",
+                    cd: 14,
+                    skillAttr: {
+                        attr1: [157.3, 449.3],
+                        attr2: [235.9, 674.0],
+                    },
                 },
                 {
                     name: "Croissant",
@@ -5855,32 +6027,11 @@ window.CRK_DATA = {
                             name: "Millennial_tree",
                             build: 2
                         }, {
-                            name: "Dark_enchantress",
+                            name: "Timekeeper",
                             build: 1
-                        }, {
-                            name: "Eternal_sugar",
-                            build: 2
-                        }, {
-                            name: "Venom_dough",
-                            build: 1
-                        }, {
-                            name: "Sugar_swan",
-                            build: 2
-                        }],
-                        rally: "Millennial_tree",
-                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "explorers_monocle"],
-                        notes: ["Best run into a mirror team with the treasure{cursed_catacombs_candle} Candle.", "Don't run it into the treasure{mysterious_jewelry_box} Box."]
-                    }, {
-                        name: "Candle Comp",
-                        cookies: [{
-                            name: "Millennial_tree",
-                            build: 3
                         }, {
                             name: "Dark_enchantress",
                             build: 1
-                        }, {
-                            name: "Eternal_sugar",
-                            build: 2
                         }, {
                             name: "Venom_dough",
                             build: 1
@@ -5890,38 +6041,17 @@ window.CRK_DATA = {
                         }],
                         rally: "Millennial_tree",
                         treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "cursed_catacombs_candle"],
-                        notes: ["Best run into the treasure{mysterious_jewelry_box} Box.", "ES should cast before MT in this comp."]
+                        notes: ["Best run into a mirror team with the treasure{box}", "Don't run it into the treasure{mysterious_jewelry_box} Box."]
                     }, {
-                        name: "Box Comp (4/2 ES)",
+                        name: "Alt Team (TK 1s, DE 2s Start)",
                         cookies: [{
                             name: "Millennial_tree",
                             build: 3
                         }, {
-                            name: "Dark_enchantress",
-                            build: 1
-                        }, {
-                            name: "Eternal_sugar",
-                            build: 3
-                        }, {
-                            name: "Venom_dough",
-                            build: 1
-                        }, {
-                            name: "Sugar_swan",
-                            build: 2
-                        }],
-                        rally: "Millennial_tree",
-                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "mysterious_jewelry_box"],
-                        notes: ["Best run into teams with treasure{explorers_monocle} Monocle.", "Best if you don't run this into treasure{cursed_catacombs_candle} Candle."]
-                    }, {
-                        name: "Box Comp (2s Start DE)",
-                        cookies: [{
-                            name: "Millennial_tree",
-                            build: 3
-                        }, {
-                            name: "Dark_enchantress",
+                            name: "Timekeeper",
                             build: 2
                         }, {
-                            name: "Eternal_sugar",
+                            name: "Dark_enchantress",
                             build: 2
                         }, {
                             name: "Venom_dough",
@@ -5931,31 +6061,94 @@ window.CRK_DATA = {
                             build: 2
                         }],
                         rally: "Millennial_tree",
-                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "mysterious_jewelry_box"],
-                        notes: ["Can run 4/2 ES build or even 4/2 candy (topping set 9).", "Best run into teams with treasure{explorers_monocle} Monocle.", "Best if you don't run this into treasure{cursed_catacombs_candle} Candle."]
+                        treasures: ["dream_conductors_whistle", "watch3", "cursed_catacombs_candle"],
+                        notes: ["Cast order is TK, DE, VD, MT, and then SS."]
                     }, {
-                        name: "Silent Salt",
+                        name: "Pure Vanilla Comp",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 3
+                        }, {
+                            name: "Timekeeper",
+                            build: 2
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 1
+                        }, {
+                            name: "Venom_dough",
+                            build: 1
+                        }, {
+                            name: "Awakened_pure_vanilla",
+                            build: 2
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["dream_conductors_whistle", "watch3", "monocle2"],
+                        notes: ["Best run into teams with treasure{candle}."]
+                    }, {
+                        name: "Salt Bunny 1",
                         cookies: [{
                             name: "Millennial_tree",
                             build: 3
                         }, {
                             name: "Silent_salt",
-                            build: 3
-                        }, {
-                            name: "Dark_enchantress",
                             build: 1
                         }, {
-                            name: "Venom_dough",
+                            name: "Timekeeper",
+                            build: 2
+                        }, {
+                            name: "Marshmallow_bunny",
                             build: 1
                         }, {
                             name: "Sugar_swan",
                             build: 2
                         }],
                         rally: "Millennial_tree",
-                        treasures: ["dream_conductors_whistle", "sleepyheads_jelly_watch", "cursed_catacombs_candle"],
-                        notes: ["Best run into the treasure{cursed_catacombs_candle} Candle.", "Best used if Silent Salt is 4★ and above."]
+                        treasures: ["box", "watch3", "cursed_catacombs_candle"],
+                        notes: ["Best run into the treasure{cursed_catacombs_candle} Candle."]
+                    }, {
+                        name: "Salt Bunny 2",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 3
+                        }, {
+                            name: "Silent_salt",
+                            build: 2
+                        }, {
+                            name: "Timekeeper",
+                            build: 1
+                        }, {
+                            name: "Marshmallow_bunny",
+                            build: 1
+                        }, {
+                            name: "Sugar_swan",
+                            build: 2
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["box", "watch2", "cursed_catacombs_candle"],
+                        notes: ["Best run into the treasure{cursed_catacombs_candle} Candle."]
+                    }, {
+                        name: "The Salt, the Bunny, and the Witch",
+                        cookies: [{
+                            name: "Millennial_tree",
+                            build: 3
+                        }, {
+                            name: "Silent_salt",
+                            build: 1
+                        }, {
+                            name: "Timekeeper",
+                            build: 2
+                        }, {
+                            name: "Dark_enchantress",
+                            build: 2
+                        }, {
+                            name: "Marshmallow_bunny",
+                            build: 1
+                        }],
+                        rally: "Millennial_tree",
+                        treasures: ["monocle2", "watch3", "cursed_catacombs_candle"],
+                        notes: ["Rotation should be TK, DE, MB, MT, SS.", "Best run into the treasure{cursed_catacombs_candle} Candle.", "Need a high promo Millennial Tree.", "If Salt dies before casting you pretty much just lose."]
                     }],
-                    notes: ["Arena is super RNG heavy this season so don't be surprised if you lose to a team you're built to counter."]
+                    notes: ["Good to remember to run treasure{watch2} for 2s Timekeeper and treasure{watch3} for 1s Timekeeper.", "Best not to hit treasure{box}, treasure{candle} with treasure{whistle}, treasure{monocle2}.", "Best to run treasure{box} into treasure{monocle2}, treasure{monocle2} into treasure{candle}, and treasure{candle} into treasure{box}"]
                 }, {
                     name: "Guild Battle",
                     sections: [{
@@ -6077,7 +6270,7 @@ window.CRK_DATA = {
                             "Cream Ferret Cookie", "Wind Archer Cookie",
                             "Mystic Flour Cookie", "Silent Salt Cookie",
                             "Dark Enchantress Cookie",
-                            "Millennial Tree Cookie", "Rebel Cookie", "Sugar Swan Cookie"
+                            "Millennial Tree Cookie", "Rebel Cookie", "Sugar Swan Cookie", "Timekeeper Cookie"
                         ],
                         [
                             "Stormbringer Cookie", "Crème Brûlée Cookie",
@@ -6090,21 +6283,21 @@ window.CRK_DATA = {
                             "Doughael", "Green Tea Mousse Cookie", "Financier Cookie",
                             "Mint Choco Cookie",
                             "Sea Fairy Cookie", "Tarte Tatin Cookie", "Venom Dough Cookie",
-                            "Charcoal Cookie", "Pure Vanilla Cookie", "Snapdragon Cookie"
+                            "Pure Vanilla Cookie", "Snapdragon Cookie", "Menthol Cookie", "Linzer Cookie"
                         ],
                         [
                             "Golden Cheese Cookie (Immortal)", "Golden Cheese Cookie",
                             "White Lily Cookie",
                             "Frost Queen Cookie", "Sherbet Cookie",
-                            "Pavlova Cookie", "Linzer Cookie", "Salt Cellar Cookie",
+                            "Pavlova Cookie", "Salt Cellar Cookie",
                             "Space Doughnut",
                             "Jagae Cookie", "Manju Cookie", "Captain Caviar Cookie",
-                            "Candy Apple Cookie", "Menthol Cookie", "Seltzer Cookie",
+                            "Candy Apple Cookie", "Seltzer Cookie",
                             "Peach Blossom Cookie", "Moonlight Cookie", "Cream Puff Cookie",
                             "Rockstar Cookie", "Mold Dough Cookie",
                             "Shining Glitter Cookie",
                             "Mozzarella Cookie", "Sparkling Cookie", "Wedding Cake Cookie",
-                            "Parfait Cookie", "Snow Sugar Cookie", "Pom-pom Dough Cookie"
+                            "Parfait Cookie", "Snow Sugar Cookie", "Pom-pom Dough Cookie", "Charcoal Cookie"
                         ],
                         [
                             "Hollyberry Cookie", "Crimson Coral Cookie", "Stardust Cookie",
@@ -6178,7 +6371,7 @@ window.CRK_DATA = {
                             "Millennial Tree Cookie",
                             "Venom Dough Cookie",
                             "White Lily Cookie (Dawnbringer)",
-                            "Eternal Sugar Cookie", "Sugar Swan Cookie"
+                            "Eternal Sugar Cookie", "Sugar Swan Cookie", "Timekeeper Cookie"
                         ],
                         [
                             "Cream Ferret Cookie", "Icicle Yeti Cookie",
