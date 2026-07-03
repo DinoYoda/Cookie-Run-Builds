@@ -77,7 +77,11 @@ from import_wiki_cookie_data import (
     resolve_wiki_title,
 )
 from wiki_expand_kch import expand_wiki_kch_templates_for_skill
-from wiki_expand_status import expand_wiki_status_templates, expand_wiki_tip_templates
+from wiki_expand_status import (
+    _extract_balanced_mediawiki_template,
+    expand_wiki_status_templates,
+    expand_wiki_tip_templates,
+)
 
 ROOT = illu.ROOT
 TREASURE_MAP_PATH = os.path.join(ROOT, "tools", "wiki_treasure_slug_map.json")
@@ -122,6 +126,30 @@ def _load_kch_map() -> dict[str, str]:
                 continue
             key = str(k).strip().lower()
             out[key] = str(v).strip()
+
+    # Seed from character names so common initials (e.g. sf -> Sea_fairy) resolve even
+    # when the wiki module map is incomplete. Keep only unique abbreviations.
+    auto_abbrev: dict[str, str] = {}
+    try:
+        by_abbrev: dict[str, set[str]] = {}
+        for row in illu.load_char_rows():
+            name = str(row.get("name") or "").strip()
+            if not name or "_" not in name:
+                continue
+            parts = [p for p in name.split("_") if p]
+            if len(parts) < 2:
+                continue
+            ab = "".join(p[0].lower() for p in parts if p and p[0].isalnum())
+            if len(ab) < 2:
+                continue
+            by_abbrev.setdefault(ab, set()).add(name)
+        for ab, names in by_abbrev.items():
+            if len(names) == 1:
+                auto_abbrev[ab] = next(iter(names))
+    except Exception:
+        auto_abbrev = {}
+
+    merge_obj(auto_abbrev)
 
     if os.path.isfile(KCH_MODULE_CRK_PATH):
         with open(KCH_MODULE_CRK_PATH, encoding="utf-8") as f:
@@ -395,8 +423,22 @@ def _expand_type(s: str) -> str:
 def _strip_misc_templates(s: str) -> str:
     s = re.sub(r"\{\{PatchCRK\|[^}]+\}\}", "", s, flags=re.I)
     s = re.sub(r"\{\{Sic\}\}", "(sic)", s, flags=re.I)
-    s = re.sub(r"\{\{[^}]+\}\}", "", s)
-    return s
+    i = 0
+    out: list[str] = []
+    while i < len(s):
+        j = s.find("{{", i)
+        if j < 0:
+            out.append(s[i:])
+            break
+        out.append(s[i:j])
+        span = _extract_balanced_mediawiki_template(s, j)
+        if not span:
+            out.append(s[j : j + 2])
+            i = j + 2
+            continue
+        _, end = span
+        i = end
+    return "".join(out)
 
 
 def _shield_elements(s: str) -> tuple[str, list[str]]:
@@ -478,17 +520,56 @@ def section_to_lines(section: str) -> list[str]:
     return out
 
 
+def _extract_balanced_brace_span(s: str, open_brace: int) -> int | None:
+    """Return index one past the closing } for { at open_brace, or None if unbalanced."""
+    if open_brace < 0 or open_brace >= len(s) or s[open_brace] != "{":
+        return None
+    depth = 0
+    for j in range(open_brace, len(s)):
+        if s[j] == "{":
+            depth += 1
+        elif s[j] == "}":
+            depth -= 1
+            if depth == 0:
+                return j + 1
+    return None
+
+
+_SITE_TAG_OPEN_RE = re.compile(
+    r"(?:hover|light|dark|fire|ice|status|color|steel|poison|water|wind|grass|"
+    r"electricity|chaos|earth|darkness|header|cookie|treasure|skill|type|position|rally)"
+    r"(?:-header)?\{",
+    re.I,
+)
+
+
 def _split_numeric_tokens(s: str) -> list[str]:
-    """Split into alternating text / number+% segments (regex-based)."""
+    """Split into text / number+% segments; keep site tag{…} blocks intact (may nest)."""
     parts: list[str] = []
     pos = 0
-    for m in _NUM_PAIR_RE.finditer(s):
-        if m.start() > pos:
-            parts.append(s[pos : m.start()])
-        parts.append(m.group(0))
-        pos = m.end()
-    if pos < len(s):
+    n = len(s)
+    while pos < n:
+        tag_m = _SITE_TAG_OPEN_RE.search(s, pos)
+        num_m = _NUM_PAIR_RE.search(s, pos)
+        if tag_m and (not num_m or tag_m.start() <= num_m.start()):
+            if tag_m.start() > pos:
+                parts.append(s[pos : tag_m.start()])
+            open_brace = tag_m.end() - 1
+            end = _extract_balanced_brace_span(s, open_brace)
+            if end is None:
+                parts.append(s[pos:])
+                break
+            parts.append(s[tag_m.start() : end])
+            pos = end
+            continue
+        if num_m:
+            if num_m.start() > pos:
+                parts.append(s[pos : num_m.start()])
+            parts.append(num_m.group(0))
+            pos = num_m.end()
+            continue
         parts.append(s[pos:])
+        break
     return parts
 
 

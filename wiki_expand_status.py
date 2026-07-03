@@ -211,6 +211,60 @@ def _status_template_to_site(inner: str) -> str:
     return f"{base} {label}" if label else base
 
 
+def _split_site_status_tag_and_label(site_status: str) -> tuple[str, str]:
+    """Split ``status{…} Label`` into icon tag and trailing plain label (may be empty)."""
+    m = re.match(r"^(status\{[^}]+\})(?:\s+(.*))?$", site_status.strip(), re.DOTALL)
+    if not m:
+        return site_status.strip(), ""
+    return m.group(1), (m.group(2) or "").strip()
+
+
+def _expand_wiki_statuses_for_tip_visible(visible: str) -> tuple[str, str]:
+    """
+    Expand wiki {{Status|…}} in Tip visible text.
+
+    Returns (leading status{…} tags, plain hover-visible text without nested site tags).
+    """
+    prefix_tags: list[str] = []
+    plain = visible
+    while True:
+        m = _STATUS_OPEN_RE.search(plain)
+        if not m:
+            break
+        span = _extract_balanced_mediawiki_template(plain, m.start())
+        if not span:
+            break
+        start, end = span
+        inner = plain[m.end() : end - 2]
+        site = _status_template_to_site(inner)
+        tag, label = _split_site_status_tag_and_label(site)
+        if tag.startswith("status{") and tag.endswith("}"):
+            prefix_tags.append(tag)
+            replacement = label
+        else:
+            replacement = site
+        plain = plain[:start] + replacement + plain[end:]
+    return (" ".join(prefix_tags), plain.strip())
+
+
+def _expand_wiki_element_templates(s: str) -> str:
+    """{{Element|Light|125.0%}} → light{125.0%} (including inside Tip visible text)."""
+
+    def repl(m: re.Match[str]) -> str:
+        el, pct = m.group(1).strip(), m.group(2).strip()
+        tag = el.lower().replace(" ", "")
+        return f"{tag}{{{pct}}}"
+
+    s = re.sub(r"\{\{Element\|([^|}|]+)\|([^}]+)\}\}", repl, s, flags=re.I)
+
+    def repl_single(m: re.Match[str]) -> str:
+        el = m.group(1).strip()
+        tag = el.lower().replace(" ", "")
+        return f"{tag}{{{el}}}"
+
+    return re.sub(r"\{\{Element\|([^}|]+)\}\}", repl_single, s, flags=re.I)
+
+
 def expand_wiki_tip_templates(s: str) -> str:
     """{{Tip|visible|tooltip}} → hover{tooltip:visible}. Supports | and {{…}} in either side."""
     out: list[str] = []
@@ -231,10 +285,18 @@ def expand_wiki_tip_templates(s: str) -> str:
         parts = split_balanced_piped_args(inner)
         visible = parts[0].strip() if parts else ""
         tooltip = parts[1].strip() if len(parts) > 1 else ""
+        status_prefix, hover_visible = _expand_wiki_statuses_for_tip_visible(visible)
+        hover_visible = _expand_wiki_element_templates(hover_visible)
         if visible and tooltip:
-            out.append(f"hover{{{tooltip}:{visible}}}")
+            if status_prefix:
+                out.append(f"{status_prefix} hover{{{tooltip}:{hover_visible}}}")
+            else:
+                out.append(f"hover{{{tooltip}:{hover_visible}}}")
         elif visible:
-            out.append(visible)
+            if status_prefix:
+                out.append(f"{status_prefix} {hover_visible}".strip())
+            else:
+                out.append(visible)
         elif tooltip:
             out.append(tooltip)
         i = end

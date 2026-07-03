@@ -237,9 +237,42 @@ function _imgErrToppingAttr() {
 function _imgErrStatusIconAttr() {
   return "if(!this.dataset.fbStatus&&this.dataset.statusAltSrc){this.dataset.fbStatus='1';this.src=this.dataset.statusAltSrc}else{this.onerror=null;this.style.display='none'}"
 }
-const _TAG_RE = /(ice|fire|status|light|dark|color|steel|darkness|poison|water|wind|grass|electricity|chaos|earth|rally|header|cookie|treasure|skill|type|position|hover)(-header)?\{([^}]*)\}/g
+const _TAG_BASE_NAMES = ["ice", "fire", "status", "light", "dark", "color", "steel", "darkness", "poison", "water", "wind", "grass", "electricity", "chaos", "earth", "rally", "header", "cookie", "treasure", "skill", "type", "position", "hover"]
+const _STANDARD_TAG_PREFIXES = (() => {
+  const out = []
+  for (const tag of _TAG_BASE_NAMES) {
+    out.push({ prefix: `${tag}-header{`, tag, noIcon: true })
+    out.push({ prefix: `${tag}{`, tag, noIcon: false })
+  }
+  return out.sort((a, b) => b.prefix.length - a.prefix.length)
+})()
 const _EL_ICONS = { ice: "Ice", fire: "Fire", light: "Light", dark: "Darkness", steel: "Steel", poison: "Poison", water: "Water", wind: "Wind", grass: "Grass", electricity: "Electricity", chaos: "Chaos", earth: "Earth", darkness: "Darkness" }
 const _COLOR_HEADER_PREFIX = "color-header{"
+
+function _extractBalancedBraceContent(text, openBraceIndex) {
+  if (openBraceIndex < 0 || openBraceIndex >= text.length || text[openBraceIndex] !== "{") return null
+  let depth = 0
+  for (let j = openBraceIndex; j < text.length; j++) {
+    const c = text[j]
+    if (c === "{") depth++
+    else if (c === "}") {
+      depth--
+      if (depth === 0) return { inner: text.slice(openBraceIndex + 1, j), end: j + 1 }
+    }
+  }
+  return null
+}
+
+function _findNextStandardTag(text, fromIndex) {
+  let best = null
+  for (const p of _STANDARD_TAG_PREFIXES) {
+    const idx = text.indexOf(p.prefix, fromIndex)
+    if (idx >= 0 && (!best || idx < best.index)) {
+      best = { index: idx, tag: p.tag, noIcon: p.noIcon, openBrace: idx + p.prefix.length - 1 }
+    }
+  }
+  return best
+}
 
 /** Lowercase key → { name: data.js name, displayName } for cookie{…} links (char= is case-sensitive). */
 let _cookieLinkLookup = null
@@ -283,108 +316,129 @@ function _resolveCookieForLink(raw) {
   return { name: key, displayName: key }
 }
 
+function _renderSingleTag(tag, noIcon, content, pic) {
+  if (tag === "header") return `<span class="text-tag text-bold">${_esc(content)}</span>`
+  if (tag === "cookie") {
+    const { name: cookieName, displayName: cookieLabel } = _resolveCookieForLink(content)
+    if (!cookieName) return ""
+    const href = `character.html?char=${encodeURIComponent(cookieName)}`
+    return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieLabel)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
+  }
+  if (tag === "treasure") {
+    const { main, iconOnly } = parseTreasureBracketInner(content)
+    const tmap = typeof CRK_TREASURE_SLUG_MAP === "object" && CRK_TREASURE_SLUG_MAP ? CRK_TREASURE_SLUG_MAP : {}
+    const kw = typeof CRK_TREASURE_KEYWORD_DISPLAY === "object" && CRK_TREASURE_KEYWORD_DISPLAY ? CRK_TREASURE_KEYWORD_DISPLAY : {}
+    const { slug, display } = resolveTreasureWiki(main, tmap, kw)
+    const alt = display || main
+    const img = `<img src="${pic}/treasures/${_urlFile(`Treasure_${slug}.png`)}" alt="${_esc(alt)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    if (!iconOnly && display) {
+      return `<span class="skill-treasure-inline">${img}<span class="skill-treasure-inline-label"> ${_esc(display)}</span></span>`
+    }
+    return img
+  }
+  if (tag === "skill") {
+    const s = content.trim()
+    return `<img src="${pic}/skills/${_urlFile(`${s}_skill.png`)}" alt="${_esc(s)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+  }
+  if (tag === "status") {
+    const p = content.split("|").map(s => s.trim())
+    const mainId = p[0] || ""
+    const overlay = p[1]
+    const element = p[2]
+    let html = _statusIconImgTag(pic, mainId, mainId)
+    if (overlay === "und_debuff" || overlay === "und_buff") {
+      const ovName = overlay === "und_debuff" ? "Undispellable_Debuff" : "Undispellable_Buff"
+      const ovPrimary = `${pic}/icons/status/${_urlFile(`Status_${ovName}.png`)}`
+      const ovLegacy = `${pic}/icons/status/${_urlFile(`status_${ovName}.png`)}`
+      html = `<span class="skill-status-icon-wrap"><img src="${ovPrimary}" data-status-alt-src="${_esc(ovLegacy)}" alt="${_esc(overlay)}" class="skill-status-icon skill-status-icon-overlay" onerror="${_imgErrStatusIconAttr()}">${html}</span>`
+    }
+    if (element) {
+      const elIconName = _EL_ICONS[element.toLowerCase()] || (element.charAt(0).toUpperCase() + element.slice(1))
+      const elImg = `<img src="${pic}/icons/${_urlFile(`${elIconName}.png`)}" alt="${_esc(element)}" class="skill-status-icon skill-status-icon-element" onerror="${_imgErrHide}">`
+      html = `<span class="skill-status-icon-wrap">${html}${elImg}</span>`
+    }
+    const tip = _statusIdToHoverLabel(mainId)
+    const tipAttr = tip ? ` data-status-tip="${_esc(tip)}"` : ""
+    return `<span class="skill-status-hover-wrap"${tipAttr}>${html}</span>`
+  }
+  if (tag === "type") {
+    const t = content.trim()
+    return `<img src="${pic}/icons/${_urlFile(`${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+  }
+  if (tag === "position") {
+    const p = content.trim()
+    return `<img src="${pic}/icons/${_urlFile(`${p}.png`)}" alt="${_esc(p)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+  }
+  if (tag === "hover") {
+    const raw = String(content || "")
+    const i = raw.indexOf(":")
+    const hoverText = i >= 0 ? raw.slice(0, i).trim() : raw.trim()
+    const visibleText = i >= 0 ? raw.slice(i + 1).trim() : raw.trim()
+    if (!visibleText) return ""
+    const visibleHtml = _expandColorHeaderBlocks(visibleText, pic)
+    return `<span class="char-inline-hover" data-hover="${_esc(hoverText || visibleText)}">${visibleHtml}</span>`
+  }
+  if (tag === "color") {
+    const ci = content.indexOf(":"), key = ci >= 0 ? content.slice(0, ci).trim() : content
+    const disp = ci >= 0 ? content.slice(ci + 1).trim() : content
+    const hexKey = String(key).trim()
+    if (/^[0-9a-f]{3}$/i.test(hexKey) || /^[0-9a-f]{6}$/i.test(hexKey) || /^[0-9a-f]{8}$/i.test(hexKey)) {
+      const hx = /^[0-9a-f]{3}$/i.test(hexKey) ? hexKey.split("").map((c) => c + c).join("") : hexKey
+      return `<span class="text-tag text-bold" style="color:#${_esc(hx)}">${_expandColorHeaderBlocks(disp, pic)}</span>`
+    }
+    const keyNorm = String(key).trim().toLowerCase()
+    const elementToCss = {
+      ice: "ice",
+      fire: "fire",
+      light: "light",
+      dark: "darkness",
+      darkness: "darkness",
+      steel: "steel",
+      poison: "poison",
+      water: "water",
+      wind: "wind",
+      grass: "grass",
+      electricity: "electricity",
+      chaos: "chaos",
+      earth: "earth"
+    }
+    const elCss = elementToCss[keyNorm]
+    if (elCss) {
+      return `<span class="text-tag text-${elCss} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
+    }
+    return `<span class="text-tag text-color-${_esc(key)} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
+  }
+  if (tag === "rally") {
+    return `<span class="text-tag text-rally text-bold">${_esc(content)}</span>`
+  }
+  const span = `<span class="text-tag text-${tag} text-bold">${_esc(content)}</span>`
+  if (noIcon) return span
+  const iconName = _EL_ICONS[tag] || tag.charAt(0).toUpperCase() + tag.slice(1)
+  return `<img src="${pic}/icons/${_urlFile(`${iconName}.png`)}" alt="${_esc(tag)}" class="skill-status-icon text-tag" onerror="${_imgErrHide}">${span}`
+}
+
 /** Remaining text: standard tag{…} tokens only (no color-header — use balanced expand first). */
 function _replaceStandardTags(text, pic) {
   if (!text || typeof text !== "string") return ""
-  return text.replace(_TAG_RE, (_, tag, noIcon, content) => {
-    if (tag === "header") return `<span class="text-tag text-bold">${_esc(content)}</span>`
-    if (tag === "cookie") {
-      const { name: cookieName, displayName: cookieLabel } = _resolveCookieForLink(content)
-      if (!cookieName) return ""
-      const href = `character.html?char=${encodeURIComponent(cookieName)}`
-      return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieLabel)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
+  let i = 0
+  let out = ""
+  while (i < text.length) {
+    const hit = _findNextStandardTag(text, i)
+    if (!hit) {
+      out += text.slice(i)
+      break
     }
-    if (tag === "treasure") {
-      const { main, iconOnly } = parseTreasureBracketInner(content)
-      const tmap = typeof CRK_TREASURE_SLUG_MAP === "object" && CRK_TREASURE_SLUG_MAP ? CRK_TREASURE_SLUG_MAP : {}
-      const kw = typeof CRK_TREASURE_KEYWORD_DISPLAY === "object" && CRK_TREASURE_KEYWORD_DISPLAY ? CRK_TREASURE_KEYWORD_DISPLAY : {}
-      const { slug, display } = resolveTreasureWiki(main, tmap, kw)
-      const alt = display || main
-      const img = `<img src="${pic}/treasures/${_urlFile(`Treasure_${slug}.png`)}" alt="${_esc(alt)}" class="skill-status-icon" onerror="${_imgErrHide}">`
-      if (!iconOnly && display) {
-        return `<span class="skill-treasure-inline">${img}<span class="skill-treasure-inline-label"> ${_esc(display)}</span></span>`
-      }
-      return img
+    out += text.slice(i, hit.index)
+    const block = _extractBalancedBraceContent(text, hit.openBrace)
+    if (!block) {
+      out += text.slice(hit.index, hit.index + 1)
+      i = hit.index + 1
+      continue
     }
-    if (tag === "skill") {
-      const s = content.trim()
-      return `<img src="${pic}/skills/${_urlFile(`${s}_skill.png`)}" alt="${_esc(s)}" class="skill-status-icon" onerror="${_imgErrHide}">`
-    }
-    if (tag === "status") {
-      const p = content.split("|").map(s => s.trim())
-      const mainId = p[0] || ""
-      const overlay = p[1]
-      const element = p[2]
-      let html = _statusIconImgTag(pic, mainId, mainId)
-      if (overlay === "und_debuff" || overlay === "und_buff") {
-        const ovName = overlay === "und_debuff" ? "Undispellable_Debuff" : "Undispellable_Buff"
-        const ovPrimary = `${pic}/icons/status/${_urlFile(`Status_${ovName}.png`)}`
-        const ovLegacy = `${pic}/icons/status/${_urlFile(`status_${ovName}.png`)}`
-        html = `<span class="skill-status-icon-wrap"><img src="${ovPrimary}" data-status-alt-src="${_esc(ovLegacy)}" alt="${_esc(overlay)}" class="skill-status-icon skill-status-icon-overlay" onerror="${_imgErrStatusIconAttr()}">${html}</span>`
-      }
-      if (element) {
-        const elIconName = _EL_ICONS[element.toLowerCase()] || (element.charAt(0).toUpperCase() + element.slice(1))
-        const elImg = `<img src="${pic}/icons/${_urlFile(`${elIconName}.png`)}" alt="${_esc(element)}" class="skill-status-icon skill-status-icon-element" onerror="${_imgErrHide}">`
-        html = `<span class="skill-status-icon-wrap">${html}${elImg}</span>`
-      }
-      const tip = _statusIdToHoverLabel(mainId)
-      const tipAttr = tip ? ` data-status-tip="${_esc(tip)}"` : ""
-      return `<span class="skill-status-hover-wrap"${tipAttr}>${html}</span>`
-    }
-    if (tag === "type") {
-      const t = content.trim()
-      return `<img src="${pic}/icons/${_urlFile(`${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
-    }
-    if (tag === "position") {
-      const p = content.trim()
-      return `<img src="${pic}/icons/${_urlFile(`${p}.png`)}" alt="${_esc(p)}" class="skill-status-icon" onerror="${_imgErrHide}">`
-    }
-    if (tag === "hover") {
-      const raw = String(content || "")
-      const i = raw.indexOf(":")
-      const hoverText = i >= 0 ? raw.slice(0, i).trim() : raw.trim()
-      const visibleText = i >= 0 ? raw.slice(i + 1).trim() : raw.trim()
-      if (!visibleText) return ""
-      return `<span class="char-inline-hover" data-hover="${_esc(hoverText || visibleText)}">${_esc(visibleText)}</span>`
-    }
-    if (tag === "color") {
-      const ci = content.indexOf(":"), key = ci >= 0 ? content.slice(0, ci).trim() : content
-      const disp = ci >= 0 ? content.slice(ci + 1).trim() : content
-      const hexKey = String(key).trim()
-      if (/^[0-9a-f]{3}$/i.test(hexKey) || /^[0-9a-f]{6}$/i.test(hexKey) || /^[0-9a-f]{8}$/i.test(hexKey)) {
-        const hx = /^[0-9a-f]{3}$/i.test(hexKey) ? hexKey.split("").map((c) => c + c).join("") : hexKey
-        return `<span class="text-tag text-bold" style="color:#${_esc(hx)}">${_expandColorHeaderBlocks(disp, pic)}</span>`
-      }
-      const keyNorm = String(key).trim().toLowerCase()
-      const elementToCss = {
-        ice: "ice",
-        fire: "fire",
-        light: "light",
-        dark: "darkness",
-        darkness: "darkness",
-        steel: "steel",
-        poison: "poison",
-        water: "water",
-        wind: "wind",
-        grass: "grass",
-        electricity: "electricity",
-        chaos: "chaos",
-        earth: "earth"
-      }
-      const elCss = elementToCss[keyNorm]
-      if (elCss) {
-        return `<span class="text-tag text-${elCss} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
-      }
-      return `<span class="text-tag text-color-${_esc(key)} text-bold">${_expandColorHeaderBlocks(disp, pic)}</span>`
-    }
-    if (tag === "rally") {
-      return `<span class="text-tag text-rally text-bold">${_esc(content)}</span>`
-    }
-    const span = `<span class="text-tag text-${tag} text-bold">${_esc(content)}</span>`
-    if (noIcon) return span
-    const iconName = _EL_ICONS[tag] || tag.charAt(0).toUpperCase() + tag.slice(1)
-    return `<img src="${pic}/icons/${_urlFile(`${iconName}.png`)}" alt="${_esc(tag)}" class="skill-status-icon text-tag" onerror="${_imgErrHide}">${span}`
-  })
+    out += _renderSingleTag(hit.tag, hit.noIcon, block.inner, pic)
+    i = block.end
+  }
+  return out
 }
 
 /**
@@ -544,7 +598,7 @@ function getToppingImagePath(type, resonance, isTart) {
   return `${pic}/toppings/${type}/${_urlFile(`Topping_${type}_3.png`)}`
 }
 
-/** In-game selectable art: `toppings/resonant/Topping_selectable_<resonance_slug>.png` (slug lowercased, underscores). */
+/** In-game selectable art: `toppings/resonant/Topping_selectable_<resonance_slug>.png` (slug lowercased). */
 function getResonantSelectableImagePath(resonanceSlug) {
   const pic = getGamePictureRoot()
   const raw = String(resonanceSlug || "").trim().toLowerCase().replace(/\s+/g, "_")
@@ -742,8 +796,22 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   return { beascuitNameHtml, beascuitRowHtml }
 }
 
+/** Rarity bucket for filters / CJ eligibility (AncientA → Ancient, New Legendary → Legendary). */
+function rarityFilterBucket(rarity) {
+  if (rarity === "AncientA") return "Ancient"
+  if (rarity === "New Legendary") return "Legendary"
+  return rarity
+}
+
+/** Icon filename stem under pictures/icons/ (New Legendary keeps its own art). */
+function rarityIconBasename(rarity) {
+  if (rarity === "New Legendary") return "New Legendary"
+  if (rarity === "AncientA") return "Ancient"
+  return rarity
+}
+
 function normalizeRarity(rarity) {
-  return rarity === "AncientA" ? "Ancient" : rarity
+  return rarityFilterBucket(rarity)
 }
 
 /** Match CSS breakpoint in styles.css (wide build columns / sets grid). */
@@ -947,18 +1015,19 @@ async function renderCharacterPage(){
     const infoBox = document.getElementById("char-info-box")
     if(charData && infoBox) {
         const rawRarity = charData.rarity || ""
-        const rarity = normalizeRarity(rawRarity)
+        const rarityIcon = rarityIconBasename(rawRarity)
+        const rarityLabel = rawRarity || rarityIcon
         const type = charData.type || ""
         const position = charData.position || ""
         const elements = Array.isArray(charData.element) ? charData.element : (charData.element ? [charData.element] : [])
         const pic = getGamePictureRoot()
 
-        const rarityIconPath = rarity ? `${pic}/icons/${_urlFile(`${rarity}.png`)}` : ""
+        const rarityIconPath = rarityIcon ? `${pic}/icons/${_urlFile(`${rarityIcon}.png`)}` : ""
         const typeRow = type ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${type}.png`)}" alt="" onerror="${_imgErrHide}"><span>${type}</span></div>` : ""
         const posRow = position ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${position}.png`)}" alt="" onerror="${_imgErrHide}"><span>${position}</span></div>` : ""
         const elemRow = elements.length ? `<div class="char-stat-pill"><span>Element</span>${elements.map(e => `<img src="${pic}/icons/${_urlFile(`${e}.png`)}" alt="${e}" title="${e}" onerror="${_imgErrHide}">`).join("")}</div>` : ""
         infoBox.innerHTML = `
-            ${rarity ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${rarity}" title="${rarity}" onerror="${_imgErrHide}">` : ""}
+            ${rarityIcon ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${_esc(rarityLabel)}" title="${_esc(rarityLabel)}" onerror="${_imgErrHide}">` : ""}
             <div class="char-stats-row">
                 ${typeRow}
                 ${posRow}

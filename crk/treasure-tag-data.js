@@ -53,6 +53,7 @@
   "booksellers_monocle": "booksellers_monocle",
   "cape_of_the_vanquisher": "cape_of_the_vanquisher",
   "cheesebirds_coin_purse": "cheesebirds_coin_purse",
+  "cursed_catacombs_candle": "cursed_catacombs_candle",
   "disciples_magic_scroll": "disciples_magic_scroll",
   "divine_honey_cream_crown": "divine_honey_cream_crown",
   "dream_conductors_whistle": "dream_conductors_whistle",

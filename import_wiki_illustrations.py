@@ -150,6 +150,7 @@ def load_char_rows() -> list[dict]:
         cwd=ROOT,
         capture_output=True,
         text=True,
+        encoding="utf-8",
     )
     if proc.returncode != 0:
         print(proc.stderr or proc.stdout, file=sys.stderr)

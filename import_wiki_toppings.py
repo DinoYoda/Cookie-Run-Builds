@@ -74,10 +74,33 @@ BASE_RARITIES: tuple[str, ...] = ("1", "2", "3")
 
 
 def normalize_resonance_slug(raw: str) -> str:
+    """Lowercase slug for local paths; hyphens kept (e.g. research-driven), like Super Epic naming."""
     s = raw.strip().lower().replace(" ", "_")
-    s = re.sub(r"[^a-z0-9_]+", "_", s)
+    s = re.sub(r"[^a-z0-9_-]+", "_", s)
     s = re.sub(r"_+", "_", s).strip("_")
     return s
+
+
+def _resonance_slug_wiki_variants(slug: str) -> list[str]:
+    """Wiki filenames may use hyphens or underscores; try both when resolving File: titles."""
+    s = slug.strip().lower()
+    if not s:
+        return []
+    out: list[str] = []
+    for v in (s, s.replace("-", "_"), s.replace("_", "-")):
+        if v and v not in out:
+            out.append(v)
+    return out
+
+
+def _resolve_wiki_info(
+    title_to_info: dict[str, dict], candidates: list[str]
+) -> tuple[dict | None, str | None]:
+    for title in candidates:
+        info = title_to_info.get(title)
+        if illu._info_ok(info):
+            return info, title
+    return None, None
 
 
 def load_resonance_slugs() -> list[str]:
@@ -114,8 +137,16 @@ def wiki_file_title(topping_type: str, resonance_slug: str) -> str:
     return f"File:Topping_{topping_type}_{resonance_slug}.png"
 
 
+def wiki_file_title_candidates(topping_type: str, resonance_slug: str) -> list[str]:
+    return [wiki_file_title(topping_type, v) for v in _resonance_slug_wiki_variants(resonance_slug)]
+
+
 def wiki_selectable_title(resonance_slug: str) -> str:
     return f"File:Topping_selectable_{resonance_slug}.png"
+
+
+def wiki_selectable_title_candidates(resonance_slug: str) -> list[str]:
+    return [wiki_selectable_title(v) for v in _resonance_slug_wiki_variants(resonance_slug)]
 
 
 def local_selectable_dest(resonance_slug: str) -> str:
@@ -169,28 +200,28 @@ def main() -> None:
             print("No resonance slugs in", SLUGS_PATH, file=sys.stderr)
             sys.exit(1)
 
-    planned: list[tuple[str, str, str, str, str]] = []
-    # (kind, a, b, dest, wiki_title) — base: a=type b=rarity; resonant: a=type b=slug; selectable: a=b=slug
+    planned: list[tuple[str, str, str, str, list[str]]] = []
+    # (kind, a, b, dest, wiki_title_candidates) — base: a=type b=rarity; resonant: a=type b=slug; selectable: a=b=slug
     all_titles: list[str] = []
     if not args.no_base:
         for t in TOPPING_TYPES:
             for r in BASE_RARITIES:
-                title = wiki_file_title(t, r)
+                titles = [wiki_file_title(t, r)]
                 dest = local_dest(t, r)
-                planned.append(("base", t, r, dest, title))
-                all_titles.append(title)
+                planned.append(("base", t, r, dest, titles))
+                all_titles.extend(titles)
     if not args.no_resonant:
         for res in resonance_slugs:
             for t in TOPPING_TYPES:
-                title = wiki_file_title(t, res)
+                titles = wiki_file_title_candidates(t, res)
                 dest = local_dest(t, res)
-                planned.append(("resonant", t, res, dest, title))
-                all_titles.append(title)
+                planned.append(("resonant", t, res, dest, titles))
+                all_titles.extend(titles)
         for res in resonance_slugs:
-            title = wiki_selectable_title(res)
+            titles = wiki_selectable_title_candidates(res)
             dest = local_selectable_dest(res)
-            planned.append(("selectable", res, res, dest, title))
-            all_titles.append(title)
+            planned.append(("selectable", res, res, dest, titles))
+            all_titles.extend(titles)
 
     if not planned:
         print("No work planned", file=sys.stderr)
@@ -204,8 +235,8 @@ def main() -> None:
     skipped_ok = 0
     failed = 0
 
-    for kind, a, b, dest, title in planned:
-        info = title_to_info.get(title)
+    for kind, a, b, dest, title_candidates in planned:
+        info, _ = _resolve_wiki_info(title_to_info, title_candidates)
         url = info["url"] if illu._info_ok(info) else None
         remote_wh: tuple[int, int] | None = None
         if info and info.get("width") is not None and info.get("height") is not None:
@@ -220,7 +251,7 @@ def main() -> None:
         if not url:
             missing_wiki += 1
             if args.verbose:
-                print("  [no wiki file]", kind, a, b, title)
+                print("  [no wiki file]", kind, a, b, title_candidates)
             continue
 
         os.makedirs(os.path.dirname(dest), exist_ok=True)

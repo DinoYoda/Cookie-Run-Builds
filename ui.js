@@ -508,6 +508,10 @@ function applyFilters(character) {
             if (category === "rarity" && !passes && values.includes("Ancient") && charValue === "AncientA") {
                 passes = true
             }
+            // Legendary filter includes New Legendary (post–Beast-Yeast legendaries)
+            if (category === "rarity" && !passes && values.includes("Legendary") && charValue === "New Legendary") {
+                passes = true
+            }
             if (!passes) {
                 return false
             }
@@ -651,6 +655,12 @@ function shouldHighlightRatingMismatch(char, placedTierLabel) {
     return dataRating !== placed
 }
 
+/** Rarity index for tierlist / cookie-list sort (New Legendary shares Legendary's band). */
+function raritySortIndex(rarity, rarityOrder) {
+    const band = rarity === "New Legendary" ? "Legendary" : rarity
+    return rarityOrder[band] ?? 999
+}
+
 function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
     const uniq = [...new Set(keys)]
     return uniq.sort((ka, kb) => {
@@ -663,7 +673,7 @@ function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
             return (releaseOrderMapCandy[b.displayName ?? b.name] ?? 9999) -
                 (releaseOrderMapCandy[a.displayName ?? a.name] ?? 9999)
         }
-        const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b.rarity] ?? 999)
+        const rarityDiff = raritySortIndex(a.rarity, rarityOrder) - raritySortIndex(b.rarity, rarityOrder)
         if (rarityDiff !== 0) return rarityDiff
         const cx = cnExSortRank(a) - cnExSortRank(b)
         if (cx !== 0) return cx
@@ -769,7 +779,7 @@ function renderTierlist() {
         entries = computed.entries
     }
 
-    // Build dynamic rarity order based on filter UI (AncientA injected for sort: above Beast, no filter button)
+    // Build dynamic rarity order based on filter UI (AncientA injected for sort only)
     let orderRarities = [...(getCurrentFilters().rarity || [])]
     if (!isCandy) {
         const beastIdx = orderRarities.indexOf("Beast")
@@ -804,8 +814,7 @@ function renderTierlist() {
                         .filter(c => c.role === role.name)
                         .filter(applyFilters)
                         .sort((a, b) => {
-                            const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b
-                                .rarity] ?? 999)
+                            const rarityDiff = raritySortIndex(a.rarity, rarityOrder) - raritySortIndex(b.rarity, rarityOrder)
                             if (rarityDiff !== 0) return rarityDiff
                             const cx = cnExSortRank(a) - cnExSortRank(b)
                             if (cx !== 0) return cx
@@ -833,7 +842,7 @@ function renderTierlist() {
                             return (releaseOrderMapCandy[b.displayName ?? b.name] ?? 9999) - (releaseOrderMapCandy[a.displayName ?? a.name] ?? 9999)
                         }
                         // 1. Sort by rarity
-                        const rarityDiff = (rarityOrder[a.rarity] ?? 999) - (rarityOrder[b.rarity] ?? 999)
+                        const rarityDiff = raritySortIndex(a.rarity, rarityOrder) - raritySortIndex(b.rarity, rarityOrder)
                         if (rarityDiff !== 0) return rarityDiff
                         const cx = cnExSortRank(a) - cnExSortRank(b)
                         if (cx !== 0) return cx

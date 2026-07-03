@@ -110,6 +110,12 @@ def api_get(base: str, params: dict) -> dict:
     return illu.http_json(url)
 
 
+def _normalize_cookie_stem(stem: str) -> str:
+    """Hyphens and underscores are equivalent when matching data.js names to wiki titles."""
+    s = (stem or "").strip().lower()
+    return re.sub(r"[-_]+", "_", s)
+
+
 def _wiki_title_stem_for_match(title: str) -> str:
     """Normalize a wiki page title (compare using same rules as displayName / alternate labels)."""
     base = (title or "").split("/")[0].strip()
@@ -138,7 +144,7 @@ def _allowed_wiki_title_stems(
     disp = illu.display_name_plain_slug(display_name or "")
     if disp:
         disp_base = disp[: -len("_cookie")].rstrip("_") if disp.endswith("_cookie") else disp
-        if disp_base == name_stem:
+        if _normalize_cookie_stem(disp_base) == _normalize_cookie_stem(name_stem):
             stems.add(disp)
             stems.add(disp_base)
     return {x for x in stems if x}
@@ -152,8 +158,11 @@ def wiki_resolved_title_matches_cookie(
 ) -> bool:
     if not resolved_title:
         return False
-    stem = _wiki_title_stem_for_match(resolved_title)
-    allowed = _allowed_wiki_title_stems(name, display_name, name_alternates)
+    stem = _normalize_cookie_stem(_wiki_title_stem_for_match(resolved_title))
+    allowed = {
+        _normalize_cookie_stem(s)
+        for s in _allowed_wiki_title_stems(name, display_name, name_alternates)
+    }
     return stem in allowed
 
 
@@ -451,6 +460,13 @@ def normalize_infobox_label(raw: str | None) -> str | None:
 
 
 def normalize_rarity(raw: str | None) -> str | None:
+    if not raw or not raw.strip():
+        return None
+    compact = re.sub(r"[\s_]+", "", raw.strip()).lower()
+    if compact == "awakenedancient":
+        return "AncientA"
+    if compact == "newlegendary":
+        return "New Legendary"
     return normalize_infobox_label(raw)
 
 
@@ -470,18 +486,28 @@ def prefer_english_tabber_branch(text: str | None) -> str | None:
     return body or text
 
 
-def extract_game_description(wikitext: str) -> str | None:
-    """Match == Game Description == even when the wiki wraps the title in bold (=='''Game Description'''==)."""
-    m = re.search(
-        r"(?m)^==[^=\n][^\n]*?Game Description[^\n]*?==\s*$",
+def _find_wiki_section_header(wikitext: str, title_re: str) -> re.Match[str] | None:
+    """Match a == Section Title == line; title_re is a regex fragment for the heading text."""
+    return re.search(
+        rf"(?m)^==(?:(?!==)[^\n])*?{title_re}(?:(?!==)[^\n])*?==\s*$",
         wikitext,
     )
+
+
+def extract_game_description(wikitext: str) -> str | None:
+    """Match == Game Description == even when the wiki wraps the title in bold (=='''Game Description'''==)."""
+    m = _find_wiki_section_header(wikitext, r"Game Description")
     if m:
         nl = wikitext.find("\n", m.start())
         rest = wikitext[nl + 1 :] if nl >= 0 else ""
     else:
         rest = None
-        for marker in ("== Game Description ==", "==Game Description==", "== Game Description=="):
+        for marker in (
+            "== Game Description ==",
+            "==Game Description==",
+            "== Game Description==",
+            "==Game Description ==",
+        ):
             idx = wikitext.find(marker)
             if idx >= 0:
                 rest = wikitext[idx + len(marker) :]
@@ -503,10 +529,7 @@ def extract_game_description(wikitext: str) -> str | None:
 
 def extract_story_section(wikitext: str) -> str | None:
     """Kingdom pages that omit Game Description often put flavor text under ==Story== (same layout as that section)."""
-    m = re.search(
-        r"(?m)^==[^=\n][^\n]*?\bStory\b[^\n]*?==\s*$",
-        wikitext,
-    )
+    m = _find_wiki_section_header(wikitext, r"\bStory\b")
     if m:
         nl = wikitext.find("\n", m.start())
         rest = wikitext[nl + 1 :] if nl >= 0 else ""
@@ -1030,11 +1053,9 @@ def build_import_document(
         pos = normalize_infobox_label(
             (_sanitize_infobox_value(fields.get("position") or "")).strip() or None
         )
-        rarity = normalize_infobox_label(
+        rarity = normalize_rarity(
             (_sanitize_infobox_value(fields.get("rarity") or "")).strip() or None
         )
-        if rarity and rarity.replace(" ", "").lower() == "awakenedancient":
-            rarity = "AncientA"
         elem_raw = fields.get("elements") or fields.get("element")
 
         game_desc = extract_game_description(wt) or extract_story_section(wt)

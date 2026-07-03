@@ -2,19 +2,15 @@
 window.WIKI_IMPORTED_SKILL_DETAILS = {
   "wikiApi": "https://cookierun.wiki/mw/api.php",
   "cookies": {
-    "Ash_salt": {
-      "wikiTitle": "Ash Salt Cookie/Kingdom",
+    "Ananas_dragon": {
+      "wikiTitle": "Ananas Dragon Cookie/Kingdom",
       "keys": {
-        "ash_salt": {
-          "skill_details": "DMG: darkness{%{attr1}} of ATK<br>DMG (Bosses): darkness{%{attr2}} of ATK<br>Shadow Form Transformation: 10 sec<br>Shadow Form: status{ATK_Up|und_buff} ATK +17.5%, status{ATK_SPD_Up|und_buff} ATK SPD +25.0%, status{DMG_Dampening|und_buff} DMG Dampening hover{Written as '+' in-game:-}15.0% for 10 sec<br>Shadow Form Regular Attack DMG: darkness{150.0%} of ATK<br>Final Hit DMG: darkness{208.9%} of ATK<br>Ashen Salt DMG: 35.4% every 1 sec for 10 sec; hover{Not mentioned in-game:stacks up to x1}<br>Cooldown: -1.0% of remaining Cooldown per status{Salt_Crystal} Salt Crystal, up to x10 Salt Crystals<br>status{Consuming_Darkness} Consuming Darkness: CRIT% -5.0% + Healing Received -5.0% for 8 sec; stacks up to x3",
+        "ananas_dragon": {
+          "skill_details": "color-header{D1A319:Song of Dragontongue}<br>status{HP_Shield} HP Shield: 35.0% of target's Max HP for 10.0 sec<br>Golden Dragontongue: Debuff Resist +30.0%, DMG +10.0% for 30.0 sec; stacks up to x1<br>status{Earth's_Protection} Earth's Protection: Debuff Resist +7.5%, DEF +5.0% for 10.0 sec; stacks up to x2<br>color-header{D1A319:Ananas Dragon's Roar}<br>Dragon's Power: DMG +18.0% for 20.0 sec; stacks up to x1<br>Overwhelming Dragon's Power: DMG +23.0%, all skill DMG Resist Bypass +35.0%, deals extra DMG to targets with status{HP_Shield} HP Shield for 20.0 sec; stacks up to x1<br>Extra DMG to Shielded Targets: earth{514.5%} of ATK; ignores 40.0% of DMG Resist<br>Roar DMG: earth{324.3%} of ATK every 0.2 sec for 1.4 sec + 13.2 of Max HP (Cookies); ignores 40.0% of DMG Resist<br>Roar status{Fear} Fear: 2.0 sec (not affected by Debuff Resist)<br>Ananas Dragon's Rage: prevents Healing for 6.0 sec, DMG taken +17.5% for 6.0 sec; stacks up to x1<br>Meteor Single-hit DMG: earth{651.1%} of ATK + DMG equal to 17.9% of Max HP (Cookies), earth{535.3%} of ATK (Others); ignores 40% of DMG Resist<br>color-header{D1A319:Skyfall Plunge}<br>Skyfall Plunge DMG: earth{1,394.0%} of ATK + DMG equal to 19.6% of Max HP (Cookies), earth{1049.5%} of ATK (Others); ignores 40% of DMG Resist)<br>status{Silence} Silence: 2.0 sec<br>Skyfall Shockwave: ATK -15.0%, DMG Dealt -25.0%, HP Shield -45.0% for 20.0 sec; stacks up to x1<br>color-header{D1A319:Energy of Earthbread & Rock Seal}<br>Energy of Earthbread: gain x1 stacks every 3.0 sec + x3 stacks when an ally uses skill + x8 stacks when Overwhelming Dragon's Power activates; stacks up to 15x<br>Triggers Rock Seal at maximum stacks<br>Rock Seal: Stunned for 5.0 sec<br>Rock Seal Explosion DMG: earth{%{attr1}} of ATK + True DMG equal to 25.5% of Max HP (Cookies); ignores 40.0% of DMG Resist<br>color-header{D1A319:Ananas Dragon Cookie's Scales}<br>status{Max_HP_Up} Max HP +35.0%, status{DMG_Resist} DMG Resist +41.5%, status{DMG_Dampening} DMG Dampening 41.0%<br>Cooldown -3.0% per 6.0% of ATK gained from Toppings (capped at -30.0%)",
           "skillAttr": {
             "attr1": [
-              157.3,
-              449.3
-            ],
-            "attr2": [
-              235.9,
-              674.0
+              838.8,
+              2097.0
             ]
           }
         }

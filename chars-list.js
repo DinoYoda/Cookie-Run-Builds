@@ -21,15 +21,29 @@ function cardImageFilename(gameId, name) {
   return `Cookie_${String(n).toLowerCase()}_card.png`
 }
 
-function getSelectedGameId() {
+function readUIState() {
   try {
-    const s = JSON.parse(localStorage.getItem("tierlistUIState") || "{}")
-    if (s.game && typeof s.game === "string") return s.game
-  } catch {}
+    return JSON.parse(localStorage.getItem("tierlistUIState") || "{}")
+  } catch {
+    return {}
+  }
+}
+
+function writeUIState(partial) {
+  localStorage.setItem("tierlistUIState", JSON.stringify({ ...readUIState(), ...partial }))
+}
+
+function getSelectedGameId() {
+  const s = readUIState()
+  if (s.game && typeof s.game === "string") return s.game
   return "crk"
 }
 
-const RARITY_ORDER = ["Witch","AncientA","Beast","Ancient", "Legendary","Dragon","Super Epic","Epic","Special","Rare","Common"]
+const RARITY_ORDER = ["Witch","AncientA","Beast","Ancient","Legendary","Dragon","Super Epic","Epic","Special","Rare","Common"]
+
+function raritySortBand(rarity) {
+  return rarity === "New Legendary" ? "Legendary" : rarity
+}
 
 const SORT_OPTIONS = [
   { value: "rarity", label: "Rarity" },
@@ -223,6 +237,9 @@ function loadCharListForCurrentGame() {
     if (!anyMcCj) {
       sortByMcCj = false
       mccjCb.checked = false
+    } else {
+      sortByMcCj = readUIState().charlistSortByMcCj === true
+      mccjCb.checked = sortByMcCj
     }
   }
   render()
@@ -240,6 +257,7 @@ function applyFilters(c) {
     } else {
       let passes = vals.includes(cv)
       if (cat === "rarity" && !passes && vals.includes("Ancient") && cv === "AncientA") passes = true
+      if (cat === "rarity" && !passes && vals.includes("Legendary") && cv === "New Legendary") passes = true
       if (!passes) return false
     }
   }
@@ -256,6 +274,7 @@ document.getElementById("charlistReset").addEventListener("click", () => {
   sortMode = "rarity"
   sortReverse = false
   sortByMcCj = false
+  writeUIState({ charlistSortByMcCj: false })
   document.getElementById("charlistSearch").value = ""
   const csr = document.getElementById("charlistSortExpand")
   const cst = document.getElementById("charlistSortTrigger")
@@ -272,6 +291,7 @@ document.getElementById("charlistReset").addEventListener("click", () => {
 })
 document.getElementById("charlistMcCj").addEventListener("change", e => {
   sortByMcCj = e.target.checked
+  writeUIState({ charlistSortByMcCj: sortByMcCj })
   render()
 })
 const dirBtn = document.getElementById("charlistSortDir")
@@ -283,7 +303,7 @@ dirBtn.addEventListener("click", () => {
 
 function render() {
   const grid = document.getElementById("charlistGrid")
-  const ri = r => { const i = RARITY_ORDER.indexOf(r); return i < 0 ? 999 : i }
+  const ri = r => { const i = RARITY_ORDER.indexOf(raritySortBand(r)); return i < 0 ? 999 : i }
   const rel = c => { const i = cookieByDate.indexOf(c.displayName ?? c.name); return i < 0 ? 9999 : i }
   const chars = allChars.filter(applyFilters).sort((a, b) => {
     const useMcCj = sortMode === "rarity" && sortByMcCj

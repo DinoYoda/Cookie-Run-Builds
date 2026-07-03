@@ -1224,10 +1224,13 @@ button.active {
 /* Inline hover helper for tagged text: hover{tooltip:text}; tip follows cursor */
 .char-inline-hover {
     position: relative;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
     cursor: help;
+    /* border-bottom spans text + inline icons; text-decoration skips replaced elements (img) */
+    text-decoration: none;
+    border-bottom: 1px dashed currentColor;
+    padding-bottom: 1px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
 .char-skill-cd-pill img {

@@ -1,7 +1,15 @@
 {
+    "dragonwind": {
+        "name": "Dragonwind",
+        "cookies": ["Ananas_dragon"]
+    },
+    "research-driven": {
+        "name": "Research-Driven",
+        "cookies": ["Povidone-iodine", "Litmus"]
+    },
     "chrono": {
         "name": "Chrono",
-        "cookies": ["Timekeeper", "Ash_salt"]
+        "cookies": ["Timekeeper", "Ash_salt", "Croissant"]
     },
     "unison": {
         "name": "Unison",
