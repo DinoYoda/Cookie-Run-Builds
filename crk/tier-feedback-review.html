@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function () {
+  if (!/github\.io$/i.test(location.hostname)) return;
+  var segs = location.pathname.split("/").filter(Boolean);
+  if (!segs.length) return;
+  var first = segs[0];
+  if (/\.html?$/i.test(first)) return;
+  var base = document.createElement("base");
+  base.href = "/" + first + "/";
+  document.head.prepend(base);
+})();
+</script>
+<title>Tier Feedback Review</title>
+<script src="../site-page-meta.js"></script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/png" href="pictures/icons/cookie/Silent_salt_head.png">
+</head>
+<body data-site-page="tier-feedback-review" class="tier-feedback-review-page">
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">Menu</div>
+  <a href="../characters.html" class="sidebar-link">Cookies</a>
+  <a href="teams.html?menu" class="sidebar-link">Teams</a>
+  <a href="../tierlist.html" class="sidebar-link">Tier Lists</a>
+  <a href="about.html" class="sidebar-link">About</a>
+</div>
+
+<main class="tier-feedback-review">
+  <h1>Tier feedback</h1>
+  <p class="tier-feedback-review-note" id="reviewNote"></p>
+  <div id="reviewList" class="tier-feedback-review-list"></div>
+</main>
+
+<script src="../tools/tier-feedback-config.js"></script>
+<script src="../tools/tier-feedback-config.local.js"></script>
+<script src="../tier-feedback.js"></script>
+<script>
+const listEl = document.getElementById("reviewList")
+const noteEl = document.getElementById("reviewNote")
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+}
+
+function renderItems(items) {
+  noteEl.textContent = `${items.length} submission${items.length === 1 ? "" : "s"}`
+  listEl.innerHTML = items.slice().reverse().map(item => {
+    const when = item.submittedAt ? new Date(item.submittedAt).toLocaleString() : ""
+    return `<article class="tier-feedback-review-card">
+      <header>
+        <strong>${escapeHtml(item.cookie || "Unknown")}</strong>
+        <span>${escapeHtml(item.tierlist || "")} → ${escapeHtml(item.suggestedTier || "")}</span>
+      </header>
+      <p>${escapeHtml(item.reason || "")}</p>
+      <footer>${escapeHtml(when)}</footer>
+    </article>`
+  }).join("")
+}
+
+async function loadSubmissions() {
+  listEl.innerHTML = ""
+  noteEl.textContent = "Loading"
+
+  if (typeof TierFeedback !== "undefined" && TierFeedback.resolveListUrl()) {
+    try {
+      const items = await TierFeedback.fetchSubmissions()
+      if (items?.length) {
+        renderItems(items)
+        return
+      }
+      noteEl.textContent = "No submissions yet."
+      return
+    } catch (err) {
+      noteEl.textContent = err.message || "Could not load from worker."
+      return
+    }
+  }
+
+  let items = []
+  try {
+    const res = await fetch("../tools/tier-feedback-submissions.json", { cache: "no-store" })
+    if (res.ok) {
+      const data = await res.json()
+      items = Array.isArray(data) ? data : (data.submissions || [])
+    }
+  } catch (_) {}
+
+  if (!items.length) {
+    try {
+      const api = await fetch("/api/tier-feedback", { cache: "no-store" })
+      if (api.ok) {
+        const data = await api.json()
+        items = data.submissions || []
+      }
+    } catch (_) {}
+  }
+
+  if (!items.length) {
+    noteEl.textContent = "No submissions. Deploy tools/tier-feedback-worker/ and set listUrl in tier-feedback-config, or run python tools/tier_feedback_server.py locally."
+    return
+  }
+
+  renderItems(items)
+}
+
+loadSubmissions()
+
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+
+</body>
+</html>

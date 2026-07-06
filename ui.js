@@ -958,198 +958,335 @@ function createCard(char, opts = {}) {
     return card
 }
 
-function buildTierFeedbackSummary(form) {
-    const section = currentSection?.name || ""
-    const listName = form.tierlistName?.value || currentTierlist?.name || ""
-    const game = currentGame?.name || currentGame?.id || ""
-    const cookie = form.cookie.value || "(unspecified)"
-    const suggestedTier = form.suggestedTier.value || "(unspecified)"
-    const confidence = form.confidence.value || "(unspecified)"
-    const reason = (form.reason.value || "").trim()
-    const mode = form.mode.value || "placement"
-    const lines = [
-        `Game: ${game}`,
-        `Section: ${section}`,
-        `Tierlist: ${listName}`,
-        `Feedback Type: ${mode}`,
-        `Cookie: ${cookie}`,
-        `Suggested Tier: ${suggestedTier}`,
-        `Confidence: ${confidence}`,
-    ]
-    if (reason) lines.push(`Reason: ${reason}`)
-    lines.push(`URL: ${location.href}`)
-    return lines.join("\n")
+function getActiveTierlistName() {
+    if (currentSection?.name !== "Cookies") return ""
+    return currentSubTab?.name || currentTierlist?.name || ""
 }
 
 function initTierFeedback() {
-    if (typeof document === "undefined") return
+    if (typeof document === "undefined" || typeof TierFeedback === "undefined") return
     if (document.getElementById("tierFeedbackButton")) return
+
+    let tierlistOptions = []
+    let cookieOptions = []
 
     const btn = document.createElement("button")
     btn.type = "button"
     btn.id = "tierFeedbackButton"
     btn.className = "tier-feedback-button"
-    btn.textContent = "Tier Feedback"
+    btn.textContent = "Suggest tier change"
 
     const modal = document.createElement("div")
     modal.id = "tierFeedbackModal"
     modal.className = "tier-feedback-modal"
-    modal.setAttribute("hidden", "")
+    modal.hidden = true
     modal.innerHTML = `
       <div class="tier-feedback-backdrop" data-close="1"></div>
-      <div class="tier-feedback-panel" role="dialog" aria-modal="true" aria-label="Tierlist feedback">
+      <div class="tier-feedback-panel" role="dialog" aria-modal="true" aria-labelledby="tierFeedbackTitle">
         <div class="tier-feedback-header">
-          <h3>Tierlist Feedback</h3>
-          <button type="button" class="tier-feedback-close" data-close="1" aria-label="Close">✕</button>
+          <h3 id="tierFeedbackTitle">Suggest a tier change</h3>
+          <button type="button" class="tier-feedback-close" data-close="1" aria-label="Close">&times;</button>
         </div>
         <form id="tierFeedbackForm" class="tier-feedback-form">
-          <label>Feedback type
-            <select name="mode">
-              <option value="placement">Placement suggestion</option>
-              <option value="general">General tierlist feedback</option>
-            </select>
+          <label class="tier-feedback-field">
+            <span>Cookie</span>
+            <div class="tier-feedback-combobox" id="tierFeedbackCookieCombo">
+              <input type="text" id="tierFeedbackCookieInput" name="cookieQuery" autocomplete="off" placeholder="Search cookies" role="combobox" aria-expanded="false" aria-controls="tierFeedbackCookieList" aria-autocomplete="list" />
+              <input type="hidden" name="cookie" />
+              <ul id="tierFeedbackCookieList" class="tier-feedback-combobox-list" role="listbox" hidden></ul>
+            </div>
           </label>
-          <label>Cookie
-            <input name="cookie" id="tierFeedbackCookie" class="tier-feedback-cookie-input" list="tierFeedbackCookieList" placeholder="Type to search cookie...">
-            <datalist id="tierFeedbackCookieList"></datalist>
+          <label class="tier-feedback-field">
+            <span>Tier list</span>
+            <select name="tierlist" required></select>
           </label>
-          <label>Tierlist
-            <select name="tierlistName" id="tierFeedbackTierlist"></select>
+          <label class="tier-feedback-field">
+            <span>Suggested tier</span>
+            <select name="suggestedTier" required></select>
           </label>
-          <label>Suggested tier
-            <select name="suggestedTier" id="tierFeedbackTier"></select>
+          <label class="tier-feedback-field tier-feedback-field--reason">
+            <span>Why should this change be made?</span>
+            <textarea name="reason" rows="4" required placeholder="Explain your reasoning"></textarea>
           </label>
-          <label>How strongly do you feel?
-            <select name="confidence">
-              <option value="Low">Low</option>
-              <option value="Medium" selected>Medium</option>
-              <option value="High">High</option>
-            </select>
-          </label>
-          <label>Reason / notes
-            <textarea name="reason" rows="4" placeholder="Example: Performs better in Arena after latest patch."></textarea>
-          </label>
+          <p class="tier-feedback-status" id="tierFeedbackStatus" hidden></p>
           <div class="tier-feedback-actions">
-            <button type="button" id="tierFeedbackCopy">Copy</button>
-            <button type="button" id="tierFeedbackEmail">Open Email Draft</button>
-            <button type="submit" id="tierFeedbackSubmit">Submit Feedback</button>
+            <button type="button" class="tier-feedback-cancel" data-close="1">Cancel</button>
+            <button type="submit" class="tier-feedback-submit">Submit</button>
           </div>
-          <div class="tier-feedback-status" id="tierFeedbackStatus" aria-live="polite"></div>
         </form>
-      </div>`
+      </div>
+    `
 
     document.body.appendChild(btn)
     document.body.appendChild(modal)
 
     const form = modal.querySelector("#tierFeedbackForm")
-    const cookieInput = modal.querySelector("#tierFeedbackCookie")
-    const cookieList = modal.querySelector("#tierFeedbackCookieList")
-    const tierlistSel = modal.querySelector("#tierFeedbackTierlist")
-    const tierSel = modal.querySelector("#tierFeedbackTier")
+    const cookieCombo = form.querySelector("#tierFeedbackCookieCombo")
+    const cookieInput = form.querySelector("#tierFeedbackCookieInput")
+    const cookieHidden = form.querySelector('[name="cookie"]')
+    const cookieList = form.querySelector("#tierFeedbackCookieList")
+    const tierlistSelect = form.querySelector('[name="tierlist"]')
+    const tierSelect = form.querySelector('[name="suggestedTier"]')
     const statusEl = modal.querySelector("#tierFeedbackStatus")
-    let cookieSearchRows = []
 
-    const normalizeSearchText = (s) => {
-        return String(s || "")
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
+    let cookieHighlight = -1
+
+    function filterCookies(query) {
+        return cookieOptions.filter(c => TierFeedback.cookieMatchesSearch(c.character, query))
     }
 
-    const currentFeedbackTierlist = () => {
-        const leaves = flattenTierlistLeaves(currentSection?.tierlists || [])
-        const selectedName = tierlistSel.value
-        return leaves.find((t) => t?.name === selectedName) || currentTierlist || leaves[0] || null
+    function setCookieListOpen(open) {
+        cookieList.hidden = !open
+        cookieInput.setAttribute("aria-expanded", open ? "true" : "false")
+        if (!open) cookieHighlight = -1
     }
 
-    const refreshTierOptions = () => {
-        const picked = currentFeedbackTierlist()
-        const tiers = picked?.tiers || []
-        tierSel.innerHTML = tiers.map((t) => `<option value="${String(t).replace(/"/g, "&quot;")}">${t}</option>`).join("")
-    }
-
-    const refreshOptions = () => {
-        const charsRaw = currentGame?.characters || []
-        cookieSearchRows = charsRaw
-            .filter((c) => c && (c.displayName || c.name))
-            .map((c) => {
-                const label = c.displayName || c.name
-                let searchBase = c.name ? String(c.name).replace(/_/g, " ") : ""
-                if (c.displayName && /cookie/i.test(c.displayName) && !/cookie/i.test(searchBase)) {
-                    searchBase += (searchBase ? " " : "") + "cookie"
-                }
-                const searchIn = [searchBase, c.displayName].filter(Boolean).join(" ")
-                return {
-                    label,
-                    normalized: normalizeSearchText(searchIn),
-                }
+    function renderCookieList(matches) {
+        cookieList.innerHTML = ""
+        if (!matches.length) {
+            const empty = document.createElement("li")
+            empty.className = "tier-feedback-combobox-empty"
+            empty.textContent = "No cookies found"
+            empty.setAttribute("role", "presentation")
+            cookieList.appendChild(empty)
+            return
+        }
+        matches.forEach((opt, i) => {
+            const li = document.createElement("li")
+            li.className = "tier-feedback-combobox-option"
+            li.setAttribute("role", "option")
+            li.dataset.id = opt.id
+            li.textContent = opt.label
+            if (i === cookieHighlight) {
+                li.classList.add("is-highlighted")
+                li.setAttribute("aria-selected", "true")
+            }
+            li.addEventListener("mousedown", e => {
+                e.preventDefault()
+                selectCookie(opt)
             })
-            .sort((a, b) => a.label.localeCompare(b.label))
-
-        cookieList.innerHTML = cookieSearchRows
-            .map((row) => `<option value="${row.label.replace(/"/g, "&quot;")}"></option>`)
-            .join("")
-
-        const leaves = flattenTierlistLeaves(currentSection?.tierlists || [])
-        tierlistSel.innerHTML = leaves
-            .map((t) => `<option value="${String(t?.name || "").replace(/"/g, "&quot;")}">${t?.name || ""}</option>`)
-            .join("")
-        const worldEx = leaves.find((t) => String(t?.name || "").toLowerCase() === "world exploration")
-        const fallback = worldEx || currentTierlist || leaves[0] || null
-        tierlistSel.value = fallback?.name || ""
-        refreshTierOptions()
+            cookieList.appendChild(li)
+        })
     }
 
-    const openModal = () => {
+    function syncCookieHighlight() {
+        cookieList.querySelectorAll(".tier-feedback-combobox-option").forEach((el, i) => {
+            const on = i === cookieHighlight
+            el.classList.toggle("is-highlighted", on)
+            if (on) {
+                el.setAttribute("aria-selected", "true")
+                el.scrollIntoView({ block: "nearest" })
+            } else {
+                el.removeAttribute("aria-selected")
+            }
+        })
+    }
+
+    function selectCookie(opt) {
+        cookieHidden.value = opt.id
+        cookieInput.value = opt.label
+        setCookieListOpen(false)
+    }
+
+    function clearCookieSelection() {
+        cookieHidden.value = ""
+    }
+
+    function updateCookieDropdown() {
+        const matches = filterCookies(cookieInput.value)
+        if (cookieHighlight >= matches.length) cookieHighlight = matches.length - 1
+        renderCookieList(matches)
+        setCookieListOpen(true)
+    }
+
+    function resolveSelectedCookie() {
+        if (cookieHidden.value) {
+            return cookieOptions.find(c => c.id === cookieHidden.value) || null
+        }
+        return TierFeedback.findCookieOption(cookieOptions, cookieInput.value)
+    }
+
+    function setStatus(msg, kind) {
+        if (!msg) {
+            statusEl.hidden = true
+            statusEl.textContent = ""
+            statusEl.className = "tier-feedback-status"
+            return
+        }
+        statusEl.hidden = false
+        statusEl.textContent = msg
+        statusEl.className = `tier-feedback-status tier-feedback-status--${kind || "info"}`
+    }
+
+    function populateSelect(select, options, { placeholder, valueKey = "value", labelKey = "label" } = {}) {
+        select.innerHTML = ""
+        if (placeholder) {
+            const ph = document.createElement("option")
+            ph.value = ""
+            ph.textContent = placeholder
+            ph.disabled = true
+            ph.selected = true
+            select.appendChild(ph)
+        }
+        for (const opt of options) {
+            const o = document.createElement("option")
+            o.value = opt[valueKey]
+            o.textContent = opt[labelKey]
+            select.appendChild(o)
+        }
+    }
+
+    function refreshOptions() {
+        if (!currentGame) return
+        tierlistOptions = TierFeedback.collectTierlistOptions(currentGame)
+        cookieOptions = TierFeedback.collectCookieOptions(currentGame.characters)
+
+        populateSelect(tierlistSelect, tierlistOptions.map(t => ({
+            value: t.name,
+            label: t.name,
+        })), { placeholder: "Choose a tier list" })
+
+        populateSuggestedTiers()
+    }
+
+    function populateSuggestedTiers() {
+        const tiers = TierFeedback.getSuggestedTierOptions(currentGame)
+        populateSelect(tierSelect, tiers.map(t => ({ value: t, label: t })), {
+            placeholder: "Choose a tier",
+        })
+    }
+
+    function applyPrefill(prefill = {}) {
+        if (prefill.cookieId) {
+            const opt = cookieOptions.find(c => c.id === prefill.cookieId)
+            if (opt) selectCookie(opt)
+        } else {
+            cookieInput.value = ""
+            cookieHidden.value = ""
+        }
+        const name = prefill.tierlist || getActiveTierlistName()
+        const match = TierFeedback.findTierlistOption(tierlistOptions, name)
+        if (match) tierlistSelect.value = match.name
+        if (prefill.suggestedTier) tierSelect.value = prefill.suggestedTier
+    }
+
+    function openModal(prefill = {}) {
         refreshOptions()
-        modal.removeAttribute("hidden")
+        form.reset()
+        applyPrefill(prefill)
+        setStatus("")
+        modal.hidden = false
+        document.body.classList.add("tier-feedback-open")
+        cookieInput.focus()
     }
-    const closeModal = () => modal.setAttribute("hidden", "")
 
-    btn.addEventListener("click", openModal)
-    modal.addEventListener("click", (e) => {
-        if (e.target && e.target.getAttribute("data-close") === "1") closeModal()
-    })
-    tierlistSel.addEventListener("change", refreshTierOptions)
+    function closeModal() {
+        modal.hidden = true
+        document.body.classList.remove("tier-feedback-open")
+        setCookieListOpen(false)
+        setStatus("")
+    }
+
     cookieInput.addEventListener("input", () => {
-        const q = normalizeSearchText(cookieInput.value.trim())
-        const filtered = !q
-            ? cookieSearchRows
-            : cookieSearchRows.filter((row) => row.normalized.includes(q))
-        cookieList.innerHTML = filtered
-            .slice(0, 80)
-            .map((row) => `<option value="${row.label.replace(/"/g, "&quot;")}"></option>`)
-            .join("")
+        clearCookieSelection()
+        cookieHighlight = -1
+        updateCookieDropdown()
     })
 
-    modal.querySelector("#tierFeedbackCopy").addEventListener("click", async () => {
-        const text = buildTierFeedbackSummary(form)
-        try {
-            await navigator.clipboard.writeText(text)
-            statusEl.textContent = "Copied feedback text."
-        } catch {
-            statusEl.textContent = "Could not copy automatically. Try Open Email Draft."
+    cookieInput.addEventListener("focus", () => {
+        updateCookieDropdown()
+    })
+
+    cookieInput.addEventListener("blur", () => {
+        setTimeout(() => setCookieListOpen(false), 120)
+    })
+
+    cookieInput.addEventListener("keydown", e => {
+        const matches = filterCookies(cookieInput.value)
+        const options = cookieList.querySelectorAll(".tier-feedback-combobox-option")
+        if (e.key === "ArrowDown") {
+            e.preventDefault()
+            if (!options.length) return
+            cookieHighlight = Math.min(cookieHighlight + 1, options.length - 1)
+            syncCookieHighlight()
+            setCookieListOpen(true)
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault()
+            if (!options.length) return
+            cookieHighlight = Math.max(cookieHighlight - 1, 0)
+            syncCookieHighlight()
+            setCookieListOpen(true)
+        } else if (e.key === "Enter" && cookieHighlight >= 0 && matches[cookieHighlight]) {
+            e.preventDefault()
+            selectCookie(matches[cookieHighlight])
+        } else if (e.key === "Escape") {
+            e.stopPropagation()
+            setCookieListOpen(false)
         }
     })
 
-    const openFeedbackEmailDraft = () => {
-        const subject = encodeURIComponent("Tierlist feedback")
-        const body = encodeURIComponent(buildTierFeedbackSummary(form))
-        window.open(`https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com&su=${subject}&body=${body}`, "_blank", "noopener,noreferrer")
-    }
+    modal.addEventListener("click", e => {
+        if (e.target?.dataset?.close) closeModal()
+        if (!cookieCombo.contains(e.target)) setCookieListOpen(false)
+    })
 
-    modal.querySelector("#tierFeedbackEmail").addEventListener("click", openFeedbackEmailDraft)
-    form.addEventListener("submit", (e) => {
-        e.preventDefault()
-        openFeedbackEmailDraft()
-        statusEl.textContent = "Opened prefilled email draft. Send to submit."
+    document.addEventListener("keydown", e => {
+        if (e.key !== "Escape" || modal.hidden) return
+        if (!cookieList.hidden) {
+            setCookieListOpen(false)
+            return
+        }
         closeModal()
+    })
+
+    btn.addEventListener("click", () => openModal())
+
+    form.addEventListener("submit", async e => {
+        e.preventDefault()
+        setStatus("")
+
+        const cookieOpt = resolveSelectedCookie()
+        const tlOpt = TierFeedback.findTierlistOption(tierlistOptions, tierlistSelect.value)
+
+        try {
+            if (!cookieOpt) throw new Error("Select a cookie from the list.")
+            const payload = TierFeedback.buildPayload({
+                cookieId: cookieOpt.id,
+                cookieLabel: cookieOpt.label,
+                tierlistLabel: tlOpt?.name || tierlistSelect.value,
+                suggestedTier: tierSelect.value,
+                reason: form.reason.value,
+            })
+
+            const submitBtn = form.querySelector(".tier-feedback-submit")
+            submitBtn.disabled = true
+
+            try {
+                await TierFeedback.submitPayload(payload)
+                setStatus("Thanks — your suggestion was submitted.", "success")
+                form.reset()
+                cookieHidden.value = ""
+                setCookieListOpen(false)
+                populateSuggestedTiers()
+            } catch (err) {
+                if (err.message === "NO_ENDPOINT") {
+                    await TierFeedback.copyPayload(err.payload)
+                    setStatus("No submit endpoint configured. Deploy tools/tier-feedback-worker/ and set submitUrl, or run python tools/tier_feedback_server.py locally. Suggestion copied as JSON.", "info")
+                } else {
+                    throw err
+                }
+            } finally {
+                submitBtn.disabled = false
+            }
+        } catch (err) {
+            setStatus(err.message || "Could not submit.", "error")
+        }
     })
 }
 
 if (DATA.games && DATA.games.length) {
-    initTierFeedback()
     buildGameSelector()
+    initTierFeedback()
 }
 
 window.addEventListener("crkSettingsChanged", () => {

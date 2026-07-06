@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tier feedback test</title>
+</head>
+<body>
+<pre id="out">Loading</pre>
+<script src="../tools/tier-feedback-config.js"></script>
+<script src="../tools/tier-feedback-config.local.js"></script>
+<script src="../tier-feedback.js"></script>
+<script>
+(async () => {
+  const out = document.getElementById("out")
+  try {
+    if (!TierFeedback.resolveListUrl()) {
+      out.textContent = "No listUrl configured in tier-feedback-config"
+      return
+    }
+    const items = await TierFeedback.fetchSubmissions()
+    out.textContent = JSON.stringify(items, null, 2)
+  } catch (e) {
+    out.textContent = String(e.message || e)
+  }
+})()
+</script>
+</body>
+</html>

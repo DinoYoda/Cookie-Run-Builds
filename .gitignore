@@ -12,6 +12,12 @@ Desktop.ini
 # Local/generated helper files
 output.txt
 
-# Accidental non-asset files in pictures
+# Local tier feedback API override
+tools/tier-feedback-config.local.js
+
+# Cloudflare Wrangler local state
+.wrangler/
+tools/tier-feedback-worker/.wrangler/
+
 crk/pictures/icons/status/tsetup-x64.6.7.1.exe
 crk/pictures/icons/status/SSR_TSRPT.pdf

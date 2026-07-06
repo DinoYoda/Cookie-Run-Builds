@@ -3068,91 +3068,6 @@ button.active {
 }
 .sidebar-overlay.open { display: block; }
 
-.tier-feedback-button {
-    position: fixed;
-    right: 16px;
-    bottom: 18px;
-    z-index: 60;
-    padding: 10px 14px;
-    border-radius: 999px;
-    background: #3b62ff;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-weight: 700;
-}
-
-.tier-feedback-modal[hidden] { display: none; }
-.tier-feedback-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-}
-.tier-feedback-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-}
-.tier-feedback-panel {
-    position: relative;
-    width: min(560px, calc(100vw - 28px));
-    margin: 8vh auto 0;
-    background: #12151d;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 14px;
-}
-.tier-feedback-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-.tier-feedback-close {
-    background: transparent;
-    color: #fff;
-    border: 0;
-    font-size: 1rem;
-    padding: 4px 8px;
-}
-.tier-feedback-form {
-    display: grid;
-    gap: 10px;
-}
-.tier-feedback-form label {
-    display: grid;
-    gap: 4px;
-    font-size: 0.9rem;
-}
-.tier-feedback-cookie-input {
-    padding: 7px 12px;
-    width: 100%;
-    background: #2a2d34;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    color: white;
-    font-family: CookieRunR, sans-serif;
-    font-size: 0.9rem;
-}
-.tier-feedback-cookie-input::placeholder { color: rgba(255,255,255,0.4); }
-.tier-feedback-form select,
-.tier-feedback-form textarea {
-    width: 100%;
-    background: #0d1118;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px;
-    font: inherit;
-}
-.tier-feedback-actions {
-    display: flex;
-    gap: 8px;
-}
-.tier-feedback-status {
-    min-height: 1.2rem;
-    font-size: 0.84rem;
-    color: #a9d4ff;
-}
 .sidebar {
     position: fixed;
     top: 0;
@@ -3546,4 +3461,243 @@ button.active {
     color: rgba(255,255,255,0.95);
     word-break: break-word;
     text-align: center;
+}
+
+/* -----------------------------
+  Tier feedback form
+----------------------------- */
+.tier-feedback-button {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 900;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: #5b8def;
+    color: #fff;
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+.tier-feedback-button:hover {
+    background: #6d9af5;
+}
+
+body.tier-feedback-open {
+    overflow: hidden;
+}
+
+.tier-feedback-modal[hidden] {
+    display: none;
+}
+.tier-feedback-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.tier-feedback-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+.tier-feedback-panel {
+    position: relative;
+    width: min(440px, 100%);
+    max-height: min(90vh, 640px);
+    overflow: auto;
+    background: #1e2028;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+.tier-feedback-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 18px 0;
+}
+.tier-feedback-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+.tier-feedback-close {
+    border: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+}
+.tier-feedback-close:hover {
+    color: #fff;
+}
+.tier-feedback-form {
+    padding: 14px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.tier-feedback-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.tier-feedback-field > span {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+.tier-feedback-field select,
+.tier-feedback-field textarea,
+.tier-feedback-combobox input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    background: #2a2d34;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.9rem;
+}
+.tier-feedback-combobox {
+    position: relative;
+}
+.tier-feedback-combobox-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 4px);
+    z-index: 2;
+    margin: 0;
+    padding: 4px 0;
+    max-height: 220px;
+    overflow-y: auto;
+    list-style: none;
+    background: #2a2d34;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.tier-feedback-combobox-list[hidden] {
+    display: none;
+}
+.tier-feedback-combobox-option,
+.tier-feedback-combobox-empty {
+    padding: 8px 10px;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+.tier-feedback-combobox-option {
+    cursor: pointer;
+}
+.tier-feedback-combobox-option:hover,
+.tier-feedback-combobox-option.is-highlighted {
+    background: rgba(91, 141, 239, 0.25);
+}
+.tier-feedback-combobox-empty {
+    color: rgba(255, 255, 255, 0.5);
+    cursor: default;
+}
+.tier-feedback-field select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+.tier-feedback-field textarea {
+    resize: vertical;
+    min-height: 88px;
+}
+.tier-feedback-status {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
+.tier-feedback-status--success { color: #7dcea0; }
+.tier-feedback-status--error { color: #f1948a; }
+.tier-feedback-status--info { color: rgba(255, 255, 255, 0.75); }
+.tier-feedback-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}
+.tier-feedback-cancel,
+.tier-feedback-submit {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+.tier-feedback-cancel {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+}
+.tier-feedback-submit {
+    border: 0;
+    background: #5b8def;
+    color: #fff;
+    font-weight: bold;
+}
+.tier-feedback-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.tier-feedback-submit:hover:not(:disabled) {
+    background: #6d9af5;
+}
+
+.tier-feedback-review {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+}
+.tier-feedback-review h1 {
+    margin: 0 0 8px;
+}
+.tier-feedback-review-note {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    margin: 0 0 20px;
+}
+.tier-feedback-review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.tier-feedback-review-card {
+    background: #2a2d34;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+.tier-feedback-review-card header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+.tier-feedback-review-card header span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.88rem;
+}
+.tier-feedback-review-card p {
+    margin: 0 0 8px;
+    line-height: 1.45;
+    white-space: pre-wrap;
+}
+.tier-feedback-review-card footer {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.45);
 }
