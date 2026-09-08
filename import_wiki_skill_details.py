@@ -28,7 +28,7 @@ Wiki templates expanded toward crk/crk_descriptions.js conventions:
   {{Kch|dc}} / {{Kch|olive|Custom}} → cookie{…} then optional label (icon before text, like status{…});
     balanced | args; icononly= ignored;
     tools/cookie_search_aliases.json — alias → data.js name; edit manually)
-  {{Type|Charge}}            → type{charge}
+  {{Type|Charge}}            → role{charge}
   {{Tip|visible|tooltip}}      → hover{tooltip:visible} (balanced; nested {{…}} supported)
   Wiki list lines: leading * / ** / *** … (after |Notes= line-split) → top-level * stripped; each
     extra * becomes indent{} so ** nested bullets match site skill_notes layout.
@@ -366,10 +366,12 @@ def _expand_csi(s: str) -> str:
     return re.sub(r"\{\{csi\|([^}]+)\}\}", repl, s, flags=re.I)
 
 
-def _expand_type(s: str) -> str:
+def _expand_role(s: str) -> str:
     def repl(m: re.Match[str]) -> str:
         t = m.group(1).strip().lower().replace(" ", "_")
-        return f"type{{{t}}}"
+        if t in ("front", "middle", "rear"):
+            return f"position{{{t.capitalize()}}}"
+        return f"role{{{t}}}"
 
     return re.sub(r"\{\{Type\|([^}]+)\}\}", repl, s, flags=re.I)
 
@@ -433,7 +435,7 @@ def expand_wiki_skill_fragment(
         if expand_element:
             t = _expand_element(t)
         t = expand_wiki_kch_templates_for_skill(t, kmap)
-        t = _expand_type(t)
+        t = _expand_role(t)
         t = _expand_crk_treasure(t, tmap)
         t = _expand_csi(t)
         # Status before Color so {{Color|{{Status|Id}}|#hex}} resolves; sole {{Color|…}} inside Status is expanded in wiki_expand_status.

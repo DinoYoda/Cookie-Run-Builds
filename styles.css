@@ -80,7 +80,64 @@ button.active {
 }
 .tier-section-select {
     min-width: 11rem;
-    align-self: flex-start;
+}
+
+/* -----------------------------
+  Tierlist page header
+----------------------------- */
+.tierlist-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.tierlist-title {
+    margin: 0;
+    font-family: "CookieRun Bold", sans-serif;
+    font-size: 1.4rem;
+}
+.tier-mode-select {
+    min-width: 10rem;
+}
+.tier-sub-select {
+    min-width: 10rem;
+}
+.tier-sub-select[hidden] {
+    display: none !important;
+}
+.tier-mode-select .select-expand-trigger,
+.tier-sub-select .select-expand-trigger,
+.tier-section-select .select-expand-trigger {
+    line-height: 1.35;
+}
+.tier-mode-select .select-expand-chevron,
+.tier-sub-select .select-expand-chevron,
+.tier-section-select .select-expand-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0.9rem;
+    line-height: 1;
+    font-size: 0.65rem;
+}
+.tierlist-search,
+#search {
+    padding: 7px 12px;
+    width: 200px;
+    background: #2a2d34;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.9rem;
+}
+.tierlist-search::placeholder,
+#search::placeholder { color: rgba(255,255,255,0.4); }
+.tierlist-counter {
+    color: rgba(255, 255, 255, 0.65);
+    font-family: CookieRunR, sans-serif;
+    font-size: 0.9rem;
 }
 .select-expand-trigger {
     display: flex;
@@ -155,18 +212,6 @@ button.active {
     color: #5bb4ff;
 }
 
-#search {
-    padding: 7px 12px;
-    width: 220px;
-    background: #2a2d34;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    color: white;
-    font-family: CookieRunR, sans-serif;
-    font-size: 0.9rem;
-}
-#search::placeholder { color: rgba(255,255,255,0.4); }
-
 #reset {
     padding: 7px 14px;
     background: #2a2d34;
@@ -195,17 +240,49 @@ button.active {
   Filters
 ----------------------------- */
 .filter-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
     margin-bottom: 10px;
 }
 
+.filter-group--square {
+    --filter-gap: 6px;
+    --filter-min-cols: 5;
+    --filter-btn-max: 40px;
+    display: grid;
+    gap: var(--filter-gap);
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(
+            min(
+                var(--filter-btn-max),
+                calc((100% - (var(--filter-min-cols) - 1) * var(--filter-gap)) / var(--filter-min-cols))
+            ),
+            1fr
+        )
+    );
+}
+
+.filter-group--rarity {
+    --filter-gap: 6px;
+    --filter-min-cols: 2;
+    --filter-rarity-max: 112px;
+    display: grid;
+    gap: var(--filter-gap);
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(
+            min(
+                var(--filter-rarity-max),
+                calc((100% - (var(--filter-min-cols) - 1) * var(--filter-gap)) / var(--filter-min-cols))
+            ),
+            1fr
+        )
+    );
+}
+
 .filter-icon-btn {
-    width: auto;
-  min-width: 40px;
-  height: 40px;
+    box-sizing: border-box;
     flex-shrink: 0;
+    padding: 0;
     background: #2a2d34;
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 8px;
@@ -215,10 +292,17 @@ button.active {
     cursor: pointer;
 }
 
+.filter-group--square .filter-icon-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+}
+
 .filter-icon-btn img {
-    width: auto;
-    height: 24px;
-  min-width: 24px;
+    width: 60%;
+    height: 60%;
+    min-width: 0;
+    object-fit: contain;
 }
 
 .filter-icon-btn:hover {
@@ -230,8 +314,19 @@ button.active {
     border-color: #1e88e5;
 }
 
-.filter-icon-btn[data-category="rarity"] {
-    min-width: 112px;
+.filter-rarity-btn {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 112 / 40;
+}
+
+.filter-rarity-btn img {
+    width: auto;
+    height: 60%;
+    max-width: 92%;
+    min-width: 0;
+    object-fit: contain;
 }
 
 /* -----------------------------
@@ -241,6 +336,10 @@ button.active {
     margin-top: 20px;
     width: 100%;
     box-sizing: border-box;
+    --tier-label-col: 60px;
+    --tier-card-gap: 12px;
+    --tier-min-cols: 3;
+    --tier-card-max: 130px;
 }
 
 /* -----------------------------
@@ -397,7 +496,6 @@ button.active {
 #tierlist.tierlist--roles {
     --role-column-bg: #2a2d34;
     --role-column-bg-alt: #363a48;
-    --tier-label-col: 60px;
 }
 
 #tierlist.tierlist--roles .role-header,
@@ -434,7 +532,7 @@ button.active {
 }
 
 #tierlist:not(.tierlist--roles) .tier-row {
-    grid-template-columns: 60px repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: var(--tier-label-col) minmax(0, 1fr);
 }
 
 .tier-label {
@@ -472,23 +570,35 @@ button.active {
 .role-column {
     background: var(--role-column-bg, #2a2d34);
     padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-content: flex-start;
     min-width: 0;
 }
 
-/* Fill grid track + center wrapped rows (default flex shrink was packing cards to the start) */
+.tier-column,
+.role-column {
+    box-sizing: border-box;
+    display: grid;
+    gap: var(--tier-card-gap);
+    /* Same as .charlist-grid: at least 3 per row; shrink below 130px when narrow. */
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(
+            min(
+                var(--tier-card-max),
+                calc((100% - (var(--tier-min-cols) - 1) * var(--tier-card-gap)) / var(--tier-min-cols))
+            ),
+            1fr
+        )
+    );
+    align-content: start;
+    justify-items: stretch;
+}
+
+/* Fill grid track (role layout) */
 #tierlist.tierlist--roles .role-column {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     justify-self: stretch;
-}
-
-#tierlist.tierlist--roles .role-column .card {
-    flex: 0 0 auto;
 }
 
 #tierlist.tierlist--roles .tier-row > .role-column:nth-child(even) {
@@ -498,21 +608,27 @@ button.active {
 /* Single column when roles are disabled */
 .tier-column {
     grid-column: 2 / -1;
-    /* starts after the 80px label */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    min-width: 0;
+    width: 100%;
+}
+
+#tierlist .card {
+    width: min(100%, var(--tier-card-max));
+    max-width: var(--tier-card-max);
+    justify-self: start;
 }
 
 /* -----------------------------
   Character Cards
 ----------------------------- */
 .card {
-    width: 100px;
+    width: 100%;
+    min-width: 0;
+    container-type: inline-size;
     text-align: center;
     background: #2c2f39;
     border-radius: 6px;
-    padding: 4px;
+    overflow: hidden;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -523,15 +639,15 @@ button.active {
 }
 
 .portrait {
+    display: block;
     position: relative;
-    width: 90px;
-    height: 90px;
 }
 
 .portrait img.character-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 6px;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
 }
 
 /* TOA tier list: rarity ring on top of portrait (hollow rounded frame, no layout shift) */
@@ -566,8 +682,8 @@ button.active {
     position: absolute;
     top: 2px;
     left: 2px;
-    width: 18px;
-    height: 18px;
+    width: clamp(12px, 18cqi, 18px);
+    height: clamp(12px, 18cqi, 18px);
     z-index: 2;
 }
 
@@ -577,22 +693,26 @@ button.active {
     right: 2px;
     z-index: 2;
     background: #000a;
-    font-size: 10px;
+    font-size: clamp(8px, 10cqi, 10px);
     padding: 2px 4px;
     border-radius: 2px;
 }
 
 .name {
-    font-size: 12px;
-    margin-top: -6px;
+    font-family: "CookieRun Bold", sans-serif;
+    font-size: clamp(0.62rem, 11cqi, 0.8rem);
+    color: rgba(255, 255, 255, 0.95);
+    padding: clamp(4px, 2cqi, 6px) clamp(5px, 2.5cqi, 8px);
     word-break: break-word;
+    line-height: 1.2;
 }
 
 .tags,
 .badges {
-    font-size: 10px;
+    font-size: clamp(8px, 10cqi, 10px);
     color: #8fd3ff;
-    margin-top: 2px;
+    margin-top: 0;
+    padding: 0 clamp(5px, 2.5cqi, 8px) clamp(4px, 2cqi, 6px);
 }
 
 /* -----------------------------
@@ -648,34 +768,55 @@ button.active {
 /* -----------------------------
   Responsive adjustments
 ----------------------------- */
-@media (max-width:800px) {
+@media (max-width: 800px) {
 
-    #tierlist:not(.tierlist--roles) .role-header,
-    #tierlist:not(.tierlist--roles) .tier-row {
-  grid-template-columns: 80px repeat(auto-fill, minmax(100px, 1fr));
-    }
-
-    #tierlist.tierlist--roles {
+    #tierlist {
         --tier-label-col: 80px;
     }
-  
-    .card {
-        width: 70px;
+}
+
+@media (max-width: 740px) {
+
+    /* Tier label spans full width above cards (side layout above this breakpoint). */
+    #tierlist:not(.tierlist--roles) .tier-row,
+    #tierlist.tierlist--roles .tier-row {
+        grid-template-columns: 1fr;
     }
 
-    .portrait {
-        width: 70px;
-        height: 70px;
+    .tier-row {
+        overflow: hidden;
     }
 
-    .portrait img.character-img {
-        width: 70px;
-        height: 70px;
+    .tier-column {
+        grid-column: 1;
     }
 
-    .element-icon {
-        width: 16px;
-        height: 16px;
+    .tier-label {
+        padding: 8px 12px;
+        border-radius: 0;
+    }
+
+    #tierlist.tierlist--roles .role-header {
+        display: none;
+    }
+
+    #tierlist.tierlist--roles .role-column {
+        padding-top: 0;
+    }
+
+    #tierlist.tierlist--roles .role-column::before {
+        content: attr(data-role);
+        display: block;
+        text-align: center;
+        padding: 8px 6px;
+        font-size: 0.95rem;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.88);
+        background: inherit;
+    }
+
+    #tierlist.tierlist--roles .role-column:empty {
+        display: none;
     }
 }
 
@@ -1610,6 +1751,22 @@ button.active {
     background: rgba(255, 255, 255, 0.15);
     margin-bottom: 36px;
 }
+
+.info-author-note {
+    margin: -18px 0 28px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 210, 120, 0.35);
+    border-radius: 6px;
+    background: rgba(255, 210, 120, 0.08);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: rgba(255, 235, 190, 0.92);
+}
+
+.info-author-note p {
+    margin: 0;
+}
+
 .info-section {
     margin-bottom: 36px;
 }
@@ -1885,14 +2042,19 @@ button.active {
 }
 
 .teams-build-toppings-group {
+    --teams-toppings-inline-width: calc(var(--teams-gear-size) * 2 + 10px);
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 10px;
+    width: var(--teams-toppings-inline-width);
+    max-width: 100%;
     min-width: 0;
     flex: 0 1 auto;
     overflow: visible;
+    box-sizing: border-box;
 }
 
 .teams-page .teams-build-row .teams-toppings-stats-stack {
@@ -2070,22 +2232,6 @@ button.active {
         align-items: center;
         justify-content: center;
         gap: 12px;
-    }
-
-    .teams-build-toppings-group {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 8px;
-    }
-
-    .teams-build-row-star {
-        justify-content: center;
-    }
-
-    .teams-page .teams-build-row .teams-toppings-stats-stack {
-        align-items: center;
-        width: 100%;
     }
 
     .teams-build-row-beascuit {
@@ -2266,7 +2412,7 @@ button.active {
 .info-stat-subtitle {
     font-size: 1rem;
     font-weight: 600;
-    margin: 18px 0 8px;
+    margin: 24px 0 8px;
     color: rgba(255, 255, 255, 0.9);
 }
 .info-stat-list {
@@ -2344,10 +2490,42 @@ button.active {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Wiki-like paired bonus-effects layout */
+/* Wiki-style legendary tart bonus effect table (Effect | Initial Value) */
+.topping-bonus-table {
+    table-layout: fixed;
+}
+
+.topping-bonus-table thead th[colspan] {
+    text-align: center;
+}
+
+.topping-bonus-table th,
+.topping-bonus-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.topping-bonus-table tbody td:first-child {
+    text-align: center;
+    width: 72%;
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+}
+
+.topping-bonus-value-th,
+.topping-bonus-value-cell {
+    width: 28%;
+    background: rgba(255, 220, 160, 0.14);
+    color: rgba(255, 245, 225, 0.95);
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+}
+
+/* Paired substat ranges for regular / resonant toppings */
 .bonus-effects-table thead th[colspan] {
     text-align: center;
 }
+
 .bonus-effects-table td {
     text-align: center;
 }
@@ -2363,25 +2541,56 @@ button.active {
 .topping-wiki-block {
     display: flex;
     flex-direction: column;
-    /* Two stacked tables (base + set bonuses). Zero so we don't need large negative margins. */
-    gap: 0px;
+    gap: 0;
 }
 
-.topping-wiki-table th {
-    text-align: center;
+.topping-wiki-table {
+    width: 100%;
+    table-layout: fixed;
+    margin: 0;
 }
 
-.topping-wiki-size-cell {
+.topping-wiki-table th,
+.topping-wiki-table td {
     text-align: center;
-    width: 98px;
     vertical-align: middle;
+}
+
+.topping-wiki-name-cell {
+    font-size: 1rem;
+    text-align: center !important;
+}
+
+.topping-wiki-rarity-th {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 8px !important;
+}
+
+.topping-wiki-rarity-common {
+    background: rgba(160, 160, 160, 0.22);
+}
+
+.topping-wiki-rarity-rare {
+    background: rgba(80, 140, 220, 0.22);
+}
+
+.topping-wiki-rarity-epic {
+    background: rgba(200, 90, 180, 0.22);
+}
+
+.topping-wiki-item-cell {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 8px !important;
 }
 
 .topping-wiki-icon {
     display: block;
     width: 64px;
     height: 64px;
-    margin: 6px auto 8px;
+    margin: 4px auto 8px;
     object-fit: contain;
 }
 
@@ -2391,6 +2600,62 @@ button.active {
     color: rgba(255, 255, 255, 0.92);
     line-height: 1.2;
     text-align: center;
+}
+
+.topping-wiki-size-value--range {
+    font-size: 0.82rem;
+    line-height: 1.25;
+}
+
+.topping-wiki-upgrade-row td {
+    font-family: "CookieRun Bold", sans-serif;
+    font-size: 0.88rem;
+    padding: 8px 10px !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.topping-wiki-set-table {
+    width: 100%;
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+.topping-wiki-set-table th,
+.topping-wiki-set-table td {
+    padding: 6px 8px;
+    text-align: center;
+}
+
+.topping-wiki-set-table-joined {
+    margin-top: -1px;
+}
+
+.topping-wiki-set-table thead th {
+    border-top: none;
+}
+
+.topping-wiki-set-title {
+    text-align: center;
+}
+
+.topping-wiki-set-label {
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.topping-wiki-desc-cell {
+    text-align: center !important;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    font-style: italic;
+}
+
+/* Legacy helpers kept for other pages / older markup */
+.topping-wiki-size-cell {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .topping-wiki-right-cell {
@@ -2415,53 +2680,6 @@ button.active {
 .topping-wiki-max-value {
     font-family: inherit;
     font-weight: 400;
-}
-
-.topping-wiki-equip-title {
-    font-weight: 1000;
-    color: rgba(255, 255, 255, 0.95);
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-
-/* Toppings page: compact set bonuses under each topping table */
-/* Nested table for "Set Bonuses" row (values in a 2x2 table) */
-.topping-wiki-set-table {
-    width: 100%;
-    margin: 0;
-    font-size: 0.88rem;
-}
-
-.topping-wiki-set-table th,
-.topping-wiki-set-table td {
-    padding: 6px 8px;
-    text-align: center;
-}
-
-.topping-wiki-set-title {
-    text-align: center;
-}
-
-.topping-wiki-desc-cell {
-    text-align: center !important;
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.9rem;
-    line-height: 1.55;
-    font-style: italic;
-}
-
-/* Make base table + set table look joined (no double border line). */
-.topping-wiki-set-table-joined {
-    /* Moves set table up to visually join with base table.
-       We also cancel the flex-column gap between the two blocks/items. */
-    margin-top: -1px;
-}
-
-/* Avoid double-border opacity at the join:
-   - base table renders its bottom border
-   - remove the set table's header top border so only one line remains */
-.topping-wiki-set-table thead th {
-    border-top: none;
 }
 
 /* (Removed) toppings page used an old id-based visibility rule. */
@@ -3386,10 +3604,14 @@ button.active {
 
 /* Sidebar game selector */
 .sidebar-game-selector {
+    display: none;
     padding: 10px 0 8px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     margin-bottom: 6px;
     position: relative;
+}
+.sidebar-game-selector.is-visible {
+    display: block;
 }
 .sidebar-game-btn {
     width: 100%;
@@ -3713,9 +3935,22 @@ button.active {
     margin-bottom: 16px;
 }
 .charlist-grid {
+    --charlist-gap: 12px;
+    --charlist-min-cols: 3;
+    --charlist-card-min: 130px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 12px;
+    gap: var(--charlist-gap);
+    /* At least 3 per row; shrink below 130px when the row is narrow. */
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(
+            min(
+                var(--charlist-card-min),
+                calc((100% - (var(--charlist-min-cols) - 1) * var(--charlist-gap)) / var(--charlist-min-cols))
+            ),
+            1fr
+        )
+    );
 }
 .charlist-card {
     background: #2a2d34;
@@ -3724,6 +3959,8 @@ button.active {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.15s, border-color 0.15s;
+    container-type: inline-size;
+    min-width: 0;
 }
 .charlist-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.3); }
 .charlist-card-img-wrap {
@@ -3745,21 +3982,22 @@ button.active {
     align-items: center;
 }
 .charlist-card-icons img {
-    width: 30px;
-    height: 30px;
+    width: clamp(18px, 28cqi, 30px);
+    height: clamp(18px, 28cqi, 30px);
     object-fit: contain;
     filter: drop-shadow(0 1px 2px rgba(0,0,0,0.8)) drop-shadow(0 0 4px rgba(255,255,255));
     display: block;
 }
 .charlist-card-info {
-    padding: 6px 8px 8px;
+    padding: clamp(4px, 2cqi, 6px) clamp(5px, 2.5cqi, 8px) clamp(6px, 2.5cqi, 8px);
 }
 .charlist-card-name {
     font-family: "CookieRun Bold", sans-serif;
-    font-size: 0.8rem;
+    font-size: clamp(0.62rem, 11cqi, 0.8rem);
     color: rgba(255,255,255,0.95);
     word-break: break-word;
     text-align: center;
+    line-height: 1.2;
 }
 
 /* -----------------------------

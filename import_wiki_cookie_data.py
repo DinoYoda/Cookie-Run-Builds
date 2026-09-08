@@ -5,8 +5,8 @@ Fetch core Cookie Run: Kingdom cookie fields from the Cookie Run Wiki (MediaWiki
 The wiki is served from cookierun.wiki (ABXY / standard MediaWiki — same API as other importers).
 
 For each character from tools/extract_crk_characters.mjs, resolves a wiki page and parses:
-  • Infobox {{Crk cookie infobox}} or {{Cookie infobox}} → element(s), type (role), position, rarity
-    (comma-separated elements → element: ["A","B"]; type/position/rarity → Title Case to match data.js).
+  • Infobox {{Crk cookie infobox}} or {{Cookie infobox}} → element(s), role, position, rarity
+    (comma-separated elements → element: ["A","B"]; role/position/rarity → Title Case to match data.js).
     Newer layouts indent lines after </gallery> (space before |); those are parsed. Keys are lowercased.
     A supplemental pass fills empty fields from any |key = value line in the infobox text.
   • Flavor text: == Game Description == on the resolved page (heading may use bold, e.g. =='''Game Description'''==);
@@ -23,7 +23,7 @@ For each character from tools/extract_crk_characters.mjs, resolves a wiki page a
     Skill name: |Name=, |name=, |Skill=, |skill=; if still missing, infobox keys skill / skillname / base skill, etc.
 
 Output: a .js file assigning to window, using data.js-like syntax (unquoted keys where valid).
-  • cookies — array of stat objects (name, element, type, position, rarity, skill,
+  • cookies — array of stat objects (name, element, role, position, rarity, skill,
     optional cd + initial; optional mcSkill, cjSkill, mcInitial, cjInitial when present; cnEx when
     set in data.js (informational for importers / dry-run preview).
     MC/CJ Cooldown is parsed but not emitted as mcCd/cjCd — uncomment those lines in main if data.js adds them.
@@ -1205,7 +1205,7 @@ def build_import_document(
         cookie_row: dict[str, Any] = {
             "name": name,
             "element": elem,
-            "type": role,
+            "role": role,
             "position": pos,
             "rarity": rarity,
             "skill": skill_name,
@@ -1244,7 +1244,7 @@ def build_import_document(
         if verbose:
             print(f"[ok] {name} <- {title}", file=sys.stderr)
             print(
-                f"     element={elem} type={role} skill={skill_name} cd={skill_cd} initial={skill_initial} "
+                f"     element={elem} role={role} skill={skill_name} cd={skill_cd} initial={skill_initial} "
                 f"mc={mc_skill} cj={cj_skill}",
                 file=sys.stderr,
             )

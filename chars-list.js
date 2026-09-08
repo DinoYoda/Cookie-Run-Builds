@@ -2,7 +2,7 @@ let allChars = []
 let activeFilters = {}
 let searchText = ""
 let cookieSearchAliasMap = {}
-let sortMode = "release"
+let sortMode = "rarity"
 let sortReverse = false
 let sortByMcCj = false
 let currentGameId = "crk"
@@ -198,9 +198,10 @@ function charlistCardIconsHtml(c, pic) {
       `<img src="${pic}/jam/${c.name}_mc_lv3.png" alt="Crystal Jam" title="Crystal Jam" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
     )
   }
-  if (c.type) {
+  const role = c.role || c.type
+  if (role) {
     parts.push(
-      `<img src="${pic}/icons/${c.type}.png" alt="${c.type}" title="${c.type}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
+      `<img src="${pic}/icons/${role}.png" alt="${role}" title="${role}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
     )
   }
   if (!parts.length) return ""
@@ -212,17 +213,22 @@ function cnExSortRank(c) {
   return c && c.cnEx === true ? 1 : 0
 }
 
+function filterGroupClass(cat) {
+  if (cat === "rarity") return "filter-group filter-group--rarity"
+  return "filter-group filter-group--square"
+}
+
 function buildFilters(filters) {
   const wrap = document.getElementById("charlistFilters")
   Object.entries(filters).forEach(([cat, vals]) => {
     const g = document.createElement("div")
-    g.className = "filter-group"
+    g.className = filterGroupClass(cat)
     vals.forEach(v => {
       if (v === undefined) return
       const displayValue = v == null ? "None" : v
       const iconValue = v == null ? "null" : v
       const btn = document.createElement("button")
-      btn.className = "filter-icon-btn"
+      btn.className = cat === "rarity" ? "filter-icon-btn filter-rarity-btn" : "filter-icon-btn"
       btn.dataset.category = cat
       btn.dataset.value = iconValue
       btn.title = displayValue
@@ -332,10 +338,10 @@ document.getElementById("charlistSearch").addEventListener("input", e => {
 document.getElementById("charlistReset").addEventListener("click", () => {
   activeFilters = {}
   searchText = ""
-  sortMode = "release"
+  sortMode = "rarity"
   sortReverse = false
   sortByMcCj = false
-  writeUIState({ charlistSortByMcCj: false, charlistSortMode: "release", charlistSortReverse: false })
+  writeUIState({ charlistSortByMcCj: false, charlistSortMode: "rarity", charlistSortReverse: false })
   document.getElementById("charlistSearch").value = ""
   const csr = document.getElementById("charlistSortExpand")
   const cst = document.getElementById("charlistSortTrigger")

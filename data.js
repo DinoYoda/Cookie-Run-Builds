@@ -10,7 +10,7 @@ window.CRK_DATA = {
                     pageUpdated: "2026-09-08T04:56:56Z",
                     cnEx: true,
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Zhencang",
                     skill: "Jinghong Dance",
@@ -24,7 +24,7 @@ window.CRK_DATA = {
                     displayName: "Ruby Cookie",
                     pageUpdated: "2026-07-12T01:34:24Z",
                     element: "Steel",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Charged Detonation",
@@ -42,7 +42,7 @@ window.CRK_DATA = {
                     displayName: "Moonstone Cookie",
                     pageUpdated: "2026-07-12T01:34:24Z",
                     element: "Steel",
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Silent Reading",
@@ -64,7 +64,7 @@ window.CRK_DATA = {
                     displayName: "Cobalt Cookie",
                     pageUpdated: "2026-07-12T01:34:24Z",
                     element: "Steel",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Cold Steel",
@@ -82,7 +82,7 @@ window.CRK_DATA = {
                     displayName: "Jadeite Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Super Epic",
                     skill: "Luxury Jade Umbrella",
@@ -97,7 +97,7 @@ window.CRK_DATA = {
                     displayName: "Baili Cookie",
                     pageUpdated: "2026-07-12T01:34:24Z",
                     element: "Steel",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Rear",
                     rarity: "Legendary",
                     skill: "Sealing Python",
@@ -115,7 +115,7 @@ window.CRK_DATA = {
                     displayName: "Tengshe Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Legendary",
                     skill: "Golden Snake Blessing",
@@ -130,7 +130,7 @@ window.CRK_DATA = {
                     displayName: "GingerBrave",
                     pageUpdated: "2026-04-27T19:31:39Z",
                     element: null,
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Common",
                     skill: "Brave Dash",
@@ -147,7 +147,7 @@ window.CRK_DATA = {
                     displayName: "Muscle Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Steel",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Common",
                     skill: "Muscle King Power",
@@ -164,7 +164,7 @@ window.CRK_DATA = {
                     displayName: "Strawberry Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Common",
                     skill: "Don't Come Near!",
@@ -181,13 +181,13 @@ window.CRK_DATA = {
                     displayName: "Wizard Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: "Electricity",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Common",
                     skill: "Magic Storm",
                     cd: 13,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 40,
                                 76.7
@@ -206,7 +206,7 @@ window.CRK_DATA = {
                     displayName: "Beet Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Common",
                     skill: "Hunter's Sense",
@@ -223,7 +223,7 @@ window.CRK_DATA = {
                     displayName: "Ninja Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Common",
                     skill: "Swift Strike",
@@ -240,7 +240,7 @@ window.CRK_DATA = {
                     displayName: "Angel Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Common",
                     skill: "Celestial Light",
@@ -257,7 +257,7 @@ window.CRK_DATA = {
                     displayName: "Adventurer Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Rare",
                     skill: "Rope Master",
@@ -274,7 +274,7 @@ window.CRK_DATA = {
                     displayName: "Alchemist Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Poison",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Rare",
                     skill: "Unstable Formula",
@@ -291,7 +291,7 @@ window.CRK_DATA = {
                     displayName: "Avocado Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Rare",
                     skill: "Battle Smithing",
@@ -308,7 +308,7 @@ window.CRK_DATA = {
                     displayName: "Blackberry Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Rare",
                     skill: "Ghost Servants",
@@ -325,7 +325,7 @@ window.CRK_DATA = {
                     displayName: "Carrot Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Grass",
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Rare",
                     skill: "Carrot Harvest",
@@ -342,7 +342,7 @@ window.CRK_DATA = {
                     displayName: "Cherry Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Rear",
                     rarity: "Rare",
                     skill: "Huge Cherry Bomb",
@@ -359,7 +359,7 @@ window.CRK_DATA = {
                     displayName: "Clover Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Rare",
                     skill: "Bard's Song",
@@ -432,7 +432,7 @@ window.CRK_DATA = {
                     displayName: "Custard Cookie III",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Rare",
                     skill: "King's Favor",
@@ -449,7 +449,7 @@ window.CRK_DATA = {
                     displayName: "Devil Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Darkness",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Rare",
                     skill: "Devilish Rune",
@@ -466,7 +466,7 @@ window.CRK_DATA = {
                     displayName: "Gumball Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: null,
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Rear",
                     rarity: "Rare",
                     skill: "Art-illery",
@@ -483,7 +483,7 @@ window.CRK_DATA = {
                     displayName: "Knight Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Rare",
                     skill: "Cavalry Charge",
@@ -500,7 +500,7 @@ window.CRK_DATA = {
                     displayName: "Onion Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Rare",
                     skill: "Unstoppable Tears",
@@ -521,13 +521,13 @@ window.CRK_DATA = {
                     displayName: "Pancake Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Rear",
                     rarity: "Rare",
                     skill: "Take an Acorn!",
                     cd: 15,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 39.8,
                                 76.9
@@ -543,7 +543,7 @@ window.CRK_DATA = {
                     displayName: "Princess Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Rare",
                     skill: "Royal Swing",
@@ -560,7 +560,7 @@ window.CRK_DATA = {
                     displayName: "Marshmallow Bunny Cookie",
                     pageUpdated: "2026-08-28T04:28:05Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Special",
                     skill: "Let's Go, Bunny Tunnel!",
@@ -574,21 +574,21 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "candy",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "candy",
                                 resonance: "fuzzy"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -600,12 +600,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "AMP Buff",
-                                    value: "25%"
+                                name: "AMP Buff",
+                                value: "25%"
                                 },
                                 {
-                                    name: "Cooldown",
-                                    value: "≥30%"
+                                name: "Cooldown",
+                                value: "≥30%"
                                 }
                             ],
                             notes: [
@@ -625,7 +625,7 @@ window.CRK_DATA = {
                     displayName: "Cream Ferret Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Special",
                     skill: "Snuggly Ferret",
@@ -639,20 +639,20 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -664,8 +664,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stast: [
                                 {
-                                    name: "Cooldown",
-                                    value: "53.8%"
+                                name: "Cooldown",
+                                value: "53.8%"
                                 }
                             ],
                             substats: [
@@ -681,7 +681,7 @@ window.CRK_DATA = {
                     displayName: "Icicle Yeti Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Ice",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Front",
                     rarity: "Special",
                     skill: "Let's Be Friends!",
@@ -702,7 +702,7 @@ window.CRK_DATA = {
                     displayName: "Snapdragon Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Special",
                     skill: "Arcane Blossom",
@@ -752,7 +752,7 @@ window.CRK_DATA = {
                     displayName: "Sonic Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Special",
                     skill: "Sonic's Spin Dash",
@@ -769,7 +769,7 @@ window.CRK_DATA = {
                     displayName: "Tails Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Special",
                     skill: "Tails' Spin Dash",
@@ -786,7 +786,7 @@ window.CRK_DATA = {
                     displayName: "Elphaba Cookie",
                     pageUpdated: "2026-08-28T05:09:57Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Special",
                     skill: "Unlimited!",
@@ -807,7 +807,7 @@ window.CRK_DATA = {
                     displayName: "Glinda Cookie",
                     pageUpdated: "2026-08-28T05:09:57Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Special",
                     skill: "Dazzling Presence",
@@ -823,7 +823,7 @@ window.CRK_DATA = {
                     name: "BTS",
                     displayName: "BTS",
                     element: null,
-                    type: "BTS",
+                    role: "BTS",
                     position: "Rear",
                     rarity: "Special"
                 },
@@ -832,7 +832,7 @@ window.CRK_DATA = {
                     displayName: "Doughael",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "Consecrated Vow",
@@ -850,26 +850,26 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "Cooldown",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "Cooldown",
-                                2: "HP",
-                                3: "HP",
-                                4: "HP"
+                            1: "Cooldown",
+                            2: "HP",
+                            3: "HP",
+                            4: "HP"
                             }
                         ]
                     },
@@ -881,16 +881,16 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "HP%",
-                                    value: "≥80%"
+                                name: "HP%",
+                                value: "≥80%"
                                 },
                                 {
-                                    name: "Cooldown",
-                                    value: "15%"
+                                name: "Cooldown",
+                                value: "15%"
                                 },
                                 {
-                                    name: "DMG Resist",
-                                    value: "≥45%"
+                                name: "DMG Resist",
+                                value: "≥45%"
                                 }
                             ],
                             notes: [
@@ -918,7 +918,7 @@ window.CRK_DATA = {
                     displayName: "Camellia Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Grass",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Super Epic",
                     skill: "Battle Scene Painting",
@@ -933,48 +933,48 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "almond",
+                            2: "almond",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "fragrant"
                             },
                             {
-                                1: "almond",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "almond",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "fragrant"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "fragrant"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "fragrant"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             }
                         ]
                     },
@@ -1015,7 +1015,7 @@ window.CRK_DATA = {
                     displayName: "Elder Faerie Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Super Epic",
                     skill: "Guardian's Valor",
@@ -1034,28 +1034,28 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
                                 6: "almond"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "HP",
-                                4: "HP"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "HP",
+                            4: "HP"
                             }
                         ]
                     },
@@ -1103,7 +1103,7 @@ window.CRK_DATA = {
                     displayName: "Crimson Coral Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Water",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Super Epic",
                     skill: "Somber Affection",
@@ -1151,10 +1151,10 @@ window.CRK_DATA = {
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             }
                         ]
                     },
@@ -1192,7 +1192,7 @@ window.CRK_DATA = {
                     displayName: "Shining Glitter Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Electricity",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "All Eyes on the Stage!",
@@ -1206,80 +1206,80 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "tropical"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "tropical"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "tropical"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "tropical"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "tropical"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "tropical"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "applejelly",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "applejelly",
                                 resonance: "tropical"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "Electric DMG",
-                                2: "Electric DMG",
-                                3: "Electric DMG",
+                            1: "Electric DMG",
+                            2: "Electric DMG",
+                            3: "Electric DMG",
                                 4: "Electric DMG",
                                 element: "Electricity"
                             }
@@ -1337,7 +1337,7 @@ window.CRK_DATA = {
                     displayName: "Capsaicin Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Fire",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Super Epic",
                     skill: "Capsaicin Magma",
@@ -1351,59 +1351,59 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "trio"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "trio"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "trio"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "applejelly",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "applejelly",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "trio"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "Fire DMG",
-                                2: "Fire DMG",
-                                3: "Fire DMG",
+                            1: "Fire DMG",
+                            2: "Fire DMG",
+                            3: "Fire DMG",
                                 4: "Fire DMG",
                                 element: "Fire"
                             }
@@ -1433,7 +1433,7 @@ window.CRK_DATA = {
                     displayName: "Stardust Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "Wrath of the Stars",
@@ -1447,60 +1447,60 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "chocolate",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "chocolate",
                                 resonance: "moon"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "moon"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "moon"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "moon"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "DMG Resist",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "Cooldown",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "Cooldown",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -1532,7 +1532,7 @@ window.CRK_DATA = {
                     displayName: "Sherbet Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Ice",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "Frost Shards",
@@ -1546,54 +1546,54 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "frost"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "frost"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "frost"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "frost"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Ice DMG",
-                                2: "Ice DMG",
-                                3: "Cooldown",
-                                4: "CRIT%",
+                            1: "Ice DMG",
+                            2: "Ice DMG",
+                            3: "Cooldown",
+                            4: "CRIT%",
                                 element: "Ice"
                             },
                             {
-                                1: "Ice DMG",
-                                2: "Ice DMG",
-                                3: "Ice DMG",
+                            1: "Ice DMG",
+                            2: "Ice DMG",
+                            3: "Ice DMG",
                                 4: "Ice DMG",
                                 element: "Ice"
                             }
@@ -1640,7 +1640,7 @@ window.CRK_DATA = {
                     displayName: "Oyster Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Super Epic",
                     skill: "Might of House Oyster",
@@ -1659,48 +1659,48 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
                                 6: "chocolate"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "ATK",
-                                2: "ATK",
-                                3: "ATK",
-                                4: "ATK"
+                            1: "ATK",
+                            2: "ATK",
+                            3: "ATK",
+                            4: "ATK"
                             }
                         ]
                     },
@@ -1712,8 +1712,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥55.6%"
+                                name: "Cooldown",
+                                value: "≥55.6%"
                                 }
                             ],
                             notes: [
@@ -1739,7 +1739,7 @@ window.CRK_DATA = {
                     displayName: "Clotted Cream Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Light",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "Consul's Orders",
@@ -1751,51 +1751,51 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
                                 6: "raspberry"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
                                 6: "raspberry"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
                                 6: "raspberry"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Light DMG",
-                                2: "Light DMG",
-                                3: "Light DMG",
+                            1: "Light DMG",
+                            2: "Light DMG",
+                            3: "Light DMG",
                                 4: "Light DMG",
                                 element: "Light"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -1839,7 +1839,7 @@ window.CRK_DATA = {
                     displayName: "Venom Dough Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Chaos", "Poison"],
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Rear",
                     rarity: "Super Epic",
                     skill: "Mind Venom",
@@ -1853,26 +1853,26 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "looming_darkness"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Chaos DMG",
-                                2: "Chaos DMG",
-                                3: "Chaos DMG",
+                            1: "Chaos DMG",
+                            2: "Chaos DMG",
+                            3: "Chaos DMG",
                                 4: "Chaos DMG",
                                 element: "Chaos"
                             }
@@ -1886,8 +1886,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥35%"
+                                name: "Cooldown",
+                                value: "≥35%"
                                 }
                             ],
                             substats: [
@@ -1921,7 +1921,7 @@ window.CRK_DATA = {
                     displayName: "Pitaya Dragon Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Fire",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Dragon",
                     skill: "Draconic Bladestorm",
@@ -1943,36 +1943,36 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "draconic"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "draconic"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "DMG Resist"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "DMG Resist"
                             }
                         ]
                     },
@@ -2013,7 +2013,7 @@ window.CRK_DATA = {
                     displayName: "Sugar Swan Cookie",
                     pageUpdated: "2026-08-28T05:09:57Z",
                     element: "Light",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Legendary",
                     skill: "Wings of Sugar",
@@ -2031,39 +2031,39 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "chocolate",
                                 resonance: "life_energy"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "life_energy"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "life_energy"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -2122,7 +2122,7 @@ window.CRK_DATA = {
                     displayName: "Fire Spirit Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: "Fire",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Legendary",
                     skill: "Ever-Burning Flames",
@@ -2149,50 +2149,50 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "chocolate",
                                 resonance: "flaming"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "flaming"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "flaming"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Fire DMG",
-                                2: "Fire DMG",
-                                3: "Fire DMG",
+                            1: "Fire DMG",
+                            2: "Fire DMG",
+                            3: "Fire DMG",
                                 4: "Fire DMG",
                                 element: "Fire"
                             }
@@ -2236,13 +2236,13 @@ window.CRK_DATA = {
                     displayName: "Wind Archer Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Wind",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "New Legendary",
                     skill: "Last Wind",
                     cd: 6,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 46.2,
                                 89.3
@@ -2267,46 +2267,46 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "caramel",
-                                2: "caramel",
-                                3: "caramel",
-                                4: "caramel",
-                                5: "caramel",
-                                6: "caramel",
+                            1: "caramel",
+                            2: "caramel",
+                            3: "caramel",
+                            4: "caramel",
+                            5: "caramel",
+                            6: "caramel",
                                 resonance: "wind"
                             },
                             {
-                                1: "caramel",
-                                2: "caramel",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "caramel",
+                            2: "caramel",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "wind"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "wind"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Wind DMG",
-                                2: "Wind DMG",
-                                3: "Wind DMG",
+                            1: "Wind DMG",
+                            2: "Wind DMG",
+                            3: "Wind DMG",
                                 4: "Wind DMG",
                                 element: "Wind"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -2357,7 +2357,7 @@ window.CRK_DATA = {
                     displayName: "Stormbringer Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Electricity",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Legendary",
                     skill: "Lightning Blitzstorm",
@@ -2382,50 +2382,50 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "fuzzy"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "fuzzy"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Electric DMG",
-                                2: "Electric DMG",
-                                3: "Electric DMG",
+                            1: "Electric DMG",
+                            2: "Electric DMG",
+                            3: "Electric DMG",
                                 4: "Electric DMG",
                                 element: "Electricity"
                             },
                             {
-                                1: "Electric DMG",
-                                2: "Electric DMG",
-                                3: "Electric DMG",
+                            1: "Electric DMG",
+                            2: "Electric DMG",
+                            3: "Electric DMG",
                                 4: "Bypass",
                                 element: "Electricity"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -2437,8 +2437,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "CRIT%",
-                                    value: "≥80%"
+                                name: "CRIT%",
+                                value: "≥80%"
                                 }
                             ],
                             notes: [
@@ -2456,8 +2456,8 @@ window.CRK_DATA = {
                             beascuit: 2,
                             stats: [
                                 {
-                                    name: "CRIT%",
-                                    value: "≥80%"
+                                name: "CRIT%",
+                                value: "≥80%"
                                 }
                             ],
                             notes: [
@@ -2481,7 +2481,7 @@ window.CRK_DATA = {
                     displayName: "Moonlight Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Legendary",
                     skill: "Dream of the Night Sky",
@@ -2500,51 +2500,51 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "moon"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "moon"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "moon"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Bypass"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -2569,8 +2569,8 @@ window.CRK_DATA = {
                             beascuit: 3,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥44.5%"
+                                name: "Cooldown",
+                                value: "≥44.5%"
                                 }
                             ],
                             notes: [
@@ -2596,7 +2596,7 @@ window.CRK_DATA = {
                     displayName: "Black Pearl Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Water",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Legendary",
                     skill: "Duskgloom's Sovereign",
@@ -2617,46 +2617,46 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "sea"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "sea"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "sea"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Water DMG",
-                                2: "Water DMG",
-                                3: "Water DMG",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
                                 4: "Water DMG",
                                 element: "Water"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -2678,8 +2678,8 @@ window.CRK_DATA = {
                             beascuit: 2,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥17.3%"
+                                name: "Cooldown",
+                                value: "≥17.3%"
                                 }
                             ],
                             notes: [
@@ -2703,7 +2703,7 @@ window.CRK_DATA = {
                     displayName: "Frost Queen Cookie",
                     pageUpdated: "2026-08-28T05:09:57Z",
                     element: "Ice",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Legendary",
                     skill: "Freezing Squall",
@@ -2729,55 +2729,55 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "frost"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "frost"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "frost"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "frost"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Ice DMG",
-                                2: "Ice DMG",
-                                3: "Ice DMG",
+                            1: "Ice DMG",
+                            2: "Ice DMG",
+                            3: "Ice DMG",
                                 4: "Ice DMG",
                                 element: "Ice"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -2831,7 +2831,7 @@ window.CRK_DATA = {
                     displayName: "Sea Fairy Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Water",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Legendary",
                     skill: "Soaring Compassion",
@@ -2852,46 +2852,46 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "sea"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "sea"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "sea"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Water DMG",
-                                2: "Water DMG",
-                                3: "Water DMG",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
                                 4: "Water DMG",
                                 element: "Water"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -2903,8 +2903,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "34.8%"
+                                name: "Cooldown",
+                                value: "34.8%"
                                 }
                             ],
                             notes: [
@@ -2943,7 +2943,7 @@ window.CRK_DATA = {
                     displayName: "Millennial Tree Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Grass",
-                    type: "Support",
+                    role: "Support",
                     position: "Front",
                     rarity: "Legendary",
                     skill: "Millennial Tree",
@@ -2962,52 +2962,52 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "candy",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "candy",
                                 6: "candy"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "kiwi",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "kiwi",
                                 6: "kiwi"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "kiwi",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "kiwi",
                                 6: "kiwi"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "HP",
-                                2: "HP",
-                                3: "HP",
-                                4: "HP"
+                            1: "HP",
+                            2: "HP",
+                            3: "HP",
+                            4: "HP"
                             }
                         ]
                     },
@@ -3019,8 +3019,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥3.9%"
+                                name: "Cooldown",
+                                value: "≥3.9%"
                                 }
                             ],
                             notes: [
@@ -3039,12 +3039,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥3.9%"
+                                name: "Cooldown",
+                                value: "≥3.9%"
                                 },
                                 {
-                                    name: "Debuff Resist",
-                                    value: "≥20%"
+                                name: "Debuff Resist",
+                                value: "≥20%"
                                 }
                             ],
                             notes: [
@@ -3084,13 +3084,13 @@ window.CRK_DATA = {
                     displayName: "Pure Vanilla Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Ancient",
                     skill: "Love & Peace",
                     cd: 15,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 112,
                                 194.5
@@ -3168,7 +3168,7 @@ window.CRK_DATA = {
                     displayName: "Hollyberry Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Ancient",
                     skill: "Oath on the Shield",
@@ -3185,7 +3185,7 @@ window.CRK_DATA = {
                     displayName: "Dark Cacao Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Darkness", "Electricity"],
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Ancient",
                     skill: "Solemn Judgment",
@@ -3206,7 +3206,7 @@ window.CRK_DATA = {
                     displayName: "Golden Cheese Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Earth",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Middle",
                     rarity: "Ancient",
                     skill: "Brilliance of the Absolute",
@@ -3227,13 +3227,13 @@ window.CRK_DATA = {
                     displayName: "White Lily Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: "Grass",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Ancient",
                     skill: "Lily Bud",
                     cd: 15,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 213.2,
                                 411.5
@@ -3252,13 +3252,13 @@ window.CRK_DATA = {
                     displayName: "Dark Cacao Cookie (Dragon Lord)",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Darkness",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "AncientA",
                     skill: "Awakened King",
                     cd: 13,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 15,
                                 20
@@ -3275,58 +3275,58 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "chocolate",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Gambit"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
                                 resonance: "Gambit"
                             },
                             {
-                                1: "chocolate",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "chocolate",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                2: "Bypass",
-                                3: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
                                 4: "Bypass",
                                 element: "Darkness",
                                 tainted: true
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -3338,8 +3338,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "35%"
+                                name: "Cooldown",
+                                value: "35%"
                                 }
                             ],
                             notes: [
@@ -3368,8 +3368,8 @@ window.CRK_DATA = {
                             useOwn: true,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "35.9%"
+                                name: "Cooldown",
+                                value: "35.9%"
                                 }
                             ],
                             notes: [
@@ -3397,7 +3397,7 @@ window.CRK_DATA = {
                     displayName: "Golden Cheese Cookie (Immortal)",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Earth",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Middle",
                     rarity: "AncientA",
                     skill: "Radiance of the Immortal",
@@ -3418,50 +3418,50 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Cheese"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Cheese"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Cheese"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Earth DMG",
-                                2: "Earth DMG",
-                                3: "Earth DMG",
+                            1: "Earth DMG",
+                            2: "Earth DMG",
+                            3: "Earth DMG",
                                 4: "Earth DMG",
                                 element: "Earth"
                             },
                             {
-                                2: "Cooldown",
-                                3: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
                                 4: "Cooldown",
                                 element: "Earth",
                                 tainted: true
@@ -3523,13 +3523,13 @@ window.CRK_DATA = {
                     displayName: "Pure Vanilla Cookie (Compassionate)",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Light",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "AncientA",
                     skill: "Warmth of Compassion",
                     cd: 15,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 70.2,
                                 138.9
@@ -3545,28 +3545,28 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Truth"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "raspberry",
-                                5: "raspberry",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "raspberry",
+                            5: "raspberry",
                                 6: "raspberry"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
@@ -3588,10 +3588,10 @@ window.CRK_DATA = {
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "Cooldown",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             }
                         ]
                     },
@@ -3603,12 +3603,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "DMG Resist",
+                                name: "DMG Resist",
                                     value: "50%"
                                 },
                                 {
-                                    name: "Cooldown",
-                                    value: "15%"
+                                name: "Cooldown",
+                                value: "15%"
                                 }
                             ],
                             substats: [
@@ -3624,12 +3624,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "DMG Resist",
+                                name: "DMG Resist",
                                     value: "50%"
                                 },
                                 {
-                                    name: "Cooldown",
-                                    value: "15%"
+                                name: "Cooldown",
+                                value: "15%"
                                 }
                             ],
                             notes: [
@@ -3647,12 +3647,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "DMG Resist",
+                                name: "DMG Resist",
                                     value: "75%"
                                 },
                                 {
-                                    name: "Cooldown",
-                                    value: "15%"
+                                name: "Cooldown",
+                                value: "15%"
                                 }
                             ],
                             notes: [
@@ -3676,7 +3676,7 @@ window.CRK_DATA = {
                     displayName: "Hollyberry Cookie (Aegis)",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "AncientA",
                     skill: "Shield of Conviction",
@@ -3694,43 +3694,43 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "almond",
-                                5: "kiwi",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "almond",
+                            5: "kiwi",
                                 6: "peanut"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "chocolate"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
                                 6: "peanut"
                             },
                             {
@@ -3744,34 +3744,34 @@ window.CRK_DATA = {
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "HP",
-                                2: "HP",
-                                3: "HP",
-                                4: "HP"
+                            1: "HP",
+                            2: "HP",
+                            3: "HP",
+                            4: "HP"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "HP",
-                                4: "HP"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "HP",
+                            4: "HP"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "Cooldown"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -3793,7 +3793,7 @@ window.CRK_DATA = {
                             beascuit: 4,
                             stats: [
                                 {
-                                    name: "DMG Resist",
+                                name: "DMG Resist",
                                     value: "≥40%"
                                 }
                             ],
@@ -3825,11 +3825,11 @@ window.CRK_DATA = {
                             beascuit: 5,
                             stats: [
                                 {
-                                    name: "DMG Resist",
+                                name: "DMG Resist",
                                     value: "50%"
                                 },
                                 {
-                                    name: "Cooldown",
+                                name: "Cooldown",
                                     value: "30%"
                                 }
                             ],
@@ -3892,7 +3892,7 @@ window.CRK_DATA = {
                     displayName: "White Lily Cookie (Dawnbringer)",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Grass",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "AncientA",
                     skill: "Freedom's Bloom",
@@ -3910,64 +3910,64 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Blooming"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "peanut",
-                                5: "peanut",
-                                6: "peanut",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
                                 resonance: "Blooming"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Blooming"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Blooming"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
-                                6: "peanut",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
                                 resonance: "Blooming"
                             }
                         ],
                         beascuit: [
                             {
-                                2: "Bypass",
-                                3: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
                                 4: "Bypass",
                                 element: "Grass",
                                 tainted: true
                             },
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -3979,8 +3979,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥22.3%"
+                                name: "Cooldown",
+                                value: "≥22.3%"
                                 }
                             ],
                             notes: [
@@ -4020,7 +4020,7 @@ window.CRK_DATA = {
                     displayName: "Mystic Flour Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Beast",
                     skill: "Whispers of Apathy",
@@ -4034,30 +4034,30 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "Gambit"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Gambit"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -4069,8 +4069,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥38%"
+                                name: "Cooldown",
+                                value: "≥38%"
                                 }
                             ],
                             notes: [
@@ -4088,8 +4088,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥44.5%"
+                                name: "Cooldown",
+                                value: "≥44.5%"
                                 }
                             ],
                             notes: [
@@ -4113,13 +4113,13 @@ window.CRK_DATA = {
                     displayName: "Burning Spice Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Fire",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Beast",
                     skill: "Tyrant's Wrath",
                     cd: 9,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 334.4,
                                 645.5
@@ -4143,28 +4143,28 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Destructive"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Fire DMG",
-                                2: "Fire DMG",
-                                3: "Fire DMG",
+                            1: "Fire DMG",
+                            2: "Fire DMG",
+                            3: "Fire DMG",
                                 4: "Fire DMG",
                                 element: "Fire"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -4209,14 +4209,14 @@ window.CRK_DATA = {
                     displayName: "Shadow Milk Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Beast",
                     skill: "Act 1: Lies",
                     cd: 11,
                     initialCd: 0.6,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 204.7,
                                 415
@@ -4240,45 +4240,45 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Deceit"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Deceit"
                             },
                             {
-                                1: "raspberry",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "raspberry",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "Deceit"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             }
                         ]
                     },
@@ -4323,8 +4323,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "31.9-32.3%"
+                                name: "Cooldown",
+                                value: "31.9-32.3%"
                                 }
                             ],
                             substats: [
@@ -4345,14 +4345,14 @@ window.CRK_DATA = {
                     displayName: "Eternal Sugar Cookie",
                     pageUpdated: "2026-08-28T04:28:05Z",
                     element: "Poison",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Beast",
                     skill: "Eternal Enchantment",
                     cd: 12,
                     initialCd: 0.5,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 25.1,
                                 62.8
@@ -4384,121 +4384,121 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "peanut",
-                                5: "peanut",
-                                6: "peanut",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "candy",
-                                6: "candy",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "candy",
+                            6: "candy",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "peanut",
-                                2: "peanut",
-                                3: "peanut",
-                                4: "peanut",
-                                5: "peanut",
+                            1: "peanut",
+                            2: "peanut",
+                            3: "peanut",
+                            4: "peanut",
+                            5: "peanut",
                                 6: "peanut"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "candy",
-                                6: "candy",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "candy",
+                            6: "candy",
                                 resonance: "Indolent"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "peanut",
-                                5: "peanut",
-                                6: "peanut",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
                                 resonance: "Indolent"
                             }
                         ],
                         beascuit: [
                             {
-                                2: "Cooldown",
-                                3: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
                                 4: "Cooldown",
                                 element: "Poison",
                                 tainted: true
                             },
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Poison DMG",
-                                2: "Poison DMG",
-                                3: "Poison DMG",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Poison DMG",
                                 4: "Poison DMG",
                                 element: "Poison"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             }
                         ]
                     },
@@ -4521,8 +4521,8 @@ window.CRK_DATA = {
                             beascuit: 2,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥16.7%"
+                                name: "Cooldown",
+                                value: "≥16.7%"
                                 }
                             ],
                             substats: [
@@ -4537,8 +4537,8 @@ window.CRK_DATA = {
                             beascuit: 2,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥16.7%"
+                                name: "Cooldown",
+                                value: "≥16.7%"
                                 }
                             ],
                             substats: [
@@ -4565,8 +4565,8 @@ window.CRK_DATA = {
                             beascuit: 4,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥7.8%"
+                                name: "Cooldown",
+                                value: "≥7.8%"
                                 }
                             ],
                             substats: [
@@ -4598,7 +4598,7 @@ window.CRK_DATA = {
                     displayName: "Silent Salt Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Darkness", "Steel"],
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Front",
                     rarity: "Beast",
                     skill: "End of Silence",
@@ -4617,81 +4617,81 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Silent"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Silent"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "peanut",
-                                5: "peanut",
-                                6: "peanut",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "peanut",
+                            5: "peanut",
+                            6: "peanut",
                                 resonance: "Silent"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Silent"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Silent"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Silent"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "kiwi",
-                                6: "kiwi",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "kiwi",
+                            6: "kiwi",
                                 resonance: "Silent"
                             }
                         ],
                         beascuit: [
                             {
-                                2: "Bypass",
-                                3: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
                                 4: "Bypass",
                                 element: "Steel",
                                 tainted: true
                             },
                             {
-                                1: "Darkness DMG",
-                                2: "Darkness DMG",
-                                3: "Darkness DMG",
+                            1: "Darkness DMG",
+                            2: "Darkness DMG",
+                            3: "Darkness DMG",
                                 4: "Darkness DMG",
                                 element: "Darkness"
                             }
@@ -4756,7 +4756,7 @@ window.CRK_DATA = {
                     displayName: "Dark Enchantress Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Chaos",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Witch",
                     skill: "Visions of Doom",
@@ -4775,53 +4775,53 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "looming_Darkness"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "looming_Darkness"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "looming_Darkness"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "looming_Darkness"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Chaos DMG",
-                                2: "Chaos DMG",
-                                3: "Chaos DMG",
+                            1: "Chaos DMG",
+                            2: "Chaos DMG",
+                            3: "Chaos DMG",
                                 4: "Chaos DMG",
                                 element: "Chaos"
                             }
@@ -4835,12 +4835,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown from toppings",
-                                    value: "≥9%"
+                                name: "Cooldown from toppings",
+                                value: "≥9%"
                                 },
                                 {
-                                    name: "ATK from toppings (+ATK from beascuit)",
-                                    value: "≥108%"
+                                name: "ATK from toppings (+ATK from beascuit)",
+                                value: "≥108%"
                                 }
                             ],
                             notes: [
@@ -4859,8 +4859,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥19.9%"
+                                name: "Cooldown",
+                                value: "≥19.9%"
                                 }
                             ],
                             notes: [
@@ -4879,8 +4879,8 @@ window.CRK_DATA = {
                             beascuit: 2,
                             stats: [
                                 {
-                                    name: "Cooldown from toppings",
-                                    value: "≥9%"
+                                name: "Cooldown from toppings",
+                                value: "≥9%"
                                 }
                             ],
                             notes: [
@@ -4906,7 +4906,7 @@ window.CRK_DATA = {
                     displayName: "Salt Cellar Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Knight of Solidarity",
@@ -4927,7 +4927,7 @@ window.CRK_DATA = {
                     displayName: "Charcoal Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Darkness",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Tombkeeper's Rite",
@@ -4952,7 +4952,7 @@ window.CRK_DATA = {
                     displayName: "Menthol Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Water",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Menthol Censer",
@@ -4966,20 +4966,20 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "destined"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Water DMG",
-                                2: "Water DMG",
-                                3: "Water DMG",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
                                 4: "Water DMG",
                                 element: "Water"
                             }
@@ -4993,12 +4993,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "18.8% or 19.2% or ≥19.6%"
+                                name: "Cooldown",
+                                value: "18.8% or 19.2% or ≥19.6%"
                                 },
                                 {
-                                    name: "ATK SPD",
-                                    value: "9.1% or 11.6% or ≥14.3%"
+                                name: "ATK SPD",
+                                value: "9.1% or 11.6% or ≥14.3%"
                                 }
                             ],
                             substats: [
@@ -5014,7 +5014,7 @@ window.CRK_DATA = {
                     displayName: "Seltzer Cookie",
                     pageUpdated: "2026-04-29",
                     element: "Water",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Bubble Rain",
@@ -5028,20 +5028,20 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "destined"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Water DMG",
-                                2: "Water DMG",
-                                3: "Water DMG",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
                                 4: "Water DMG",
                                 element: "Water"
                             }
@@ -5055,8 +5055,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "24-24.4%"
+                                name: "Cooldown",
+                                value: "24-24.4%"
                                 }
                             ],
                             substats: [
@@ -5072,13 +5072,13 @@ window.CRK_DATA = {
                     displayName: "Grapefruit Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: "Electricity",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Catch Me If You Can!",
                     cd: 13,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 76,
                                 169
@@ -5097,13 +5097,13 @@ window.CRK_DATA = {
                     displayName: "Lime Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Beach Ball Surprise",
                     cd: 15,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 11.3,
                                 25
@@ -5130,7 +5130,7 @@ window.CRK_DATA = {
                     displayName: "Manju Cookie",
                     pageUpdated: "2026-04-30T05:40:56Z",
                     element: "Water",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Flash Strike",
@@ -5147,7 +5147,7 @@ window.CRK_DATA = {
                     displayName: "Jagae Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Water",
-                    type: "Support",
+                    role: "Support",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Iridescent Storm",
@@ -5168,13 +5168,13 @@ window.CRK_DATA = {
                     displayName: "Orange Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: "Electricity",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Juicy Serve!",
                     cd: 12,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 477.1,
                                 795.2
@@ -5201,13 +5201,13 @@ window.CRK_DATA = {
                     displayName: "Lemon Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: "Electricity",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Lightning Dash",
                     cd: 12,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 215.3,
                                 358.8
@@ -5226,7 +5226,7 @@ window.CRK_DATA = {
                     displayName: "Cream Soda Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Water",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Cream Soda Blade",
@@ -5247,7 +5247,7 @@ window.CRK_DATA = {
                     displayName: "Sugarfly Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Butterfly's Whisper",
@@ -5264,13 +5264,13 @@ window.CRK_DATA = {
                     displayName: "Pavlova Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: null,
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Heart-Piercing Arrow",
                     cd: 6,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 54.2,
                                 135.5
@@ -5289,7 +5289,7 @@ window.CRK_DATA = {
                     displayName: "Agar Agar Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: ["Fire", "Electricity", "Water", "Wind", "Ice"],
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Ravenous Mirror",
@@ -5322,13 +5322,13 @@ window.CRK_DATA = {
                     displayName: "Wedding Cake Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Anything for the Bride!",
                     cd: 15,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 48.9,
                                 94.4
@@ -5355,13 +5355,13 @@ window.CRK_DATA = {
                     displayName: "Black Forest Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: null,
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "For the Creators!",
                     cd: 8,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 213,
                                 411.3
@@ -5384,7 +5384,7 @@ window.CRK_DATA = {
                     displayName: "Black Sapphire Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Poison",
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "It's Showtime!",
@@ -5402,29 +5402,29 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "raspberry",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "raspberry",
                                 resonance: "Deceit"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "Deceit"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Poison DMG",
-                                2: "Poison DMG",
-                                3: "Poison DMG",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Poison DMG",
                                 4: "Poison DMG",
                                 element: "Poison"
                             }
@@ -5438,8 +5438,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "7.6-7.8% or ≥7.9%"
+                                name: "Cooldown",
+                                value: "7.6-7.8% or ≥7.9%"
                                 }
                             ],
                             substats: [
@@ -5455,8 +5455,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥7.6%"
+                                name: "Cooldown",
+                                value: "≥7.6%"
                                 }
                             ],
                             substats: [
@@ -5472,7 +5472,7 @@ window.CRK_DATA = {
                     displayName: "Candy Apple Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Apple of My Eye!",
@@ -5490,21 +5490,21 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "almond",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "caramel",
-                                6: "caramel",
+                            1: "almond",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "caramel",
+                            6: "caramel",
                                 resonance: "Deceit"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "ATK SPD",
-                                3: "ATK SPD",
-                                4: "Cooldown"
+                            1: "DMG Resist",
+                            2: "ATK SPD",
+                            3: "ATK SPD",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -5516,16 +5516,16 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "13-13.5%"
+                                name: "Cooldown",
+                                value: "13-13.5%"
                                 },
                                 {
-                                    name: "DMG Resist",
-                                    value: "≥40%"
+                                name: "DMG Resist",
+                                value: "≥40%"
                                 },
                                 {
-                                    name: "ATK SPD",
-                                    value: "≥44.8%"
+                                name: "ATK SPD",
+                                value: "≥44.8%"
                                 }
                             ],
                             substats: [
@@ -5541,7 +5541,7 @@ window.CRK_DATA = {
                     displayName: "Okchun Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Okchun Pouch",
@@ -5562,7 +5562,7 @@ window.CRK_DATA = {
                     displayName: "Green Tea Mousse Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: ["Wind", "Grass"],
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Mousse Shield",
@@ -5594,7 +5594,7 @@ window.CRK_DATA = {
                     displayName: "Pudding à la Mode Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Electricity",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Plasma Cannon",
@@ -5611,7 +5611,7 @@ window.CRK_DATA = {
                     displayName: "Choco Drizzle Cookie",
                     pageUpdated: "2026-05-01T06:23:39Z",
                     element: "Darkness",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Choco Penumbra",
@@ -5628,7 +5628,7 @@ window.CRK_DATA = {
                     displayName: "Red Osmanthus Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: "Grass",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "The Pipa's Song",
@@ -5658,7 +5658,7 @@ window.CRK_DATA = {
                             ]
                         }
                     },
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Incense of Love",
@@ -5682,7 +5682,7 @@ window.CRK_DATA = {
                     displayName: "Smoked Cheese Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Earth",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Get Smoked!",
@@ -5699,7 +5699,7 @@ window.CRK_DATA = {
                     displayName: "Nutmeg Tiger Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Fire",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "The Great General",
@@ -5716,7 +5716,7 @@ window.CRK_DATA = {
                     displayName: "Star Coral Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Twinkling Coral",
@@ -5733,13 +5733,13 @@ window.CRK_DATA = {
                     displayName: "Peach Blossom Cookie",
                     pageUpdated: "2026-08-27T04:34:36Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Heavenly Fruit",
                     cd: 12,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 14.3,
                                 27.6
@@ -5766,7 +5766,7 @@ window.CRK_DATA = {
                     displayName: "Cloud Haetae Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Haetae Charge",
@@ -5787,7 +5787,7 @@ window.CRK_DATA = {
                     displayName: "Street Urchin Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Ride or Crumble",
@@ -5804,7 +5804,7 @@ window.CRK_DATA = {
                     displayName: "Caramel Choux Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "I've Got Choux",
@@ -5821,7 +5821,7 @@ window.CRK_DATA = {
                     displayName: "Butter Roll Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Steel", "Chaos"],
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Dough Experiment",
@@ -5842,7 +5842,7 @@ window.CRK_DATA = {
                     displayName: "Matcha Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: ["Poison", "Grass"],
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Sinister Scheme",
@@ -5863,7 +5863,7 @@ window.CRK_DATA = {
                     displayName: "Mercurial Knight Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Steel",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Mercurial Knight's Oath",
@@ -5880,7 +5880,7 @@ window.CRK_DATA = {
                     element: "Grass",
                     displayName: "Silverbell Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Gleeful Chime",
@@ -5906,7 +5906,7 @@ window.CRK_DATA = {
                     displayName: "Rebel Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Wind",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Here, There, Everywhere!",
@@ -5927,7 +5927,7 @@ window.CRK_DATA = {
                     displayName: "Crème Brûlée Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Light",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Accelerando",
@@ -5948,7 +5948,7 @@ window.CRK_DATA = {
                     displayName: "Linzer Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "The Culprit... is YOU!",
@@ -5966,20 +5966,20 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "caramel",
+                            1: "chocolate",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "caramel",
                                 6: "caramel"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "ATK SPD"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "ATK SPD"
                             }
                         ]
                     },
@@ -5991,16 +5991,16 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥11.7%"
+                                name: "Cooldown",
+                                value: "≥11.7%"
                                 },
                                 {
-                                    name: "DMG Resist",
-                                    value: "≥73%"
+                                name: "DMG Resist",
+                                value: "≥73%"
                                 },
                                 {
-                                    name: "ATK SPD",
-                                    value: "≥39.1% or 33.4%"
+                                name: "ATK SPD",
+                                value: "≥39.1% or 33.4%"
                                 }
                             ],
                             substats: [
@@ -6016,7 +6016,7 @@ window.CRK_DATA = {
                     displayName: "Olive Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Earth", "Fire", "Electricity"],
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Bat Attack",
@@ -6041,7 +6041,7 @@ window.CRK_DATA = {
                     displayName: "Mozzarella Cookie",
                     pageUpdated: "2026-08-28T04:28:05Z",
                     element: "Earth",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Mozzarella Master Plan",
@@ -6077,7 +6077,7 @@ window.CRK_DATA = {
                     displayName: "Fettuccine Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: "Earth",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Unstable Fettuccine",
@@ -6098,7 +6098,7 @@ window.CRK_DATA = {
                     displayName: "Burnt Cheese Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Earth",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Protector of the Golden City",
@@ -6119,7 +6119,7 @@ window.CRK_DATA = {
                     displayName: "Frilled Jellyfish Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Water", "Electricity"],
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Frilled Shackles",
@@ -6140,20 +6140,20 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "sea"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Water DMG",
-                                2: "Water DMG",
-                                3: "Water DMG",
+                            1: "Water DMG",
+                            2: "Water DMG",
+                            3: "Water DMG",
                                 4: "Water DMG",
                                 element: "Water"
                             }
@@ -6167,8 +6167,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "34.9%"
+                                name: "Cooldown",
+                                value: "34.9%"
                                 }
                             ],
                             substats: [
@@ -6184,7 +6184,7 @@ window.CRK_DATA = {
                     displayName: "Peppermint Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Water",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Freshness of the Sea",
@@ -6208,7 +6208,7 @@ window.CRK_DATA = {
                     displayName: "Black Lemonade Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: "Electricity",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Electrifying Rock!",
@@ -6229,7 +6229,7 @@ window.CRK_DATA = {
                     displayName: "Rockstar Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Legend of Rock",
@@ -6291,7 +6291,7 @@ window.CRK_DATA = {
                     displayName: "Tarte Tatin Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: "Fire",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Cannonade",
@@ -6365,7 +6365,7 @@ window.CRK_DATA = {
                     displayName: "Royal Margarine Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Poison",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Buttercream Blast",
@@ -6386,7 +6386,7 @@ window.CRK_DATA = {
                     displayName: "Kouign-Amann Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Light",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Paladin's Way",
@@ -6411,7 +6411,7 @@ window.CRK_DATA = {
                     displayName: "Prune Juice Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Poison",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Prune Juice Potion",
@@ -6429,36 +6429,36 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "trio"
                             },
                             {
-                                1: "applejelly",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "applejelly",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "trio"
                             }
                         ],
                         beascuit: [
                             {
-                                2: "Cooldown",
-                                3: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
                                 4: "Cooldown",
-                                element: "Poison",
+                            element: "Poison",
                                 tainted: true
                             },
                             {
-                                1: "Poison DMG",
-                                2: "Poison DMG",
-                                3: "Cooldown",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Cooldown",
                                 4: "Cooldown",
                                 element: "Poison"
                             }
@@ -6472,12 +6472,12 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "35.1%"
+                                name: "Cooldown",
+                                value: "35.1%"
                                 },
                                 {
-                                    name: "ATK SPD",
-                                    value: "9.5-14.3%"
+                                name: "ATK SPD",
+                                value: "9.5-14.3%"
                                 }
                             ],
                             notes: [
@@ -6496,12 +6496,12 @@ window.CRK_DATA = {
                             beascuit: 2,
                             stats: [
                                 {
-                                    name: "Poison DMG",
-                                    value: "≥29%"
+                                name: "Poison DMG",
+                                value: "≥29%"
                                 },
                                 {
-                                    name: "Cooldown",
-                                    value: "35.1%"
+                                name: "Cooldown",
+                                value: "35.1%"
                                 }
                             ],
                             substats: [
@@ -6517,7 +6517,7 @@ window.CRK_DATA = {
                     displayName: "Space Doughnut",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Doughnut Beam",
@@ -6546,7 +6546,7 @@ window.CRK_DATA = {
                     displayName: "Blueberry Pie Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Electricity",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Cursed Tome",
@@ -6578,7 +6578,7 @@ window.CRK_DATA = {
                     displayName: "Milky Way Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Sugarcloud Express",
@@ -6595,7 +6595,7 @@ window.CRK_DATA = {
                     displayName: "Prophet Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Seven Prophecies",
@@ -6616,7 +6616,7 @@ window.CRK_DATA = {
                     displayName: "Pinecone Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Ice",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Pinecone Bomb",
@@ -6641,7 +6641,7 @@ window.CRK_DATA = {
                     displayName: "Carol Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Magic Songs",
@@ -6662,7 +6662,7 @@ window.CRK_DATA = {
                     displayName: "Macaron Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Mighty Macaron Parade",
@@ -6683,7 +6683,7 @@ window.CRK_DATA = {
                     displayName: "Schwarzwälder",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: ["Steel", "Chaos"],
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Choco Chip Hammer",
@@ -6700,7 +6700,7 @@ window.CRK_DATA = {
                     displayName: "Candy Diver Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Deep-sea Diver",
@@ -6816,7 +6816,7 @@ window.CRK_DATA = {
                     displayName: "Captain Caviar Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Water",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Black Shark Torpedo",
@@ -6844,7 +6844,7 @@ window.CRK_DATA = {
                     displayName: "Cream Unicorn Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Fire",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Midsummer Night's Dream",
@@ -6868,7 +6868,7 @@ window.CRK_DATA = {
                     displayName: "Financier Cookie",
                     pageUpdated: "2026-04-30T05:54:39Z",
                     element: "Light",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Paladin Protection",
@@ -6900,7 +6900,7 @@ window.CRK_DATA = {
                     displayName: "Crunchy Chip Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Darkness",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Wolf Squadron",
@@ -6917,7 +6917,7 @@ window.CRK_DATA = {
                     displayName: "Wildberry Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Steel",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Wild Punch",
@@ -6945,7 +6945,7 @@ window.CRK_DATA = {
                     displayName: "Cherry Blossom Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Cherry Blossom Rain",
@@ -6962,7 +6962,7 @@ window.CRK_DATA = {
                     displayName: "Caramel Arrow Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Darkness",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Arrow of Resolution",
@@ -6994,7 +6994,7 @@ window.CRK_DATA = {
                     displayName: "Affogato Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Poison",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Sweet Scheme",
@@ -7019,7 +7019,7 @@ window.CRK_DATA = {
                     displayName: "Tea Knight Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Steel",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Battlemaster",
@@ -7047,7 +7047,7 @@ window.CRK_DATA = {
                     displayName: "Eclair Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Book of History",
@@ -7064,7 +7064,7 @@ window.CRK_DATA = {
                     displayName: "Cocoa Cookie",
                     pageUpdated: "2026-06-14T00:53:40Z",
                     element: null,
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Cocoa is Love",
@@ -7085,7 +7085,7 @@ window.CRK_DATA = {
                     displayName: "Cotton Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: "Grass",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "A Warm Light",
@@ -7102,7 +7102,7 @@ window.CRK_DATA = {
                     displayName: "Pumpkin Pie Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Darkness",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Pompon, help!",
@@ -7119,7 +7119,7 @@ window.CRK_DATA = {
                     displayName: "Twizzly Gummy Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Electricity",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Twizzly Beam",
@@ -7147,7 +7147,7 @@ window.CRK_DATA = {
                     displayName: "Mala Sauce Cookie",
                     pageUpdated: "2026-06-14T00:53:40Z",
                     element: "Fire",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Spicy Mala Strike",
@@ -7183,7 +7183,7 @@ window.CRK_DATA = {
                     displayName: "Moon Rabbit Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Giant Rice Cake Bunny",
@@ -7200,7 +7200,7 @@ window.CRK_DATA = {
                     displayName: "Raspberry Cookie",
                     pageUpdated: "2026-08-28T05:09:57Z",
                     element: "Steel",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Raspberry Reprise",
@@ -7232,7 +7232,7 @@ window.CRK_DATA = {
                     displayName: "Parfait Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Paru-Paru-Parfait!★",
@@ -7301,7 +7301,7 @@ window.CRK_DATA = {
                     displayName: "Sorbet Shark Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Water",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Shark Splash",
@@ -7329,7 +7329,7 @@ window.CRK_DATA = {
                     displayName: "Squid Ink Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Water",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Ink Tentacle Slap",
@@ -7438,7 +7438,7 @@ window.CRK_DATA = {
                     displayName: "Lilac Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Grass",
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Chakram Throw",
@@ -7455,7 +7455,7 @@ window.CRK_DATA = {
                     displayName: "Mango Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Water",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Mango Juice Wave",
@@ -7479,7 +7479,7 @@ window.CRK_DATA = {
                     displayName: "Red Velvet Cookie",
                     pageUpdated: "2026-05-07T14:30:09Z",
                     element: "Darkness",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Crimson Hand",
@@ -7493,49 +7493,49 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "Looming_Darkness"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "Looming_Darkness"
                             }
                         ],
                         beascuit: [
                             {
-                                2: "DMG Resist",
-                                3: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
                                 4: "DMG Resist",
                                 element: "Darkness",
                                 tainted: true
                             },
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             },
                             {
-                                1: "DMG Resist",
-                                2: "DMG Resist",
-                                3: "DMG Resist",
-                                4: "DMG Resist"
+                            1: "DMG Resist",
+                            2: "DMG Resist",
+                            3: "DMG Resist",
+                            4: "DMG Resist"
                             },
                             {
-                                1: "Darkness DMG",
-                                2: "Darkness DMG",
-                                3: "Darkness DMG",
-                                4: "Darkness DMG"
+                            1: "Darkness DMG",
+                            2: "Darkness DMG",
+                            3: "Darkness DMG",
+                            4: "Darkness DMG"
                             }
                         ]
                     },
@@ -7576,7 +7576,7 @@ window.CRK_DATA = {
                     displayName: "Pastry Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Wind",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Battle Prayer",
@@ -7600,7 +7600,7 @@ window.CRK_DATA = {
                     displayName: "Fig Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Grass",
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Jelly Horn",
@@ -7617,7 +7617,7 @@ window.CRK_DATA = {
                     displayName: "Strawberry Crepe Cookie",
                     pageUpdated: "2026-04-30T05:59:28Z",
                     element: null,
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Crepe Thrust",
@@ -7641,7 +7641,7 @@ window.CRK_DATA = {
                     displayName: "Black Raisin Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Darkness",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Shadow Watcher",
@@ -7665,7 +7665,7 @@ window.CRK_DATA = {
                     displayName: "Almond Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Earth",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Almond Handcuffs",
@@ -7682,13 +7682,13 @@ window.CRK_DATA = {
                     displayName: "Cream Puff Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Light",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Jellius Extremus!",
                     cd: 16,
                     cnEx: {
-                        skillAttr: {
+                    skillAttr: {
                             attr1: [
                                 469.6,
                                 570.7
@@ -7778,7 +7778,7 @@ window.CRK_DATA = {
                     displayName: "Latte Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Earth",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Care for a Latte?",
@@ -7810,7 +7810,7 @@ window.CRK_DATA = {
                     displayName: "Kumiho Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: "Wind",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Somersault",
@@ -7827,7 +7827,7 @@ window.CRK_DATA = {
                     displayName: "Snow Sugar Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Ice",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Blizzard",
@@ -7859,7 +7859,7 @@ window.CRK_DATA = {
                     displayName: "Rye Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Fire",
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Final Showdown",
@@ -7942,7 +7942,7 @@ window.CRK_DATA = {
                     displayName: "Espresso Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Earth",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Grinding",
@@ -8031,7 +8031,7 @@ window.CRK_DATA = {
                     displayName: "Madeleine Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Light",
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Commander's Honor",
@@ -8059,7 +8059,7 @@ window.CRK_DATA = {
                     displayName: "Licorice Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: ["Darkness", "Poison", "Chaos"],
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Licorice Servants",
@@ -8083,7 +8083,7 @@ window.CRK_DATA = {
                     displayName: "Poison Mushroom Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: ["Poison", "Chaos"],
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Poison Cloud",
@@ -8107,7 +8107,7 @@ window.CRK_DATA = {
                     displayName: "Milk Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Defense",
+                    role: "Defense",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Noble Sacrifice",
@@ -8139,7 +8139,7 @@ window.CRK_DATA = {
                     displayName: "Purple Yam Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: "Grass",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Purple Tornado",
@@ -8167,7 +8167,7 @@ window.CRK_DATA = {
                     displayName: "Pomegranate Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Chaos",
-                    type: "Support",
+                    role: "Support",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Pomegranate Magic",
@@ -8192,7 +8192,7 @@ window.CRK_DATA = {
                     displayName: "Chili Pepper Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Fire",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Cheap Shot",
@@ -8209,7 +8209,7 @@ window.CRK_DATA = {
                     displayName: "Sparkling Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: "Light",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Sparkling Cocktail",
@@ -8233,7 +8233,7 @@ window.CRK_DATA = {
                     displayName: "Dark Choco Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: "Darkness",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Sword of Darkness",
@@ -8257,7 +8257,7 @@ window.CRK_DATA = {
                     displayName: "Herb Cookie",
                     pageUpdated: "2026-04-30T05:46:42Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Sunny Garden",
@@ -8274,7 +8274,7 @@ window.CRK_DATA = {
                     displayName: "Werewolf Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Steel",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Transformation",
@@ -8298,7 +8298,7 @@ window.CRK_DATA = {
                     displayName: "Mint Choco Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Wind",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Battlefield Symphony",
@@ -8322,7 +8322,7 @@ window.CRK_DATA = {
                     displayName: "Tiger Lily Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Tiger Rider",
@@ -8339,7 +8339,7 @@ window.CRK_DATA = {
                     displayName: "Pom-pom Dough Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: ["Poison", "Chaos"],
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Pom-pom Spores!",
@@ -8353,29 +8353,29 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "applejelly",
-                                3: "applejelly",
-                                4: "applejelly",
-                                5: "applejelly",
-                                6: "applejelly",
+                            1: "raspberry",
+                            2: "applejelly",
+                            3: "applejelly",
+                            4: "applejelly",
+                            5: "applejelly",
+                            6: "applejelly",
                                 resonance: "life_energy"
                             },
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "looming_darkness"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Poison DMG",
-                                2: "Poison DMG",
-                                3: "Poison DMG",
+                            1: "Poison DMG",
+                            2: "Poison DMG",
+                            3: "Poison DMG",
                                 4: "Poison DMG",
                                 element: "Poison"
                             }
@@ -8403,8 +8403,8 @@ window.CRK_DATA = {
                             beascuit: 1,
                             stats: [
                                 {
-                                    name: "Cooldown",
-                                    value: "≥8.3%"
+                                name: "Cooldown",
+                                value: "≥8.3%"
                                 }
                             ],
                             substats: [
@@ -8438,7 +8438,7 @@ window.CRK_DATA = {
                     displayName: "Mold Dough Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Chaos",
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Order: Eliminate",
@@ -8456,46 +8456,46 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "raspberry",
-                                2: "raspberry",
-                                3: "raspberry",
-                                4: "raspberry",
-                                5: "raspberry",
-                                6: "raspberry",
+                            1: "raspberry",
+                            2: "raspberry",
+                            3: "raspberry",
+                            4: "raspberry",
+                            5: "raspberry",
+                            6: "raspberry",
                                 resonance: "looming_darkness"
                             },
                             {
-                                1: "almond",
-                                2: "almond",
-                                3: "almond",
-                                4: "almond",
-                                5: "almond",
-                                6: "almond",
+                            1: "almond",
+                            2: "almond",
+                            3: "almond",
+                            4: "almond",
+                            5: "almond",
+                            6: "almond",
                                 resonance: "looming_darkness"
                             },
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "looming_darkness"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Chaos DMG",
-                                2: "Chaos DMG",
-                                3: "Chaos DMG",
+                            1: "Chaos DMG",
+                            2: "Chaos DMG",
+                            3: "Chaos DMG",
                                 4: "Chaos DMG",
                                 element: "Chaos"
                             },
                             {
-                                1: "Cooldown",
-                                2: "Cooldown",
-                                3: "Cooldown",
-                                4: "Cooldown"
+                            1: "Cooldown",
+                            2: "Cooldown",
+                            3: "Cooldown",
+                            4: "Cooldown"
                             }
                         ]
                     },
@@ -8536,7 +8536,7 @@ window.CRK_DATA = {
                     displayName: "Chess Choco Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Chaos",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Chess Time!",
@@ -8565,7 +8565,7 @@ window.CRK_DATA = {
                     displayName: "Vampire Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Vampirism",
@@ -8601,7 +8601,7 @@ window.CRK_DATA = {
                     displayName: "Rumi Cookie",
                     pageUpdated: "2026-04-30T05:35:08Z",
                     element: null,
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Front",
                     rarity: "Special",
                     skill: "Demon Slayage!",
@@ -8618,7 +8618,7 @@ window.CRK_DATA = {
                     displayName: "Mira Cookie",
                     pageUpdated: "2026-04-30T05:35:08Z",
                     element: null,
-                    type: "Charge",
+                    role: "Charge",
                     position: "Front",
                     rarity: "Special",
                     skill: "Unchained Hunter",
@@ -8635,7 +8635,7 @@ window.CRK_DATA = {
                     displayName: "Zoey Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: null,
-                    type: "Ranged",
+                    role: "Ranged",
                     position: "Rear",
                     rarity: "Special",
                     skill: "Zoey Time!",
@@ -8652,7 +8652,7 @@ window.CRK_DATA = {
                     displayName: "Timekeeper Cookie",
                     pageUpdated: "2026-08-28T05:09:57Z",
                     element: "Light",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "New Legendary",
                     skill: "Temporal Stabilization",
@@ -8667,35 +8667,35 @@ window.CRK_DATA = {
                     sets: {
                         toppings: [
                             {
-                                1: "chocolate",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "raspberry",
+                            1: "chocolate",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "raspberry",
                                 resonance: "chrono"
                             },
                             {
-                                1: "raspberry",
-                                2: "chocolate",
-                                3: "chocolate",
-                                4: "chocolate",
-                                5: "chocolate",
-                                6: "chocolate",
+                            1: "raspberry",
+                            2: "chocolate",
+                            3: "chocolate",
+                            4: "chocolate",
+                            5: "chocolate",
+                            6: "chocolate",
                                 resonance: "chrono"
                             }
                         ],
                         beascuit: [
                             {
-                                1: "Bypass",
-                                2: "Bypass",
-                                3: "Bypass",
-                                4: "Bypass"
+                            1: "Bypass",
+                            2: "Bypass",
+                            3: "Bypass",
+                            4: "Bypass"
                             },
                             {
-                                1: "Light DMG",
-                                2: "Light DMG",
-                                3: "Light DMG",
+                            1: "Light DMG",
+                            2: "Light DMG",
+                            3: "Light DMG",
                                 4: "Light DMG",
                                 element: "Light"
                             }
@@ -8751,7 +8751,7 @@ window.CRK_DATA = {
                     displayName: "Ash Salt Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: "Darkness",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Front",
                     rarity: "Epic",
                     skill: "Ashen Assassin",
@@ -8772,7 +8772,7 @@ window.CRK_DATA = {
                     displayName: "Croissant Cookie",
                     pageUpdated: "2026-06-04T22:35:27Z",
                     element: "Light",
-                    type: "Support",
+                    role: "Support",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Time Portal Removal",
@@ -8789,7 +8789,7 @@ window.CRK_DATA = {
                     displayName: "Povidone-Iodine Cookie",
                     pageUpdated: "2026-09-08T04:52:02Z",
                     element: "Steel",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "Ethically Ambiguous Experiments",
@@ -8806,7 +8806,7 @@ window.CRK_DATA = {
                     displayName: "Litmus Cookie",
                     pageUpdated: "2026-07-02T02:58:47Z",
                     element: null,
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "Epic",
                     skill: "Data Analysis",
@@ -8823,7 +8823,7 @@ window.CRK_DATA = {
                     displayName: "Ananas Dragon Cookie",
                     pageUpdated: "2026-08-01T21:44:49Z",
                     element: "Earth",
-                    type: "Magic",
+                    role: "Magic",
                     position: "Middle",
                     rarity: "New Dragon",
                     skill: "Golden Awakening",
@@ -8867,7 +8867,7 @@ window.CRK_DATA = {
                     displayName: "Nether Queen Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Chaos",
-                    type: "Healing",
+                    role: "Healing",
                     position: "Rear",
                     rarity: "New Legendary",
                     skill: "River of Tartrus",
@@ -8878,7 +8878,7 @@ window.CRK_DATA = {
                     displayName: "Asphodel Cookie",
                     pageUpdated: "2026-08-01T21:44:49Z",
                     element: "Grass",
-                    type: "Bomber",
+                    role: "Bomber",
                     position: "Middle",
                     rarity: "Epic",
                     skill: "Cat Ghost",
@@ -8895,7 +8895,7 @@ window.CRK_DATA = {
                     displayName: "Time Shadow Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Darkness",
-                    type: "Ambush",
+                    role: "Ambush",
                     position: "Middle",
                     rarity: "Super Epic",
                     skill: "Shadowplay",
@@ -8912,7 +8912,7 @@ window.CRK_DATA = {
                     displayName: "Pulpo Cookie",
                     pageUpdated: "2026-09-08T04:56:56Z",
                     element: "Darkness",
-                    type: "Support",
+                    role: "Support",
                     position: "Front",
                     rarity: "Epic",
                     skill: "All, Wrapped Up",
@@ -8928,37 +8928,37 @@ window.CRK_DATA = {
             teams: {
                 categories: [
                     {
-                        name: "World Expoloration",
+                    name: "World Expoloration",
                         teams: []
                     },
                     {
-                        name: "Arena",
+                    name: "Arena",
                         teams: [
                             {
-                                name: "Main Comp",
+                        name: "Main Comp",
                                 cookies: [
                                     {
-                                        name: "Millennial_tree",
-                                        build: 2
+                            name: "Millennial_tree",
+                            build: 2
                                     },
                                     {
-                                        name: "Timekeeper",
-                                        build: 1
+                            name: "Timekeeper",
+                            build: 1
                                     },
                                     {
-                                        name: "Dark_enchantress",
-                                        build: 1
+                            name: "Dark_enchantress",
+                            build: 1
                                     },
                                     {
-                                        name: "Venom_dough",
-                                        build: 1
+                            name: "Venom_dough",
+                            build: 1
                                     },
                                     {
-                                        name: "Sugar_swan",
-                                        build: 2
+                            name: "Sugar_swan",
+                            build: 2
                                     }
                                 ],
-                                rally: "Millennial_tree",
+                        rally: "Millennial_tree",
                                 treasures: [
                                     "dream_conductors_whistle",
                                     "sleepyheads_jelly_watch",
@@ -8970,30 +8970,30 @@ window.CRK_DATA = {
                                 ]
                             },
                             {
-                                name: "Alt Team (TK 1s, DE 2s Start)",
+                        name: "Alt Team (TK 1s, DE 2s Start)",
                                 cookies: [
                                     {
-                                        name: "Millennial_tree",
-                                        build: 3
+                            name: "Millennial_tree",
+                            build: 3
                                     },
                                     {
-                                        name: "Timekeeper",
-                                        build: 2
+                            name: "Timekeeper",
+                            build: 2
                                     },
                                     {
-                                        name: "Dark_enchantress",
-                                        build: 2
+                            name: "Dark_enchantress",
+                            build: 2
                                     },
                                     {
-                                        name: "Venom_dough",
-                                        build: 1
+                            name: "Venom_dough",
+                            build: 1
                                     },
                                     {
-                                        name: "Sugar_swan",
-                                        build: 2
+                            name: "Sugar_swan",
+                            build: 2
                                     }
                                 ],
-                                rally: "Millennial_tree",
+                        rally: "Millennial_tree",
                                 treasures: [
                                     "dream_conductors_whistle",
                                     "watch3",
@@ -9004,30 +9004,30 @@ window.CRK_DATA = {
                                 ]
                             },
                             {
-                                name: "Pure Vanilla Comp",
+                        name: "Pure Vanilla Comp",
                                 cookies: [
                                     {
-                                        name: "Millennial_tree",
-                                        build: 3
+                            name: "Millennial_tree",
+                            build: 3
                                     },
                                     {
-                                        name: "Timekeeper",
-                                        build: 2
+                            name: "Timekeeper",
+                            build: 2
                                     },
                                     {
-                                        name: "Dark_enchantress",
-                                        build: 1
+                            name: "Dark_enchantress",
+                            build: 1
                                     },
                                     {
-                                        name: "Venom_dough",
-                                        build: 1
+                            name: "Venom_dough",
+                            build: 1
                                     },
                                     {
-                                        name: "Awakened_pure_vanilla",
-                                        build: 2
+                            name: "Awakened_pure_vanilla",
+                            build: 2
                                     }
                                 ],
-                                rally: "Millennial_tree",
+                        rally: "Millennial_tree",
                                 treasures: [
                                     "dream_conductors_whistle",
                                     "watch3",
@@ -9038,30 +9038,30 @@ window.CRK_DATA = {
                                 ]
                             },
                             {
-                                name: "Salt Bunny 1",
+                        name: "Salt Bunny 1",
                                 cookies: [
                                     {
-                                        name: "Millennial_tree",
-                                        build: 3
+                            name: "Millennial_tree",
+                            build: 3
                                     },
                                     {
-                                        name: "Silent_salt",
-                                        build: 1
+                            name: "Silent_salt",
+                            build: 1
                                     },
                                     {
-                                        name: "Timekeeper",
-                                        build: 2
+                            name: "Timekeeper",
+                            build: 2
                                     },
                                     {
-                                        name: "Marshmallow_bunny",
-                                        build: 1
+                            name: "Marshmallow_bunny",
+                            build: 1
                                     },
                                     {
-                                        name: "Sugar_swan",
-                                        build: 2
+                            name: "Sugar_swan",
+                            build: 2
                                     }
                                 ],
-                                rally: "Millennial_tree",
+                        rally: "Millennial_tree",
                                 treasures: [
                                     "box",
                                     "watch3",
@@ -9069,30 +9069,30 @@ window.CRK_DATA = {
                                 ]
                             },
                             {
-                                name: "Salt Bunny 2",
+                        name: "Salt Bunny 2",
                                 cookies: [
                                     {
-                                        name: "Millennial_tree",
-                                        build: 3
+                            name: "Millennial_tree",
+                            build: 3
                                     },
                                     {
-                                        name: "Silent_salt",
-                                        build: 2
+                            name: "Silent_salt",
+                            build: 2
                                     },
                                     {
-                                        name: "Timekeeper",
-                                        build: 1
+                            name: "Timekeeper",
+                            build: 1
                                     },
                                     {
-                                        name: "Marshmallow_bunny",
-                                        build: 1
+                            name: "Marshmallow_bunny",
+                            build: 1
                                     },
                                     {
-                                        name: "Sugar_swan",
-                                        build: 2
+                            name: "Sugar_swan",
+                            build: 2
                                     }
                                 ],
-                                rally: "Millennial_tree",
+                        rally: "Millennial_tree",
                                 treasures: [
                                     "box",
                                     "watch2",
@@ -9100,30 +9100,30 @@ window.CRK_DATA = {
                                 ]
                             },
                             {
-                                name: "The Salt, the Bunny, and the Witch",
+                        name: "The Salt, the Bunny, and the Witch",
                                 cookies: [
                                     {
-                                        name: "Millennial_tree",
-                                        build: 3
+                            name: "Millennial_tree",
+                            build: 3
                                     },
                                     {
-                                        name: "Silent_salt",
-                                        build: 1
+                            name: "Silent_salt",
+                            build: 1
                                     },
                                     {
-                                        name: "Timekeeper",
-                                        build: 2
+                            name: "Timekeeper",
+                            build: 2
                                     },
                                     {
-                                        name: "Dark_enchantress",
-                                        build: 2
+                            name: "Dark_enchantress",
+                            build: 2
                                     },
                                     {
-                                        name: "Marshmallow_bunny",
-                                        build: 1
+                            name: "Marshmallow_bunny",
+                            build: 1
                                     }
                                 ],
-                                rally: "Millennial_tree",
+                        rally: "Millennial_tree",
                                 treasures: [
                                     "monocle2",
                                     "watch3",
@@ -9144,33 +9144,33 @@ window.CRK_DATA = {
                         ]
                     },
                     {
-                        name: "Guild Battle",
+                    name: "Guild Battle",
                         sections: [
                             {
-                                name: "Red Velvet Dragon",
+                        name: "Red Velvet Dragon",
                                 teams: [
                                     {
-                                        name: "Deceitful",
+                            name: "Deceitful",
                                         cookies: [
                                             {
-                                                name: "Pom-pom_dough",
-                                                build: 1
+                                name: "Pom-pom_dough",
+                                build: 1
                                             },
                                             {
-                                                name: "Shadow_milk",
-                                                build: 4
+                                name: "Shadow_milk",
+                                build: 4
                                             },
                                             {
-                                                name: "Prune_juice",
-                                                build: 1
+                                name: "Prune_juice",
+                                build: 1
                                             },
                                             {
-                                                name: "Black_sapphire",
-                                                build: 1
+                                name: "Black_sapphire",
+                                build: 1
                                             },
                                             {
-                                                name: "Candy_apple",
-                                                build: 1
+                                name: "Candy_apple",
+                                build: 1
                                             }
                                         ],
                                         treasures: [
@@ -9183,27 +9183,27 @@ window.CRK_DATA = {
                                         ]
                                     },
                                     {
-                                        name: "Red Velvet Dragon (ES & Linzer)",
+                            name: "Red Velvet Dragon (ES & Linzer)",
                                         cookies: [
                                             {
-                                                name: "Pom-pom_dough",
-                                                build: 2
+                                name: "Pom-pom_dough",
+                                build: 2
                                             },
                                             {
-                                                name: "Eternal_sugar",
-                                                build: 5
+                                name: "Eternal_sugar",
+                                build: 5
                                             },
                                             {
-                                                name: "Prune_juice",
-                                                build: 2
+                                name: "Prune_juice",
+                                build: 2
                                             },
                                             {
-                                                name: "Black_sapphire",
-                                                build: 2
+                                name: "Black_sapphire",
+                                build: 2
                                             },
                                             {
-                                                name: "Linzer",
-                                                build: 2
+                                name: "Linzer",
+                                build: 2
                                             }
                                         ],
                                         treasures: [
@@ -9213,14 +9213,14 @@ window.CRK_DATA = {
                                         ],
                                         notes: [
                                             "ES and Linzer have a higher ceiling than Deceit (33.7b vs 32.6b) but if you already have ES and Linzers skills leveled it becomes much harder",
-                                            "header{Timings}<br>1. Queue Pom-pom Dough.<br>2. Spam Sapphire and Eternal Sugar.<br>3. Cast Prune Juice right after the 12/6 treasure glint.<br>4. Auto Linzer at roughly 49-48s.<br>5. Linzer at 32.750s or later.<br>6. Linzer at 16.438s or later.<br>7. If Linzer isn't dead, cast at next 7 stacks and spam."
-                                        ]
+                                "header{Timings}<br>1. Queue Pom-pom Dough.<br>2. Spam Sapphire and Eternal Sugar.<br>3. Cast Prune Juice right after the 12/6 treasure glint.<br>4. Auto Linzer at roughly 49-48s.<br>5. Linzer at 32.750s or later.<br>6. Linzer at 16.438s or later.<br>7. If Linzer isn't dead, cast at next 7 stacks and spam."
+                            ]
                                     }
                                 ]
                             },
                             {
-                                name: "Living Abyss",
-                                teams: [{
+                        name: "Living Abyss",
+                        teams: [{
                                     name: "Living Abyss",
                                     cookies: [
                                         {
@@ -9231,30 +9231,30 @@ window.CRK_DATA = {
                                 }]
                             },
                             {
-                                name: "Machine God of the Eternal Void",
+                            name: "Machine God of the Eternal Void",
                                 teams: [
                                     {
                                         name: "Machine God of the Eternal Void",
                                         cookies: [
                                             {
-                                                name: "Frilled_jellyfish",
-                                                build: 1
+                                name: "Frilled_jellyfish",
+                                build: 1
                                             },
                                             {
-                                                name: "Sea_fairy",
-                                                build: 1
+                                name: "Sea_fairy",
+                                build: 1
                                             },
                                             {
-                                                name: "Seltzer",
-                                                build: 1
+                                name: "Seltzer",
+                                build: 1
                                             },
                                             {
-                                                name: "Menthol",
-                                                build: 1
+                                name: "Menthol",
+                                build: 1
                                             },
                                             {
-                                                name: "Cream_ferret",
-                                                build: 1
+                                name: "Cream_ferret",
+                                build: 1
                                             }
                                         ],
                                         treasures: [
@@ -9265,8 +9265,8 @@ window.CRK_DATA = {
                                 ]
                             },
                             {
-                                name: "Avatar of Destiny",
-                                teams: []
+                        name: "Avatar of Destiny",
+                        teams: []
                             }
                         ]
                     },
@@ -9274,7 +9274,7 @@ window.CRK_DATA = {
                         name: "Cookie Alliance"
                     },
                     {
-                        name: "Events",
+                    name: "Events",
                         eventFilter: "active"
                     },
                     {
@@ -9452,14 +9452,14 @@ window.CRK_DATA = {
             },
             tierlists: [
                 {
-                    name: "Cookies",
-                    features: {
-                        eidolon: false,
-                        tags: false,
-                        elementIcon: false,
-                        role: false
-                    },
-                    filters: {
+                name: "Cookies",
+                features: {
+                    eidolon: false,
+                    tags: false,
+                    elementIcon: false,
+                    role: false
+                },
+                filters: {
                         rarity: [
                             "Witch",
                             "Beast",
@@ -9468,11 +9468,11 @@ window.CRK_DATA = {
                             "Dragon",
                             "Super Epic",
                             "Epic",
-                            "Special",
+                        "Special",
                             "Rare",
                             "Common"
                         ],
-                        type: [
+                        role: [
                             "Ambush",
                             "Bomber",
                             "Charge",
@@ -9506,7 +9506,7 @@ window.CRK_DATA = {
                     },
                     tierlists: [
                         {
-                            name: "World Exploration",
+                    name: "World Exploration",
                             tiers: [
                                 "S+",
                                 "S",
@@ -9517,28 +9517,28 @@ window.CRK_DATA = {
                                 "D",
                                 "E"
                             ],
-                            entries: [
-                                [
+                    entries: [
+                        [
                                     "Burning Spice Cookie",
                                     "Fire Spirit Cookie",
-                                    "Eternal Sugar Cookie",
-                                    "White Lily Cookie (Dawnbringer)",
-                                    "Pure Vanilla Cookie (Compassionate)",
-                                    "Hollyberry Cookie (Aegis)",
+                            "Eternal Sugar Cookie",
+                            "White Lily Cookie (Dawnbringer)",
+                            "Pure Vanilla Cookie (Compassionate)",
+                            "Hollyberry Cookie (Aegis)",
                                     "Cream Ferret Cookie",
                                     "Wind Archer Cookie",
                                     "Mystic Flour Cookie",
                                     "Silent Salt Cookie",
-                                    "Dark Enchantress Cookie",
+                            "Dark Enchantress Cookie",
                                     "Millennial Tree Cookie",
                                     "Rebel Cookie",
                                     "Sugar Swan Cookie",
                                     "Timekeeper Cookie"
-                                ],
-                                [
+                        ],
+                        [
                                     "Stormbringer Cookie",
                                     "Crème Brûlée Cookie",
-                                    "Star Coral Cookie",
+                            "Star Coral Cookie",
                                     "Marshmallow Bunny Cookie",
                                     "Twizzly Gummy Cookie",
                                     "Black Lemonade Cookie",
@@ -9553,7 +9553,7 @@ window.CRK_DATA = {
                                     "Doughael",
                                     "Green Tea Mousse Cookie",
                                     "Financier Cookie",
-                                    "Mint Choco Cookie",
+                            "Mint Choco Cookie",
                                     "Sea Fairy Cookie",
                                     "Tarte Tatin Cookie",
                                     "Venom Dough Cookie",
@@ -9565,12 +9565,12 @@ window.CRK_DATA = {
                                 [
                                     "Golden Cheese Cookie (Immortal)",
                                     "Golden Cheese Cookie",
-                                    "White Lily Cookie",
+                            "White Lily Cookie",
                                     "Frost Queen Cookie",
                                     "Sherbet Cookie",
                                     "Pavlova Cookie",
                                     "Salt Cellar Cookie",
-                                    "Space Doughnut",
+                            "Space Doughnut",
                                     "Jagae Cookie",
                                     "Manju Cookie",
                                     "Captain Caviar Cookie",
@@ -9581,7 +9581,7 @@ window.CRK_DATA = {
                                     "Cream Puff Cookie",
                                     "Rockstar Cookie",
                                     "Mold Dough Cookie",
-                                    "Shining Glitter Cookie",
+                            "Shining Glitter Cookie",
                                     "Mozzarella Cookie",
                                     "Sparkling Cookie",
                                     "Wedding Cake Cookie",
@@ -9599,10 +9599,10 @@ window.CRK_DATA = {
                                     "Burnt Cheese Cookie",
                                     "Kouign-Amann Cookie",
                                     "Cloud Haetae Cookie",
-                                    "Dark Choco Cookie",
+                            "Dark Choco Cookie",
                                     "Smoked Cheese Cookie",
                                     "Black Pearl Cookie",
-                                    "Capsaicin Cookie",
+                            "Capsaicin Cookie",
                                     "Pitaya Dragon Cookie",
                                     "Wildberry Cookie",
                                     "Peppermint Cookie",
@@ -9618,19 +9618,19 @@ window.CRK_DATA = {
                                     "Mango Cookie",
                                     "Caramel Arrow Cookie",
                                     "Black Raisin Cookie",
-                                    "Schwarzwälder",
+                            "Schwarzwälder",
                                     "Frilled Jellyfish Cookie",
                                     "Street Urchin Cookie",
                                     "Clotted Cream Cookie",
                                     "Cream Unicorn Cookie",
                                     "Herb Cookie",
-                                    "Pomegranate Cookie"
-                                ],
-                                [
+                            "Pomegranate Cookie"
+                        ],
+                        [
                                     "Dark Cacao Cookie",
                                     "Oyster Cookie",
                                     "Butter Roll Cookie",
-                                    "Mala Sauce Cookie",
+                            "Mala Sauce Cookie",
                                     "Werewolf Cookie",
                                     "Espresso Cookie",
                                     "Strawberry Crepe Cookie",
@@ -9641,7 +9641,7 @@ window.CRK_DATA = {
                                     "Red Osmanthus Cookie",
                                     "Eclair Cookie",
                                     "Cotton Cookie",
-                                    "Rye Cookie",
+                            "Rye Cookie",
                                     "Madeleine Cookie",
                                     "Choco Drizzle Cookie",
                                     "Elphaba Cookie",
@@ -9653,59 +9653,59 @@ window.CRK_DATA = {
                                     "Carol Cookie",
                                     "Tea Knight Cookie",
                                     "Prune Juice Cookie",
-                                    "Black Sapphire Cookie",
+                            "Black Sapphire Cookie",
                                     "Caramel Choux Cookie",
                                     "Okchun Cookie",
                                     "Matcha Cookie",
                                     "Affogato Cookie",
                                     "Royal Margarine Cookie",
-                                    "Blackberry Cookie",
+                            "Blackberry Cookie",
                                     "Cherry Blossom Cookie",
                                     "BTS"
-                                ],
-                                [
+                        ],
+                        [
                                     "Purple Yam Cookie",
                                     "Raspberry Cookie",
                                     "Blueberry Pie Cookie",
-                                    "Lime Cookie",
+                            "Lime Cookie",
                                     "Vampire Cookie",
                                     "Red Velvet Cookie",
                                     "Latte Cookie",
                                     "Prophet Cookie",
                                     "Moon Rabbit Cookie",
-                                    "Agar Agar Cookie",
+                            "Agar Agar Cookie",
                                     "Olive Cookie",
                                     "Poison Mushroom Cookie",
                                     "Candy Diver Cookie",
                                     "Almond Cookie",
                                     "Carrot Cookie",
-                                    "Kumiho Cookie"
-                                ],
-                                [
+                            "Kumiho Cookie"
+                        ],
+                        [
                                     "Chili Pepper Cookie",
                                     "Milk Cookie",
                                     "Lilac Cookie",
-                                    "Cherry Cookie",
+                            "Cherry Cookie",
                                     "Sonic Cookie",
                                     "Tails Cookie",
                                     "Knight Cookie",
                                     "Avocado Cookie",
                                     "Tiger Lily Cookie",
                                     "Cocoa Cookie",
-                                    "Devil Cookie",
+                            "Devil Cookie",
                                     "Princess Cookie",
                                     "Custard Cookie III",
                                     "Wizard Cookie",
                                     "Pancake Cookie",
                                     "Gumball Cookie",
-                                    "Alchemist Cookie",
-                                    "Clover Cookie"
-                                ],
-                                [
+                            "Alchemist Cookie",
+                            "Clover Cookie"
+                        ],
+                        [
                                     "GingerBrave",
                                     "Fig Cookie",
                                     "Onion Cookie",
-                                    "Strawberry Cookie",
+                            "Strawberry Cookie",
                                     "Muscle Cookie",
                                     "Beet Cookie",
                                     "Adventurer Cookie",
@@ -9715,7 +9715,7 @@ window.CRK_DATA = {
                             ]
                         },
                         {
-                            name: "Kingdom Arena",
+                    name: "Kingdom Arena",
                             tiers: [
                                 "S+",
                                 "S",
@@ -9725,34 +9725,34 @@ window.CRK_DATA = {
                                 "D",
                                 "E"
                             ],
-                            entries: [
-                                [
+                    entries: [
+                        [
                                     "Dark Enchantress Cookie",
                                     "Silent Salt Cookie",
-                                    "Millennial Tree Cookie",
-                                    "Venom Dough Cookie",
-                                    "White Lily Cookie (Dawnbringer)",
+                            "Millennial Tree Cookie",
+                            "Venom Dough Cookie",
+                            "White Lily Cookie (Dawnbringer)",
                                     "Eternal Sugar Cookie",
                                     "Sugar Swan Cookie",
                                     "Timekeeper Cookie"
-                                ],
-                                [
+                        ],
+                        [
                                     "Cream Ferret Cookie",
                                     "Icicle Yeti Cookie",
-                                    "Hollyberry Cookie (Aegis)",
-                                    "Pure Vanilla Cookie (Compassionate)",
+                            "Hollyberry Cookie (Aegis)",
+                            "Pure Vanilla Cookie (Compassionate)",
                                     "Shadow Milk Cookie",
                                     "Marshmallow Bunny Cookie"
-                                ],
-                                [
+                        ],
+                        [
                                     "Stormbringer Cookie",
                                     "Doughael",
-                                    "Golden Cheese Cookie (Immortal)",
+                            "Golden Cheese Cookie (Immortal)",
                                     "Burning Spice Cookie",
                                     "Elder Faerie Cookie",
                                     "Green Tea Mousse Cookie",
                                     "Rockstar Cookie",
-                                    "Wildberry Cookie",
+                            "Wildberry Cookie",
                                     "Dark Cacao Cookie (Dragon Lord)",
                                     "Moonlight Cookie",
                                     "Financier Cookie",
@@ -9765,13 +9765,13 @@ window.CRK_DATA = {
                                 [
                                     "Pure Vanilla Cookie",
                                     "White Lily Cookie",
-                                    "Golden Cheese Cookie",
+                            "Golden Cheese Cookie",
                                     "Frost Queen Cookie",
                                     "Sea Fairy Cookie",
                                     "Rebel Cookie",
                                     "Burnt Cheese Cookie",
                                     "Salt Cellar Cookie",
-                                    "Pavlova Cookie",
+                            "Pavlova Cookie",
                                     "Stardust Cookie",
                                     "Black Forest Cookie",
                                     "Chess Choco Cookie",
@@ -9782,7 +9782,7 @@ window.CRK_DATA = {
                                     "Blueberry Pie Cookie",
                                     "Captain Caviar Cookie",
                                     "Manju Cookie",
-                                    "Jagae Cookie",
+                            "Jagae Cookie",
                                     "Pastry Cookie",
                                     "Kouign-Amann Cookie",
                                     "Mold Dough Cookie",
@@ -9793,7 +9793,7 @@ window.CRK_DATA = {
                                     "Parfait Cookie",
                                     "Peach Blossom Cookie",
                                     "Candy Apple Cookie",
-                                    "Twizzly Gummy Cookie",
+                            "Twizzly Gummy Cookie",
                                     "Pudding à la Mode Cookie",
                                     "Nutmeg Tiger Cookie",
                                     "Grapefruit Cookie",
@@ -9806,82 +9806,82 @@ window.CRK_DATA = {
                                     "Capsaicin Cookie",
                                     "Shining Glitter Cookie",
                                     "Sherbet Cookie",
-                                    "Smoked Cheese Cookie",
+                            "Smoked Cheese Cookie",
                                     "Mercurial Knight Cookie",
                                     "Milky Way Cookie",
-                                    "Choco Drizzle Cookie",
+                            "Choco Drizzle Cookie",
                                     "Space Doughnut",
                                     "Snow Sugar Cookie",
                                     "Crimson Coral Cookie",
-                                    "Fettuccine Cookie",
+                            "Fettuccine Cookie",
                                     "Hollyberry Cookie",
                                     "Frilled Jellyfish Cookie",
-                                    "Pom-pom Dough Cookie"
-                                ],
-                                [
+                            "Pom-pom Dough Cookie"
+                        ],
+                        [
                                     "Dark Cacao Cookie",
                                     "Pitaya Dragon Cookie",
-                                    "Black Pearl Cookie",
+                            "Black Pearl Cookie",
                                     "Clotted Cream Cookie",
                                     "Cream Unicorn Cookie",
                                     "Sugarfly Cookie",
                                     "Vampire Cookie",
                                     "Cream Puff Cookie",
-                                    "Mozzarella Cookie",
+                            "Mozzarella Cookie",
                                     "Linzer Cookie",
                                     "Golden Osmanthus Cookie",
                                     "Red Osmanthus Cookie",
                                     "Cream Soda Cookie",
-                                    "Sorbet Shark Cookie",
+                            "Sorbet Shark Cookie",
                                     "Madeleine Cookie",
                                     "Mango Cookie",
                                     "Peppermint Cookie",
                                     "Schwarzwälder",
                                     "Street Urchin Cookie",
-                                    "Pinecone Cookie",
+                            "Pinecone Cookie",
                                     "Almond Cookie",
                                     "Squid Ink Cookie",
                                     "Black Raisin Cookie",
                                     "Herb Cookie",
                                     "Werewolf Cookie",
-                                    "Prune Juice Cookie",
+                            "Prune Juice Cookie",
                                     "Black Sapphire Cookie",
                                     "Butter Roll Cookie",
                                     "Mala Sauce Cookie",
                                     "Macaron Cookie",
                                     "Purple Yam Cookie",
-                                    "Lemon Cookie",
+                            "Lemon Cookie",
                                     "Orange Cookie",
                                     "Latte Cookie",
                                     "Crunchy Chip Cookie",
                                     "Espresso Cookie",
                                     "Eclair Cookie",
-                                    "Prophet Cookie",
-                                    "Royal Margarine Cookie",
+                            "Prophet Cookie",
+                            "Royal Margarine Cookie",
                                     "Pumpkin Pie Cookie",
                                     "Caramel Arrow Cookie",
-                                    "Caramel Choux Cookie",
+                            "Caramel Choux Cookie",
                                     "Tarte Tatin Cookie",
                                     "Rye Cookie",
                                     "Licorice Cookie",
                                     "Agar Agar Cookie",
                                     "Carol Cookie",
-                                    "Cotton Cookie",
+                            "Cotton Cookie",
                                     "Pomegranate Cookie",
                                     "Lime Cookie",
                                     "Matcha Cookie",
                                     "Oyster Cookie",
                                     "Okchun Cookie",
-                                    "Glinda Cookie",
+                            "Glinda Cookie",
                                     "Elphaba Cookie",
                                     "BTS",
                                     "Blackberry Cookie"
-                                ],
-                                [
+                        ],
+                        [
                                     "Red Velvet Cookie",
                                     "Olive Cookie",
                                     "Affogato Cookie",
-                                    "Cocoa Cookie",
+                            "Cocoa Cookie",
                                     "Milk Cookie",
                                     "Poison Mushroom Cookie",
                                     "Candy Diver Cookie",
@@ -9897,7 +9897,7 @@ window.CRK_DATA = {
                                     "Chili Pepper Cookie",
                                     "Fig Cookie",
                                     "Sonic Cookie",
-                                    "Tails Cookie",
+                            "Tails Cookie",
                                     "GingerBrave",
                                     "Onion Cookie",
                                     "Strawberry Cookie",
@@ -9914,15 +9914,15 @@ window.CRK_DATA = {
                                     "Wizard Cookie",
                                     "Pancake Cookie",
                                     "Gumball Cookie",
-                                    "Alchemist Cookie",
+                            "Alchemist Cookie",
                                     "Clover Cookie",
                                     "Cherry Cookie"
-                                ]
-                            ]
+                        ]
+                    ]
                         },
                         {
-                            name: "Overall (avg)",
-                            computedAverage: true,
+                    name: "Overall (avg)",
+                    computedAverage: true,
                             tiers: [
                                 "S+",
                                 "S",
@@ -9934,13 +9934,13 @@ window.CRK_DATA = {
                                 "E",
                                 "F"
                             ],
-                            entries: []
+                    entries: []
                         },
                         {
-                            name: "Guild Battle",
+                    name: "Guild Battle",
                             tierlists: [
                                 {
-                                    name: "Red Velvet Dragon",
+                        name: "Red Velvet Dragon",
                                     tiers: [
                                         "S",
                                         "A",
@@ -9949,28 +9949,28 @@ window.CRK_DATA = {
                                         "D",
                                         "E"
                                     ],
-                                    entries: [
-                                        [
+                        entries: [
+                            [
                                             "Black Sapphire Cookie",
                                             "Prune Juice Cookie",
                                             "Shadow Milk Cookie",
                                             "Candy Apple Cookie",
                                             "Dark Choco Cookie",
                                             "Pom-pom Dough Cookie",
-                                            "Venom Dough Cookie"
-                                        ],
-                                        [
+                                "Venom Dough Cookie"
+                            ],
+                            [
                                             "Matcha Cookie",
                                             "Rebel Cookie",
-                                            "Mystic Flour Cookie",
-                                            "Twizzly Gummy Cookie",
+                                "Mystic Flour Cookie",
+                                "Twizzly Gummy Cookie",
                                             "Black Lemonade Cookie",
                                             "Eternal Sugar Cookie",
                                             "Fire Spirit Cookie",
                                             "Burning Spice Cookie",
-                                            "Dark Cacao Cookie (Dragon Lord)",
-                                            "Pure Vanilla Cookie (Compassionate)",
-                                            "Black Raisin Cookie",
+                                "Dark Cacao Cookie (Dragon Lord)",
+                                "Pure Vanilla Cookie (Compassionate)",
+                                "Black Raisin Cookie",
                                             "Rockstar Cookie",
                                             "Royal Margarine Cookie",
                                             "Snapdragon Cookie",
@@ -9986,12 +9986,12 @@ window.CRK_DATA = {
                                             "Milky Way Cookie",
                                             "Eclair Cookie",
                                             "Space Doughnut",
-                                            "Snow Sugar Cookie",
+                                "Snow Sugar Cookie",
                                             "Cotton Cookie",
                                             "Sherbet Cookie",
                                             "Affogato Cookie",
                                             "Vampire Cookie",
-                                            "Oyster Cookie",
+                                "Oyster Cookie",
                                             "Sorbet Shark Cookie",
                                             "Pomegranate Cookie",
                                             "Crunchy Chip Cookie",
@@ -10015,17 +10015,17 @@ window.CRK_DATA = {
                                             "Fettuccine Cookie",
                                             "Cocoa Cookie",
                                             "Peppermint Cookie",
-                                            "Macaron Cookie",
+                                "Macaron Cookie",
                                             "Carol Cookie",
                                             "Almond Cookie",
                                             "Raspberry Cookie",
                                             "Rye Cookie",
-                                            "Mala Sauce Cookie",
+                                "Mala Sauce Cookie",
                                             "Hollyberry Cookie",
                                             "Schwarzwälder",
                                             "Pumpkin Pie Cookie",
                                             "Parfait Cookie",
-                                            "Wildberry Cookie",
+                                "Wildberry Cookie",
                                             "Capsaicin Cookie",
                                             "Prophet Cookie",
                                             "Crimson Coral Cookie",
@@ -10034,13 +10034,13 @@ window.CRK_DATA = {
                                         [
                                             "Dark Cacao Cookie",
                                             "Herb Cookie",
-                                            "Silverbell Cookie",
+                                "Silverbell Cookie",
                                             "Espresso Cookie",
                                             "Moonlight Cookie",
                                             "Pitaya Dragon Cookie",
                                             "Sea Fairy Cookie",
-                                            "Squid Ink Cookie",
-                                            "Tea Knight Cookie",
+                                "Squid Ink Cookie",
+                                "Tea Knight Cookie",
                                             "Black Pearl Cookie",
                                             "Tarte Tatin Cookie",
                                             "Blueberry Pie Cookie",
@@ -10049,16 +10049,16 @@ window.CRK_DATA = {
                                             "Moon Rabbit Cookie",
                                             "Kumiho Cookie",
                                             "Frilled Jellyfish Cookie",
-                                            "Olive Cookie"
-                                        ],
-                                        [
+                                "Olive Cookie"
+                            ],
+                            [
                                             "Wind Archer Cookie",
                                             "Crème Brûlée Cookie",
                                             "Kouign-Amann Cookie",
                                             "Financier Cookie",
                                             "Werewolf Cookie",
                                             "Caramel Arrow Cookie",
-                                            "Latte Cookie",
+                                "Latte Cookie",
                                             "Sparkling Cookie",
                                             "Madeleine Cookie",
                                             "Pastry Cookie",
@@ -10068,66 +10068,66 @@ window.CRK_DATA = {
                                         [
                                             "Milk Cookie",
                                             "Purple Yam Cookie",
-                                            "Chili Pepper Cookie",
+                                "Chili Pepper Cookie",
                                             "Red Velvet Cookie",
                                             "Tiger Lily Cookie",
                                             "White Lily Cookie",
                                             "Frost Queen Cookie",
                                             "Clotted Cream Cookie",
                                             "Cherry Blossom Cookie",
-                                            "Fig Cookie"
-                                        ]
-                                    ]
+                                "Fig Cookie"
+                            ]
+                        ]
                                 },
                                 {
-                                    name: "Avatar of Destiny",
+                        name: "Avatar of Destiny",
                                     tiers: [
                                         "S",
                                         "A"
                                     ],
-                                    entries: [
-                                        [
-                                            "Crème Brûlée Cookie",
-                                            "Pudding à la Mode Cookie",
-                                            "Star Coral Cookie",
-                                            "Cream Ferret Cookie",
-                                            "Mint Choco Cookie"
-                                        ],
-                                        [
-                                            "Twizzly Gummy Cookie",
-                                            "Marshmallow Bunny Cookie",
-                                            "Icicle Yeti Cookie",
-                                            "Blackberry Cookie",
-                                            "Cream Puff Cookie",
-                                            "Madeleine Cookie",
-                                            "Sonic Cookie",
-                                            "Macaron Cookie",
-                                            "Squid Ink Cookie",
-                                            "Cherry Blossom Cookie",
-                                            "Caramel Choux Cookie",
-                                            "Shining Glitter Cookie",
-                                            "Rye Cookie",
-                                            "Rockstar Cookie",
-                                            "Lime Cookie",
-                                            "Pomegranate Cookie",
-                                            "Oyster Cookie",
-                                            "Snapdragon Cookie",
-                                            "BTS",
-                                            "Sugarfly Cookie",
-                                            "Parfait Cookie",
-                                            "Clotted Cream Cookie",
-                                            "Pastry Cookie",
-                                            "Peppermint Cookie",
-                                            "Carol Cookie",
-                                            "Tails Cookie",
-                                            "Carrot Cookie",
-                                            "Vampire Cookie",
-                                            "Lemon Cookie"
-                                        ]
-                                    ]
+                        entries: [
+                            [
+                                "Crème Brûlée Cookie",
+                                "Pudding à la Mode Cookie",
+                                "Star Coral Cookie",
+                                "Cream Ferret Cookie",
+                                "Mint Choco Cookie"
+                            ],
+                            [
+                                "Twizzly Gummy Cookie",
+                                "Marshmallow Bunny Cookie",
+                                "Icicle Yeti Cookie",
+                                "Blackberry Cookie",
+                                "Cream Puff Cookie",
+                                "Madeleine Cookie",
+                                "Sonic Cookie",
+                                "Macaron Cookie",
+                                "Squid Ink Cookie",
+                                "Cherry Blossom Cookie",
+                                "Caramel Choux Cookie",
+                                "Shining Glitter Cookie",
+                                "Rye Cookie",
+                                "Rockstar Cookie",
+                                "Lime Cookie",
+                                "Pomegranate Cookie",
+                                "Oyster Cookie",
+                                "Snapdragon Cookie",
+                                "BTS",
+                                "Sugarfly Cookie",
+                                "Parfait Cookie",
+                                "Clotted Cream Cookie",
+                                "Pastry Cookie",
+                                "Peppermint Cookie",
+                                "Carol Cookie",
+                                "Tails Cookie",
+                                "Carrot Cookie",
+                                "Vampire Cookie",
+                                "Lemon Cookie"
+                            ]
+                        ]
                                 },
                                 {
-                                    name: "Living Abyss",
+                        name: "Living Abyss",
                                     tiers: [
                                         "S",
                                         "A",
@@ -10136,190 +10136,190 @@ window.CRK_DATA = {
                                         "D",
                                         "E"
                                     ],
-                                    entries: [
-                                        [
-                                            "Blueberry Pie Cookie",
-                                            "Wind Archer Cookie",
-                                            "Cream Puff Cookie",
-                                            "Marshmallow Bunny Cookie",
-                                            "Cream Ferret Cookie",
-                                            "Linzer Cookie",
-                                            "Black Forest Cookie",
-                                            "Twizzly Gummy Cookie",
-                                            "Eternal Sugar Cookie",
-                                            "Wedding Cake Cookie"
-                                        ],
-                                        [
-                                            "Frost Queen Cookie",
-                                            "Pinecone Cookie",
-                                            "Star Coral Cookie",
-                                            "Rockstar Cookie",
-                                            "Rebel Cookie",
-                                            "Fire Spirit Cookie",
-                                            "Stormbringer Cookie",
-                                            "Pitaya Dragon Cookie",
-                                            "Burning Spice Cookie",
-                                            "Shadow Milk Cookie",
-                                            "Pure Vanilla Cookie (Compassionate)",
-                                            "Dark Cacao Cookie (Dragon Lord)",
-                                            "Macaron Cookie",
-                                            "Space Doughnut",
-                                            "Snow Sugar Cookie",
-                                            "Snapdragon Cookie",
-                                            "Captain Caviar Cookie",
-                                            "Caramel Arrow Cookie",
-                                            "Black Raisin Cookie",
-                                            "Squid Ink Cookie",
-                                            "Candy Apple Cookie",
-                                            "Milky Way Cookie",
-                                            "Cotton Cookie",
-                                            "Mango Cookie",
-                                            "Werewolf Cookie",
-                                            "Schwarzwälder",
-                                            "Dark Cacao Cookie",
-                                            "Sherbet Cookie",
-                                            "Crème Brûlée Cookie",
-                                            "Black Pearl Cookie",
-                                            "Sea Fairy Cookie",
-                                            "Moonlight Cookie",
-                                            "Espresso Cookie",
-                                            "Shining Glitter Cookie",
-                                            "Tarte Tatin Cookie",
-                                            "Pomegranate Cookie",
-                                            "Mystic Flour Cookie",
-                                            "Pure Vanilla Cookie",
-                                            "Peach Blossom Cookie",
-                                            "Silverbell Cookie",
-                                            "Sorbet Shark Cookie",
-                                            "Clotted Cream Cookie",
-                                            "Crunchy Chip Cookie",
-                                            "Dark Choco Cookie",
-                                            "Wildberry Cookie",
-                                            "Cherry Blossom Cookie",
-                                            "White Lily Cookie",
-                                            "Latte Cookie",
-                                            "Oyster Cookie",
-                                            "Carol Cookie",
-                                            "BTS",
-                                            "Parfait Cookie",
-                                            "Golden Cheese Cookie",
-                                            "Purple Yam Cookie",
-                                            "Street Urchin Cookie",
-                                            "Stardust Cookie",
-                                            "Peppermint Cookie"
-                                        ],
-                                        [
-                                            "Fettuccine Cookie",
-                                            "Hollyberry Cookie",
-                                            "Pumpkin Pie Cookie",
-                                            "Licorice Cookie",
-                                            "Herb Cookie",
-                                            "Cream Unicorn Cookie",
-                                            "Frilled Jellyfish Cookie",
-                                            "Mercurial Knight Cookie",
-                                            "Kouign-Amann Cookie",
-                                            "Tea Knight Cookie",
-                                            "Burnt Cheese Cookie",
-                                            "Butter Roll Cookie",
-                                            "Financier Cookie",
-                                            "Madeleine Cookie",
-                                            "Capsaicin Cookie",
-                                            "Mala Sauce Cookie"
-                                        ],
-                                        [
-                                            "Crimson Coral Cookie",
-                                            "Cocoa Cookie",
-                                            "Black Lemonade Cookie",
-                                            "Vampire Cookie",
-                                            "Rye Cookie",
-                                            "Eclair Cookie",
-                                            "Strawberry Crepe Cookie",
-                                            "Milk Cookie",
-                                            "Poison Mushroom Cookie",
-                                            "Matcha Cookie",
-                                            "Candy Diver Cookie",
-                                            "Cloud Haetae Cookie",
-                                            "Sparkling Cookie",
-                                            "Mint Choco Cookie",
-                                            "Pastry Cookie",
-                                            "Kumiho Cookie",
-                                            "Prophet Cookie",
-                                            "Olive Cookie",
-                                            "Lilac Cookie"
-                                        ],
-                                        [
-                                            "Affogato Cookie",
-                                            "Almond Cookie",
-                                            "Moon Rabbit Cookie",
-                                            "Caramel Choux Cookie"
-                                        ],
-                                        [
-                                            "Chili Pepper Cookie",
-                                            "Fig Cookie",
-                                            "Red Velvet Cookie",
-                                            "Tiger Lily Cookie",
-                                            "Raspberry Cookie",
-                                            "Royal Margarine Cookie",
-                                            "Prune Juice Cookie",
-                                            "Black Sapphire Cookie"
-                                        ]
-                                    ]
+                        entries: [
+                            [
+                                "Blueberry Pie Cookie",
+                                "Wind Archer Cookie",
+                                "Cream Puff Cookie",
+                                "Marshmallow Bunny Cookie",
+                                "Cream Ferret Cookie",
+                                "Linzer Cookie",
+                                "Black Forest Cookie",
+                                "Twizzly Gummy Cookie",
+                                "Eternal Sugar Cookie",
+                                "Wedding Cake Cookie"
+                            ],
+                            [
+                                "Frost Queen Cookie",
+                                "Pinecone Cookie",
+                                "Star Coral Cookie",
+                                "Rockstar Cookie",
+                                "Rebel Cookie",
+                                "Fire Spirit Cookie",
+                                "Stormbringer Cookie",
+                                "Pitaya Dragon Cookie",
+                                "Burning Spice Cookie",
+                                "Shadow Milk Cookie",
+                                "Pure Vanilla Cookie (Compassionate)",
+                                "Dark Cacao Cookie (Dragon Lord)",
+                                "Macaron Cookie",
+                                "Space Doughnut",
+                                "Snow Sugar Cookie",
+                                "Snapdragon Cookie",
+                                "Captain Caviar Cookie",
+                                "Caramel Arrow Cookie",
+                                "Black Raisin Cookie",
+                                "Squid Ink Cookie",
+                                "Candy Apple Cookie",
+                                "Milky Way Cookie",
+                                "Cotton Cookie",
+                                "Mango Cookie",
+                                "Werewolf Cookie",
+                                "Schwarzwälder",
+                                "Dark Cacao Cookie",
+                                "Sherbet Cookie",
+                                "Crème Brûlée Cookie",
+                                "Black Pearl Cookie",
+                                "Sea Fairy Cookie",
+                                "Moonlight Cookie",
+                                "Espresso Cookie",
+                                "Shining Glitter Cookie",
+                                "Tarte Tatin Cookie",
+                                "Pomegranate Cookie",
+                                "Mystic Flour Cookie",
+                                "Pure Vanilla Cookie",
+                                "Peach Blossom Cookie",
+                                "Silverbell Cookie",
+                                "Sorbet Shark Cookie",
+                                "Clotted Cream Cookie",
+                                "Crunchy Chip Cookie",
+                                "Dark Choco Cookie",
+                                "Wildberry Cookie",
+                                "Cherry Blossom Cookie",
+                                "White Lily Cookie",
+                                "Latte Cookie",
+                                "Oyster Cookie",
+                                "Carol Cookie",
+                                "BTS",
+                                "Parfait Cookie",
+                                "Golden Cheese Cookie",
+                                "Purple Yam Cookie",
+                                "Street Urchin Cookie",
+                                "Stardust Cookie",
+                                "Peppermint Cookie"
+                            ],
+                            [
+                                "Fettuccine Cookie",
+                                "Hollyberry Cookie",
+                                "Pumpkin Pie Cookie",
+                                "Licorice Cookie",
+                                "Herb Cookie",
+                                "Cream Unicorn Cookie",
+                                "Frilled Jellyfish Cookie",
+                                "Mercurial Knight Cookie",
+                                "Kouign-Amann Cookie",
+                                "Tea Knight Cookie",
+                                "Burnt Cheese Cookie",
+                                "Butter Roll Cookie",
+                                "Financier Cookie",
+                                "Madeleine Cookie",
+                                "Capsaicin Cookie",
+                                "Mala Sauce Cookie"
+                            ],
+                            [
+                                "Crimson Coral Cookie",
+                                "Cocoa Cookie",
+                                "Black Lemonade Cookie",
+                                "Vampire Cookie",
+                                "Rye Cookie",
+                                "Eclair Cookie",
+                                "Strawberry Crepe Cookie",
+                                "Milk Cookie",
+                                "Poison Mushroom Cookie",
+                                "Matcha Cookie",
+                                "Candy Diver Cookie",
+                                "Cloud Haetae Cookie",
+                                "Sparkling Cookie",
+                                "Mint Choco Cookie",
+                                "Pastry Cookie",
+                                "Kumiho Cookie",
+                                "Prophet Cookie",
+                                "Olive Cookie",
+                                "Lilac Cookie"
+                            ],
+                            [
+                                "Affogato Cookie",
+                                "Almond Cookie",
+                                "Moon Rabbit Cookie",
+                                "Caramel Choux Cookie"
+                            ],
+                            [
+                                "Chili Pepper Cookie",
+                                "Fig Cookie",
+                                "Red Velvet Cookie",
+                                "Tiger Lily Cookie",
+                                "Raspberry Cookie",
+                                "Royal Margarine Cookie",
+                                "Prune Juice Cookie",
+                                "Black Sapphire Cookie"
+                            ]
+                        ]
                                 },
                                 {
-                                    name: "Machine-God of the Eternal Void",
+                        name: "Machine-God of the Eternal Void",
                                     tiers: [
                                         "S",
                                         "A",
                                         "B",
                                         "C"
                                     ],
-                                    entries: [
-                                        [
-                                            "Menthol Cookie",
-                                            "Seltzer Cookie",
-                                            "Sea Fairy Cookie",
-                                            "Frilled Jellyfish Cookie",
-                                            "Cream Ferret Cookie",
-                                            "Cream Soda Cookie"
-                                        ],
-                                        [
-                                            "Crimson Coral Cookie",
-                                            "Black Pearl Cookie",
-                                            "Peppermint Cookie",
-                                            "Captain Caviar Cookie",
-                                            "Star Coral Cookie",
-                                            "Manju Cookie",
-                                            "Jagae Cookie"
-                                        ],
-                                        [
-                                            "Mango Cookie",
-                                            "Sorbet Shark Cookie",
-                                            "Snapdragon Cookie",
-                                            "Marshmallow Bunny Cookie",
-                                            "Icicle Yeti Cookie"
-                                        ],
-                                        [
-                                            "Squid Ink Cookie",
-                                            "Agar Agar Cookie"
-                                        ]
-                                    ]
+                        entries: [
+                            [
+                                "Menthol Cookie",
+                                "Seltzer Cookie",
+                                "Sea Fairy Cookie",
+                                "Frilled Jellyfish Cookie",
+                                "Cream Ferret Cookie",
+                                "Cream Soda Cookie"
+                            ],
+                            [
+                                "Crimson Coral Cookie",
+                                "Black Pearl Cookie",
+                                "Peppermint Cookie",
+                                "Captain Caviar Cookie",
+                                "Star Coral Cookie",
+                                "Manju Cookie",
+                                "Jagae Cookie"
+                            ],
+                            [
+                                "Mango Cookie",
+                                "Sorbet Shark Cookie",
+                                "Snapdragon Cookie",
+                                "Marshmallow Bunny Cookie",
+                                "Icicle Yeti Cookie"
+                            ],
+                            [
+                                "Squid Ink Cookie",
+                                "Agar Agar Cookie"
+                            ]
+                        ]
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    name: "Magic Candies",
-                    features: {
-                        eidolon: false,
-                        tags: false,
-                        elementIcon: false,
-                        role: false,
-                        cardStyle: "candy"
-                    },
+                name: "Magic Candies",
+                features: {
+                    eidolon: false,
+                    tags: false,
+                    elementIcon: false,
+                    role: false,
+                    cardStyle: "candy"
+                },
                     tierlists: [
                         {
-                            name: "World Exploration",
+                    name: "World Exploration",
                             tiers: [
                                 "S",
                                 "A",
@@ -10328,7 +10328,7 @@ window.CRK_DATA = {
                                 "D",
                                 "F"
                             ],
-                            entries: [
+                    entries: [
                                 [
                                     "Wind Archer",
                                     "Stormbringer",
@@ -10345,21 +10345,21 @@ window.CRK_DATA = {
                                     "Cream Puff",
                                     "Caramel Arrow",
                                     "Kouign-Amann",
-                                    "Green Tea Mousse"
-                                ],
+                            "Green Tea Mousse"
+                        ],
                                 [
                                     "Sea Fairy",
                                     "Moonlight",
                                     "Mint Choco",
                                     "Frilled Jellyfish",
-                                    "Pinecone",
+                            "Pinecone",
                                     "Financier",
                                     "Parfait",
                                     "Peppermint",
                                     "Strawberry Crepe",
                                     "Snow Sugar",
                                     "Raspberry",
-                                    "Squid Ink",
+                            "Squid Ink",
                                     "Werewolf",
                                     "Silverbell"
                                 ],
@@ -10383,12 +10383,12 @@ window.CRK_DATA = {
                                     "Wildberry",
                                     "Pomegranate",
                                     "Poison Mushroom"
-                                ],
-                                []
-                            ]
+                        ],
+                        []
+                    ]
                         },
                         {
-                            name: "Kingdom Arena",
+                    name: "Kingdom Arena",
                             tiers: [
                                 "S",
                                 "A",
@@ -10397,7 +10397,7 @@ window.CRK_DATA = {
                                 "D",
                                 "F"
                             ],
-                            entries: [
+                    entries: [
                                 [
                                     "Wind Archer",
                                     "Financier",
@@ -10414,17 +10414,17 @@ window.CRK_DATA = {
                                     "Vampire",
                                     "Raspberry",
                                     "Captain Caviar",
-                                    "Caramel Arrow",
+                            "Caramel Arrow",
                                     "Blueberry Pie",
                                     "Parfait",
                                     "Green Tea Mousse"
-                                ],
-                                [
+                        ],
+                        [
                                     "Tea Knight",
                                     "Dark Choco",
                                     "Twizzly Gummy",
                                     "Strawberry Crepe",
-                                    "Sorbet Shark",
+                            "Sorbet Shark",
                                     "Snow Sugar",
                                     "Black Raisin",
                                     "Pastry",
@@ -10434,7 +10434,7 @@ window.CRK_DATA = {
                                     "Cream Puff",
                                     "Mint Choco",
                                     "Werewolf",
-                                    "Frilled Jellyfish",
+                            "Frilled Jellyfish",
                                     "Peppermint",
                                     "Pinecone",
                                     "Squid Ink",
@@ -10452,9 +10452,9 @@ window.CRK_DATA = {
                                     "Milk",
                                     "Pomegranate",
                                     "Poison Mushroom"
-                                ],
-                                []
-                            ]
+                        ],
+                        []
+                    ]
                         }
                     ]
                 }

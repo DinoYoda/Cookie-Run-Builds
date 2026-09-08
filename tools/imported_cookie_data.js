@@ -5,7 +5,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Zhen_huan",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Zhencang",
             skill: "Jinghong Dance",
@@ -16,7 +16,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Ruby",
             element: "Steel",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Charged Detonation",
@@ -26,7 +26,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Moonstone",
             element: "Steel",
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Silent Reading",
@@ -36,7 +36,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cobalt",
             element: "Steel",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Cold Steel",
@@ -46,7 +46,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Jadeite",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Super Epic",
             skill: "Luxury Jade Umbrella",
@@ -56,7 +56,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Baili",
             element: "Steel",
-            type: "Ambush",
+            role: "Ambush",
             position: "Rear",
             rarity: "Legendary",
             skill: "Sealing Python",
@@ -66,7 +66,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Tengshe",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Legendary",
             skill: "Golden Snake Blessing",
@@ -76,7 +76,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Gingerbrave",
             element: null,
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Common",
             skill: "Brave Dash",
@@ -85,7 +85,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Muscle",
             element: "Steel",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Common",
             skill: "Muscle King Power",
@@ -94,7 +94,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Strawberry",
             element: null,
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Common",
             skill: "Don't Come Near!",
@@ -103,7 +103,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Wizard",
             element: "Electricity",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Common",
             skill: "Magic Storm",
@@ -113,7 +113,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Beet",
             element: null,
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Common",
             skill: "Hunter's Sense",
@@ -122,7 +122,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Ninja",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Common",
             skill: "Swift Strike",
@@ -131,7 +131,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Angel",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Common",
             skill: "Celestial Light",
@@ -140,7 +140,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Adventurer",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Rare",
             skill: "Rope Master",
@@ -149,7 +149,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Alchemist",
             element: "Poison",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Rare",
             skill: "Unstable Formula",
@@ -158,7 +158,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Avocado",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Rare",
             skill: "Battle Smithing",
@@ -167,7 +167,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Blackberry",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Rare",
             skill: "Ghost Servants",
@@ -176,7 +176,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Carrot",
             element: "Grass",
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Rare",
             skill: "Carrot Harvest",
@@ -185,7 +185,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cherry",
             element: null,
-            type: "Bomber",
+            role: "Bomber",
             position: "Rear",
             rarity: "Rare",
             skill: "Huge Cherry Bomb",
@@ -194,7 +194,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Clover",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Rare",
             skill: "Bard's Song",
@@ -203,7 +203,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Devil",
             element: "Darkness",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Rare",
             skill: "Devilish Rune",
@@ -212,7 +212,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Gumball",
             element: null,
-            type: "Bomber",
+            role: "Bomber",
             position: "Rear",
             rarity: "Rare",
             skill: "Art-illery",
@@ -221,7 +221,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Knight",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Rare",
             skill: "Cavalry Charge",
@@ -230,7 +230,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Onion",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Rare",
             skill: "Unstoppable Tears",
@@ -239,7 +239,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pancake",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Rear",
             rarity: "Rare",
             skill: "Take an Acorn!",
@@ -249,7 +249,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Princess",
             element: null,
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Rare",
             skill: "Royal Swing",
@@ -258,7 +258,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Marshmallow_bunny",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Special",
             skill: "Let's Go, Bunny Tunnel!",
@@ -267,7 +267,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cream_ferret",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Special",
             skill: "Snuggly Ferret",
@@ -276,7 +276,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Icicle_yeti",
             element: "Ice",
-            type: "Healing",
+            role: "Healing",
             position: "Front",
             rarity: "Special",
             skill: "Let's Be Friends!",
@@ -285,7 +285,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Snapdragon",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Special",
             skill: "Arcane Blossom",
@@ -294,7 +294,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sonic",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Special",
             skill: "Sonic's Spin Dash",
@@ -303,7 +303,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Tails",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Special",
             skill: "Tails' Spin Dash",
@@ -312,7 +312,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Elphaba",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Special",
             skill: "Unlimited!",
@@ -321,7 +321,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Glinda",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Special",
             skill: "Dazzling Presence",
@@ -330,7 +330,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Doughael",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Middle",
             rarity: "Super Epic",
             skill: "Consecrated Vow",
@@ -339,7 +339,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Camellia",
             element: "Grass",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Super Epic",
             skill: "Battle Scene Painting",
@@ -349,7 +349,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Elder_faerie",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Super Epic",
             skill: "Guardian's Valor",
@@ -359,7 +359,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Crimson_coral",
             element: "Water",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Super Epic",
             skill: "Somber Affection",
@@ -369,7 +369,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Shining_glitter",
             element: "Electricity",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Super Epic",
             skill: "All Eyes on the Stage!",
@@ -378,7 +378,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Capsaicin",
             element: "Fire",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Super Epic",
             skill: "Capsaicin Magma",
@@ -388,7 +388,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Stardust",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Super Epic",
             skill: "Wrath of the Stars",
@@ -397,7 +397,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sherbet",
             element: "Ice",
-            type: "Ranged",
+            role: "Ranged",
             position: "Middle",
             rarity: "Super Epic",
             skill: "Frost Shards",
@@ -406,7 +406,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Oyster",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Super Epic",
             skill: "Might of House Oyster",
@@ -416,7 +416,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Clotted_cream",
             element: "Light",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Super Epic",
             skill: "Consul's Orders",
@@ -428,7 +428,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Chaos",
                 "Poison"
             ],
-            type: "Bomber",
+            role: "Bomber",
             position: "Rear",
             rarity: "Super Epic",
             skill: "Mind Venom",
@@ -437,7 +437,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pitaya_dragon",
             element: "Fire",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Dragon",
             skill: "Draconic Bladestorm",
@@ -446,7 +446,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sugar_swan",
             element: "Light",
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Legendary",
             skill: "Wings of Sugar",
@@ -455,7 +455,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Fire_spirit",
             element: "Fire",
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Legendary",
             skill: "Ever-Burning Flames",
@@ -466,7 +466,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Wind_archer",
             element: "Wind",
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "New Legendary",
             skill: "Last Wind",
@@ -477,7 +477,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Stormbringer",
             element: "Electricity",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Legendary",
             skill: "Lightning Blitzstorm",
@@ -487,7 +487,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Moonlight",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Legendary",
             skill: "Dream of the Night Sky",
@@ -497,7 +497,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Black_pearl",
             element: "Water",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Legendary",
             skill: "Duskgloom's Sovereign",
@@ -507,7 +507,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Frost_queen",
             element: "Ice",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Legendary",
             skill: "Freezing Squall",
@@ -517,7 +517,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sea_fairy",
             element: "Water",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Legendary",
             skill: "Soaring Compassion",
@@ -527,7 +527,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Millennial_tree",
             element: "Grass",
-            type: "Support",
+            role: "Support",
             position: "Front",
             rarity: "Legendary",
             skill: "Millennial Tree",
@@ -537,7 +537,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pure_vanilla",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Ancient",
             skill: "Love & Peace",
@@ -547,7 +547,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Hollyberry",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Ancient",
             skill: "Oath on the Shield",
@@ -560,7 +560,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Darkness",
                 "Electricity"
             ],
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Ancient",
             skill: "Solemn Judgment",
@@ -569,7 +569,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Golden_cheese",
             element: "Earth",
-            type: "Ranged",
+            role: "Ranged",
             position: "Middle",
             rarity: "Ancient",
             skill: "Brilliance of the Absolute",
@@ -578,7 +578,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "White_lily",
             element: "Grass",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Ancient",
             skill: "Lily Bud",
@@ -588,7 +588,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Awakened_dark_cacao",
             element: "Darkness",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "AncientA",
             skill: "Awakened King",
@@ -598,7 +598,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Awakened_golden_cheese",
             element: "Earth",
-            type: "Ranged",
+            role: "Ranged",
             position: "Middle",
             rarity: "AncientA",
             skill: "Radiance of the Immortal",
@@ -608,7 +608,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Awakened_pure_vanilla",
             element: "Light",
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "AncientA",
             skill: "Warmth of Compassion",
@@ -618,7 +618,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Awakened_hollyberry",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "AncientA",
             skill: "Shield of Conviction",
@@ -627,7 +627,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Awakened_white_lily",
             element: "Grass",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "AncientA",
             skill: "Freedom's Bloom",
@@ -636,7 +636,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mystic_flour",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Beast",
             skill: "Whispers of Apathy",
@@ -645,7 +645,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Burning_spice",
             element: "Fire",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Beast",
             skill: "Tyrant's Wrath",
@@ -655,7 +655,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Shadow_milk",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Beast",
             skill: "Act 1: Lies",
@@ -666,7 +666,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Eternal_sugar",
             element: "Poison",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Beast",
             skill: "Eternal Enchantment",
@@ -680,7 +680,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Darkness",
                 "Steel"
             ],
-            type: "Ambush",
+            role: "Ambush",
             position: "Front",
             rarity: "Beast",
             skill: "End of Silence",
@@ -690,7 +690,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Dark_enchantress",
             element: "Chaos",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Witch",
             skill: "Visions of Doom",
@@ -700,7 +700,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Salt_cellar",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Knight of Solidarity",
@@ -709,7 +709,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Charcoal",
             element: "Darkness",
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Epic",
             skill: "Tombkeeper's Rite",
@@ -718,7 +718,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Menthol",
             element: "Water",
-            type: "Bomber",
+            role: "Bomber",
             position: "Rear",
             rarity: "Epic",
             skill: "Menthol Censer",
@@ -727,7 +727,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Seltzer",
             element: "Water",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Bubble Rain",
@@ -736,7 +736,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Grapefruit",
             element: "Electricity",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Catch Me If You Can!",
@@ -746,7 +746,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Lime",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Beach Ball Surprise",
@@ -756,7 +756,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Manju",
             element: "Water",
-            type: "Ambush",
+            role: "Ambush",
             position: "Rear",
             rarity: "Epic",
             skill: "Flash Strike",
@@ -765,7 +765,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Jagae",
             element: "Water",
-            type: "Support",
+            role: "Support",
             position: "Front",
             rarity: "Epic",
             skill: "Iridescent Storm",
@@ -775,7 +775,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Orange",
             element: "Electricity",
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Epic",
             skill: "Juicy Serve!",
@@ -785,7 +785,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Lemon",
             element: "Electricity",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Lightning Dash",
@@ -795,7 +795,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cream_soda",
             element: "Water",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Cream Soda Blade",
@@ -804,7 +804,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sugarfly",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Butterfly's Whisper",
@@ -813,7 +813,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pavlova",
             element: null,
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Heart-Piercing Arrow",
@@ -829,7 +829,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Wind",
                 "Ice"
             ],
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Ravenous Mirror",
@@ -838,7 +838,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Wedding_cake",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Anything for the Bride!",
@@ -848,7 +848,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Black_forest",
             element: null,
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "For the Creators!",
@@ -858,7 +858,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Black_sapphire",
             element: "Poison",
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "It's Showtime!",
@@ -867,7 +867,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Candy_apple",
             element: null,
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Apple of My Eye!",
@@ -876,7 +876,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Okchun",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Middle",
             rarity: "Epic",
             skill: "Okchun Pouch",
@@ -888,7 +888,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Wind",
                 "Grass"
             ],
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Mousse Shield",
@@ -898,7 +898,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pudding_a_la_mode",
             element: "Electricity",
-            type: "Bomber",
+            role: "Bomber",
             position: "Rear",
             rarity: "Epic",
             skill: "Plasma Cannon",
@@ -907,7 +907,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Choco_drizzle",
             element: "Darkness",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Choco Penumbra",
@@ -916,7 +916,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Red_osmanthus",
             element: "Grass",
-            type: "Ranged",
+            role: "Ranged",
             position: "Middle",
             rarity: "Epic",
             skill: "The Pipa's Song",
@@ -925,7 +925,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Golden_osmanthus",
             element: "Grass",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Incense of Love",
@@ -936,7 +936,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Smoked_cheese",
             element: "Earth",
-            type: "Magic",
+            role: "Magic",
             position: "Rear",
             rarity: "Epic",
             skill: "Get Smoked!",
@@ -945,7 +945,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Nutmeg_tiger",
             element: "Fire",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "The Great General",
@@ -954,7 +954,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Star_coral",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Twinkling Coral",
@@ -963,7 +963,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Peach_blossom",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Heavenly Fruit",
@@ -973,7 +973,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cloud_haetae",
             element: null,
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Haetae Charge",
@@ -982,7 +982,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Street_urchin",
             element: "Fire",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Ride or Crumble",
@@ -991,7 +991,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Caramel_choux",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "I've Got Choux",
@@ -1003,7 +1003,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Steel",
                 "Chaos"
             ],
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Dough Experiment",
@@ -1015,7 +1015,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Poison",
                 "Grass"
             ],
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Sinister Scheme",
@@ -1024,7 +1024,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mercurial_knight",
             element: "Steel",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Mercurial Knight's Oath",
@@ -1033,7 +1033,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Silverbell",
             element: "Grass",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Gleeful Chime",
@@ -1043,7 +1043,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Rebel",
             element: "Wind",
-            type: "Ambush",
+            role: "Ambush",
             position: "Front",
             rarity: "Epic",
             skill: "Here, There, Everywhere!",
@@ -1052,7 +1052,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Creme_brulee",
             element: "Light",
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Accelerando",
@@ -1061,7 +1061,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Linzer",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "The Culprit... is YOU!",
@@ -1074,7 +1074,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Fire",
                 "Electricity"
             ],
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Bat Attack",
@@ -1083,7 +1083,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mozzarella",
             element: "Earth",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Mozzarella Master Plan",
@@ -1093,7 +1093,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Fettuccine",
             element: "Earth",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Unstable Fettuccine",
@@ -1103,7 +1103,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Burnt_cheese",
             element: "Earth",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Protector of the Golden City",
@@ -1115,7 +1115,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Water",
                 "Electricity"
             ],
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Frilled Shackles",
@@ -1127,7 +1127,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Peppermint",
             element: "Water",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Freshness of the Sea",
@@ -1137,7 +1137,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Black_lemonade",
             element: "Electricity",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Electrifying Rock!",
@@ -1146,7 +1146,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Rockstar",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Middle",
             rarity: "Epic",
             skill: "Legend of Rock",
@@ -1155,7 +1155,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Tarte_tatin",
             element: "Fire",
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Cannonade",
@@ -1164,7 +1164,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Royal_margarine",
             element: "Poison",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Buttercream Blast",
@@ -1173,7 +1173,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Kouign-amann",
             element: "Light",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Paladin's Way",
@@ -1183,7 +1183,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Prune_juice",
             element: "Poison",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Prune Juice Potion",
@@ -1192,7 +1192,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Space_doughnut",
             element: null,
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Doughnut Beam",
@@ -1201,7 +1201,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Blueberry_pie",
             element: "Electricity",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Cursed Tome",
@@ -1211,7 +1211,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Milky_way",
             element: null,
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Sugarcloud Express",
@@ -1220,7 +1220,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Prophet",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Seven Prophecies",
@@ -1229,7 +1229,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pinecone",
             element: "Ice",
-            type: "Bomber",
+            role: "Bomber",
             position: "Front",
             rarity: "Epic",
             skill: "Pinecone Bomb",
@@ -1239,7 +1239,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Carol",
             element: "Grass",
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Epic",
             skill: "Magic Songs",
@@ -1248,7 +1248,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Macaron",
             element: null,
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Mighty Macaron Parade",
@@ -1260,7 +1260,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Steel",
                 "Chaos"
             ],
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Choco Chip Hammer",
@@ -1270,7 +1270,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Candy_diver",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Deep-sea Diver",
@@ -1279,7 +1279,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Captain_caviar",
             element: "Water",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Black Shark Torpedo",
@@ -1289,7 +1289,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cream_unicorn",
             element: "Fire",
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Epic",
             skill: "Midsummer Night's Dream",
@@ -1299,7 +1299,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Financier",
             element: "Light",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Paladin Protection",
@@ -1309,7 +1309,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Crunchy_chip",
             element: "Darkness",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Wolf Squadron",
@@ -1318,7 +1318,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Wildberry",
             element: "Steel",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Wild Punch",
@@ -1328,7 +1328,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cherry_blossom",
             element: "Grass",
-            type: "Ambush",
+            role: "Ambush",
             position: "Rear",
             rarity: "Epic",
             skill: "Cherry Blossom Rain",
@@ -1337,7 +1337,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Caramel_arrow",
             element: "Darkness",
-            type: "Ranged",
+            role: "Ranged",
             position: "Front",
             rarity: "Epic",
             skill: "Arrow of Resolution",
@@ -1347,7 +1347,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Affogato",
             element: "Poison",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Sweet Scheme",
@@ -1356,7 +1356,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Tea_knight",
             element: "Steel",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Battlemaster",
@@ -1366,7 +1366,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Eclair",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Book of History",
@@ -1375,7 +1375,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cocoa",
             element: null,
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Cocoa is Love",
@@ -1384,7 +1384,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cotton",
             element: "Grass",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "A Warm Light",
@@ -1393,7 +1393,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pumpkin_pie",
             element: "Darkness",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Pompon, help!",
@@ -1403,7 +1403,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Twizzly_gummy",
             element: "Electricity",
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Twizzly Beam",
@@ -1413,7 +1413,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mala_sauce",
             element: "Fire",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Spicy Mala Strike",
@@ -1423,7 +1423,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Moon_rabbit",
             element: null,
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Giant Rice Cake Bunny",
@@ -1432,7 +1432,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Raspberry",
             element: "Steel",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Raspberry Reprise",
@@ -1442,7 +1442,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Parfait",
             element: null,
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Paru-Paru-Parfait!★",
@@ -1452,7 +1452,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sorbet_shark",
             element: "Water",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Shark Splash",
@@ -1462,7 +1462,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Squid_ink",
             element: "Water",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Ink Tentacle Slap",
@@ -1472,7 +1472,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Lilac",
             element: "Grass",
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Chakram Throw",
@@ -1481,7 +1481,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mango",
             element: "Water",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Mango Juice Wave",
@@ -1491,7 +1491,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Red_velvet",
             element: "Darkness",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Crimson Hand",
@@ -1500,7 +1500,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pastry",
             element: "Wind",
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Battle Prayer",
@@ -1510,7 +1510,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Fig",
             element: "Grass",
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Jelly Horn",
@@ -1519,7 +1519,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Strawberry_crepe",
             element: null,
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Crepe Thrust",
@@ -1529,7 +1529,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Black_raisin",
             element: "Darkness",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Shadow Watcher",
@@ -1539,7 +1539,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Almond",
             element: "Earth",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Almond Handcuffs",
@@ -1548,7 +1548,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Cream_puff",
             element: "Light",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Jellius Extremus!",
@@ -1559,7 +1559,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Latte",
             element: "Earth",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Care for a Latte?",
@@ -1569,7 +1569,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Kumiho",
             element: "Wind",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Somersault",
@@ -1578,7 +1578,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Snow_sugar",
             element: "Ice",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Blizzard",
@@ -1588,7 +1588,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Rye",
             element: "Fire",
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Final Showdown",
@@ -1598,7 +1598,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Espresso",
             element: "Earth",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Grinding",
@@ -1608,7 +1608,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Madeleine",
             element: "Light",
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Commander's Honor",
@@ -1622,7 +1622,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Poison",
                 "Chaos"
             ],
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "Epic",
             skill: "Licorice Servants",
@@ -1635,7 +1635,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Poison",
                 "Chaos"
             ],
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Poison Cloud",
@@ -1645,7 +1645,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Milk",
             element: null,
-            type: "Defense",
+            role: "Defense",
             position: "Front",
             rarity: "Epic",
             skill: "Noble Sacrifice",
@@ -1655,7 +1655,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Purple_yam",
             element: "Grass",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Purple Tornado",
@@ -1665,7 +1665,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pomegranate",
             element: "Chaos",
-            type: "Support",
+            role: "Support",
             position: "Middle",
             rarity: "Epic",
             skill: "Pomegranate Magic",
@@ -1675,7 +1675,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Chili_pepper",
             element: "Fire",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Epic",
             skill: "Cheap Shot",
@@ -1684,7 +1684,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Sparkling",
             element: "Light",
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Epic",
             skill: "Sparkling Cocktail",
@@ -1694,7 +1694,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Dark_choco",
             element: "Darkness",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Sword of Darkness",
@@ -1704,7 +1704,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Herb",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Epic",
             skill: "Sunny Garden",
@@ -1713,7 +1713,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Werewolf",
             element: "Steel",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Transformation",
@@ -1723,7 +1723,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mint_choco",
             element: "Wind",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Battlefield Symphony",
@@ -1733,7 +1733,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Tiger_lily",
             element: null,
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Epic",
             skill: "Tiger Rider",
@@ -1745,7 +1745,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
                 "Poison",
                 "Chaos"
             ],
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Pom-pom Spores!",
@@ -1754,7 +1754,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mold_dough",
             element: "Chaos",
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Epic",
             skill: "Order: Eliminate",
@@ -1763,7 +1763,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Chess_choco",
             element: "Chaos",
-            type: "Bomber",
+            role: "Bomber",
             position: "Rear",
             rarity: "Epic",
             skill: "Chess Time!",
@@ -1772,7 +1772,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Vampire",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Rear",
             rarity: "Epic",
             skill: "Vampirism",
@@ -1782,7 +1782,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Rumi",
             element: null,
-            type: "Ambush",
+            role: "Ambush",
             position: "Front",
             rarity: "Special",
             skill: "Demon Slayage!",
@@ -1791,7 +1791,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Mira",
             element: null,
-            type: "Charge",
+            role: "Charge",
             position: "Front",
             rarity: "Special",
             skill: "Unchained Hunter",
@@ -1800,7 +1800,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Zoey",
             element: null,
-            type: "Ranged",
+            role: "Ranged",
             position: "Rear",
             rarity: "Special",
             skill: "Zoey Time!",
@@ -1809,7 +1809,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Timekeeper",
             element: "Light",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "New Legendary",
             skill: "Temporal Stabilization",
@@ -1819,7 +1819,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Ash_salt",
             element: "Darkness",
-            type: "Ambush",
+            role: "Ambush",
             position: "Front",
             rarity: "Epic",
             skill: "Ashen Assassin",
@@ -1828,7 +1828,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Croissant",
             element: "Light",
-            type: "Support",
+            role: "Support",
             position: "Rear",
             rarity: "Epic",
             skill: "Time Portal Removal",
@@ -1837,7 +1837,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Povidone-iodine",
             element: "Steel",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Super Epic",
             skill: "Ethically Ambiguous Experiments",
@@ -1846,7 +1846,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Litmus",
             element: null,
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "Epic",
             skill: "Data Analysis",
@@ -1855,7 +1855,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Ananas_dragon",
             element: "Earth",
-            type: "Magic",
+            role: "Magic",
             position: "Middle",
             rarity: "New Dragon",
             skill: "Golden Awakening",
@@ -1865,7 +1865,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Nether_queen",
             element: "Chaos",
-            type: "Healing",
+            role: "Healing",
             position: "Rear",
             rarity: "New Legendary",
             skill: "River of Tartrus",
@@ -1874,7 +1874,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Asphodel",
             element: "Grass",
-            type: "Bomber",
+            role: "Bomber",
             position: "Middle",
             rarity: "Epic",
             skill: "Cat Ghost",
@@ -1883,7 +1883,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Time_shadow",
             element: "Darkness",
-            type: "Ambush",
+            role: "Ambush",
             position: "Middle",
             rarity: "Super Epic",
             skill: "Shadowplay",
@@ -1893,7 +1893,7 @@ window.WIKI_IMPORTED_COOKIE_DATA = {
         {
             name: "Pulpo",
             element: "Darkness",
-            type: "Support",
+            role: "Support",
             position: "Front",
             rarity: "Epic",
             skill: "All, Wrapped Up",

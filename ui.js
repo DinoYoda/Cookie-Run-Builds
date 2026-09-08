@@ -34,7 +34,14 @@ const tierSectionSelect = document.getElementById("tierSectionSelect")
 const tierSectionSelectTrigger = document.getElementById("tierSectionSelectTrigger")
 const tierSectionSelectLabel = document.getElementById("tierSectionSelectLabel")
 const tierSectionSelectPanel = document.getElementById("tierSectionSelectPanel")
-const tierTabs = document.getElementById("tierTabs")
+const tierModeSelect = document.getElementById("tierModeSelect")
+const tierModeSelectTrigger = document.getElementById("tierModeSelectTrigger")
+const tierModeSelectLabel = document.getElementById("tierModeSelectLabel")
+const tierModeSelectPanel = document.getElementById("tierModeSelectPanel")
+const tierSubSelect = document.getElementById("tierSubSelect")
+const tierSubSelectTrigger = document.getElementById("tierSubSelectTrigger")
+const tierSubSelectLabel = document.getElementById("tierSubSelectLabel")
+const tierSubSelectPanel = document.getElementById("tierSubSelectPanel")
 const filtersContainer = document.getElementById("filters")
 const tierlistContainer = document.getElementById("tierlist")
 const searchInput = document.getElementById("search")
@@ -83,24 +90,53 @@ function getCurrentRoles() {
 
 DATA = window.CRK_DATA || {}
 
-document.addEventListener("click", () => {
+function closeAllSelectExpands(except) {
     document.querySelectorAll(".select-expand.is-open").forEach(root => {
+        if (except && root === except) return
         root.classList.remove("is-open")
         const trig = root.querySelector(".select-expand-trigger")
         const pan = root.querySelector(".select-expand-panel")
         if (trig) trig.setAttribute("aria-expanded", "false")
         if (pan) pan.hidden = true
     })
-})
+}
+
+function closeSelectExpand(root) {
+    if (!root) return
+    root.classList.remove("is-open")
+    const trig = root.querySelector(".select-expand-trigger")
+    const pan = root.querySelector(".select-expand-panel")
+    if (trig) trig.setAttribute("aria-expanded", "false")
+    if (pan) pan.hidden = true
+}
+
+function bindSelectExpand(root) {
+    if (!root || root.dataset.selectExpandBound === "1") return
+    root.dataset.selectExpandBound = "1"
+    const trigger = root.querySelector(".select-expand-trigger")
+    const panel = root.querySelector(".select-expand-panel")
+    if (!trigger || !panel) return
+    trigger.addEventListener("click", e => {
+        e.stopPropagation()
+        const opening = !root.classList.contains("is-open")
+        closeAllSelectExpands()
+        if (opening) {
+            root.classList.add("is-open")
+            panel.hidden = false
+            trigger.setAttribute("aria-expanded", "true")
+        }
+    })
+}
+
+function initTierSelectorExpands() {
+    bindSelectExpand(tierSectionSelect)
+    bindSelectExpand(tierModeSelect)
+    bindSelectExpand(tierSubSelect)
+}
+
+document.addEventListener("click", () => closeAllSelectExpands())
 document.addEventListener("keydown", e => {
-    if (e.key !== "Escape") return
-    document.querySelectorAll(".select-expand.is-open").forEach(root => {
-        root.classList.remove("is-open")
-        const trig = root.querySelector(".select-expand-trigger")
-        const pan = root.querySelector(".select-expand-panel")
-        if (trig) trig.setAttribute("aria-expanded", "false")
-        if (pan) pan.hidden = true
-    })
+    if (e.key === "Escape") closeAllSelectExpands()
 })
 
 
@@ -167,31 +203,14 @@ function loadGame(gameId) {
         btn.setAttribute("role", "option")
         btn.addEventListener("click", e => {
             e.stopPropagation()
-            tierSectionSelect.classList.remove("is-open")
-            tierSectionSelectPanel.hidden = true
-            tierSectionSelectTrigger.setAttribute("aria-expanded", "false")
+            closeSelectExpand(tierSectionSelect)
             loadSection(section.name)
             saveUIState()
         })
         tierSectionSelectPanel.appendChild(btn)
     })
 
-    tierSectionSelectTrigger.onclick = e => {
-        e.stopPropagation()
-        const opening = !tierSectionSelect.classList.contains("is-open")
-        document.querySelectorAll(".select-expand.is-open").forEach(root => {
-            root.classList.remove("is-open")
-            const t = root.querySelector(".select-expand-trigger")
-            const p = root.querySelector(".select-expand-panel")
-            if (t) t.setAttribute("aria-expanded", "false")
-            if (p) p.hidden = true
-        })
-        if (opening) {
-            tierSectionSelect.classList.add("is-open")
-            tierSectionSelectPanel.hidden = false
-            tierSectionSelectTrigger.setAttribute("aria-expanded", "true")
-        }
-    }
+    tierSectionSelectTrigger.onclick = null
 
     const saved = loadUIState()
     loadSection((saved.game === currentGame.id ? saved.section : null) || currentGame.tierlists[0]?.name)
@@ -214,7 +233,8 @@ function loadSection(sectionName) {
     currentSubTab = null
     currentTierlist = null
 
-    buildTabs()
+    setTierSubSelectVisible(false)
+    buildTierSelectors()
     buildFilters()
     renderTierlist()
 }
@@ -222,165 +242,142 @@ function loadSection(sectionName) {
 
 
 /* -----------------------------
-TIERLIST TABS
+TIERLIST SELECTORS
 ----------------------------- */
 
-function buildTabs() {
+function hasTierSubOptions(group) {
+    return Array.isArray(group?.tierlists) && group.tierlists.length > 0
+}
 
-    tierTabs.innerHTML = ""
+function setTierSubSelectVisible(visible) {
+    if (!tierSubSelect) return
+    if (!visible) {
+        closeSelectExpand(tierSubSelect)
+        tierSubSelect.hidden = true
+        if (tierSubSelectPanel) tierSubSelectPanel.innerHTML = ""
+    } else {
+        tierSubSelect.hidden = false
+    }
+}
 
-    currentSection.tierlists.forEach(tierlist => {
+function selectTierGroup(tierlist) {
+    if (!tierlist) return
+    if (currentGroup === tierlist) return
 
-        // GROUP TAB (e.g. Guild Battle with nested sub-tabs)
-        if (tierlist.tierlists) {
+    currentGroup = tierlist
 
-            const group = document.createElement("div")
-            group.className = "tier-group"
+    if (hasTierSubOptions(tierlist)) {
+        const saved = loadUIState()
+        currentSubTab =
+            tierlist.tierlists.find(s => s.name === saved.sub) ||
+            tierlist.tierlists[0]
+        currentTierlist = currentSubTab
+        populateTierSubSelector(tierlist)
+        setTierSubSelectVisible(true)
+    } else {
+        currentSubTab = null
+        currentTierlist = tierlist
+        setTierSubSelectVisible(false)
+    }
 
-            const groupBtn = document.createElement("button")
-            groupBtn.className = "tier-tab group"
-            groupBtn.textContent = tierlist.name
+    saveUIState()
+    syncTierSelectorUI()
+    buildFilters()
+    renderTierlist()
+}
 
-            groupBtn.onclick = () => {
-
-                if (currentGroup === tierlist) return
-
-                currentGroup = tierlist
-                currentSubTab = tierlist.tierlists[0]
-                currentTierlist = currentSubTab
-                saveUIState()
-                updateActiveTabs()
-                renderTierlist()
-
-            }
-
-            group.appendChild(groupBtn)
-
-            const subTabs = document.createElement("div")
-            subTabs.className = "sub-tabs"
-
-            tierlist.tierlists.forEach(sub => {
-
-                const subBtn = document.createElement("button")
-                subBtn.className = "tier-tab sub"
-                subBtn.textContent = sub.name
-
-                subBtn.onclick = () => {
-
-                    currentSubTab = sub
-                    currentTierlist = sub
-                    saveUIState()
-                    updateActiveTabs()
-                    renderTierlist()
-
-                }
-
-                subTabs.appendChild(subBtn)
-
-                sub._button = subBtn
-            })
-
-            group.appendChild(subTabs)
-
-            tierTabs.appendChild(group)
-
-            tierlist._button = groupBtn
-            tierlist._subContainer = subTabs
-        }
-
-        // NORMAL TAB (e.g. World Exploration, Kingdom Arena)
-        else {
-
-            const tab = document.createElement("button")
-            tab.className = "tier-tab"
-            tab.textContent = tierlist.name
-
-            tab.onclick = () => {
-
-                if (currentGroup === tierlist) return
-
-                currentGroup = tierlist
-                currentSubTab = null
-                currentTierlist = tierlist
-                saveUIState()
-                updateActiveTabs()
-                renderTierlist()
-
-            }
-
-            tierTabs.appendChild(tab)
-
-            tierlist._button = tab
-        }
-
+function populateTierSubSelector(group) {
+    if (!tierSubSelectPanel) return
+    tierSubSelectPanel.innerHTML = ""
+    group.tierlists.forEach(sub => {
+        const btn = document.createElement("button")
+        btn.type = "button"
+        btn.className = "select-expand-option"
+        btn.dataset.value = sub.name
+        btn.textContent = sub.name
+        btn.setAttribute("role", "option")
+        btn.addEventListener("click", e => {
+            e.stopPropagation()
+            closeSelectExpand(tierSubSelect)
+            currentSubTab = sub
+            currentTierlist = sub
+            saveUIState()
+            syncTierSelectorUI()
+            buildFilters()
+            renderTierlist()
+        })
+        tierSubSelectPanel.appendChild(btn)
     })
-    const saved = loadUIState()
-    // initialize selection
-    if (!currentGroup) {
+}
 
+function syncTierSelectorUI() {
+    if (tierModeSelectLabel) {
+        tierModeSelectLabel.textContent = currentGroup?.name || ""
+    }
+    if (tierModeSelectPanel) {
+        tierModeSelectPanel.querySelectorAll(".select-expand-option").forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.value === currentGroup?.name)
+        })
+    }
+
+    if (hasTierSubOptions(currentGroup)) {
+        setTierSubSelectVisible(true)
+        if (tierSubSelectLabel) tierSubSelectLabel.textContent = currentSubTab?.name || ""
+        if (tierSubSelectPanel) {
+            tierSubSelectPanel.querySelectorAll(".select-expand-option").forEach(btn => {
+                btn.classList.toggle("active", btn.dataset.value === currentSubTab?.name)
+            })
+        }
+    } else {
+        setTierSubSelectVisible(false)
+    }
+}
+
+function buildTierSelectors() {
+    if (!tierModeSelectPanel) return
+
+    tierModeSelectPanel.innerHTML = ""
+    currentSection.tierlists.forEach(tierlist => {
+        const btn = document.createElement("button")
+        btn.type = "button"
+        btn.className = "select-expand-option"
+        btn.dataset.value = tierlist.name
+        btn.textContent = tierlist.name
+        btn.setAttribute("role", "option")
+        btn.addEventListener("click", e => {
+            e.stopPropagation()
+            closeSelectExpand(tierModeSelect)
+            selectTierGroup(tierlist)
+        })
+        tierModeSelectPanel.appendChild(btn)
+    })
+
+    const saved = loadUIState()
+
+    if (!currentGroup) {
         currentGroup =
             currentSection.tierlists.find(t => t.name === saved.group) ||
             currentSection.tierlists[0]
-
-        if (currentGroup.tierlists) {
-
-            currentSubTab =
-                currentGroup.tierlists.find(s => s.name === saved.sub) ||
-                currentGroup.tierlists[0]
-
-            currentTierlist = currentSubTab
-
-        } else {
-
-            currentTierlist = currentGroup
-
-        }
+    } else if (!currentSection.tierlists.includes(currentGroup)) {
+        currentGroup =
+            currentSection.tierlists.find(t => t.name === currentGroup.name) ||
+            currentSection.tierlists[0]
     }
 
-    updateActiveTabs()
+    if (hasTierSubOptions(currentGroup)) {
+        currentSubTab =
+            currentGroup.tierlists.find(s => s.name === saved.sub) ||
+            currentGroup.tierlists[0]
+        currentTierlist = currentSubTab
+        populateTierSubSelector(currentGroup)
+        setTierSubSelectVisible(true)
+    } else {
+        currentSubTab = null
+        currentTierlist = currentGroup
+        setTierSubSelectVisible(false)
+    }
 
-}
-
-function updateActiveTabs() {
-
-    document.querySelectorAll(".tier-tab")
-        .forEach(btn => btn.classList.remove("active"))
-
-    currentSection.tierlists.forEach(tierlist => {
-
-        // group
-        if (tierlist.tierlists) {
-
-            tierlist._button.classList.toggle(
-                "active",
-                currentGroup === tierlist
-            )
-
-            tierlist._subContainer.style.display =
-                currentGroup === tierlist ? "flex" : "none"
-
-            tierlist.tierlists.forEach(sub => {
-
-                sub._button.classList.toggle(
-                    "active",
-                    currentSubTab === sub
-                )
-
-            })
-        }
-
-        // normal tab
-        else {
-
-            tierlist._button.classList.toggle(
-                "active",
-                currentGroup === tierlist
-            )
-
-        }
-
-    })
-
+    syncTierSelectorUI()
 }
 
 
@@ -388,6 +385,11 @@ function updateActiveTabs() {
 /* -----------------------------
 FILTER UI
 ----------------------------- */
+
+function filterGroupClass(category) {
+    if (category === "rarity") return "filter-group filter-group--rarity"
+    return "filter-group filter-group--square"
+}
 
 function buildFilters() {
 
@@ -398,13 +400,15 @@ function buildFilters() {
     Object.entries(filters).forEach(([category, values]) => {
 
         const group = document.createElement("div")
-        group.className = "filter-group"
+        group.className = filterGroupClass(category)
 
         values.forEach(value => {
 
             const btn = document.createElement("button")
 
-            btn.className = "filter-icon-btn"
+            btn.className = category === "rarity"
+                ? "filter-icon-btn filter-rarity-btn"
+                : "filter-icon-btn"
 
             btn.dataset.category = category
             btn.dataset.value = value
@@ -530,7 +534,7 @@ function applyFilters(character) {
 
         } else {
 
-            // single value (ex: type)
+            // single value (ex: role)
             let passes = values.includes(charValue)
             // Ancient filter includes both Ancient and AncientA (awakened ancients)
             if (category === "rarity" && !passes && values.includes("Ancient") && charValue === "AncientA") {
@@ -856,12 +860,13 @@ function renderTierlist() {
             getCurrentRoles().forEach(role => {
                 const column = document.createElement("div")
                 column.className = "role-column"
+                column.dataset.role = role.name
 
                 if (entries[i]) {
                     entries[i]
                         .map(name => characterMap[name])
                         .filter(Boolean)
-                        .filter(c => c.role === role.name)
+                        .filter(c => (c.role || c.type) === role.name)
                         .filter(applyFilters)
                         .sort((a, b) => {
                             const rarityDiff = raritySortIndex(a.rarity, rarityOrder) - raritySortIndex(b.rarity, rarityOrder)
@@ -1335,6 +1340,7 @@ function initTierFeedback() {
 }
 
 if (DATA.games && DATA.games.length) {
+    initTierSelectorExpands()
     buildGameSelector()
     initTierFeedback()
 }

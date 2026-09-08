@@ -22,7 +22,7 @@ has no pageUpdated line, one is inserted even when other fields are unchanged.
 
 Requires a prior successful wiki fetch per cookie (same rules as import_wiki_cookie_data.py).
 
-If wiki infobox parsing yields element, type, position, and rarity all null, data.js patches for that
+If wiki infobox parsing yields element, role, position, and rarity all null, data.js patches for that
 cookie are skipped and a stderr alert lists the names; crk_descriptions.js is still updated from the wiki.
 
 Description object keys that are not valid JS identifiers (e.g. hyphens) are written quoted, matching
@@ -50,7 +50,7 @@ DEFAULT_DESC = os.path.join(ROOT, "crk", "crk_descriptions.js")
 # Omit initial / mcInitial / cjInitial: data.js uses initialCd (different meaning) and has no mc/cj initial fields.
 DATA_FIELDS_ORDER = [
     "element",
-    "type",
+    "role",
     "position",
     "rarity",
     "skill",
@@ -59,8 +59,8 @@ DATA_FIELDS_ORDER = [
     "cjSkill",
 ]
 
-# If the infobox yields no element/type/position/rarity, the page parse is unreliable — skip patches.
-INFOBOX_STAT_KEYS = ("element", "type", "position", "rarity")
+# If the infobox yields no element/role/position/rarity, the page parse is unreliable — skip patches.
+INFOBOX_STAT_KEYS = ("element", "role", "position", "rarity")
 
 
 def wiki_patch_value_missing(val: Any) -> bool:
@@ -540,7 +540,7 @@ def apply_wiki_import_doc(
     """
     skip_data_names = _skip_data_js_names(doc)
     if skip_data_names:
-        print("\n*** ALERT: wiki infobox missing element/type/position/rarity (skipped data.js only):", file=sys.stderr)
+        print("\n*** ALERT: wiki infobox missing element/role/position/rarity (skipped data.js only):", file=sys.stderr)
         for n in sorted(skip_data_names):
             print(f"    {n}", file=sys.stderr)
         print("", file=sys.stderr)

@@ -33,6 +33,8 @@
         return
     }
 
+    if (selectorRoot) selectorRoot.classList.add("is-visible")
+
     nameEl.textContent = games.find(g => g.id === activeId)?.name || activeId
 
     games.forEach(g => {

@@ -237,7 +237,7 @@ function _imgErrToppingAttr() {
 function _imgErrStatusIconAttr() {
   return "if(!this.dataset.fbStatus&&this.dataset.statusAltSrc){this.dataset.fbStatus='1';this.src=this.dataset.statusAltSrc}else{this.onerror=null;this.style.display='none'}"
 }
-const _TAG_BASE_NAMES = ["ice", "fire", "status", "light", "dark", "color", "steel", "darkness", "poison", "water", "wind", "grass", "electricity", "chaos", "earth", "rally", "header", "cookie", "treasure", "skill", "type", "position", "hover"]
+const _TAG_BASE_NAMES = ["ice", "fire", "status", "light", "dark", "color", "steel", "darkness", "poison", "water", "wind", "grass", "electricity", "chaos", "earth", "rally", "header", "cookie", "treasure", "skill", "role", "type", "position", "hover"]
 const _STANDARD_TAG_PREFIXES = (() => {
   const out = []
   for (const tag of _TAG_BASE_NAMES) {
@@ -361,9 +361,14 @@ function _renderSingleTag(tag, noIcon, content, pic) {
     const tipAttr = tip ? ` data-status-tip="${_esc(tip)}"` : ""
     return `<span class="skill-status-hover-wrap"${tipAttr}>${html}</span>`
   }
-  if (tag === "type") {
+  if (tag === "role" || tag === "type") {
     const t = content.trim()
-    return `<img src="${pic}/icons/${_urlFile(`${t}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    const iconKey = t.charAt(0).toUpperCase() + t.slice(1).toLowerCase()
+    const posKeys = new Set(["Front", "Middle", "Rear"])
+    if (posKeys.has(iconKey)) {
+      return `<img src="${pic}/icons/${_urlFile(`${iconKey}.png`)}" alt="${_esc(iconKey)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    }
+    return `<img src="${pic}/icons/${_urlFile(`${iconKey}.png`)}" alt="${_esc(t)}" class="skill-status-icon" onerror="${_imgErrHide}">`
   }
   if (tag === "position") {
     const p = content.trim()
@@ -600,6 +605,16 @@ function isLegendaryTartBonus(bonusEffect) {
   return v != null && String(v).trim() !== ""
 }
 
+function getTartBonusEffectDisplayLabel(raw) {
+  const key = String(raw ?? "").trim()
+  if (!key) return ""
+  const labels = window.CRK_DESCRIPTIONS?.tart_bonus_effect
+  if (labels && Object.prototype.hasOwnProperty.call(labels, key)) {
+    return labels[key]
+  }
+  return key
+}
+
 /** @deprecated use isLegendaryTartBonus */
 function isLegendaryTartSet(topSet) {
   return isLegendaryTartBonus(topSet?.bonusEffect)
@@ -817,7 +832,7 @@ function getBeascuitStatLabel(val) {
   return map[v]
 }
 
-function getBeascuitName(element, cookieType, tainted) {
+function getBeascuitName(element, cookieRole, tainted) {
   const elementMap = {
     darkness: "Dark",
     electricity: "Thunderous",
@@ -845,9 +860,9 @@ function getBeascuitName(element, cookieType, tainted) {
   }
   
   const elementName = elementMap[element?.toLowerCase()] || ""
-  const typeName = typeMap[cookieType?.toLowerCase()] || ""
+  const roleName = typeMap[cookieRole?.toLowerCase()] || ""
   const prefix = tainted ? "Tainted" : "Legendary"
-  return `${prefix}${elementName ? " " + elementName : ""} ${typeName} Beascuit`
+  return `${prefix}${elementName ? " " + elementName : ""} ${roleName} Beascuit`
 }
 
 function getBeascuitBaseNumber(element) {
@@ -869,15 +884,15 @@ function getBeascuitTypeSuffix(element) {
   return getBeascuitBaseNumber(element)
 }
 
-function getBeascuitTypeImagePath(pic, cookieType, element) {
+function getBeascuitTypeImagePath(pic, cookieRole, element) {
   const suffix = getBeascuitTypeSuffix(element)
-  return `${pic}/beascuit/${cookieType}${suffix}.png`
+  return `${pic}/beascuit/${cookieRole}${suffix}.png`
 }
 
-function getBeascuitBaseImagePath(pic, cookieType, tainted) {
+function getBeascuitBaseImagePath(pic, cookieRole, tainted) {
   const file = tainted
-    ? `Beascuit_tainted_${cookieType}_legendary.png`
-    : `Beascuit_${cookieType}_legendary.png`
+    ? `Beascuit_tainted_${cookieRole}_legendary.png`
+    : `Beascuit_${cookieRole}_legendary.png`
   return `${pic}/beascuit/${file}`
 }
 
@@ -1000,10 +1015,7 @@ function buildToppingsSetBlockHtml(topSet, options) {
   const substatsHtml = substats.map(s => `<div class="char-build-substat">- ${s}</div>`).join("")
   let bonusEffectHtml = ""
   if (showTart && useLegendaryTart) {
-    const label =
-      typeof getTartBonusEffectDisplayLabel === "function"
-        ? getTartBonusEffectDisplayLabel(bonusEffect)
-        : String(bonusEffect).trim()
+    const label = getTartBonusEffectDisplayLabel(bonusEffect)
     if (label) {
       bonusEffectHtml = `<div class="char-build-bonus-effect"><div class="char-build-bonus-effect-title">Bonus Effect</div><div class="char-build-bonus-effect-value">${label}</div></div>`
     }
@@ -1022,10 +1034,7 @@ function buildToppingsDetailsHtml(options) {
   const useLegendaryTart = legendaryTart && showLegendaryTart
   let bonusLabel = ""
   if (showTart && useLegendaryTart) {
-    bonusLabel =
-      typeof getTartBonusEffectDisplayLabel === "function"
-        ? getTartBonusEffectDisplayLabel(bonusEffect)
-        : String(bonusEffect || "").trim()
+    bonusLabel = getTartBonusEffectDisplayLabel(bonusEffect)
   }
   if (!substats.length && !bonusLabel) return ""
 
@@ -1064,10 +1073,10 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   const teamsImageOverlay = !!(options && options.teamsImageOverlay)
   const lazyAttr = _lazyImgAttrs(!!(options && options.lazyImages))
   const el = (biscuitSet.element || "").trim()
-  const cookieType = (charData?.type || "unknown").toLowerCase()
+  const cookieRole = (charData?.role || charData?.type || "unknown").toLowerCase()
   const tainted = !!biscuitSet.tainted
   const pic = getGamePictureRoot()
-  const beascuitName = getBeascuitName(el, cookieType, tainted)
+  const beascuitName = getBeascuitName(el, cookieRole, tainted)
   let statsLines = []
   if (tainted) {
     if (el) statsLines.push(`${el.charAt(0).toUpperCase() + el.slice(1)} Taint`)
@@ -1090,8 +1099,8 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   }
   const wrapExtraClass = teamsImageOverlay && statsOnImage ? " teams-beascuit-image-has-stats" : ""
   const beascuitImageHtml = `<div class="char-beascuit-image-wrapper${wrapExtraClass}">
-    <img src="${getBeascuitBaseImagePath(pic, cookieType, tainted)}" alt="" class="char-beascuit-base-overlay"${lazyAttr} onerror="${_imgErrHide}">
-    <img src="${getBeascuitTypeImagePath(pic, cookieType, el)}" alt="${imgAlt}" class="char-beascuit-icon"${lazyAttr} onerror="${_imgErrHide}">
+    <img src="${getBeascuitBaseImagePath(pic, cookieRole, tainted)}" alt="" class="char-beascuit-base-overlay"${lazyAttr} onerror="${_imgErrHide}">
+    <img src="${getBeascuitTypeImagePath(pic, cookieRole, el)}" alt="${imgAlt}" class="char-beascuit-icon"${lazyAttr} onerror="${_imgErrHide}">
     ${teamsImageOverlay ? statsOnImage : ""}
   </div>`
   let beascuitRowHtml = ""
@@ -1355,20 +1364,20 @@ function renderCharacterPage(){
         const rawRarity = charData.rarity || ""
         const rarityIcon = rarityIconBasename(rawRarity)
         const rarityLabel = rawRarity || rarityIcon
-        const type = charData.type || ""
+        const role = charData.role || charData.type || ""
         const position = charData.position || ""
         const elements = Array.isArray(charData.element) ? charData.element : (charData.element ? [charData.element] : [])
         const pic = getGamePictureRoot()
 
         const rarityIconPath = rarityIcon ? `${pic}/icons/${_urlFile(`${rarityIcon}.png`)}` : ""
         const rarityIconErr = rarityIconOnErrorHandler(rawRarity, pic)
-        const typeRow = type ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${type}.png`)}" alt="" onerror="${_imgErrHide}"><span>${type}</span></div>` : ""
+        const roleRow = role ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${role}.png`)}" alt="" onerror="${_imgErrHide}"><span>${role}</span></div>` : ""
         const posRow = position ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${position}.png`)}" alt="" onerror="${_imgErrHide}"><span>${position}</span></div>` : ""
         const elemRow = elements.length ? `<div class="char-stat-pill"><span>Element</span>${elements.map(e => `<img src="${pic}/icons/${_urlFile(`${e}.png`)}" alt="${e}" title="${e}" onerror="${_imgErrHide}">`).join("")}</div>` : ""
         infoBox.innerHTML = `
             ${rarityIcon ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${_esc(rarityLabel)}" title="${_esc(rarityLabel)}" onerror="${rarityIconErr}">` : ""}
             <div class="char-stats-row">
-                ${typeRow}
+                ${roleRow}
                 ${posRow}
             </div>
             ${elemRow ? `<div class="char-elements-row">${elemRow}</div>` : ""}

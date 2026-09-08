@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Toppings</title>
 <script src="../site-page-meta.js"></script>
 <script src="../site-last-updated.js"></script>
@@ -31,9 +32,16 @@
   <a href="about.html" class="sidebar-link">About</a>
 </div>
 
+<script src="../crk-settings.js"></script>
+<script src="../sidebar-game.js"></script>
+
 <div class="info-page">
   <h1 class="info-title">Toppings</h1>
   <div class="info-divider"></div>
+
+  <div class="info-author-note">
+    <p><strong>Note to self:</strong> This page is unfinished. Write everything here myself — topping notes, bonus effects, and explanations should be in my own words.</p>
+  </div>
 
   <section class="info-section">
     <div class="info-section-body">
@@ -44,12 +52,9 @@
   </section>
 
   <section class="info-section">
-    <h2 class="info-section-title">Topping Types</h2>
+    <h2 class="info-section-title">Bonus Effects</h2>
     <div class="info-section-body">
-      <div id="toppingWikiTables" class="topping-wiki-tables"></div>
-    </div>
-    <div class="info-section-body">
-      <h3 class="info-stat-subtitle">Bonus Effects</h3>
+      <p>Toppings gain a random bonus effect (substat) at +6, +9, and +12. S toppings can roll two bonus lines; M toppings can roll three. Bonus lines cannot duplicate the same stat on one topping.</p>
       <table class="info-data-table bonus-effects-table">
         <thead>
           <tr>
@@ -64,58 +69,62 @@
           <tr><td>Amplify Buff</td><td>1% ~ 2%</td><td>Debuff Resist</td><td>1% ~ 2%</td></tr>
         </tbody>
       </table>
-    </section>
+
+      <h3 class="info-stat-subtitle">Legendary Topping Tart Bonus Effects</h3>
+      <p>Legendary Topping Tarts roll one of these special bonus effects (9.09% each). Values grow as the tart is upgraded with Tart Cores.</p>
+      <table class="info-data-table topping-bonus-table">
+        <thead>
+          <tr>
+            <th colspan="2">Bonus Effects</th>
+          </tr>
+          <tr>
+            <th>Effect</th>
+            <th class="topping-bonus-value-th">Initial Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Increased DMG to Cookies</td><td class="topping-bonus-value-cell" rowspan="4">1%</td></tr>
+          <tr><td>Increased DMG to All Monsters</td></tr>
+          <tr><td>Fireworks Every 10 Sec &amp; Increased ATK</td></tr>
+          <tr><td>Increased Team DMG at Start of Battle (Non-Stackable)</td></tr>
+          <tr><td>Increased DMG Dampening</td><td class="topping-bonus-value-cell" rowspan="2">2%</td></tr>
+          <tr><td>HP Recovery Every 7 Sec</td></tr>
+          <tr><td>Increased CRIT DMG</td><td class="topping-bonus-value-cell" rowspan="2">3%</td></tr>
+          <tr><td>Increased Healing Given &amp; Received</td></tr>
+          <tr><td>HP Shield at Start of Battle</td><td class="topping-bonus-value-cell">5%</td></tr>
+          <tr><td>DMG Resist +5% &amp; Reduced Size</td><td class="topping-bonus-value-cell">10%</td></tr>
+          <tr><td>Max HP +5% &amp; Increased Size</td><td class="topping-bonus-value-cell">20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <section class="info-section">
     <h2 class="info-section-title">Resonant Toppings</h2>
     <div class="info-section-body">
       <p>Resonant toppings can only be equipped by certain cookies, usually thematic with the topping, but have higher minimum substat values. They also only offer the 6 meta substats: ATK, ATK SPD, CRIT%, Cooldown, DMG Resist, and CRIT Resist.</p>
       <p>That last one is why resonant toppings are not strictly better than normal ones. HP is used by many cookies and CRIT Resist none. I can only pray Devsis changes this one day. I think Ancient Root toppings on my Millenial Tree would look really nice.</p>
-    </div>
-    <div class="info-section-body">
       <h3 class="info-stat-subtitle">Bonus Effects (Resonant Toppings)</h3>
-  <table class="info-data-table bonus-effects-table">
-    <thead>
-      <tr>
-        <th colspan="4">Bonus Effects</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>ATK</td><td>2% ~ 3%</td><td>ATK SPD</td><td>2% ~ 3%</td></tr>
-      <tr><td>CRIT%</td><td>2% ~ 3%</td><td>Cooldown</td><td>1.5% ~ 2%</td></tr>
-      <tr><td>DMG Resist</td><td>4.5% ~ 6%</td><td>CRIT Resist</td><td>3.5% ~ 4%</td></tr>
-    </tbody>
-  </table>
-</div>
-</section>
-
-  <section class="info-section">
-    <h2 class="info-section-title">Topping Tarts</h2>
-    <div class="info-section-body">
-      <p>Topping Tarts are separate gear pieces that boost the same stat family as toppings. A cookie can equip <strong>1 tart</strong> at a time.</p>
-      <p>Unlike toppings, tarts only provide a primary stat value and do not roll random bonus substats.</p>
-      <table class="info-data-table">
+      <table class="info-data-table bonus-effects-table">
         <thead>
           <tr>
-            <th>Tart Type</th>
-            <th>Stat</th>
-            <th>XS</th>
-            <th>S</th>
-            <th>M</th>
+            <th colspan="4">Bonus Effects</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Searing Raspberry</td><td>ATK</td><td>+3.6%</td><td>+4.8% - +6.0%</td><td>+7.2% - +12.0%</td></tr>
-          <tr><td>Hard Walnut</td><td>DEF</td><td>+6.0%</td><td>+8.0% - +10.0%</td><td>+12.0% - +20.0%</td></tr>
-          <tr><td>Healthy Peanut</td><td>HP</td><td>+3.9%</td><td>+5.2% - +6.5%</td><td>+7.8% - +13.0%</td></tr>
-          <tr><td>Bouncy Caramel</td><td>ATK SPD</td><td>+2.7%</td><td>+3.6% - +4.5%</td><td>+5.4% - +9.0%</td></tr>
-          <tr><td>Juicy Apple Jelly</td><td>CRIT%</td><td>+3.3%</td><td>+4.4% - +5.5%</td><td>+6.6% - +11.0%</td></tr>
-          <tr><td>Swift Chocolate</td><td>Cooldown</td><td>-1.5%</td><td>-2.0% - -2.5%</td><td>-3.0% - -5.0%</td></tr>
-          <tr><td>Solid Almond</td><td>DMG Resist</td><td>+3.0%</td><td>+4.0% - +5.0%</td><td>+6.0% - +10.0%</td></tr>
-          <tr><td>Hearty Hazelnut</td><td>CRIT Resist</td><td>+4.5%</td><td>+6.0% - +7.5%</td><td>+9.0% - +15.0%</td></tr>
-          <tr><td>Sweet Candy</td><td>Amplify Buff</td><td>+3.0%</td><td>+4.0% - +5.0%</td><td>+6.0% - +10.0%</td></tr>
-          <tr><td>Fresh Kiwi</td><td>Debuff Resist</td><td>+3.0%</td><td>+4.0% - +5.0%</td><td>+6.0% - +10.0%</td></tr>
+          <tr><td>ATK</td><td>2% ~ 3%</td><td>ATK SPD</td><td>2% ~ 3%</td></tr>
+          <tr><td>CRIT%</td><td>2% ~ 3%</td><td>Cooldown</td><td>1.5% ~ 2%</td></tr>
+          <tr><td>DMG Resist</td><td>4.5% ~ 6%</td><td>CRIT Resist</td><td>3.5% ~ 4%</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2 class="info-section-title">Topping Types</h2>
+    <div class="info-section-body">
+      <p>Each topping type also has a matching <strong>Topping Tart</strong> (one per cookie) that boosts the same stat without bonus substats.</p>
+      <div id="toppingWikiTables" class="topping-wiki-tables"></div>
     </div>
   </section>
 </div>
@@ -137,17 +146,23 @@ ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.r
 (function () {
   const levels = { xs: 6, s: 9, m: 12 }
   const toppings = [
-    { type: "raspberry", name: "Searing Raspberry", stat: "ATK", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 8, 5: 10, 6: 12 } },
-    { type: "walnut", name: "Hard Walnut", stat: "DEF", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 10, 3: 13, 5: 20, 6: 25 } },
-    { type: "peanut", name: "Healthy Peanut", stat: "HP", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 10, 5: 12, 6: 15 } },
-    { type: "caramel", name: "Bouncy Caramel", stat: "ATK SPD", base: { xs: 1.1, s: 1.5, m: 1.7 }, perLevelAbs: 0.2, equip: { 2: 7, 3: 8, 5: 10, 6: 12 } },
-    { type: "applejelly", name: "Juicy Apple Jelly", stat: "CRIT%", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 6, 5: 8, 6: 10 } },
+    { type: "raspberry", name: "Searing Raspberry", stat: "ATK", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 8, 5: 10, 6: 12 }, tart: { common: 3.6, rare: { min: 4.8, max: 6.0 }, epic: { min: 7.2, max: 12.0 } } },
+    { type: "walnut", name: "Hard Walnut", stat: "DEF", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 10, 3: 13, 5: 20, 6: 25 }, tart: { common: 6.0, rare: { min: 8.0, max: 10.0 }, epic: { min: 12.0, max: 20.0 } } },
+    { type: "peanut", name: "Healthy Peanut", stat: "HP", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 10, 5: 12, 6: 15 }, tart: { common: 3.9, rare: { min: 5.2, max: 6.5 }, epic: { min: 7.8, max: 13.0 } } },
+    { type: "caramel", name: "Bouncy Caramel", stat: "ATK SPD", base: { xs: 1.1, s: 1.5, m: 1.7 }, perLevelAbs: 0.2, equip: { 2: 7, 3: 8, 5: 10, 6: 12 }, tart: { common: 2.7, rare: { min: 3.6, max: 4.5 }, epic: { min: 5.4, max: 9.0 } } },
+    { type: "applejelly", name: "Juicy Apple Jelly", stat: "CRIT%", base: { xs: 1, s: 2, m: 3 }, perLevelAbs: 0.5, equip: { 2: 4, 3: 6, 5: 8, 6: 10 }, tart: { common: 3.3, rare: { min: 4.4, max: 5.5 }, epic: { min: 6.6, max: 11.0 } } },
     // Note: values are negative reductions; perLevelAbs is the magnitude.
-    { type: "chocolate", name: "Swift Chocolate", stat: "Cooldown", base: { xs: -0.4, s: -1.1, m: -1.8 }, perLevelAbs: 0.1, equip: { 2: -2, 3: -4, 5: -5, 6: -6 } },
-    { type: "almond", name: "Solid Almond", stat: "DMG Resist", base: { xs: 1, s: 1.5, m: 1.7 }, perLevelAbs: 0.2, equip: { 2: 3, 3: 7, 5: 8, 6: 10 } },
-    { type: "hazelnut", name: "Hearty Hazelnut", stat: "CRIT Resist", base: { xs: 1.1, s: 1.5, m: 2.1 }, perLevelAbs: 0.2, equip: { 2: 20, 3: 25, 5: 30, 6: 35 } },
-    { type: "candy", name: "Sweet Candy", stat: "Amplify Buff", base: { xs: 0.4, s: 1.1, m: 1.8 }, perLevelAbs: 0.1, equip: { 2: 9, 3: 10, 5: 11, 6: 12 } },
-    { type: "kiwi", name: "Fresh Kiwi", stat: "Debuff Resist", base: { xs: 0.4, s: 1.1, m: 1.8 }, perLevelAbs: 0.1, equip: { 2: 10, 3: 11, 5: 12, 6: 13 } }
+    { type: "chocolate", name: "Swift Chocolate", stat: "Cooldown", base: { xs: -0.4, s: -1.1, m: -1.8 }, perLevelAbs: 0.1, equip: { 2: -2, 3: -4, 5: -5, 6: -6 }, tart: { common: -1.5, rare: { min: -2.0, max: -2.5 }, epic: { min: -3.0, max: -5.0 } } },
+    { type: "almond", name: "Solid Almond", stat: "DMG Resist", base: { xs: 1, s: 1.5, m: 1.7 }, perLevelAbs: 0.2, equip: { 2: 3, 3: 7, 5: 8, 6: 10 }, tart: { common: 3.0, rare: { min: 4.0, max: 5.0 }, epic: { min: 6.0, max: 10.0 } } },
+    { type: "hazelnut", name: "Hearty Hazelnut", stat: "CRIT Resist", base: { xs: 1.1, s: 1.5, m: 2.1 }, perLevelAbs: 0.2, equip: { 2: 20, 3: 25, 5: 30, 6: 35 }, tart: { common: 4.5, rare: { min: 6.0, max: 7.5 }, epic: { min: 9.0, max: 15.0 } } },
+    { type: "candy", name: "Sweet Candy", stat: "Amplify Buff", base: { xs: 0.4, s: 1.1, m: 1.8 }, perLevelAbs: 0.1, equip: { 2: 9, 3: 10, 5: 11, 6: 12 }, tart: { common: 3.0, rare: { min: 4.0, max: 5.0 }, epic: { min: 6.0, max: 10.0 } } },
+    { type: "kiwi", name: "Fresh Kiwi", stat: "Debuff Resist", base: { xs: 0.4, s: 1.1, m: 1.8 }, perLevelAbs: 0.1, equip: { 2: 10, 3: 11, 5: 12, 6: 13 }, tart: { common: 3.0, rare: { min: 4.0, max: 5.0 }, epic: { min: 6.0, max: 10.0 } } }
+  ]
+
+  const sizeColumns = [
+    { sizeKey: "xs", tartKey: "common", label: "Common", toppingLevel: 1, tartLevel: 1 },
+    { sizeKey: "s", tartKey: "rare", label: "Rare", toppingLevel: 2, tartLevel: 2 },
+    { sizeKey: "m", tartKey: "epic", label: "Epic", toppingLevel: 3, tartLevel: 3 }
   ]
 
   const fmtNumber = (n) => {
@@ -157,10 +172,14 @@ ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.r
   }
   const fmtSigned = (n) => (n >= 0 ? "+" + fmtNumber(n) : fmtNumber(n))
 
+  const fmtTartStat = (val) => {
+    if (val == null) return "—"
+    if (typeof val === "number") return fmtSigned(val) + "%"
+    return `${fmtSigned(val.min)}% ~ ${fmtSigned(val.max)}%`
+  }
+
   function computeMax(baseVal, perLevelAbs, sizeKey) {
-    const dir = baseVal >= 0 ? 1 : -1 // positive stats grow upward, negative stats grow downward
-    // Toppings start at level 0, so the max is base + (value-per-level * maxLevelIndex)
-    // where maxLevelIndex is the given level count (e.g. XS has 6 levels => max at Lv 6).
+    const dir = baseVal >= 0 ? 1 : -1
     return baseVal + (dir * perLevelAbs * levels[sizeKey])
   }
 
@@ -171,64 +190,69 @@ ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.r
   const getDesc = (type) => window.CRK_DESCRIPTIONS?.topping_description?.[type] || ""
 
   for (const t of toppings) {
-    const iconXsSrc = `pictures/toppings/${t.type}/Topping_${t.type}_1.png`
-    const iconS_src = `pictures/toppings/${t.type}/Topping_${t.type}_2.png`
-    const iconM_src = `pictures/toppings/${t.type}/Topping_${t.type}_3.png`
-    const maxXs = computeMax(t.base.xs, t.perLevelAbs, "xs")
-    const maxS = computeMax(t.base.s, t.perLevelAbs, "s")
-    const maxM = computeMax(t.base.m, t.perLevelAbs, "m")
     const desc = getDesc(t.type)
+    const perLevelSign = t.perLevelAbs >= 0 ? "+" : ""
+    const setCell = (n) => `
+      <td class="topping-wiki-max-cell">
+        <span class="topping-wiki-set-label">${n}-piece:</span>
+        <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[n])}% ${t.stat}</span>
+      </td>
+    `
+
+    const toppingCells = sizeColumns.map((col) => {
+      const base = t.base[col.sizeKey]
+      const max = computeMax(base, t.perLevelAbs, col.sizeKey)
+      const iconSrc = `pictures/toppings/${t.type}/Topping_${t.type}_${col.toppingLevel}.png`
+      return `
+        <td class="topping-wiki-item-cell">
+          <img class="topping-wiki-icon topping-wiki-icon--topping" src="${iconSrc}" alt="${t.name} (${col.label})">
+          <div class="topping-wiki-size-value">${fmtSigned(base)}%</div>
+          <div class="topping-wiki-size-value">max ${fmtSigned(max)}%</div>
+        </td>
+      `
+    }).join("")
+
+    const tartCells = sizeColumns.map((col) => {
+      const val = t.tart?.[col.tartKey]
+      const rangeClass = typeof val === "object" ? " topping-wiki-size-value--range" : ""
+      const iconSrc = `pictures/toppings/tart/Topping_tart_${t.type}_${col.tartLevel}.png`
+      return `
+        <td class="topping-wiki-item-cell">
+          <img class="topping-wiki-icon topping-wiki-icon--tart" src="${iconSrc}" alt="${t.name} Tart (${col.label})">
+          <div class="topping-wiki-size-value${rangeClass}">${fmtTartStat(val)}</div>
+        </td>
+      `
+    }).join("")
+
+    const rarityHeaders = sizeColumns.map((col) => {
+      const cls = `topping-wiki-rarity-${col.tartKey}`
+      return `<th class="topping-wiki-rarity-th ${cls}">${col.label}</th>`
+    }).join("")
 
     const block = document.createElement("div")
     block.className = "topping-wiki-block"
 
     const table = document.createElement("table")
-    table.className = "topping-wiki-table topping-wiki-base-table info-data-table"
+    table.className = "topping-wiki-table info-data-table"
     table.innerHTML = `
       <thead>
         <tr>
-          <th>XS</th><th>S</th><th>M</th><th>Stats</th>
+          <th colspan="3" class="topping-wiki-name-cell">${t.name} (${t.stat})</th>
         </tr>
-        <tr>
-          <th colspan="4">${t.name} (${t.stat})</th>
+        ${desc ? `<tr><td colspan="3" class="topping-wiki-desc-cell">${desc}</td></tr>` : ""}
+        <tr class="topping-wiki-rarity-row">
+          ${rarityHeaders}
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="topping-wiki-size-cell" rowspan="4">
-            <img class="topping-wiki-icon" src="${iconXsSrc}" alt="${t.name}">
-            <div class="topping-wiki-size-value">${fmtSigned(t.base.xs)}%</div>
-          </td>
-          <td class="topping-wiki-size-cell" rowspan="4">
-            <img class="topping-wiki-icon" src="${iconS_src}" alt="${t.name}">
-            <div class="topping-wiki-size-value">${fmtSigned(t.base.s)}%</div>
-          </td>
-          <td class="topping-wiki-size-cell" rowspan="4">
-            <img class="topping-wiki-icon" src="${iconM_src}" alt="${t.name}">
-            <div class="topping-wiki-size-value">${fmtSigned(t.base.m)}%</div>
-          </td>
-                    <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Value per Level:</span>
-            <span class="topping-wiki-max-value"> +${fmtNumber(t.perLevelAbs)}% ${t.stat}</span>
-          </td>
+        <tr class="topping-wiki-topping-row">
+          ${toppingCells}
         </tr>
-        <tr>
-          <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Max Value XS:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(maxXs)}% ${t.stat}</span>
-          </td>
+        <tr class="topping-wiki-upgrade-row">
+          <td colspan="3">${perLevelSign}${fmtNumber(t.perLevelAbs)}% ${t.stat} per upgrade</td>
         </tr>
-        <tr>
-          <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Max Value S:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(maxS)}% ${t.stat}</span>
-          </td>
-        </tr>
-        <tr>
-          <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Max Value M:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(maxM)}% ${t.stat}</span>
-          </td>
+        <tr class="topping-wiki-tart-row">
+          ${tartCells}
         </tr>
       </tbody>
     `
@@ -243,50 +267,22 @@ ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.r
       </thead>
       <tbody>
         <tr>
-                    <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Equip 2:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[2])}% ${t.stat}</span>
-          </td>
-          <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Equip 3:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[3])}% ${t.stat}</span>
-          </td>
+          ${setCell(2)}
+          ${setCell(3)}
         </tr>
         <tr>
-          <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Equip 3:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[3])}% ${t.stat}</span>
-          </td>
-          <td class="topping-wiki-max-cell">
-            <span class="topping-wiki-max-label">Equip 6:</span>
-            <span class="topping-wiki-max-value"> ${fmtSigned(t.equip[6])}% ${t.stat}</span>
-          </td>
+          ${setCell(5)}
+          ${setCell(6)}
         </tr>
       </tbody>
     `
 
     block.appendChild(table)
     block.appendChild(setTable)
-
-    // Description goes directly beneath the topping name (in the base table header).
-    if (desc) {
-      const thead = table.querySelector("thead")
-      if (thead) {
-        const tr = document.createElement("tr")
-        const td = document.createElement("td")
-        td.colSpan = 4
-        td.className = "topping-wiki-desc-cell"
-        td.textContent = desc
-        tr.appendChild(td)
-        thead.appendChild(tr)
-      }
-    }
     container.appendChild(block)
   }
 })()
 </script>
-<script src="../crk-settings.js"></script>
-<script src="../sidebar-game.js"></script>
 
 </body>
 </html>

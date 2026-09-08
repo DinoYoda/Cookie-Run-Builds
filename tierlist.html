@@ -79,21 +79,32 @@
   </div>
 </details>
 
-<div class="topbar">
-<div class="select-expand tier-section-select" id="tierSectionSelect">
-  <button type="button" class="select-expand-trigger" id="tierSectionSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-controls="tierSectionSelectPanel">
-    <span id="tierSectionSelectLabel"></span>
-    <span class="select-expand-chevron" aria-hidden="true">▾</span>
-  </button>
-  <div class="select-expand-panel" id="tierSectionSelectPanel" role="listbox" hidden></div>
-</div>
-<div id="tierTabs"></div>
-</div>
-
-<div class="controls">
-  <input id="search" placeholder="Search...">
+<div class="tierlist-header">
+  <h2 class="tierlist-title">Tier Lists</h2>
+  <div class="select-expand tier-section-select" id="tierSectionSelect">
+    <button type="button" class="select-expand-trigger" id="tierSectionSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-controls="tierSectionSelectPanel">
+      <span id="tierSectionSelectLabel"></span>
+      <span class="select-expand-chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="select-expand-panel" id="tierSectionSelectPanel" role="listbox" hidden></div>
+  </div>
+  <div class="select-expand tier-mode-select" id="tierModeSelect">
+    <button type="button" class="select-expand-trigger" id="tierModeSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-controls="tierModeSelectPanel">
+      <span id="tierModeSelectLabel"></span>
+      <span class="select-expand-chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="select-expand-panel" id="tierModeSelectPanel" role="listbox" hidden></div>
+  </div>
+  <div class="select-expand tier-sub-select" id="tierSubSelect" hidden>
+    <button type="button" class="select-expand-trigger" id="tierSubSelectTrigger" aria-expanded="false" aria-haspopup="listbox" aria-controls="tierSubSelectPanel">
+      <span id="tierSubSelectLabel"></span>
+      <span class="select-expand-chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="select-expand-panel" id="tierSubSelectPanel" role="listbox" hidden></div>
+  </div>
+  <input class="tierlist-search" id="search" placeholder="Search...">
   <button id="reset">Reset</button>
-  <span id="cardCounter">0 cards</span>
+  <span class="tierlist-counter" id="cardCounter">0 cards</span>
 </div>
 
 <div id="filters"></div>

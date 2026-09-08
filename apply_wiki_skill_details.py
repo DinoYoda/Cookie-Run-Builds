@@ -52,7 +52,7 @@ DEFAULT_IMPORT_JS = os.path.join(ROOT, "tools", "imported_skill_details.js")
 # Insert order for data.js skill-related keys (who must appear before whom).
 DATA_SKILL_KEY_ORDER = [
     "element",
-    "type",
+    "role",
     "position",
     "rarity",
     "skill",
