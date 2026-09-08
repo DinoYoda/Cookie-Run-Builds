@@ -40,6 +40,7 @@ const rows = game.characters.map((c) => {
   if (c.cjSkillAttr && typeof c.cjSkillAttr === "object") row.cjSkillAttr = c.cjSkillAttr
   if (c.skillAttrMc && typeof c.skillAttrMc === "object") row.skillAttrMc = c.skillAttrMc
   if (c.mcSkillAttr && typeof c.mcSkillAttr === "object") row.mcSkillAttr = c.mcSkillAttr
+  if (c.cnEx?.skillAttr && typeof c.cnEx.skillAttr === "object") row.cnExSkillAttr = c.cnEx.skillAttr
   if (c.element !== undefined) row.element = c.element
   return row
 })

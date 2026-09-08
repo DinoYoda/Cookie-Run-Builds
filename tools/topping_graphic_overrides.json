@@ -1,0 +1,11 @@
+{
+  "_comment": "Optional fine-tuning after outline-color bounds (#e7a765). Keys: resonance slug, type/resonance, or filename.",
+  "_fields": {
+    "trimLeft": "extra pixels to remove from outline bbox left (natural image coords)",
+    "trimRight": "extra pixels to remove from outline bbox right",
+    "trimTop": "extra pixels to remove from outline bbox top",
+    "trimBottom": "extra pixels to remove from outline bbox bottom",
+    "shiftX": "nudge cropped graphic horizontally at display size (px, + = right)",
+    "shiftY": "nudge cropped graphic vertically at display size (px, + = down)"
+  }
+}

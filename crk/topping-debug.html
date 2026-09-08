@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topping display debug</title>
+<script src="../site-page-meta.js"></script>
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/png" href="pictures/icons/cookie/Silent_salt_head.png">
+</head>
+<body class="topping-debug-page" data-site-page="topping-debug">
+
+<div class="topping-debug-wrap">
+  <header class="topping-debug-header">
+    <h1 class="topping-debug-title">Topping display debug</h1>
+    <p class="topping-debug-lead">Tart plate is the parent box; topping slots are <strong>50÷180</strong> of plate width (CSS). Outline crop uses percentages inside each slot.</p>
+    <div class="topping-debug-controls">
+      <label class="topping-debug-control">
+        <span>Slot width at 180px plate</span>
+        <input type="range" id="toppingDebugWidth" min="40" max="70" step="1" value="50">
+        <output id="toppingDebugWidthOut">50</output>
+      </label>
+      <label class="topping-debug-control">
+        <span>Teams gear size</span>
+        <input type="range" id="toppingDebugGearSize" min="72" max="140" step="1" value="100">
+        <output id="toppingDebugGearSizeOut">100px</output>
+      </label>
+    </div>
+  </header>
+
+  <div id="toppingDebugRoot" class="topping-debug-root">Loading…</div>
+</div>
+
+<script src="../data.js"></script>
+<script src="../crk-settings.js"></script>
+<script src="topping-graphic.js"></script>
+<script src="tart-bonus-effects.js"></script>
+<script src="char-ui.js"></script>
+<script src="topping-debug.js"></script>
+</body>
+</html>

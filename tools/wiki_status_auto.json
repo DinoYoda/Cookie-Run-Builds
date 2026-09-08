@@ -15,6 +15,10 @@
     "element": null,
     "undispel": "debuff"
   },
+  "Arcane Vacuum": {
+    "element": null,
+    "undispel": "debuff"
+  },
   "Berry Necklace": {
     "element": null,
     "undispel": "buff"
@@ -32,6 +36,14 @@
     "undispel": "buff"
   },
   "Berserker's Spirit": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Black Bishop": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Blessing of the World Tree": {
     "element": null,
     "undispel": "buff"
   },
@@ -56,14 +68,6 @@
     "undispel": "debuff"
   },
   "Chill": {
-    "element": null,
-    "undispel": "debuff"
-  },
-  "Chilled": {
-    "element": null,
-    "undispel": "debuff"
-  },
-  "Choco Shadow": {
     "element": null,
     "undispel": "debuff"
   },
@@ -107,6 +111,10 @@
     "element": null,
     "undispel": "buff"
   },
+  "Dial Lock": {
+    "element": null,
+    "undispel": "debuff"
+  },
   "Disciple of the Abyss": {
     "element": null,
     "undispel": "buff"
@@ -135,6 +143,14 @@
     "element": null,
     "undispel": "buff"
   },
+  "Elemental Force": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Elemental Force: The Guardians": {
+    "element": null,
+    "undispel": "buff"
+  },
   "Endless Flow": {
     "element": "water",
     "undispel": null
@@ -143,9 +159,17 @@
     "element": null,
     "undispel": "buff"
   },
+  "Enhanced Experimental Prescription": {
+    "element": null,
+    "undispel": "buff"
+  },
   "Exhaustion": {
     "element": null,
     "undispel": "debuff"
+  },
+  "Explosive Burn": {
+    "element": "fire",
+    "undispel": null
   },
   "Extra DMG per attack": {
     "element": null,
@@ -154,6 +178,10 @@
   "Failed Creation": {
     "element": null,
     "undispel": "debuff"
+  },
+  "Fearless Friendship": {
+    "element": null,
+    "undispel": "buff"
   },
   "Fettuccine Wraps": {
     "element": null,
@@ -192,6 +220,10 @@
     "undispel": "debuff"
   },
   "Holiday Gift Box": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Howling Gust": {
     "element": null,
     "undispel": "buff"
   },
@@ -315,6 +347,22 @@
     "element": null,
     "undispel": "buff"
   },
+  "Power of Darkness Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Power of Darkness Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Power of Deceit Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Power of Deceit Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
   "Power of Spirits": {
     "element": null,
     "undispel": "buff"
@@ -335,15 +383,15 @@
     "element": null,
     "undispel": "debuff"
   },
-  "Rationalization": {
-    "element": null,
-    "undispel": "debuff"
-  },
   "Rationalization Buff": {
     "element": null,
     "undispel": "buff"
   },
   "Rationalization Debuff": {
+    "element": null,
+    "undispel": "debuff"
+  },
+  "Regression": {
     "element": null,
     "undispel": "debuff"
   },
@@ -390,6 +438,10 @@
   "Shards of Light": {
     "element": null,
     "undispel": "debuff"
+  },
+  "Sheltering Branches": {
+    "element": null,
+    "undispel": "buff"
   },
   "Shield of Conviction": {
     "element": null,
@@ -439,26 +491,6 @@
     "element": null,
     "undispel": "debuff"
   },
-  "Stage Absorption Circle": {
-    "element": null,
-    "undispel": "debuff"
-  },
-  "Stage Data Corruption": {
-    "element": null,
-    "undispel": "debuff"
-  },
-  "Stage Psionic Wave": {
-    "element": null,
-    "undispel": "debuff"
-  },
-  "Stage Soul of Salt": {
-    "element": null,
-    "undispel": "buff"
-  },
-  "Stage Sticky Jam": {
-    "element": null,
-    "undispel": "debuff"
-  },
   "Sticky Jam": {
     "element": null,
     "undispel": "debuff"
@@ -487,9 +519,17 @@
     "element": "chaos",
     "undispel": null
   },
-  "The Order's Sacred Fork": {
+  "Ticking Jelly Watch": {
     "element": null,
     "undispel": "buff"
+  },
+  "Timeline Reconstruction Buff": {
+    "element": null,
+    "undispel": "buff"
+  },
+  "Timeline Reconstruction Debuff": {
+    "element": null,
+    "undispel": "debuff"
   },
   "Trace of the Wind": {
     "element": null,
@@ -519,6 +559,10 @@
     "element": "water",
     "undispel": null
   },
+  "White Rook": {
+    "element": null,
+    "undispel": "debuff"
+  },
   "Wild": {
     "element": null,
     "undispel": "buff"
@@ -536,10 +580,6 @@
     "undispel": "buff"
   },
   "Zap": {
-    "element": "electricity",
-    "undispel": null
-  },
-  "Zapped": {
     "element": "electricity",
     "undispel": null
   }

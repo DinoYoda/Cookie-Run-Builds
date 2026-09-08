@@ -1,0 +1,2804 @@
+{
+  "_comment": "Pre-baked outline bounds (#e7a765). Regenerate: python tools/bake_topping_bounds.py",
+  "bounds": {
+    "Topping_almond_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_almond_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_almond_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_almond_cheese.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_almond_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_almond_deceit.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_almond_destructive.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_draconic.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_almond_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_almond_flaming.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 8,
+      "y": 2
+    },
+    "Topping_almond_fragrant.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_frost.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_almond_fuzzy.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 106,
+      "x": 3,
+      "y": 0
+    },
+    "Topping_almond_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_almond_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_almond_indolent.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_almond_iris.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_almond_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_almond_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_almond_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_almond_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_almond_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_almond_passionate.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 2
+    },
+    "Topping_almond_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 105,
+      "x": 3,
+      "y": 2
+    },
+    "Topping_almond_sea.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_seafarer.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_almond_silent.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 3
+    },
+    "Topping_almond_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_almond_trio.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_tropical.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_almond_truth.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_almond_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_almond_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_almond_wedding.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 4
+    },
+    "Topping_almond_wind.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_applejelly_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_applejelly_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_applejelly_cheese.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_applejelly_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_applejelly_deceit.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_applejelly_destructive.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_draconic.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_applejelly_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_applejelly_flaming.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 8,
+      "y": 2
+    },
+    "Topping_applejelly_fragrant.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_frost.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_applejelly_fuzzy.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 106,
+      "x": 3,
+      "y": 0
+    },
+    "Topping_applejelly_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_applejelly_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_applejelly_indolent.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_applejelly_iris.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_applejelly_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_applejelly_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_applejelly_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_applejelly_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_applejelly_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_applejelly_passionate.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 2
+    },
+    "Topping_applejelly_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_sea.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_seafarer.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_applejelly_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_applejelly_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_applejelly_trio.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_tropical.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_applejelly_truth.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_applejelly_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_applejelly_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_applejelly_wedding.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 4
+    },
+    "Topping_applejelly_wind.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_candy_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_candy_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_candy_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_candy_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_candy_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_candy_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_candy_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_candy_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_candy_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_candy_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_candy_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_candy_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_candy_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_candy_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_candy_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_candy_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_candy_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_candy_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_candy_silent.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 3
+    },
+    "Topping_candy_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_candy_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_candy_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_caramel_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_caramel_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_caramel_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_caramel_cheese.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_caramel_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_caramel_deceit.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_caramel_destructive.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_draconic.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_caramel_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_caramel_flaming.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 8,
+      "y": 2
+    },
+    "Topping_caramel_fragrant.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_frost.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_caramel_fuzzy.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 106,
+      "x": 3,
+      "y": 0
+    },
+    "Topping_caramel_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_caramel_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_caramel_indolent.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_caramel_iris.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_caramel_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_caramel_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_caramel_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_caramel_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_caramel_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_caramel_passionate.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 2
+    },
+    "Topping_caramel_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_sea.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_seafarer.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_caramel_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_caramel_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_caramel_trio.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_tropical.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_caramel_truth.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_caramel_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_caramel_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_caramel_wedding.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 4
+    },
+    "Topping_caramel_wind.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_chocolate_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_chocolate_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_chocolate_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_chocolate_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_chocolate_cheese.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_chocolate_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_chocolate_deceit.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_chocolate_destructive.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_draconic.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_chocolate_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_chocolate_flaming.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 8,
+      "y": 2
+    },
+    "Topping_chocolate_fragrant.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_frost.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_chocolate_fuzzy.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 106,
+      "x": 3,
+      "y": 0
+    },
+    "Topping_chocolate_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_chocolate_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_chocolate_indolent.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_chocolate_iris.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_chocolate_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_chocolate_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_chocolate_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_chocolate_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_chocolate_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_chocolate_passionate.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 2
+    },
+    "Topping_chocolate_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_sea.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_seafarer.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_chocolate_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_chocolate_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_chocolate_trio.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_tropical.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_chocolate_truth.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_chocolate_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_chocolate_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_chocolate_wedding.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 4
+    },
+    "Topping_chocolate_wind.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_hazelnut_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_hazelnut_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_hazelnut_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_hazelnut_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_hazelnut_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_hazelnut_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_hazelnut_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_hazelnut_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_hazelnut_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_hazelnut_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_hazelnut_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_hazelnut_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_hazelnut_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_hazelnut_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_hazelnut_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_hazelnut_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_hazelnut_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_hazelnut_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_hazelnut_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_hazelnut_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_hazelnut_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_hazelnut_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_kiwi_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_kiwi_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_kiwi_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_kiwi_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_kiwi_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_kiwi_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_kiwi_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_kiwi_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_kiwi_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_kiwi_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_kiwi_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_kiwi_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_kiwi_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_kiwi_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_kiwi_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_kiwi_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_kiwi_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_kiwi_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_kiwi_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_kiwi_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_kiwi_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_kiwi_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_main_back.png": {
+      "h": 530,
+      "method": "outline",
+      "nh": 556,
+      "nw": 544,
+      "w": 518,
+      "x": 11,
+      "y": 24
+    },
+    "Topping_peanut_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_peanut_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_peanut_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_peanut_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_peanut_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_peanut_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_peanut_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_peanut_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_peanut_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_peanut_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_peanut_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_peanut_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_peanut_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_peanut_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_peanut_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_peanut_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_peanut_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_peanut_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_peanut_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_peanut_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_peanut_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_peanut_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_raspberry_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_raspberry_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_raspberry_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_raspberry_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_raspberry_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_raspberry_cheese.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_raspberry_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_raspberry_deceit.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_raspberry_destructive.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_draconic.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_raspberry_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_raspberry_flaming.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 8,
+      "y": 2
+    },
+    "Topping_raspberry_fragrant.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_frost.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_raspberry_fuzzy.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 106,
+      "x": 3,
+      "y": 0
+    },
+    "Topping_raspberry_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_raspberry_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_raspberry_indolent.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_raspberry_iris.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 109,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_raspberry_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_raspberry_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_raspberry_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_raspberry_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_raspberry_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_raspberry_passionate.png": {
+      "h": 153,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 2
+    },
+    "Topping_raspberry_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_sea.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_seafarer.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_raspberry_silent.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_raspberry_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_raspberry_trio.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_tropical.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_raspberry_truth.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_raspberry_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_raspberry_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_raspberry_wedding.png": {
+      "h": 149,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 4
+    },
+    "Topping_raspberry_wind.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_walnut_1.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_walnut_2.png": {
+      "h": 155,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 2
+    },
+    "Topping_walnut_3.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_walnut_ancient_root.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_walnut_blooming.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_walnut_chrono.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_walnut_crossed_fates.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 2
+    },
+    "Topping_walnut_destined.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_walnut_dragonwind.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_walnut_frost_herbalist.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_walnut_gambit.png": {
+      "h": 150,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 5,
+      "y": 2
+    },
+    "Topping_walnut_heaven_splitter.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_walnut_life_energy.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_walnut_looming_darkness.png": {
+      "h": 151,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 101,
+      "x": 6,
+      "y": 4
+    },
+    "Topping_walnut_lunar_eclipse.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 3
+    },
+    "Topping_walnut_moon.png": {
+      "h": 156,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 2,
+      "y": 1
+    },
+    "Topping_walnut_oblivion.png": {
+      "h": 158,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 110,
+      "x": 2,
+      "y": 0
+    },
+    "Topping_walnut_research-driven.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 108,
+      "x": 1,
+      "y": 1
+    },
+    "Topping_walnut_silent.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 102,
+      "x": 1,
+      "y": 3
+    },
+    "Topping_walnut_smithy.png": {
+      "h": 148,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 100,
+      "x": 7,
+      "y": 6
+    },
+    "Topping_walnut_unison.png": {
+      "h": 154,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 103,
+      "x": 4,
+      "y": 2
+    },
+    "Topping_walnut_verdigris.png": {
+      "h": 146,
+      "method": "outline",
+      "nh": 158,
+      "nw": 112,
+      "w": 98,
+      "x": 7,
+      "y": 3
+    }
+  }
+}

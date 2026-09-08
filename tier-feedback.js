@@ -40,9 +40,12 @@
     }
 
     function cookieMatchesSearch(character, query) {
+        const CSA = typeof CookieSearchAliases !== "undefined" ? CookieSearchAliases : null
+        if (CSA) return CSA.cookieMatchesSearch(character, query, {})
         const q = String(query || "").trim().toLowerCase()
         if (!q) return true
-        return cookieSearchHaystack(character).includes(q)
+        const haystack = cookieSearchHaystack(character)
+        return haystack.includes(q)
     }
 
     /** @returns {{ label: string, id: string, character: object }[]} */

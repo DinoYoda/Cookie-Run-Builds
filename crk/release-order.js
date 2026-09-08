@@ -3,8 +3,8 @@ const cookieByDate = [
     "Tengshe Cookie",
     "Cobalt Cookie",
     "Baili Cookie",
-    "Jadeite Cookie",
     "Moonstone Cookie",
+    "Jadeite Cookie",
     "Ruby Cookie",
     "GingerBrave",
     "Strawberry Cookie",
@@ -232,9 +232,13 @@ const cookieByDate = [
     "Croissant Cookie",
     "Povidone-Iodine Cookie",
     "Litmus Cookie",
-    "Ananas Dragon Cookie"
+    "Ananas Dragon Cookie",
+    "Nether Queen Cookie",
+    "Asphodel Cookie",
+    "Dark Cherry Cookie",
+    "Time Shadow Cookie",
+    "Pulpo Cookie"
 ]
-
 // Magic Candy release order (cookie displayNames, for future MC-specific sorting)
 const candyByDate = [
     "Espresso Cookie",
@@ -283,4 +287,20 @@ const candyByDate = [
     "Poison Mushroom Cookie",
     "Pomegranate Cookie",
     "Mozzarella Cookie",
+    "Fire Spirit Cookie",
 ]
+const gameRarityOrder = [
+    "Witch", "AncientA", "Beast", "New Legendary", "New Dragon",
+    "Ancient", "Legendary", "Dragon",
+    "Super Epic", "Epic", "Special", "Zhencang", "Rare", "Common",
+]
+const siteRarityOrder = [
+    "Witch", "AncientA", "Beast", "Ancient", "Legendary", "Dragon",
+    "Super Epic", "Epic", "Special", "Zhencang", "Rare", "Common",
+]
+function raritySortBand(rarity, useGameOrder) {
+    if (useGameOrder) return rarity
+    if (rarity === "New Legendary") return "Legendary"
+    if (rarity === "New Dragon") return "Dragon"
+    return rarity
+}

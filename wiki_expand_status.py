@@ -7,7 +7,7 @@ Weakness, explicit second positional, icononly). Unknown statuses fall back to t
 parameter as the label. Balanced {{…}} matching supports nested templates (e.g. {{Color|…}}).
 
 When |nodispel= is omitted, undispellable buff/debuff (and optional auto element) are filled from
-tools/wiki_status_auto.json — same names as Template:Status undispel auto-list.
+tools/wiki_status_auto.json — synced from wiki Module:Status via import_wiki_status_auto.py.
 """
 from __future__ import annotations
 

@@ -15,6 +15,8 @@ Emitted per cookie (when applicable):
     skillAttrMc, or skillAttr (see char-ui: cjSkillAttr ?? skillAttr for rally).
     For cookies with cjSkill / mcSkill in data.js, the normal wiki box omits rally merge so
     skillAttr stays base-skill only; rally text is taken from the jam skill box when present.
+  • Multiple MC/CJ boxes on one page: first skill_details is kept; attrs attach only when
+    %{attrN} appears in that chosen text (avoids CN duplicate boxes overwriting global CJ).
   • enchants — MC-only: |10= / |20= / |30= as <slug>_10 / _20 / _30
   • ascension_effects — MC-only: |1A= … |5= as <slug>_1 … _5
 
@@ -25,7 +27,7 @@ Wiki templates expanded toward crk/crk_descriptions.js conventions:
   {{csi|carol}}                → skill{carol} (cookie skill icon; first | arg only if extra params).
   {{Kch|dc}} / {{Kch|olive|Custom}} → cookie{…} then optional label (icon before text, like status{…});
     balanced | args; icononly= ignored;
-    tools/wiki_kch_module_crk.json + wiki_kch_to_cookie_key.json)
+    tools/cookie_search_aliases.json — alias → data.js name; edit manually)
   {{Type|Charge}}            → type{charge}
   {{Tip|visible|tooltip}}      → hover{tooltip:visible} (balanced; nested {{…}} supported)
   Wiki list lines: leading * / ** / *** … (after |Notes= line-split) → top-level * stripped; each
@@ -74,6 +76,7 @@ from import_wiki_cookie_data import (
     fetch_wikitext,
     find_all_skill_box_blocks,
     load_cookie_name_alternates,
+    prefer_english_tabbers_in_wikitext,
     resolve_wiki_title,
 )
 from wiki_expand_kch import expand_wiki_kch_templates_for_skill
@@ -85,8 +88,7 @@ from wiki_expand_status import (
 
 ROOT = illu.ROOT
 TREASURE_MAP_PATH = os.path.join(ROOT, "tools", "wiki_treasure_slug_map.json")
-KCH_MAP_PATH = os.path.join(ROOT, "tools", "wiki_kch_to_cookie_key.json")
-KCH_MODULE_CRK_PATH = os.path.join(ROOT, "tools", "wiki_kch_module_crk.json")
+from cookie_search_aliases import build_merged_alias_map
 DEFAULT_OUT = os.path.join(ROOT, "tools", "imported_skill_details.js")
 DEFAULT_DATA_JS = os.path.join(ROOT, "data.js")
 DEFAULT_DESC_JS = os.path.join(ROOT, "crk", "crk_descriptions.js")
@@ -108,56 +110,8 @@ def _load_treasure_map() -> dict[str, str]:
 
 
 def _load_kch_map() -> dict[str, str]:
-    """
-    Wiki Kch param (lowercase) → data.js `name`. Merges optional tools/wiki_kch_module_crk.json
-    (paste from https://cookierun.wiki/wiki/Module:GetCookieName/data/crk.json when needed), then
-    tools/wiki_kch_to_cookie_key.json overrides for hand-tuned slugs.
-    """
-    out: dict[str, str] = {}
-
-    def merge_obj(raw: object) -> None:
-        if not isinstance(raw, dict):
-            return
-        blob = raw.get("aliases") if isinstance(raw.get("aliases"), dict) else raw
-        if not isinstance(blob, dict):
-            return
-        for k, v in blob.items():
-            if v is None:
-                continue
-            key = str(k).strip().lower()
-            out[key] = str(v).strip()
-
-    # Seed from character names so common initials (e.g. sf -> Sea_fairy) resolve even
-    # when the wiki module map is incomplete. Keep only unique abbreviations.
-    auto_abbrev: dict[str, str] = {}
-    try:
-        by_abbrev: dict[str, set[str]] = {}
-        for row in illu.load_char_rows():
-            name = str(row.get("name") or "").strip()
-            if not name or "_" not in name:
-                continue
-            parts = [p for p in name.split("_") if p]
-            if len(parts) < 2:
-                continue
-            ab = "".join(p[0].lower() for p in parts if p and p[0].isalnum())
-            if len(ab) < 2:
-                continue
-            by_abbrev.setdefault(ab, set()).add(name)
-        for ab, names in by_abbrev.items():
-            if len(names) == 1:
-                auto_abbrev[ab] = next(iter(names))
-    except Exception:
-        auto_abbrev = {}
-
-    merge_obj(auto_abbrev)
-
-    if os.path.isfile(KCH_MODULE_CRK_PATH):
-        with open(KCH_MODULE_CRK_PATH, encoding="utf-8") as f:
-            merge_obj(json.load(f))
-    if os.path.isfile(KCH_MAP_PATH):
-        with open(KCH_MAP_PATH, encoding="utf-8") as f:
-            merge_obj(json.load(f))
-    return out
+    """Wiki Kch param (lowercase) → data.js `name`. See tools/cookie_search_aliases.json."""
+    return build_merged_alias_map()
 
 
 def _norm_num_token(tok: str) -> str:
@@ -746,6 +700,42 @@ def _jam_kind_from_data(has_mc: bool, has_cj: bool, wiki_kind: str | None) -> st
 _ATTR_KEY_RE = re.compile(r"^attr(\d+)$")
 
 
+def _skill_text_uses_attr(skill_text: str | None, attr_key: str) -> bool:
+    if not skill_text or not attr_key:
+        return False
+    return f"%{{{attr_key}}}" in skill_text
+
+
+def _filter_attrs_for_skill_text(
+    attrs: dict[str, list[int | float]] | None,
+    skill_text: str | None,
+) -> dict[str, list[int | float]]:
+    if not attrs or not skill_text:
+        return {}
+    return {k: v for k, v in attrs.items() if _skill_text_uses_attr(skill_text, k)}
+
+
+def _merge_jam_skill_entry(
+    existing: dict[str, Any],
+    incoming: dict[str, Any],
+    attr_key: str,
+) -> dict[str, Any]:
+    """Merge MC/CJ wiki boxes — first skill_details wins; attrs only if placeholders exist in that text."""
+    merged = dict(existing)
+    if incoming.get("skill_details") and not merged.get("skill_details"):
+        merged["skill_details"] = incoming["skill_details"]
+    if incoming.get("skill_notes") and not merged.get("skill_notes"):
+        merged["skill_notes"] = incoming["skill_notes"]
+    if incoming.get("rally_effects") and not merged.get("rally_effects"):
+        merged["rally_effects"] = incoming["rally_effects"]
+    details = merged.get("skill_details") or ""
+    if incoming.get(attr_key):
+        filtered = _filter_attrs_for_skill_text(incoming[attr_key], details)
+        if filtered:
+            merged[attr_key] = filtered
+    return merged
+
+
 def _next_attr_index(attrs: dict[str, list[int | float]]) -> int:
     hi = 0
     for k in attrs:
@@ -990,6 +980,7 @@ def import_one(
     wt = fetch_wikitext(api, title)
     if not wt:
         return None
+    wt = prefer_english_tabbers_in_wikitext(wt) or wt
     boxes = find_all_skill_box_blocks(wt)
     if not boxes:
         return None
@@ -1078,7 +1069,17 @@ def import_one(
                     out["keys"][dk0]["rally_effects"] = rally_txt
             else:
                 entry2["rally_effects"] = rally_txt
-        out["keys"][dk2] = entry2
+        details_for_attrs = entry2.get("skill_details") or ""
+        if entry2.get(attr_key):
+            filtered = _filter_attrs_for_skill_text(entry2[attr_key], details_for_attrs)
+            if filtered:
+                entry2[attr_key] = filtered
+            else:
+                entry2.pop(attr_key, None)
+        if dk2 in out["keys"]:
+            out["keys"][dk2] = _merge_jam_skill_entry(out["keys"][dk2], entry2, attr_key)
+        else:
+            out["keys"][dk2] = entry2
         out["warnings"].extend(wn)
         if b1.get("enchants"):
             out["enchants"].update(b1["enchants"])
@@ -1167,9 +1168,10 @@ def main() -> None:
     for r in rows:
         name = r["name"]
         display = r.get("displayName") or name
+        attr_keys = ("skillAttr", "cjSkillAttr", "skillAttrMc", "mcSkillAttr")
         data_blob = {
             k: r[k]
-            for k in ("skillAttr", "cjSkillAttr", "skillAttrMc", "mcSkillAttr")
+            for k in attr_keys
             if k in r and r[k] is not None
         }
         doc = import_one(

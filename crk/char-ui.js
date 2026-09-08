@@ -513,6 +513,12 @@ function formatSkillAttrNumberForDisplay(val) {
   return (neg ? "-" : "") + withCommas + fracPart
 }
 
+function lineStartsWithSectionHeader(line) {
+  let s = line
+  while (s.startsWith("indent{}")) s = s.slice("indent{}".length)
+  return /^(?:color-|rally-)?header\{/.test(s)
+}
+
 function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
   if (!tagged || typeof tagged !== "string") return ""
   let text = tagged
@@ -537,8 +543,8 @@ function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
   let forceHeaderNext = false
   const flushUl = () => { if (lisBuf.length) { parts.push(`<ul class="char-skill-details-list">${lisBuf.join("")}</ul>`); lisBuf = [] } }
   text.split(/<br>/).forEach((line) => {
-    const isRallyHeader = /rally-header\{/.test(line)
-    const isHeader = /header\{/.test(line) || forceHeaderNext
+    const isRallyHeader = /rally-header\{/.test(line) && lineStartsWithSectionHeader(line)
+    const isHeader = lineStartsWithSectionHeader(line) || forceHeaderNext
     if (isHeader) {
       flushUl()
       const tightClass = forceHeaderNext ? " char-skill-details-line-tight" : ""
@@ -589,13 +595,120 @@ function getPageImagePath(name) {
     return `${getGamePictureRoot()}/chars/${_urlFile(`${name}_illustration.png`)}`
 }
 
-function getToppingImagePath(type, resonance, isTart) {
+function isLegendaryTartBonus(bonusEffect) {
+  const v = bonusEffect
+  return v != null && String(v).trim() !== ""
+}
+
+/** @deprecated use isLegendaryTartBonus */
+function isLegendaryTartSet(topSet) {
+  return isLegendaryTartBonus(topSet?.bonusEffect)
+}
+
+const BUILD_RANK_SORT_ORDER = { best: 0, recommended: 1 }
+
+function compareBuildIdsForDisplay(a, b, builds) {
+  const rankA = BUILD_RANK_SORT_ORDER[builds[a]?.rank] ?? 2
+  const rankB = BUILD_RANK_SORT_ORDER[builds[b]?.rank] ?? 2
+  if (rankA !== rankB) return rankA - rankB
+  const numA = parseInt(a, 10)
+  const numB = parseInt(b, 10)
+  if (Number.isFinite(numA) && Number.isFinite(numB)) return numA - numB
+  return String(a).localeCompare(String(b))
+}
+
+function getSortedBuildIds(builds) {
+  if (!builds || typeof builds !== "object") return []
+  return Object.keys(builds)
+    .filter((k) => k !== "notes")
+    .sort((a, b) => compareBuildIdsForDisplay(a, b, builds))
+}
+
+/** Builds are archived unless explicitly marked `active: true` in data.js. */
+function isBuildActive(build) {
+  return !!(build && typeof build === "object" && build.active === true)
+}
+
+function partitionBuildIdsByActive(builds) {
+  const active = []
+  const archived = []
+  for (const id of getSortedBuildIds(builds)) {
+    const build = builds[id]
+    if (!build || typeof build !== "object") continue
+    if (isBuildActive(build)) active.push(id)
+    else archived.push(id)
+  }
+  return { active, archived }
+}
+
+function getSetIndicesReferencedByBuildIds(builds, buildIds) {
+  const toppings = new Set()
+  const beascuit = new Set()
+  for (const id of buildIds) {
+    const build = builds[id]
+    if (!build || typeof build !== "object") continue
+    const t = build.toppings
+    const b = build.beascuit
+    if (Number.isInteger(t) && t >= 1) toppings.add(t)
+    if (Number.isInteger(b) && b >= 1) beascuit.add(b)
+  }
+  return { toppings, beascuit }
+}
+
+function partitionSetIndicesByActive(totalCount, activeIndices) {
+  const active = []
+  const archived = []
+  for (let i = 1; i <= totalCount; i++) {
+    if (activeIndices.has(i)) active.push(i)
+    else archived.push(i)
+  }
+  return { active, archived }
+}
+
+function buildCatalogGroupHtml(title, innerHtml, options) {
+  const cardCount = options?.cardCount ?? 0
+  if (!innerHtml || cardCount <= 0) return ""
+  const kind = options?.kind === "archived" ? " char-build-catalog-group--archived" : ""
+  const wrapperSingleClass = cardCount === 1 ? " char-build-section-wrapper-single" : ""
+  const wrapperClass = options?.wrapperClass || "char-build-section-wrapper"
+  const setsSingleClass = options?.setsSingle ? " char-build-sets-wrapper-single" : ""
+  const titleTag = options?.titleTag || "h4"
+  const titleClass = titleTag === "h5" ? "char-sets-subsection-title" : "char-build-catalog-title"
+  const headingHtml = title
+    ? `<${titleTag} class="${titleClass}">${title}</${titleTag}>`
+    : ""
+  return `<div class="char-build-catalog-group${kind}">
+    ${headingHtml}
+    <div class="${wrapperClass}${wrapperSingleClass}${setsSingleClass}">${innerHtml}</div>
+  </div>`
+}
+
+function buildSetsGridHtml(title, innerHtml, cardCount) {
+  if (!innerHtml || cardCount <= 0) return ""
+  const setsSingleClass = cardCount === 1 ? " char-build-sets-wrapper-single" : ""
+  return `<div class="char-build-sets-subgroup">
+    <h5 class="char-sets-subsection-title">${title}</h5>
+    <div class="char-build-sets-wrapper${setsSingleClass}">${innerHtml}</div>
+  </div>`
+}
+
+/** Tart art tiers: 3 = epic, 4 = legendary (falls back to epic when missing). */
+function getToppingImagePath(type, resonance, isTart, tartLegendary) {
   const pic = getGamePictureRoot()
-  if (isTart) return `${pic}/toppings/tart/${_urlFile(`Topping_tart_${type}_3.png`)}`
+  if (isTart) {
+    const level = tartLegendary ? 4 : 3
+    return `${pic}/toppings/tart/${_urlFile(`Topping_tart_${type}_${level}.png`)}`
+  }
   if (resonance) {
     return `${pic}/toppings/${type}/${_urlFile(`Topping_${type}_${resonance.toLowerCase()}.png`)}`
   }
   return `${pic}/toppings/${type}/${_urlFile(`Topping_${type}_3.png`)}`
+}
+
+/** Pre-tart era plate art (no slot 6); lives in toppings/ root, not tart/. */
+function getToppingPlateBackPath() {
+  const pic = getGamePictureRoot()
+  return `${pic}/toppings/${_urlFile("Topping_main_back.png")}`
 }
 
 /** In-game selectable art: `toppings/resonant/Topping_selectable_<resonance_slug>.png` (slug lowercased). */
@@ -622,14 +735,55 @@ function siteRelativePath(file) {
   return file
 }
 
+function _runWhenIdle(fn) {
+  if (typeof requestIdleCallback === "function") {
+    requestIdleCallback(fn, { timeout: 250 })
+  } else {
+    setTimeout(fn, 0)
+  }
+}
+
 let _resonantToppingsMapPromise = null
 async function loadResonantToppingsMap() {
   if (_resonantToppingsMapPromise) return _resonantToppingsMapPromise
-  _resonantToppingsMapPromise = fetch(siteRelativePath("tools/resonant_toppings.json"), { cache: "no-store" })
+  _resonantToppingsMapPromise = fetch(siteRelativePath("tools/resonant_toppings.json"))
     .then((r) => (r.ok ? r.json() : null))
     .then((j) => (j && typeof j === "object" && !Array.isArray(j) ? j : null))
     .catch(() => null)
   return _resonantToppingsMapPromise
+}
+
+function renderResonantToppingsSection(charData, name) {
+  const resonantEl = document.getElementById("char-resonant-toppings")
+  if (!resonantEl) return
+  if (!charData) {
+    resonantEl.hidden = true
+    resonantEl.innerHTML = ""
+    return
+  }
+  void loadResonantToppingsMap().then((resonantMap) => {
+    const resonants = getResonancesForCookieFromMap(resonantMap, charData.name || name)
+      .map((r) => String(r || "").trim())
+      .filter(Boolean)
+    if (resonants.length === 0) {
+      resonantEl.hidden = true
+      resonantEl.innerHTML = ""
+      return
+    }
+    resonantEl.hidden = false
+    const items = resonants.map((res) => {
+      const label = getResonanceDisplayNameFromMap(resonantMap, res) || formatResonanceSetLabel(res)
+      const src = getResonantSelectableImagePath(res)
+      return `<div class="char-resonant-item">
+        <img src="${src}" alt="${_esc(label)}" title="${_esc(label)}" class="char-resonant-preview" loading="lazy" decoding="async" onerror="${_imgErrToppingAttr()}">
+        <span class="char-resonant-item-label">${_esc(label)}</span>
+      </div>`
+    }).join("")
+    resonantEl.innerHTML = `<div class="char-resonant-inner">
+      <h3 class="char-resonant-heading">Resonant Toppings</h3>
+      <div class="char-resonant-list">${items}</div>
+    </div>`
+  })
 }
 
 function getResonancesForCookieFromMap(mapObj, cookieName) {
@@ -639,7 +793,7 @@ function getResonancesForCookieFromMap(mapObj, cookieName) {
   const out = []
   for (const [slug, raw] of Object.entries(mapObj)) {
     if (!slug) continue
-    const cookies = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.cookies) ? raw.cookies : [])
+    const cookies = raw && Array.isArray(raw.cookies) ? raw.cookies : []
     const hit = cookies.some((c) => String(c || "").trim().toLowerCase() === target)
     if (hit) out.push(String(slug))
   }
@@ -711,32 +865,192 @@ function getBeascuitBaseNumber(element) {
   return "01"
 }
 
-/** Star + substats HTML for one entry in sets.toppings */
-function buildToppingsSetBlockHtml(topSet) {
-  if (!topSet || typeof topSet !== "object") return { starHtml: "", substatsHtml: "" }
-  const resonance = topSet.resonance
-  const substats = topSet.substats || []
+function getBeascuitTypeSuffix(element) {
+  return getBeascuitBaseNumber(element)
+}
+
+function getBeascuitTypeImagePath(pic, cookieType, element) {
+  const suffix = getBeascuitTypeSuffix(element)
+  return `${pic}/beascuit/${cookieType}${suffix}.png`
+}
+
+function getBeascuitBaseImagePath(pic, cookieType, tainted) {
+  const file = tainted
+    ? `Beascuit_tainted_${cookieType}_legendary.png`
+    : `Beascuit_${cookieType}_legendary.png`
+  return `${pic}/beascuit/${file}`
+}
+
+const _lazyImgAttrs = (lazy) => (lazy ? ' loading="lazy" decoding="async"' : "")
+
+const _CJ_RARITIES = ["Dragon", "Legendary", "Ancient", "Beast", "Witch"]
+
+function charHasCrystalJam(charData) {
+  const normalizedRarity = normalizeRarity(charData?.rarity || "")
+  return !!(_CJ_RARITIES.includes(normalizedRarity) && charData?.cjSkill)
+}
+
+function charShowsMcSkill(charData) {
+  return typeof shouldRenderMcSkill === "function" ? shouldRenderMcSkill(charData) : !!charData?.mcSkill
+}
+
+function buildCharReviewBlockHtml(title, review, rating, skillAttr) {
+  if (!review && !rating) return ""
+  const ratingHtml = rating
+    ? `<div class="char-review-rating" data-rating="${rating}">
+           <span class="char-review-rating-label">Rating</span>
+           <span class="char-review-rating-letter">${rating}</span>
+       </div>`
+    : ""
+  const bodyHtml = review
+    ? `<div class="char-review-body">${renderInlineTaggedText(review, skillAttr)}</div>`
+    : ""
+  return `
+    <div class="char-review-block">
+      <div class="char-review-header-bar">
+        <h3 class="char-section-title">${title}</h3>
+      </div>
+      <div class="char-section-divider"></div>
+      <div class="char-review-content">${bodyHtml}${ratingHtml}</div>
+    </div>
+  `
+}
+
+function renderMcCjReviewSection(charData) {
+  const section = document.getElementById("char-mccj-review-section")
+  if (!section) return
+
+  let html = ""
+  if (charShowsMcSkill(charData) && (charData?.mcReview || charData?.mcRating)) {
+    html = buildCharReviewBlockHtml(
+      "Magic Candy Review",
+      charData.mcReview,
+      charData.mcRating,
+      charData.skillAttrMc ?? charData?.skillAttr
+    )
+  } else if (charHasCrystalJam(charData) && (charData?.cjReview || charData?.cjRating)) {
+    html = buildCharReviewBlockHtml(
+      "Crystal Jam Review",
+      charData.cjReview,
+      charData.cjRating,
+      charData.cjSkillAttr ?? charData?.skillAttr
+    )
+  }
+
+  if (html) {
+    section.innerHTML = html
+    section.style.display = "block"
+  } else {
+    section.innerHTML = ""
+    section.style.display = "none"
+  }
+}
+
+/** Topping row + optional build substats / tart bonus HTML */
+function buildToppingsSetBlockHtml(topSet, options) {
+  if (!topSet || typeof topSet !== "object") return { starHtml: "", substatsHtml: "", bonusEffectHtml: "" }
+  const lazy = !!(options && options.lazyImages)
+  const lazyAttr = _lazyImgAttrs(lazy)
+  let resonance = topSet.resonance
+  if (options && Object.prototype.hasOwnProperty.call(options, "resonance")) {
+    resonance = options.resonance
+  }
+  const substats = Array.isArray(options?.substats) ? options.substats : []
+  const bonusEffect = options?.bonusEffect
+  const legendaryTart = isLegendaryTartBonus(bonusEffect)
+  const showTart = !(options && options.showTart === false)
+  const showLegendaryTart = !(options && options.showLegendaryTart === false)
+  const useLegendaryTart = legendaryTart && showLegendaryTart
   const toppingSlots = []
   for (let s = 1; s <= 6; s++) {
+    if (s === 6 && !showTart) continue
     const type = topSet[s]
     if (!type) continue
     const isTart = s === 6
-    const src = getToppingImagePath(type, isTart ? null : resonance, isTart)
-    const fallbackSrc = getToppingImagePath(type, null, isTart)
+    const src = getToppingImagePath(type, isTart ? null : resonance, isTart, isTart && useLegendaryTart)
+    const fallbackSrc = isTart && useLegendaryTart
+      ? getToppingImagePath(type, null, true, false)
+      : getToppingImagePath(type, null, isTart)
     toppingSlots.push({ src, fallbackSrc, type, isTart, slot: s })
   }
   const regularToppings = toppingSlots.filter(t => !t.isTart)
   const tart = toppingSlots.find(t => t.isTart)
-  let starHtml = `<div class="char-toppings-star">`
+  const usePlateBack = !showTart && regularToppings.length > 0
+  const hasPlate = tart || usePlateBack
+  const rowClass = hasPlate ? "char-toppings-row" : "char-toppings-row char-toppings-row--no-tart"
+  let rowHtml = `<div class="${rowClass}"><div class="char-toppings-plate">`
   if (tart) {
-    starHtml += `<img src="${tart.src}" data-fallback-src="${tart.fallbackSrc || ""}" alt="${tart.type}" class="char-topping-tart-base" onerror="${_imgErrToppingAttr()}">`
+    const tartClass = useLegendaryTart ? "char-topping-tart-base char-topping-tart-legendary" : "char-topping-tart-base"
+    rowHtml += `<img src="${tart.src}" data-fallback-src="${tart.fallbackSrc || ""}" alt="${tart.type}" class="${tartClass}"${lazyAttr} onerror="${_imgErrToppingAttr()}">`
+  } else if (usePlateBack) {
+    rowHtml += `<img src="${getToppingPlateBackPath()}" alt="" class="char-topping-tart-base char-topping-plate-back"${lazyAttr} onerror="${_imgErrToppingAttr()}">`
   }
+  rowHtml += `<div class="char-toppings-items">`
   regularToppings.forEach((t, i) => {
-    starHtml += `<div class="char-topping-star-slot char-topping-pos-${i + 1}"><img src="${t.src}" data-fallback-src="${t.fallbackSrc || ""}" alt="${t.type}" class="char-topping-slot" onerror="${_imgErrToppingAttr()}"></div>`
+    const pos = i + 1
+    const imgHtml = `<img src="${t.src}" data-fallback-src="${t.fallbackSrc || ""}" alt="${t.type}" class="char-topping-item"${lazyAttr} onerror="${_imgErrToppingAttr()}">`
+    if (hasPlate && pos === 4) {
+      rowHtml += `<div class="char-topping-star-slot char-topping-pos-4-split char-topping-pos-4-split--back"><div class="char-topping-graphic">${imgHtml}</div></div>`
+      rowHtml += `<div class="char-topping-star-slot char-topping-pos-4-split char-topping-pos-4-split--front"><div class="char-topping-graphic">${imgHtml}</div></div>`
+    } else {
+      rowHtml += `<div class="char-topping-star-slot char-topping-pos-${pos}"><div class="char-topping-graphic">${imgHtml}</div></div>`
+    }
   })
-  starHtml += `</div>`
+  rowHtml += `</div></div></div>`
   const substatsHtml = substats.map(s => `<div class="char-build-substat">- ${s}</div>`).join("")
-  return { starHtml, substatsHtml }
+  let bonusEffectHtml = ""
+  if (showTart && useLegendaryTart) {
+    const label =
+      typeof getTartBonusEffectDisplayLabel === "function"
+        ? getTartBonusEffectDisplayLabel(bonusEffect)
+        : String(bonusEffect).trim()
+    if (label) {
+      bonusEffectHtml = `<div class="char-build-bonus-effect"><div class="char-build-bonus-effect-title">Bonus Effect</div><div class="char-build-bonus-effect-value">${label}</div></div>`
+    }
+  }
+  return { starHtml: rowHtml, substatsHtml, bonusEffectHtml }
+}
+
+/** Substats + tart bonus panel (character builds: separate boxes; teams: separate compact boxes). */
+function buildToppingsDetailsHtml(options) {
+  const substats = Array.isArray(options?.substats) ? options.substats.filter(Boolean) : []
+  const bonusEffect = options?.bonusEffect
+  const showTart = !(options && options.showTart === false)
+  const showLegendaryTart = !(options && options.showLegendaryTart === false)
+  const teamsCompact = !!(options && options.teamsCompact)
+  const legendaryTart = isLegendaryTartBonus(bonusEffect)
+  const useLegendaryTart = legendaryTart && showLegendaryTart
+  let bonusLabel = ""
+  if (showTart && useLegendaryTart) {
+    bonusLabel =
+      typeof getTartBonusEffectDisplayLabel === "function"
+        ? getTartBonusEffectDisplayLabel(bonusEffect)
+        : String(bonusEffect || "").trim()
+  }
+  if (!substats.length && !bonusLabel) return ""
+
+  if (teamsCompact) {
+    const panel = (title, body) =>
+      `<div class="teams-toppings-stats-panel"><div class="char-build-beascuit-stats-title">${title}</div>${body}</div>`
+    let html = `<div class="char-build-toppings-details teams-toppings-stats-stack">`
+    if (substats.length) {
+      html += panel("Substats", substats.map(s => `<div class="char-build-beascuit-stat">- ${s}</div>`).join(""))
+    }
+    if (bonusLabel) {
+      html += `<div class="teams-toppings-stats-panel teams-toppings-stats-panel--bonus"><div class="char-build-beascuit-stats-title">Bonus Effect</div><div class="char-build-beascuit-stat">${bonusLabel}</div></div>`
+    }
+    html += `</div>`
+    return html
+  }
+
+  const substatsHtml = substats.map(s => `<div class="char-build-substat">- ${s}</div>`).join("")
+  const subBlock = substats.length
+    ? `<div class="char-build-substats"><div class="char-build-substats-title">Substats</div>${substatsHtml}</div>`
+    : ""
+  const bonusBlock = bonusLabel
+    ? `<div class="char-build-bonus-effect"><div class="char-build-bonus-effect-title">Bonus Effect</div><div class="char-build-bonus-effect-value">${bonusLabel}</div></div>`
+    : ""
+  return `<div class="char-build-toppings-details">${subBlock}${bonusBlock}</div>`
 }
 
 /**
@@ -748,6 +1062,7 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
     return { beascuitNameHtml: "", beascuitRowHtml: "" }
   }
   const teamsImageOverlay = !!(options && options.teamsImageOverlay)
+  const lazyAttr = _lazyImgAttrs(!!(options && options.lazyImages))
   const el = (biscuitSet.element || "").trim()
   const cookieType = (charData?.type || "unknown").toLowerCase()
   const tainted = !!biscuitSet.tainted
@@ -763,10 +1078,6 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   const beascuitNameHtml = teamsImageOverlay
     ? ""
     : (beascuitName ? `<div class="char-beascuit-name">${beascuitName}</div>` : "")
-  const baseNumber = getBeascuitBaseNumber(el)
-  const baseOverlay = el
-    ? `<img src="${pic}/beascuit/Beascuit_base_${cookieType}_${baseNumber}.png" alt="${el} base" class="char-beascuit-base-overlay" onerror="${_imgErrHide}">`
-    : ""
   const imgAlt = _esc(beascuitName || "Beascuit")
   let statsBeside = ""
   let statsOnImage = ""
@@ -779,8 +1090,8 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   }
   const wrapExtraClass = teamsImageOverlay && statsOnImage ? " teams-beascuit-image-has-stats" : ""
   const beascuitImageHtml = `<div class="char-beascuit-image-wrapper${wrapExtraClass}">
-    <img src="${pic}/beascuit/Beascuit_${cookieType}_legendary.png" alt="${imgAlt}" class="char-beascuit-icon" onerror="${_imgErrHide}">
-    ${baseOverlay}
+    <img src="${getBeascuitBaseImagePath(pic, cookieType, tainted)}" alt="" class="char-beascuit-base-overlay"${lazyAttr} onerror="${_imgErrHide}">
+    <img src="${getBeascuitTypeImagePath(pic, cookieType, el)}" alt="${imgAlt}" class="char-beascuit-icon"${lazyAttr} onerror="${_imgErrHide}">
     ${teamsImageOverlay ? statsOnImage : ""}
   </div>`
   let beascuitRowHtml = ""
@@ -796,18 +1107,34 @@ function buildBeascuitSetBlockHtml(biscuitSet, charData, options) {
   return { beascuitNameHtml, beascuitRowHtml }
 }
 
-/** Rarity bucket for filters / CJ eligibility (AncientA → Ancient, New Legendary → Legendary). */
+/** Rarity bucket for filters / CJ eligibility (AncientA → Ancient, Zhencang → Special). */
 function rarityFilterBucket(rarity) {
   if (rarity === "AncientA") return "Ancient"
+  if (rarity === "Zhencang") return "Special"
   if (rarity === "New Legendary") return "Legendary"
+  if (rarity === "New Dragon") return "Dragon"
   return rarity
 }
 
-/** Icon filename stem under pictures/icons/ (New Legendary keeps its own art). */
+/** Icon filename stem under pictures/icons/ (New Legendary / New Dragon use dedicated art when present). */
 function rarityIconBasename(rarity) {
   if (rarity === "New Legendary") return "New Legendary"
+  if (rarity === "New Dragon") return "New Dragon"
   if (rarity === "AncientA") return "Ancient"
   return rarity
+}
+
+/** Fallback icon stem when the dedicated rarity asset is missing. */
+function rarityIconFallbackBasename(rarity) {
+  if (rarity === "New Dragon") return "Dragon"
+  return null
+}
+
+function rarityIconOnErrorHandler(rawRarity, pic) {
+  const fallback = rarityIconFallbackBasename(rawRarity)
+  if (!fallback) return _imgErrHide
+  const fbPath = `${pic}/icons/${_urlFile(`${fallback}.png`)}`
+  return `this.onerror=null;if(this.dataset.rarityFb!=='1'){this.dataset.rarityFb='1';this.src='${fbPath}'}else{this.style.display='none'}`
 }
 
 function normalizeRarity(rarity) {
@@ -830,9 +1157,15 @@ function isCharacterBuildSectionHidden(el) {
 function scheduleCharacterBuildsMasonryAfterImages(root) {
   if (!root) return
   root.querySelectorAll("img").forEach((img) => {
+    const onDone = () => {
+      if (img.classList.contains("char-topping-item") && typeof initToppingGraphic === "function") {
+        initToppingGraphic(img)
+      }
+      scheduleCharacterBuildsMasonrySync()
+    }
     if (img.complete) return
-    img.addEventListener("load", scheduleCharacterBuildsMasonrySync, { once: true })
-    img.addEventListener("error", scheduleCharacterBuildsMasonrySync, { once: true })
+    img.addEventListener("load", onDone, { once: true })
+    img.addEventListener("error", onDone, { once: true })
   })
 }
 
@@ -871,30 +1204,32 @@ function flattenBuildMasonryWrapper(wrapper) {
   wrapper.appendChild(frag)
 }
 
+function syncBuildMasonryWrapper(wrapper, buildsVisible, wide) {
+  if (!wrapper || wrapper.classList.contains("char-build-section-wrapper-single")) return
+  const cardCount = wrapper.querySelectorAll(".char-build-card[data-build-id]").length
+  if (cardCount <= 1) return
+  const hasMasonry = !!wrapper.querySelector(".char-build-masonry")
+  if (!wide) {
+    if (hasMasonry) flattenBuildMasonryWrapper(wrapper)
+    return
+  }
+  if (!buildsVisible) return
+  if (hasMasonry) flattenBuildMasonryWrapper(wrapper)
+  applyBuildMasonryFromFlatWrapper(wrapper)
+}
+
 function syncCharacterBuildsMasonryLayout() {
   const buildSection = document.getElementById("Builds")
   if (!buildSection || isCharacterBuildSectionHidden(buildSection)) return
 
   const buildsPanel = buildSection.querySelector('.char-build-panel[data-panel="builds"]')
-  const wrapper = buildsPanel && buildsPanel.querySelector(".char-build-section-wrapper")
-  if (!wrapper || wrapper.classList.contains("char-build-section-wrapper-single")) return
-
-  const cardCount = wrapper.querySelectorAll(".char-build-card[data-build-id]").length
-  if (cardCount <= 1) return
+  if (!buildsPanel) return
 
   const wide = isBuildMasonryWideViewport()
-  const buildsVisible = buildsPanel && buildsPanel.style.display !== "none"
-  const hasMasonry = !!wrapper.querySelector(".char-build-masonry")
-
-  if (!wide) {
-    if (hasMasonry) flattenBuildMasonryWrapper(wrapper)
-    return
-  }
-
-  if (!buildsVisible) return
-
-  if (hasMasonry) flattenBuildMasonryWrapper(wrapper)
-  applyBuildMasonryFromFlatWrapper(wrapper)
+  const buildsVisible = buildsPanel.style.display !== "none"
+  buildsPanel.querySelectorAll(".char-build-section-wrapper").forEach((wrapper) => {
+    syncBuildMasonryWrapper(wrapper, buildsVisible, wide)
+  })
 }
 
 let characterBuildMasonryResizeTimer = null
@@ -938,7 +1273,7 @@ function renderCharPageUpdatedLine(charData) {
   el.appendChild(time)
 }
 
-async function renderCharacterPage(){
+function renderCharacterPage(){
     const urlName = getCharacterFromURL()
     if (urlName) {
         // URL should be source of truth going forward
@@ -951,6 +1286,8 @@ async function renderCharacterPage(){
 
     const img = document.getElementById("char-image")
     img.src = getPageImagePath(name)
+    img.decoding = "async"
+    if ("fetchPriority" in img) img.fetchPriority = "high"
 
     const data = window.CRK_DATA
     const gameId = getSelectedGameId()
@@ -966,6 +1303,7 @@ async function renderCharacterPage(){
     const slug = name.toLowerCase()
     const skillImageName = charData?.name || name
     const descData = window.CRK_DESCRIPTIONS || {}
+    const cnDescData = window.CRK_CN_DESCRIPTIONS || {}
 
     const descriptionText = descData.description?.[slug] || "No description available."
 
@@ -1023,11 +1361,12 @@ async function renderCharacterPage(){
         const pic = getGamePictureRoot()
 
         const rarityIconPath = rarityIcon ? `${pic}/icons/${_urlFile(`${rarityIcon}.png`)}` : ""
+        const rarityIconErr = rarityIconOnErrorHandler(rawRarity, pic)
         const typeRow = type ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${type}.png`)}" alt="" onerror="${_imgErrHide}"><span>${type}</span></div>` : ""
         const posRow = position ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${position}.png`)}" alt="" onerror="${_imgErrHide}"><span>${position}</span></div>` : ""
         const elemRow = elements.length ? `<div class="char-stat-pill"><span>Element</span>${elements.map(e => `<img src="${pic}/icons/${_urlFile(`${e}.png`)}" alt="${e}" title="${e}" onerror="${_imgErrHide}">`).join("")}</div>` : ""
         infoBox.innerHTML = `
-            ${rarityIcon ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${_esc(rarityLabel)}" title="${_esc(rarityLabel)}" onerror="${_imgErrHide}">` : ""}
+            ${rarityIcon ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${_esc(rarityLabel)}" title="${_esc(rarityLabel)}" onerror="${rarityIconErr}">` : ""}
             <div class="char-stats-row">
                 ${typeRow}
                 ${posRow}
@@ -1036,35 +1375,7 @@ async function renderCharacterPage(){
         `
     }
 
-    const resonantEl = document.getElementById("char-resonant-toppings")
-    if (resonantEl) {
-      const resonantMap = await loadResonantToppingsMap()
-      const fromMap = getResonancesForCookieFromMap(resonantMap, charData?.name || name)
-      const fromData = charData && Array.isArray(charData.resonants)
-        ? charData.resonants.filter((r) => r != null && String(r).trim() !== "")
-        : []
-      const resonants = (fromMap.length ? fromMap : fromData)
-        .map((r) => String(r || "").trim())
-        .filter(Boolean)
-      if (!charData || resonants.length === 0) {
-        resonantEl.hidden = true
-        resonantEl.innerHTML = ""
-      } else {
-        resonantEl.hidden = false
-        const items = resonants.map((res) => {
-          const label = getResonanceDisplayNameFromMap(resonantMap, res) || formatResonanceSetLabel(res)
-          const src = getResonantSelectableImagePath(res)
-          return `<div class="char-resonant-item">
-            <img src="${src}" alt="${_esc(label)}" title="${_esc(label)}" class="char-resonant-preview" onerror="${_imgErrToppingAttr()}">
-            <span class="char-resonant-item-label">${_esc(label)}</span>
-          </div>`
-        }).join("")
-        resonantEl.innerHTML = `<div class="char-resonant-inner">
-          <h3 class="char-resonant-heading">Resonant Toppings</h3>
-          <div class="char-resonant-list">${items}</div>
-        </div>`
-      }
-    }
+    renderResonantToppingsSection(charData, name)
 
     const skillSection = document.getElementById("char-skill-section")
     if (!skillSection) {
@@ -1080,13 +1391,22 @@ async function renderCharacterPage(){
 
     function renderSkillSectionContent() {
         const pic = getGamePictureRoot()
-        const CJ_RARITIES = ["Dragon", "Legendary", "Ancient", "Beast", "Witch"]
+        const CJ_RARITIES = _CJ_RARITIES
         const normalizedRarity = normalizeRarity(charData?.rarity || "")
         const isCJ = normalizedRarity && CJ_RARITIES.includes(normalizedRarity)
         const hasCJ = !!charData?.cjSkill
-        const hasMC = !!charData?.mcSkill
+        const hasMC = charShowsMcSkill(charData)
         const isAncientA = charData?.rarity === "AncientA"
         const hasMcCj = (isCJ && hasCJ) || hasMC
+        const skillCtx = typeof getActiveNormalSkillContext === "function"
+            ? getActiveNormalSkillContext(charData, descData, cnDescData, slug)
+            : { useCn: false, skillAttr: charData?.skillAttr, skillDescData: descData, slug }
+        const activeSkillAttr = skillCtx.skillAttr
+        const activeSkillDescData = skillCtx.skillDescData || descData
+        const activeSlug = skillCtx.slug || slug
+        const cnSkillDisclaimer = skillCtx.useCn
+            ? `<div class="char-skill-cj-disclaimer-wrap"><div class="char-skill-cj-disclaimer">Showing CN Kingdom skill details.</div></div>`
+            : ""
 
         function skillBox(name, cooldown, initialCd, desc, iconPath, hasData, skillDetails, skillAttrData, lidx, detailsKey, middleContent) {
             const showBase = (lidx != null ? lidx : 0) === 0
@@ -1138,7 +1458,9 @@ async function renderCharacterPage(){
             return `<div class="char-skill-bar">${extras ? `<div class="char-skill-bar-extras">${extras}</div>` : ""}<div class="char-skill-bar-buttons">${buttons}</div></div>`
         }
 
-        const rallyData = descData.rally_effects?.[slug]
+        const rallyData = skillCtx.useCn
+            ? (cnDescData.rally_effects?.[slug] ?? descData.rally_effects?.[slug])
+            : descData.rally_effects?.[slug]
         const useInlineRally = !!charData?.rallyEffect
         let rallyHtml = ""
         if (rallyData) {
@@ -1156,7 +1478,7 @@ async function renderCharacterPage(){
             }
         }
         const hasNormalRally = rallyData && !hasMcCj
-        const normalSkillDetailsRaw = descData.skill_details?.[slug]
+        const normalSkillDetailsRaw = activeSkillDescData.skill_details?.[activeSlug]
         const normalBox = skillBox(
             charData?.skill || "Skill",
             charData?.cd ?? null,
@@ -1165,7 +1487,7 @@ async function renderCharacterPage(){
             `${pic}/skills/${_urlFile(`${skillImageName}_skill.png`)}`,
             true,
             hasNormalRally ? null : normalSkillDetailsRaw,
-            charData?.skillAttr,
+            activeSkillAttr,
             useBaseLevelNormal ? 0 : 1,
             "normal",
             null
@@ -1190,15 +1512,15 @@ async function renderCharacterPage(){
                 }
                 return baseText
             }
-            const base = renderSkillTaggedText(mergedDetails(normalSkillDetailsRaw), charData?.skillAttr, 0)
-            const max = renderSkillTaggedText(mergedDetails(normalSkillDetailsRaw), charData?.skillAttr, 1)
+            const base = renderSkillTaggedText(mergedDetails(normalSkillDetailsRaw), activeSkillAttr, 0)
+            const max = renderSkillTaggedText(mergedDetails(normalSkillDetailsRaw), activeSkillAttr, 1)
             const swapClass = useBaseLevelNormal ? "level-base" : "level-max"
             normalSkillDetailsHtml = `<div class="char-skill-details-swap ${swapClass}" data-level-swap="normal" style="margin-top:16px"><div class="char-skill-details" data-level="base">${base}</div><div class="char-skill-details" data-level="max">${max}</div></div>`
         }
         // Enchants apply to Magic Candy / Crystal Jam only — same key shape as wiki import ({slug}_10 / _20 / _30).
-        const normalEnchantsRaw = !hasMcCj ? buildEnchantsHtml(descData.enchants, charData?.skillAttr, slug) : ""
+        const normalEnchantsRaw = !hasMcCj ? buildEnchantsHtml(descData.enchants, activeSkillAttr, slug) : ""
         const normalEnchantsHtml = wrapEnchantsToggleable(normalEnchantsRaw, "normal", showEnchants)
-        const normalGameplayNotesRaw = buildGameplayNotesHtml(descData.skill_notes, charData?.skillAttr, slug)
+        const normalGameplayNotesRaw = buildGameplayNotesHtml(activeSkillDescData.skill_notes, activeSkillAttr, activeSlug)
         const normalGameplayNotesHtml = wrapGameplayNotesBubble(normalGameplayNotesRaw, "normal", showGameplayNotesNormal)
         const normalBar = skillBar("normal", useBaseLevelNormal, null, null, null, !!normalEnchantsRaw, false, !!normalGameplayNotesRaw, false)
         let mcCjBox = ""
@@ -1292,7 +1614,7 @@ async function renderCharacterPage(){
         const normalDisclaimer = isAncientA
             ? `<div class="char-skill-cj-disclaimer-wrap"><div class="char-skill-cj-disclaimer">Replaces ${unawakenedSlugForIcon ? tagParser(`skill{${unawakenedSlugForIcon}}`) : ""}${unawakenedSkillName || "normal skill"}; however, level-ups are shared between the two skills.</div></div>`
             : ""
-        const normalBubble = `${normalDisclaimer}<div class="char-skill-bubble"><div class="char-skill-content">${normalBox}${!hasMcCj ? rallyHtml : ""}${normalSkillDetailsHtml}${normalEnchantsHtml}</div>${normalBar}</div>${normalGameplayNotesHtml || ""}`
+        const normalBubble = `${cnSkillDisclaimer}${normalDisclaimer}<div class="char-skill-bubble"><div class="char-skill-content">${normalBox}${!hasMcCj ? rallyHtml : ""}${normalSkillDetailsHtml}${normalEnchantsHtml}</div>${normalBar}</div>${normalGameplayNotesHtml || ""}`
         const cjDisclaimer = (isCJ && hasCJ && charData?.cjReplace)
             ? `<div class="char-skill-cj-disclaimer-wrap"><div class="char-skill-cj-disclaimer">Replaces the base skill; level-ups are not applied to the Crystal Jam skill.</div></div>`
             : ""
@@ -1366,6 +1688,11 @@ async function renderCharacterPage(){
     }
 
     renderSkillSectionContent()
+    window.addEventListener("crkSettingsChanged", () => {
+      renderSkillSectionContent()
+      renderMcCjReviewSection(charData)
+    })
+    renderCharPageUpdatedLine(charData)
 
     function renderBuildSection() {
         const buildSection = document.getElementById("Builds")
@@ -1381,47 +1708,54 @@ async function renderCharacterPage(){
             buildSection.style.display = "none"
             return
         }
-        const buildIds = Object.keys(builds).filter(k => k !== "notes")
+        const { active: activeBuildIds, archived: archivedBuildIds } = partitionBuildIdsByActive(builds)
         const generalNotes = builds.notes
-        const buildNotes = charData?.buildNotes || []
-        let cardsHtml = ""
-        let buildCardCount = 0
-        let hasValidBuilds = false
-        for (const id of buildIds) {
-            const build = builds[id]
-            if (!build || typeof build !== "object") continue
+        const buildNotesRaw = charData?.buildNotes
+        const generalNotesList = Array.isArray(generalNotes) ? generalNotes : (generalNotes ? [generalNotes] : [])
+        const buildNotesList = Array.isArray(buildNotesRaw) ? buildNotesRaw : (buildNotesRaw ? [buildNotesRaw] : [])
+
+        function renderBuildCardHtml(id, build) {
+            if (!build || typeof build !== "object") return null
             const name = build.name || `Build ${id}`
             const rank = build.rank || ""
             const toppingsIndex = build.toppings
-            if (toppingsIndex == null || !Number.isInteger(toppingsIndex) || toppingsIndex < 1) continue
+            if (toppingsIndex == null || !Number.isInteger(toppingsIndex) || toppingsIndex < 1) return null
             const topSet = toppingSetsList[toppingsIndex - 1]
-            if (!topSet) continue
+            if (!topSet) return null
             const biscuitIndex = build.beascuit
             const biscuitSet = biscuitIndex != null && Number.isInteger(biscuitIndex) && biscuitIndex >= 1 ? beascuitSetsList[biscuitIndex - 1] : null
-            const { starHtml: toppingsHtml, substatsHtml } = buildToppingsSetBlockHtml(topSet)
-            const { beascuitNameHtml, beascuitRowHtml } = buildBeascuitSetBlockHtml(biscuitSet, charData)
-            const buildNotes = build.notes || []
+            const { starHtml: toppingsHtml } = buildToppingsSetBlockHtml(topSet, {
+                lazyImages: true,
+                substats: build.substats,
+                bonusEffect: build.bonusEffect,
+            })
+            const toppingsDetailsHtml = buildToppingsDetailsHtml({
+                substats: build.substats,
+                bonusEffect: build.bonusEffect,
+            })
+            const { beascuitNameHtml, beascuitRowHtml } = buildBeascuitSetBlockHtml(biscuitSet, charData, { lazyImages: true })
             const useOwn = !!build.useOwn
+            const cardNotes = build.notes || []
             const buildStats = build.stats || []
             const statsItems = buildStats.length
                 ? buildStats.map(s => `<div class="char-build-stat"><span class="char-build-stat-name">${s.name}:</span> <span class="char-build-stat-value">${s.value}</span></div>`).join("")
                 : ""
             const statsHtml = statsItems ? `<div class="char-build-stats-header-bar"><h4 class="char-build-stats-title">Stat Requirements</h4></div><div style="padding: 10px 20px;">${statsItems}</div>` : ""
-            const notesItems = [...(useOwn ? [] : (generalNotes || [])), ...buildNotes]
+            const notesItems = [...(useOwn ? [] : generalNotesList), ...cardNotes]
                 .map(n => `<div class="char-build-note">${renderInlineTaggedText(n, charData?.skillAttr)}</div>`).join("")
             const notesHtml = notesItems ? `<div class="char-build-notes-header-bar"><h4 class="char-build-notes-title">Build Notes</h4></div><div style="padding: 10px 20px;">${notesItems}</div>` : ""
             const rankTitle = rank === "best" ? "Best" : rank === "recommended" ? "Recommended" : ""
             const rankIcon = rank === "best" || rank === "recommended"
                 ? `<span class="char-build-rank-icon-wrap" data-tooltip="${_esc(rankTitle)}"><div class="char-build-rank-icon char-build-rank-${rank}"></div></span>`
                 : ""
-            cardsHtml += `<div class="char-build-card" data-build-id="${id}">
+            return `<div class="char-build-card" data-build-id="${id}">
                 <div class="char-build-name-bar"><span class="char-build-name-text">${name}</span>${rankIcon}</div>
                 <div class="char-build-content">
                     <div class="char-build-toppings-col">
                         <div class="char-build-section-title">Toppings</div>
                         <div class="char-build-toppings-main">
                             ${toppingsHtml}
-                            ${substatsHtml ? `<div class="char-build-substats"><div class="char-build-substats-title">Substats</div>${substatsHtml}</div>` : ""}
+                            ${toppingsDetailsHtml}
                         </div>
                     </div>
                     <div class="char-build-beascuit-col">
@@ -1435,33 +1769,55 @@ async function renderCharacterPage(){
                 ${statsHtml ? `<div class="char-build-stats">${statsHtml}</div>` : ""}
                 ${notesHtml ? `<div class="char-build-notes">${notesHtml}</div>` : ""}
             </div>`
-            buildCardCount += 1
-            hasValidBuilds = true
         }
-        const wrapperSingleClass = buildCardCount === 1 ? " char-build-section-wrapper-single" : ""
 
-        let toppingSetCardsHtml = ""
-        toppingSetsList.forEach((topSet, i) => {
-            const { starHtml, substatsHtml } = buildToppingsSetBlockHtml(topSet)
-            toppingSetCardsHtml += `<div class="char-build-card char-set-card">
-                <div class="char-build-name-bar"><span class="char-build-name-text">Topping set ${i + 1}</span></div>
+        function renderBuildCardsForIds(ids) {
+            let html = ""
+            let count = 0
+            for (const id of ids) {
+                const card = renderBuildCardHtml(id, builds[id])
+                if (!card) continue
+                html += card
+                count += 1
+            }
+            return { html, count }
+        }
+
+        const activeBuildCards = renderBuildCardsForIds(activeBuildIds)
+        const archivedBuildCards = renderBuildCardsForIds(archivedBuildIds)
+        const buildCardCount = activeBuildCards.count + archivedBuildCards.count
+        const hasValidBuilds = buildCardCount > 0
+
+        const buildsCatalogHtml = [
+            buildCatalogGroupHtml("Active", activeBuildCards.html, { cardCount: activeBuildCards.count }),
+            buildCatalogGroupHtml("Archived", archivedBuildCards.html, { cardCount: archivedBuildCards.count, kind: "archived" }),
+        ].filter(Boolean).join("")
+
+        function renderToppingSetCardHtml(setIndex) {
+            const topSet = toppingSetsList[setIndex - 1]
+            if (!topSet) return ""
+            const { starHtml } = buildToppingsSetBlockHtml(topSet, { lazyImages: true, showTart: false })
+            const toppingsDetailsHtml = buildToppingsDetailsHtml({ showTart: false })
+            return `<div class="char-build-card char-set-card">
+                <div class="char-build-name-bar"><span class="char-build-name-text">Topping set ${setIndex}</span></div>
                 <div class="char-build-content char-build-content-set-single">
                     <div class="char-build-toppings-col">
                         <div class="char-build-section-title">Toppings</div>
                         <div class="char-build-toppings-main">
                             ${starHtml}
-                            ${substatsHtml ? `<div class="char-build-substats"><div class="char-build-substats-title">Substats</div>${substatsHtml}</div>` : ""}
+                            ${toppingsDetailsHtml}
                         </div>
                     </div>
                 </div>
             </div>`
-        })
+        }
 
-        let beascuitSetCardsHtml = ""
-        beascuitSetsList.forEach((biscuitSet, i) => {
-            const { beascuitNameHtml, beascuitRowHtml } = buildBeascuitSetBlockHtml(biscuitSet, charData)
-            beascuitSetCardsHtml += `<div class="char-build-card char-set-card">
-                <div class="char-build-name-bar"><span class="char-build-name-text">Beascuit ${i + 1}</span></div>
+        function renderBeascuitSetCardHtml(setIndex) {
+            const biscuitSet = beascuitSetsList[setIndex - 1]
+            if (!biscuitSet) return ""
+            const { beascuitNameHtml, beascuitRowHtml } = buildBeascuitSetBlockHtml(biscuitSet, charData, { lazyImages: true })
+            return `<div class="char-build-card char-set-card">
+                <div class="char-build-name-bar"><span class="char-build-name-text">Beascuit ${setIndex}</span></div>
                 <div class="char-build-content char-build-content-set-single">
                     <div class="char-build-beascuit-col">
                         <div class="char-build-section-title">Beascuit</div>
@@ -1472,11 +1828,41 @@ async function renderCharacterPage(){
                     </div>
                 </div>
             </div>`
-        })
+        }
 
-        const toppingSetsWrapperClass = toppingSetsList.length === 1 ? " char-build-sets-wrapper-single" : ""
-        const beascuitSetsWrapperClass = beascuitSetsList.length === 1 ? " char-build-sets-wrapper-single" : ""
-        const setsPanelHtml = `<div class="char-build-sets-panel">${hasToppingSetsData ? `<h4 class="char-sets-subsection-title">Topping sets</h4><div class="char-build-sets-wrapper${toppingSetsWrapperClass}">${toppingSetCardsHtml}</div>` : ""}${hasBeascuitSetsData ? `<h4 class="char-sets-subsection-title">Beascuits</h4><div class="char-build-sets-wrapper${beascuitSetsWrapperClass}">${beascuitSetCardsHtml}</div>` : ""}</div>`
+        function renderSetCardsForIndices(indices, renderCard) {
+            let html = ""
+            for (const idx of indices) {
+                html += renderCard(idx)
+            }
+            return html
+        }
+
+        const activeSetRefs = getSetIndicesReferencedByBuildIds(builds, activeBuildIds)
+        const toppingSetParts = partitionSetIndicesByActive(toppingSetsList.length, activeSetRefs.toppings)
+        const beascuitSetParts = partitionSetIndicesByActive(beascuitSetsList.length, activeSetRefs.beascuit)
+
+        function renderSetsCatalogGroup(title, toppingIndices, beascuitIndices, kind) {
+            const toppingHtml = renderSetCardsForIndices(toppingIndices, renderToppingSetCardHtml)
+            const beascuitHtml = renderSetCardsForIndices(beascuitIndices, renderBeascuitSetCardHtml)
+            if (!toppingHtml && !beascuitHtml) return ""
+            let inner = ""
+            if (toppingHtml) inner += buildSetsGridHtml("Topping sets", toppingHtml, toppingIndices.length)
+            if (beascuitHtml) inner += buildSetsGridHtml("Beascuits", beascuitHtml, beascuitIndices.length)
+            return `<div class="char-build-catalog-group${kind === "archived" ? " char-build-catalog-group--archived" : ""}">
+                <h4 class="char-build-catalog-title">${title}</h4>
+                ${inner}
+            </div>`
+        }
+
+        const setsCatalogHtml = [
+            renderSetsCatalogGroup("Active", toppingSetParts.active, beascuitSetParts.active),
+            renderSetsCatalogGroup("Archived", toppingSetParts.archived, beascuitSetParts.archived, "archived"),
+        ].filter(Boolean).join("")
+
+        const setsPanelHtml = setsCatalogHtml
+            ? `<div class="char-build-sets-panel">${setsCatalogHtml}</div>`
+            : ""
 
         const viewMode = hasValidBuilds ? "builds" : "sets"
 
@@ -1485,9 +1871,10 @@ async function renderCharacterPage(){
         const toggleButtons = `${hasValidBuilds ? `<button type="button" class="char-build-view-btn${viewMode === "builds" ? " active" : ""}" data-view="builds" aria-pressed="${viewMode === "builds"}">Builds</button>` : ""}<button type="button" class="char-build-view-btn${viewMode === "sets" ? " active" : ""}" data-view="sets" aria-pressed="${viewMode === "sets"}">Sets</button>`
 
         let sectionNotesHtml = ""
-        if (buildNotes.length > 0) {
-            const sectionNotesItems = buildNotes.map(n => `<div class="char-build-note">${renderInlineTaggedText(n, charData?.skillAttr)}</div>`).join("")
-            sectionNotesHtml = `<div class="char-build-section-notes"><div class="char-build-section-notes-header-bar"><h4 class="char-build-section-notes-title">Additional Notes</h4></div><div style="padding: 10px 20px;">${sectionNotesItems}</div></div>`
+        if (buildNotesList.length > 0) {
+            const sectionNotesItems = buildNotesList
+                .map(n => `<div class="char-build-note">${renderInlineTaggedText(n, charData?.skillAttr)}</div>`).join("")
+            sectionNotesHtml = `<div class="char-build-section-notes"><div class="char-build-section-notes-header-bar"><h4 class="char-build-section-notes-title">Build Notes</h4></div><div style="padding: 10px 20px;">${sectionNotesItems}</div></div>`
         }
 
         let html = `<div class="char-build-section-header char-build-section-header-with-toggle">
@@ -1497,10 +1884,16 @@ async function renderCharacterPage(){
             </div>
             <div class="char-section-divider"></div>
         </div>
-        <div class="char-build-panel" data-panel="builds" style="display:${buildsPanelDisplay}"><div class="char-build-section-wrapper${wrapperSingleClass}">${cardsHtml}</div>${sectionNotesHtml}</div>
+        ${sectionNotesHtml}
+        <div class="char-build-panel" data-panel="builds" style="display:${buildsPanelDisplay}"><div class="char-build-catalog">${buildsCatalogHtml}</div></div>
         <div class="char-build-panel" data-panel="sets" style="display:${setsPanelDisplay}">${setsPanelHtml}</div>`
         buildSection.innerHTML = html
         buildSection.style.display = "block"
+        if (typeof initToppingGraphics === "function") initToppingGraphics(buildSection)
+        if (!buildSection.dataset.toppingFitBound) {
+            buildSection.dataset.toppingFitBound = "1"
+            buildSection.addEventListener("topping-graphic-fit", () => scheduleCharacterBuildsMasonrySync())
+        }
 
         if (hasValidBuilds && buildsPanelDisplay === "block") {
             scheduleCharacterBuildsMasonryAfterImages(buildSection)
@@ -1519,6 +1912,7 @@ async function renderCharacterPage(){
                 buildSection.querySelectorAll(".char-build-panel").forEach((p) => {
                     p.style.display = p.dataset.panel === v ? "block" : "none"
                 })
+                if (typeof initToppingGraphics === "function") initToppingGraphics(buildSection)
                 scheduleCharacterBuildsMasonrySync()
             })
         })
@@ -1538,28 +1932,15 @@ async function renderCharacterPage(){
             })
         }
     }
-    renderBuildSection()
+    _runWhenIdle(() => renderBuildSection())
 
     const reviewSection = document.getElementById("char-review-section")
     if (reviewSection && (charData?.review || charData?.rating)) {
-        const ratingHtml = charData.rating
-            ? `<div class="char-review-rating" data-rating="${charData.rating}">
-                   <span class="char-review-rating-label">Rating</span>
-                   <span class="char-review-rating-letter">${charData.rating}</span>
-               </div>`
-            : ""
-        const bodyHtml = charData.review
-            ? `<div class="char-review-body">${renderInlineTaggedText(charData.review, charData?.skillAttr)}</div>`
-            : ""
-        reviewSection.innerHTML = `
-            <div class="char-review-header-bar">
-                <h3 class="char-section-title">Review</h3>
-            </div>
-            <div class="char-section-divider"></div>
-            <div class="char-review-content">${bodyHtml}${ratingHtml}</div>
-        `
+        reviewSection.innerHTML = buildCharReviewBlockHtml("Review", charData.review, charData.rating, charData?.skillAttr)
         reviewSection.style.display = "block"
     }
+
+    renderMcCjReviewSection(charData)
 
     if (!characterBuildMasonryResizeBound) {
         characterBuildMasonryResizeBound = true
@@ -1573,7 +1954,6 @@ async function renderCharacterPage(){
         }
     }
 
-    renderCharPageUpdatedLine(charData)
 }
 
 if (typeof window !== "undefined") {
@@ -1581,5 +1961,8 @@ if (typeof window !== "undefined") {
 }
 
 if (document.getElementById("char-skill-section")) {
+  if (document.getElementById("char-resonant-toppings")) {
+    void loadResonantToppingsMap()
+  }
   void renderCharacterPage()
 }

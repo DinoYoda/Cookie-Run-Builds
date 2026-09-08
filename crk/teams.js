@@ -23,6 +23,9 @@
   const categoryTabsEl = document.getElementById("teamsCategoryTabs")
   const sectionTabsEl = document.getElementById("teamsSectionTabs")
   const sectionGroupEl = document.getElementById("teamsSectionGroup")
+  const sectionLabelEl = document.getElementById("teamsSectionLabel")
+  const versionTabsEl = document.getElementById("teamsVersionTabs")
+  const versionGroupEl = document.getElementById("teamsVersionGroup")
   const contentEl = document.getElementById("teamsContent")
   if (!categoryTabsEl || !sectionTabsEl || !contentEl) return
 
@@ -35,8 +38,14 @@
     if (sectionGroupEl) sectionGroupEl.hidden = !show
   }
 
+  function setVersionTabsVisible(show) {
+    if (versionTabsEl) versionTabsEl.hidden = !show
+    if (versionGroupEl) versionGroupEl.hidden = !show
+  }
+
   const game = (window.CRK_DATA?.games || []).find(g => g.id === getSelectedGameId())
   const categories = Array.isArray(game?.teams?.categories) ? game.teams.categories : []
+  const events = Array.isArray(game?.teams?.events) ? game.teams.events : []
   const characters = Array.isArray(game?.characters) ? game.characters : []
   const charMap = {}
   characters.forEach(c => {
@@ -44,6 +53,33 @@
     charMap[String(c.name || "").toLowerCase()] = c
     charMap[String(c.displayName || "").toLowerCase()] = c
   })
+
+  /** Set in renderTeams from ctx.gameVersion; default = current meta (all features). */
+  let currentRenderFeatures = { beascuits: true, resonantToppings: true, tarts: true, legendaryTarts: true }
+  let currentGameVersion = null
+  let currentResonanceUpdateMap = null
+
+  function resolveRenderFeatures(gameVersion) {
+    if (typeof getTeamRenderFeatures === "function") {
+      return getTeamRenderFeatures(gameVersion)
+    }
+    return { beascuits: true, resonantToppings: true, tarts: true, legendaryTarts: true }
+  }
+
+  function buildToppingRenderOptions(topSet) {
+    const opts = {
+      showTart: currentRenderFeatures.tarts,
+      showLegendaryTart: currentRenderFeatures.legendaryTarts,
+    }
+    if (currentGameVersion != null && typeof resolveResonanceForGameVersion === "function") {
+      opts.resonance = resolveResonanceForGameVersion(
+        topSet?.resonance,
+        currentGameVersion,
+        currentResonanceUpdateMap,
+      )
+    }
+    return opts
+  }
 
   function getChar(ref) {
     if (!ref) return null
@@ -157,21 +193,33 @@
     const beascuitIdx = rawB == null ? null : Number(rawB)
     const toppingIdxOk = toppingIdx != null && Number.isInteger(toppingIdx) && toppingIdx >= 1
     const beascuitIdxOk = beascuitIdx != null && Number.isInteger(beascuitIdx) && beascuitIdx >= 1
+    const showBeascuit = currentRenderFeatures.beascuits
+    const showTart = currentRenderFeatures.tarts
 
     const sets = charData.sets || {}
     const toppingSetsList = Array.isArray(sets.toppings) ? sets.toppings : []
     const beascuitSetsList = Array.isArray(sets.beascuit) ? sets.beascuit : []
     const topSet = toppingIdxOk ? (toppingSetsList[toppingIdx - 1] || null) : null
-    const biscuitSet = beascuitIdxOk ? (beascuitSetsList[beascuitIdx - 1] || null) : null
+    const biscuitSet = showBeascuit && beascuitIdxOk ? (beascuitSetsList[beascuitIdx - 1] || null) : null
 
     const canBuildGear = typeof buildToppingsSetBlockHtml === "function" && typeof buildBeascuitSetBlockHtml === "function"
-    let tBlock = { starHtml: "", substatsHtml: "" }
+    let tBlock = { starHtml: "" }
+    let toppingDetailsHtml = ""
     let bBlock = { beascuitRowHtml: "" }
     if (canBuildGear) {
-      tBlock = topSet ? buildToppingsSetBlockHtml(topSet) : tBlock
+      const toppingOpts = topSet ? buildToppingRenderOptions(topSet) : {}
+      tBlock = topSet ? buildToppingsSetBlockHtml(topSet, toppingOpts) : tBlock
+      if (topSet && typeof buildToppingsDetailsHtml === "function") {
+        toppingDetailsHtml = buildToppingsDetailsHtml({
+          ...toppingOpts,
+          substats: build?.substats,
+          bonusEffect: build?.bonusEffect,
+          teamsCompact: true,
+        })
+      }
       bBlock = biscuitSet ? buildBeascuitSetBlockHtml(biscuitSet, charData, { teamsImageOverlay: true }) : bBlock
     }
-    const hasT = !!(canBuildGear && topSet && (tBlock.starHtml || tBlock.substatsHtml))
+    const hasT = !!(canBuildGear && topSet && (tBlock.starHtml || toppingDetailsHtml))
     const hasB = !!(canBuildGear && biscuitSet && bBlock.beascuitRowHtml)
 
     const chips = []
@@ -179,12 +227,12 @@
       if (getSetLabel("T", toppingIdxOk ? toppingIdx : null)) {
         chips.push(`<span class="teams-member-chip">${getSetLabel("T", toppingIdx)}</span>`)
       }
-      if (getSetLabel("B", beascuitIdxOk ? beascuitIdx : null)) {
+      if (showBeascuit && getSetLabel("B", beascuitIdxOk ? beascuitIdx : null)) {
         chips.push(`<span class="teams-member-chip">${getSetLabel("B", beascuitIdx)}</span>`)
       }
     } else {
       if (toppingIdxOk && !topSet) chips.push(`<span class="teams-member-chip">T ${toppingIdx}</span>`)
-      if (beascuitIdxOk && !biscuitSet) chips.push(`<span class="teams-member-chip">B ${beascuitIdx}</span>`)
+      if (showBeascuit && beascuitIdxOk && !biscuitSet) chips.push(`<span class="teams-member-chip">B ${beascuitIdx}</span>`)
     }
     const metaHtml = chips.length ? `<div class="teams-build-row-meta">${chips.join("")}</div>` : ""
 
@@ -207,12 +255,9 @@
 
     let gearHtml = ""
     if (hasT) {
-      const subHtml = tBlock.substatsHtml
-        ? `<div class="teams-build-row-substats char-build-substats">${tBlock.substatsHtml}</div>`
-        : ""
       gearHtml += `<div class="teams-build-toppings-group">
         <div class="teams-build-row-star">${tBlock.starHtml}</div>
-        ${subHtml}
+        ${toppingDetailsHtml}
       </div>`
     }
     if (hasB) {
@@ -224,8 +269,16 @@
     return `<a class="teams-build-row${hasGear ? " teams-build-row--has-gear" : ""}" href="${href}">${identityBlock}${rightBlock}</a>`
   }
 
-  /** Non-empty `sections` → subsection tabs; otherwise use `category.teams` only. */
+  /** Event categories filter `teams.events` by `active`; others use `sections`. */
+  function isEventCategory(cat) {
+    return cat?.eventFilter === "active" || cat?.eventFilter === "inactive"
+  }
+
   function getCategorySections(cat) {
+    if (isEventCategory(cat)) {
+      const wantActive = cat.eventFilter === "active"
+      return events.filter(ev => !!ev?.active === wantActive)
+    }
     const s = cat?.sections
     return Array.isArray(s) ? s : []
   }
@@ -234,16 +287,77 @@
     return getCategorySections(cat).length > 0
   }
 
+  function getSectionVersions(section) {
+    return Array.isArray(section?.versions) ? section.versions : []
+  }
+
+  function sectionUsesVersions(section) {
+    return getSectionVersions(section).length > 0
+  }
+
+  function getDefaultVersionIdx(section) {
+    const versions = getSectionVersions(section)
+    return versions.length ? versions.length - 1 : 0
+  }
+
+  function getVersionLabel(version) {
+    const ver = version?.gameVersion != null && String(version.gameVersion).trim()
+      ? String(version.gameVersion).trim()
+      : ""
+    const name = version?.displayName != null && String(version.displayName).trim()
+      ? String(version.displayName).trim()
+      : ""
+    if (ver && name) return `${ver} — ${name}`
+    return name || ver || "Version"
+  }
+
+  function resolveSectionContent(section, versionIdx) {
+    if (sectionUsesVersions(section)) {
+      const versions = getSectionVersions(section)
+      const idx = Number.isInteger(versionIdx) && versionIdx >= 0 && versionIdx < versions.length
+        ? versionIdx
+        : getDefaultVersionIdx(section)
+      const v = versions[idx] || {}
+      return {
+        teams: Array.isArray(v.teams) ? v.teams : [],
+        notes: Array.isArray(v.notes) ? v.notes : [],
+        gameVersion: v.gameVersion != null ? String(v.gameVersion).trim() : null,
+        eventHeading: {
+          displayName: v.displayName || section?.name || "",
+          gameVersion: v.gameVersion || null
+        }
+      }
+    }
+    return {
+      teams: Array.isArray(section?.teams) ? section.teams : [],
+      notes: Array.isArray(section?.notes) ? section.notes : [],
+      gameVersion: section?.gameVersion != null ? String(section.gameVersion).trim() : null,
+      eventHeading: null
+    }
+  }
+
+  function renderEventHeading(heading) {
+    if (!heading || !heading.displayName) return ""
+    const title = esc(heading.displayName)
+    const ver = heading.gameVersion != null && String(heading.gameVersion).trim()
+      ? `<p class="teams-event-version-meta">Game version ${esc(String(heading.gameVersion).trim())}</p>`
+      : ""
+    return `<div class="teams-event-heading"><h2 class="teams-event-title">${title}</h2>${ver}</div>`
+  }
+
   function renderTeams(ctx) {
+    currentGameVersion = ctx?.gameVersion ?? null
+    currentRenderFeatures = resolveRenderFeatures(currentGameVersion)
     const teams = Array.isArray(ctx?.teams) ? ctx.teams : []
+    const headingHtml = renderEventHeading(ctx?.eventHeading)
     if (!teams.length) {
-      contentEl.innerHTML = `<div class="teams-empty">No teams added here yet.</div>`
+      contentEl.innerHTML = `${headingHtml}<div class="teams-empty">No teams added here yet.</div>`
       return
     }
 
     const generalNotes = Array.isArray(ctx?.notes) ? ctx.notes : []
 
-    contentEl.innerHTML = teams.map(team => {
+    contentEl.innerHTML = headingHtml + teams.map(team => {
       const members = Array.isArray(team.cookies) ? team.cookies.slice(0, 7) : []
       const treasures = Array.isArray(team.treasures) ? team.treasures : []
       const teamNotesBlock = renderTeamNotesBlock(generalNotes, team)
@@ -260,6 +374,7 @@
         ${teamNotesBlock}
       </div>`
     }).join("")
+    if (typeof initToppingGraphics === "function") initToppingGraphics(contentEl)
   }
 
   function setActiveCategoryButtons(activeIdx) {
@@ -278,9 +393,19 @@
     })
   }
 
+  function setActiveVersionButtons(activeIdx) {
+    if (!versionTabsEl) return
+    Array.from(versionTabsEl.querySelectorAll("button")).forEach(btn => {
+      const on = Number(btn.dataset.verIdx) === activeIdx
+      btn.classList.toggle("active", on)
+      btn.setAttribute("aria-pressed", String(on))
+    })
+  }
+
   /** Array indices only — categories/sections use `name` in data, no `id` required. */
   let activeCategoryIdx = 0
   let activeSectionIdx = 0
+  let activeVersionIdx = -1
   let teamsRestoring = false
   let saveScrollRaf = null
 
@@ -308,6 +433,8 @@
         if (Number.isInteger(c) && c >= 0 && c < categories.length) activeCategoryIdx = c
         const sec = Number(s.sec)
         if (Number.isInteger(sec) && sec >= 0) activeSectionIdx = sec
+        const ver = Number(s.ver)
+        if (Number.isInteger(ver) && ver >= 0) activeVersionIdx = ver
         const y = Number(s.y)
         if (Number.isFinite(y) && y >= 0) savedScrollY = y
       }
@@ -321,6 +448,7 @@
         game: gameIdForTeams,
         cat: activeCategoryIdx,
         sec: activeSectionIdx,
+        ver: activeVersionIdx,
         y: window.scrollY || 0
       }
       sessionStorage.setItem(TEAMS_PAGE_STATE_KEY, JSON.stringify(payload))
@@ -362,11 +490,66 @@
     })
   }
 
+  function renderVersionTabs(section) {
+    if (!versionTabsEl) return
+    const versions = getSectionVersions(section)
+    if (versions.length <= 1) {
+      versionTabsEl.innerHTML = ""
+      setVersionTabsVisible(false)
+      return
+    }
+
+    setVersionTabsVisible(true)
+    if (activeVersionIdx >= versions.length) activeVersionIdx = getDefaultVersionIdx(section)
+    if (activeVersionIdx < 0) activeVersionIdx = 0
+
+    versionTabsEl.innerHTML = versions.map((version, k) => {
+      const label = getVersionLabel(version)
+      return `<button type="button" class="teams-version-tab${k === activeVersionIdx ? " active" : ""}" data-ver-idx="${k}" aria-pressed="${k === activeVersionIdx}">${esc(label)}</button>`
+    }).join("")
+
+    versionTabsEl.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        activeVersionIdx = Number(btn.dataset.verIdx) || 0
+        setActiveVersionButtons(activeVersionIdx)
+        const cur = categories[activeCategoryIdx]
+        const subs = getCategorySections(cur)
+        const sec = subs[activeSectionIdx] || {}
+        const content = resolveSectionContent(sec, activeVersionIdx)
+        renderTeams(content)
+        saveTeamsState(true)
+      })
+    })
+    setActiveVersionButtons(activeVersionIdx)
+  }
+
+  function renderCurrentSectionContent(cat, section) {
+    if (sectionUsesVersions(section)) {
+      const versions = getSectionVersions(section)
+      if (!Number.isInteger(activeVersionIdx) || activeVersionIdx < 0 || activeVersionIdx >= versions.length) {
+        activeVersionIdx = getDefaultVersionIdx(section)
+      }
+      renderVersionTabs(section)
+      renderTeams(resolveSectionContent(section, activeVersionIdx))
+      return
+    }
+    setVersionTabsVisible(false)
+    if (versionTabsEl) versionTabsEl.innerHTML = ""
+    renderTeams(resolveSectionContent(section, 0))
+  }
+
+  function getCategoryEmptyMessage(cat) {
+    if (cat?.eventFilter === "active") return "No active events right now."
+    if (cat?.eventFilter === "inactive") return "No archived events yet."
+    return "No teams added here yet."
+  }
+
   function renderSections() {
     const cat = categories[activeCategoryIdx]
     if (!cat) {
       sectionTabsEl.innerHTML = ""
       setSectionSubtabsVisible(false)
+      setVersionTabsVisible(false)
       contentEl.innerHTML = `<div class="teams-empty">No data.</div>`
       return
     }
@@ -376,6 +559,11 @@
     if (!categoryHasSectionTabs(cat)) {
       sectionTabsEl.innerHTML = ""
       setSectionSubtabsVisible(false)
+      setVersionTabsVisible(false)
+      if (isEventCategory(cat)) {
+        contentEl.innerHTML = `<div class="teams-empty">${esc(getCategoryEmptyMessage(cat))}</div>`
+        return
+      }
       const flat = Array.isArray(cat.teams) ? cat.teams : []
       const parentNotes = Array.isArray(cat.notes) ? cat.notes : []
       renderTeams({ teams: flat, notes: parentNotes })
@@ -383,6 +571,9 @@
     }
 
     setSectionSubtabsVisible(true)
+    if (sectionLabelEl) {
+      sectionLabelEl.textContent = isEventCategory(cat) ? "Events" : "Section"
+    }
     if (activeSectionIdx >= sections.length) activeSectionIdx = 0
     if (activeSectionIdx < 0) activeSectionIdx = 0
 
@@ -394,21 +585,14 @@
     sectionTabsEl.querySelectorAll("button").forEach(btn => {
       btn.addEventListener("click", () => {
         activeSectionIdx = Number(btn.dataset.secIdx) || 0
+        activeVersionIdx = getDefaultVersionIdx(sections[activeSectionIdx] || {})
         setActiveSectionButtons(activeSectionIdx)
-        const cur = categories[activeCategoryIdx]
-        const subs = getCategorySections(cur)
-        const sec = subs[activeSectionIdx] || { teams: [] }
-        const secNotes = Array.isArray(sec.notes) ? sec.notes : []
-        renderTeams({ teams: Array.isArray(sec.teams) ? sec.teams : [], notes: secNotes })
+        renderCurrentSectionContent(cat, sections[activeSectionIdx] || {})
         saveTeamsState(true)
       })
     })
     setActiveSectionButtons(activeSectionIdx)
-    {
-      const sec = sections[activeSectionIdx] || { teams: [] }
-      const secNotes = Array.isArray(sec.notes) ? sec.notes : []
-      renderTeams({ teams: Array.isArray(sec.teams) ? sec.teams : [], notes: secNotes })
-    }
+    renderCurrentSectionContent(cat, sections[activeSectionIdx] || {})
   }
 
   function renderCategories() {
@@ -431,6 +615,7 @@
       btn.addEventListener("click", () => {
         activeCategoryIdx = Number(btn.dataset.catIdx) || 0
         activeSectionIdx = 0
+        activeVersionIdx = -1
         setActiveCategoryButtons(activeCategoryIdx)
         renderSections()
         saveTeamsState(true)
@@ -440,10 +625,21 @@
     renderSections()
   }
 
-  renderCategories()
-  if (savedScrollY != null && Number.isFinite(savedScrollY) && savedScrollY >= 0) {
-    scheduleRestoreScroll(savedScrollY)
-  } else {
-    saveTeamsState(true)
+  function bootTeamsPage() {
+    renderCategories()
+    if (savedScrollY != null && Number.isFinite(savedScrollY) && savedScrollY >= 0) {
+      scheduleRestoreScroll(savedScrollY)
+    } else {
+      saveTeamsState(true)
+    }
   }
+
+  currentResonanceUpdateMap = {}
+  if (typeof loadResonanceUpdateMap === "function") {
+    void loadResonanceUpdateMap().then((map) => {
+      currentResonanceUpdateMap = map || {}
+      renderSections()
+    })
+  }
+  bootTeamsPage()
 })()

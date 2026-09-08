@@ -1,7 +1,8 @@
 let allChars = []
 let activeFilters = {}
 let searchText = ""
-let sortMode = "rarity"
+let cookieSearchAliasMap = {}
+let sortMode = "release"
 let sortReverse = false
 let sortByMcCj = false
 let currentGameId = "crk"
@@ -39,10 +40,12 @@ function getSelectedGameId() {
   return "crk"
 }
 
-const RARITY_ORDER = ["Witch","AncientA","Beast","Ancient","Legendary","Dragon","Super Epic","Epic","Special","Rare","Common"]
+function sortInGameOrder() {
+  return typeof getSortInGameOrder === "function" && getSortInGameOrder()
+}
 
-function raritySortBand(rarity) {
-  return rarity === "New Legendary" ? "Legendary" : rarity
+function activeRarityOrder() {
+  return sortInGameOrder() ? gameRarityOrder : siteRarityOrder
 }
 
 const SORT_OPTIONS = [
@@ -50,6 +53,18 @@ const SORT_OPTIONS = [
   { value: "release", label: "Release" },
   { value: "alpha", label: "A–Z" }
 ]
+
+function restoreCharlistSortFromStorage() {
+  const s = readUIState()
+  if (s.charlistSortMode && SORT_OPTIONS.some(o => o.value === s.charlistSortMode)) {
+    sortMode = s.charlistSortMode
+  }
+  sortReverse = s.charlistSortReverse === true
+  const dirBtn = document.getElementById("charlistSortDir")
+  if (dirBtn) dirBtn.textContent = sortReverse ? "↑" : "↓"
+}
+
+restoreCharlistSortFromStorage()
 
 /**
  * Floating cursor tooltip (same element + styling as skill status icons in crk/char-ui.js).
@@ -139,6 +154,7 @@ function initCharlistSortExpand() {
       panel.hidden = true
       trigger.setAttribute("aria-expanded", "false")
       sortMode = o.value
+      writeUIState({ charlistSortMode: sortMode })
       syncCharlistSortUI()
       render()
     })
@@ -166,12 +182,34 @@ function initCharlistSortExpand() {
 }
 
 function hasMcCj(c) {
-  return !!(c?.cjSkill || c?.mcSkill)
+  const mc = typeof shouldRenderMcSkill === "function" ? shouldRenderMcSkill(c) : !!c?.mcSkill
+  return !!(c?.cjSkill || mc)
+}
+
+function charlistCardIconsHtml(c, pic) {
+  const parts = []
+  if (typeof shouldRenderMcSkill === "function" ? shouldRenderMcSkill(c) : c.mcSkill) {
+    parts.push(
+      `<img src="${pic}/candy/${c.name}_mc_lv3.png" alt="Magic Candy" title="Magic Candy" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
+    )
+  }
+  if (c.cjSkill) {
+    parts.push(
+      `<img src="${pic}/jam/${c.name}_mc_lv3.png" alt="Crystal Jam" title="Crystal Jam" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
+    )
+  }
+  if (c.type) {
+    parts.push(
+      `<img src="${pic}/icons/${c.type}.png" alt="${c.type}" title="${c.type}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
+    )
+  }
+  if (!parts.length) return ""
+  return `<div class="charlist-card-icons">${parts.join("")}</div>`
 }
 
 /** Within the same rarity, CN-exclusive cookies sort after global-release cookies (unknown CN dates). */
 function cnExSortRank(c) {
-  return c && c.cnEx ? 1 : 0
+  return c && c.cnEx === true ? 1 : 0
 }
 
 function buildFilters(filters) {
@@ -211,6 +249,7 @@ function buildFilters(filters) {
 function loadCharListForCurrentGame() {
   const d = window.CRK_DATA || {}
   currentGameId = getSelectedGameId()
+  restoreCharlistSortFromStorage()
   const game = d.games && d.games.find(g => g.id === currentGameId)
   currentListGame = game || null
   const wrap = document.getElementById("charlistFilters")
@@ -242,13 +281,33 @@ function loadCharListForCurrentGame() {
       mccjCb.checked = sortByMcCj
     }
   }
-  render()
+  syncCharlistSortUI()
+  refreshCookieSearchAliases(() => render())
+}
+
+function refreshCookieSearchAliases(onReady) {
+  const CSA = typeof CookieSearchAliases !== "undefined" ? CookieSearchAliases : null
+  if (!CSA) {
+    cookieSearchAliasMap = {}
+    if (onReady) onReady()
+    return
+  }
+  cookieSearchAliasMap = CSA.buildAliasMap(allChars)
+  CSA.loadStoredCookieAliases(CSA.siteRelativePath("tools")).then((stored) => {
+    cookieSearchAliasMap = CSA.buildAliasMap(allChars, stored)
+    if (onReady) onReady()
+  })
 }
 
 function applyFilters(c) {
   if (searchText) {
-    const s = ((c.displayName || c.name) + " " + c.name).toLowerCase()
-    if (!s.includes(searchText)) return false
+    const CSA = typeof CookieSearchAliases !== "undefined" ? CookieSearchAliases : null
+    if (CSA) {
+      if (!CSA.cookieMatchesSearch(c, searchText, cookieSearchAliasMap)) return false
+    } else {
+      const s = ((c.displayName || c.name) + " " + c.name).toLowerCase()
+      if (!s.includes(searchText)) return false
+    }
   }
   for (const [cat, vals] of Object.entries(activeFilters)) {
     const cv = c[cat]
@@ -258,6 +317,8 @@ function applyFilters(c) {
       let passes = vals.includes(cv)
       if (cat === "rarity" && !passes && vals.includes("Ancient") && cv === "AncientA") passes = true
       if (cat === "rarity" && !passes && vals.includes("Legendary") && cv === "New Legendary") passes = true
+      if (cat === "rarity" && !passes && vals.includes("Dragon") && cv === "New Dragon") passes = true
+      if (cat === "rarity" && !passes && vals.includes("Special") && cv === "Zhencang") passes = true
       if (!passes) return false
     }
   }
@@ -271,10 +332,10 @@ document.getElementById("charlistSearch").addEventListener("input", e => {
 document.getElementById("charlistReset").addEventListener("click", () => {
   activeFilters = {}
   searchText = ""
-  sortMode = "rarity"
+  sortMode = "release"
   sortReverse = false
   sortByMcCj = false
-  writeUIState({ charlistSortByMcCj: false })
+  writeUIState({ charlistSortByMcCj: false, charlistSortMode: "release", charlistSortReverse: false })
   document.getElementById("charlistSearch").value = ""
   const csr = document.getElementById("charlistSortExpand")
   const cst = document.getElementById("charlistSortTrigger")
@@ -295,15 +356,22 @@ document.getElementById("charlistMcCj").addEventListener("change", e => {
   render()
 })
 const dirBtn = document.getElementById("charlistSortDir")
-dirBtn.addEventListener("click", () => {
-  sortReverse = !sortReverse
-  dirBtn.textContent = sortReverse ? "↑" : "↓"
-  render()
-})
+if (dirBtn) {
+  dirBtn.addEventListener("click", () => {
+    sortReverse = !sortReverse
+    dirBtn.textContent = sortReverse ? "↑" : "↓"
+    writeUIState({ charlistSortReverse: sortReverse })
+    render()
+  })
+}
 
 function render() {
   const grid = document.getElementById("charlistGrid")
-  const ri = r => { const i = RARITY_ORDER.indexOf(raritySortBand(r)); return i < 0 ? 999 : i }
+  const ri = r => {
+    const band = raritySortBand(r, sortInGameOrder())
+    const i = activeRarityOrder().indexOf(band)
+    return i < 0 ? 999 : i
+  }
   const rel = c => { const i = cookieByDate.indexOf(c.displayName ?? c.name); return i < 0 ? 9999 : i }
   const chars = allChars.filter(applyFilters).sort((a, b) => {
     const useMcCj = sortMode === "rarity" && sortByMcCj
@@ -330,10 +398,16 @@ function render() {
     counter.textContent = `Showing ${chars.length} ${noun}${chars.length === 1 ? "" : "s"}`
   }
   grid.innerHTML = chars.map(cardHtml).join("")
-  grid.querySelectorAll(".charlist-card").forEach(el => {
-    el.addEventListener("click", () => {
-      window.location.href = `crk/character.html?char=${encodeURIComponent(el.dataset.name)}`
-    })
+}
+
+function initCharlistGridNavigation() {
+  const grid = document.getElementById("charlistGrid")
+  if (!grid || grid.dataset.navBound === "1") return
+  grid.dataset.navBound = "1"
+  grid.addEventListener("click", e => {
+    const card = e.target.closest(".charlist-card")
+    if (!card?.dataset.name) return
+    window.location.href = `crk/character.html?char=${encodeURIComponent(card.dataset.name)}`
   })
 }
 
@@ -343,11 +417,8 @@ function cardHtml(c) {
   const cardPath = `${pic}/cards/${cardImageFilename(currentListGame?.id, n)}`
   return `<div class="charlist-card" data-name="${n}">
     <div class="charlist-card-img-wrap">
-      <img class="charlist-card-img" src="${cardPath}" alt="${dn}" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">
-      <div class="charlist-card-icons">
-        <img src="${pic}/candy/${n}_mc_lv3.png" alt="candy" onerror="this.onerror=null;this.style.display='none'">
-        ${c.type ? `<img src="${pic}/icons/${c.type}.png" alt="${c.type}" title="${c.type}" onerror="this.onerror=null;this.style.display='none'">` : ""}
-      </div>
+      <img class="charlist-card-img" src="${cardPath}" alt="${dn}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">
+      ${charlistCardIconsHtml(c, pic)}
     </div>
     <div class="charlist-card-info">
       <div class="charlist-card-name">${dn}</div>
@@ -377,5 +448,6 @@ document.addEventListener("keydown", e => {
 
 initCharlistCursorTips()
 initCharlistSortExpand()
+initCharlistGridNavigation()
 loadCharListForCurrentGame()
 window.addEventListener("crkSettingsChanged", () => loadCharListForCurrentGame())

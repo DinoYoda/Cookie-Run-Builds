@@ -40,7 +40,10 @@ from apply_wiki_cookie_data import (
     find_character_block,
     find_desc_section,
     find_prop_line,
+    find_prop_span,
     page_updated_stamp_iso,
+    parse_skill_attr_object_from_block_lines,
+    skill_attr_objects_equal,
 )
 
 ROOT = illu.ROOT
@@ -86,20 +89,6 @@ def _format_skill_attr_num(x: int | float) -> str:
         return f"{int(xf)}.0"
     s = json.dumps(xf, ensure_ascii=False).replace(",", "")
     return s
-
-
-def find_prop_span(lines: list[str], body_start: int, body_end: int, key: str) -> tuple[int, int] | None:
-    i = find_prop_line(lines, body_start, body_end, key)
-    if i is None:
-        return None
-    depth = lines[i].count("{") - lines[i].count("}")
-    if depth == 0:
-        return i, i
-    for j in range(i + 1, body_end):
-        depth += lines[j].count("{") - lines[j].count("}")
-        if depth == 0:
-            return i, j
-    return None
 
 
 def format_skill_attr_lines(key: str, obj: dict[str, list[int | float]]) -> list[str]:
@@ -151,11 +140,8 @@ def apply_skill_attr_on_character(
     new_lines = format_skill_attr_lines(data_key, wiki_obj)
 
     if span:
-        # Compare raw block text, not parsed numbers: values_equal(200, 200.0) is true but we still
-        # need to rewrite when the file omits ".0" (or other canonical formatting).
-        old_block = "".join(lines[span[0] : span[1] + 1])
-        new_block = "".join(new_lines)
-        if old_block == new_block:
+        existing = parse_skill_attr_object_from_block_lines(lines, span[0], span[1])
+        if skill_attr_objects_equal(existing, wiki_obj):
             return False
         log.append(f"  data {cookie_name}.{data_key}: updated attr keys {sorted(wiki_obj.keys())}")
         if not dry_run:

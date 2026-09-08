@@ -6,9 +6,8 @@ displayName is never patched — it stays as in data.js (UI derives labels from 
 
 Behavior:
   • Wiki null / empty string / empty list is never written (does not clear existing data.js or descriptions).
-  • For each wiki field we manage: if the file already has it but the value differs → replace that line only;
-    if the key is missing → insert the line after the right predecessor, adding a trailing comma to that
-    predecessor when needed (so the object stays valid JS). Everything else is left as-is.
+  • For each wiki field we manage: if the file already has it but the value differs → replace that
+    property (single- or multi-line); if the key is missing → insert after the right predecessor.
 
   python apply_wiki_cookie_data.py              # fetch wiki, patch both files
   python apply_wiki_cookie_data.py --dry-run    # print changes only
@@ -85,11 +84,104 @@ def values_equal(a: Any, b: Any) -> bool:
     return a == b
 
 
-def parse_data_js_property_value(line: str, key: str) -> Any:
-    m = re.match(rf"^\s+{re.escape(key)}:\s*(.*)$", line)
-    if not m:
+_SKILL_ATTR_PAIR_RE = re.compile(
+    r"(attr\d+):\s*\[\s*((?:[^\[\]]|\[[^\]]*\])*?)\s*\]",
+    re.DOTALL,
+)
+
+
+def parse_skill_attr_object_from_block_lines(
+    lines: list[str], start: int, end: int
+) -> dict[str, list[int | float]]:
+    """Parse attrN: [base, max] pairs from a skillAttr/cjSkillAttr block (any layout)."""
+    blob = "".join(lines[start : end + 1])
+    out: dict[str, list[int | float]] = {}
+    for m in _SKILL_ATTR_PAIR_RE.finditer(blob):
+        key = m.group(1)
+        inner = m.group(2)
+        nums: list[int | float] = []
+        for part in inner.split(","):
+            part = part.strip()
+            if not part:
+                continue
+            nums.append(float(part) if "." in part else int(part))
+        if len(nums) == 2:
+            out[key] = nums
+    return out
+
+
+def skill_attr_objects_equal(
+    a: dict[str, list[int | float]],
+    b: dict[str, list[int | float]],
+) -> bool:
+    if set(a.keys()) != set(b.keys()):
+        return False
+    for key in a:
+        left, right = a[key], b[key]
+        if len(left) != 2 or len(right) != 2:
+            return False
+        if not values_equal(left[0], right[0]) or not values_equal(left[1], right[1]):
+            return False
+    return True
+
+
+def _js_container_depth_delta(s: str) -> int:
+    """Net change in {}/[] nesting, ignoring contents of quoted strings."""
+    depth = 0
+    i = 0
+    n = len(s)
+    while i < n:
+        c = s[i]
+        if c in "\"'":
+            quote = c
+            i += 1
+            while i < n:
+                if s[i] == "\\":
+                    i += 2
+                    continue
+                if s[i] == quote:
+                    i += 1
+                    break
+                i += 1
+            continue
+        if c in "{[":
+            depth += 1
+        elif c in "}]":
+            depth -= 1
+        i += 1
+    return depth
+
+
+def find_prop_span(lines: list[str], body_start: int, body_end: int, key: str) -> tuple[int, int] | None:
+    """Return (start, end) line indices for a property value that may span multiple lines."""
+    i = find_prop_line(lines, body_start, body_end, key)
+    if i is None:
         return None
-    rest = m.group(1).strip().rstrip(",").strip()
+    depth = _js_container_depth_delta(lines[i])
+    if depth <= 0:
+        return i, i
+    for j in range(i + 1, body_end):
+        depth += _js_container_depth_delta(lines[j])
+        if depth <= 0:
+            return i, j
+    return None
+
+
+def extract_property_value_text(lines: list[str], start: int, end: int, key: str) -> str:
+    first = lines[start].rstrip("\n")
+    m = re.match(rf"^\s+{re.escape(key)}:\s*(.*)$", first)
+    if not m:
+        raise ValueError(f"property {key!r} not at line {start}")
+    chunks = [m.group(1)]
+    for line in lines[start + 1 : end + 1]:
+        chunks.append(line.rstrip("\n"))
+    text = "\n".join(chunks).strip()
+    if text.endswith(","):
+        text = text[:-1].rstrip()
+    return text
+
+
+def _parse_data_js_value_literal(rest: str) -> Any:
     if rest == "null":
         return None
     if rest.startswith("["):
@@ -108,6 +200,19 @@ def parse_data_js_property_value(line: str, key: str) -> Any:
         return int(rest)
     except ValueError:
         return rest
+
+
+def parse_data_js_property_value_from_span(
+    lines: list[str], start: int, end: int, key: str
+) -> Any:
+    return _parse_data_js_value_literal(extract_property_value_text(lines, start, end, key))
+
+
+def parse_data_js_property_value(line: str, key: str) -> Any:
+    m = re.match(rf"^\s+{re.escape(key)}:\s*(.*)$", line)
+    if not m:
+        return None
+    return _parse_data_js_value_literal(m.group(1).strip().rstrip(",").strip())
 
 
 def format_data_js_property_line(key: str, value: Any) -> str:
@@ -259,14 +364,14 @@ def apply_cookie_fields(
             continue
         wiki_val = wiki_cookie[key]
         new_line = format_data_js_property_line(key, wiki_val)
-        idx = find_prop_line(lines, body_start, body_end, key)
-        if idx is not None:
-            old_val = parse_data_js_property_value(lines[idx], key)
+        span = find_prop_span(lines, body_start, body_end, key)
+        if span is not None:
+            old_val = parse_data_js_property_value_from_span(lines, span[0], span[1], key)
             if values_equal(old_val, wiki_val):
                 continue
             log.append(f"  data {name}.{key}: {old_val!r} -> {wiki_val!r}")
             if not dry_run:
-                lines[idx] = new_line + "\n"
+                lines[span[0] : span[1] + 1] = [new_line + "\n"]
             changed = True
         else:
             log.append(f"  data {name}.{key}: (insert) {wiki_val!r}")
@@ -276,9 +381,9 @@ def apply_cookie_fields(
                 for pred in DATA_FIELDS_ORDER:
                     if pred == key:
                         break
-                    q = find_prop_line(lines, body_start, body_end, pred)
-                    if q is not None:
-                        insert_at = max(insert_at, q)
+                    pred_span = find_prop_span(lines, body_start, body_end, pred)
+                    if pred_span is not None:
+                        insert_at = max(insert_at, pred_span[1])
                 line_out = new_line + "\n"
                 lines[insert_at] = ensure_trailing_comma_on_line(lines[insert_at])
                 lines.insert(insert_at + 1, line_out)

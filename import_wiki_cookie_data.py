@@ -12,9 +12,10 @@ For each character from tools/extract_crk_characters.mjs, resolves a wiki page a
   • Flavor text: == Game Description == on the resolved page (heading may use bold, e.g. =='''Game Description'''==);
     if absent, many Kingdom articles use ==Story== for the same blurb. If still missing on …/Kingdom, hub
     ==Description== <tabber> Kingdom= branch
-  • CN-exclusive articles (data.js cnEx) often wrap Story in <tabber> Original Chinese / English Translation —
-    we keep only the English Translation branch. The same split applies to any skill/description field that
-    uses that tabber pair. Regular Kingdom pages are unchanged.
+  • CN-exclusive articles (data.js cnEx) often wrap Story or ==Skill== in <tabber> Original Chinese /
+    English Translation — each <tabber> block that includes an English Translation panel is replaced
+    with that panel before infobox/skill parsing (wiki anchors #English_Translation-0, -1, …). Star-
+    rating Story tabbers without English stay as-is. The same English branch is used for skill text fields.
   • {{Kch|…}} / {{CookieHead|…}} — balanced {{…}}; named args (icononly=, game=, …) ignored; visible text
     or prettified slug, e.g. {{Kch|orange|one friend}} → one friend; {{Kch|x|'s}} → possessive. {{Sic}} → (sic).
   • {{Crk skill box}} — first on the page = base skill; further boxes under ===Magic Candy Skill=== /
@@ -82,8 +83,6 @@ DEFAULT_OUT = os.path.join(ROOT, "tools", "imported_cookie_data.js")
 DEFAULT_GLOBAL = "WIKI_IMPORTED_COOKIE_DATA"
 DEFAULT_DATA_JS = os.path.join(ROOT, "data.js")
 DEFAULT_DESC_JS = os.path.join(ROOT, "crk", "crk_descriptions.js")
-SKILL_HEADER_HEX_PATH = os.path.join(ROOT, "tools", "wiki_cookie_skill_header_hex.json")
-_skill_header_hex_map: dict[str, str] | None = None
 
 INFOBOX_START = "{{Crk cookie infobox"
 INFOBOX_FALLBACK = "{{Cookie infobox"
@@ -467,16 +466,141 @@ def normalize_rarity(raw: str | None) -> str | None:
         return "AncientA"
     if compact == "newlegendary":
         return "New Legendary"
+    if compact == "newdragon":
+        return "New Dragon"
+    if compact == "zhencang":
+        return "Zhencang"
     return normalize_infobox_label(raw)
+
+
+def parse_tabber_panels(inner: str) -> list[tuple[str, str]]:
+    """Split <tabber> inner wikitext into (label, body) panels (MediaWiki |-| separators)."""
+    inner = (inner or "").strip()
+    if not inner:
+        return []
+    parts = re.split(r"(?m)^\|-\|", inner)
+    panels: list[tuple[str, str]] = []
+    for part in parts:
+        part = part.strip()
+        if not part:
+            continue
+        m = re.match(r"^([^=\n]+?)\s*=(.*)", part, re.DOTALL)
+        if not m:
+            continue
+        panels.append((m.group(1).strip(), m.group(2).strip()))
+    return panels
+
+
+def _find_tabber_blocks(wikitext: str) -> list[tuple[int, int, str]]:
+    """Each entry: (start, end, inner_body) for a <tabber>…</tabber> span in wikitext."""
+    blocks: list[tuple[int, int, str]] = []
+    i = 0
+    low = wikitext.lower()
+    while i < len(wikitext):
+        start = low.find("<tabber", i)
+        if start < 0:
+            break
+        tag_end = wikitext.find(">", start)
+        if tag_end < 0:
+            break
+        close = low.find("</tabber>", tag_end)
+        if close < 0:
+            break
+        end = close + len("</tabber>")
+        blocks.append((start, end, wikitext[tag_end + 1 : close]))
+        i = end
+    return blocks
+
+
+# Cookie Run: Kingdom (CN server) tab on bilingual wiki pages — fragment …/Kingdom#冲呀！饼干人：王国-0
+CN_KINGDOM_TAB_LABEL = "冲呀！饼干人：王国"
+
+
+def prefer_cn_kingdom_tabbers_in_wikitext(wikitext: str | None) -> str | None:
+    """
+    Replace each <tabber> that has a CN Kingdom panel with that panel's body.
+    Leaves tabbers without that panel unchanged (e.g. ★0 / ★3 story skins).
+    """
+    if not wikitext or "<tabber" not in wikitext.lower():
+        return wikitext
+    blocks = _find_tabber_blocks(wikitext)
+    if not blocks:
+        return wikitext
+    out = wikitext
+    for start, end, inner in reversed(blocks):
+        cn_body: str | None = None
+        for label, body in parse_tabber_panels(inner):
+            if label.strip() == CN_KINGDOM_TAB_LABEL:
+                cn_body = body
+                break
+        if cn_body is not None:
+            out = out[:start] + cn_body + out[end:]
+    return out
+
+
+def prefer_cn_kingdom_tabber_branch(text: str | None) -> str | None:
+    """If *text* is a tabber block, keep only the CN Kingdom panel body."""
+    if not text or "<tabber" not in text.lower():
+        return text
+    stripped = text.strip()
+    blocks = _find_tabber_blocks(stripped)
+    if blocks and blocks[0][0] == 0 and blocks[0][1] == len(stripped):
+        for label, body in parse_tabber_panels(blocks[0][2]):
+            if label.strip() == CN_KINGDOM_TAB_LABEL:
+                return body or text
+        return text
+    converted = prefer_cn_kingdom_tabbers_in_wikitext(text)
+    if converted and converted != text:
+        return converted.strip() or text
+    m = re.search(rf"\|-\|\s*{re.escape(CN_KINGDOM_TAB_LABEL)}\s*=\s*", text)
+    if not m:
+        return text
+    rest = text[m.end() :]
+    m_close = re.search(r"</tabber\s*>", rest, flags=re.I)
+    body = rest[: m_close.start()].strip() if m_close else rest.strip()
+    return body or text
+
+
+def prefer_english_tabbers_in_wikitext(wikitext: str | None) -> str | None:
+    """
+    Replace each <tabber> that has an English Translation panel with that panel's body.
+    Matches wiki fragment links like …/Kingdom#English_Translation-0 (tabber index on the page).
+    Tabbers without English Translation (e.g. ★0 / ★3 story skins) are left unchanged.
+    """
+    if not wikitext or "<tabber" not in wikitext.lower():
+        return wikitext
+    blocks = _find_tabber_blocks(wikitext)
+    if not blocks:
+        return wikitext
+    out = wikitext
+    for start, end, inner in reversed(blocks):
+        english_body: str | None = None
+        for label, body in parse_tabber_panels(inner):
+            if label.lower() == "english translation":
+                english_body = body
+                break
+        if english_body is not None:
+            out = out[:start] + english_body + out[end:]
+    return out
 
 
 def prefer_english_tabber_branch(text: str | None) -> str | None:
     """
     CN wiki pages use <tabber> with Original Chinese vs English Translation.
-    If present, keep only the English Translation panel body (through </tabber>).
+    If present, keep only the English Translation panel body.
     """
     if not text or "<tabber" not in text.lower():
         return text
+    stripped = text.strip()
+    blocks = _find_tabber_blocks(stripped)
+    if blocks and blocks[0][0] == 0 and blocks[0][1] == len(stripped):
+        for label, body in parse_tabber_panels(blocks[0][2]):
+            if label.lower() == "english translation":
+                return body or text
+        return text
+    converted = prefer_english_tabbers_in_wikitext(text)
+    if converted and converted != text:
+        return converted.strip() or text
     m = re.search(r"\|-\|\s*English\s+Translation\s*=\s*", text, flags=re.I)
     if not m:
         return text
@@ -765,30 +889,6 @@ def _wiki_hex_for_css(hex_digits: str) -> str:
     return hx
 
 
-def _load_skill_header_hex_map() -> dict[str, str]:
-    """data.js / wiki slug → 6-digit hex for color-header{HEX:…} (tools/wiki_cookie_skill_header_hex.json)."""
-    global _skill_header_hex_map
-    if _skill_header_hex_map is not None:
-        return _skill_header_hex_map
-    _skill_header_hex_map = {}
-    if os.path.isfile(SKILL_HEADER_HEX_PATH):
-        with open(SKILL_HEADER_HEX_PATH, encoding="utf-8") as f:
-            raw = json.load(f)
-        for k, v in raw.items():
-            if v is None or not str(v).strip():
-                continue
-            hx = str(v).strip().lstrip("#").upper()
-            if re.fullmatch(r"[0-9A-F]{3}|[0-9A-F]{6}|[0-9A-F]{8}", hx):
-                _skill_header_hex_map[str(k).strip()] = _wiki_hex_for_css(hx) if len(hx) == 3 else hx
-    return _skill_header_hex_map
-
-
-def _skill_header_hex_for_slug(cookie_slug: str | None) -> str | None:
-    if not cookie_slug:
-        return None
-    return _load_skill_header_hex_map().get(cookie_slug.strip())
-
-
 def _mw_balanced_double_brace_span(s: str, start: int) -> tuple[int, int] | None:
     """If s[start:].startswith('{{'), return [start, end) covering the matching outer {{…}}."""
     if start < 0 or start + 2 > len(s) or s[start : start + 2] != "{{":
@@ -850,7 +950,7 @@ def _color_template_block_to_site(block: str, cookie_slug: str | None) -> str:
     """
     {{Color|label|#hex|…}} → color-header{HEX:label} (label may contain status{…}; balanced | for nested Status).
     Optional: |text2=mate|color2=#RRGGBB|… → appends color{HEX:mate} (no space; char-ui renders inline).
-    Single-arg or missing hex → color-header from tools/wiki_cookie_skill_header_hex.json, else slug fallback.
+    Single-arg or missing hex → color-header{cookie_slug:label}.
     """
     b = block.strip()
     m_open = re.match(r"^\{\{\s*Color\s*\|", b, re.I)
@@ -862,12 +962,9 @@ def _color_template_block_to_site(block: str, cookie_slug: str | None) -> str:
     positionals, named = _color_positionals_and_named(raw_parts)
     text2 = named.get("text2")
     color2 = named.get("color2")
-    theme_hex = _skill_header_hex_for_slug(cookie_slug)
     extra = _color_secondary_mate_tag(text2 or "", color2 or "")
 
     def _emit_header(label: str) -> str:
-        if theme_hex and label:
-            return f"color-header{{{theme_hex}:{label}}}"
         if cookie_slug and label:
             return f"color-header{{{cookie_slug}:{label}}}"
         return label if label else block
@@ -1038,6 +1135,8 @@ def build_import_document(
             fail += 1
             continue
 
+        wt = prefer_english_tabbers_in_wikitext(wt) or wt
+
         infobox_block = extract_balanced_template(wt, INFOBOX_START)
         if not infobox_block:
             infobox_block = extract_balanced_template(wt, INFOBOX_FALLBACK)
@@ -1063,6 +1162,7 @@ def build_import_document(
             hub_title = title[: -len("/Kingdom")]
             hub_wt = fetch_wikitext(api, hub_title)
             if hub_wt:
+                hub_wt = prefer_english_tabbers_in_wikitext(hub_wt) or hub_wt
                 game_desc = extract_hub_kingdom_tab_description(hub_wt)
 
         skill_boxes = find_all_skill_box_blocks(wt)

@@ -29,8 +29,47 @@
     return readUIState().showCnExCookies === true
   }
 
+  /** Whole cookie is CN-exclusive (`cnEx: true`), not partial flags like `{ mcSkill: true }`. */
+  function isCnExclusiveCookie(c) {
+    return c?.cnEx === true
+  }
+
+  /** Magic Candy skill is CN-only for this cookie (`cnEx: { mcSkill: true }`). */
+  function isCnExclusiveMcSkill(c) {
+    const ex = c?.cnEx
+    return !!(ex && typeof ex === "object" && ex.mcSkill)
+  }
+
+  function shouldRenderMcSkill(c) {
+    if (!c?.mcSkill) return false
+    if (isCnExclusiveMcSkill(c) && !getShowCnExCookies()) return false
+    return true
+  }
+
+  /** When CN-exclusive cookies setting is on, use cnEx.skillAttr / CRK_CN_DESCRIPTIONS if present. */
+  function shouldUseCnSkillVariant(charData, cnDescData, slug) {
+    if (!getShowCnExCookies()) return false
+    const cnAttr = charData?.cnEx?.skillAttr
+    if (cnAttr && typeof cnAttr === "object" && Object.keys(cnAttr).length > 0) return true
+    if (cnDescData?.skill_details?.[slug]) return true
+    if (cnDescData?.skill_notes?.[slug]) return true
+    if (cnDescData?.rally_effects?.[slug]) return true
+    return false
+  }
+
+  function getActiveNormalSkillContext(charData, descData, cnDescData, slug) {
+    const useCn = shouldUseCnSkillVariant(charData, cnDescData, slug)
+    const skillDescData = useCn ? cnDescData : descData
+    return {
+      useCn,
+      skillAttr: useCn ? (charData?.cnEx?.skillAttr ?? charData?.skillAttr) : charData?.skillAttr,
+      skillDescData,
+      slug,
+    }
+  }
+
   function characterPassesCnExFilter(c) {
-    if (!c || !c.cnEx) return true
+    if (!c || !isCnExclusiveCookie(c)) return true
     return getShowCnExCookies()
   }
 
@@ -39,15 +78,26 @@
     return readUIState().showBetaCookies === true
   }
 
+  /** When on, New Legendary / New Dragon sort with Legendary / Dragon (in-game rarity bands). */
+  function getSortInGameOrder() {
+    return readUIState().sortInGameOrder === true
+  }
+
   function characterPassesBetaFilter(c) {
     if (!c || !c.beta) return true
     return getShowBetaCookies()
   }
 
   global.getShowCnExCookies = getShowCnExCookies
+  global.isCnExclusiveCookie = isCnExclusiveCookie
+  global.isCnExclusiveMcSkill = isCnExclusiveMcSkill
+  global.shouldRenderMcSkill = shouldRenderMcSkill
+  global.shouldUseCnSkillVariant = shouldUseCnSkillVariant
+  global.getActiveNormalSkillContext = getActiveNormalSkillContext
   global.characterPassesCnExFilter = characterPassesCnExFilter
   global.getShowBetaCookies = getShowBetaCookies
   global.characterPassesBetaFilter = characterPassesBetaFilter
+  global.getSortInGameOrder = getSortInGameOrder
 
   function closePanel(gear, panel) {
     panel.classList.remove("open")
@@ -78,16 +128,22 @@
       '<div class="sidebar-settings-panel-body">' +
       '<div class="sidebar-setting-item">' +
       '<label class="sidebar-setting-row">' +
-      '<span class="sidebar-setting-name">CN-exclusive cookies</span>' +
+      '<span class="sidebar-setting-name">CN-exclusive content</span>' +
       '<input type="checkbox" class="sidebar-setting-switch" id="crkShowCnExCookies" ' +
-      'aria-label="Show CN-exclusive cookies">' +
+      'aria-label="Show CN-exclusive content">' +
       "</label>" +
       "</div>" +
       '<div class="sidebar-setting-item">' +
       '<label class="sidebar-setting-row">' +
-      '<span class="sidebar-setting-name">Beta cookies</span>' +
+      '<span class="sidebar-setting-name">Beta content</span>' +
       '<input type="checkbox" class="sidebar-setting-switch" id="crkShowBetaCookies" ' +
-      'aria-label="Show beta cookies">' +
+      'aria-label="Show beta content">' +
+      "</label>" +
+      "</div>" +
+      '<div class="sidebar-setting-item">' +
+      '<label class="sidebar-setting-row">' +
+      '<span class="sidebar-setting-name">Sort in game order</span>' +
+      '<input type="checkbox" class="sidebar-setting-switch" id="crkSortInGameOrder" ' +
       "</label>" +
       "</div>" +
       "</div>" +
@@ -100,6 +156,7 @@
     const panel = dock.querySelector("#sidebarSettingsPanel")
     const cb = dock.querySelector("#crkShowCnExCookies")
     const cbBeta = dock.querySelector("#crkShowBetaCookies")
+    const cbGameOrder = dock.querySelector("#crkSortInGameOrder")
 
     cb.checked = getShowCnExCookies()
     cb.addEventListener("change", () => {
@@ -110,6 +167,12 @@
     cbBeta.checked = getShowBetaCookies()
     cbBeta.addEventListener("change", () => {
       writeUIState({ showBetaCookies: cbBeta.checked })
+      global.dispatchEvent(new CustomEvent("crkSettingsChanged"))
+    })
+
+    cbGameOrder.checked = getSortInGameOrder()
+    cbGameOrder.addEventListener("change", () => {
+      writeUIState({ sortInGameOrder: cbGameOrder.checked })
       global.dispatchEvent(new CustomEvent("crkSettingsChanged"))
     })
 

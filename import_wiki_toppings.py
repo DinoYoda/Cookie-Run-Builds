@@ -19,12 +19,9 @@ Resonant (unless --no-resonant):
   Local: crk/pictures/toppings/resonant/Topping_selectable_<resonance>.png
   (matches crk/char-ui.js getResonantSelectableImagePath).
 
-You maintain resonance *wiki slugs* in tools/resonant_toppings.json
-either as a JSON array of strings (legacy) or an object mapping each
-slug to either:
-  - a list of data.js cookie names
-  - or an object like { "name": "...", "cookies": [...] }
-(importer uses the object keys only).
+You maintain resonance *wiki slugs* in tools/resonant_toppings.json as an
+object mapping each slug to { "name": "...", "cookies": [...] } (optional
+"update" for version gates). The importer uses object keys only.
 
 Types: raspberry, chocolate, applejelly, caramel, kiwi, candy, walnut, almond, hazelnut, peanut
 Missing wiki files for resonant pairs are expected sometimes — they are counted, not errors.
@@ -37,7 +34,8 @@ Usage:
   python import_wiki_resonant_toppings.py --no-base          # resonant only
   python import_wiki_resonant_toppings.py --no-resonant      # base 1–3 only (no JSON)
   python import_wiki_resonant_toppings.py --verbose
-  python import_wiki_resonant_toppings.py --fallback-hash-url
+  python import_wiki_resonant_toppings.py --resize 112 158   # base + resonant + selectable only
+  python import_wiki_resonant_toppings.py --no-tarts       # skip tart slot 6 images
 
 Requires: Python 3.9+
 """
@@ -71,6 +69,28 @@ TOPPING_TYPES: tuple[str, ...] = (
 )
 
 BASE_RARITIES: tuple[str, ...] = ("1", "2", "3")
+TART_RARITIES: tuple[str, ...] = ("1", "2", "3", "4")
+
+
+def resize_png_bytes(data: bytes, width: int, height: int) -> bytes:
+    from io import BytesIO
+
+    from PIL import Image
+
+    with Image.open(BytesIO(data)) as im:
+        rgba = im.convert("RGBA")
+        resized = rgba.resize((width, height), Image.Resampling.LANCZOS)
+        out = BytesIO()
+        resized.save(out, format="PNG", optimize=True)
+        return out.getvalue()
+
+
+def local_tart_dest(topping_type: str, rarity: str) -> str:
+    return os.path.join(TOPPINGS_ROOT, "tart", f"Topping_tart_{topping_type}_{rarity}.png")
+
+
+def wiki_tart_title(topping_type: str, rarity: str) -> str:
+    return f"File:Topping_tart_{topping_type}_{rarity}.png"
 
 
 def normalize_resonance_slug(raw: str) -> str:
@@ -109,28 +129,20 @@ def load_resonance_slugs() -> list[str]:
         sys.exit(1)
     with open(SLUGS_PATH, encoding="utf-8") as f:
         data = json.load(f)
+    if not isinstance(data, dict):
+        print(
+            "resonant_toppings.json must be an object { slug: { name, cookies, update? } }",
+            file=sys.stderr,
+        )
+        sys.exit(1)
     out: list[str] = []
-    if isinstance(data, list):
-        for item in data:
-            if not item or not str(item).strip():
-                continue
-            slug = normalize_resonance_slug(str(item))
-            if slug and slug not in out:
-                out.append(slug)
-        return out
-    if isinstance(data, dict):
-        for key in data:
-            if key is None or not str(key).strip():
-                continue
-            slug = normalize_resonance_slug(str(key))
-            if slug and slug not in out:
-                out.append(slug)
-        return out
-    print(
-        "resonant_toppings.json must be a JSON array of slugs or an object { slug: [cookies...] | {name, cookies} }",
-        file=sys.stderr,
-    )
-    sys.exit(1)
+    for key in data:
+        if key is None or not str(key).strip():
+            continue
+        slug = normalize_resonance_slug(str(key))
+        if slug and slug not in out:
+            out.append(slug)
+    return out
 
 
 def wiki_file_title(topping_type: str, resonance_slug: str) -> str:
@@ -181,7 +193,15 @@ def main() -> None:
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--verbose", action="store_true", help="Log each missing wiki file")
     ap.add_argument("--no-base", action="store_true", help="Skip base toppings (rarity 1–3)")
+    ap.add_argument("--no-tarts", action="store_true", help="Skip tart toppings (slot 6, rarities 1–4)")
     ap.add_argument("--no-resonant", action="store_true", help="Skip resonant list (tools JSON)")
+    ap.add_argument(
+        "--resize",
+        nargs=2,
+        type=int,
+        metavar=("WIDTH", "HEIGHT"),
+        help="Resize saved PNGs to exact dimensions (base, resonant, selectable only; tarts stay wiki size)",
+    )
     ap.add_argument(
         "--fallback-hash-url",
         action="store_true",
@@ -189,9 +209,17 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    if args.no_base and args.no_resonant:
-        print("Nothing to import (--no-base and --no-resonant)", file=sys.stderr)
+    if args.no_base and args.no_resonant and args.no_tarts:
+        print("Nothing to import (--no-base, --no-resonant, and --no-tarts)", file=sys.stderr)
         sys.exit(1)
+
+    resize_target: tuple[int, int] | None = None
+    if args.resize:
+        rw, rh = args.resize
+        if rw <= 0 or rh <= 0:
+            print("--resize WIDTH HEIGHT must be positive", file=sys.stderr)
+            sys.exit(1)
+        resize_target = (rw, rh)
 
     resonance_slugs: list[str] = []
     if not args.no_resonant:
@@ -209,6 +237,13 @@ def main() -> None:
                 titles = [wiki_file_title(t, r)]
                 dest = local_dest(t, r)
                 planned.append(("base", t, r, dest, titles))
+                all_titles.extend(titles)
+    if not args.no_tarts:
+        for t in TOPPING_TYPES:
+            for r in TART_RARITIES:
+                titles = [wiki_tart_title(t, r)]
+                dest = local_tart_dest(t, r)
+                planned.append(("tart", t, r, dest, titles))
                 all_titles.extend(titles)
     if not args.no_resonant:
         for res in resonance_slugs:
@@ -245,6 +280,8 @@ def main() -> None:
         if not url and args.fallback_hash_url:
             if kind == "selectable":
                 url = cdn_selectable_url(a)
+            elif kind == "tart":
+                url = illu.cdn_wikimg_url_for_filename(f"Topping_tart_{a}_{b}.png")
             else:
                 url = cdn_url(a, b)
 
@@ -268,6 +305,11 @@ def main() -> None:
                 return True, "no local file (or empty)"
             if local_wh is None:
                 return True, "local file exists but is not a valid PNG (e.g. WebP renamed .png)"
+            if resize_target and kind != "tart":
+                if local_wh != resize_target:
+                    tw, th = resize_target
+                    return True, f"resize {local_wh[0]}x{local_wh[1]} -> {tw}x{th}"
+                return False, "target size"
             if remote_px is None:
                 return True, "remote dims unknown (verify after download)"
             if remote_px > local_px:
@@ -278,11 +320,16 @@ def main() -> None:
 
         if kind == "selectable":
             label = f"selectable/{a}"
+        elif kind == "tart":
+            label = f"tart/{a}/{b}"
         else:
             label = f"{a}/{b}"
 
         if args.dry_run:
-            rw, rh = remote_wh if remote_wh else ("?", "?")
+            if kind == "tart" or not resize_target:
+                rw, rh = remote_wh if remote_wh else ("?", "?")
+            else:
+                rw, rh = resize_target
             if do_fetch:
                 print(
                     f"  [dry-run fetch] {label} ({reason}) wiki ~{rw}x{rh} -> {dest_display(dest)}"
@@ -311,8 +358,17 @@ def main() -> None:
                 print("  [not a PNG]", label, url)
                 failed += 1
                 continue
+            if resize_target and kind != "tart":
+                try:
+                    data = resize_png_bytes(data, resize_target[0], resize_target[1])
+                except OSError as e:
+                    print("  [resize]", label, e)
+                    failed += 1
+                    continue
+                dl_wh = resize_target
             dl_px = illu.pixels(dl_wh)
-            if not args.force and exists_nonempty and local_wh is not None:
+            use_resize_rules = resize_target and kind != "tart"
+            if not args.force and not use_resize_rules and exists_nonempty and local_wh is not None:
                 if dl_px <= local_px:
                     print(
                         f"  [skip smaller or same] {label} local {local_wh[0]}x{local_wh[1]} kept; remote {dl_wh[0]}x{dl_wh[1]} ({dest_display(dest)})"
@@ -339,19 +395,21 @@ def main() -> None:
 
     total = len(planned)
     n_base = 0 if args.no_base else len(TOPPING_TYPES) * len(BASE_RARITIES)
+    n_tarts = 0 if args.no_tarts else len(TOPPING_TYPES) * len(TART_RARITIES)
     n_res_by_type = 0 if args.no_resonant else len(TOPPING_TYPES) * len(resonance_slugs)
     n_res_selectable = 0 if args.no_resonant else len(resonance_slugs)
+    size_note = f" resize={resize_target[0]}x{resize_target[1]}" if resize_target else ""
     if args.dry_run:
         print(
-            f"Done (dry-run). planned={total} (base={n_base} resonant_by_type={n_res_by_type} "
-            f"selectable={n_res_selectable}) "
+            f"Done (dry-run). planned={total} (base={n_base} tarts={n_tarts} "
+            f"resonant_by_type={n_res_by_type} selectable={n_res_selectable}){size_note} "
             f"would_fetch={downloaded} would_skip={skipped_ok} "
             f"missing_wiki={missing_wiki} failed={failed}"
         )
     else:
         print(
-            f"Done. planned={total} (base={n_base} resonant_by_type={n_res_by_type} "
-            f"selectable={n_res_selectable}) "
+            f"Done. planned={total} (base={n_base} tarts={n_tarts} "
+            f"resonant_by_type={n_res_by_type} selectable={n_res_selectable}){size_note} "
             f"new={downloaded} upgraded={upgraded} skipped={skipped_ok} "
             f"missing_wiki={missing_wiki} failed={failed}"
         )

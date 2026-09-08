@@ -10,6 +10,9 @@ let currentSubTab = null
 let searchText = ""
 let activeFilters = {}
 let characterMap = {}
+let cookieSearchAliasMap = {}
+let searchDebounceTimer = null
+let cookiesOverallComputedCache = null
 
 function getGamePictureRoot() {
     const g = currentGame
@@ -111,7 +114,28 @@ function buildGameSelector() {
     loadGame(saved.game || DATA.games[0]?.id)
 }
 
+function invalidateTierlistComputeCache() {
+    cookiesOverallComputedCache = null
+}
+
+function refreshCookieSearchAliases(onReady) {
+    const CSA = typeof CookieSearchAliases !== "undefined" ? CookieSearchAliases : null
+    const chars = currentGame?.characters || []
+    if (!CSA) {
+        cookieSearchAliasMap = {}
+        if (onReady) onReady()
+        return
+    }
+    cookieSearchAliasMap = CSA.buildAliasMap(chars)
+    CSA.loadStoredCookieAliases(CSA.siteRelativePath("tools")).then((stored) => {
+        cookieSearchAliasMap = CSA.buildAliasMap(chars, stored)
+        if (onReady) onReady()
+        else if (searchText) renderTierlist()
+    })
+}
+
 function loadGame(gameId) {
+    invalidateTierlistComputeCache()
     currentGame = DATA.games.find(g => g.id === gameId) || DATA.games[0]
     if (!currentGame) return
 
@@ -171,9 +195,11 @@ function loadGame(gameId) {
 
     const saved = loadUIState()
     loadSection((saved.game === currentGame.id ? saved.section : null) || currentGame.tierlists[0]?.name)
+    refreshCookieSearchAliases()
 }
 
 function loadSection(sectionName) {
+    invalidateTierlistComputeCache()
     currentSection = currentGame.tierlists.find(g => g.name === sectionName) || currentGame.tierlists[0]
     tierSectionSelectLabel.textContent = currentSection.name
     tierSectionSelectPanel.querySelectorAll(".select-expand-option").forEach(btn => {
@@ -438,11 +464,9 @@ SEARCH
 ----------------------------- */
 
 searchInput.addEventListener("input", () => {
-
     searchText = searchInput.value.toLowerCase()
-
-    renderTierlist()
-
+    clearTimeout(searchDebounceTimer)
+    searchDebounceTimer = setTimeout(() => renderTierlist(), 200)
 })
 
 
@@ -452,7 +476,7 @@ RESET BUTTON
 ----------------------------- */
 
 resetBtn.onclick = () => {
-
+    clearTimeout(searchDebounceTimer)
     activeFilters = {}
     searchText = ""
 
@@ -461,7 +485,6 @@ resetBtn.onclick = () => {
     document.querySelectorAll(".filter-icon-btn").forEach(btn => btn.classList.remove("active"))
 
     renderTierlist()
-
 }
 
 
@@ -479,12 +502,17 @@ function applyFilters(character) {
     }
     // Search filter
     if (searchText) {
-        let searchBase = character.name ? character.name.replace(/_/g, " ") : ""
-        if (character.displayName && /cookie/i.test(character.displayName) && !/cookie/i.test(searchBase)) {
-            searchBase += (searchBase ? " " : "") + "cookie"
+        const CSA = typeof CookieSearchAliases !== "undefined" ? CookieSearchAliases : null
+        if (CSA) {
+            if (!CSA.cookieMatchesSearch(character, searchText, cookieSearchAliasMap)) return false
+        } else {
+            let searchBase = character.name ? character.name.replace(/_/g, " ") : ""
+            if (character.displayName && /cookie/i.test(character.displayName) && !/cookie/i.test(searchBase)) {
+                searchBase += (searchBase ? " " : "") + "cookie"
+            }
+            const searchIn = [searchBase, character.displayName].filter(Boolean).join(" ").toLowerCase()
+            if (!searchIn.includes(searchText)) return false
         }
-        const searchIn = [searchBase, character.displayName].filter(Boolean).join(" ").toLowerCase()
-        if (!searchIn.includes(searchText)) return false
     }
 
     // Category filters
@@ -510,6 +538,13 @@ function applyFilters(character) {
             }
             // Legendary filter includes New Legendary (post–Beast-Yeast legendaries)
             if (category === "rarity" && !passes && values.includes("Legendary") && charValue === "New Legendary") {
+                passes = true
+            }
+            if (category === "rarity" && !passes && values.includes("Dragon") && charValue === "New Dragon") {
+                passes = true
+            }
+            // Special filter includes Zhencang (CN-exclusive rarity)
+            if (category === "rarity" && !passes && values.includes("Special") && charValue === "Zhencang") {
                 passes = true
             }
             if (!passes) {
@@ -640,7 +675,7 @@ function normalizeTierLabel(label) {
 
 /** Within the same rarity band, CN-exclusive cookies sort after global-release cookies. */
 function cnExSortRank(c) {
-    return c && c.cnEx ? 1 : 0
+    return c && c.cnEx === true ? 1 : 0
 }
 
 function shouldHighlightRatingMismatch(char, placedTierLabel) {
@@ -655,10 +690,26 @@ function shouldHighlightRatingMismatch(char, placedTierLabel) {
     return dataRating !== placed
 }
 
-/** Rarity index for tierlist / cookie-list sort (New Legendary shares Legendary's band). */
+/** Rarity index for tierlist / cookie-list sort (uses game or site order map). */
 function raritySortIndex(rarity, rarityOrder) {
-    const band = rarity === "New Legendary" ? "Legendary" : rarity
+    const gameOrder = typeof getSortInGameOrder === "function" && getSortInGameOrder()
+    const band = raritySortBand(rarity, gameOrder)
     return rarityOrder[band] ?? 999
+}
+
+function buildRarityOrderMap(isCandy) {
+    if (isCandy) {
+        const order = [...(getCurrentFilters().rarity || [])]
+        const map = {}
+        order.forEach((r, index) => { map[r] = index })
+        return map
+    }
+    const order = typeof getSortInGameOrder === "function" && getSortInGameOrder()
+        ? gameRarityOrder
+        : siteRarityOrder
+    const map = {}
+    order.forEach((r, index) => { map[r] = index })
+    return map
 }
 
 function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
@@ -731,21 +782,28 @@ function computeCookiesOverallEntries(game, section) {
     }
 
     const isCandy = (getCurrentFeatures().cardStyle === "candy")
-    let orderRarities = [...(getCurrentFilters().rarity || [])]
-    if (!isCandy) {
-        const beastIdx = orderRarities.indexOf("Beast")
-        if (beastIdx >= 0) orderRarities.splice(beastIdx, 0, "AncientA")
-    }
-    const rarityOrder = {}
-    orderRarities.forEach((r, index) => {
-        rarityOrder[r] = index
-    })
+    const rarityOrder = buildRarityOrderMap(isCandy)
 
     for (let i = 0; i < entries.length; i++) {
         entries[i] = sortEntryKeysForDisplay(entries[i], isCandy, rarityOrder)
     }
 
     return { tiers: tierOrder, entries }
+}
+
+function getCookiesOverallEntries(game, section) {
+    const gameId = game?.id
+    const sectionName = section?.name
+    if (
+        cookiesOverallComputedCache &&
+        cookiesOverallComputedCache.gameId === gameId &&
+        cookiesOverallComputedCache.sectionName === sectionName
+    ) {
+        return cookiesOverallComputedCache.result
+    }
+    const result = computeCookiesOverallEntries(game, section)
+    cookiesOverallComputedCache = { gameId, sectionName, result }
+    return result
 }
 
 
@@ -774,21 +832,13 @@ function renderTierlist() {
     let tiers = currentTierlist.tiers
     let entries = currentTierlist.entries
     if (currentTierlist.computedAverage && currentGame?.id === "crk" && currentSection?.name === "Cookies") {
-        const computed = computeCookiesOverallEntries(currentGame, currentSection)
+        const computed = getCookiesOverallEntries(currentGame, currentSection)
         tiers = computed.tiers
         entries = computed.entries
     }
 
-    // Build dynamic rarity order based on filter UI (AncientA injected for sort only)
-    let orderRarities = [...(getCurrentFilters().rarity || [])]
-    if (!isCandy) {
-        const beastIdx = orderRarities.indexOf("Beast")
-        if (beastIdx >= 0) orderRarities.splice(beastIdx, 0, "AncientA")
-    }
-    const rarityOrder = {}
-    orderRarities.forEach((r, index) => {
-        rarityOrder[r] = index
-    })
+    // Rarity order for within-tier card sort (game codex vs site default)
+    const rarityOrder = buildRarityOrderMap(isCandy)
 
     let totalCards = 0
 
@@ -928,7 +978,7 @@ function createCard(char, opts = {}) {
     }
 
     let html = `<a class="portrait" href="${link}" ${newTab}>
-        <img src="${imgSrc}" class="character-img${rarityImgClass}" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">`
+        <img src="${imgSrc}" class="character-img${rarityImgClass}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">`
 
     if (f.elementIcon && char.icon) {
         html += `<img class="element-icon" src="${char.icon}">`
