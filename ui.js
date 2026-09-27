@@ -1,4 +1,4 @@
-let DATA
+let DATA = window.CRK_DATA || {}
 
 let currentGame = null
 let currentSection = null  // dropdown selection (e.g. "Cookies" or "Magic Candies")
@@ -22,12 +22,30 @@ function getGamePictureRoot() {
 }
 
 /** Card art filename under {pictureRoot}/cards/ */
-function cardImageFilename(gameId, name) {
+function cardImageFilename(gameId, name, game) {
     const n = name || ""
+    if (typeof game?.cardImageFilename === "function") {
+        return game.cardImageFilename(n)
+    }
     if (gameId === "toa") {
         return `${n}_Cookie_Profile_Icon.png`
     }
+    if (gameId === "crc") {
+        return `${n}_card.png`
+    }
     return `Cookie_${String(n).toLowerCase(n)}_card.png`
+}
+
+function characterDetailHref(char) {
+    const page = currentGame?.characterPage ?? (currentGame?.id === "crk" ? "crk/character.html" : null)
+    if (!page || !char?.name) return null
+    const base = page.includes("?") ? page : `${page}?char=`
+    return base.includes("=") ? `${base}${encodeURIComponent(char.name)}` : `${page}?char=${encodeURIComponent(char.name)}`
+}
+
+function listEntityLabel(game) {
+    if (game?.listLabel) return game.listLabel.toLowerCase()
+    return game?.id === "crk" ? "cookie" : "character"
 }
 
 const tierSectionSelect = document.getElementById("tierSectionSelect")
@@ -46,16 +64,6 @@ const filtersContainer = document.getElementById("filters")
 const tierlistContainer = document.getElementById("tierlist")
 const searchInput = document.getElementById("search")
 const resetBtn = document.getElementById("reset")
-
-const releaseOrderMap = {}
-cookieByDate.forEach((name, index) => {
-    releaseOrderMap[name] = index
-})
-
-const releaseOrderMapCandy = {}
-candyByDate.forEach((name, index) => {
-    releaseOrderMapCandy[name] = index
-})
 
 /* -----------------------------
 LOAD DATA
@@ -87,8 +95,6 @@ function getCurrentFilters() {
 function getCurrentRoles() {
     return currentTierlist?.roles ?? currentSection?.roles ?? currentGame?.roles ?? []
 }
-
-DATA = window.CRK_DATA || {}
 
 function closeAllSelectExpands(except) {
     document.querySelectorAll(".select-expand.is-open").forEach(root => {
@@ -134,10 +140,12 @@ function initTierSelectorExpands() {
     bindSelectExpand(tierSubSelect)
 }
 
-document.addEventListener("click", () => closeAllSelectExpands())
-document.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeAllSelectExpands()
-})
+if (tierlistContainer) {
+    document.addEventListener("click", () => closeAllSelectExpands())
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeAllSelectExpands()
+    })
+}
 
 
 
@@ -386,8 +394,22 @@ function buildTierSelectors() {
 FILTER UI
 ----------------------------- */
 
+function rarityFiltersAreSquare(game) {
+    if (!game) return false
+    if (game.rarityIconShape === "square") return true
+    if (game.rarityIconShape === "wide") return false
+    return game.id === "crc"
+}
+
+function cardImageShapeIsThumbnail(game) {
+    if (!game) return false
+    return game.cardImageShape === "thumbnail" || game.id === "crc"
+}
+
 function filterGroupClass(category) {
-    if (category === "rarity") return "filter-group filter-group--rarity"
+    if (category === "rarity" && !rarityFiltersAreSquare(currentGame)) {
+        return "filter-group filter-group--rarity"
+    }
     return "filter-group filter-group--square"
 }
 
@@ -406,7 +428,8 @@ function buildFilters() {
 
             const btn = document.createElement("button")
 
-            btn.className = category === "rarity"
+            const squareRarity = category === "rarity" && rarityFiltersAreSquare(currentGame)
+            btn.className = category === "rarity" && !squareRarity
                 ? "filter-icon-btn filter-rarity-btn"
                 : "filter-icon-btn"
 
@@ -467,11 +490,13 @@ function buildFilters() {
 SEARCH
 ----------------------------- */
 
-searchInput.addEventListener("input", () => {
-    searchText = searchInput.value.toLowerCase()
-    clearTimeout(searchDebounceTimer)
-    searchDebounceTimer = setTimeout(() => renderTierlist(), 200)
-})
+if (searchInput) {
+    searchInput.addEventListener("input", () => {
+        searchText = searchInput.value.toLowerCase()
+        clearTimeout(searchDebounceTimer)
+        searchDebounceTimer = setTimeout(() => renderTierlist(), 200)
+    })
+}
 
 
 
@@ -479,16 +504,18 @@ searchInput.addEventListener("input", () => {
 RESET BUTTON
 ----------------------------- */
 
-resetBtn.onclick = () => {
-    clearTimeout(searchDebounceTimer)
-    activeFilters = {}
-    searchText = ""
+if (resetBtn) {
+    resetBtn.onclick = () => {
+        clearTimeout(searchDebounceTimer)
+        activeFilters = {}
+        searchText = ""
 
-    searchInput.value = ""
+        if (searchInput) searchInput.value = ""
 
-    document.querySelectorAll(".filter-icon-btn").forEach(btn => btn.classList.remove("active"))
+        document.querySelectorAll(".filter-icon-btn").forEach(btn => btn.classList.remove("active"))
 
-    renderTierlist()
+        renderTierlist()
+    }
 }
 
 
@@ -682,6 +709,21 @@ function cnExSortRank(c) {
     return c && c.cnEx === true ? 1 : 0
 }
 
+function hasMcOrCj(c) {
+    const mc = !!c?.mcSkill
+    return !!(c?.cjSkill || mc)
+}
+
+/** When sort-in-game-order is on, MC/CJ cookies sort before others within the same rarity. */
+function mcCjSortRank(c) {
+    return hasMcOrCj(c) ? 0 : 1
+}
+
+function compareMcCjFirst(a, b) {
+    if (typeof getSortInGameOrder !== "function" || !getSortInGameOrder()) return 0
+    return mcCjSortRank(a) - mcCjSortRank(b)
+}
+
 function shouldHighlightRatingMismatch(char, placedTierLabel) {
     const isOverallComputed = currentTierlist?.computedAverage &&
         currentGame?.id === "crk" &&
@@ -708,9 +750,10 @@ function buildRarityOrderMap(isCandy) {
         order.forEach((r, index) => { map[r] = index })
         return map
     }
-    const order = typeof getSortInGameOrder === "function" && getSortInGameOrder()
-        ? gameRarityOrder
-        : siteRarityOrder
+    const useGameOrder = typeof getSortInGameOrder === "function" && getSortInGameOrder()
+    const order = typeof rarityOrderForGame === "function"
+        ? rarityOrderForGame(currentGame, useGameOrder)
+        : (useGameOrder ? gameRarityOrder : siteRarityOrder)
     const map = {}
     order.forEach((r, index) => { map[r] = index })
     return map
@@ -732,7 +775,12 @@ function sortEntryKeysForDisplay(keys, isCandy, rarityOrder) {
         if (rarityDiff !== 0) return rarityDiff
         const cx = cnExSortRank(a) - cnExSortRank(b)
         if (cx !== 0) return cx
-        return (releaseOrderMap[(b.displayName ?? b.name)] ?? 9999) - (releaseOrderMap[(a.displayName ?? a.name)] ?? 9999)
+        const mj = compareMcCjFirst(a, b)
+        if (mj !== 0) return mj
+        const rom = typeof releaseOrderMapForGame === "function"
+            ? releaseOrderMapForGame(currentGame?.id)
+            : releaseOrderMap
+        return (rom[(b.displayName ?? b.name)] ?? 9999) - (rom[(a.displayName ?? a.name)] ?? 9999)
     })
 }
 
@@ -873,6 +921,8 @@ function renderTierlist() {
                             if (rarityDiff !== 0) return rarityDiff
                             const cx = cnExSortRank(a) - cnExSortRank(b)
                             if (cx !== 0) return cx
+                            const mj = compareMcCjFirst(a, b)
+                            if (mj !== 0) return mj
                             return (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
                         })
                         .forEach(c => {
@@ -901,8 +951,13 @@ function renderTierlist() {
                         if (rarityDiff !== 0) return rarityDiff
                         const cx = cnExSortRank(a) - cnExSortRank(b)
                         if (cx !== 0) return cx
+                        const mj = compareMcCjFirst(a, b)
+                        if (mj !== 0) return mj
                         // 2. Sort by release order (newer cookies first)
-                        return (releaseOrderMap[(b.displayName ?? b.name)] ?? 9999) - (releaseOrderMap[(a.displayName ?? a.name)] ?? 9999)
+                        const rom = typeof releaseOrderMapForGame === "function"
+                            ? releaseOrderMapForGame(currentGame?.id)
+                            : releaseOrderMap
+                        return (rom[(b.displayName ?? b.name)] ?? 9999) - (rom[(a.displayName ?? a.name)] ?? 9999)
                     })
                     .forEach(c => {
                         column.appendChild(createCard(c, { placedTierLabel: tierName }))
@@ -919,7 +974,8 @@ function renderTierlist() {
     // Update the counter element
     const counter = document.getElementById("cardCounter")
     if (counter) {
-        counter.textContent = `Showing ${totalCards} cookie${totalCards === 1 ? "" : "s"}`
+        const noun = listEntityLabel(currentGame)
+        counter.textContent = `Showing ${totalCards} ${noun}${totalCards === 1 ? "" : "s"}`
     }
 }
 
@@ -933,7 +989,7 @@ function getCardImagePath(name) {
     if (getCurrentFeatures().cardStyle === "candy") {
         return `${pic}/candy/${name}_mc_lv3.png`
     }
-    return `${pic}/cards/${cardImageFilename(currentGame?.id, name)}`
+    return `${pic}/cards/${cardImageFilename(currentGame?.id, name, currentGame)}`
 }
 
 function getWikiLink(displayName) {
@@ -955,7 +1011,7 @@ function toaRarityImgClass(rarity) {
 function createCard(char, opts = {}) {
 
     const card = document.createElement("div")
-    card.className = "card"
+    card.className = cardImageShapeIsThumbnail(currentGame) ? "card card--thumbnail" : "card"
     if (shouldHighlightRatingMismatch(char, opts.placedTierLabel)) {
         card.classList.add("card-rating-mismatch")
         const placed = normalizeTierLabel(opts.placedTierLabel)
@@ -968,22 +1024,29 @@ function createCard(char, opts = {}) {
     const pic = getGamePictureRoot()
     const rarityImgClass = toaRarityImgClass(char.rarity)
 
-    let link
-    let newTab = ""
-
+    let portraitOpen
+    let portraitClose
     if (f.cardStyle === "candy") {
-
-        link = getWikiLink(char.displayName ?? char.name)
-        newTab = `target="_blank"`
-
+        portraitOpen = `<a class="portrait" href="${getWikiLink(char.displayName ?? char.name)}" target="_blank">`
+        portraitClose = "</a>"
     } else {
-
-        link = `crk/character.html?char=${encodeURIComponent(char.name)}`
-
+        const detailHref = characterDetailHref(char)
+        if (detailHref) {
+            portraitOpen = `<a class="portrait" href="${detailHref}">`
+            portraitClose = "</a>"
+        } else {
+            portraitOpen = `<div class="portrait">`
+            portraitClose = "</div>"
+        }
     }
 
-    let html = `<a class="portrait" href="${link}" ${newTab}>
-        <img src="${imgSrc}" class="character-img${rarityImgClass}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">`
+    const imgHtml = `<img src="${imgSrc}" class="character-img${rarityImgClass}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">`
+    const portraitInner = cardImageShapeIsThumbnail(currentGame) && typeof crcCardPortraitWrap === "function"
+        ? crcCardPortraitWrap(imgHtml, char.rarity)
+        : imgHtml
+
+    let html = `${portraitOpen}
+        ${portraitInner}`
 
     if (f.elementIcon && char.icon) {
         html += `<img class="element-icon" src="${char.icon}">`
@@ -993,7 +1056,7 @@ function createCard(char, opts = {}) {
         html += `<div class="eidolon">E${char.eidolon ?? 0}</div>`
     }
 
-    html += `</a>`
+    html += portraitClose
 
     const displayLabel = f.cardStyle === "candy"
         ? (char.displayName ?? char.name).replace(/\s+Cookie\b/i, "").trim()
@@ -1019,6 +1082,7 @@ function getActiveTierlistName() {
 }
 
 function initTierFeedback() {
+    if (currentGame?.tierFeedback === false) return
     if (typeof document === "undefined" || typeof TierFeedback === "undefined") return
     if (document.getElementById("tierFeedbackButton")) return
 
@@ -1339,11 +1403,17 @@ function initTierFeedback() {
     })
 }
 
-if (DATA.games && DATA.games.length) {
-    initTierSelectorExpands()
-    buildGameSelector()
-    initTierFeedback()
+function startTierlistApp() {
+    DATA = window.CRK_DATA || {}
+    if (tierlistContainer && DATA.games && DATA.games.length) {
+        initTierSelectorExpands()
+        buildGameSelector()
+        initTierFeedback()
+    }
 }
+
+if (typeof whenGamesReady === "function") whenGamesReady(startTierlistApp)
+else startTierlistApp()
 
 window.addEventListener("crkSettingsChanged", () => {
     if (currentGame && typeof renderTierlist === "function") renderTierlist()

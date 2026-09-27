@@ -19,6 +19,7 @@
 <script src="site-page-meta.js"></script>
 <script src="site-last-updated.js"></script>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="crc/synergy-badges.css">
 <link rel="icon" type="image/png" href="crk/pictures/icons/cookie/Silent_salt_head.png">
 </head>
 <body data-site-page="characters">
@@ -35,17 +36,17 @@
   </div>
   <div class="sidebar-header">Menu</div>
   <a href="characters.html" class="sidebar-link sidebar-link-active">Cookies</a>
-  <a href="crk/teams.html?menu" class="sidebar-link">Teams</a>
+  <a href="crk/teams.html?menu" class="sidebar-link" data-crk-only>Teams</a>
   <a href="tierlist.html" class="sidebar-link">Tier Lists</a>
-  <a href="crk/stats.html" class="sidebar-link">Stats</a>
-  <a href="crk/toppings.html" class="sidebar-link">Toppings</a>
-  <a href="crk/beascuits.html" class="sidebar-link">Beascuits</a>
-  <a href="crk/treasures.html" class="sidebar-link">Treasures</a>
+  <a href="crk/stats.html" class="sidebar-link" data-crk-only>Stats</a>
+  <a href="crk/toppings.html" class="sidebar-link" data-crk-only>Toppings</a>
+  <a href="crk/beascuits.html" class="sidebar-link" data-crk-only>Beascuits</a>
+  <a href="crk/treasures.html" class="sidebar-link" data-crk-only>Treasures</a>
   <a href="crk/about.html" class="sidebar-link">About</a>
 </div>
 
 <div class="charlist-header">
-  <h2 class="charlist-title">Cookies</h2>
+  <h2 class="charlist-title" data-game-list-title>Cookies</h2>
   <input class="charlist-search" id="charlistSearch" placeholder="Search...">
   <button id="charlistReset">Reset</button>
   <div class="select-expand charlist-sort-expand" id="charlistSortExpand">
@@ -69,9 +70,14 @@
 </footer>
 
 <script src="crk/release-order.js"></script>
-<script src="data.js"></script>
+<script src="crc/release-order.js"></script>
+<script src="crk/release-ui.js"></script>
+<script src="games-registry.js"></script>
+<script src="games-bootstrap.js"></script>
 <script src="crk-settings.js"></script>
 <script src="crk/cookie-search-aliases.js"></script>
+<script src="crc/card-frame.js"></script>
+<script src="crc/synergy-badges.js"></script>
 <script src="chars-list.js"></script>
 <script>
 const st = document.getElementById("sidebarToggle")
@@ -81,6 +87,7 @@ st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.t
 ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
 </script>
 <script src="sidebar-game.js"></script>
+<script src="sidebar-nav.js"></script>
 </body>
 </html>
 

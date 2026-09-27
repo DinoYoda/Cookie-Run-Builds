@@ -34,40 +34,6 @@
     return c?.cnEx === true
   }
 
-  /** Magic Candy skill is CN-only for this cookie (`cnEx: { mcSkill: true }`). */
-  function isCnExclusiveMcSkill(c) {
-    const ex = c?.cnEx
-    return !!(ex && typeof ex === "object" && ex.mcSkill)
-  }
-
-  function shouldRenderMcSkill(c) {
-    if (!c?.mcSkill) return false
-    if (isCnExclusiveMcSkill(c) && !getShowCnExCookies()) return false
-    return true
-  }
-
-  /** When CN-exclusive cookies setting is on, use cnEx.skillAttr / CRK_CN_DESCRIPTIONS if present. */
-  function shouldUseCnSkillVariant(charData, cnDescData, slug) {
-    if (!getShowCnExCookies()) return false
-    const cnAttr = charData?.cnEx?.skillAttr
-    if (cnAttr && typeof cnAttr === "object" && Object.keys(cnAttr).length > 0) return true
-    if (cnDescData?.skill_details?.[slug]) return true
-    if (cnDescData?.skill_notes?.[slug]) return true
-    if (cnDescData?.rally_effects?.[slug]) return true
-    return false
-  }
-
-  function getActiveNormalSkillContext(charData, descData, cnDescData, slug) {
-    const useCn = shouldUseCnSkillVariant(charData, cnDescData, slug)
-    const skillDescData = useCn ? cnDescData : descData
-    return {
-      useCn,
-      skillAttr: useCn ? (charData?.cnEx?.skillAttr ?? charData?.skillAttr) : charData?.skillAttr,
-      skillDescData,
-      slug,
-    }
-  }
-
   function characterPassesCnExFilter(c) {
     if (!c || !isCnExclusiveCookie(c)) return true
     return getShowCnExCookies()
@@ -90,10 +56,6 @@
 
   global.getShowCnExCookies = getShowCnExCookies
   global.isCnExclusiveCookie = isCnExclusiveCookie
-  global.isCnExclusiveMcSkill = isCnExclusiveMcSkill
-  global.shouldRenderMcSkill = shouldRenderMcSkill
-  global.shouldUseCnSkillVariant = shouldUseCnSkillVariant
-  global.getActiveNormalSkillContext = getActiveNormalSkillContext
   global.characterPassesCnExFilter = characterPassesCnExFilter
   global.getShowBetaCookies = getShowBetaCookies
   global.characterPassesBetaFilter = characterPassesBetaFilter
@@ -108,6 +70,8 @@
   function injectSidebarSettings() {
     const sb = document.getElementById("sidebar")
     if (!sb || sb.dataset.crkSettingsInjected) return
+    const gameId = readUIState().game || window.CRK_DATA?.games?.[0]?.id || "crk"
+    if (gameId !== "crk") return
     sb.dataset.crkSettingsInjected = "1"
 
     const spacer = document.createElement("div")

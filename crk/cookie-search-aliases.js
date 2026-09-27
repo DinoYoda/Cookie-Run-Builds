@@ -1,6 +1,6 @@
 /**
  * Cookie search / wiki {{Kch|…}} aliases.
- * Data: tools/cookie_search_aliases.json → { "aliases": { ... } }
+ * Data: crk/tools/cookie_search_aliases.json → { "aliases": { ... } }
  */
 ;(function (global) {
   function siteRelativePath(file) {
@@ -45,10 +45,10 @@
 
   let storedAliasPromise = null
 
-  /** Aliases from tools/cookie_search_aliases.json. */
+  /** Aliases from crk/tools/cookie_search_aliases.json. */
   function loadStoredCookieAliases(basePath) {
     if (storedAliasPromise) return storedAliasPromise
-    const root = basePath || siteRelativePath("tools")
+    const root = basePath || siteRelativePath("crk/tools")
     storedAliasPromise = fetch(`${root}/cookie_search_aliases.json`)
       .then((r) => (r.ok ? r.json() : {}))
       .then((data) => {

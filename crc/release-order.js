@@ -1,0 +1,26 @@
+// Cookie Run: Crumble — character release order (displayName keys; newer updates = later in list).
+const crcCookieByDate = {
+    "1.0": [
+        "Strawberry Cookie", "Muscle Cookie", "Ninja Cookie", "Wizard Cookie", "Skater Cookie",
+        "GingerBrave", "GingerBright", "Blueberry Bird", "Sugar Gnome",
+        "Cheerleader Cookie", "Coffee Cookie", "Zombie Cookie", "Princess Cookie", "Knight Cookie",
+        "Angel Cookie", "Gumball Cookie", "Onion Cookie", "Devil Cookie", "Red Pepper Cookie",
+        "Adventurer Cookie",
+        "Dark Cherry Cookie", "Grapevine Cookie", "Berry Yogurt Cookie", "Blackberry Cookie",
+        "Alchemist Cookie", "Lilac Cookie", "Space Doughnut", "Poison Mushroom Cookie",
+        "Cheesecake Cookie", "Cherry Cookie", "Cocoa Cookie", "Bear Jelly Worker",
+        "Licorice Cookie", "Herb Cookie", "Rye Cookie", "Popcorn Cookie", "Dr. Wasabi Cookie",
+        "Peach Cookie", "Pancake Cookie", "Orange Cookie", "Macaron Cookie", "Rockstar Cookie",
+        "Tiger Lily Cookie", "Lemon Cookie", "Dr. Bones Cookie", "Witchberry Cookie", "Lime Cookie",
+        "Vampire Cookie", "Espresso Cookie", "Strawberry Crepe Cookie", "Cream Puff Cookie",
+        "Twizzly Gummy Cookie", "Dark Choco Cookie", "Madeleine Cookie",
+        "Toothpaste Cookie", "Schwarzwälder", "Pomegranate Cookie", "Scorpion Cookie",
+        "Space Doughnut's Royal Excellence", "Cream Soda Cookie",
+        "Milk Cookie's Crunchy Strong Pediatrician", "Ion Cookie Robot", "Strawberry Shortcake Cookie",
+        "Nameless Cake Hound", "Skating Queen Cookie", "Melon Soda Cookie",
+        "Wind Archer Cookie", "Oven Wanderer Cookie", "Milky Way Cookie",
+    ],
+    "1.1": ["Cool Mint Cookie"],
+    "1.2": ["Pinot Noir Cookie", "Tea Knight Cookie", "Brightseeker Cookie"],
+    "1.3": ["Cherry Cola Cookie"],
+}

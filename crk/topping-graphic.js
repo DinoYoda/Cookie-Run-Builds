@@ -1,7 +1,7 @@
 /**
  * Outline color (#e7a765) sets crop/placement inside each slot; slot size is % of tart plate (CSS).
- * Bounds are pre-baked in tools/topping_graphic_bounds.json (no runtime canvas when available).
- * Manual nudges: tools/topping_graphic_overrides.json
+ * Bounds are pre-baked in crk/tools/topping_graphic_bounds.json (no runtime canvas when available).
+ * Manual nudges: crk/tools/topping_graphic_overrides.json
  */
 (function () {
   const _boundsCache = new Map()
@@ -31,7 +31,7 @@
   function loadToppingGraphicOverrides() {
     if (_overrides) return Promise.resolve(_overrides)
     if (!_overridesPromise) {
-      _overridesPromise = fetch(siteRelativePath("tools/topping_graphic_overrides.json"))
+      _overridesPromise = fetch(siteRelativePath("crk/tools/topping_graphic_overrides.json"))
         .then((r) => (r.ok ? r.json() : {}))
         .then((j) => {
           _overrides = j && typeof j === "object" ? j : {}
@@ -48,7 +48,7 @@
   function loadBakedBounds() {
     if (_bakedBounds) return Promise.resolve(_bakedBounds)
     if (!_bakedPromise) {
-      _bakedPromise = fetch(siteRelativePath("tools/topping_graphic_bounds.json"))
+      _bakedPromise = fetch(siteRelativePath("crk/tools/topping_graphic_bounds.json"))
         .then((r) => (r.ok ? r.json() : {}))
         .then((j) => {
           const b = j && typeof j.bounds === "object" ? j.bounds : {}
@@ -277,7 +277,11 @@
     const graphic = ensureGraphicWrapper(img)
     graphic.style.width = ""
     graphic.style.height = ""
-    graphic.style.overflow = "visible"
+    if (img.closest(".char-topping-pos-4-split")) {
+      graphic.style.overflow = "hidden"
+    } else {
+      graphic.style.overflow = "visible"
+    }
 
     const shiftX = Number(override?.shiftX) || 0
     const shiftY = Number(override?.shiftY) || 0

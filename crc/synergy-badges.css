@@ -1,0 +1,114 @@
+/* Crumble-style synergy badges (reference: cookieruncrumbles.com/cookies) */
+
+.synergy-badge {
+    display: inline-grid;
+    place-items: center;
+    position: relative;
+    flex: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #155f4c;
+    background:
+        radial-gradient(circle at 35% 24%, rgba(85, 225, 176, 0.28), transparent 44%),
+        linear-gradient(145deg, #126b57, #0c453a);
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.14),
+        0 5px 12px rgba(10, 68, 55, 0.18);
+}
+
+.synergy-badge--granted {
+    border-color: #155f4c;
+}
+
+.synergy-badge--received {
+    border-color: #874622;
+    background:
+        radial-gradient(circle at 35% 24%, rgba(255, 180, 91, 0.3), transparent 44%),
+        linear-gradient(145deg, #a54d24, #683018);
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.14),
+        0 5px 12px rgba(104, 48, 24, 0.2);
+}
+
+.synergy-badge__icon {
+    width: 29px;
+    height: 29px;
+    object-fit: contain;
+}
+
+.synergy-badge__arrow {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 13px;
+    height: 13px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 1px rgba(18, 20, 17, 0.35));
+}
+
+.char-synergy-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    width: 100%;
+}
+
+.filter-group--synergy {
+    --filter-btn-max: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-group--synergy .filter-icon-btn {
+    flex: none;
+    width: var(--filter-btn-max);
+    height: var(--filter-btn-max);
+}
+
+.charlist-card-role-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.charlist-card-synergy-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.charlist-card-synergy-badges .synergy-badge {
+    width: clamp(22px, 24cqi, 28px);
+    height: clamp(22px, 24cqi, 28px);
+    border-radius: 8px;
+}
+
+.charlist-card-synergy-badges .synergy-badge__icon {
+    width: clamp(18px, 20cqi, 23px);
+    height: clamp(18px, 20cqi, 23px);
+}
+
+.charlist-card-synergy-badges .synergy-badge__arrow {
+    width: clamp(9px, 10cqi, 11px);
+    height: clamp(9px, 10cqi, 11px);
+    bottom: -1px;
+    right: -1px;
+}
+
+.char-synergy-fallback {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: clamp(0.72rem, 0.5vw, 0.82rem);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+}

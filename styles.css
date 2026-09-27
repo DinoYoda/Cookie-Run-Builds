@@ -1,3 +1,5 @@
+@import url("crc/card-frame.css");
+
 @font-face {
     font-family: CookieRun Bold;
     src: url("fonts/CookieRun Bold.ttf");
@@ -650,6 +652,10 @@ button.active {
     display: block;
 }
 
+.card--thumbnail .portrait .crc-card-shell {
+    width: 100%;
+}
+
 /* TOA tier list: rarity ring on top of portrait (hollow rounded frame, no layout shift) */
 .portrait:has(img.character-img[class*="toa-rarity-"])::after {
     content: "";
@@ -975,8 +981,20 @@ button.active {
 .char-form-switcher {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
     margin-top: 10px;
+}
+
+.char-bts-switcher {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.char-bts-switcher .char-form-switch-btn {
+    font-size: 0.82rem;
+    padding: 5px 10px;
 }
 
 .char-form-switch-btn {
@@ -1040,6 +1058,64 @@ button.active {
     width: auto;
     max-width: 100%;
     object-fit: contain;
+}
+
+.char-rarity-icon--square {
+    width: clamp(32px, 2.5vw, 40px);
+}
+
+.char-synergy-info {
+    box-sizing: border-box;
+}
+
+.char-synergy-inner {
+    padding: clamp(12px, 1vw, 16px) clamp(14px, 1.1vw, 18px);
+    background: #2a2d34;
+    border-radius: clamp(8px, 0.625vw, 10px);
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+}
+
+.char-synergy-heading {
+    margin: 0 0 clamp(10px, 0.85vw, 14px) 0;
+    font-size: clamp(0.95rem, 0.72vw, 1.05rem);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: CookieRun Bold, CookieRunR, sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+.char-synergy-subsection {
+    margin-top: clamp(10px, 0.85vw, 14px);
+}
+
+.char-synergy-subsection:first-of-type {
+    margin-top: 0;
+}
+
+.char-synergy-subheading {
+    margin: 0 0 clamp(8px, 0.65vw, 10px) 0;
+    font-size: clamp(0.82rem, 0.58vw, 0.92rem);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: CookieRun Bold, CookieRunR, sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+.char-synergy-none {
+    font-size: clamp(0.78rem, 0.55vw, 0.88rem);
+    font-weight: bold;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.65);
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000;
+}
+
+.char-synergy-row {
+    width: 100%;
 }
 
 .char-stats-row {
@@ -1134,6 +1210,48 @@ button.active {
     line-height: 1.3;
     text-align: left;
     text-shadow: -1px -1px 0 #000, 1px 1px 0 #000;
+}
+
+.char-release-info {
+    box-sizing: border-box;
+}
+
+.char-release-info[hidden] {
+    display: none !important;
+}
+
+.char-release-inner {
+    padding: clamp(12px, 1vw, 16px) clamp(14px, 1.1vw, 18px);
+    background: #2a2d34;
+    border-radius: clamp(8px, 0.625vw, 10px);
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+}
+
+.char-release-heading {
+    margin: 0 0 clamp(10px, 0.85vw, 14px) 0;
+    font-size: clamp(0.95rem, 0.72vw, 1.05rem);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: CookieRun Bold, CookieRunR, sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+.char-release-line {
+    font-size: clamp(0.78rem, 0.55vw, 0.88rem);
+    font-weight: bold;
+    line-height: 1.35;
+    text-align: center;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000;
+}
+
+.char-release-ago {
+    color: rgba(255, 255, 255, 0.65);
 }
 
 /* Skill section */
@@ -1778,12 +1896,17 @@ button.active {
     border-left: 3px solid rgba(255, 255, 255, 0.3);
     padding-left: 10px;
 }
-.info-section-body p {
+.info-section-body > p {
     margin: 0 0 10px;
     line-height: 1.7;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.8);
 }
+
+.info-section-body > p:last-child {
+    margin-bottom: 0;
+}
+
 .info-section-body ul {
     margin: 0 0 10px;
     padding-left: 1.5em;
@@ -1931,13 +2054,115 @@ button.active {
     color: #fff;
 }
 
+.teams-source {
+    margin: 6px 0 0;
+    font-size: 0.85rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.teams-source a {
+    color: #5bb4ff;
+    text-decoration: none;
+}
+
+.teams-source a:hover {
+    text-decoration: underline;
+}
+
 /* One build per row: cookie (left) → topping star + substats | beascuit */
+.teams-card-body {
+    box-sizing: border-box;
+}
+
+.teams-card--multi-squad .teams-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.teams-squad {
+    padding: 12px 14px;
+    box-sizing: border-box;
+}
+
+.teams-card--multi-squad .teams-squad--with-notes {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    min-height: 0;
+}
+
+.teams-card--multi-squad .teams-squad--with-notes .teams-squad-title {
+    padding: 12px 14px 0;
+    margin-bottom: 10px;
+}
+
+.teams-card--multi-squad .teams-squad-content {
+    flex: 1 1 auto;
+    padding: 12px 14px;
+    box-sizing: border-box;
+}
+
+.teams-card--multi-squad .teams-squad--with-notes .teams-squad-title + .teams-squad-content {
+    padding-top: 0;
+}
+
+.teams-card--multi-squad .teams-squad + .teams-squad {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.teams-card--multi-squad .teams-squad--with-notes > .char-build-notes.teams-team-notes {
+    margin: 0;
+    margin-top: auto;
+    flex: 0 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.teams-card--multi-squad .teams-card-body > .teams-squad--with-notes:last-child > .char-build-notes.teams-team-notes {
+    border-radius: 0 0 12px 12px;
+}
+
+.teams-entry--with-notes .teams-card--multi-squad .teams-card-body > .teams-squad--with-notes:last-child > .char-build-notes.teams-team-notes {
+    border-radius: 0;
+}
+
+.teams-squad-title {
+    margin: 0 0 10px;
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #b8c4d4;
+    letter-spacing: 0.02em;
+}
+
+.teams-card--multi-squad .teams-build-rows {
+    padding: 0;
+}
+
 .teams-build-rows {
     display: flex;
     flex-direction: column;
     gap: 8px;
     padding: 12px 14px;
     box-sizing: border-box;
+}
+
+.teams-card--multi-squad .teams-loadout-footer {
+    margin-top: 4px;
+}
+
+.teams-empty--inline {
+    margin: 12px 14px;
+    padding: 12px;
 }
 
 .teams-build-row {
@@ -1965,6 +2190,77 @@ button.active {
 .teams-build-row:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Replacement cookie slot: one visible build row + picker tabs underneath */
+.teams-alt-slot {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.teams-alt-slot-body {
+    width: 100%;
+}
+
+.teams-alt-slot-view[hidden] {
+    display: none !important;
+}
+
+.teams-alt-picker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    padding: 0 2px 2px;
+}
+
+.teams-alt-picker-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px 4px 4px;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.88);
+    font-family: inherit;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.teams-alt-picker-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.teams-alt-picker-btn.active {
+    border-color: #1e88e5;
+    background: rgba(30, 136, 229, 0.18);
+    color: #5bb4ff;
+}
+
+.teams-alt-picker-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.teams-alt-picker-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 9rem;
+    font-family: "CookieRun Bold", sans-serif;
+    font-weight: 400;
 }
 
 .teams-build-row-cookie {
@@ -2252,6 +2548,75 @@ button.active {
     }
 }
 
+.teams-loadout-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px 28px;
+    padding: 0 14px 14px;
+    box-sizing: border-box;
+}
+
+.teams-leader {
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.teams-leader-link-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams-leader-link-wrap[data-has-rally-tip] {
+    cursor: help;
+}
+
+.skill-status-cursor-tip.skill-status-cursor-tip--rally {
+    max-width: min(380px, 92vw);
+    padding: 8px 12px 10px;
+    line-height: 1.45;
+    font-size: 0.82rem;
+}
+
+.skill-status-cursor-tip.skill-status-cursor-tip--rally .char-skill-details {
+    margin-top: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.teams-leader-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--teams-treasure-slot-size, 54px);
+    height: var(--teams-treasure-slot-size, 54px);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.teams-leader-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.teams-leader-icon {
+    width: calc(var(--teams-treasure-slot-size, 54px) - 8px);
+    height: calc(var(--teams-treasure-slot-size, 54px) - 8px);
+    object-fit: contain;
+    display: block;
+}
+
+.teams-loadout-footer .teams-treasures {
+    padding: 0;
+    text-align: center;
+    flex: 0 1 auto;
+}
+
 .teams-treasures {
     padding: 0 14px 14px;
     text-align: center;
@@ -2289,14 +2654,22 @@ button.active {
     align-items: center;
     justify-content: center;
     position: relative;
-    min-width: 54px;
-    min-height: 54px;
+    --teams-treasure-slot-size: 54px;
+    min-width: var(--teams-treasure-slot-size);
+    min-height: var(--teams-treasure-slot-size);
+}
+
+.teams-treasure-graphic {
+    width: var(--teams-treasure-slot-size);
+    height: var(--teams-treasure-slot-size);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
 }
 
 .teams-treasure-icon {
-    width: 54px;
-    height: 54px;
-    object-fit: contain;
+    display: block;
+    max-width: none;
 }
 
 /*
@@ -2900,16 +3273,14 @@ button.active {
     align-self: start;
 }
 
-/* In the name bar, rank icon sits in a row with the title; title wraps, icon stays top-right of the bar. */
+/* Fixed-size rank icon; out of flow so it does not set name bar height. */
 .char-build-name-bar .char-build-rank-icon-wrap {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    flex: 0 0 auto;
-    align-self: flex-start;
-    margin-left: auto;
-    margin-top: 2px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    width: 2em;
+    height: 2em;
     z-index: 10;
     cursor: help;
     line-height: 0;
@@ -2917,8 +3288,8 @@ button.active {
 
 .char-build-rank-icon {
     position: relative;
-    width: clamp(32px, 2.5vw, 40px);
-    height: clamp(32px, 2.5vw, 40px);
+    width: 2em;
+    height: 2em;
 }
 
 .char-build-rank-icon::before {
@@ -2927,8 +3298,8 @@ button.active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25px;
-    height: 25px;
+    width: 78%;
+    height: 78%;
     background-color: white;
     border-radius: 50%;
     z-index: 1;
@@ -2978,11 +3349,7 @@ button.active {
 }
 
 .char-build-name-bar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 8px 12px;
+    display: block;
     background: linear-gradient(135deg, #4a4f5a 0%, #3d424b 100%);
     color: white;
     padding: 10px 16px;
@@ -2994,8 +3361,12 @@ button.active {
     overflow: visible;
 }
 
+.char-build-name-bar:has(.char-build-rank-icon-wrap) {
+    padding-right: calc(16px + 2em + 8px);
+}
+
 .char-build-name-text {
-    flex: 1 1 0;
+    display: block;
     min-width: 0;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -3229,7 +3600,30 @@ button.active {
     left: 36.25%;
 }
 
+/* Clip on wrapper — clip-path + rotate on the same node hid the front half after graphic fit */
+.char-topping-split-clip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--char-topping-slot-width);
+    aspect-ratio: var(--char-topping-reference-outline-width) / var(--char-topping-reference-outline-height);
+    height: auto;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.char-topping-split-clip--back {
+    clip-path: inset(0 50% 0 0);
+}
+
+.char-topping-split-clip--front {
+    clip-path: inset(0 0 0 50%);
+}
+
 .char-topping-pos-4-split .char-topping-graphic {
+    left: 50%;
+    top: 50%;
     transform: translate(calc(-50% + var(--topping-shift-x)), calc(-50% + var(--topping-shift-y))) rotate(-144deg);
 }
 
@@ -3237,16 +3631,8 @@ button.active {
     z-index: 1;
 }
 
-.char-topping-pos-4-split--back .char-topping-graphic {
-    clip-path: inset(0 50% 0 0);
-}
-
 .char-topping-pos-4-split--front {
     z-index: 6;
-}
-
-.char-topping-pos-4-split--front .char-topping-graphic {
-    clip-path: inset(0 0 0 50%);
 }
 
 .char-topping-pos-5 {
@@ -3426,8 +3812,7 @@ button.active {
     background: rgba(255, 255, 255, 0.05);
     overflow: hidden;
     border-radius: clamp(8px, 0.75vw, 12px);
-    margin-top: clamp(8px, 0.75vw, 12px);
-    margin-bottom: clamp(12px, 1vw, 16px);
+    margin-top: clamp(16px, 1.25vw, 24px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -3972,6 +4357,7 @@ button.active {
     object-fit: cover;
     display: block;
 }
+
 .charlist-card-icons {
     position: absolute;
     top: 5px;

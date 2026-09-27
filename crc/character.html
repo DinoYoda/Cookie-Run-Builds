@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../site-page-meta.js"></script>
+<script src="../site-last-updated.js"></script>
+<title>Character</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="synergy-badges.css">
+<link rel="stylesheet" href="skill-ui.css">
+<link rel="icon" type="image/png" href="pictures/icons/cookie/Brightseeker_head.png">
+</head>
+
+<body>
+
+<button class="sidebar-toggle" id="sidebarToggle">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-game-selector">
+    <button class="sidebar-game-btn" id="sidebarGameBtn">
+      <span id="sidebarGameName"></span>
+      <span class="sidebar-game-chevron">▾</span>
+    </button>
+    <div class="sidebar-game-menu" id="sidebarGameMenu"></div>
+  </div>
+  <div class="sidebar-header">Menu</div>
+  <a href="../characters.html" class="sidebar-link" data-game-list-title>Characters</a>
+  <a href="../tierlist.html" class="sidebar-link">Tier Lists</a>
+  <a href="../crk/about.html" class="sidebar-link">About</a>
+</div>
+
+<div class="character-page">
+  <div class="character-container">
+      <div class="character-description" id="char-description"></div>
+      <div class="character-art">
+          <img id="char-image" alt="">
+      </div>
+      <div class="char-meta-column">
+        <div class="char-info-box" id="char-info-box"></div>
+        <div class="char-synergy-info" id="char-synergy-info"></div>
+        <div class="char-release-info" id="char-release-info" hidden></div>
+      </div>
+  </div>
+
+  <div class="char-skill-section" id="char-skill-section" hidden></div>
+</div>
+
+<footer class="site-copyright">
+  <p>This site was developed by DinoYoda and is currently a WIP. For questions, comments, or feedback, email <a href="https://mail.google.com/mail/?view=cm&to=dinoyodacrk@gmail.com" target="_blank" rel="noopener noreferrer">dinoyodacrk@gmail.com</a>.</p>
+</footer>
+
+<script src="../games-registry.js"></script>
+<script src="../games-bootstrap.js"></script>
+<script src="data.js"></script>
+<script>window.finishGameDataLoad()</script>
+<script src="crc_descriptions.js"></script>
+<script src="synergy-badges.js"></script>
+<script src="skill-ui.js"></script>
+<script src="char-ui.js"></script>
+<script>
+const st = document.getElementById("sidebarToggle")
+const sb = document.getElementById("sidebar")
+const ov = document.getElementById("sidebarOverlay")
+st.addEventListener("click", () => { sb.classList.toggle("open"); ov.classList.toggle("open") })
+ov.addEventListener("click", () => { sb.classList.remove("open"); ov.classList.remove("open") })
+</script>
+<script src="../sidebar-game.js"></script>
+<script src="../sidebar-nav.js"></script>
+
+</body>
+</html>

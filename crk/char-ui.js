@@ -46,16 +46,22 @@ function wrapEnchantsToggleable(html, skillKey, visible) {
   return `<div class="char-skill-enchants-wrap${hideClass}" data-enchants-for="${skillKey}">${html}</div>`
 }
 
-function buildAscensionHtml(ascensionObj, skillAttr, slugPrefix) {
+function usesNewCjAscensionGrades(rarity) {
+  return rarity === "New Legendary" || rarity === "New Dragon"
+}
+
+function buildAscensionHtml(ascensionObj, skillAttr, slugPrefix, newGrade = false) {
   if (!ascensionObj || typeof ascensionObj !== "object") return ""
   const prefix = slugPrefix + "_"
+  const minLevel = newGrade ? 2 : 1
+  const maxLevel = newGrade ? 6 : 5
   const entries = []
   for (const [key, text] of Object.entries(ascensionObj)) {
     if (!key.startsWith(prefix) || !text || typeof text !== "string") continue
     const suffix = key.slice(prefix.length)
     const parts = suffix.split("_")
     const level = parseInt(parts[0], 10)
-    if (isNaN(level) || level < 1 || level > 5) continue
+    if (isNaN(level) || level < minLevel || level > maxLevel) continue
     const index = parts[1] ? parseInt(parts[1], 10) : 0
     entries.push({ level, index: isNaN(index) ? 0 : index, text })
   }
@@ -69,7 +75,8 @@ function buildAscensionHtml(ascensionObj, skillAttr, slugPrefix) {
   const levels = Object.keys(byLevel).map(Number).sort((a, b) => a - b)
   let html = `<div class="char-skill-ascension"><div class="char-skill-ascension-divider"></div>`
   for (const level of levels) {
-    html += `<h5 class="char-skill-ascension-header">★${level}A Effect</h5>`
+    const label = newGrade ? `★${level} Effect` : `★${level}A Effect`
+    html += `<h5 class="char-skill-ascension-header">${label}</h5>`
     for (const rendered of byLevel[level]) {
       html += `<div class="char-skill-ascension-line">${rendered}</div>`
     }
@@ -101,6 +108,11 @@ const _esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").repla
 /** Encode a file name (single path segment) for img/src URLs — % ' ! etc. break on GitHub Pages without this. */
 const _urlFile = (name) => encodeURIComponent(String(name))
 
+/** status{…} ids that differ from the wiki Status_*.png basename on disk. */
+const _STATUS_ICON_FILE_OVERRIDES = {
+  Immunity: "Immune_to_Interrupts",
+}
+
 /** Wiki / data.js ids are snake_case; icon files on disk use Status_<Pascal_Segments>.png for stable Git casing. */
 function _statusIconBaseFromMainId(mainId) {
   const raw = String(mainId || "").trim()
@@ -119,7 +131,8 @@ function _statusIconBaseFromMainId(mainId) {
 }
 
 function _statusIconImgTag(pic, mainId, altText) {
-  const base = _statusIconBaseFromMainId(mainId)
+  const rawId = String(mainId || "").trim()
+  const base = _STATUS_ICON_FILE_OVERRIDES[rawId] || _statusIconBaseFromMainId(rawId)
   if (!base) return ""
   const primary = `${pic}/icons/status/${_urlFile(`Status_${base}.png`)}`
   const legacy = `${pic}/icons/status/${_urlFile(`status_${base}.png`)}`
@@ -140,12 +153,45 @@ function _statusIdToHoverLabel(mainId) {
   }).filter(Boolean).join(" ")
 }
 
+function _statusElementDisplay(el) {
+  const k = String(el || "").trim().toLowerCase()
+  if (!k) return ""
+  if (k === "all") return "All"
+  return _EL_ICONS[k] || (k.charAt(0).toUpperCase() + k.slice(1))
+}
+
+/** status{id|und_*|0|element|tip:…} — importer may append |tip: for wiki elemental display names. */
+function _parseStatusTagParts(content) {
+  const p = String(content || "").split("|").map((s) => s.trim())
+  const mainId = p[0] || ""
+  let overlay = null
+  let element = null
+  let tipOverride = ""
+  for (let i = 1; i < p.length; i++) {
+    const seg = p[i]
+    if (!seg || seg === "0") continue
+    if (seg.startsWith("tip:")) {
+      tipOverride = seg.slice(4).trim()
+      continue
+    }
+    if (seg === "und_debuff" || seg === "und_buff") overlay = seg
+    else if (!element) element = seg
+  }
+  return { mainId, overlay, element, tipOverride }
+}
+
+function _statusTipLabel(mainId, tipOverride) {
+  if (tipOverride) return tipOverride
+  return _statusIdToHoverLabel(mainId)
+}
+
 const _CURSOR_TIP_SELECTOR = [
   ".skill-status-hover-wrap[data-status-tip]",
   ".char-skill-cd-pill[data-status-tip]",
   ".char-inline-hover[data-hover]",
   ".char-build-rank-icon-wrap[data-tooltip]",
   ".teams-treasure-item[data-cursor-tip]",
+  ".teams-leader-link-wrap[data-has-rally-tip]",
 ].join(", ")
 
 function _cursorTipLabelFromEl(el) {
@@ -156,6 +202,12 @@ function _cursorTipLabelFromEl(el) {
   if (d.tooltip) return d.tooltip
   if (d.cursorTip) return d.cursorTip
   return ""
+}
+
+function _cursorTipHtmlFromWrap(wrap) {
+  if (!wrap || !wrap.dataset || wrap.dataset.hasRallyTip !== "1") return ""
+  const src = wrap.querySelector(".teams-rally-tip-source")
+  return src ? src.innerHTML : ""
 }
 
 /** Keep the floating tip on-screen while anchoring near the pointer. */
@@ -191,8 +243,8 @@ function _ensureSkillStatusCursorTip() {
   let activeWrap = null
   const hide = () => {
     activeWrap = null
-    tipEl.classList.remove("is-visible", "skill-status-cursor-tip--wrap")
-    tipEl.textContent = ""
+    tipEl.classList.remove("is-visible", "skill-status-cursor-tip--wrap", "skill-status-cursor-tip--rally")
+    tipEl.replaceChildren()
   }
   const offsetX = 14
   const offsetY = 18
@@ -201,21 +253,28 @@ function _ensureSkillStatusCursorTip() {
     (e) => {
       const wrap =
         e.target && e.target.closest ? e.target.closest(_CURSOR_TIP_SELECTOR) : null
-      const label = _cursorTipLabelFromEl(wrap)
-      if (!label) {
+      const tipHtml = _cursorTipHtmlFromWrap(wrap)
+      const label = tipHtml ? "" : _cursorTipLabelFromEl(wrap)
+      if (!tipHtml && !label) {
         if (activeWrap) hide()
         return
       }
       activeWrap = wrap
-      tipEl.textContent = label
       tipEl.classList.add("is-visible")
-      if (
-        wrap.classList.contains("char-inline-hover") ||
-        wrap.classList.contains("teams-treasure-item")
-      ) {
-        tipEl.classList.add("skill-status-cursor-tip--wrap")
+      if (tipHtml) {
+        tipEl.innerHTML = tipHtml
+        tipEl.classList.add("skill-status-cursor-tip--wrap", "skill-status-cursor-tip--rally")
       } else {
-        tipEl.classList.remove("skill-status-cursor-tip--wrap")
+        tipEl.textContent = label
+        tipEl.classList.remove("skill-status-cursor-tip--rally")
+        if (
+          wrap.classList.contains("char-inline-hover") ||
+          wrap.classList.contains("teams-treasure-item")
+        ) {
+          tipEl.classList.add("skill-status-cursor-tip--wrap")
+        } else {
+          tipEl.classList.remove("skill-status-cursor-tip--wrap")
+        }
       }
       _positionCursorTipEl(tipEl, e.clientX, e.clientY, offsetX, offsetY)
     },
@@ -341,10 +400,7 @@ function _renderSingleTag(tag, noIcon, content, pic) {
     return `<img src="${pic}/skills/${_urlFile(`${s}_skill.png`)}" alt="${_esc(s)}" class="skill-status-icon" onerror="${_imgErrHide}">`
   }
   if (tag === "status") {
-    const p = content.split("|").map(s => s.trim())
-    const mainId = p[0] || ""
-    const overlay = p[1]
-    const element = p[2]
+    const { mainId, overlay, element, tipOverride } = _parseStatusTagParts(content)
     let html = _statusIconImgTag(pic, mainId, mainId)
     if (overlay === "und_debuff" || overlay === "und_buff") {
       const ovName = overlay === "und_debuff" ? "Undispellable_Debuff" : "Undispellable_Buff"
@@ -357,7 +413,7 @@ function _renderSingleTag(tag, noIcon, content, pic) {
       const elImg = `<img src="${pic}/icons/${_urlFile(`${elIconName}.png`)}" alt="${_esc(element)}" class="skill-status-icon skill-status-icon-element" onerror="${_imgErrHide}">`
       html = `<span class="skill-status-icon-wrap">${html}${elImg}</span>`
     }
-    const tip = _statusIdToHoverLabel(mainId)
+    const tip = _statusTipLabel(mainId, tipOverride)
     const tipAttr = tip ? ` data-status-tip="${_esc(tip)}"` : ""
     return `<span class="skill-status-hover-wrap"${tipAttr}>${html}</span>`
   }
@@ -376,9 +432,9 @@ function _renderSingleTag(tag, noIcon, content, pic) {
   }
   if (tag === "hover") {
     const raw = String(content || "")
-    const i = raw.indexOf(":")
+    const i = raw.indexOf("::")
     const hoverText = i >= 0 ? raw.slice(0, i).trim() : raw.trim()
-    const visibleText = i >= 0 ? raw.slice(i + 1).trim() : raw.trim()
+    const visibleText = i >= 0 ? raw.slice(i + 2).trim() : raw.trim()
     if (!visibleText) return ""
     const visibleHtml = _expandColorHeaderBlocks(visibleText, pic)
     return `<span class="char-inline-hover" data-hover="${_esc(hoverText || visibleText)}">${visibleHtml}</span>`
@@ -518,10 +574,27 @@ function formatSkillAttrNumberForDisplay(val) {
   return (neg ? "-" : "") + withCommas + fracPart
 }
 
-function lineStartsWithSectionHeader(line) {
+function _stripIndentPrefix(line) {
   let s = line
   while (s.startsWith("indent{}")) s = s.slice("indent{}".length)
-  return /^(?:color-|rally-)?header\{/.test(s)
+  return s
+}
+
+function lineStartsWithSectionHeader(line) {
+  return /^(?:color-|rally-)?header\{/.test(_stripIndentPrefix(line))
+}
+
+/** Wiki notes sometimes lead with a lone {{Status|…}} title line (not a bullet sentence). */
+function lineIsStandaloneStatusHeading(line) {
+  const s = _stripIndentPrefix(line)
+  if (!/^status\{/.test(s) || /(?:color-|rally-)?header\{/.test(s)) return false
+  if (/[.,;:]/.test(s)) return false
+  const remainder = s.replace(/status\{[^}]*\}/g, "").trim()
+  if (!remainder || remainder.length > 80) return false
+  if (/\b(will|can|cannot|does|did|is|are|was|were|if|when|upon|while|has|have|had)\b/i.test(remainder)) {
+    return false
+  }
+  return true
 }
 
 function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
@@ -549,11 +622,13 @@ function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
   const flushUl = () => { if (lisBuf.length) { parts.push(`<ul class="char-skill-details-list">${lisBuf.join("")}</ul>`); lisBuf = [] } }
   text.split(/<br>/).forEach((line) => {
     const isRallyHeader = /rally-header\{/.test(line) && lineStartsWithSectionHeader(line)
-    const isHeader = lineStartsWithSectionHeader(line) || forceHeaderNext
+    const isStatusTitle = lineIsStandaloneStatusHeading(line)
+    const isHeader = lineStartsWithSectionHeader(line) || forceHeaderNext || isStatusTitle
     if (isHeader) {
       flushUl()
       const tightClass = forceHeaderNext ? " char-skill-details-line-tight" : ""
-      parts.push(`<div class="char-skill-details-line${tightClass}">${tagParser(line)}</div>`)
+      const headerLine = isStatusTitle ? _stripIndentPrefix(line) : line
+      parts.push(`<div class="char-skill-details-line${tightClass}">${tagParser(headerLine)}</div>`)
       forceHeaderNext = isRallyHeader
     } else {
       let stripped = line
@@ -568,6 +643,42 @@ function renderSkillTaggedText(tagged, skillAttr, levelIndex) {
   return parts.join("")
 }
 
+/** Rally text for leader tooltips: dedicated rally_effects entry, or inline skill_details block. */
+function resolveRallyTaggedText(charData) {
+  if (!charData || typeof charData !== "object") return ""
+  const slug = String(charData.name || "").toLowerCase()
+  if (!slug) return ""
+  const descData = typeof window !== "undefined" ? window.CRK_DESCRIPTIONS || {} : {}
+  const fromTable = descData.rally_effects?.[slug]
+  if (fromTable) return fromTable
+  const details = descData.skill_details?.[slug]
+  if (!details || typeof details !== "string") return ""
+  const rallyBlock = details.match(/color-header\{FFFF66:Rally Effect\}[\s\S]*/i)
+  if (rallyBlock) return rallyBlock[0]
+  if (slug === "millennial_tree") {
+    const marker = "color-header{6E8D23:Nature's Protection}"
+    const start = details.indexOf(marker)
+    if (start >= 0) {
+      const rest = details.slice(start)
+      const next = rest.indexOf("<br>color-header{6E8D23:", marker.length)
+      const section = next >= 0 ? rest.slice(0, next) : rest
+      return section
+    }
+  }
+  return ""
+}
+
+/** HTML for teams-page leader rally cursor tip (max skill level by default). */
+function buildRallyEffectTooltipHtml(charData, options) {
+  const rallyData = resolveRallyTaggedText(charData)
+  if (!rallyData) return ""
+  const levelIndex = options && options.levelIndex != null ? options.levelIndex : 1
+  const rallySkillAttr = charData.cjSkillAttr ?? charData.skillAttrMc ?? charData.skillAttr
+  const body = renderSkillTaggedText(rallyData, rallySkillAttr, levelIndex)
+  if (!body) return ""
+  return `<div class="char-skill-details">${body}</div>`
+}
+
 function renderInlineTaggedText(text) {
   return tagParser(text)
 }
@@ -575,6 +686,38 @@ function renderInlineTaggedText(text) {
 function getCharacterFromURL(){
     const params = new URLSearchParams(window.location.search)
     return params.get("char")
+}
+
+/** BTS member tabs; aggregate "BTS" entry is teams-only (chars: false). Order follows release-order.js. */
+function isBtsMemberChar(charData) {
+    if (!charData || charData.chars === false) return false
+    return charData.role === "BTS" && String(charData.name || "") !== "BTS"
+}
+
+function btsMemberReleaseRank(charData) {
+    if (typeof releaseOrderMap === "undefined") return 9999
+    const dn = charData?.displayName ?? charData?.name ?? ""
+    const n = charData?.name ?? ""
+    if (releaseOrderMap[dn] != null) return releaseOrderMap[dn]
+    if (releaseOrderMap[n] != null) return releaseOrderMap[n]
+    if (n && releaseOrderMap[`${n} Cookie`] != null) return releaseOrderMap[`${n} Cookie`]
+    return 9999
+}
+
+function btsMemberChars(game) {
+    if (!game?.characters) return []
+    return game.characters
+        .filter(isBtsMemberChar)
+        .sort((a, b) => btsMemberReleaseRank(b) - btsMemberReleaseRank(a))
+}
+
+function btsDefaultMemberName(game) {
+    return btsMemberChars(game)[0]?.name || "Jung_kook"
+}
+
+function btsTabLabel(charData) {
+    const dn = charData?.displayName || charData?.name || ""
+    return String(dn).replace(/\s+Cookie$/i, "").trim() || charData?.name || ""
 }
 
 function getSelectedGameId() {
@@ -613,11 +756,6 @@ function getTartBonusEffectDisplayLabel(raw) {
     return labels[key]
   }
   return key
-}
-
-/** @deprecated use isLegendaryTartBonus */
-function isLegendaryTartSet(topSet) {
-  return isLegendaryTartBonus(topSet?.bonusEffect)
 }
 
 const BUILD_RANK_SORT_ORDER = { best: 0, recommended: 1 }
@@ -761,11 +899,76 @@ function _runWhenIdle(fn) {
 let _resonantToppingsMapPromise = null
 async function loadResonantToppingsMap() {
   if (_resonantToppingsMapPromise) return _resonantToppingsMapPromise
-  _resonantToppingsMapPromise = fetch(siteRelativePath("tools/resonant_toppings.json"))
+  _resonantToppingsMapPromise = fetch(siteRelativePath("crk/tools/resonant_toppings.json"))
     .then((r) => (r.ok ? r.json() : null))
     .then((j) => (j && typeof j === "object" && !Array.isArray(j) ? j : null))
     .catch(() => null)
   return _resonantToppingsMapPromise
+}
+
+function formatReleaseDateDisplay(raw) {
+  const s = String(raw || "").trim()
+  if (!s) return ""
+  const paren = s.indexOf("(")
+  if (paren > 0) return s.slice(0, paren).trim()
+  return s
+}
+
+function formatReleaseRelativeAgo(raw) {
+  const display = formatReleaseDateDisplay(raw)
+  if (!display) return ""
+  const start = new Date(display)
+  if (Number.isNaN(start.getTime())) return ""
+  const now = new Date()
+  if (start > now) return ""
+
+  let years = now.getFullYear() - start.getFullYear()
+  let months = now.getMonth() - start.getMonth()
+  let days = now.getDate() - start.getDate()
+  if (days < 0) {
+    months -= 1
+    days += new Date(now.getFullYear(), now.getMonth(), 0).getDate()
+  }
+  if (months < 0) {
+    years -= 1
+    months += 12
+  }
+
+  const parts = []
+  if (years > 0) parts.push(`${years} year${years === 1 ? "" : "s"}`)
+  if (months > 0) parts.push(`${months} month${months === 1 ? "" : "s"}`)
+  if (days > 0 || parts.length === 0) parts.push(`${days} day${days === 1 ? "" : "s"}`)
+  return `${parts.join(", ")} ago`
+}
+
+function renderReleaseInfoSection(charData, name) {
+  const el = document.getElementById("char-release-info")
+  if (!el || !charData) return
+  const displayName = charData.displayName || name
+  let version
+  try {
+    version = getCookieReleaseVersion(displayName, charData.name || name)
+  } catch (err) {
+    console.warn(err)
+    el.hidden = true
+    el.innerHTML = ""
+    return
+  }
+  const dateDisplay = formatReleaseDateDisplay(charData.releaseDate)
+  const ago = dateDisplay ? formatReleaseRelativeAgo(charData.releaseDate) : ""
+  let line
+  if (dateDisplay) {
+    line = _esc(dateDisplay)
+    if (ago) line += ` <span class="char-release-ago">(${_esc(ago)})</span>`
+    line += ` in Update ${_esc(version)}`
+  } else {
+    line = `Update ${_esc(version)}`
+  }
+  el.hidden = false
+  el.innerHTML = `<div class="char-release-inner">
+    <h3 class="char-release-heading">Release Date</h3>
+    <div class="char-release-line">${line}</div>
+  </div>`
 }
 
 function renderResonantToppingsSection(charData, name) {
@@ -798,19 +1001,29 @@ function renderResonantToppingsSection(charData, name) {
       <h3 class="char-resonant-heading">Resonant Toppings</h3>
       <div class="char-resonant-list">${items}</div>
     </div>`
+  }).catch((err) => {
+    console.warn("[char-ui] resonant toppings failed to render", err)
+    resonantEl.hidden = true
+    resonantEl.innerHTML = ""
   })
+}
+
+function resonanceAppliesToCookie(raw, cookieName) {
+  if (!raw || !cookieName) return false
+  const target = String(cookieName).trim().toLowerCase()
+  if (!target) return false
+  const cookies = raw.cookies
+  if (cookies === "all" || String(cookies || "").trim().toLowerCase() === "all") return true
+  if (!Array.isArray(cookies)) return false
+  return cookies.some((c) => String(c || "").trim().toLowerCase() === target)
 }
 
 function getResonancesForCookieFromMap(mapObj, cookieName) {
   if (!mapObj || !cookieName) return []
-  const target = String(cookieName).trim().toLowerCase()
-  if (!target) return []
   const out = []
   for (const [slug, raw] of Object.entries(mapObj)) {
-    if (!slug) continue
-    const cookies = raw && Array.isArray(raw.cookies) ? raw.cookies : []
-    const hit = cookies.some((c) => String(c || "").trim().toLowerCase() === target)
-    if (hit) out.push(String(slug))
+    if (!slug || slug.startsWith("_")) continue
+    if (resonanceAppliesToCookie(raw, cookieName)) out.push(String(slug))
   }
   return out
 }
@@ -906,7 +1119,7 @@ function charHasCrystalJam(charData) {
 }
 
 function charShowsMcSkill(charData) {
-  return typeof shouldRenderMcSkill === "function" ? shouldRenderMcSkill(charData) : !!charData?.mcSkill
+  return !!charData?.mcSkill
 }
 
 function buildCharReviewBlockHtml(title, review, rating, skillAttr) {
@@ -961,16 +1174,15 @@ function renderMcCjReviewSection(charData) {
   }
 }
 
-/** Topping row + optional build substats / tart bonus HTML */
+/** Topping row HTML (plate + slots). Pass bonusEffect to pick epic vs legendary tart art. */
 function buildToppingsSetBlockHtml(topSet, options) {
-  if (!topSet || typeof topSet !== "object") return { starHtml: "", substatsHtml: "", bonusEffectHtml: "" }
+  if (!topSet || typeof topSet !== "object") return { starHtml: "" }
   const lazy = !!(options && options.lazyImages)
   const lazyAttr = _lazyImgAttrs(lazy)
   let resonance = topSet.resonance
   if (options && Object.prototype.hasOwnProperty.call(options, "resonance")) {
     resonance = options.resonance
   }
-  const substats = Array.isArray(options?.substats) ? options.substats : []
   const bonusEffect = options?.bonusEffect
   const legendaryTart = isLegendaryTartBonus(bonusEffect)
   const showTart = !(options && options.showTart === false)
@@ -1001,26 +1213,19 @@ function buildToppingsSetBlockHtml(topSet, options) {
     rowHtml += `<img src="${getToppingPlateBackPath()}" alt="" class="char-topping-tart-base char-topping-plate-back"${lazyAttr} onerror="${_imgErrToppingAttr()}">`
   }
   rowHtml += `<div class="char-toppings-items">`
-  regularToppings.forEach((t, i) => {
-    const pos = i + 1
+  regularToppings.forEach((t) => {
+    const slot = t.slot
     const imgHtml = `<img src="${t.src}" data-fallback-src="${t.fallbackSrc || ""}" alt="${t.type}" class="char-topping-item"${lazyAttr} onerror="${_imgErrToppingAttr()}">`
-    if (hasPlate && pos === 4) {
-      rowHtml += `<div class="char-topping-star-slot char-topping-pos-4-split char-topping-pos-4-split--back"><div class="char-topping-graphic">${imgHtml}</div></div>`
-      rowHtml += `<div class="char-topping-star-slot char-topping-pos-4-split char-topping-pos-4-split--front"><div class="char-topping-graphic">${imgHtml}</div></div>`
+    if (hasPlate && slot === 4) {
+      const half = (which) =>
+        `<div class="char-topping-star-slot char-topping-pos-4-split char-topping-pos-4-split--${which}"><div class="char-topping-split-clip char-topping-split-clip--${which}"><div class="char-topping-graphic">${imgHtml}</div></div></div>`
+      rowHtml += half("back") + half("front")
     } else {
-      rowHtml += `<div class="char-topping-star-slot char-topping-pos-${pos}"><div class="char-topping-graphic">${imgHtml}</div></div>`
+      rowHtml += `<div class="char-topping-star-slot char-topping-pos-${slot}"><div class="char-topping-graphic">${imgHtml}</div></div>`
     }
   })
   rowHtml += `</div></div></div>`
-  const substatsHtml = substats.map(s => `<div class="char-build-substat">- ${s}</div>`).join("")
-  let bonusEffectHtml = ""
-  if (showTart && useLegendaryTart) {
-    const label = getTartBonusEffectDisplayLabel(bonusEffect)
-    if (label) {
-      bonusEffectHtml = `<div class="char-build-bonus-effect"><div class="char-build-bonus-effect-title">Bonus Effect</div><div class="char-build-bonus-effect-value">${label}</div></div>`
-    }
-  }
-  return { starHtml: rowHtml, substatsHtml, bonusEffectHtml }
+  return { starHtml: rowHtml }
 }
 
 /** Substats + tart bonus panel (character builds: separate boxes; teams: separate compact boxes). */
@@ -1252,6 +1457,15 @@ function scheduleCharacterBuildsMasonrySync() {
   }, 120)
 }
 
+/** Run one character-page UI block; log and continue if it throws. */
+function _safeRenderCharBlock(label, fn) {
+  try {
+    fn()
+  } catch (err) {
+    console.warn(`[char-ui] ${label} failed to render`, err)
+  }
+}
+
 function renderCharPageUpdatedLine(charData) {
   const foot = document.querySelector(".site-copyright")
   if (!foot) return
@@ -1283,20 +1497,22 @@ function renderCharPageUpdatedLine(charData) {
 }
 
 function renderCharacterPage(){
-    const urlName = getCharacterFromURL()
+    let urlName = getCharacterFromURL()
     if (urlName) {
         // URL should be source of truth going forward
         localStorage.removeItem("selectedCookie")
+    }
+    if (urlName && String(urlName).toLowerCase() === "bts") {
+        urlName = btsDefaultMemberName(window.data?.games?.find(g => g.id === getSelectedGameId()))
+        const url = new URL(window.location.href)
+        url.searchParams.set("char", urlName)
+        window.location.replace(url.toString())
+        return
     }
     const name = urlName || localStorage.getItem("selectedCookie")
     if(!name) return
 
     _ensureSkillStatusCursorTip()
-
-    const img = document.getElementById("char-image")
-    img.src = getPageImagePath(name)
-    img.decoding = "async"
-    if ("fetchPriority" in img) img.fetchPriority = "high"
 
     const data = window.CRK_DATA
     const gameId = getSelectedGameId()
@@ -1312,7 +1528,6 @@ function renderCharacterPage(){
     const slug = name.toLowerCase()
     const skillImageName = charData?.name || name
     const descData = window.CRK_DESCRIPTIONS || {}
-    const cnDescData = window.CRK_CN_DESCRIPTIONS || {}
 
     const descriptionText = descData.description?.[slug] || "No description available."
 
@@ -1339,28 +1554,51 @@ function renderCharacterPage(){
             ${awakenedForm ? `<button type="button" class="char-form-switch-btn ${isAwakenedPage ? "active" : ""}" data-switch-char="${_esc(awakenedForm.name)}">Awakened</button>` : ""}
         </div>`
     })()
-    const desc = document.getElementById("char-description")
-    desc.innerHTML = `
+    const btsSwitcherHtml = (() => {
+        if (!isBtsMemberChar(charData)) return ""
+        const members = btsMemberChars(game)
+        if (members.length < 2) return ""
+        const activeName = String(charData?.name || name || "")
+        return `<div class="char-form-switcher char-bts-switcher">
+            ${members.map(m => {
+                const on = String(m.name) === activeName
+                return `<button type="button" class="char-form-switch-btn${on ? " active" : ""}" data-switch-char="${_esc(m.name)}">${_esc(btsTabLabel(m))}</button>`
+            }).join("")}
+        </div>`
+    })()
+    _safeRenderCharBlock("character art", () => {
+        const img = document.getElementById("char-image")
+        if (!img) return
+        img.src = getPageImagePath(name)
+        img.decoding = "async"
+        if ("fetchPriority" in img) img.fetchPriority = "high"
+    })
+
+    _safeRenderCharBlock("description", () => {
+        const desc = document.getElementById("char-description")
+        if (!desc) return
+        desc.innerHTML = `
         <div class="char-desc-stars">★★★</div>
         <h2 class="char-title">${displayName}</h2>
         ${formSwitcherHtml}
+        ${btsSwitcherHtml}
         <div class="char-desc-divider"></div>
         <div class="char-description-text">${descriptionText}</div>
     `
-
-    // Form switcher (Original / Awakened)
-    desc.querySelectorAll("[data-switch-char]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const target = btn.getAttribute("data-switch-char")
-            if (!target) return
-            const url = new URL(window.location.href)
-            url.searchParams.set("char", target)
-            window.location.href = url.toString()
+        desc.querySelectorAll("[data-switch-char]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const target = btn.getAttribute("data-switch-char")
+                if (!target) return
+                const url = new URL(window.location.href)
+                url.searchParams.set("char", target)
+                window.location.href = url.toString()
+            })
         })
     })
 
-    const infoBox = document.getElementById("char-info-box")
-    if(charData && infoBox) {
+    _safeRenderCharBlock("info box", () => {
+        const infoBox = document.getElementById("char-info-box")
+        if (!charData || !infoBox) return
         const rawRarity = charData.rarity || ""
         const rarityIcon = rarityIconBasename(rawRarity)
         const rarityLabel = rawRarity || rarityIcon
@@ -1373,7 +1611,11 @@ function renderCharacterPage(){
         const rarityIconErr = rarityIconOnErrorHandler(rawRarity, pic)
         const roleRow = role ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${role}.png`)}" alt="" onerror="${_imgErrHide}"><span>${role}</span></div>` : ""
         const posRow = position ? `<div class="char-stat-pill"><img src="${pic}/icons/${_urlFile(`${position}.png`)}" alt="" onerror="${_imgErrHide}"><span>${position}</span></div>` : ""
-        const elemRow = elements.length ? `<div class="char-stat-pill"><span>Element</span>${elements.map(e => `<img src="${pic}/icons/${_urlFile(`${e}.png`)}" alt="${e}" title="${e}" onerror="${_imgErrHide}">`).join("")}</div>` : ""
+        const elemRow = elements.length
+            ? `<div class="char-stat-pill"><span>Element</span>${elements.map((e) =>
+                `<img src="${pic}/icons/${_urlFile(`${e}.png`)}" alt="${_esc(e)}" title="${_esc(e)}" onerror="${_imgErrHide}">`
+            ).join("")}</div>`
+            : ""
         infoBox.innerHTML = `
             ${rarityIcon ? `<img class="char-rarity-icon" src="${rarityIconPath}" alt="${_esc(rarityLabel)}" title="${_esc(rarityLabel)}" onerror="${rarityIconErr}">` : ""}
             <div class="char-stats-row">
@@ -1382,15 +1624,13 @@ function renderCharacterPage(){
             </div>
             ${elemRow ? `<div class="char-elements-row">${elemRow}</div>` : ""}
         `
-    }
+    })
 
-    renderResonantToppingsSection(charData, name)
+    _safeRenderCharBlock("resonant toppings", () => renderResonantToppingsSection(charData, name))
+    _safeRenderCharBlock("release info", () => renderReleaseInfoSection(charData, name))
 
     const skillSection = document.getElementById("char-skill-section")
-    if (!skillSection) {
-        renderCharPageUpdatedLine(charData)
-        return
-    }
+    if (skillSection) {
     let useBaseLevelNormal = true
     let useBaseLevelCj = true
     let showEnchants = false
@@ -1407,15 +1647,7 @@ function renderCharacterPage(){
         const hasMC = charShowsMcSkill(charData)
         const isAncientA = charData?.rarity === "AncientA"
         const hasMcCj = (isCJ && hasCJ) || hasMC
-        const skillCtx = typeof getActiveNormalSkillContext === "function"
-            ? getActiveNormalSkillContext(charData, descData, cnDescData, slug)
-            : { useCn: false, skillAttr: charData?.skillAttr, skillDescData: descData, slug }
-        const activeSkillAttr = skillCtx.skillAttr
-        const activeSkillDescData = skillCtx.skillDescData || descData
-        const activeSlug = skillCtx.slug || slug
-        const cnSkillDisclaimer = skillCtx.useCn
-            ? `<div class="char-skill-cj-disclaimer-wrap"><div class="char-skill-cj-disclaimer">Showing CN Kingdom skill details.</div></div>`
-            : ""
+        const activeSkillAttr = charData?.skillAttr
 
         function skillBox(name, cooldown, initialCd, desc, iconPath, hasData, skillDetails, skillAttrData, lidx, detailsKey, middleContent) {
             const showBase = (lidx != null ? lidx : 0) === 0
@@ -1428,7 +1660,7 @@ function renderCharacterPage(){
                 detailsHtml = `<div class="char-skill-details-swap ${swapClass}" data-level-swap="${detailsKey}"><div class="char-skill-details" data-level="base">${baseHtml}</div><div class="char-skill-details" data-level="max">${maxHtml}</div></div>`
             }
             const src = hasData ? iconPath : `${pic}/skills/unknown.png`
-            const icd = (cooldown != null && initialCd != null) ? Math.round(cooldown * 0.3 * initialCd) : null
+            const icd = initialCd != null ? Number(initialCd) : null
             const cdPills = cooldown != null
                 ? `<span class="char-skill-cd-pills">
                     <span class="char-skill-cd-pill" data-status-tip="Base CD"><img src="${pic}/icons/clock.png" alt="" class="char-skill-clock" onerror="${_imgErrHide}">${cooldown} sec</span>
@@ -1467,13 +1699,11 @@ function renderCharacterPage(){
             return `<div class="char-skill-bar">${extras ? `<div class="char-skill-bar-extras">${extras}</div>` : ""}<div class="char-skill-bar-buttons">${buttons}</div></div>`
         }
 
-        const rallyData = skillCtx.useCn
-            ? (cnDescData.rally_effects?.[slug] ?? descData.rally_effects?.[slug])
-            : descData.rally_effects?.[slug]
+        const rallyData = descData.rally_effects?.[slug]
         const useInlineRally = !!charData?.rallyEffect
         let rallyHtml = ""
         if (rallyData) {
-            const rallySkillAttr = charData.cjSkillAttr ?? charData.skillAttr
+            const rallySkillAttr = charData.cjSkillAttr ?? charData.skillAttrMc ?? charData.skillAttr
             const useBase = hasMcCj ? useBaseLevelCj : useBaseLevelNormal
             const rallySwapClass = useBase ? "level-base" : "level-max"
 
@@ -1487,7 +1717,7 @@ function renderCharacterPage(){
             }
         }
         const hasNormalRally = rallyData && !hasMcCj
-        const normalSkillDetailsRaw = activeSkillDescData.skill_details?.[activeSlug]
+        const normalSkillDetailsRaw = descData.skill_details?.[slug]
         const normalBox = skillBox(
             charData?.skill || "Skill",
             charData?.cd ?? null,
@@ -1529,7 +1759,7 @@ function renderCharacterPage(){
         // Enchants apply to Magic Candy / Crystal Jam only — same key shape as wiki import ({slug}_10 / _20 / _30).
         const normalEnchantsRaw = !hasMcCj ? buildEnchantsHtml(descData.enchants, activeSkillAttr, slug) : ""
         const normalEnchantsHtml = wrapEnchantsToggleable(normalEnchantsRaw, "normal", showEnchants)
-        const normalGameplayNotesRaw = buildGameplayNotesHtml(activeSkillDescData.skill_notes, activeSkillAttr, activeSlug)
+        const normalGameplayNotesRaw = buildGameplayNotesHtml(descData.skill_notes, activeSkillAttr, slug)
         const normalGameplayNotesHtml = wrapGameplayNotesBubble(normalGameplayNotesRaw, "normal", showGameplayNotesNormal)
         const normalBar = skillBar("normal", useBaseLevelNormal, null, null, null, !!normalEnchantsRaw, false, !!normalGameplayNotesRaw, false)
         let mcCjBox = ""
@@ -1552,7 +1782,12 @@ function renderCharacterPage(){
             const cjEnchantsRaw = buildEnchantsHtml(cjEnchantsSource, charData?.cjSkillAttr ?? charData?.skillAttr, slug)
             cjEnchantsHtml = wrapEnchantsToggleable(cjEnchantsRaw, "cj", showEnchants)
             const cjAscensionSource = descData.cj_ascension && Object.keys(descData.cj_ascension).length ? descData.cj_ascension : descData.ascension_effects
-            const cjAscensionRaw = buildAscensionHtml(cjAscensionSource, charData?.cjSkillAttr ?? charData?.skillAttr, slug)
+            const cjAscensionRaw = buildAscensionHtml(
+                cjAscensionSource,
+                charData?.cjSkillAttr ?? charData?.skillAttr,
+                slug,
+                usesNewCjAscensionGrades(charData?.rarity)
+            )
             cjAscensionHtml = wrapAscensionToggleable(cjAscensionRaw, "cj", showAscension)
             mcCjBox = skillBox(
                 charData.cjSkill,
@@ -1596,7 +1831,12 @@ function renderCharacterPage(){
             const cjEnchantsRaw = buildEnchantsHtml(mcEnchantsSource, charData?.skillAttrMc ?? charData?.skillAttr, slug)
             cjEnchantsHtml = wrapEnchantsToggleable(cjEnchantsRaw, "mc", showEnchants)
             const mcAscensionSource = descData.cj_ascension && Object.keys(descData.cj_ascension).length ? descData.cj_ascension : descData.ascension_effects
-            const cjAscensionRaw = buildAscensionHtml(mcAscensionSource, charData?.skillAttrMc ?? charData?.skillAttr, slug)
+            const cjAscensionRaw = buildAscensionHtml(
+                mcAscensionSource,
+                charData?.skillAttrMc ?? charData?.skillAttr,
+                slug,
+                usesNewCjAscensionGrades(charData?.rarity)
+            )
             cjAscensionHtml = wrapAscensionToggleable(cjAscensionRaw, "mc", showAscension)
             const mcGameplayNotesRaw = buildGameplayNotesHtml(descData.skill_notes, charData?.skillAttrMc ?? charData?.skillAttr, `${slug}_mc`)
             gameplayNotesHtml = wrapGameplayNotesBubble(mcGameplayNotesRaw, "mc", showGameplayNotesCj)
@@ -1623,7 +1863,7 @@ function renderCharacterPage(){
         const normalDisclaimer = isAncientA
             ? `<div class="char-skill-cj-disclaimer-wrap"><div class="char-skill-cj-disclaimer">Replaces ${unawakenedSlugForIcon ? tagParser(`skill{${unawakenedSlugForIcon}}`) : ""}${unawakenedSkillName || "normal skill"}; however, level-ups are shared between the two skills.</div></div>`
             : ""
-        const normalBubble = `${cnSkillDisclaimer}${normalDisclaimer}<div class="char-skill-bubble"><div class="char-skill-content">${normalBox}${!hasMcCj ? rallyHtml : ""}${normalSkillDetailsHtml}${normalEnchantsHtml}</div>${normalBar}</div>${normalGameplayNotesHtml || ""}`
+        const normalBubble = `${normalDisclaimer}<div class="char-skill-bubble"><div class="char-skill-content">${normalBox}${!hasMcCj ? rallyHtml : ""}${normalSkillDetailsHtml}${normalEnchantsHtml}</div>${normalBar}</div>${normalGameplayNotesHtml || ""}`
         const cjDisclaimer = (isCJ && hasCJ && charData?.cjReplace)
             ? `<div class="char-skill-cj-disclaimer-wrap"><div class="char-skill-cj-disclaimer">Replaces the base skill; level-ups are not applied to the Crystal Jam skill.</div></div>`
             : ""
@@ -1696,12 +1936,12 @@ function renderCharacterPage(){
         })
     }
 
-    renderSkillSectionContent()
+    _safeRenderCharBlock("skill section", () => renderSkillSectionContent())
     window.addEventListener("crkSettingsChanged", () => {
-      renderSkillSectionContent()
-      renderMcCjReviewSection(charData)
+        _safeRenderCharBlock("skill section", () => renderSkillSectionContent())
+        _safeRenderCharBlock("mc/cj review", () => renderMcCjReviewSection(charData))
     })
-    renderCharPageUpdatedLine(charData)
+    }
 
     function renderBuildSection() {
         const buildSection = document.getElementById("Builds")
@@ -1735,7 +1975,6 @@ function renderCharacterPage(){
             const biscuitSet = biscuitIndex != null && Number.isInteger(biscuitIndex) && biscuitIndex >= 1 ? beascuitSetsList[biscuitIndex - 1] : null
             const { starHtml: toppingsHtml } = buildToppingsSetBlockHtml(topSet, {
                 lazyImages: true,
-                substats: build.substats,
                 bonusEffect: build.bonusEffect,
             })
             const toppingsDetailsHtml = buildToppingsDetailsHtml({
@@ -1805,8 +2044,8 @@ function renderCharacterPage(){
         function renderToppingSetCardHtml(setIndex) {
             const topSet = toppingSetsList[setIndex - 1]
             if (!topSet) return ""
-            const { starHtml } = buildToppingsSetBlockHtml(topSet, { lazyImages: true, showTart: false })
-            const toppingsDetailsHtml = buildToppingsDetailsHtml({ showTart: false })
+            const { starHtml } = buildToppingsSetBlockHtml(topSet, { lazyImages: true })
+            const toppingsDetailsHtml = buildToppingsDetailsHtml({})
             return `<div class="char-build-card char-set-card">
                 <div class="char-build-name-bar"><span class="char-build-name-text">Topping set ${setIndex}</span></div>
                 <div class="char-build-content char-build-content-set-single">
@@ -1893,9 +2132,9 @@ function renderCharacterPage(){
             </div>
             <div class="char-section-divider"></div>
         </div>
-        ${sectionNotesHtml}
         <div class="char-build-panel" data-panel="builds" style="display:${buildsPanelDisplay}"><div class="char-build-catalog">${buildsCatalogHtml}</div></div>
-        <div class="char-build-panel" data-panel="sets" style="display:${setsPanelDisplay}">${setsPanelHtml}</div>`
+        <div class="char-build-panel" data-panel="sets" style="display:${setsPanelDisplay}">${setsPanelHtml}</div>
+        ${sectionNotesHtml}`
         buildSection.innerHTML = html
         buildSection.style.display = "block"
         if (typeof initToppingGraphics === "function") initToppingGraphics(buildSection)
@@ -1941,17 +2180,21 @@ function renderCharacterPage(){
             })
         }
     }
-    _runWhenIdle(() => renderBuildSection())
+    _safeRenderCharBlock("build section", () => _runWhenIdle(() => renderBuildSection()))
 
-    const reviewSection = document.getElementById("char-review-section")
-    if (reviewSection && (charData?.review || charData?.rating)) {
-        reviewSection.innerHTML = buildCharReviewBlockHtml("Review", charData.review, charData.rating, charData?.skillAttr)
-        reviewSection.style.display = "block"
-    }
+    _safeRenderCharBlock("review", () => {
+        const reviewSection = document.getElementById("char-review-section")
+        if (reviewSection && (charData?.review || charData?.rating)) {
+            reviewSection.innerHTML = buildCharReviewBlockHtml("Review", charData.review, charData.rating, charData?.skillAttr)
+            reviewSection.style.display = "block"
+        }
+    })
 
-    renderMcCjReviewSection(charData)
+    _safeRenderCharBlock("mc/cj review", () => renderMcCjReviewSection(charData))
+    _safeRenderCharBlock("page updated", () => renderCharPageUpdatedLine(charData))
 
-    if (!characterBuildMasonryResizeBound) {
+    _safeRenderCharBlock("build masonry listeners", () => {
+        if (characterBuildMasonryResizeBound) return
         characterBuildMasonryResizeBound = true
         window.addEventListener("resize", scheduleCharacterBuildsMasonrySync, { passive: true })
         if (window.visualViewport) {
@@ -1961,12 +2204,13 @@ function renderCharacterPage(){
         if (buildsRoot && typeof ResizeObserver !== "undefined") {
             new ResizeObserver(() => scheduleCharacterBuildsMasonrySync()).observe(buildsRoot)
         }
-    }
+    })
 
 }
 
 if (typeof window !== "undefined") {
   window.ensureSkillStatusCursorTip = _ensureSkillStatusCursorTip
+  window.buildRallyEffectTooltipHtml = buildRallyEffectTooltipHtml
 }
 
 if (document.getElementById("char-skill-section")) {

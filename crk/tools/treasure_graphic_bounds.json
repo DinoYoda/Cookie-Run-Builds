@@ -1,0 +1,437 @@
+{
+  "_comment": "Pre-baked alpha bounds for treasure icons. Regenerate: python crk/tools/bake_treasure_bounds.py",
+  "bounds": {
+    "Treasure_acorn_snowball_with_a_tiny_cookie.png": {
+      "h": 102,
+      "method": "alpha",
+      "nh": 106,
+      "nw": 107,
+      "w": 99,
+      "x": 4,
+      "y": 2
+    },
+    "Treasure_bear_jellys_lollipop.png": {
+      "h": 87,
+      "method": "alpha",
+      "nh": 91,
+      "nw": 104,
+      "w": 100,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_blind_healers_staff.png": {
+      "h": 99,
+      "method": "alpha",
+      "nh": 110,
+      "nw": 112,
+      "w": 99,
+      "x": 6,
+      "y": 6
+    },
+    "Treasure_blossoming_acorn_bomb.png": {
+      "h": 110,
+      "method": "alpha",
+      "nh": 117,
+      "nw": 126,
+      "w": 122,
+      "x": 4,
+      "y": 2
+    },
+    "Treasure_booksellers_monocle.png": {
+      "h": 101,
+      "method": "alpha",
+      "nh": 115,
+      "nw": 119,
+      "w": 108,
+      "x": 7,
+      "y": 7
+    },
+    "Treasure_cape_of_the_vanquisher.png": {
+      "h": 96,
+      "method": "alpha",
+      "nh": 101,
+      "nw": 98,
+      "w": 94,
+      "x": 0,
+      "y": 2
+    },
+    "Treasure_cheesebirds_coin_purse.png": {
+      "h": 91,
+      "method": "alpha",
+      "nh": 95,
+      "nw": 87,
+      "w": 83,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_crimson_magic_whistle.png": {
+      "h": 110,
+      "method": "alpha",
+      "nh": 115,
+      "nw": 120,
+      "w": 111,
+      "x": 3,
+      "y": 1
+    },
+    "Treasure_cursed_catacombs_candle.png": {
+      "h": 89,
+      "method": "alpha",
+      "nh": 93,
+      "nw": 86,
+      "w": 82,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_darkness_vessel.png": {
+      "h": 112,
+      "method": "alpha",
+      "nh": 117,
+      "nw": 114,
+      "w": 110,
+      "x": 2,
+      "y": 3
+    },
+    "Treasure_disciples_magic_scroll.png": {
+      "h": 75,
+      "method": "alpha",
+      "nh": 79,
+      "nw": 87,
+      "w": 83,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_divine_honey_cream_crown.png": {
+      "h": 89,
+      "method": "alpha",
+      "nh": 95,
+      "nw": 98,
+      "w": 94,
+      "x": 2,
+      "y": 3
+    },
+    "Treasure_dream_conductors_whistle.png": {
+      "h": 108,
+      "method": "alpha",
+      "nh": 128,
+      "nw": 128,
+      "w": 118,
+      "x": 9,
+      "y": 9
+    },
+    "Treasure_durianeers_squeaky_flamingo_tube.png": {
+      "h": 93,
+      "method": "alpha",
+      "nh": 104,
+      "nw": 109,
+      "w": 95,
+      "x": 10,
+      "y": 5
+    },
+    "Treasure_echo_of_the_hurricane27s_song.png": {
+      "h": 83,
+      "method": "alpha",
+      "nh": 90,
+      "nw": 98,
+      "w": 89,
+      "x": 6,
+      "y": 3
+    },
+    "Treasure_elder_pilgrim27s_torch.png": {
+      "h": 99,
+      "method": "alpha",
+      "nh": 103,
+      "nw": 104,
+      "w": 100,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_explorers_monocle.png": {
+      "h": 93,
+      "method": "alpha",
+      "nh": 100,
+      "nw": 106,
+      "w": 102,
+      "x": 2,
+      "y": 3
+    },
+    "Treasure_festive_acorn_gift_box.png": {
+      "h": 104,
+      "method": "alpha",
+      "nh": 110,
+      "nw": 105,
+      "w": 101,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_gatekeeper_ghosts_horn.png": {
+      "h": 85,
+      "method": "alpha",
+      "nh": 89,
+      "nw": 81,
+      "w": 77,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_ginkgoblins_trophy_safe.png": {
+      "h": 95,
+      "method": "alpha",
+      "nh": 105,
+      "nw": 104,
+      "w": 91,
+      "x": 7,
+      "y": 5
+    },
+    "Treasure_great_sages_gem.png": {
+      "h": 90,
+      "method": "alpha",
+      "nh": 98,
+      "nw": 95,
+      "w": 85,
+      "x": 5,
+      "y": 4
+    },
+    "Treasure_grim-looking_electrifying_scythe.png": {
+      "h": 97,
+      "method": "alpha",
+      "nh": 101,
+      "nw": 94,
+      "w": 91,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_grim-looking_scythe.png": {
+      "h": 91,
+      "method": "alpha",
+      "nh": 95,
+      "nw": 90,
+      "w": 86,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_hollyberrian_royal_necklace.png": {
+      "h": 86,
+      "method": "alpha",
+      "nh": 90,
+      "nw": 98,
+      "w": 94,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_ice-cold_energy_drink.png": {
+      "h": 93,
+      "method": "alpha",
+      "nh": 99,
+      "nw": 103,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_insignia_of_the_indomitable_knights.png": {
+      "h": 86,
+      "method": "alpha",
+      "nh": 88,
+      "nw": 94,
+      "w": 94,
+      "x": 0,
+      "y": 1
+    },
+    "Treasure_jelly_worm27s_sticky_goo.png": {
+      "h": 89,
+      "method": "alpha",
+      "nh": 93,
+      "nw": 84,
+      "w": 80,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_librarian27s_enchanted_robes.png": {
+      "h": 96,
+      "method": "alpha",
+      "nh": 110,
+      "nw": 106,
+      "w": 94,
+      "x": 8,
+      "y": 9
+    },
+    "Treasure_milk_tribes_frozen_torch.png": {
+      "h": 99,
+      "method": "alpha",
+      "nh": 103,
+      "nw": 102,
+      "w": 98,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_miraculous_ghost_ice_cream.png": {
+      "h": 90,
+      "method": "alpha",
+      "nh": 95,
+      "nw": 92,
+      "w": 87,
+      "x": 3,
+      "y": 3
+    },
+    "Treasure_miraculous_natural_remedy.png": {
+      "h": 90,
+      "method": "alpha",
+      "nh": 97,
+      "nw": 107,
+      "w": 100,
+      "x": 2,
+      "y": 4
+    },
+    "Treasure_mysterious_jewelry_box.png": {
+      "h": 115,
+      "method": "alpha",
+      "nh": 119,
+      "nw": 110,
+      "w": 105,
+      "x": 3,
+      "y": 2
+    },
+    "Treasure_mystical_silver_fork.png": {
+      "h": 122,
+      "method": "alpha",
+      "nh": 128,
+      "nw": 128,
+      "w": 121,
+      "x": 4,
+      "y": 2
+    },
+    "Treasure_old_pilgrims_scroll.png": {
+      "h": 91,
+      "method": "alpha",
+      "nh": 128,
+      "nw": 128,
+      "w": 88,
+      "x": 21,
+      "y": 16
+    },
+    "Treasure_pilgrims_slingshot.png": {
+      "h": 81,
+      "method": "alpha",
+      "nh": 85,
+      "nw": 90,
+      "w": 86,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_priestess_cookie27s_paper_charm.png": {
+      "h": 99,
+      "method": "alpha",
+      "nh": 128,
+      "nw": 128,
+      "w": 95,
+      "x": 15,
+      "y": 12
+    },
+    "Treasure_sacred_pomegranate_branch.png": {
+      "h": 103,
+      "method": "alpha",
+      "nh": 107,
+      "nw": 106,
+      "w": 102,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_seamstress_pin_cushion.png": {
+      "h": 95,
+      "method": "alpha",
+      "nh": 105,
+      "nw": 108,
+      "w": 98,
+      "x": 5,
+      "y": 5
+    },
+    "Treasure_sleepyheads_jelly_watch.png": {
+      "h": 82,
+      "method": "alpha",
+      "nh": 86,
+      "nw": 87,
+      "w": 83,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_squishy_jelly_watch.png": {
+      "h": 86,
+      "method": "alpha",
+      "nh": 90,
+      "nw": 87,
+      "w": 83,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_subtle_fragrant_remedy.png": {
+      "h": 85,
+      "method": "alpha",
+      "nh": 89,
+      "nw": 94,
+      "w": 89,
+      "x": 3,
+      "y": 2
+    },
+    "Treasure_sugar_swans_shining_feather.png": {
+      "h": 91,
+      "method": "alpha",
+      "nh": 95,
+      "nw": 95,
+      "w": 91,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_tbd_ticking_jelly_watch.png": {
+      "h": 81,
+      "method": "alpha",
+      "nh": 85,
+      "nw": 87,
+      "w": 83,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_the_orders_sacred_fork.png": {
+      "h": 93,
+      "method": "alpha",
+      "nh": 97,
+      "nw": 87,
+      "w": 83,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_thunder_gods_paper_charm.png": {
+      "h": 91,
+      "method": "alpha",
+      "nh": 96,
+      "nw": 101,
+      "w": 94,
+      "x": 3,
+      "y": 3
+    },
+    "Treasure_twinkling_starlight_crown.png": {
+      "h": 89,
+      "method": "alpha",
+      "nh": 95,
+      "nw": 100,
+      "w": 96,
+      "x": 2,
+      "y": 3
+    },
+    "Treasure_unyielding_berry_necklace.png": {
+      "h": 88,
+      "method": "alpha",
+      "nh": 92,
+      "nw": 105,
+      "w": 101,
+      "x": 2,
+      "y": 2
+    },
+    "Treasure_vial_of_raging_dunes.png": {
+      "h": 100,
+      "method": "alpha",
+      "nh": 106,
+      "nw": 100,
+      "w": 94,
+      "x": 4,
+      "y": 2
+    }
+  }
+}

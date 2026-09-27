@@ -87,9 +87,75 @@
     return charMap[key] || null
   }
 
-  function getBuild(charData, buildIndex) {
-    if (!charData || !buildIndex) return null
-    return charData.builds?.[buildIndex] || null
+  /**
+   * cookies[] entries are either a member object or [alt, alt, …] (replacement options for one slot).
+   */
+  function normalizeCookieSlots(rawCookies) {
+    const list = Array.isArray(rawCookies) ? rawCookies.slice(0, 7) : []
+    const slots = []
+    for (const item of list) {
+      if (Array.isArray(item)) {
+        const alts = item.filter(x => x && typeof x === "object" && !Array.isArray(x))
+        if (alts.length) slots.push({ alternatives: alts })
+        continue
+      }
+      if (item && typeof item === "object") {
+        slots.push({ alternatives: [item] })
+      }
+    }
+    return slots
+  }
+
+  /** Front → Middle → Back by first alternative in each slot. */
+  function sortTeamSlots(slots) {
+    if (typeof getCookieBattleOrderRank !== "function") return slots
+    return slots.slice().sort((a, b) => {
+      const ma = a?.alternatives?.[0]
+      const mb = b?.alternatives?.[0]
+      const ra = getCookieBattleOrderRank(getChar(ma), ma)
+      const rb = getCookieBattleOrderRank(getChar(mb), mb)
+      if (ra.row !== rb.row) return ra.row - rb.row
+      if (ra.idx !== rb.idx) return ra.idx - rb.idx
+      return 0
+    })
+  }
+
+  /** Epic → Special → Rare → Common, then release order within tier. */
+  function sortTeamTreasures(treasures) {
+    if (typeof getTreasureSortRank !== "function") return treasures
+    return treasures
+      .slice()
+      .filter(t => String(t || "").trim())
+      .sort((a, b) => {
+        const ra = getTreasureSortRank(a)
+        const rb = getTreasureSortRank(b)
+        if (ra.rarity !== rb.rarity) return ra.rarity - rb.rarity
+        if (ra.idx !== rb.idx) return ra.idx - rb.idx
+        return 0
+      })
+  }
+
+  function getBuild(charData, buildRef) {
+    if (!charData || buildRef == null || buildRef === "") return null
+    const builds = charData.builds
+    if (!builds || typeof builds !== "object") return null
+
+    if (builds[buildRef] && typeof builds[buildRef] === "object" && builds[buildRef].name) {
+      return builds[buildRef]
+    }
+    const numKey = typeof buildRef === "number" ? String(buildRef) : /^\d+$/.test(String(buildRef)) ? String(buildRef) : null
+    if (numKey && builds[numKey] && typeof builds[numKey] === "object") {
+      return builds[numKey]
+    }
+
+    const refLower = String(buildRef).trim().toLowerCase()
+    if (!refLower) return null
+    for (const build of Object.values(builds)) {
+      if (build && typeof build === "object" && build.name) {
+        if (String(build.name).trim().toLowerCase() === refLower) return build
+      }
+    }
+    return null
   }
 
   function getSetLabel(kind, idx) {
@@ -103,6 +169,47 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
+  }
+
+  /** team.source — URL string or { url, label? } */
+  function renderTeamSourceHtml(source) {
+    if (source == null) return ""
+    let url = ""
+    let customLabel = ""
+    if (typeof source === "object" && source !== null && source.url != null) {
+      url = String(source.url).trim()
+      customLabel = source.label != null ? String(source.label).trim() : ""
+    } else {
+      url = String(source).trim()
+    }
+    if (!url && !customLabel) return ""
+    if (!url) {
+      return `<p class="teams-source">Source: ${esc(customLabel)}</p>`
+    }
+    let href = url
+    let linkLabel = customLabel
+    try {
+      const u = new URL(url, "https://example.invalid")
+      if (u.protocol === "http:" || u.protocol === "https:") {
+        href = u.href
+        if (!linkLabel) {
+          const host = u.hostname.replace(/^www\./i, "").toLowerCase()
+          if (/^(youtube\.com|youtu\.be|m\.youtube\.com)$/.test(host) || host.endsWith(".youtube.com")) {
+            linkLabel = "YouTube"
+          } else if (host.includes("twitch.tv")) {
+            linkLabel = "Twitch"
+          } else {
+            linkLabel = host
+          }
+        }
+      } else if (!linkLabel) {
+        linkLabel = url
+      }
+    } catch {
+      if (!linkLabel) linkLabel = url
+      return `<p class="teams-source">Source: ${esc(linkLabel)}</p>`
+    }
+    return `<p class="teams-source">Source: <a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel)}</a></p>`
   }
 
   function treasureIdToLabel(id) {
@@ -150,16 +257,7 @@
       `<span class="teams-treasure-fallback" hidden>${esc(raw)}</span></span>`
   }
 
-  /**
-   * Same order as char builds: general notes first, then this team’s notes, unless `useOwn` (then only team).
-   * Uses tagged text like character build notes.
-   */
-  function renderTeamNotesBlock(generalNotes, team) {
-    const g = Array.isArray(generalNotes) ? generalNotes : []
-    const t = Array.isArray(team?.notes) ? team.notes : []
-    const useOwn = !!team?.useOwn
-    const lines = useOwn ? t.slice() : g.concat(t)
-    if (!lines.length) return ""
+  function renderNotesLines(lines) {
     const renderLine = (text) => {
       if (text == null || String(text).trim() === "") return ""
       const inner =
@@ -168,21 +266,54 @@
           : esc(String(text))
       return `<div class="char-build-note teams-team-note-line">${inner}</div>`
     }
-    const body = lines.map(renderLine).filter(Boolean).join("")
+    const arr = Array.isArray(lines) ? lines : []
+    return arr.map(renderLine).filter(Boolean).join("")
+  }
+
+  function renderNotesBlock(title, lines, extraClass) {
+    const body = renderNotesLines(lines)
     if (!body) return ""
-    return `<div class="char-build-notes teams-team-notes">
-    <div class="char-build-notes-header-bar"><h4 class="char-build-notes-title">Team Notes</h4></div>
+    const cls = extraClass ? ` ${extraClass}` : ""
+    return `<div class="char-build-notes teams-team-notes${cls}">
+    <div class="char-build-notes-header-bar"><h4 class="char-build-notes-title">${esc(title)}</h4></div>
     <div class="char-build-notes-body" style="padding: 10px 20px;">${body}</div>
   </div>`
   }
 
-  function renderTeamMember(member) {
+  /** Per-squad notes under each squad in a multi-squad comp. */
+  function renderSquadNotes(squad) {
+    return renderNotesBlock("Team Notes", squad?.notes)
+  }
+
+  /**
+   * Section/version notes + comp-level notes on the team entry (not merged with squad notes).
+   * Multi-squad comps use “General Notes” for team.notes so they aren’t confused with per-squad Team Notes.
+   */
+  function renderTeamEntryNotes(generalNotes, team, { multiSquad = false } = {}) {
+    const g = Array.isArray(generalNotes) ? generalNotes : []
+    const t = Array.isArray(team?.notes) ? team.notes : []
+    const useOwn = !!team?.useOwn
+    const parts = []
+    if (!useOwn && g.length) {
+      parts.push(renderNotesBlock("Section Notes", g, "teams-section-notes"))
+    }
+    if (t.length) {
+      let title = "Team Notes"
+      let extra = ""
+      if (multiSquad && !useOwn) {
+        title = "General Notes"
+        extra = "teams-general-notes"
+      }
+      parts.push(renderNotesBlock(title, t, extra))
+    }
+    return parts.join("")
+  }
+
+  function buildMemberRenderContext(member) {
     const pic = getGamePictureRoot()
     const charData = getChar(member)
     if (!charData) {
-      return `<div class="teams-build-row teams-build-row--missing" role="row">
-        <div class="teams-build-row-cookie"><span class="teams-member-name">Unknown Cookie</span></div>
-      </div>`
+      return { missing: true, gearKey: "" }
     }
 
     const build = getBuild(charData, member.build)
@@ -194,7 +325,6 @@
     const toppingIdxOk = toppingIdx != null && Number.isInteger(toppingIdx) && toppingIdx >= 1
     const beascuitIdxOk = beascuitIdx != null && Number.isInteger(beascuitIdx) && beascuitIdx >= 1
     const showBeascuit = currentRenderFeatures.beascuits
-    const showTart = currentRenderFeatures.tarts
 
     const sets = charData.sets || {}
     const toppingSetsList = Array.isArray(sets.toppings) ? sets.toppings : []
@@ -208,10 +338,13 @@
     let bBlock = { beascuitRowHtml: "" }
     if (canBuildGear) {
       const toppingOpts = topSet ? buildToppingRenderOptions(topSet) : {}
-      tBlock = topSet ? buildToppingsSetBlockHtml(topSet, toppingOpts) : tBlock
+      tBlock = topSet
+        ? buildToppingsSetBlockHtml(topSet, { ...toppingOpts, bonusEffect: build?.bonusEffect })
+        : tBlock
       if (topSet && typeof buildToppingsDetailsHtml === "function") {
         toppingDetailsHtml = buildToppingsDetailsHtml({
-          ...toppingOpts,
+          showTart: toppingOpts.showTart,
+          showLegendaryTart: toppingOpts.showLegendaryTart,
           substats: build?.substats,
           bonusEffect: build?.bonusEffect,
           teamsCompact: true,
@@ -243,15 +376,7 @@
       href = new URL(path, location.href).href
     } catch (e) { /* same-document relative fallback */ }
     const imgName = charData.name || ""
-
     const displayN = charData.displayName || charData.name || ""
-    const identityBlock = `<div class="teams-build-row-cookie">
-      <img src="${pic}/icons/cookie/${imgName}_head.png" alt="${displayN}" class="teams-member-icon" onerror="this.onerror=null;this.src='${pic}/icons/null.png'">
-      <div class="teams-build-row-cookie-text">
-        <div class="teams-member-name" title="${esc(displayN)}">${displayN}</div>
-        ${buildName ? `<div class="teams-member-build" title="${esc(buildName)}">${buildName}</div>` : ""}
-      </div>
-    </div>`
 
     let gearHtml = ""
     if (hasT) {
@@ -264,9 +389,140 @@
       gearHtml += `<div class="teams-build-row-beascuit">${bBlock.beascuitRowHtml || ""}</div>`
     }
 
-    const hasGear = hasT || hasB
-    const rightBlock = (hasGear || metaHtml) ? `<div class="teams-build-row-gear">${gearHtml}${metaHtml}</div>` : ""
-    return `<a class="teams-build-row${hasGear ? " teams-build-row--has-gear" : ""}" href="${href}">${identityBlock}${rightBlock}</a>`
+    const hasGear = hasT || hasB || !!metaHtml
+    const gearKey = [
+      buildName || "",
+      toppingIdxOk ? String(toppingIdx) : "",
+      beascuitIdxOk ? String(beascuitIdx) : "",
+      topSet?.name || topSet?.id || "",
+      biscuitSet?.name || biscuitSet?.id || "",
+      build?.bonusEffect || "",
+    ].join("|")
+
+    return {
+      missing: false,
+      pic,
+      href,
+      imgName,
+      displayN,
+      buildName,
+      gearHtml,
+      metaHtml,
+      hasGear,
+      gearKey,
+    }
+  }
+
+  function renderMemberIdentityHtml(ctx) {
+    return `<div class="teams-build-row-cookie">
+      <img src="${ctx.pic}/icons/cookie/${ctx.imgName}_head.png" alt="${esc(ctx.displayN)}" class="teams-member-icon" onerror="this.onerror=null;this.src='${ctx.pic}/icons/null.png'">
+      <div class="teams-build-row-cookie-text">
+        <div class="teams-member-name" title="${esc(ctx.displayN)}">${ctx.displayN}</div>
+        ${ctx.buildName ? `<div class="teams-member-build" title="${esc(ctx.buildName)}">${ctx.buildName}</div>` : ""}
+      </div>
+    </div>`
+  }
+
+  function renderTeamMemberFromContext(ctx) {
+    if (ctx.missing) {
+      return `<div class="teams-build-row teams-build-row--missing" role="row">
+        <div class="teams-build-row-cookie"><span class="teams-member-name">Unknown Cookie</span></div>
+      </div>`
+    }
+    const identityBlock = renderMemberIdentityHtml(ctx)
+    const rightBlock = ctx.hasGear
+      ? `<div class="teams-build-row-gear">${ctx.gearHtml}${ctx.metaHtml}</div>`
+      : ""
+    return `<a class="teams-build-row${ctx.hasGear ? " teams-build-row--has-gear" : ""}" href="${ctx.href}">${identityBlock}${rightBlock}</a>`
+  }
+
+  function renderTeamMember(member) {
+    return renderTeamMemberFromContext(buildMemberRenderContext(member))
+  }
+
+  function cookiePickerLabel(displayN) {
+    const s = String(displayN || "").trim()
+    if (!s) return "Cookie"
+    const short = s.replace(/\s+Cookie(\s|$).*/i, "").trim()
+    return short || s
+  }
+
+  function renderTeamMemberSlot(slot) {
+    const alts = Array.isArray(slot?.alternatives) ? slot.alternatives : []
+    if (!alts.length) {
+      return `<div class="teams-build-row teams-build-row--missing" role="row">
+        <div class="teams-build-row-cookie"><span class="teams-member-name">Empty slot</span></div>
+      </div>`
+    }
+    if (alts.length === 1) return renderTeamMember(alts[0])
+
+    const ctxs = alts.map(buildMemberRenderContext)
+    const pairs = ctxs.map((c, i) => ({ c, i })).filter(p => !p.c.missing)
+    if (!pairs.length) {
+      return `<div class="teams-build-row teams-build-row--missing" role="row">
+        <div class="teams-build-row-cookie"><span class="teams-member-name">Unknown Cookie</span></div>
+      </div>`
+    }
+    if (pairs.length === 1) return renderTeamMember(alts[pairs[0].i])
+
+    const views = pairs.map(({ c }, viewIdx) => {
+      const isActive = viewIdx === 0
+      const identity = renderMemberIdentityHtml(c)
+      const gear = c.hasGear ? `<div class="teams-build-row-gear">${c.gearHtml}${c.metaHtml}</div>` : ""
+      return `<a class="teams-build-row teams-alt-slot-view${isActive ? " teams-alt-slot-view--active" : ""}${c.hasGear ? " teams-build-row--has-gear" : ""}" href="${c.href}" data-alt-index="${viewIdx}"${isActive ? "" : " hidden"}>${identity}${gear}</a>`
+    }).join("")
+
+    const buttons = pairs.map(({ c }, viewIdx) => {
+      const isActive = viewIdx === 0
+      const label = cookiePickerLabel(c.displayN)
+      const mainCls = viewIdx === 0 ? " teams-alt-picker-btn--main" : ""
+      return `<button type="button" class="teams-alt-picker-btn${mainCls}${isActive ? " active" : ""}" role="tab" data-alt-index="${viewIdx}" aria-pressed="${isActive}" aria-selected="${isActive}" title="${esc(c.displayN)}">
+        <img src="${c.pic}/icons/cookie/${c.imgName}_head.png" alt="" class="teams-alt-picker-icon" onerror="this.onerror=null;this.src='${c.pic}/icons/null.png'">
+        <span class="teams-alt-picker-label">${esc(label)}</span>
+      </button>`
+    }).join("")
+
+    const anyGear = pairs.some(p => p.c.hasGear)
+    return `<div class="teams-alt-slot${anyGear ? " teams-alt-slot--has-gear" : ""}" role="row">
+      <div class="teams-alt-slot-body">${views}</div>
+      <div class="teams-alt-picker" role="tablist" aria-label="Cookie options">${buttons}</div>
+    </div>`
+  }
+
+  function initTeamAltPickers(root) {
+    if (!root) return
+    root.querySelectorAll(".teams-alt-slot").forEach(slotEl => {
+      if (slotEl.dataset.altPickerBound === "1") return
+      slotEl.dataset.altPickerBound = "1"
+      const views = Array.from(slotEl.querySelectorAll(".teams-alt-slot-view"))
+      const btns = Array.from(slotEl.querySelectorAll(".teams-alt-picker-btn"))
+      function showAltView(idx) {
+        let activeView = null
+        views.forEach(v => {
+          const on = v.dataset.altIndex === idx
+          v.hidden = !on
+          v.classList.toggle("teams-alt-slot-view--active", on)
+          if (on) activeView = v
+        })
+        if (activeView && typeof initToppingGraphics === "function") {
+          initToppingGraphics(activeView)
+        }
+      }
+
+      btns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const idx = btn.dataset.altIndex
+          if (idx == null) return
+          btns.forEach(b => {
+            const on = b.dataset.altIndex === idx
+            b.classList.toggle("active", on)
+            b.setAttribute("aria-pressed", String(on))
+            b.setAttribute("aria-selected", String(on))
+          })
+          showAltView(idx)
+        })
+      })
+    })
   }
 
   /** Event categories filter `teams.events` by `active`; others use `sections`. */
@@ -345,6 +601,115 @@
     return `<div class="teams-event-heading"><h2 class="teams-event-title">${title}</h2>${ver}</div>`
   }
 
+  /**
+   * One comp entry may be a single team (cookies on the object) or several squads (raids).
+   * squads: [{ name?, cookies, treasures?, notes?, rally?, useOwn? }, …]
+   * rally: data.js cookie name for rally effect leader (head icon under “Leader”).
+   * Legacy: team1, team2, … on the entry (still supported).
+   */
+  function normalizeTeamSquads(team) {
+    if (!team || typeof team !== "object") return []
+    if (Array.isArray(team.squads) && team.squads.length) {
+      return team.squads.map((s, i) => {
+        const sq = s && typeof s === "object" ? s : {}
+        return {
+          label: `Team ${i + 1}`,
+          cookies: sq.cookies,
+          treasures: sq.treasures,
+          notes: sq.notes,
+          useOwn: sq.useOwn,
+          rally: sq.rally != null && sq.rally !== "" ? sq.rally : team.rally,
+        }
+      })
+    }
+    const fromKeys = []
+    for (let n = 1; n <= 7; n++) {
+      const chunk = team[`team${n}`]
+      if (!chunk || typeof chunk !== "object") continue
+      fromKeys.push({
+        label: `Team ${n}`,
+        cookies: chunk.cookies,
+        treasures: chunk.treasures,
+        notes: chunk.notes,
+        useOwn: chunk.useOwn,
+        rally: chunk.rally != null && chunk.rally !== "" ? chunk.rally : team.rally,
+      })
+    }
+    if (fromKeys.length) return fromKeys
+    if (Array.isArray(team.cookies)) {
+      return [{
+        label: null,
+        cookies: team.cookies,
+        treasures: team.treasures,
+        notes: team.notes,
+        useOwn: team.useOwn,
+        rally: team.rally,
+      }]
+    }
+    return []
+  }
+
+  function renderTeamLeader(rallyRef) {
+    const raw = rallyRef != null ? String(rallyRef).trim() : ""
+    if (!raw) return ""
+    const charData = getChar({ name: raw })
+    if (!charData) return ""
+    const pic = getGamePictureRoot()
+    const imgName = charData.name || ""
+    const displayN = charData.displayName || charData.name || ""
+    const nameParam = encodeURIComponent(charData.name || charData.displayName || "")
+    const path = `character.html?char=${nameParam}#Builds`
+    let href = path
+    try {
+      href = new URL(path, location.href).href
+    } catch (e) { /* same-document relative fallback */ }
+    const rallyTipHtml =
+      typeof window.buildRallyEffectTooltipHtml === "function"
+        ? window.buildRallyEffectTooltipHtml(charData, { levelIndex: 1 })
+        : ""
+    const titleAttr = rallyTipHtml ? "" : ` title="${esc(displayN)}"`
+    const wrapAttrs = rallyTipHtml ? ' data-has-rally-tip="1"' : ""
+    const rallySource = rallyTipHtml
+      ? `<div class="teams-rally-tip-source" hidden>${rallyTipHtml}</div>`
+      : ""
+    return `<div class="teams-leader">
+      <div class="teams-subtitle">Leader</div>
+      <div class="teams-leader-link-wrap"${wrapAttrs}>
+        <a class="teams-leader-link" href="${href}"${titleAttr} aria-label="${esc(displayN)}">
+          <img src="${pic}/icons/cookie/${imgName}_head.png" alt="" class="teams-leader-icon" onerror="this.onerror=null;this.src='${pic}/icons/null.png'">
+        </a>
+        ${rallySource}
+      </div>
+    </div>`
+  }
+
+  function renderSquadLoadoutFooter(squad) {
+    const leaderHtml = renderTeamLeader(squad?.rally)
+    const treasures = sortTeamTreasures(Array.isArray(squad?.treasures) ? squad.treasures : [])
+    const treasuresHtml = treasures.length
+      ? `<div class="teams-treasures"><div class="teams-subtitle">Treasures</div><div class="teams-treasure-row">${treasures.map(renderTreasure).join("")}</div></div>`
+      : ""
+    if (!leaderHtml && !treasuresHtml) return ""
+    return `<div class="teams-loadout-footer">${leaderHtml}${treasuresHtml}</div>`
+  }
+
+  function renderSquadBlock(squad, { showHeading, wrap, includeNotes = true }) {
+    const heading = showHeading && squad.label
+      ? `<h4 class="teams-squad-title">${esc(squad.label)}</h4>`
+      : ""
+    const slots = sortTeamSlots(normalizeCookieSlots(squad.cookies))
+    const loadoutHtml = renderSquadLoadoutFooter(squad)
+    const mainHtml = `<div class="teams-build-rows">${slots.map(renderTeamMemberSlot).join("")}</div>${loadoutHtml}`
+    const notesHtml = includeNotes ? renderSquadNotes(squad) : ""
+    let bodyHtml = mainHtml
+    if (notesHtml) {
+      bodyHtml = `<div class="teams-squad-content">${mainHtml}</div>${notesHtml}`
+    }
+    if (!wrap) return bodyHtml
+    const noteCls = notesHtml ? " teams-squad--with-notes" : ""
+    return `<div class="teams-squad${noteCls}">${heading}${bodyHtml}</div>`
+  }
+
   function renderTeams(ctx) {
     currentGameVersion = ctx?.gameVersion ?? null
     currentRenderFeatures = resolveRenderFeatures(currentGameVersion)
@@ -358,23 +723,31 @@
     const generalNotes = Array.isArray(ctx?.notes) ? ctx.notes : []
 
     contentEl.innerHTML = headingHtml + teams.map(team => {
-      const members = Array.isArray(team.cookies) ? team.cookies.slice(0, 7) : []
-      const treasures = Array.isArray(team.treasures) ? team.treasures : []
-      const teamNotesBlock = renderTeamNotesBlock(generalNotes, team)
+      const squads = normalizeTeamSquads(team)
+      const multi = squads.length > 1
+      let bodyHtml = `<div class="teams-empty teams-empty--inline">No cookies listed.</div>`
+      if (squads.length === 1) {
+        bodyHtml = renderSquadBlock(squads[0], { showHeading: false, wrap: false, includeNotes: false })
+      } else if (squads.length > 1) {
+        bodyHtml = squads.map(sq => renderSquadBlock(sq, { showHeading: true, wrap: true, includeNotes: true })).join("")
+      }
+      const teamNotesBlock = renderTeamEntryNotes(generalNotes, team, { multiSquad: multi })
+      const sourceHtml = renderTeamSourceHtml(team.source)
+      const multiClass = multi ? " teams-card--multi-squad" : ""
       return `<div class="teams-entry${teamNotesBlock ? " teams-entry--with-notes" : ""}">
-        <article class="teams-card">
+        <article class="teams-card${multiClass}">
           <div class="teams-card-header">
             <h3 class="teams-card-title">${esc(team.name || "Unnamed Team")}</h3>
+            ${sourceHtml}
           </div>
-          <div class="teams-build-rows">
-            ${members.map(renderTeamMember).join("")}
-          </div>
-          ${treasures.length ? `<div class="teams-treasures"><div class="teams-subtitle">Treasures</div><div class="teams-treasure-row">${treasures.map(renderTreasure).join("")}</div></div>` : ""}
+          ${multi ? `<div class="teams-card-body">${bodyHtml}</div>` : bodyHtml}
         </article>
         ${teamNotesBlock}
       </div>`
     }).join("")
     if (typeof initToppingGraphics === "function") initToppingGraphics(contentEl)
+    if (typeof initTreasureGraphics === "function") initTreasureGraphics(contentEl)
+    initTeamAltPickers(contentEl)
   }
 
   function setActiveCategoryButtons(activeIdx) {

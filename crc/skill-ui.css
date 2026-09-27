@@ -1,0 +1,58 @@
+/* Cookie Run: Crumble — skill section overrides */
+
+#char-skill-section .char-skill-icon {
+    border: none;
+    object-fit: contain;
+}
+
+.crc-skill-level-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.crc-skill-level-tab {
+    min-width: 36px;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: #191919;
+    color: #fff;
+    font-family: CookieRun Bold, CookieRunR, sans-serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.crc-skill-level-tab:hover {
+    background: #3a3d47;
+}
+
+.crc-skill-level-tab.is-active {
+    background: rgba(31, 126, 208, 0.35);
+    border-color: #1e88e5;
+}
+
+.char-skill-description-line + .char-skill-description-line {
+    margin-top: 0.5em;
+}
+
+.crc-skill-details-pane {
+    margin-top: 10px;
+}
+
+.crc-skill-details-pane .char-skill-details-line + .char-skill-details-line {
+    margin-top: 0.5em;
+}
+
+.crc-skill-attr-value {
+    color: #7ec8ff;
+    font-weight: bold;
+}
+
+.crc-skill-details-pane .char-skill-detail-hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0.65em 0;
+}

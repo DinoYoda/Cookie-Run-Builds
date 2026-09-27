@@ -1,6 +1,6 @@
 /**
  * Game-version gates for team build display (data stays modern; UI hides unavailable systems).
- * Per-resonance dates: tools/resonant_toppings.json → "update" on each entry.
+ * Per-resonance dates: crk/tools/resonant_toppings.json → "update" on each entry.
  */
 ;(function () {
   const TEAM_FEATURE_MIN_VERSION = {
@@ -71,7 +71,7 @@
   function loadResonanceUpdateMap() {
     if (_resonanceUpdateMap) return Promise.resolve(_resonanceUpdateMap)
     if (!_resonanceMapPromise) {
-      _resonanceMapPromise = fetch(siteRelativePath("tools/resonant_toppings.json"))
+      _resonanceMapPromise = fetch(siteRelativePath("crk/tools/resonant_toppings.json"))
         .then((r) => (r.ok ? r.json() : null))
         .then((j) => {
           _resonanceUpdateMap = buildResonanceUpdateMap(j)

@@ -125,21 +125,14 @@
     },
   ]
 
-  function buildToppingBlockOptions(sample) {
-    return {
-      substats: sample.substats,
-      bonusEffect: sample.bonusEffect,
-    }
-  }
-
   function renderTeamsCardPreview(sample) {
-    const { starHtml, substatsHtml, bonusEffectHtml } = buildToppingsSetBlockHtml(sample.set, buildToppingBlockOptions(sample))
-    const subHtml = substatsHtml
-      ? `<div class="teams-build-row-substats char-build-substats">${substatsHtml}</div>`
-      : ""
-    const bonusHtml = bonusEffectHtml || ""
-    const detailsHtml = (subHtml || bonusHtml)
-      ? `<div class="teams-build-toppings-details char-build-toppings-details">${subHtml}${bonusHtml}</div>`
+    const { starHtml } = buildToppingsSetBlockHtml(sample.set, { bonusEffect: sample.bonusEffect })
+    const detailsHtml = typeof buildToppingsDetailsHtml === "function"
+      ? buildToppingsDetailsHtml({
+          substats: sample.substats,
+          bonusEffect: sample.bonusEffect,
+          teamsCompact: true,
+        })
       : ""
     return `<div class="teams-build-row topping-debug-teams-row" style="pointer-events:none">
       <div class="teams-build-row-cookie">
@@ -161,7 +154,7 @@
     return sectionHtml(
       "Production build rows",
       BUILD_SAMPLES.map((sample) => {
-        const { starHtml } = buildToppingsSetBlockHtml(sample.set, buildToppingBlockOptions(sample))
+        const { starHtml } = buildToppingsSetBlockHtml(sample.set, { bonusEffect: sample.bonusEffect })
         return `<div class="topping-debug-build-block">
           <h3 class="topping-debug-subtitle">${esc(sample.label)}</h3>
           <div class="char-build-toppings-main topping-debug-build-main">${starHtml}</div>

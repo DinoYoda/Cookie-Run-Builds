@@ -14,12 +14,24 @@ function listPictureRoot() {
   return `${folder}/pictures`
 }
 
-function cardImageFilename(gameId, name) {
+function cardImageFilename(gameId, name, game) {
   const n = name || ""
+  if (typeof game?.cardImageFilename === "function") {
+    return game.cardImageFilename(n)
+  }
   if (gameId === "toa") {
     return `${n}_Cookie_Profile_Icon.png`
   }
+  if (gameId === "crc") {
+    return `${n}_card.png`
+  }
   return `Cookie_${String(n).toLowerCase()}_card.png`
+}
+
+function characterPageHref(name) {
+  const page = currentListGame?.characterPage ?? (currentListGame?.id === "crk" ? "crk/character.html" : null)
+  if (!page || !name) return null
+  return `${page}?char=${encodeURIComponent(name)}`
 }
 
 function readUIState() {
@@ -45,7 +57,11 @@ function sortInGameOrder() {
 }
 
 function activeRarityOrder() {
-  return sortInGameOrder() ? gameRarityOrder : siteRarityOrder
+  const useGameOrder = sortInGameOrder()
+  if (typeof rarityOrderForGame === "function") {
+    return rarityOrderForGame(currentListGame, useGameOrder)
+  }
+  return useGameOrder ? gameRarityOrder : siteRarityOrder
 }
 
 const SORT_OPTIONS = [
@@ -182,13 +198,46 @@ function initCharlistSortExpand() {
 }
 
 function hasMcCj(c) {
-  const mc = typeof shouldRenderMcSkill === "function" ? shouldRenderMcSkill(c) : !!c?.mcSkill
+  const mc = !!c?.mcSkill
   return !!(c?.cjSkill || mc)
+}
+
+function mcCjFirstActive() {
+  return sortMode === "rarity" && (sortByMcCj || sortInGameOrder())
+}
+
+function syncCharlistMcCjCheckbox() {
+  const mccjCb = document.getElementById("charlistMcCj")
+  if (!mccjCb) return
+  const forced = sortInGameOrder()
+  if (forced) {
+    sortByMcCj = true
+    mccjCb.checked = true
+    mccjCb.disabled = true
+  } else {
+    mccjCb.disabled = false
+    sortByMcCj = readUIState().charlistSortByMcCj === true
+    mccjCb.checked = sortByMcCj
+  }
+}
+
+function charlistSynergyBadgesHtml(c, pic) {
+  if (!synergyFilterActive()) return ""
+  const selected = activeFilters.synergy || []
+  const syn = Array.isArray(c.synergy) ? c.synergy : []
+  const matching = syn.filter(s => selected.includes(s?.type))
+  if (!matching.length) return ""
+  const badge = typeof crcSynergyBadgeHtml === "function" ? crcSynergyBadgeHtml : null
+  if (!badge) return ""
+  const badges = matching.map(s =>
+    badge(s.type, s.recipient ? "received" : "granted", pic)
+  ).join("")
+  return `<div class="charlist-card-synergy-badges">${badges}</div>`
 }
 
 function charlistCardIconsHtml(c, pic) {
   const parts = []
-  if (typeof shouldRenderMcSkill === "function" ? shouldRenderMcSkill(c) : c.mcSkill) {
+  if (c.mcSkill) {
     parts.push(
       `<img src="${pic}/candy/${c.name}_mc_lv3.png" alt="Magic Candy" title="Magic Candy" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
     )
@@ -199,9 +248,15 @@ function charlistCardIconsHtml(c, pic) {
     )
   }
   const role = c.role || c.type
-  if (role) {
+  const synergyBadges = charlistSynergyBadgesHtml(c, pic)
+  if (role || synergyBadges) {
+    const roleImg = role
+      ? `<img src="${pic}/icons/${role}.png" alt="${role}" title="${role}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
+      : ""
     parts.push(
-      `<img src="${pic}/icons/${role}.png" alt="${role}" title="${role}" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.display='none'">`
+      synergyBadges
+        ? `<div class="charlist-card-role-stack">${roleImg}${synergyBadges}</div>`
+        : roleImg
     )
   }
   if (!parts.length) return ""
@@ -213,14 +268,72 @@ function cnExSortRank(c) {
   return c && c.cnEx === true ? 1 : 0
 }
 
+function rarityFiltersAreSquare(game) {
+  if (!game) return false
+  if (game.rarityIconShape === "square") return true
+  if (game.rarityIconShape === "wide") return false
+  return game.id === "crc"
+}
+
+function cardImageShapeIsThumbnail(game) {
+  if (!game) return false
+  return game.cardImageShape === "thumbnail" || game.id === "crc"
+}
+
 function filterGroupClass(cat) {
-  if (cat === "rarity") return "filter-group filter-group--rarity"
+  if (cat === "rarity" && !rarityFiltersAreSquare(currentListGame)) {
+    return "filter-group filter-group--rarity"
+  }
   return "filter-group filter-group--square"
+}
+
+function synergyFilterActive() {
+  return currentGameId === "crc" && Array.isArray(activeFilters.synergy) && activeFilters.synergy.length > 0
+}
+
+function toggleFilterValue(cat, v, btn) {
+  if (!activeFilters[cat]) activeFilters[cat] = []
+  const i = activeFilters[cat].indexOf(v)
+  if (i > -1) {
+    activeFilters[cat].splice(i, 1)
+    btn.classList.remove("active")
+    if (activeFilters[cat].length === 0) delete activeFilters[cat]
+  } else {
+    activeFilters[cat].push(v)
+    btn.classList.add("active")
+  }
+  render()
+}
+
+function buildSynergyFilterGroup(wrap, vals) {
+  const g = document.createElement("div")
+  g.className = "filter-group filter-group--synergy"
+  vals.forEach(v => {
+    if (v === undefined) return
+    const btn = document.createElement("button")
+    btn.className = "filter-icon-btn"
+    btn.dataset.category = "synergy"
+    btn.dataset.value = v
+    btn.title = v
+    const slug = typeof crcSynergyIconSlug === "function" ? crcSynergyIconSlug(v) : null
+    if (slug) {
+      btn.innerHTML = `<img src="${listPictureRoot()}/synergies/${slug}.webp" alt="${v}">`
+    } else {
+      btn.textContent = v
+    }
+    btn.onclick = () => toggleFilterValue("synergy", v, btn)
+    g.appendChild(btn)
+  })
+  wrap.appendChild(g)
 }
 
 function buildFilters(filters) {
   const wrap = document.getElementById("charlistFilters")
   Object.entries(filters).forEach(([cat, vals]) => {
+    if (cat === "synergy") {
+      buildSynergyFilterGroup(wrap, vals)
+      return
+    }
     const g = document.createElement("div")
     g.className = filterGroupClass(cat)
     vals.forEach(v => {
@@ -228,24 +341,13 @@ function buildFilters(filters) {
       const displayValue = v == null ? "None" : v
       const iconValue = v == null ? "null" : v
       const btn = document.createElement("button")
-      btn.className = cat === "rarity" ? "filter-icon-btn filter-rarity-btn" : "filter-icon-btn"
+      const squareRarity = cat === "rarity" && rarityFiltersAreSquare(currentListGame)
+      btn.className = cat === "rarity" && !squareRarity ? "filter-icon-btn filter-rarity-btn" : "filter-icon-btn"
       btn.dataset.category = cat
       btn.dataset.value = iconValue
       btn.title = displayValue
       btn.innerHTML = `<img src="${listPictureRoot()}/icons/${iconValue}.png" alt="${displayValue}">`
-      btn.onclick = () => {
-        if (!activeFilters[cat]) activeFilters[cat] = []
-        const i = activeFilters[cat].indexOf(v)
-        if (i > -1) {
-          activeFilters[cat].splice(i, 1)
-          btn.classList.remove("active")
-          if (activeFilters[cat].length === 0) delete activeFilters[cat]
-        } else {
-          activeFilters[cat].push(v)
-          btn.classList.add("active")
-        }
-        render()
-      }
+      btn.onclick = () => toggleFilterValue(cat, v, btn)
       g.appendChild(btn)
     })
     wrap.appendChild(g)
@@ -264,6 +366,7 @@ function loadCharListForCurrentGame() {
   const raw = game?.characters || []
   allChars = raw.filter(c => {
     if (!c || !c.name) return false
+    if (c.chars === false) return false
     if (typeof characterPassesCnExFilter === "function" && !characterPassesCnExFilter(c)) return false
     if (typeof characterPassesBetaFilter === "function" && !characterPassesBetaFilter(c)) return false
     return true
@@ -272,19 +375,19 @@ function loadCharListForCurrentGame() {
   buildFilters(filters)
   const titleEl = document.querySelector(".charlist-title")
   if (titleEl) {
-    titleEl.textContent = game?.id === "crk" ? "Cookies" : "Characters"
+    titleEl.textContent = game?.listLabel || (game?.id === "crk" ? "Cookies" : "Characters")
   }
   const mccjLabel = document.querySelector(".charlist-mccj-label")
   const mccjCb = document.getElementById("charlistMcCj")
   if (mccjLabel && mccjCb) {
-    const anyMcCj = allChars.some(hasMcCj)
+    const anyMcCj = currentGameId === "crk" && allChars.some(hasMcCj)
     mccjLabel.style.display = anyMcCj ? "" : "none"
     if (!anyMcCj) {
       sortByMcCj = false
       mccjCb.checked = false
+      mccjCb.disabled = false
     } else {
-      sortByMcCj = readUIState().charlistSortByMcCj === true
-      mccjCb.checked = sortByMcCj
+      syncCharlistMcCjCheckbox()
     }
   }
   syncCharlistSortUI()
@@ -316,6 +419,15 @@ function applyFilters(c) {
     }
   }
   for (const [cat, vals] of Object.entries(activeFilters)) {
+    if (cat === "synergy") {
+      if (typeof crcCookieHasSynergyTypes === "function") {
+        if (!crcCookieHasSynergyTypes(c, vals)) return false
+      } else {
+        const syn = Array.isArray(c.synergy) ? c.synergy : []
+        if (!syn.some(s => vals.includes(s.type))) return false
+      }
+      continue
+    }
     const cv = c[cat]
     if (Array.isArray(cv)) {
       if (!cv.some(v => vals.includes(v))) return false
@@ -351,12 +463,15 @@ document.getElementById("charlistReset").addEventListener("click", () => {
   if (csp) csp.hidden = true
   syncCharlistSortUI()
   document.getElementById("charlistSortDir").textContent = "↓"
-  const cb = document.getElementById("charlistMcCj")
-  if (cb) cb.checked = false
+  syncCharlistMcCjCheckbox()
   document.querySelectorAll("#charlistFilters .filter-icon-btn").forEach(b => b.classList.remove("active"))
   render()
 })
 document.getElementById("charlistMcCj").addEventListener("change", e => {
+  if (sortInGameOrder()) {
+    e.target.checked = true
+    return
+  }
   sortByMcCj = e.target.checked
   writeUIState({ charlistSortByMcCj: sortByMcCj })
   render()
@@ -378,9 +493,20 @@ function render() {
     const i = activeRarityOrder().indexOf(band)
     return i < 0 ? 999 : i
   }
-  const rel = c => { const i = cookieByDate.indexOf(c.displayName ?? c.name); return i < 0 ? 9999 : i }
+  const releaseOrder = typeof cookieReleaseOrderForGame === "function"
+    ? cookieReleaseOrderForGame(currentGameId)
+    : cookieReleaseOrder
+  const rel = c => {
+    const i = releaseOrder.indexOf(c.displayName ?? c.name)
+    return i < 0 ? 9999 : i
+  }
   const chars = allChars.filter(applyFilters).sort((a, b) => {
-    const useMcCj = sortMode === "rarity" && sortByMcCj
+    if (synergyFilterActive() && typeof crcSynergyGrantRank === "function") {
+      const synTypes = activeFilters.synergy
+      const grantCmp = crcSynergyGrantRank(a, synTypes) - crcSynergyGrantRank(b, synTypes)
+      if (grantCmp !== 0) return sortReverse ? -grantCmp : grantCmp
+    }
+    const useMcCj = mcCjFirstActive()
     const cjFirst = (x, y) => (hasMcCj(x) ? 0 : 1) - (hasMcCj(y) ? 0 : 1)
     let v
     if (sortMode === "alpha") v = (a.displayName ?? a.name).localeCompare(b.displayName ?? b.name)
@@ -400,7 +526,9 @@ function render() {
   })
   const counter = document.getElementById("charlistCounter")
   if (counter) {
-    const noun = currentGameId === "crk" ? "cookie" : "character"
+    const noun = currentListGame?.listLabel
+      ? currentListGame.listLabel.toLowerCase().replace(/s$/, "")
+      : (currentGameId === "crk" ? "cookie" : "character")
     counter.textContent = `Showing ${chars.length} ${noun}${chars.length === 1 ? "" : "s"}`
   }
   grid.innerHTML = chars.map(cardHtml).join("")
@@ -413,18 +541,26 @@ function initCharlistGridNavigation() {
   grid.addEventListener("click", e => {
     const card = e.target.closest(".charlist-card")
     if (!card?.dataset.name) return
-    window.location.href = `crk/character.html?char=${encodeURIComponent(card.dataset.name)}`
+    const href = characterPageHref(card.dataset.name)
+    if (href) window.location.href = href
   })
 }
 
 function cardHtml(c) {
   const n = c.name, dn = c.displayName || n
   const pic = listPictureRoot()
-  const cardPath = `${pic}/cards/${cardImageFilename(currentListGame?.id, n)}`
-  return `<div class="charlist-card" data-name="${n}">
+  const cardPath = `${pic}/cards/${cardImageFilename(currentListGame?.id, n, currentListGame)}`
+  const useThumbnail = cardImageShapeIsThumbnail(currentListGame)
+  const cardClass = useThumbnail ? " charlist-card--thumbnail" : ""
+  const imgHtml = `<img class="charlist-card-img" src="${cardPath}" alt="${dn}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">`
+  const iconsHtml = charlistCardIconsHtml(c, pic)
+  const portraitHtml = useThumbnail && typeof crcCardPortraitWrap === "function"
+    ? crcCardPortraitWrap(imgHtml, c.rarity, iconsHtml)
+    : imgHtml
+  return `<div class="charlist-card${cardClass}" data-name="${n}">
     <div class="charlist-card-img-wrap">
-      <img class="charlist-card-img" src="${cardPath}" alt="${dn}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.indexOf('null.png')===-1){this.src='${pic}/icons/null.png'}else{this.style.display='none'}">
-      ${charlistCardIconsHtml(c, pic)}
+      ${portraitHtml}
+      ${useThumbnail ? "" : iconsHtml}
     </div>
     <div class="charlist-card-info">
       <div class="charlist-card-name">${dn}</div>
@@ -455,5 +591,12 @@ document.addEventListener("keydown", e => {
 initCharlistCursorTips()
 initCharlistSortExpand()
 initCharlistGridNavigation()
-loadCharListForCurrentGame()
+
+function startCharListApp() {
+  loadCharListForCurrentGame()
+}
+
+if (typeof whenGamesReady === "function") whenGamesReady(startCharListApp)
+else startCharListApp()
+
 window.addEventListener("crkSettingsChanged", () => loadCharListForCurrentGame())

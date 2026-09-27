@@ -1,0 +1,111 @@
+/**
+ * Cookie Run: Crumble card frames — ported from cookierun.wiki
+ * Template:Cookie icon container/styles.css (.game-cc)
+ *
+ * Structure: .crc-card-shell > .crc-card-bg (frame art) + portrait img
+ */
+
+.crc-card-shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 256 / 246;
+}
+
+.crc-card-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  box-sizing: border-box;
+  border: 4px solid #777777;
+  box-shadow: 0 0 0 4px #545454;
+  border-radius: 20px 10px;
+  background: #878787;
+}
+
+.crc-card-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Stack: background (0) → cookie art (1) → corner icons (2) */
+.crc-card-shell .charlist-card-icons {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+}
+
+.crc-card-shell > .charlist-card-img,
+.crc-card-shell > .character-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 256 / 246;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* C */
+.crc-card-bg.game-cc.rarity-c {
+  border: 4px solid transparent;
+  box-shadow: 0 0 0 3px #102325, inset 0 0 0 4px #396370;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(30deg, rgba(32, 79, 92, 1) 30%, rgba(50, 110, 130, 1) 60%, rgba(57, 99, 112, 1) 90%) padding-box,
+    linear-gradient(150deg, rgba(155, 194, 200, 1) 20%, rgba(143, 177, 187, 1) 50%, rgba(123, 152, 159, 1) 90%) border-box;
+}
+
+/* U */
+.crc-card-bg.game-cc.rarity-u {
+  border: 4px solid transparent;
+  box-shadow: 0 0 0 3px #102325, inset 0 0 0 4px #00afb1;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(30deg, rgba(1, 97, 101, 1) 30%, rgba(2, 150, 153, 1) 60%, rgba(0, 175, 177, 1) 90%) padding-box,
+    linear-gradient(150deg, rgba(206, 207, 207, 1) 20%, rgba(169, 166, 161, 1) 50%, rgba(130, 125, 123, 1) 90%) border-box;
+}
+
+/* R */
+.crc-card-bg.game-cc.rarity-r {
+  border: 4px solid transparent;
+  box-shadow: 0 0 0 3px #092d67, inset 0 0 0 4px #407ba9;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(30deg, rgba(36, 84, 135, 1) 30%, rgba(66, 141, 200, 1) 60%, rgba(64, 123, 169, 1) 90%) padding-box,
+    linear-gradient(150deg, rgba(208, 221, 247, 1) 20%, rgba(146, 196, 226, 1) 50%, rgba(44, 158, 209, 1) 90%) border-box;
+}
+
+/* SR */
+.crc-card-bg.game-cc.rarity-sr {
+  border: 4px solid transparent;
+  box-shadow: 0 0 0 3px #61225b, inset 0 0 0 4px #ae32dd;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(30deg, rgba(235, 136, 203, 1) 30%, rgba(230, 64, 219, 1) 60%, rgba(174, 50, 221, 1) 90%) padding-box,
+    linear-gradient(150deg, rgba(254, 172, 145, 1) 20%, rgba(254, 77, 240, 1) 50%, rgba(213, 6, 208, 1) 90%) border-box;
+}
+
+/* SSR */
+.crc-card-bg.game-cc.rarity-ssr {
+  border: 4px solid transparent;
+  box-shadow: 0 0 0 3px #4c0707, inset 0 0 0 4px #f94e21;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(30deg, rgba(244, 168, 26, 1) 30%, rgba(253, 233, 85, 1) 60%, rgba(249, 78, 33, 1) 90%) padding-box,
+    linear-gradient(150deg, rgba(255, 247, 164, 1) 20%, rgba(254, 196, 149, 1) 50%, rgba(254, 172, 145, 1) 90%) border-box;
+}
+
+/* TSSR */
+.crc-card-bg.game-cc.rarity-tssr {
+  border: 4px solid transparent;
+  box-shadow: 0 0 0 3px #5242c5, inset 0 0 0 4px #f4a7b9;
+  background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(30deg, rgba(48, 199, 200, 1) 20%, rgba(136, 134, 230, 1) 50%, rgba(244, 167, 185, 1) 90%) padding-box,
+    linear-gradient(150deg, rgba(191, 211, 255, 1) 20%, rgba(225, 191, 255, 1) 50%, rgba(154, 250, 250, 1) 90%) border-box;
+}

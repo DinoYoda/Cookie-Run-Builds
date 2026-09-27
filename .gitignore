@@ -11,6 +11,7 @@ Desktop.ini
 
 # Local/generated helper files
 output.txt
+crk/tools/imported_cookie_data.js
 
 # Local tier feedback API override
 tools/tier-feedback-config.local.js
@@ -21,3 +22,6 @@ tools/tier-feedback-worker/.wrangler/
 
 crk/pictures/icons/status/tsetup-x64.6.7.1.exe
 crk/pictures/icons/status/SSR_TSRPT.pdf
+crk/pictures/treasures/*.exe
+_tmp_list_crumble.wiki
+crk/tools/import_run_*.log
