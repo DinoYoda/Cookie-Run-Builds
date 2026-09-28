@@ -433,7 +433,7 @@ window.registerGameData({
                                         notes: ["Should have to break this out around Zone 8 Floor 5 or whenever the first team can't cut it."]
                                     }
                                 ],
-                                notes: ["Route images are in the source video.", "Around the time you use the second water{Water} team you should start using cookie{Mogra} as the Misc. support on the earth{Earth} and grass{Grass} teams.",
+                                notes: ["Routes are in the source video as well as any clarification needed.", "Around the time you use the second water{Water} team you should start using cookie{Mogra} as the Misc. support on the earth{Earth} and grass{Grass} teams.",
                                     "header{Specific Floor Teams}<br>Zone 8 Floor 6: Use cookie{Awakened_white_lily} instead of cookie{Asphodel} and cookie{Mogra} as support.<br>Zone 9 Floor 7: Switch out treasure{Watch2} for treasure{Vial} and switch cookie{Menthol} to Bossing Build. Repeat until win.<br>Zone 10 Floor 7: WARNING: This Floor is hard as shit and you will use a ton of energy beating it and you will be swapping out a lot of exhausted cookies for less efficient ones to barely scrape by with a win. Swap treasure{Watch2} for treasure{Crown}. Switch out cookie{Golden_osmanthus} for cookie{Mango}. Also cookie{Mogra} for cookie{Linzer} and cookie{Awakened_white_lily} for cookie{Asphodel} in the event of (guaranteed) failure. cookie{Pavlova} is the next pick for support if someone runs out of energy."
                                 ]
                             }
