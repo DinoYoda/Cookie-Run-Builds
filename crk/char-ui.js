@@ -378,10 +378,20 @@ function _resolveCookieForLink(raw) {
 function _renderSingleTag(tag, noIcon, content, pic) {
   if (tag === "header") return `<span class="text-tag text-bold">${_esc(content)}</span>`
   if (tag === "cookie") {
-    const { name: cookieName, displayName: cookieLabel } = _resolveCookieForLink(content)
+    const parseCookieInner =
+      typeof parseTreasureBracketInner === "function"
+        ? parseTreasureBracketInner
+        : (s) => ({ main: String(s).trim(), iconOnly: false })
+    const { main, iconOnly } = parseCookieInner(content)
+    const { name: cookieName, displayName: cookieLabel } = _resolveCookieForLink(main)
     if (!cookieName) return ""
     const href = `character.html?char=${encodeURIComponent(cookieName)}`
-    return `<a class="skill-cookie-link" href="${href}"><img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieLabel)}" class="skill-status-icon" onerror="${_imgErrHide}"></a>`
+    const img = `<img src="${pic}/icons/cookie/${_urlFile(`${cookieName}_head.png`)}" alt="${_esc(cookieLabel)}" class="skill-status-icon" onerror="${_imgErrHide}">`
+    if (iconOnly) {
+      return `<a class="skill-cookie-link" href="${href}">${img}</a>`
+    }
+    const inlineLabel = String(cookieLabel || cookieName).replace(/\s+Cookie\s*$/i, "").trim() || cookieLabel || cookieName
+    return `<a class="skill-cookie-link skill-cookie-inline" href="${href}">${img}<span class="skill-cookie-inline-label"> ${_esc(inlineLabel)}</span></a>`
   }
   if (tag === "treasure") {
     const { main, iconOnly } = parseTreasureBracketInner(content)
@@ -760,14 +770,32 @@ function getTartBonusEffectDisplayLabel(raw) {
 
 const BUILD_RANK_SORT_ORDER = { best: 0, recommended: 1 }
 
+function buildRankSortKey(build) {
+  return BUILD_RANK_SORT_ORDER[build?.rank] ?? 2
+}
+
 function compareBuildIdsForDisplay(a, b, builds) {
-  const rankA = BUILD_RANK_SORT_ORDER[builds[a]?.rank] ?? 2
-  const rankB = BUILD_RANK_SORT_ORDER[builds[b]?.rank] ?? 2
+  const rankA = buildRankSortKey(builds[a])
+  const rankB = buildRankSortKey(builds[b])
   if (rankA !== rankB) return rankA - rankB
   const numA = parseInt(a, 10)
   const numB = parseInt(b, 10)
   if (Number.isFinite(numA) && Number.isFinite(numB)) return numA - numB
   return String(a).localeCompare(String(b))
+}
+
+function compareBuildCardElements(a, b) {
+  const rankA = Number(a?.dataset?.buildRankSort)
+  const rankB = Number(b?.dataset?.buildRankSort)
+  const rA = Number.isFinite(rankA) ? rankA : 2
+  const rB = Number.isFinite(rankB) ? rankB : 2
+  if (rA !== rB) return rA - rB
+  const idA = a?.dataset?.buildId ?? ""
+  const idB = b?.dataset?.buildId ?? ""
+  const numA = parseInt(idA, 10)
+  const numB = parseInt(idB, 10)
+  if (Number.isFinite(numA) && Number.isFinite(numB)) return numA - numB
+  return String(idA).localeCompare(String(idB))
 }
 
 function getSortedBuildIds(builds) {
@@ -777,18 +805,117 @@ function getSortedBuildIds(builds) {
     .sort((a, b) => compareBuildIdsForDisplay(a, b, builds))
 }
 
-/** Builds are archived unless explicitly marked `active: true` in data.js. */
-function isBuildActive(build) {
-  return !!(build && typeof build === "object" && build.active === true)
+let _activeTeamBuildKeysCache = null
+
+function _normalizeTeamCharKey(name) {
+  return String(name || "").trim().toLowerCase()
 }
 
-function partitionBuildIdsByActive(builds) {
+function _addTeamMemberBuildRef(member, set) {
+  if (!member || typeof member !== "object") return
+  const buildRef = member.build
+  if (buildRef == null || buildRef === "") return
+  const charKey = _normalizeTeamCharKey(member.name || member.char)
+  const buildKey = String(buildRef).trim().toLowerCase()
+  if (charKey && buildKey) set.add(`${charKey}|${buildKey}`)
+}
+
+function _walkTeamCookieSlots(rawCookies, set) {
+  if (!Array.isArray(rawCookies)) return
+  for (const item of rawCookies) {
+    if (Array.isArray(item)) {
+      for (const alt of item) _addTeamMemberBuildRef(alt, set)
+    } else {
+      _addTeamMemberBuildRef(item, set)
+    }
+  }
+}
+
+function _collectBuildRefsFromTeamEntry(team, set) {
+  if (!team || typeof team !== "object") return
+  if (Array.isArray(team.squads)) {
+    for (const sq of team.squads) _walkTeamCookieSlots(sq?.cookies, set)
+  }
+  for (let n = 1; n <= 7; n++) {
+    const chunk = team[`team${n}`]
+    if (chunk && typeof chunk === "object") _walkTeamCookieSlots(chunk.cookies, set)
+  }
+  _walkTeamCookieSlots(team.cookies, set)
+}
+
+function _collectBuildRefsFromTeamsList(teams, set) {
+  if (!Array.isArray(teams)) return
+  for (const team of teams) _collectBuildRefsFromTeamEntry(team, set)
+}
+
+function _collectBuildRefsFromTeamSection(section, set) {
+  if (!section || typeof section !== "object") return
+  if (Array.isArray(section.versions)) {
+    for (const ver of section.versions) {
+      _collectBuildRefsFromTeamsList(ver?.teams, set)
+    }
+    return
+  }
+  _collectBuildRefsFromTeamsList(section.teams, set)
+}
+
+function _isTeamsEventCategory(cat) {
+  return cat?.eventFilter === "active" || cat?.eventFilter === "inactive"
+}
+
+function getActiveTeamBuildKeys() {
+  if (_activeTeamBuildKeysCache) return _activeTeamBuildKeysCache
+  const set = new Set()
+  const game = window.CRK_DATA?.games?.find((g) => g && g.id === "crk")
+  const teamsRoot = game?.teams
+  if (teamsRoot) {
+    const categories = Array.isArray(teamsRoot.categories) ? teamsRoot.categories : []
+    for (const cat of categories) {
+      if (_isTeamsEventCategory(cat)) continue
+      _collectBuildRefsFromTeamSection(cat, set)
+      const sections = Array.isArray(cat.sections) ? cat.sections : []
+      for (const section of sections) _collectBuildRefsFromTeamSection(section, set)
+    }
+    const events = Array.isArray(teamsRoot.events) ? teamsRoot.events : []
+    for (const ev of events) {
+      if (!ev?.active || ev.builds === false) continue
+      _collectBuildRefsFromTeamSection(ev, set)
+    }
+  }
+  _activeTeamBuildKeysCache = set
+  return set
+}
+
+function buildIsReferencedOnActiveTeam(charData, build, buildId) {
+  const charKey = _normalizeTeamCharKey(charData?.name)
+  if (!charKey) return false
+  const keys = getActiveTeamBuildKeys()
+  const candidates = []
+  if (build?.name) candidates.push(`${charKey}|${String(build.name).trim().toLowerCase()}`)
+  if (buildId != null && buildId !== "") {
+    candidates.push(`${charKey}|${String(buildId).trim().toLowerCase()}`)
+  }
+  return candidates.some((k) => keys.has(k))
+}
+
+/**
+ * Active when referenced on an active team, unless `active: false`.
+ * `active: true` keeps a build active even if it is not on a team.
+ */
+function isBuildActive(build, charData, buildId) {
+  if (!build || typeof build !== "object") return false
+  if (build.active === true) return true
+  if (build.active === false) return false
+  return buildIsReferencedOnActiveTeam(charData, build, buildId)
+}
+
+function partitionBuildIdsByActive(builds, charData) {
   const active = []
   const archived = []
   for (const id of getSortedBuildIds(builds)) {
     const build = builds[id]
     if (!build || typeof build !== "object") continue
-    if (isBuildActive(build)) active.push(id)
+    if (isBuildActive(build, charData, id)) active.push(id)
     else archived.push(id)
   }
   return { active, archived }
@@ -1409,9 +1536,7 @@ function flattenBuildMasonryWrapper(wrapper) {
   if (!wrapper.querySelector(".char-build-masonry")) return
   const cards = Array.from(wrapper.querySelectorAll(".char-build-card[data-build-id]"))
   if (!cards.length) return
-  cards.sort((a, b) =>
-    String(a.dataset.buildId).localeCompare(String(b.dataset.buildId), undefined, { numeric: true })
-  )
+  cards.sort(compareBuildCardElements)
   const frag = document.createDocumentFragment()
   cards.forEach((c) => frag.appendChild(c))
   wrapper.innerHTML = ""
@@ -1957,7 +2082,7 @@ function renderCharacterPage(){
             buildSection.style.display = "none"
             return
         }
-        const { active: activeBuildIds, archived: archivedBuildIds } = partitionBuildIdsByActive(builds)
+        const { active: activeBuildIds, archived: archivedBuildIds } = partitionBuildIdsByActive(builds, charData)
         const generalNotes = builds.notes
         const buildNotesRaw = charData?.buildNotes
         const generalNotesList = Array.isArray(generalNotes) ? generalNotes : (generalNotes ? [generalNotes] : [])
@@ -1996,7 +2121,8 @@ function renderCharacterPage(){
             const rankIcon = rank === "best" || rank === "recommended"
                 ? `<span class="char-build-rank-icon-wrap" data-tooltip="${_esc(rankTitle)}"><div class="char-build-rank-icon char-build-rank-${rank}"></div></span>`
                 : ""
-            return `<div class="char-build-card" data-build-id="${id}">
+            const rankSort = buildRankSortKey(build)
+            return `<div class="char-build-card" data-build-id="${id}" data-build-rank-sort="${rankSort}">
                 <div class="char-build-name-bar"><span class="char-build-name-text">${name}</span>${rankIcon}</div>
                 <div class="char-build-content">
                     <div class="char-build-toppings-col">

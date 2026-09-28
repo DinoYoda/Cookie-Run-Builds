@@ -607,13 +607,38 @@
    * rally: data.js cookie name for rally effect leader (head icon under “Leader”).
    * Legacy: team1, team2, … on the entry (still supported).
    */
+  function squadHasCookieSlots(sq) {
+    if (!sq || typeof sq !== "object" || !Array.isArray(sq.cookies) || !sq.cookies.length) return false
+    return sq.cookies.some((item) => {
+      if (Array.isArray(item)) return item.some((m) => m && typeof m === "object")
+      return item && typeof item === "object"
+    })
+  }
+
+  /** Keep squads with cookies, or named placeholders still being filled in. */
+  function squadShouldRender(sq) {
+    if (!sq || typeof sq !== "object") return false
+    if (squadHasCookieSlots(sq)) return true
+    return !!(sq.name != null && String(sq.name).trim())
+  }
+
+  function squadLabelFromEntry(entry, fallbackLabel) {
+    const raw = entry?.name
+    if (raw != null && String(raw).trim()) {
+      return { label: String(raw).trim(), labelIsCustom: true }
+    }
+    return { label: fallbackLabel, labelIsCustom: false }
+  }
+
   function normalizeTeamSquads(team) {
     if (!team || typeof team !== "object") return []
     if (Array.isArray(team.squads) && team.squads.length) {
-      return team.squads.map((s, i) => {
-        const sq = s && typeof s === "object" ? s : {}
+      const usable = team.squads.filter(squadShouldRender)
+      return usable.map((sq, i) => {
+        const { label, labelIsCustom } = squadLabelFromEntry(sq, `Team ${i + 1}`)
         return {
-          label: `Team ${i + 1}`,
+          label,
+          labelIsCustom,
           cookies: sq.cookies,
           treasures: sq.treasures,
           notes: sq.notes,
@@ -625,9 +650,11 @@
     const fromKeys = []
     for (let n = 1; n <= 7; n++) {
       const chunk = team[`team${n}`]
-      if (!chunk || typeof chunk !== "object") continue
+      if (!chunk || typeof chunk !== "object" || !squadShouldRender(chunk)) continue
+      const { label, labelIsCustom } = squadLabelFromEntry(chunk, `Team ${n}`)
       fromKeys.push({
-        label: `Team ${n}`,
+        label,
+        labelIsCustom,
         cookies: chunk.cookies,
         treasures: chunk.treasures,
         notes: chunk.notes,
@@ -657,12 +684,6 @@
     const pic = getGamePictureRoot()
     const imgName = charData.name || ""
     const displayN = charData.displayName || charData.name || ""
-    const nameParam = encodeURIComponent(charData.name || charData.displayName || "")
-    const path = `character.html?char=${nameParam}#Builds`
-    let href = path
-    try {
-      href = new URL(path, location.href).href
-    } catch (e) { /* same-document relative fallback */ }
     const rallyTipHtml =
       typeof window.buildRallyEffectTooltipHtml === "function"
         ? window.buildRallyEffectTooltipHtml(charData, { levelIndex: 1 })
@@ -675,9 +696,9 @@
     return `<div class="teams-leader">
       <div class="teams-subtitle">Leader</div>
       <div class="teams-leader-link-wrap"${wrapAttrs}>
-        <a class="teams-leader-link" href="${href}"${titleAttr} aria-label="${esc(displayN)}">
+        <span class="teams-leader-icon-wrap"${titleAttr} aria-label="${esc(displayN)}" role="img">
           <img src="${pic}/icons/cookie/${imgName}_head.png" alt="" class="teams-leader-icon" onerror="this.onerror=null;this.src='${pic}/icons/null.png'">
-        </a>
+        </span>
         ${rallySource}
       </div>
     </div>`
@@ -697,9 +718,12 @@
     const heading = showHeading && squad.label
       ? `<h4 class="teams-squad-title">${esc(squad.label)}</h4>`
       : ""
-    const slots = sortTeamSlots(normalizeCookieSlots(squad.cookies))
+    const slots = sortTeamSlots(normalizeCookieSlots(Array.isArray(squad.cookies) ? squad.cookies : []))
     const loadoutHtml = renderSquadLoadoutFooter(squad)
-    const mainHtml = `<div class="teams-build-rows">${slots.map(renderTeamMemberSlot).join("")}</div>${loadoutHtml}`
+    const rowsHtml = slots.length
+      ? slots.map(renderTeamMemberSlot).join("")
+      : `<div class="teams-empty teams-empty--inline">No cookies listed yet.</div>`
+    const mainHtml = `<div class="teams-build-rows">${rowsHtml}</div>${loadoutHtml}`
     const notesHtml = includeNotes ? renderSquadNotes(squad) : ""
     let bodyHtml = mainHtml
     if (notesHtml) {
@@ -724,10 +748,15 @@
 
     contentEl.innerHTML = headingHtml + teams.map(team => {
       const squads = normalizeTeamSquads(team)
+      const usesSquadsArray = Array.isArray(team.squads) && team.squads.length > 0
       const multi = squads.length > 1
       let bodyHtml = `<div class="teams-empty teams-empty--inline">No cookies listed.</div>`
       if (squads.length === 1) {
-        bodyHtml = renderSquadBlock(squads[0], { showHeading: false, wrap: false, includeNotes: false })
+        bodyHtml = renderSquadBlock(squads[0], {
+          showHeading: !!squads[0].labelIsCustom,
+          wrap: !!squads[0].labelIsCustom,
+          includeNotes: usesSquadsArray,
+        })
       } else if (squads.length > 1) {
         bodyHtml = squads.map(sq => renderSquadBlock(sq, { showHeading: true, wrap: true, includeNotes: true })).join("")
       }
@@ -896,16 +925,20 @@
     setActiveVersionButtons(activeVersionIdx)
   }
 
-  function renderCurrentSectionContent(cat, section) {
-    if (sectionUsesVersions(section)) {
-      const versions = getSectionVersions(section)
-      if (!Number.isInteger(activeVersionIdx) || activeVersionIdx < 0 || activeVersionIdx >= versions.length) {
-        activeVersionIdx = getDefaultVersionIdx(section)
-      }
-      renderVersionTabs(section)
-      renderTeams(resolveSectionContent(section, activeVersionIdx))
-      return
+  /** Version tabs + teams for any node that uses `versions: [...]` (event, section, or top-level mode). */
+  function renderVersionedTeamsContent(node) {
+    if (!sectionUsesVersions(node)) return false
+    const versions = getSectionVersions(node)
+    if (!Number.isInteger(activeVersionIdx) || activeVersionIdx < 0 || activeVersionIdx >= versions.length) {
+      activeVersionIdx = getDefaultVersionIdx(node)
     }
+    renderVersionTabs(node)
+    renderTeams(resolveSectionContent(node, activeVersionIdx))
+    return true
+  }
+
+  function renderCurrentSectionContent(cat, section) {
+    if (renderVersionedTeamsContent(section)) return
     setVersionTabsVisible(false)
     if (versionTabsEl) versionTabsEl.innerHTML = ""
     renderTeams(resolveSectionContent(section, 0))
@@ -932,11 +965,14 @@
     if (!categoryHasSectionTabs(cat)) {
       sectionTabsEl.innerHTML = ""
       setSectionSubtabsVisible(false)
-      setVersionTabsVisible(false)
       if (isEventCategory(cat)) {
+        setVersionTabsVisible(false)
         contentEl.innerHTML = `<div class="teams-empty">${esc(getCategoryEmptyMessage(cat))}</div>`
         return
       }
+      if (renderVersionedTeamsContent(cat)) return
+      setVersionTabsVisible(false)
+      if (versionTabsEl) versionTabsEl.innerHTML = ""
       const flat = Array.isArray(cat.teams) ? cat.teams : []
       const parentNotes = Array.isArray(cat.notes) ? cat.notes : []
       renderTeams({ teams: flat, notes: parentNotes })

@@ -1,32 +1,32 @@
 {
-  "_comment": "Pre-baked outline bounds (#e7a765). Regenerate: python tools/bake_topping_bounds.py",
+  "_comment": "Pre-baked outline bounds (#e7a765). Regenerate: python crk/tools/bake_topping_bounds.py",
   "bounds": {
     "Topping_almond_1.png": {
-      "h": 156,
+      "h": 222,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_almond_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 1,
+      "nh": 226,
+      "nw": 154,
+      "w": 150,
+      "x": 2,
       "y": 2
     },
-    "Topping_almond_3.png": {
-      "h": 156,
+    "Topping_almond_2.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 1,
-      "y": 1
+      "nh": 226,
+      "nw": 154,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_almond_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_ancient_root.png": {
       "h": 146,
@@ -47,13 +47,13 @@
       "y": 3
     },
     "Topping_almond_cheese.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_chrono.png": {
       "h": 154,
@@ -73,14 +73,23 @@
       "x": 6,
       "y": 2
     },
-    "Topping_almond_deceit.png": {
-      "h": 156,
+    "Topping_almond_cycle_burning.png": {
+      "h": 145,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_almond_deceit.png": {
+      "h": 220,
+      "method": "outline",
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_destined.png": {
       "h": 154,
@@ -92,22 +101,22 @@
       "y": 2
     },
     "Topping_almond_destructive.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_draconic.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 148,
+      "x": 3,
+      "y": 2
     },
     "Topping_almond_dragonwind.png": {
       "h": 158,
@@ -128,22 +137,22 @@
       "y": 2
     },
     "Topping_almond_fragrant.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_frost.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_frost_herbalist.png": {
       "h": 148,
@@ -191,13 +200,13 @@
       "y": 2
     },
     "Topping_almond_iris.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_almond_life_energy.png": {
       "h": 151,
@@ -227,13 +236,13 @@
       "y": 3
     },
     "Topping_almond_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_almond_oblivion.png": {
       "h": 158,
@@ -253,6 +262,15 @@
       "x": 7,
       "y": 2
     },
+    "Topping_almond_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_almond_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -263,13 +281,13 @@
       "y": 2
     },
     "Topping_almond_sea.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_seafarer.png": {
       "h": 154,
@@ -278,6 +296,15 @@
       "nw": 112,
       "w": 103,
       "x": 4,
+      "y": 2
+    },
+    "Topping_almond_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_almond_silent.png": {
@@ -299,22 +326,22 @@
       "y": 6
     },
     "Topping_almond_trio.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_tropical.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_almond_truth.png": {
       "h": 151,
@@ -353,40 +380,40 @@
       "y": 4
     },
     "Topping_almond_wind.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_applejelly_1.png": {
-      "h": 156,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_applejelly_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 1,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
       "y": 2
     },
-    "Topping_applejelly_3.png": {
-      "h": 156,
+    "Topping_applejelly_1.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 1,
-      "y": 1
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_applejelly_2.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 226,
+      "nw": 154,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_applejelly_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_ancient_root.png": {
       "h": 146,
@@ -407,13 +434,13 @@
       "y": 3
     },
     "Topping_applejelly_cheese.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_chrono.png": {
       "h": 154,
@@ -433,14 +460,23 @@
       "x": 6,
       "y": 2
     },
-    "Topping_applejelly_deceit.png": {
-      "h": 156,
+    "Topping_applejelly_cycle_burning.png": {
+      "h": 145,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_applejelly_deceit.png": {
+      "h": 220,
+      "method": "outline",
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_destined.png": {
       "h": 154,
@@ -452,22 +488,22 @@
       "y": 2
     },
     "Topping_applejelly_destructive.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_draconic.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 148,
+      "x": 3,
+      "y": 2
     },
     "Topping_applejelly_dragonwind.png": {
       "h": 158,
@@ -488,22 +524,22 @@
       "y": 2
     },
     "Topping_applejelly_fragrant.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_frost.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_frost_herbalist.png": {
       "h": 148,
@@ -551,13 +587,13 @@
       "y": 2
     },
     "Topping_applejelly_iris.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_applejelly_life_energy.png": {
       "h": 151,
@@ -587,13 +623,13 @@
       "y": 3
     },
     "Topping_applejelly_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_applejelly_oblivion.png": {
       "h": 158,
@@ -613,6 +649,15 @@
       "x": 7,
       "y": 2
     },
+    "Topping_applejelly_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_applejelly_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -623,13 +668,13 @@
       "y": 1
     },
     "Topping_applejelly_sea.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_seafarer.png": {
       "h": 154,
@@ -638,6 +683,15 @@
       "nw": 112,
       "w": 103,
       "x": 4,
+      "y": 2
+    },
+    "Topping_applejelly_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_applejelly_silent.png": {
@@ -659,22 +713,22 @@
       "y": 6
     },
     "Topping_applejelly_trio.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_tropical.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_applejelly_truth.png": {
       "h": 151,
@@ -713,40 +767,40 @@
       "y": 4
     },
     "Topping_applejelly_wind.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_candy_1.png": {
-      "h": 156,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_candy_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
       "y": 2
     },
-    "Topping_candy_3.png": {
-      "h": 156,
+    "Topping_candy_1.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_candy_2.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 226,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_candy_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_candy_ancient_root.png": {
       "h": 146,
@@ -782,6 +836,15 @@
       "nw": 112,
       "w": 101,
       "x": 6,
+      "y": 2
+    },
+    "Topping_candy_cycle_burning.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_candy_destined.png": {
@@ -857,13 +920,13 @@
       "y": 3
     },
     "Topping_candy_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_candy_oblivion.png": {
       "h": 158,
@@ -874,6 +937,15 @@
       "x": 2,
       "y": 0
     },
+    "Topping_candy_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_candy_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -882,6 +954,15 @@
       "w": 108,
       "x": 1,
       "y": 1
+    },
+    "Topping_candy_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
     },
     "Topping_candy_silent.png": {
       "h": 148,
@@ -920,31 +1001,31 @@
       "y": 3
     },
     "Topping_caramel_1.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_caramel_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
       "y": 2
     },
-    "Topping_caramel_3.png": {
-      "h": 156,
+    "Topping_caramel_2.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 226,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_caramel_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_ancient_root.png": {
       "h": 146,
@@ -965,13 +1046,13 @@
       "y": 3
     },
     "Topping_caramel_cheese.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_chrono.png": {
       "h": 154,
@@ -991,14 +1072,23 @@
       "x": 6,
       "y": 2
     },
-    "Topping_caramel_deceit.png": {
-      "h": 156,
+    "Topping_caramel_cycle_burning.png": {
+      "h": 145,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_caramel_deceit.png": {
+      "h": 220,
+      "method": "outline",
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_destined.png": {
       "h": 154,
@@ -1010,22 +1100,22 @@
       "y": 2
     },
     "Topping_caramel_destructive.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_draconic.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 148,
+      "x": 3,
+      "y": 2
     },
     "Topping_caramel_dragonwind.png": {
       "h": 158,
@@ -1046,22 +1136,22 @@
       "y": 2
     },
     "Topping_caramel_fragrant.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_frost.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_frost_herbalist.png": {
       "h": 148,
@@ -1109,13 +1199,13 @@
       "y": 2
     },
     "Topping_caramel_iris.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_caramel_life_energy.png": {
       "h": 151,
@@ -1145,13 +1235,13 @@
       "y": 3
     },
     "Topping_caramel_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_caramel_oblivion.png": {
       "h": 158,
@@ -1171,6 +1261,15 @@
       "x": 7,
       "y": 2
     },
+    "Topping_caramel_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_caramel_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -1181,13 +1280,13 @@
       "y": 1
     },
     "Topping_caramel_sea.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_seafarer.png": {
       "h": 154,
@@ -1196,6 +1295,15 @@
       "nw": 112,
       "w": 103,
       "x": 4,
+      "y": 2
+    },
+    "Topping_caramel_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_caramel_silent.png": {
@@ -1217,22 +1325,22 @@
       "y": 6
     },
     "Topping_caramel_trio.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_tropical.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_caramel_truth.png": {
       "h": 151,
@@ -1271,40 +1379,40 @@
       "y": 4
     },
     "Topping_caramel_wind.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_chocolate_1.png": {
-      "h": 156,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
-      "x": 2,
-      "y": 1
-    },
-    "Topping_chocolate_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
       "x": 2,
       "y": 2
     },
-    "Topping_chocolate_3.png": {
-      "h": 156,
+    "Topping_chocolate_1.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 3,
+      "y": 2
+    },
+    "Topping_chocolate_2.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 226,
+      "nw": 154,
+      "w": 150,
       "x": 2,
-      "y": 1
+      "y": 3
+    },
+    "Topping_chocolate_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 3,
+      "y": 2
     },
     "Topping_chocolate_ancient_root.png": {
       "h": 146,
@@ -1325,13 +1433,13 @@
       "y": 3
     },
     "Topping_chocolate_cheese.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_chrono.png": {
       "h": 154,
@@ -1351,14 +1459,23 @@
       "x": 6,
       "y": 2
     },
-    "Topping_chocolate_deceit.png": {
-      "h": 156,
+    "Topping_chocolate_cycle_burning.png": {
+      "h": 145,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_chocolate_deceit.png": {
+      "h": 220,
+      "method": "outline",
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_destined.png": {
       "h": 154,
@@ -1370,22 +1487,22 @@
       "y": 2
     },
     "Topping_chocolate_destructive.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_draconic.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 148,
+      "x": 3,
+      "y": 2
     },
     "Topping_chocolate_dragonwind.png": {
       "h": 158,
@@ -1406,22 +1523,22 @@
       "y": 2
     },
     "Topping_chocolate_fragrant.png": {
-      "h": 156,
+      "h": 219,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 223,
+      "nw": 151,
+      "w": 147,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_frost.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_frost_herbalist.png": {
       "h": 148,
@@ -1469,13 +1586,13 @@
       "y": 2
     },
     "Topping_chocolate_iris.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_chocolate_life_energy.png": {
       "h": 151,
@@ -1505,13 +1622,13 @@
       "y": 3
     },
     "Topping_chocolate_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_chocolate_oblivion.png": {
       "h": 158,
@@ -1531,6 +1648,15 @@
       "x": 7,
       "y": 2
     },
+    "Topping_chocolate_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_chocolate_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -1541,13 +1667,13 @@
       "y": 1
     },
     "Topping_chocolate_sea.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_seafarer.png": {
       "h": 154,
@@ -1556,6 +1682,15 @@
       "nw": 112,
       "w": 103,
       "x": 4,
+      "y": 2
+    },
+    "Topping_chocolate_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_chocolate_silent.png": {
@@ -1577,22 +1712,22 @@
       "y": 6
     },
     "Topping_chocolate_trio.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_tropical.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_chocolate_truth.png": {
       "h": 151,
@@ -1631,40 +1766,40 @@
       "y": 4
     },
     "Topping_chocolate_wind.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_hazelnut_1.png": {
-      "h": 156,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_hazelnut_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
       "y": 2
     },
-    "Topping_hazelnut_3.png": {
-      "h": 156,
+    "Topping_hazelnut_1.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_hazelnut_2.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 226,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_hazelnut_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_hazelnut_ancient_root.png": {
       "h": 146,
@@ -1700,6 +1835,15 @@
       "nw": 112,
       "w": 101,
       "x": 6,
+      "y": 2
+    },
+    "Topping_hazelnut_cycle_burning.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_hazelnut_destined.png": {
@@ -1775,13 +1919,13 @@
       "y": 3
     },
     "Topping_hazelnut_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_hazelnut_oblivion.png": {
       "h": 158,
@@ -1792,6 +1936,15 @@
       "x": 2,
       "y": 0
     },
+    "Topping_hazelnut_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_hazelnut_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -1800,6 +1953,15 @@
       "w": 108,
       "x": 1,
       "y": 1
+    },
+    "Topping_hazelnut_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
     },
     "Topping_hazelnut_silent.png": {
       "h": 149,
@@ -1838,31 +2000,31 @@
       "y": 3
     },
     "Topping_kiwi_1.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_kiwi_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
       "y": 2
     },
-    "Topping_kiwi_3.png": {
-      "h": 156,
+    "Topping_kiwi_2.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 226,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_kiwi_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_kiwi_ancient_root.png": {
       "h": 146,
@@ -1898,6 +2060,15 @@
       "nw": 112,
       "w": 101,
       "x": 6,
+      "y": 2
+    },
+    "Topping_kiwi_cycle_burning.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_kiwi_destined.png": {
@@ -1973,13 +2144,13 @@
       "y": 3
     },
     "Topping_kiwi_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_kiwi_oblivion.png": {
       "h": 158,
@@ -1990,6 +2161,15 @@
       "x": 2,
       "y": 0
     },
+    "Topping_kiwi_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_kiwi_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -1998,6 +2178,15 @@
       "w": 108,
       "x": 1,
       "y": 1
+    },
+    "Topping_kiwi_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
     },
     "Topping_kiwi_silent.png": {
       "h": 149,
@@ -2045,31 +2234,31 @@
       "y": 24
     },
     "Topping_peanut_1.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
-      "x": 2,
-      "y": 1
-    },
-    "Topping_peanut_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
       "y": 2
     },
-    "Topping_peanut_3.png": {
-      "h": 156,
+    "Topping_peanut_2.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 226,
+      "nw": 154,
+      "w": 150,
       "x": 2,
-      "y": 1
+      "y": 3
+    },
+    "Topping_peanut_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 154,
+      "w": 150,
+      "x": 2,
+      "y": 2
     },
     "Topping_peanut_ancient_root.png": {
       "h": 146,
@@ -2105,6 +2294,15 @@
       "nw": 112,
       "w": 101,
       "x": 6,
+      "y": 2
+    },
+    "Topping_peanut_cycle_burning.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_peanut_destined.png": {
@@ -2180,13 +2378,13 @@
       "y": 3
     },
     "Topping_peanut_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_peanut_oblivion.png": {
       "h": 158,
@@ -2197,6 +2395,15 @@
       "x": 2,
       "y": 0
     },
+    "Topping_peanut_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_peanut_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -2205,6 +2412,15 @@
       "w": 108,
       "x": 1,
       "y": 1
+    },
+    "Topping_peanut_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
     },
     "Topping_peanut_silent.png": {
       "h": 149,
@@ -2243,31 +2459,31 @@
       "y": 3
     },
     "Topping_raspberry_1.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
-    },
-    "Topping_raspberry_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 3,
       "y": 2
     },
-    "Topping_raspberry_3.png": {
-      "h": 156,
+    "Topping_raspberry_2.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
+      "nh": 226,
+      "nw": 154,
+      "w": 149,
+      "x": 3,
+      "y": 3
+    },
+    "Topping_raspberry_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
+      "x": 3,
+      "y": 2
     },
     "Topping_raspberry_ancient_root.png": {
       "h": 146,
@@ -2288,13 +2504,13 @@
       "y": 3
     },
     "Topping_raspberry_cheese.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_chrono.png": {
       "h": 154,
@@ -2314,14 +2530,23 @@
       "x": 6,
       "y": 2
     },
-    "Topping_raspberry_deceit.png": {
-      "h": 156,
+    "Topping_raspberry_cycle_burning.png": {
+      "h": 145,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_raspberry_deceit.png": {
+      "h": 220,
+      "method": "outline",
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_destined.png": {
       "h": 154,
@@ -2333,22 +2558,22 @@
       "y": 2
     },
     "Topping_raspberry_destructive.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_draconic.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
-      "x": 2,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 148,
+      "x": 3,
+      "y": 2
     },
     "Topping_raspberry_dragonwind.png": {
       "h": 158,
@@ -2369,22 +2594,22 @@
       "y": 2
     },
     "Topping_raspberry_fragrant.png": {
-      "h": 156,
+      "h": 219,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 223,
+      "nw": 151,
+      "w": 147,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_frost.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_frost_herbalist.png": {
       "h": 148,
@@ -2432,13 +2657,13 @@
       "y": 2
     },
     "Topping_raspberry_iris.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 109,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_raspberry_life_energy.png": {
       "h": 151,
@@ -2468,13 +2693,13 @@
       "y": 3
     },
     "Topping_raspberry_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_raspberry_oblivion.png": {
       "h": 158,
@@ -2494,6 +2719,15 @@
       "x": 7,
       "y": 2
     },
+    "Topping_raspberry_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_raspberry_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -2504,13 +2738,13 @@
       "y": 1
     },
     "Topping_raspberry_sea.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_seafarer.png": {
       "h": 154,
@@ -2519,6 +2753,15 @@
       "nw": 112,
       "w": 103,
       "x": 4,
+      "y": 2
+    },
+    "Topping_raspberry_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_raspberry_silent.png": {
@@ -2540,22 +2783,22 @@
       "y": 6
     },
     "Topping_raspberry_trio.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_tropical.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 224,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_raspberry_truth.png": {
       "h": 151,
@@ -2594,40 +2837,40 @@
       "y": 4
     },
     "Topping_raspberry_wind.png": {
-      "h": 156,
+      "h": 220,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_walnut_1.png": {
-      "h": 156,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
-    },
-    "Topping_walnut_2.png": {
-      "h": 155,
-      "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
+      "nh": 224,
+      "nw": 152,
+      "w": 148,
+      "x": 2,
       "y": 2
     },
-    "Topping_walnut_3.png": {
-      "h": 156,
+    "Topping_walnut_1.png": {
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 110,
-      "x": 1,
-      "y": 1
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
+    },
+    "Topping_walnut_2.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 226,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 3
+    },
+    "Topping_walnut_3.png": {
+      "h": 221,
+      "method": "outline",
+      "nh": 225,
+      "nw": 153,
+      "w": 149,
+      "x": 2,
+      "y": 2
     },
     "Topping_walnut_ancient_root.png": {
       "h": 146,
@@ -2663,6 +2906,15 @@
       "nw": 112,
       "w": 101,
       "x": 6,
+      "y": 2
+    },
+    "Topping_walnut_cycle_burning.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
       "y": 2
     },
     "Topping_walnut_destined.png": {
@@ -2738,13 +2990,13 @@
       "y": 3
     },
     "Topping_walnut_moon.png": {
-      "h": 156,
+      "h": 221,
       "method": "outline",
-      "nh": 158,
-      "nw": 112,
-      "w": 108,
+      "nh": 225,
+      "nw": 154,
+      "w": 149,
       "x": 2,
-      "y": 1
+      "y": 2
     },
     "Topping_walnut_oblivion.png": {
       "h": 158,
@@ -2755,6 +3007,15 @@
       "x": 2,
       "y": 0
     },
+    "Topping_walnut_pride_filled.png": {
+      "h": 143,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 97,
+      "x": 2,
+      "y": 2
+    },
     "Topping_walnut_research-driven.png": {
       "h": 154,
       "method": "outline",
@@ -2763,6 +3024,15 @@
       "w": 108,
       "x": 1,
       "y": 1
+    },
+    "Topping_walnut_shadowplay.png": {
+      "h": 145,
+      "method": "outline",
+      "nh": 147,
+      "nw": 101,
+      "w": 98,
+      "x": 2,
+      "y": 2
     },
     "Topping_walnut_silent.png": {
       "h": 148,

@@ -1753,6 +1753,25 @@ button.active {
     display: inline-block;
     text-decoration: none;
     vertical-align: middle;
+    color: inherit;
+}
+
+.skill-cookie-inline,
+.skill-treasure-inline {
+    display: inline;
+    vertical-align: baseline;
+    text-decoration: none;
+    color: inherit;
+}
+
+.skill-cookie-inline .skill-status-icon,
+.skill-treasure-inline .skill-status-icon {
+    vertical-align: -0.35em;
+}
+
+.skill-cookie-inline-label,
+.skill-treasure-inline-label {
+    text-decoration: none;
 }
 
 /* Fixed box matches standalone .skill-status-icon (20×20 + horizontal margin) so overlay
@@ -2586,7 +2605,7 @@ button.active {
     line-height: inherit;
 }
 
-.teams-leader-link {
+.teams-leader-icon-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2595,11 +2614,10 @@ button.active {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    text-decoration: none;
     transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.teams-leader-link:hover {
+.teams-leader-link-wrap[data-has-rally-tip]:hover .teams-leader-icon-wrap {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.18);
 }

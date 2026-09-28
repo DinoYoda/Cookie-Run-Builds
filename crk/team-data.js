@@ -349,6 +349,98 @@ window.registerGameData({
                         name: "Cookie Alliance"
                     },
                     {
+                        name: "Trials of the Nether Realm",
+                        versions: [{
+                            gameVersion: "7.9",
+                            displayName: "Season 5",
+                        teams: [
+                            {
+                                name: "White Lily Strategy",
+                                source: "https://youtu.be/y4b2y6IfC0c",
+                                squads: [
+                                    {
+                                        name: "Grass Team Zones 1-7",
+                                        cookies: [
+                                            {name: "Awakened_white_lily", build: "General PvE Build"},
+                                            {name: "Golden_osmanthus", build: "General PvE Build"},
+                                            {name: "Asphodel", build: "General PvE Build"},
+                                            {name: "Cotton", build: "General Build"},
+                                            {name: "Silverbell", build: "General PvE Build"},
+                                        ],
+                                        treasures: [
+                                            "Scroll",
+                                            "Whistle2",
+                                            "Watch2",
+                                        ],
+                                        leader: "Awakened_white_lily",
+                                        notes: ["Only start spamming before enemies appear to let Silverbell's debuff hit.", "Use cookie{Awakened_white_lily} Lily sparingly and make sure she's available for Zone 8 Floor 6. Fill spot with Misc. support instead."]
+                                    },
+                                    {
+                                        name: "Earth Team Zones 1-7",
+                                        cookies: [
+                                            {name: "Fettuccine", build: "Trials Build"},
+                                            [{name: "Burnt_cheese", build: "Trials Build"}, {name: "Space_doughnut", build: "Trials Build"}],
+                                            {name: "Mozzarella", build: "Trials Build"},
+                                            {name: "Smoked_cheese", build: "General PvE Build"},
+                                        ],
+                                        treasures: [
+                                            "Scroll",
+                                            "Whistle2",
+                                            "Watch2",
+                                        ],
+                                        notes: ["Swap out cookie{Burnt_cheese} for cookie{Space_doughnut} around Zone 10 or whenever Burnt Cheese isn't cutting it."]
+                                    },
+                                    {
+                                        name: "Water Team Zones 1-7",
+                                        cookies: [
+                                            {name: "Jagae", build: "Trials Build"},
+                                            {name: "Cream_soda", build: "Trials Build"},
+                                            {name: "Manju", build: "Trials Build"},
+                                            {name: "Okchun", build: "Trials Build"},
+                                            {name: "Pavlova", build: "Trials Build"},
+                                        ],
+                                        treasures: [
+                                            "Scroll",
+                                            "Whistle2",
+                                            "Watch2",
+                                        ]
+                                    },
+                                    {
+                                        name: "Misc. Builds",
+                                        cookies: [
+                                            {name: "Okchun", build: "Trials Build"},
+                                            {name: "Pavlova", build: "Trials Build"},
+                                            {name: "Linzer", build: "Trials Build"},
+                                            {name: "Mogra", build: "Trials Build"},
+                                            {name: "Space_doughnut", build: "Trials Build"},
+                                        ],
+                                        notes: ["These cookies are used to fill in the gaps in the other teams. Use according to energy/guide."]
+                                    },
+                                    {
+                                        name: "Water Team Zones 8+",
+                                        cookies: [
+                                            {name: "Frilled_jellyfish", build: "Machine God Build"},
+                                            {name: "Captain_caviar", build: "Trials Build"},
+                                            {name: "Mango", build: "Trials Build"},
+                                            {name: "Seltzer", build: "Machine God Build"},
+                                            [{name: "Menthol", build: "Machine God Build"}, {name: "Menthol", build: "Trials Boss Build"}]
+                                        ],
+                                        treasures: [
+                                            "Scroll",
+                                            "Whistle2",
+                                            "Watch2",
+                                        ],
+                                        notes: ["Should have to break this out around Zone 8 Floor 5 or whenever the first team can't cut it."]
+                                    }
+                                ],
+                                notes: ["Route images are in the source video.", "Around the time you use the second water{Water} team you should start using cookie{Mogra} as the Misc. support on the earth{Earth} and grass{Grass} teams.",
+                                    "header{Specific Floor Teams}<br>Zone 8 Floor 6: Use cookie{Awakened_white_lily} instead of cookie{Asphodel} and cookie{Mogra} as support.<br>Zone 9 Floor 7: Switch out treasure{Watch2} for treasure{Vial} and switch cookie{Menthol} to Bossing Build. Repeat until win.<br>Zone 10 Floor 7: WARNING: This Floor is hard as shit and you will use a ton of energy beating it and you will be swapping out a lot of exhausted cookies for less efficient ones to barely scrape by with a win. Swap treasure{Watch2} for treasure{Crown}. Switch out cookie{Golden_osmanthus} for cookie{Mango}. Also cookie{Mogra} for cookie{Linzer} and cookie{Awakened_white_lily} for cookie{Asphodel} in the event of (guaranteed) failure. cookie{Pavlova} is the next pick for support if someone runs out of energy."
+                                ]
+                            }
+                        ]}
+                        ]
+                    },
+                    {
                     name: "Events",
                         eventFilter: "active"
                     },
@@ -383,7 +475,7 @@ window.registerGameData({
                                                     "Whistle2",
                                                     "Watch2"
                                                 ],
-                                                notes: ["No replacements for anyone. I suppose if you don't have Ananas Dragon Cookie cookie{Awakened_golden_cheese} AGC would work but she's much weaker."]
+                                                notes: ["No replacements for anyone. I suppose if you don't have Ananas Dragon Cookie cookie{Awakened_golden_cheese} would work but she's much weaker."]
                                             },
                                             {
                                                 cookies: [
@@ -399,7 +491,7 @@ window.registerGameData({
                                                     "Watch2"
                                                 ],
                                                 rally: "Fire_spirit",
-                                                notes: ["+30 MC is REQUIRED for Mala. My suggestion is to swap out for cookie{Street_urchin} Street Urchin if you don't have that."]
+                                                notes: ["+30 MC is REQUIRED for cookie{Mala_sauce}. My suggestion is to swap out for cookie{Street_urchin} if you don't have that."]
                                             }
                                         ],
                                         notes: ["Bonus Effect can be either Enemy DMG or Crit DMG."]
@@ -452,7 +544,7 @@ window.registerGameData({
                                     }
                                 ],
                                 notes: [
-                                    "cookie{Rye} Rye, cookie{Black_raisin} Black Raisin, cookie{Pastry} Pastry, and cookie{Espresso} Espresso were also used as DPS during this event."
+                                    "cookie{Rye}, cookie{Black_raisin}, cookie{Pastry}, and cookie{Espresso} were also used as DPS during this event."
                                 ]
                             },
                             {
